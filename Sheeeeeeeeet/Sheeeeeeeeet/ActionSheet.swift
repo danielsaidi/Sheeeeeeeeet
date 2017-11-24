@@ -48,39 +48,40 @@ import UIKit
 }*/
 
 
-open class ActionSheet: UIViewController {
+open class ActionSheet: UITableViewController /**UIVC**/ {
     
     
-    // MARK: - Setup
+    // MARK: - Initialization
     
-    /*open func setup(with title: String?, items: [ActionSheetItem], presenter: ActionSheetPresenter) {
-        let section = ActionSheetSection(title: nil, items: items)
-        setup(with: title, sections: [section], presenter: presenter)
+    public init(items: [ActionSheetItem], presenter: ActionSheetPresenter) {
+        super.init(nibName: nil, bundle: nil)
+        self.items = items
+        self.presenter = presenter
     }
     
-    open func setup(with title: String?, sections: [ActionSheetSection], presenter: ActionSheetPresenter) {
-        self.title = title
-        self.sections = sections
-        self.presenter = presenter
-        tableView.reloadData()
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     
     // MARK: - Properties
-    */
-    public lazy var appearance: ActionSheetAppearance = {
+    
+    open lazy var appearance: ActionSheetAppearance = {
         return ActionSheetAppearance.standard
     }()
     
+    open var items = [ActionSheetItem]()
+    
     open override var preferredContentSize: CGSize {
         get {
-            var size = super.preferredContentSize
-            size.height = CGFloat(contentHeight)
-            return size
+            super.preferredContentSize.height = CGFloat(contentHeight)
+            return super.preferredContentSize
         }
-        set {
-            super.preferredContentSize = newValue
-        }
+        set { super.preferredContentSize = newValue }
     }
     
     open var preferredPopoverSize: CGSize {
@@ -88,16 +89,22 @@ open class ActionSheet: UIViewController {
         let height = CGFloat(contentHeight)
         return CGSize(width: width, height: height)
     }
-    /*
-    public var presenter: ActionSheetPresenter?
     
-    open override var title: String? {
-        didSet { setupTableViewHeader() }
+    open var presenter: ActionSheetPresenter!
+    
+    
+    // MARK: - Presentation Functions
+    
+    open func dismiss(completion: (() -> ())? = nil) {
+        presenter.dismiss(sheet: self, completion: completion)
     }
     
-    fileprivate(set) var sections = [ActionSheetSection]()
+    open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
+        presenter.present(sheet: self, in: vc, from: view, completion: completion)
+    }
     
-    
+    /*
+     
     // MARK: - Views
     
     fileprivate lazy var tableView: UITableView = {

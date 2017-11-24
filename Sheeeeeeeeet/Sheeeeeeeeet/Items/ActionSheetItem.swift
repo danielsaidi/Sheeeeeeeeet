@@ -15,16 +15,16 @@
 
 import UIKit
 
-open class ActionSheetItem<T>: NSObject {
+open class ActionSheetItem: NSObject {
     
     
     // MARK: - Initialization
     
-    public init(value: T, title: String, image: UIImage?, appearance: ActionSheetItemAppearance) {
+    public init(value: Any, title: String, image: UIImage?) {
         self.value = value
         self.title = title
         self.image = image
-        self.appearance = appearance
+        self.appearance = ActionSheetAppearance.standard.item
         super.init()
     }
     
@@ -32,7 +32,7 @@ open class ActionSheetItem<T>: NSObject {
     // MARK: - Properties
     
     open var appearance: ActionSheetItemAppearance
-    open var value: T
+    open var value: Any
     open var image: UIImage?
     open var title: String
     
