@@ -15,36 +15,40 @@ public class ActionSheetAppearance {
     
     public static var standard = ActionSheetAppearance()
     
-    public lazy var base: ItemAppearance = {
-        return ItemAppearance()
+    public lazy var base: ActionSheetItemAppearance = {
+        return ActionSheetItemAppearance()
     }()
     
-    public lazy var cancelButton: CancelButtonAppearance = {
-        return CancelButtonAppearance(template: base)
+    public lazy var cancelButton: ActionSheetCancelButtonAppearance = {
+        return ActionSheetCancelButtonAppearance(template: base)
     }()
     
-    public lazy var linkItem: LinkItemAppearance = {
-        return LinkItemAppearance(template: base)
+    public lazy var item: ActionSheetItemAppearance = {
+        return ActionSheetItemAppearance(template: base)
     }()
     
-    public lazy var okButton: OkButtonAppearance = {
-        return OkButtonAppearance(template: base)
+    public lazy var linkItem: ActionSheetLinkItemAppearance = {
+        return ActionSheetLinkItemAppearance(template: base)
     }()
     
-    public lazy var sectionHeader: SectionHeaderAppearance = {
-        return SectionHeaderAppearance(template: base)
+    public lazy var okButton: ActionSheetOkButtonAppearance = {
+        return ActionSheetOkButtonAppearance(template: base)
     }()
     
-    public lazy var sectionSpacer: SectionSpacerAppearance = {
-        return SectionSpacerAppearance(height: 20)
+    public lazy var sectionHeader: ActionSheetSectionHeaderAppearance = {
+        return ActionSheetSectionHeaderAppearance(template: base)
     }()
     
-    public lazy var selectItem: SelectItemAppearance = {
-        return SelectItemAppearance(template: base)
+    public lazy var sectionSpacer: ActionSheetSectionSpacerAppearance = {
+        return ActionSheetSectionSpacerAppearance(height: 20)
     }()
     
-    public lazy var title: TitleAppearance = {
-        return TitleAppearance(template: base)
+    public lazy var selectItem: ActionSheetSelectItemAppearance = {
+        return ActionSheetSelectItemAppearance(template: base)
+    }()
+    
+    public lazy var title: ActionSheetTitleAppearance = {
+        return ActionSheetTitleAppearance(template: base)
     }()
 }
 

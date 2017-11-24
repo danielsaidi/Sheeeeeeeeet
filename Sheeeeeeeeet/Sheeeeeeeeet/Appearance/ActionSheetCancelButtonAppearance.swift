@@ -1,5 +1,5 @@
 //
-//  OkButtonAppearance.swift
+//  ActionSheetCancelButtonAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,4 +8,4 @@
 
 import UIKit
 
-public class OkButtonAppearance: ItemAppearance { }
+public class ActionSheetCancelButtonAppearance: ActionSheetItemAppearance { }

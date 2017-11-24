@@ -1,5 +1,5 @@
 //
-//  LinkItemAppearance.swift
+//  ActionSheetLinkItemAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LinkItemAppearance: ItemAppearance {
+public class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
@@ -17,11 +17,11 @@ public class LinkItemAppearance: ItemAppearance {
         super.init()
     }
     
-    override init(template: ItemAppearance) {
+    override init(template: ActionSheetItemAppearance) {
         super.init(template: template)
     }
     
-    convenience init(template: LinkItemAppearance) {
+    convenience init(template: ActionSheetLinkItemAppearance) {
         self.init(template: template)
         linkIcon = template.linkIcon
     }

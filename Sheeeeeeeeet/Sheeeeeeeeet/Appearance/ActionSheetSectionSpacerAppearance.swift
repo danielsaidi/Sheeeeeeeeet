@@ -1,5 +1,5 @@
 //
-//  SectionSpacerAppearance.swift
+//  ActionSheetSectionSpacerAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SectionSpacerAppearance: ItemAppearance {
+public class ActionSheetSectionSpacerAppearance: ActionSheetItemAppearance {
     
     // MARK: - Initialization
     

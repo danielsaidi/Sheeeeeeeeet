@@ -53,7 +53,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Setup
     
-    open func setup(with title: String?, items: [ActionSheetItem], presenter: ActionSheetPresenter) {
+    /*open func setup(with title: String?, items: [ActionSheetItem], presenter: ActionSheetPresenter) {
         let section = ActionSheetSection(title: nil, items: items)
         setup(with: title, sections: [section], presenter: presenter)
     }
@@ -90,7 +90,7 @@ open class ActionSheet: UIViewController {
         setupTableViewHeader()
         return tableView
     }()
-    
+    */
     
     
     

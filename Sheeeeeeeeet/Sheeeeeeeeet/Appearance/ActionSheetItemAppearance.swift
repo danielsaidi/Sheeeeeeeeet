@@ -1,5 +1,5 @@
 //
-//  ItemAppearance.swift
+//  ActionSheetItemAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class ItemAppearance {
+public class ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
     
     init() {}
     
-    init(template: ItemAppearance) {
+    init(template: ActionSheetItemAppearance) {
         font = template.font
         height = template.height
         textColor = template.textColor
