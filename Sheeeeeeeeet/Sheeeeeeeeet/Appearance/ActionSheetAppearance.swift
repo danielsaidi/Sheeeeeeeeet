@@ -35,12 +35,12 @@ public class ActionSheetAppearance {
         return ActionSheetOkButtonAppearance(template: base)
     }()
     
-    public lazy var sectionHeader: ActionSheetSectionHeaderAppearance = {
-        return ActionSheetSectionHeaderAppearance(template: base)
+    public lazy var popover: ActionSheetPopoverApperance = {
+        return ActionSheetPopoverApperance(width: 300, cornerRadius: 4)
     }()
     
-    public lazy var sectionSpacer: ActionSheetSectionSpacerAppearance = {
-        return ActionSheetSectionSpacerAppearance(height: 20)
+    public lazy var sectionHeader: ActionSheetSectionHeaderAppearance = {
+        return ActionSheetSectionHeaderAppearance(template: base)
     }()
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {

@@ -15,13 +15,13 @@
 
 import UIKit
 
-open class ActionSheetItem: NSObject {
+open class ActionSheetItem<T>: NSObject {
     
     
     // MARK: - Initialization
     
-    public init(id: String, title: String, image: UIImage?, appearance: ActionSheetItemAppearance) {
-        self.id = id
+    public init(value: T, title: String, image: UIImage?, appearance: ActionSheetItemAppearance) {
+        self.value = value
         self.title = title
         self.image = image
         self.appearance = appearance
@@ -31,10 +31,14 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Properties
     
-    var appearance: ActionSheetItemAppearance
-    var id: String
-    var image: UIImage?
-    var title: String
+    open var appearance: ActionSheetItemAppearance
+    open var value: T
+    open var image: UIImage?
+    open var title: String
+    
+    open var height: Int {
+        return appearance.height
+    }
     
     
     // MARK: - Functions

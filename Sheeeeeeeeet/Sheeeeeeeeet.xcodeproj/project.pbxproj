@@ -24,13 +24,15 @@
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
-		45EB3FCC1FC844DB00EF555E /* ActionSheetSectionSpacerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FCB1FC844DA00EF555E /* ActionSheetSectionSpacerAppearance.swift */; };
 		45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */; };
 		45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */; };
 		45EB3FD21FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD11FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift */; };
 		45EB3FD41FC84FD200EF555E /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */; };
 		45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */; };
 		45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */; };
+		45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */; };
+		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */; };
+		45EB3FE11FC869C700EF555E /* ActionSheetItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE01FC869C700EF555E /* ActionSheetItemSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +68,15 @@
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
-		45EB3FCB1FC844DA00EF555E /* ActionSheetSectionSpacerAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionSpacerAppearance.swift; sourceTree = "<group>"; };
 		45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButtonAppearance.swift; sourceTree = "<group>"; };
 		45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCancelButtonAppearance.swift; sourceTree = "<group>"; };
 		45EB3FD11FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetToggleItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItem.swift; sourceTree = "<group>"; };
 		45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemCell.swift; sourceTree = "<group>"; };
+		45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverActionSheetPresenter.swift; sourceTree = "<group>"; };
+		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverApperance.swift; sourceTree = "<group>"; };
+		45EB3FE01FC869C700EF555E /* ActionSheetItemSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 			children = (
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
 				453C04801FC16A220028FA02 /* Appearance */,
+				45EB3FDF1FC8699600EF555E /* Cells */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C04731FC069940028FA02 /* Items */,
@@ -161,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */,
-				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+				45EB3FE01FC869C700EF555E /* ActionSheetItemSection.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
+				45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -192,12 +198,20 @@
 				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
 				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
 				453C04851FC2241C0028FA02 /* ActionSheetSectionHeaderAppearance.swift */,
-				45EB3FCB1FC844DA00EF555E /* ActionSheetSectionSpacerAppearance.swift */,
 				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
 				453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */,
 				45EB3FD11FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift */,
+				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		45EB3FDF1FC8699600EF555E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,13 +366,15 @@
 				453C04821FC16A370028FA02 /* ActionSheetTitleAppearance.swift in Sources */,
 				45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */,
 				45EB3FD21FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift in Sources */,
+				45EB3FE11FC869C700EF555E /* ActionSheetItemSection.swift in Sources */,
 				45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */,
-				45EB3FCC1FC844DB00EF555E /* ActionSheetSectionSpacerAppearance.swift in Sources */,
 				45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */,
+				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
 				453C04861FC2241C0028FA02 /* ActionSheetSectionHeaderAppearance.swift in Sources */,
+				45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */,
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -67,11 +67,28 @@ open class ActionSheet: UIViewController {
     
     
     // MARK: - Properties
+    */
+    public lazy var appearance: ActionSheetAppearance = {
+        return ActionSheetAppearance.standard
+    }()
     
-    public var appearance = ActionSheetAppearance() {
-        didSet { setupTableViewHeader() }
+    open override var preferredContentSize: CGSize {
+        get {
+            var size = super.preferredContentSize
+            size.height = CGFloat(contentHeight)
+            return size
+        }
+        set {
+            super.preferredContentSize = newValue
+        }
     }
     
+    open var preferredPopoverSize: CGSize {
+        let width = CGFloat(appearance.popover.width)
+        let height = CGFloat(contentHeight)
+        return CGSize(width: width, height: height)
+    }
+    /*
     public var presenter: ActionSheetPresenter?
     
     open override var title: String? {
@@ -109,7 +126,12 @@ open class ActionSheet: UIViewController {
     // MARK: - Properties
     
     public weak var delegate: ActionSheetDelegate?
+    */
     
+    public var contentHeight: Int {
+        return 300
+    }
+    /*
     public var contentHeight: Int {
         return sectionTotalHeight + itemTotalHeight
     }
