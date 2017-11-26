@@ -25,9 +25,9 @@ public class ActionSheetSelectItem: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(value: Any, title: String, image: UIImage? = nil, isSelected: Bool) {
+    public init(title: String, isSelected: Bool, value: Any? = nil, image: UIImage? = nil) {
         self.isSelected = isSelected
-        super.init(value: value, title: title, image: image)
+        super.init(title: title, value: value, image: image)
     }
     
     
@@ -43,8 +43,7 @@ public class ActionSheetSelectItem: ActionSheetItem {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        let template = appearance.selectItem
-        self.appearance = ActionSheetSelectItemAppearance(copy: template)
+        self.appearance = ActionSheetSelectItemAppearance(copy: appearance.selectItem)
     }
     
     open override func applyAppearance(to cell: UITableViewCell) {

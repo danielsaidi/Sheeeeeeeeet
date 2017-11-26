@@ -31,10 +31,10 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Initialization
     
-    public init(value: Any, title: String, image: UIImage? = nil) {
+    public init(title: String, value: Any? = nil, image: UIImage? = nil) {
         let appearance = ActionSheetAppearance.standard.item
-        self.value = value
         self.title = title
+        self.value = value
         self.image = image
         self.appearance = ActionSheetItemAppearance(copy: appearance)
         super.init()
@@ -43,7 +43,7 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Properties
     
-    open var value: Any
+    open var value: Any?
     open var image: UIImage?
     open var title: String
     
@@ -64,8 +64,7 @@ open class ActionSheetItem: NSObject {
     // MARK: - Functions
     
     open func applyAppearance(_ appearance: ActionSheetAppearance) {
-        let template = appearance.item
-        self.appearance = ActionSheetItemAppearance(copy: template)
+        self.appearance = ActionSheetItemAppearance(copy: appearance.item)
     }
     
     open func applyAppearance(to cell: UITableViewCell) {

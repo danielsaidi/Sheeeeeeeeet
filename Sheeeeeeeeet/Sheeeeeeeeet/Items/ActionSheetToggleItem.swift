@@ -22,9 +22,9 @@ public class ActionSheetToggleItem: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(value: Any, title: String, image: UIImage? = nil, isEnabled: Bool) {
+    public init(title: String, isEnabled: Bool, value: Any? = nil, image: UIImage? = nil) {
         self.isEnabled = isEnabled
-        super.init(value: value, title: title, image: image)
+        super.init(title: title, value: value, image: image)
         tapBehavior = .none
     }
     
@@ -41,8 +41,7 @@ public class ActionSheetToggleItem: ActionSheetItem {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        let template = appearance.toggleItem
-        self.appearance = ActionSheetToggleItemAppearance(copy: template)
+        self.appearance = ActionSheetToggleItemAppearance(copy: appearance.toggleItem)
     }
     
     open override func applyAppearance(to cell: UITableViewCell) {
