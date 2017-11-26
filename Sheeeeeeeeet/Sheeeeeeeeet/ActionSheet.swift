@@ -68,18 +68,44 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
     }
     
     
+    // MARK: - View Controller Lifecycle
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.isScrollEnabled = false
+        tableView.tableFooterView = UIView.empty
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = tableViewDelegate
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.contentInset.bottom = 0
+    }
+    
+    
+    // MARK: - Dependencies
+    
+    open var presenter: ActionSheetPresenter!
+    
+    
     // MARK: - Properties
     
     open lazy var appearance: ActionSheetAppearance = {
         return ActionSheetAppearance.standard
     }()
     
+    public var contentHeight: Int {
+        var height = tableViewItems.reduce(0) {
+            $0 + $1.height
+        }
+        return height//////// sectionTotalHeight + itemTotalHeight
+    }
+    
     open var items = [ActionSheetItem]()
     
     open override var preferredContentSize: CGSize {
         get {
-            super.preferredContentSize.height = CGFloat(contentHeight)
-            return super.preferredContentSize
+            var size = super.preferredContentSize
+            size.height = CGFloat(contentHeight)
+            return size
         }
         set { super.preferredContentSize = newValue }
     }
@@ -90,7 +116,22 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
         return CGSize(width: width, height: height)
     }
     
-    open var presenter: ActionSheetPresenter!
+    open var tableViewItems: [ActionSheetItem] {
+        return items
+    }
+    
+    
+    // MARK: - Private Properties
+    
+    fileprivate lazy var tableViewDataSource: ActionSheetDataSource = {
+        return ActionSheetDataSource(actionSheet: self)
+    }()
+    
+    fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
+        return ActionSheetDelegate(actionSheet: self) { item in
+            print(item.value)
+        }
+    }()
     
     
     // MARK: - Presentation Functions
@@ -101,6 +142,16 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
     
     open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
+    }
+    
+
+    // MARK: - Views
+    
+    
+    // MARK: - Public Functions
+    
+    public func item(at indexPath: IndexPath) -> ActionSheetItem {
+        return tableViewItems[indexPath.row]
     }
     
     /*
@@ -119,49 +170,12 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
     
     
     /*
-    
-    
-    
-    // MARK: - View Controller Lifecycle
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        setupTableView()
-    }
-    
      
     // MARK: - Properties
     
     public weak var delegate: ActionSheetDelegate?
-    */
-    
-    public var contentHeight: Int {
-        return 300
-    }
-    /*
-    public var contentHeight: Int {
-        return sectionTotalHeight + itemTotalHeight
-    }
     
     public var dismissStyle: ActionSheetDismissStyle = .auto
-    
-    public var items: [ActionSheetItem] {
-        var result = [ActionSheetItem]()
-        sections.forEach { result.append(contentsOf: $0.items) }
-        return result
-    }
-    
-    
-    
-    // MARK: - Public Functions
-    
-    open func dismiss(completion: (() -> ())? = nil) {
-        presenter.dismiss(sheet: self, completion: completion)
-    }
-    
-    open func present(in vc: UIViewController, from view: UIView?) {
-        presenter.present(sheet: self, in: vc, from: view)
-    }
 }
 
 
@@ -191,93 +205,4 @@ fileprivate extension ActionSheet {
 // MARK: - Private functions
 
 fileprivate extension ActionSheet {
-  /*
-    func item(at indexPath: IndexPath) -> ActionSheetItem {
-        let section = sections[indexPath.section]
-        let items = section.items
-        return items[indexPath.row]
-    }
-    */
-    func setupTableViewHeader() {
-        guard let title = title else { return }
-        /*let width = view.bounds.width
-        let height = appearance.headerAppearance.headerHeight
-        let frame = CGRect(x: 0, y: 0, width: width, height: height)
-        let view = ActionSheetHeader(title: title, frame: frame)
-        tableView.tableHeaderView = view*/
-    }
-    
-    /*func shouldDisplayFooter(for section: Int) -> Bool {
-        let isLastSection = section == sections.count - 1
-        return shouldDisplaySections && !isLastSection
-    }*/
 }
-
-/*
-
-// MARK: - UITableViewDataSource
-
-extension ActionSheet {
-    
-    override open func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = self.item(at: indexPath)
-        let cell = item.cell(for: tableView)
-        item.refresh(cell: cell)
-        return cell
-    }
-    
-    override open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return shouldDisplaySections ? CGFloat(sectionHeight) : 0
-    }
-    
-    override open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return shouldDisplayFooter(for: section) ? CGFloat(sectionMargin) : 0
-    }
-    
-    override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(itemHeight)
-    }
-    
-    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].items.count
-    }
-    
-    override open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return shouldDisplaySections ? sections[section].title : nil
-    }
-    
-    override open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 3000, height: 1000))
-        let line = UIView(frame: CGRect(x: 0, y: 0, width: 3000, height: 0.5))
-        line.backgroundColor = tableView.separatorColor
-        view.addSubview(line)
-        return view
-    }
-    
-    override open func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        guard let label = header.textLabel else { return }
-        header.backgroundView = UIImageView(image: UIImage())
-        label.font = sectionFont ?? label.font
-        label.textColor = sectionTextColor ?? label.textColor
-    }
-}
-
-
-
-// MARK: - UITableViewDelegate
-
-extension ActionSheet {
-    
-    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.actionSheet(self, didSelect: item(at: indexPath), at: indexPath)
-        if dismissStyle == .auto {
-            dismiss()
-        }
-    }
-}*/

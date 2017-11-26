@@ -24,7 +24,9 @@ class ViewController: UIViewController {
         
         let item1 = ActionSheetItem(value: "foo", title: "foo", image: nil)
         let item2 = ActionSheetItem(value: 4, title: "bar", image: nil)
-        let actionSheet = ActionSheet(items: [item1, item2], presenter: PopoverActionSheetPresenter())
+        let item3 = ActionSheetItem(value: 5, title: "baz", image: nil)
+        let actionSheet = ActionSheet(items: [item1, item2, item3], presenter: PopoverActionSheetPresenter())
         actionSheet.present(in: self, from: sender as? UIView)
+        print(actionSheet.contentHeight)
     }
 }
