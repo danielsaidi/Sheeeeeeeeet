@@ -13,10 +13,6 @@ class ViewController: UIViewController {
 
     @IBAction func showActionSheet(_ sender: Any) {
         
-        ActionSheetAppearance.standard.item.textColor = .blue
-        //ActionSheetAppearance.standard.selectItem.selectedTextColor = .red
-        
-        
         let item1 = ActionSheetItem(value: "foo", title: "foo", image: nil)
         let item2 = ActionSheetSelectItem(value: 4, title: "bar", image: nil, isSelected: true)
         let item3 = ActionSheetSelectItem(value: 5, title: "baz", image: nil, isSelected: false)

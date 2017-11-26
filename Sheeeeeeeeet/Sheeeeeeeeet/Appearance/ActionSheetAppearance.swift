@@ -6,6 +6,19 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This class is used to specify the appearance for all action
+ sheets and action sheet items provided by Sheeeeeeeeet. Use
+ `ActionSheetAppearance.standard` to style all action sheets
+ in an entire app. You can then apply individual appearances
+ to individual action sheets and items.
+ 
+ The `item` appearance property is used as the base template
+ for all other item appearances.
+ 
+ */
+
 import UIKit
 
 public class ActionSheetAppearance {
@@ -16,7 +29,6 @@ public class ActionSheetAppearance {
     init() {}
     
     init(copy: ActionSheetAppearance) {
-        base = ActionSheetItemAppearance(copy: copy.base)
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
@@ -33,24 +45,20 @@ public class ActionSheetAppearance {
     
     public static var standard = ActionSheetAppearance()
     
-    public lazy var base: ActionSheetItemAppearance = {
-        return ActionSheetItemAppearance()
-    }()
-    
     public lazy var cancelButton: ActionSheetCancelButtonAppearance = {
-        return ActionSheetCancelButtonAppearance(copy: base)
+        return ActionSheetCancelButtonAppearance(copy: item)
     }()
     
     public lazy var item: ActionSheetItemAppearance = {
-        return ActionSheetItemAppearance(copy: base)
+        return ActionSheetItemAppearance()
     }()
     
     public lazy var linkItem: ActionSheetLinkItemAppearance = {
-        return ActionSheetLinkItemAppearance(copy: base)
+        return ActionSheetLinkItemAppearance(copy: item)
     }()
     
     public lazy var okButton: ActionSheetOkButtonAppearance = {
-        return ActionSheetOkButtonAppearance(copy: base)
+        return ActionSheetOkButtonAppearance(copy: item)
     }()
     
     public lazy var popover: ActionSheetPopoverApperance = {
@@ -58,19 +66,19 @@ public class ActionSheetAppearance {
     }()
     
     public lazy var sectionHeader: ActionSheetSectionHeaderAppearance = {
-        return ActionSheetSectionHeaderAppearance(copy: base)
+        return ActionSheetSectionHeaderAppearance(copy: item)
     }()
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {
-        return ActionSheetSelectItemAppearance(copy: base)
+        return ActionSheetSelectItemAppearance(copy: item)
     }()
     
     public lazy var title: ActionSheetTitleAppearance = {
-        return ActionSheetTitleAppearance(copy: base)
+        return ActionSheetTitleAppearance(copy: item)
     }()
     
     public lazy var toggleItem: ActionSheetToggleItemAppearance = {
-        return ActionSheetToggleItemAppearance(copy: base)
+        return ActionSheetToggleItemAppearance(copy: item)
     }()
 }
 
