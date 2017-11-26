@@ -17,10 +17,10 @@ public class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
         super.init()
     }
     
-    override init(template: ActionSheetItemAppearance) {
-        super.init(template: template)
-        if let template = template as? ActionSheetLinkItemAppearance {
-            linkIcon = template.linkIcon
+    override init(copy: ActionSheetItemAppearance) {
+        super.init(copy: copy)
+        if let copy = copy as? ActionSheetLinkItemAppearance {
+            linkIcon = copy.linkIcon
         }
     }
     
@@ -29,4 +29,3 @@ public class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
     
     public var linkIcon: UIImage?
 }
-

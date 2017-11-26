@@ -84,7 +84,7 @@ open class ActionSheet: UIViewController {
     
     open lazy var appearance: ActionSheetAppearance = {
         let standard = ActionSheetAppearance.standard
-        return ActionSheetAppearance(template: standard)
+        return ActionSheetAppearance(copy: standard)
     }()
     
     public var contentHeight: Int {
@@ -123,7 +123,7 @@ open class ActionSheet: UIViewController {
     fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
         return ActionSheetDelegate(actionSheet: self) { item in
             print(item.value)
-            if item.tapStyle.dismissOnTap {
+            if item.dismissesOnTap {
                 self.dismiss()
             }
         }

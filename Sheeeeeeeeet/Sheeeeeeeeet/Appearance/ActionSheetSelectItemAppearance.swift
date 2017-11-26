@@ -17,14 +17,14 @@ public class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
         super.init()
     }
     
-    override init(template: ActionSheetItemAppearance) {
-        super.init(template: template)
-        selectedTextColor = template.textColor
-        selectedTintColor = template.tintColor
-        if let template = template as? ActionSheetSelectItemAppearance {
-            selectedIcon = template.selectedIcon
-            selectedTextColor = template.selectedTextColor
-            selectedTintColor = template.selectedTintColor
+    override init(copy: ActionSheetItemAppearance) {
+        super.init(copy: copy)
+        selectedTextColor = copy.textColor
+        selectedTintColor = copy.tintColor
+        if let copy = copy as? ActionSheetSelectItemAppearance {
+            selectedIcon = copy.selectedIcon
+            selectedTextColor = copy.selectedTextColor
+            selectedTintColor = copy.selectedTintColor
         }
     }
     

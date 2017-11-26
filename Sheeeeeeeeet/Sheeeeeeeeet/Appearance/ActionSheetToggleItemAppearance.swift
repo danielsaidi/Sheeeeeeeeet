@@ -17,14 +17,14 @@ public class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
         super.init()
     }
     
-    override init(template: ActionSheetItemAppearance) {
-        super.init(template: template)
-        disabledTextColor = template.textColor
-        disabledTintColor = template.tintColor
-        if let template = template as? ActionSheetToggleItemAppearance {
-            enabledIcon = template.enabledIcon
-            disabledTextColor = template.disabledTextColor
-            disabledTintColor = template.disabledTintColor            
+    override init(copy: ActionSheetItemAppearance) {
+        super.init(copy: copy)
+        disabledTextColor = copy.textColor
+        disabledTintColor = copy.tintColor
+        if let copy = copy as? ActionSheetToggleItemAppearance {
+            enabledIcon = copy.enabledIcon
+            disabledTextColor = copy.disabledTextColor
+            disabledTintColor = copy.disabledTintColor            
         }
     }
     

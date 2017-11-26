@@ -11,15 +11,6 @@ import Sheeeeeeeeet
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        /*ActionSheetAppearance.standard.header.headerHeight = 100
-        let header = ActionSheetHeader(title: "foo", frame: .zero)
-        print(ActionSheetAppearance.standard.header.headerHeight)*/
-        
-    }
     @IBAction func showActionSheet(_ sender: Any) {
         
         let item1 = ActionSheetItem(value: "foo", title: "foo", image: nil)

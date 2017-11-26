@@ -6,12 +6,6 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- TODO - Documentation
- 
- */
-
 import UIKit
 
 public class ActionSheetAppearance {
@@ -21,16 +15,17 @@ public class ActionSheetAppearance {
     
     init() {}
     
-    init(template: ActionSheetAppearance) {
-        base = ActionSheetItemAppearance(template: template.base)
-        cancelButton = ActionSheetCancelButtonAppearance(template: template.cancelButton)
-        item = ActionSheetItemAppearance(template: template.item)
-        linkItem = ActionSheetLinkItemAppearance(template: template.linkItem)
-        okButton = ActionSheetOkButtonAppearance(template: template.okButton)
-        popover = ActionSheetPopoverApperance(template: template.popover)
-        sectionHeader = ActionSheetSectionHeaderAppearance(template: template.sectionHeader)
-        selectItem = ActionSheetSelectItemAppearance(template: template.selectItem)
-        title = ActionSheetTitleAppearance(template: template.title)
+    init(copy: ActionSheetAppearance) {
+        base = ActionSheetItemAppearance(copy: copy.base)
+        cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
+        item = ActionSheetItemAppearance(copy: copy.item)
+        linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
+        okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
+        popover = ActionSheetPopoverApperance(copy: copy.popover)
+        sectionHeader = ActionSheetSectionHeaderAppearance(copy: copy.sectionHeader)
+        selectItem = ActionSheetSelectItemAppearance(copy: copy.selectItem)
+        title = ActionSheetTitleAppearance(copy: copy.title)
+        toggleItem = ActionSheetToggleItemAppearance(copy: copy.toggleItem)
     }
     
     
@@ -43,19 +38,19 @@ public class ActionSheetAppearance {
     }()
     
     public lazy var cancelButton: ActionSheetCancelButtonAppearance = {
-        return ActionSheetCancelButtonAppearance(template: base)
+        return ActionSheetCancelButtonAppearance(copy: base)
     }()
     
     public lazy var item: ActionSheetItemAppearance = {
-        return ActionSheetItemAppearance(template: base)
+        return ActionSheetItemAppearance(copy: base)
     }()
     
     public lazy var linkItem: ActionSheetLinkItemAppearance = {
-        return ActionSheetLinkItemAppearance(template: base)
+        return ActionSheetLinkItemAppearance(copy: base)
     }()
     
     public lazy var okButton: ActionSheetOkButtonAppearance = {
-        return ActionSheetOkButtonAppearance(template: base)
+        return ActionSheetOkButtonAppearance(copy: base)
     }()
     
     public lazy var popover: ActionSheetPopoverApperance = {
@@ -63,15 +58,19 @@ public class ActionSheetAppearance {
     }()
     
     public lazy var sectionHeader: ActionSheetSectionHeaderAppearance = {
-        return ActionSheetSectionHeaderAppearance(template: base)
+        return ActionSheetSectionHeaderAppearance(copy: base)
     }()
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {
-        return ActionSheetSelectItemAppearance(template: base)
+        return ActionSheetSelectItemAppearance(copy: base)
     }()
     
     public lazy var title: ActionSheetTitleAppearance = {
-        return ActionSheetTitleAppearance(template: base)
+        return ActionSheetTitleAppearance(copy: base)
+    }()
+    
+    public lazy var toggleItem: ActionSheetToggleItemAppearance = {
+        return ActionSheetToggleItemAppearance(copy: base)
     }()
 }
 

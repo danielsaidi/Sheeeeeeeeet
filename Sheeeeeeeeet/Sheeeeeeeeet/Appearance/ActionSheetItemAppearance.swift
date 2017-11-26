@@ -15,12 +15,12 @@ public class ActionSheetItemAppearance {
     
     init() {}
     
-    init(template: ActionSheetItemAppearance) {
-        font = template.font
-        height = template.height
-        separatorInsets = template.separatorInsets
-        textColor = template.textColor
-        tintColor = template.tintColor
+    init(copy: ActionSheetItemAppearance) {
+        font = copy.font
+        height = copy.height
+        separatorInsets = copy.separatorInsets
+        textColor = copy.textColor
+        tintColor = copy.tintColor
     }
     
     

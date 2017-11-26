@@ -18,9 +18,9 @@ public class ActionSheetPopoverApperance {
         self.cornerRadius = cornerRadius
     }
     
-    init(template: ActionSheetPopoverApperance) {
-        self.width = template.width
-        self.cornerRadius = template.cornerRadius
+    init(copy: ActionSheetPopoverApperance) {
+        self.width = copy.width
+        self.cornerRadius = copy.cornerRadius
     }
     
     

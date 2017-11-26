@@ -8,4 +8,4 @@
 
 import UIKit
 
-public class ActionSheetSectionHeaderAppearance: ActionSheetItemAppearance { }
+public class ActionSheetSectionHeaderAppearance: ActionSheetItemAppearance {}
