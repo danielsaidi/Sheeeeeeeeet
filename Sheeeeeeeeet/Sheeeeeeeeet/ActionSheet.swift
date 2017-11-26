@@ -123,6 +123,9 @@ open class ActionSheet: UIViewController {
     fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
         return ActionSheetDelegate(actionSheet: self) { item in
             print(item.value)
+            if item.tapStyle.dismissOnTap {
+                self.dismiss()
+            }
         }
     }()
     

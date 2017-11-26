@@ -20,7 +20,7 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Initialization
     
-    public init(value: Any, title: String, image: UIImage?) {
+    public init(value: Any, title: String, image: UIImage? = nil) {
         self.value = value
         self.title = title
         self.image = image
@@ -34,6 +34,7 @@ open class ActionSheetItem: NSObject {
     open var appearance: ActionSheetItemAppearance
     open var value: Any
     open var image: UIImage?
+    open var tapStyle: ActionSheetItemTapStyle = .normal
     open var title: String
     
     open var height: Int {
