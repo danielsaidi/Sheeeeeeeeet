@@ -54,4 +54,3 @@ public class ActionSheetSelectItem: ActionSheetItem {
         cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
 }
-

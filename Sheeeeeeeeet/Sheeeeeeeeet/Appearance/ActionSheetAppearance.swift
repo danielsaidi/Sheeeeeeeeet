@@ -12,7 +12,7 @@
  sheets and action sheet items provided by Sheeeeeeeeet. Use
  `ActionSheetAppearance.standard` to style all action sheets
  in an entire app. You can then apply individual appearances
- to individual action sheets and items.
+ to individual action sheets and item types.
  
  The `item` appearance property is used as the base template
  for all other item appearances.
