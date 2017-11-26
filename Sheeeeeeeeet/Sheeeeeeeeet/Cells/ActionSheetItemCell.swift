@@ -14,6 +14,7 @@ open class ActionSheetItemCell: UITableViewCell {
     // MARK: - Public Functions
     
     open func apply(appearance: ActionSheetItemAppearance) {
+        separatorInset = appearance.separatorInsets
         tintColor = appearance.tintColor
         textLabel?.textColor = appearance.textColor
         textLabel?.font = appearance.font

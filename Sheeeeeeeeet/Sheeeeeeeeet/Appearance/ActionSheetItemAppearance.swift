@@ -18,6 +18,7 @@ public class ActionSheetItemAppearance {
     init(template: ActionSheetItemAppearance) {
         font = template.font
         height = template.height
+        separatorInsets = template.separatorInsets
         textColor = template.textColor
         tintColor = template.tintColor
     }
@@ -27,6 +28,7 @@ public class ActionSheetItemAppearance {
     
     public var font: UIFont?
     public var height = 50
+    public var separatorInsets: UIEdgeInsets = .zero
     public var textColor: UIColor?
     public var tintColor: UIColor?
 }
