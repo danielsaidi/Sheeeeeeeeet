@@ -21,19 +21,17 @@ public class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
         super.init(template: template)
         disabledTextColor = template.textColor
         disabledTintColor = template.tintColor
-    }
-    
-    convenience init(template: ActionSheetToggleItemAppearance) {
-        self.init(template: template)
-        icon = template.icon
-        disabledTextColor = template.disabledTextColor
-        disabledTintColor = template.disabledTintColor
+        if let template = template as? ActionSheetToggleItemAppearance {
+            enabledIcon = template.enabledIcon
+            disabledTextColor = template.disabledTextColor
+            disabledTintColor = template.disabledTintColor            
+        }
     }
     
     
     // MARK: - Properties
     
-    public var icon: UIImage?
+    public var enabledIcon: UIImage?
     
     public var disabledTextColor: UIColor?
     public var disabledTintColor: UIColor?

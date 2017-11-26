@@ -1,6 +1,6 @@
 //
 //  ActionSheet.swift
-//  BBCore
+//  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2016-10-25.
 //  Copyright © 2016 BookBeat. All rights reserved.
@@ -8,34 +8,17 @@
 
 /*
  
- Action sheets can either display a plain item list or
- items grouped in sections. The plain item list is the
- equivalent of how the native UIActionController works,
- while grouped lists can give you richer action sheets.
+ purpose?
+ how does it work?
+ subclasses - how to?
+ dismissStyle
  
- Use any of the two setup functions to set which items
- or sections you want to present in your action sheet.
+ To change the global appearance for every action sheet that
+ is used in your app, use `UIActionSheetAppearance.standard`.
  
- If you create action sheet subclasses, that should be
- in charge or which items/sections they should display
- (e.g. action sheets that sets themselves as their own
- delegate and have more specific delegate protocols to
- which they send more specific events) simply override
- `setup` and add the default items.
- 
- Action sheets are by default set to auto-dismiss when
- items are tapped. To modify this behavior, change the
- dismissStyle property.
- 
- To change the global appearance for all action sheets
- in your apps, modify the static ActionSheetAppearance
- properties (until I figure out how to create a custom
- appearance proxy). To change the appearance of single
- sheets, modify their non-static appearance properties.
- 
- OBS: Do not remove the not required init with nibName
- and bundle. It looks like it is not needed, but it is
- used under the hood.
+ IMPORTANT: Do not remove the not required init with nibName
+ and bundle. It looks like it is not needed, but iOS uses it
+ under the hood.
  
  */
 
@@ -48,36 +31,47 @@ import UIKit
 }*/
 
 
-open class ActionSheet: UITableViewController /**UIVC**/ {
+open class ActionSheet: UIViewController {
     
     
     // MARK: - Initialization
+    
+    public init(presenter: ActionSheetPresenter) {
+        super.init(nibName: nil, bundle: nil)
+        self.presenter = presenter
+        setup()
+    }
     
     public init(items: [ActionSheetItem], presenter: ActionSheetPresenter) {
         super.init(nibName: nil, bundle: nil)
         self.items = items
         self.presenter = presenter
+        setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setup()
     }
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    
+    // MARK: - Setup
+    
+    open func setup() {
+        view.backgroundColor = tableView.backgroundColor
     }
     
     
     // MARK: - View Controller Lifecycle
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.isScrollEnabled = false
-        tableView.tableFooterView = UIView.empty
-        tableView.dataSource = tableViewDataSource
-        tableView.delegate = tableViewDelegate
-        tableView.cellLayoutMarginsFollowReadableWidth = false
-        tableView.contentInset.bottom = 0
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.frame
     }
     
     
@@ -89,14 +83,13 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
     // MARK: - Properties
     
     open lazy var appearance: ActionSheetAppearance = {
-        return ActionSheetAppearance.standard
+        let standard = ActionSheetAppearance.standard
+        return ActionSheetAppearance(template: standard)
     }()
     
     public var contentHeight: Int {
-        var height = tableViewItems.reduce(0) {
-            $0 + $1.height
-        }
-        return height//////// sectionTotalHeight + itemTotalHeight
+        var itemHeight = tableViewItems.reduce(0) { $0 + $1.height }
+        return itemHeight//////// sectionTotalHeight + itemTotalHeight
     }
     
     open var items = [ActionSheetItem]()
@@ -147,6 +140,17 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
 
     // MARK: - Views
     
+    fileprivate lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: view.frame, style: .plain)
+        tableView.isScrollEnabled = false
+        tableView.tableFooterView = UIView.empty
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = tableViewDelegate
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        view.addSubview(tableView)
+        return tableView
+    }()
+    
     
     // MARK: - Public Functions
     
@@ -154,55 +158,11 @@ open class ActionSheet: UITableViewController /**UIVC**/ {
         return tableViewItems[indexPath.row]
     }
     
-    /*
-     
-    // MARK: - Views
-    
-    fileprivate lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: view.frame, style: .plain)
-        tableView.isScrollEnabled = false
-        tableView.tableFooterView = UIView.empty
-        setupTableViewHeader()
-        return tableView
-    }()
-    */
+
     
     
     
     /*
-     
-    // MARK: - Properties
-    
-    public weak var delegate: ActionSheetDelegate?
-    
-    public var dismissStyle: ActionSheetDismissStyle = .auto
-}
-
-
-
-// MARK: - Calculated Properties
-
-fileprivate extension ActionSheet {
-    
-    var itemTotalHeight: Int {
-        let headerHeight = tableView.tableHeaderView?.bounds.size.height ?? 0
-        return items.count * itemHeight + Int(headerHeight)
-    }
-    
-    var sectionTotalHeight: Int {
-        guard shouldDisplaySections else { return 0 }
-        var result = sectionTopMargin
-        result += sections.count * sectionHeight
-        result += (sections.count - 1) * sectionMargin
-        return result
-    }
-    
-    */
-}
-
-
-
-// MARK: - Private functions
-
-fileprivate extension ActionSheet {
+ 
+    public var dismissStyle: ActionSheetDismissStyle = .auto*/
 }

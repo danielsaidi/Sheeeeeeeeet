@@ -19,11 +19,9 @@ public class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
     
     override init(template: ActionSheetItemAppearance) {
         super.init(template: template)
-    }
-    
-    convenience init(template: ActionSheetLinkItemAppearance) {
-        self.init(template: template)
-        linkIcon = template.linkIcon
+        if let template = template as? ActionSheetLinkItemAppearance {
+            linkIcon = template.linkIcon
+        }
     }
     
     

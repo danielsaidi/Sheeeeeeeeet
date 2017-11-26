@@ -21,13 +21,11 @@ public class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
         super.init(template: template)
         selectedTextColor = template.textColor
         selectedTintColor = template.tintColor
-    }
-    
-    convenience init(template: ActionSheetSelectItemAppearance) {
-        self.init(template: template)
-        selectedIcon = template.selectedIcon
-        selectedTextColor = template.selectedTextColor
-        selectedTintColor = template.selectedTintColor
+        if let template = template as? ActionSheetSelectItemAppearance {
+            selectedIcon = template.selectedIcon
+            selectedTextColor = template.selectedTextColor
+            selectedTintColor = template.selectedTintColor
+        }
     }
     
     

@@ -6,9 +6,32 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ TODO - Documentation
+ 
+ */
+
 import UIKit
 
 public class ActionSheetAppearance {
+    
+    
+    // MARK: - Initialization
+    
+    init() {}
+    
+    init(template: ActionSheetAppearance) {
+        base = ActionSheetItemAppearance(template: template.base)
+        cancelButton = ActionSheetCancelButtonAppearance(template: template.cancelButton)
+        item = ActionSheetItemAppearance(template: template.item)
+        linkItem = ActionSheetLinkItemAppearance(template: template.linkItem)
+        okButton = ActionSheetOkButtonAppearance(template: template.okButton)
+        popover = ActionSheetPopoverApperance(template: template.popover)
+        sectionHeader = ActionSheetSectionHeaderAppearance(template: template.sectionHeader)
+        selectItem = ActionSheetSelectItemAppearance(template: template.selectItem)
+        title = ActionSheetTitleAppearance(template: template.title)
+    }
     
     
     // MARK: - Properties
