@@ -25,12 +25,6 @@
 import UIKit
 
 
-/*public protocol ActionSheetDelegate: class {
-    
-    func actionSheet(_ sheet: ActionSheet, didSelect item: ActionSheetItem, at indexPath: IndexPath)
-}*/
-
-
 open class ActionSheet: UIViewController {
     
     
@@ -137,6 +131,7 @@ open class ActionSheet: UIViewController {
     }
     
     open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
+        items.forEach { $0.applyAppearance(appearance) }
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
     }
     
@@ -160,12 +155,4 @@ open class ActionSheet: UIViewController {
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
         return tableViewItems[indexPath.row]
     }
-    
-
-    
-    
-    
-    /*
- 
-    public var dismissStyle: ActionSheetDismissStyle = .auto*/
 }

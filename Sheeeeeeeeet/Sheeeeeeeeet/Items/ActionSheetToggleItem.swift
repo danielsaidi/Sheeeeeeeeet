@@ -26,4 +26,16 @@ public class ActionSheetToggleItem: ActionSheetItem {
         super.init(value: value, title: title, image: image)
         tapBehavior = .none
     }
+    
+    
+    // MARK: - Functions
+    
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        let template = appearance.toggleItem
+        self.appearance = ActionSheetToggleItemAppearance(copy: template)
+    }
+    
+    open override func applyAppearance(to cell: UITableViewCell) {
+        super.applyAppearance(to: cell)
+    }
 }

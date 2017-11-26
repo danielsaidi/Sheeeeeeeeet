@@ -15,10 +15,12 @@
  
  The default tap behavior of an action sheet item is to tell
  the action sheet that it was tapped, then dismiss the sheet.
- If you don't want the action sheet to be dismissed, you can
- set the `tapBehavo`
- the actoin hide
- the action sheet whenever it is tapped. This is changed by setting
+ If you don't want the item to dismiss the action sheet, you
+ can set the `tapBehavior` property to `none`.
+ 
+ An action sheet item's appearance is set by the sheet, when
+ it is presented. To use custom appearances for single items,
+ just set the `appearance` property to a custom value.
  
  */
 
@@ -30,27 +32,27 @@ open class ActionSheetItem: NSObject {
     // MARK: - Initialization
     
     public init(value: Any, title: String, image: UIImage? = nil) {
+        let appearance = ActionSheetAppearance.standard.item
         self.value = value
         self.title = title
         self.image = image
+        self.appearance = ActionSheetItemAppearance(copy: appearance)
         super.init()
     }
     
     
     // MARK: - Properties
     
-    open lazy var appearance: ActionSheetItemAppearance = {
-        return ActionSheetItemAppearance(copy: ActionSheetAppearance.standard.item)
-    }()
-    
     open var value: Any
     open var image: UIImage?
-    open var tapBehavior: ActionSheetItemTapBehavior = .dismiss
     open var title: String
     
     open var height: Int {
         return appearance.height
     }
+    
+    open var appearance: ActionSheetItemAppearance
+    open var tapBehavior: ActionSheetItemTapBehavior = .dismiss
     
     
     // MARK: - Internal Properties
@@ -64,6 +66,11 @@ open class ActionSheetItem: NSObject {
     
     
     // MARK: - Functions
+    
+    open func applyAppearance(_ appearance: ActionSheetAppearance) {
+        let template = appearance.item
+        self.appearance = ActionSheetItemAppearance(copy: template)
+    }
     
     open func applyAppearance(to cell: UITableViewCell) {
         cell.separatorInset = appearance.separatorInsets
@@ -82,4 +89,3 @@ open class ActionSheetItem: NSObject {
         return cell
     }
 }
-

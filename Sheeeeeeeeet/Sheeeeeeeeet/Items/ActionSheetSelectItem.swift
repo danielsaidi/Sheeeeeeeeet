@@ -27,5 +27,17 @@ public class ActionSheetSelectItem: ActionSheetItem {
     public override init(value: Any, title: String, image: UIImage? = nil) {
         super.init(value: value, title: title, image: image)
     }
+    
+    
+    // MARK: - Functions
+    
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        let template = appearance.selectItem
+        self.appearance = ActionSheetSelectItemAppearance(copy: template)
+    }
+    
+    open override func applyAppearance(to cell: UITableViewCell) {
+        super.applyAppearance(to: cell)
+    }
 }
 
