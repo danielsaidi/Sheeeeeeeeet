@@ -30,7 +30,7 @@ open class ActionSheetDelegate: NSObject, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let item = actionSheet?.item(at: indexPath) else { return 0 }
-        return CGFloat(item.height)
+        return CGFloat(item.appearance.height)
     }
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

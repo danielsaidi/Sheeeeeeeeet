@@ -2,8 +2,8 @@
 //  ActionSheet.swift
 //  Sheeeeeeeeet
 //
-//  Created by Daniel Saidi on 2016-10-25.
-//  Copyright © 2016 BookBeat. All rights reserved.
+//  Created by Daniel Saidi on 2017-11-26.
+//  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
 /*
@@ -82,7 +82,7 @@ open class ActionSheet: UIViewController {
     }()
     
     public var contentHeight: Int {
-        var itemHeight = tableViewItems.reduce(0) { $0 + $1.height }
+        var itemHeight = tableViewItems.reduce(0) { $0 + $1.appearance.height }
         return itemHeight//////// sectionTotalHeight + itemTotalHeight
     }
     

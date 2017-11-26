@@ -47,10 +47,6 @@ open class ActionSheetItem: NSObject {
     open var image: UIImage?
     open var title: String
     
-    open var height: Int {
-        return appearance.height
-    }
-    
     open var appearance: ActionSheetItemAppearance
     open var tapBehavior: ActionSheetItemTapBehavior = .dismiss
     
@@ -73,6 +69,8 @@ open class ActionSheetItem: NSObject {
     }
     
     open func applyAppearance(to cell: UITableViewCell) {
+        cell.imageView?.image = image
+        cell.textLabel?.text = title
         cell.separatorInset = appearance.separatorInsets
         cell.tintColor = appearance.tintColor
         cell.textLabel?.textColor = appearance.textColor
@@ -83,8 +81,6 @@ open class ActionSheetItem: NSObject {
         let id = type(of: self).className
         let cell = tableView.dequeueReusableCell(withIdentifier: id) as? ActionSheetItemCell
             ?? ActionSheetItemCell(style: .default, reuseIdentifier: id)
-        cell.imageView?.image = image
-        cell.textLabel?.text = title
         applyAppearance(to: cell)
         return cell
     }

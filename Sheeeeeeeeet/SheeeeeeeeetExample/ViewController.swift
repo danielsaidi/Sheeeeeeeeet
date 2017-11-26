@@ -13,9 +13,13 @@ class ViewController: UIViewController {
 
     @IBAction func showActionSheet(_ sender: Any) {
         
+        ActionSheetAppearance.standard.item.textColor = .blue
+        //ActionSheetAppearance.standard.selectItem.selectedTextColor = .red
+        
+        
         let item1 = ActionSheetItem(value: "foo", title: "foo", image: nil)
-        let item2 = ActionSheetSelectItem(value: 4, title: "bar", image: nil)
-        let item3 = ActionSheetItem(value: 5, title: "baz", image: nil)
+        let item2 = ActionSheetSelectItem(value: 4, title: "bar", image: nil, isSelected: true)
+        let item3 = ActionSheetSelectItem(value: 5, title: "baz", image: nil, isSelected: false)
         let actionSheet = ActionSheet(items: [item1, item2, item3], presenter: PopoverActionSheetPresenter())
         actionSheet.present(in: self, from: sender as? UIView)
         print(actionSheet.contentHeight)

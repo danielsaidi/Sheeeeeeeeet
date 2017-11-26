@@ -23,8 +23,8 @@ public class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
         selectedTintColor = copy.tintColor
         if let copy = copy as? ActionSheetSelectItemAppearance {
             selectedIcon = copy.selectedIcon
-            selectedTextColor = copy.selectedTextColor
-            selectedTintColor = copy.selectedTintColor
+            selectedTextColor = copy.selectedTextColor ?? selectedTextColor
+            selectedTintColor = copy.selectedTintColor ?? selectedTintColor
         }
     }
     

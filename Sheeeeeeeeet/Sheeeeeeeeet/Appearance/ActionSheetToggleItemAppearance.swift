@@ -21,10 +21,15 @@ public class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
         super.init(copy: copy)
         disabledTextColor = copy.textColor
         disabledTintColor = copy.tintColor
+        enabledTextColor = copy.textColor
+        enabledTintColor = copy.tintColor
         if let copy = copy as? ActionSheetToggleItemAppearance {
+            disabledIcon = copy.disabledIcon
+            disabledTextColor = copy.disabledTextColor ?? disabledTextColor
+            disabledTintColor = copy.disabledTintColor ?? disabledTintColor
             enabledIcon = copy.enabledIcon
-            disabledTextColor = copy.disabledTextColor
-            disabledTintColor = copy.disabledTintColor            
+            enabledTextColor = copy.enabledTextColor ?? enabledTextColor
+            enabledTintColor = copy.enabledTintColor ?? enabledTintColor
         }
     }
     
@@ -32,7 +37,10 @@ public class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
     // MARK: - Properties
     
     public var enabledIcon: UIImage?
+    public var enabledTextColor: UIColor?
+    public var enabledTintColor: UIColor?
     
+    public var disabledIcon: UIImage?
     public var disabledTextColor: UIColor?
     public var disabledTintColor: UIColor?
 }
