@@ -8,4 +8,4 @@
 
 import UIKit
 
-public class ActionSheetCancelButtonAppearance: ActionSheetButtonAppearance {}
+open class ActionSheetCancelButtonAppearance: ActionSheetButtonAppearance {}

@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class ActionSheetItemAppearance {
+open class ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
     
-    init() {}
+    public init() {}
     
-    init(copy: ActionSheetItemAppearance) {
+    public init(copy: ActionSheetItemAppearance) {
         font = copy.font
         height = copy.height
         separatorInsets = copy.separatorInsets

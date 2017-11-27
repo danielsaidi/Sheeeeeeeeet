@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
+open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
     
-    override init() {
+    public override init() {
         super.init()
     }
     
-    override init(copy: ActionSheetItemAppearance) {
+    public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
         selectedTextColor = copy.textColor
         selectedTintColor = copy.tintColor

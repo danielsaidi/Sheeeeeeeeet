@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
+open class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
     
-    override init() {
+    public override init() {
         super.init()
     }
     
-    override init(copy: ActionSheetItemAppearance) {
+    public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
         if let copy = copy as? ActionSheetLinkItemAppearance {
             linkIcon = copy.linkIcon

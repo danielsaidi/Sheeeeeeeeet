@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
+open class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
     
-    override init() {
+    public override init() {
         super.init()
     }
     
-    override init(copy: ActionSheetItemAppearance) {
+    public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
         disabledTextColor = copy.textColor
         disabledTintColor = copy.tintColor

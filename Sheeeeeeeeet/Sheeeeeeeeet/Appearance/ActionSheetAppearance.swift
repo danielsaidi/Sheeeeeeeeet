@@ -21,14 +21,14 @@
 
 import UIKit
 
-public class ActionSheetAppearance {
+open class ActionSheetAppearance {
     
     
     // MARK: - Initialization
     
-    init() {}
+    public init() {}
     
-    init(copy: ActionSheetAppearance) {
+    public init(copy: ActionSheetAppearance) {
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)

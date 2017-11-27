@@ -8,5 +8,4 @@
 
 import UIKit
 
-public class ActionSheetButtonAppearance: ActionSheetItemAppearance {}
-
+open class ActionSheetButtonAppearance: ActionSheetItemAppearance {}
