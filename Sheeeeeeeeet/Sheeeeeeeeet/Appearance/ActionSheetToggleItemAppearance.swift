@@ -19,28 +19,28 @@ open class ActionSheetToggleItemAppearance: ActionSheetItemAppearance {
     
     public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
-        disabledTextColor = copy.textColor
-        disabledTintColor = copy.tintColor
-        enabledTextColor = copy.textColor
-        enabledTintColor = copy.tintColor
+        toggledTextColor = copy.textColor
+        toggledTintColor = copy.tintColor
+        untoggledTextColor = copy.textColor
+        untoggledTintColor = copy.tintColor
         if let copy = copy as? ActionSheetToggleItemAppearance {
-            disabledIcon = copy.disabledIcon
-            disabledTextColor = copy.disabledTextColor ?? disabledTextColor
-            disabledTintColor = copy.disabledTintColor ?? disabledTintColor
-            enabledIcon = copy.enabledIcon
-            enabledTextColor = copy.enabledTextColor ?? enabledTextColor
-            enabledTintColor = copy.enabledTintColor ?? enabledTintColor
+            toggledIcon = copy.toggledIcon
+            toggledTextColor = copy.toggledTextColor ?? toggledTextColor
+            toggledTintColor = copy.toggledTintColor ?? toggledTintColor
+            untoggledIcon = copy.untoggledIcon
+            untoggledTextColor = copy.untoggledTextColor ?? untoggledTextColor
+            untoggledTintColor = copy.untoggledTintColor ?? untoggledTintColor
         }
     }
     
     
     // MARK: - Properties
     
-    public var enabledIcon: UIImage?
-    public var enabledTextColor: UIColor?
-    public var enabledTintColor: UIColor?
+    public var toggledIcon: UIImage?
+    public var toggledTextColor: UIColor?
+    public var toggledTintColor: UIColor?
     
-    public var disabledIcon: UIImage?
-    public var disabledTextColor: UIColor?
-    public var disabledTintColor: UIColor?
+    public var untoggledIcon: UIImage?
+    public var untoggledTextColor: UIColor?
+    public var untoggledTintColor: UIColor?
 }

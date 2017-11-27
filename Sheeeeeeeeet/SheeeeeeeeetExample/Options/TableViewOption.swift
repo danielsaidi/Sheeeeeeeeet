@@ -17,7 +17,9 @@ enum TableViewOption {
     singleSelect,
     singleSelectPreselected,
     multiSelect,
-    multiSelectPreselected
+    multiSelectPreselected,
+    toggle,
+    togglePreselected
     
     var displayName: String {
         switch self {
@@ -26,6 +28,8 @@ enum TableViewOption {
         case .singleSelectPreselected: return "Single-select sheet (preselected)"
         case .multiSelect: return "Multi-select sheet"
         case .multiSelectPreselected: return "Multi-select sheet (preselected)"
+        case .toggle: return "Toggle sheet"
+        case .togglePreselected: return "Toggle sheet (preselected)"
         }
     }
 }

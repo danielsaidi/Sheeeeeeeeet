@@ -47,9 +47,9 @@ public class ActionSheetToggleItem: ActionSheetItem {
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         guard let appearance = toggleAppearance else { return }
-        cell.accessoryView = UIImageView(image: isToggled ? appearance.enabledIcon : appearance.disabledIcon)
-        cell.tintColor = isToggled ? appearance.enabledTintColor : appearance.disabledTintColor
-        cell.textLabel?.textColor = isToggled ? appearance.enabledTextColor : appearance.disabledTextColor
+        cell.accessoryView = UIImageView(image: isToggled ? appearance.toggledIcon : appearance.untoggledIcon)
+        cell.tintColor = isToggled ? appearance.toggledTintColor : appearance.untoggledTintColor
+        cell.textLabel?.textColor = isToggled ? appearance.toggledTextColor : appearance.untoggledTextColor
     }
     
     open override func handleTap() {

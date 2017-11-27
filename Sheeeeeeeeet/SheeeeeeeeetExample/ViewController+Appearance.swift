@@ -15,6 +15,7 @@ extension ViewController {
         
         let green = UIColor(hex: 0x81c03f)
         let pink = UIColor(hex: 0xec5f72)
+        let disabledBlack = UIColor.black.withAlphaComponent(0.3)
         
         let robotoBlack = "Roboto-Black"
         let robotoMedium = "Roboto-Medium"
@@ -32,6 +33,13 @@ extension ViewController {
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.selectedTextColor = green
         appearance.selectItem.selectedTintColor = green
+        
+        appearance.toggleItem.untoggledIcon = UIImage(named: "ic_circle")
+        appearance.toggleItem.untoggledTextColor = disabledBlack
+        appearance.toggleItem.untoggledTintColor = disabledBlack
+        appearance.toggleItem.toggledIcon = UIImage(named: "ic_circle_checked")
+        appearance.toggleItem.toggledTextColor = .darkGray
+        appearance.toggleItem.toggledTintColor = .darkGray
         
         appearance.okButton.textColor = .darkGray
         appearance.okButton.font = UIFont(name: robotoBlack, size: 17)

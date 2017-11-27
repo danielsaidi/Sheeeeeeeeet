@@ -52,6 +52,19 @@ extension ViewController {
             self.alert(items: selected)
         }
     }
+    
+    func toggleActionSheet(preselected: [FoodOption]) -> ActionSheet {
+        var items = foodOptions().map { $0.toggleItem(isToggled: preselected.contains($0)) }
+        items.insert(titleItem, at: 0)
+        items.append(ActionSheetOkButton(title: ok))
+        items.append(ActionSheetCancelButton(title: cancel))
+        return ActionSheet(items: items) { (sheet, item) in
+            guard item.value == nil else { return }
+            let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }
+            let toggled = items.filter { $0.isToggled }
+            self.alert(items: toggled)
+        }
+    }
 }
 
 
@@ -76,6 +89,14 @@ fileprivate extension FoodOption {
         return ActionSheetSelectItem(
             title: displayName,
             isSelected: isSelected,
+            value: self,
+            image: image)
+    }
+    
+    func toggleItem(isToggled: Bool) -> ActionSheetItem {
+        return ActionSheetToggleItem(
+            title: displayName,
+            isToggled: isToggled,
             value: self,
             image: image)
     }

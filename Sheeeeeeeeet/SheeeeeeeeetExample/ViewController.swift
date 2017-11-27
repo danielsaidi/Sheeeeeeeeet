@@ -42,7 +42,9 @@ class ViewController: UIViewController {
         .singleSelect,
         .singleSelectPreselected,
         .multiSelect,
-        .multiSelectPreselected
+        .multiSelectPreselected,
+        .toggle,
+        .togglePreselected
     ]
     
     func foodOptions() -> [FoodOption] {
@@ -110,6 +112,8 @@ extension ViewController: UITableViewDelegate {
         case .singleSelectPreselected: actionSheet = singleSelectActionSheet(preselected: .fancy)
         case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [])
         case .multiSelectPreselected: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
+        case .toggle: actionSheet = toggleActionSheet(preselected: [])
+        case .togglePreselected: actionSheet = toggleActionSheet(preselected: [.fancy, .fast])
         }
         
         actionSheet?.present(in: self, from: cell)
