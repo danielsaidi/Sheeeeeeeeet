@@ -29,6 +29,7 @@ open class ActionSheetAppearance {
     public init() {}
     
     public init(copy: ActionSheetAppearance) {
+        cornerRadius = copy.cornerRadius
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
         headerView = ActionSheetHeaderViewAppearance(copy: copy.headerView)
         item = ActionSheetItemAppearance(copy: copy.item)
@@ -43,6 +44,11 @@ open class ActionSheetAppearance {
     
     
     // MARK: - Properties
+    
+    public var cornerRadius: CGFloat = 15
+    
+    
+    // MARK: - Appearance Properties
     
     public static var standard = ActionSheetAppearance()
     

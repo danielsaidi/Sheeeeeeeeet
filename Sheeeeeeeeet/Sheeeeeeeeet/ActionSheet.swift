@@ -57,7 +57,7 @@ open class ActionSheet: UIViewController {
     // MARK: - Setup
     
     open func setup() {
-        view.backgroundColor = tableView.backgroundColor
+        view.backgroundColor = .clear
     }
     
     
@@ -65,8 +65,11 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame = view.frame
+        applyRoundCorners()
+        positionViews()
     }
+    
+    
     
     
     // MARK: - Dependencies
@@ -88,7 +91,13 @@ open class ActionSheet: UIViewController {
         return itemHeight + headerHeight + appearance.headerView.bottomMargin
     }
     
-    open var headerView: UIView?
+    open var headerView: UIView? {
+        didSet {
+            oldValue?.removeFromSuperview()
+            guard let header = headerView else { return }
+            view.addSubview(header)
+        }
+    }
     
     open var items = [ActionSheetItem]()
     
@@ -125,6 +134,20 @@ open class ActionSheet: UIViewController {
         }
     }()
     
+
+    // MARK: - View Properties
+    
+    fileprivate(set) public lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: view.frame, style: .plain)
+        tableView.isScrollEnabled = false
+        tableView.tableFooterView = UIView.empty
+        tableView.dataSource = tableViewDataSource
+        tableView.delegate = tableViewDelegate
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        view.addSubview(tableView)
+        return tableView
+    }()
+    
     
     // MARK: - Presentation Functions
     
@@ -137,24 +160,38 @@ open class ActionSheet: UIViewController {
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
     }
     
-
-    // MARK: - Views
-    
-    fileprivate lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: view.frame, style: .plain)
-        tableView.isScrollEnabled = false
-        tableView.tableFooterView = UIView.empty
-        tableView.dataSource = tableViewDataSource
-        tableView.delegate = tableViewDelegate
-        tableView.cellLayoutMarginsFollowReadableWidth = false
-        view.addSubview(tableView)
-        return tableView
-    }()
-    
     
     // MARK: - Public Functions
     
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
         return tableViewItems[indexPath.row]
+    }
+}
+
+
+// MARK: - Private Functions
+
+fileprivate extension ActionSheet {
+    
+    func applyRoundCorners() {
+        tableView.clipsToBounds = true
+        headerView?.clipsToBounds = true
+        
+        tableView.layer.cornerRadius = appearance.cornerRadius
+        headerView?.layer.cornerRadius = appearance.cornerRadius
+    }
+    
+    func positionViews() {
+        let width = view.frame.width
+        
+        tableView.frame.origin.x = 0
+        tableView.frame.origin.y = 0
+        tableView.frame.size.width = width
+        
+        guard let view = headerView else { return }
+        view.frame.origin = .zero
+        view.frame.size.width = width
+        let tableStartY = view.frame.height + appearance.headerView.bottomMargin
+        tableView.frame.origin.y = tableStartY
     }
 }
