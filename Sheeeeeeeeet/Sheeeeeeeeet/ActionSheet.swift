@@ -113,8 +113,6 @@ open class ActionSheet: UIViewController {
         return CGSize(width: width, height: contentHeight)
     }
     
-    fileprivate var safeAreaInsets: UIEdgeInsets?
-    
     
     // MARK: - Private Properties
     
@@ -154,7 +152,6 @@ open class ActionSheet: UIViewController {
     
     open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
         applyRoundCorners()
-        applySafeAreaInsets(from: vc)
         items.forEach { $0.applyAppearance(appearance) }
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
     }
@@ -179,23 +176,23 @@ fileprivate extension ActionSheet {
         headerView?.layer.cornerRadius = appearance.cornerRadius
     }
     
-    func applySafeAreaInsets(from vc: UIViewController) {
-        if #available(iOS 11.0, *) {
-            safeAreaInsets = vc.view.safeAreaInsets
-        }
-    }
-    
     func positionViews() {
         let width = view.frame.width
-        
         tableView.frame.origin.x = 0
         tableView.frame.origin.y = 0
         tableView.frame.size.width = width
-        
-        guard let view = headerView else { return }
-        view.frame.origin = .zero
-        view.frame.size.width = width
-        let tableStartY = view.frame.height + appearance.headerView.bottomMargin
+        tableView.frame.size.height = contentHeight
+        positionViewsRelativeToHeaderView()
+    }
+    
+    func positionViewsRelativeToHeaderView() {
+        guard let headerView = headerView else { return }
+        let headerHeight = headerView.frame.height
+        let headerMargin = appearance.headerView.bottomMargin
+        headerView.frame.origin = .zero
+        headerView.frame.size.width = view.frame.width
+        let tableStartY = headerHeight + headerMargin
         tableView.frame.origin.y = tableStartY
+        tableView.frame.size.height -= tableStartY
     }
 }

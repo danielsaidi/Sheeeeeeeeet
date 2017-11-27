@@ -46,6 +46,8 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
     
     // MARK: - Properties
     
+    fileprivate var actionSheetView: UIView?
+    
     fileprivate var backgroundColor: UIColor?
     
     fileprivate var backgroundView: UIView?
@@ -65,13 +67,7 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
             iPadPresenter?.dismiss(sheet: sheet, completion: completion)
             return
         }
-        
-        removeBackgroundView()
-        
-        //backgroundView?.remove
-//        sheet.presentingViewController?.dismiss(animated: true, completion: completion)
-//        sheet.view.backgroundColor = actionSheetBackgroundColor
-//        sheet.headerView = actionSheetHeaderView
+        dismissActionSheet()
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: (() -> ())?) {
@@ -79,13 +75,8 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
             iPadPresenter?.present(sheet: sheet, in: vc, from: view, completion: completion)
             return
         }
-        
         addBackgroundView(to: vc.view)
-//        adjustSheetForPopoverPresentation(sheet)
-//        sheet.preferredContentSize = sheet.preferredPopoverSize
-//        let popover = getPopoverPresentationController(for: sheet, in: vc)
-//        setup(popover: popover, for: view)
-//        vc.present(sheet, animated: true, completion: completion)
+        addActionSheet(sheet, to: vc.view)
     }
 }
 
@@ -94,8 +85,9 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
 
 @objc extension DefaultActionSheetPresenter {
     
-    func dismissViewTapped() {
-        
+    func dismissActionSheet() {
+        removeActionSheetView()
+        removeBackgroundView()
     }
 }
 
@@ -104,11 +96,35 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
 
 fileprivate extension DefaultActionSheetPresenter {
     
+    func getFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
+        var targetFrame = view.frame
+        targetFrame = targetFrame.insetBy(dx: 20, dy: 20)
+        targetFrame.size.height = sheet.contentHeight
+        targetFrame.origin.y = view.frame.height - sheet.contentHeight - 20
+        targetFrame.origin.y -= 1.5 * view.safeAreaInsets.bottom
+        return targetFrame
+    }
+    
+    func addActionSheet(_ sheet: ActionSheet, to view: UIView) {
+        guard let actionSheetView = sheet.view else { return }
+        actionSheetView.frame.size.height = sheet.contentHeight
+        actionSheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        let frame = getFrame(for: sheet, in: view)
+        actionSheetView.frame = frame
+        actionSheetView.frame.origin.y += 100
+        view.addSubview(actionSheetView)
+        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
+        animator.addAnimations { actionSheetView.frame = frame }
+        animator.startAnimation()
+        self.actionSheetView = actionSheetView
+    }
+    
     func addBackgroundView(to view: UIView) {
         let backgroundView = UIView(frame: view.frame)
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         backgroundView.backgroundColor = backgroundColor
         backgroundView.alpha = 0
+        addDismissTap(to: backgroundView)
         view.addSubview(backgroundView)
         let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
         animator.addAnimations { backgroundView.alpha = 1 }
@@ -116,43 +132,28 @@ fileprivate extension DefaultActionSheetPresenter {
         self.backgroundView = backgroundView
     }
     
-//    func addDismissTap(to view: UIView) {
-//        view.isUserInteractionEnabled = true
-//        let tap = UITapGestureRecognizer(target: <#T##Any?#>, action: <#T##Selector?#>)
-//    }
+    func addDismissTap(to view: UIView) {
+        view.isUserInteractionEnabled = true
+        let action = #selector(dismissActionSheet)
+        let tap = UITapGestureRecognizer(target: self, action: action)
+        view.addGestureRecognizer(tap)
+    }
     
-    func removeBackgroundView() {
-        backgroundView?.alpha = 0
-        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0, animations: nil)
-        animator.addAnimations { self.backgroundView?.alpha = 0 }
-        animator.addCompletion { _ in self.backgroundView?.removeFromSuperview() }
+    func removeActionSheetView() {
+        guard let view = actionSheetView else { return }
+        var frame = view.frame
+        frame.origin.y += frame.height + 100
+        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
+        animator.addAnimations { view.frame = frame }
+        animator.addCompletion { _ in view.removeFromSuperview() }
         animator.startAnimation()
     }
     
-    
-//    func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
-//        actionSheetBackgroundColor = sheet.view.backgroundColor
-//        sheet.view.backgroundColor = sheet.tableView.backgroundColor
-//        actionSheetHeaderView = sheet.headerView
-//        sheet.headerView = nil
-//    }
-//
-//    func getPopoverPresentationController(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
-//        sheet.modalPresentationStyle = .popover
-//        let popover = sheet.popoverPresentationController
-//        popover?.backgroundColor = sheet.view.backgroundColor
-//        popover?.delegate = vc as? UIPopoverPresentationControllerDelegate
-//        return popover
-//    }
-//
-//    func setup(popover: UIPopoverPresentationController?, for view: UIView?) {
-//        guard let view = view else { return }
-//        popover?.sourceView = view
-//        let bounds = view.bounds
-//        var center = bounds.origin
-//        center.x += bounds.size.width / 2
-//        center.y += bounds.size.height / 2
-//        popover?.sourceRect = CGRect(x: center.x, y: center.y, width: 1, height: 1)
-//    }
+    func removeBackgroundView() {
+        guard let view = backgroundView else { return }
+        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
+        animator.addAnimations { view.alpha = 0 }
+        animator.addCompletion { _ in view.removeFromSuperview() }
+        animator.startAnimation()
+    }
 }
-
