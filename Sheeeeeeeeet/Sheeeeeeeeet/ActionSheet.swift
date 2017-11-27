@@ -34,7 +34,7 @@ open class ActionSheet: UIViewController {
     
     public init(
         items: [ActionSheetItem],
-        presenter: ActionSheetPresenter,
+        presenter: ActionSheetPresenter = DefaultActionSheetPresenter(),
         action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
         self.items = items

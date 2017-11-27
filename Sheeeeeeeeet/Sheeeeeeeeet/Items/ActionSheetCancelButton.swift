@@ -6,6 +6,13 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ Cancel buttons have no special behavior, but can be used in
+ sheets where a user applies changes by tapping an OK button.
+ 
+ */
+
 import UIKit
 
 public class ActionSheetCancelButton: ActionSheetButton {

@@ -36,6 +36,7 @@
 		456EAA0E1FCC13A400A719ED /* DefaultActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */; };
 		456EAA111FCC204A00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
 		456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		456EAA161FCC575B00A719ED /* ViewController+StandardSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA151FCC575B00A719ED /* ViewController+StandardSheet.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -114,6 +115,7 @@
 		456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButton.swift; sourceTree = "<group>"; };
 		456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderViewAppearance.swift; sourceTree = "<group>"; };
 		456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultActionSheetPresenter.swift; sourceTree = "<group>"; };
+		456EAA151FCC575B00A719ED /* ViewController+StandardSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+StandardSheet.swift"; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */ = {
 			isa = PBXGroup;
 			children = (
+				456EAA141FCC574B00A719ED /* Extensions */,
 				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
 				453C04631FC065AE0028FA02 /* Main.storyboard */,
@@ -275,6 +278,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		456EAA141FCC574B00A719ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				456EAA151FCC575B00A719ED /* ViewController+StandardSheet.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		45EB3FDF1FC8699600EF555E /* Cells */ = {
@@ -497,6 +508,7 @@
 			files = (
 				453C04621FC065AE0028FA02 /* ViewController.swift in Sources */,
 				453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */,
+				456EAA161FCC575B00A719ED /* ViewController+StandardSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

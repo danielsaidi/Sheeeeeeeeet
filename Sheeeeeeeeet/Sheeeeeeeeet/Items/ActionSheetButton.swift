@@ -6,6 +6,13 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This class is a base class for all action sheet buttons. It
+ is not intended to be used directly, but can be.
+ 
+ */
+
 import UIKit
 
 public class ActionSheetButton: ActionSheetItem {

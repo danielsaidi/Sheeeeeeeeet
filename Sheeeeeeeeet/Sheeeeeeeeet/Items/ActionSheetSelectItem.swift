@@ -9,12 +9,15 @@
 /*
  
  Select items are used to let the user select one or several
- items in an action sheet. The default mode is single select,
- which means that the action sheet will be dismissed when an
- item is selected. If you want to use multi select, just set
+ items in an action sheet.
+ 
+ The default mode is `single select`, where the action sheet
+ will be dismissed when an item is selected. You can however
+ still have multiple selected items in the action sheet.
+ 
+ To enable `multi select` mode for an action sheet, just set
  the `tapBehavior` property to `none` for every item and add
- a button to the action sheet, that applies any changes made
- by the user.
+ an OK button that applies the selected items.
  
  */
 

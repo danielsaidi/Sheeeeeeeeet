@@ -6,6 +6,13 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ Link items can be used when tapping them will take the user
+ somewhere, e.g. to another view controller or a web site.
+ 
+ */
+
 import UIKit
 
 public class ActionSheetLinkItem: ActionSheetItem {

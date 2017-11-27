@@ -6,6 +6,13 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ OK buttons have no special behavior, but can be used when a
+ user should apply action sheet changes by tapping an button.
+ 
+ */
+
 import UIKit
 
 public class ActionSheetOkButton: ActionSheetButton {

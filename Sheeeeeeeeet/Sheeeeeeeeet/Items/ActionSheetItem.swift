@@ -9,9 +9,8 @@
 /*
  
  This class represents a regular action sheet item, like the
- ones used by UIAlertController. It has an optional value to
- help identify what the user taps, as well as a title and an
- optional image.
+ ones used in UIAlertController. It has a title, an optional
+ value and an optional image.
  
  The default tap behavior of an action sheet item is to tell
  the action sheet that it was tapped, then dismiss the sheet.
@@ -20,7 +19,7 @@
  
  An action sheet item's appearance is set by the sheet, when
  it is presented. To use custom appearances for single items,
- just set the `appearance` property to a custom value.
+ just modify the item's `appearance` property.
  
  */
 
