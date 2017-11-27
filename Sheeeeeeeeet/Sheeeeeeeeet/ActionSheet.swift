@@ -81,26 +81,28 @@ open class ActionSheet: UIViewController {
         return ActionSheetAppearance(copy: standard)
     }()
     
-    public var contentHeight: Int {
-        var itemHeight = tableViewItems.reduce(0) { $0 + $1.appearance.height }
-        return itemHeight//////// sectionTotalHeight + itemTotalHeight
+    open var contentHeight: CGFloat {
+        let itemHeight = tableViewItems.reduce(0) { $0 + $1.appearance.height }
+        guard let view = headerView else { return itemHeight }
+        let headerHeight = view.frame.height
+        return itemHeight + headerHeight + appearance.headerView.bottomMargin
     }
+    
+    open var headerView: UIView?
     
     open var items = [ActionSheetItem]()
     
     open override var preferredContentSize: CGSize {
         get {
-            var size = super.preferredContentSize
-            size.height = CGFloat(contentHeight)
-            return size
+            let width = super.preferredContentSize.width
+            return CGSize(width: width, height: contentHeight)
         }
         set { super.preferredContentSize = newValue }
     }
     
     open var preferredPopoverSize: CGSize {
-        let width = CGFloat(appearance.popover.width)
-        let height = CGFloat(contentHeight)
-        return CGSize(width: width, height: height)
+        let width = appearance.popover.width
+        return CGSize(width: width, height: contentHeight)
     }
     
     open var tableViewItems: [ActionSheetItem] {

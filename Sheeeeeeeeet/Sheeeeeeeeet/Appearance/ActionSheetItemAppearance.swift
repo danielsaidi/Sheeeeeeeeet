@@ -27,7 +27,7 @@ open class ActionSheetItemAppearance {
     // MARK: - Properties
     
     public var font: UIFont?
-    public var height = 50
+    public var height: CGFloat = 50
     public var separatorInsets: UIEdgeInsets = .zero
     public var textColor: UIColor?
     public var tintColor: UIColor?

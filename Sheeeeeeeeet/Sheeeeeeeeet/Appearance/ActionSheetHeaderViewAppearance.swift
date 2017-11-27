@@ -13,16 +13,16 @@ open class ActionSheetHeaderViewAppearance {
     
     // MARK: - Initialization
     
-    public init(height: Int) {
-        self.height = height
+    public init(bottomMargin: CGFloat) {
+        self.bottomMargin = bottomMargin
     }
     
     public init(copy: ActionSheetHeaderViewAppearance) {
-        self.height = copy.height
+        self.bottomMargin = copy.bottomMargin
     }
     
     
     // MARK: - Properties
     
-    public var height: Int
+    public var bottomMargin: CGFloat
 }

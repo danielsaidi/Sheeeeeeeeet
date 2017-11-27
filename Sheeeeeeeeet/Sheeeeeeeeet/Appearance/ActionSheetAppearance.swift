@@ -51,7 +51,7 @@ open class ActionSheetAppearance {
     }()
     
     public lazy var headerView: ActionSheetHeaderViewAppearance = {
-        return ActionSheetHeaderViewAppearance(height: 150)
+        return ActionSheetHeaderViewAppearance(bottomMargin: 20)
     }()
     
     public lazy var item: ActionSheetItemAppearance = {

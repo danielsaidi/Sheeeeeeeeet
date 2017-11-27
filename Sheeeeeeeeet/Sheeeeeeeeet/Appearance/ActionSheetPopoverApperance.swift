@@ -13,7 +13,7 @@ open class ActionSheetPopoverApperance {
     
     // MARK: - Initialization
     
-    public init(width: Int) {
+    public init(width: CGFloat) {
         self.width = width
     }
     
@@ -24,5 +24,5 @@ open class ActionSheetPopoverApperance {
     
     // MARK: - Properties
     
-    public var width: Int
+    public var width: CGFloat
 }
