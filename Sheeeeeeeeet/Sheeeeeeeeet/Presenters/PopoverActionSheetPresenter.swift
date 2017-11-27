@@ -8,12 +8,16 @@
 
 /*
  
- This presenter will present action sheets as popovers,
- just as regular UIAlertControllers are displayed when
- being displayed in actionsheet mode on an iPad.
+ This presenter will present action sheets as popovers, just
+ as regular UIAlertControllers are displayed on the iPad. It
+ should only be used when an action sheet is displayed on an
+ iPad device.
  
- Only use this presenter when you know that you are on
- an iPad or when the UI can display popover on iPhones.
+ Since a popover has an arrow that should use the same color
+ as the rest of the popover view, this presenter will remove
+ any header view that is set for the action sheet. It should
+ not even be needed, since a popover points at the object it
+ will affect.
  
  */
 
@@ -24,12 +28,25 @@ import UIKit
 
 open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
     
+    
+    // MARK: - Properties
+    
+    fileprivate var actionSheetBackgroundColor: UIColor?
+    fileprivate var actionSheetHeaderView: UIView?
+    
+    
+    
+    // MARK: - ActionSheetPresenter
+    
     public func dismiss(sheet: ActionSheet, completion: (() -> ())?) {
         sheet.presentingViewController?.dismiss(animated: true, completion: completion)
+        sheet.view.backgroundColor = actionSheetBackgroundColor
+        sheet.headerView = actionSheetHeaderView
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: (() -> ())?) {
         guard sheet.contentHeight > 0 else { return }
+        adjustSheetForPopoverPresentation(sheet)
         sheet.preferredContentSize = sheet.preferredPopoverSize
         let popover = getPopoverPresentationController(for: sheet, in: vc)
         setup(popover: popover, for: view)
@@ -41,6 +58,13 @@ open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
 // MARK: - Private Functions
 
 fileprivate extension PopoverActionSheetPresenter {
+    
+    func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
+        actionSheetBackgroundColor = sheet.view.backgroundColor
+        sheet.view.backgroundColor = sheet.tableView.backgroundColor
+        actionSheetHeaderView = sheet.headerView
+        sheet.headerView = nil
+    }
     
     func getPopoverPresentationController(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         sheet.modalPresentationStyle = .popover
@@ -60,4 +84,3 @@ fileprivate extension PopoverActionSheetPresenter {
         popover?.sourceRect = CGRect(x: center.x, y: center.y, width: 1, height: 1)
     }
 }
-

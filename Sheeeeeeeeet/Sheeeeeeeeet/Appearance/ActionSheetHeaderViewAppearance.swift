@@ -2,7 +2,7 @@
 //  ActionSheetHeaderViewAppearance.swift
 //  Sheeeeeeeeet
 //
-//  Created by Saidi Daniel (BookBeat) on 2017-11-27.
+//  Created by Daniel Saidi on 2017-11-27.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 

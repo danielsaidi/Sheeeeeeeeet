@@ -29,5 +29,3 @@ public class ActionSheetButton: ActionSheetItem {
         cell.textLabel?.textAlignment = .center
     }
 }
-
-
