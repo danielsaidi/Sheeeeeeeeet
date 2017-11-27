@@ -13,20 +13,16 @@ open class ActionSheetHeaderViewAppearance {
     
     // MARK: - Initialization
     
-    public init(width: Int, cornerRadius: Int) {
-        self.width = width
-        self.cornerRadius = cornerRadius
+    public init(height: Int) {
+        self.height = height
     }
     
-    public init(copy: ActionSheetPopoverApperance) {
-        self.width = copy.width
-        self.cornerRadius = copy.cornerRadius
+    public init(copy: ActionSheetHeaderViewAppearance) {
+        self.height = copy.height
     }
     
     
     // MARK: - Properties
     
-    public var cornerRadius: Int
-    public var width: Int
+    public var height: Int
 }
-

@@ -30,6 +30,7 @@ open class ActionSheetAppearance {
     
     public init(copy: ActionSheetAppearance) {
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
+        headerView = ActionSheetHeaderViewAppearance(copy: copy.headerView)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
         okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
@@ -49,6 +50,10 @@ open class ActionSheetAppearance {
         return ActionSheetCancelButtonAppearance(copy: item)
     }()
     
+    public lazy var headerView: ActionSheetHeaderViewAppearance = {
+        return ActionSheetHeaderViewAppearance(height: 150)
+    }()
+    
     public lazy var item: ActionSheetItemAppearance = {
         return ActionSheetItemAppearance()
     }()
@@ -62,7 +67,7 @@ open class ActionSheetAppearance {
     }()
     
     public lazy var popover: ActionSheetPopoverApperance = {
-        return ActionSheetPopoverApperance(width: 300, cornerRadius: 4)
+        return ActionSheetPopoverApperance(width: 300)
     }()
     
     public lazy var sectionTitle: ActionSheetSectionTitleAppearance = {

@@ -236,6 +236,7 @@
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */,
 				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
+				456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
 				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
@@ -244,7 +245,6 @@
 				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
 				453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */,
 				45EB3FD11FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift */,
-				456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
