@@ -43,6 +43,8 @@ extension ViewController {
         
         appearance.okButton.textColor = .darkGray
         appearance.okButton.font = UIFont(name: robotoBlack, size: 17)
+        appearance.dangerButton.textColor = pink
+        appearance.dangerButton.font = UIFont(name: robotoBlack, size: 17)
         appearance.cancelButton.textColor = .lightGray
         appearance.cancelButton.font = UIFont(name: robotoMedium, size: 17)
     }
