@@ -74,9 +74,9 @@ extension ViewController {
     
     func sectionActionSheet() -> ActionSheet {
         let cheapOptions = foodOptions().filter { $0.isCheap }
-        let cheapItems = cheapOptions.map { $0.singleSelectItem(isSelected: false) }
+        let cheapItems = cheapOptions.map { $0.item() }
         let expensiveOptions = foodOptions().filter { !$0.isCheap }
-        let expensiveItems = expensiveOptions.map { $0.singleSelectItem(isSelected: false) }
+        let expensiveItems = expensiveOptions.map { $0.item() }
         
         var items: [ActionSheetItem] = [titleItem]
         items.append(ActionSheetSectionTitle(title: "Cheap"))
@@ -84,9 +84,23 @@ extension ViewController {
         items.append(ActionSheetSectionMargin())
         items.append(ActionSheetSectionTitle(title: "Expensive"))
         expensiveItems.forEach { items.append($0) }
-        items.append(okButton)
         items.append(cancelButton)
         
+        return ActionSheet(items: items) { (sheet, item) in
+            guard item.value != nil else { return }
+            self.alert(item: item)
+        }
+    }
+    
+    func destructiveActionSheet() -> ActionSheet {
+        let titleItem = ActionSheetTitle(title: "Remove Payment Options")
+        let image = UIImage(named: "ic_credit_card")
+        let visaTitle = "Visa **** **** **** 4321"
+        let visa = ActionSheetToggleItem(title: visaTitle, isToggled: false, value: "visa", image: image)
+        let masterTitle = "MasterCard **** **** **** 9876"
+        let master = ActionSheetToggleItem(title: masterTitle, isToggled: false, value: "master", image: image)
+        let removeButton = ActionSheetDangerButton(title: "Remove")
+        let items = [titleItem, visa, master, cancelButton, removeButton]
         return ActionSheet(items: items) { (sheet, item) in
             guard item.value as? Bool == true else { return }
             let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }

@@ -17,7 +17,8 @@ enum TableViewOption {
     singleSelect,
     multiSelect,
     toggle,
-    sections
+    sections,
+    danger
     
     var displayName: String {
         switch self {
@@ -26,6 +27,7 @@ enum TableViewOption {
         case .multiSelect: return "Multi-select action sheet"
         case .toggle: return "Toggle action sheet"
         case .sections: return "Section divided action sheet"
+        case .danger: return "Destructive action sheet"
         }
     }
 }

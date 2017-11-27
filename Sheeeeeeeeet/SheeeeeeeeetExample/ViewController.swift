@@ -42,7 +42,8 @@ class ViewController: UIViewController {
         .singleSelect,
         .multiSelect,
         .toggle,
-        .sections
+        .sections,
+        .danger
     ]
     
     func foodOptions() -> [FoodOption] {
@@ -74,7 +75,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Select Example"
+        return "Pick Example"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,6 +101,7 @@ extension ViewController: UITableViewDelegate {
         case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
         case .toggle: actionSheet = toggleActionSheet(preselected: [.fancy, .fast])
         case .sections: actionSheet = sectionActionSheet()
+        case .danger: actionSheet = destructiveActionSheet()
         }
         
         actionSheet?.present(in: self, from: cell)
