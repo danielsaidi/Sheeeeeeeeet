@@ -17,17 +17,19 @@ enum TableViewOption {
     singleSelect,
     multiSelect,
     toggle,
+    links,
     sections,
     danger
     
     var displayName: String {
         switch self {
-        case .standard: return "Standard action sheet"
-        case .singleSelect: return "Single-select action sheet"
-        case .multiSelect: return "Multi-select action sheet"
-        case .toggle: return "Toggle action sheet"
-        case .sections: return "Section divided action sheet"
-        case .danger: return "Destructive action sheet"
+        case .standard: return "Standard"
+        case .singleSelect: return "Single-select"
+        case .multiSelect: return "Multi-select"
+        case .toggle: return "Toggle options"
+        case .links: return "Links"
+        case .sections: return "Sections"
+        case .danger: return "Destructive action"
         }
     }
 }

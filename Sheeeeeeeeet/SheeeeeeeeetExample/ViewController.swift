@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         .singleSelect,
         .multiSelect,
         .toggle,
+        .links,
         .sections,
         .danger
     ]
@@ -100,6 +101,7 @@ extension ViewController: UITableViewDelegate {
         case .singleSelect: actionSheet = singleSelectActionSheet(preselected: .fancy)
         case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
         case .toggle: actionSheet = toggleActionSheet(preselected: [.fancy, .fast])
+        case .links: actionSheet = linkActionSheet()
         case .sections: actionSheet = sectionActionSheet()
         case .danger: actionSheet = destructiveActionSheet()
         }

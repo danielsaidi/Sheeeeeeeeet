@@ -72,6 +72,18 @@ extension ViewController {
         }
     }
     
+    func linkActionSheet() -> ActionSheet {
+        var items = foodOptions().map { $0.linkItem() }
+        let title = titleItem
+        title.title = "What do you want to buy?"
+        items.insert(titleItem, at: 0)
+        items.append(cancelButton)
+        return ActionSheet(items: items) { (sheet, item) in
+            guard item.value != nil else { return }
+            self.alert(item: item)
+        }
+    }
+    
     func sectionActionSheet() -> ActionSheet {
         let cheapOptions = foodOptions().filter { $0.isCheap }
         let cheapItems = cheapOptions.map { $0.item() }
@@ -117,6 +129,13 @@ fileprivate extension FoodOption {
     
     func item() -> ActionSheetItem {
         return ActionSheetItem(
+            title: displayName,
+            value: self,
+            image: image)
+    }
+    
+    func linkItem() -> ActionSheetItem {
+        return ActionSheetLinkItem(
             title: displayName,
             value: self,
             image: image)

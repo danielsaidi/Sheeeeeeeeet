@@ -47,6 +47,8 @@ extension ViewController {
         appearance.toggleItem.toggledTextColor = .darkGray
         appearance.toggleItem.toggledTintColor = .darkGray
         
+        appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
+        
         appearance.okButton.textColor = .darkGray
         appearance.okButton.font = UIFont(name: robotoBlack, size: 17)
         
