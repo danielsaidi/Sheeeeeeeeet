@@ -25,4 +25,5 @@ function_parameter_count:
 
 variable_name:
   excluded: # excluded via string array
+    - ok
     - vc

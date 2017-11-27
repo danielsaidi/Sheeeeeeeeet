@@ -12,11 +12,11 @@ import Sheeeeeeeeet
 extension ViewController {
     
     func alert(item: ActionSheetItem) {
-        alert(message: item.displayValue)
+        alert(message: item.title)
     }
     
     func alert(items: [ActionSheetItem]) {
-        let message = items.map { $0.displayValue }.joined(separator: " & ")
+        let message = items.map { $0.title }.joined(separator: " + ")
         alert(message: message)
     }
     

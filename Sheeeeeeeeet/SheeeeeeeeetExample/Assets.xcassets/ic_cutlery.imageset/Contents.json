@@ -1,23 +1,26 @@
 {
-    "images": [
-        {
-            "filename": "ic_restaurant.png",
-            "idiom": "universal",
-            "scale": "1x"
-        },
-        {
-            "filename": "ic_restaurant_2x.png",
-            "idiom": "universal",
-            "scale": "2x"
-        },
-        {
-            "filename": "ic_restaurant_3x.png",
-            "idiom": "universal",
-            "scale": "3x"
-        }
-    ],
-    "info": {
-        "author": "xcode",
-        "version": 1
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "ic_restaurant.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "ic_restaurant_2x.png",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "ic_restaurant_3x.png",
+      "scale" : "3x"
     }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
 }

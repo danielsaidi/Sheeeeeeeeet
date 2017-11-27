@@ -34,7 +34,30 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     fileprivate var actionSheet: ActionSheet?
+    
     fileprivate var actionSheetItems: [ActionSheetItem]?
+    
+    fileprivate var tableViewOptions: [TableViewOption] = [
+        .standard,
+        .singleSelect,
+        .singleSelectPreselected,
+        .multiSelect,
+        .multiSelectPreselected
+    ]
+    
+    func foodOptions() -> [FoodOption] {
+        return [.fast, .light, .homeMade, .fancy, .none]
+    }
+    
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableView: UITableView? {
+        didSet {
+            tableView?.delegate = self
+            tableView?.dataSource = self
+        }
+    }
     
     
     // MARK: - Actions
@@ -49,14 +72,47 @@ class ViewController: UIViewController {
         
         alert(item: item)
     }
+}
+
+
+// MARK: - UITableViewDataSource
+
+extension ViewController: UITableViewDataSource {
     
-    
-    
-    
-    @IBAction func showActionSheet(_ sender: Any) {
-        actionSheet = createDefaultActionSheet(action: actionSheetItemTapped)
-        
-        //actionSheet?.headerView?.backgroundColor = .red
-        actionSheet?.present(in: self, from: sender as? UIView)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewOptions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let option = tableViewOptions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = option.displayName
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        
+        switch tableViewOptions[indexPath.row] {
+        case .standard: actionSheet = standardActionSheet()
+        case .singleSelect: actionSheet = singleSelectActionSheet(preselected: nil)
+        case .singleSelectPreselected: actionSheet = singleSelectActionSheet(preselected: .fancy)
+        case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [])
+        case .multiSelectPreselected: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
+        }
+        
+        actionSheet?.present(in: self, from: cell)
+    }
+    
 }

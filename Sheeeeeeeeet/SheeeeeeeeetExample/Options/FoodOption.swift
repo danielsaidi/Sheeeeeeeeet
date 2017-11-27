@@ -6,6 +6,8 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+// This enum is only used to populate our example sheets.
+
 import UIKit
 
 enum FoodOption: String {
@@ -14,6 +16,7 @@ enum FoodOption: String {
     fancy,
     fast,
     homeMade,
+    light,
     none
     
     var displayName: String {
@@ -21,6 +24,7 @@ enum FoodOption: String {
         case .fancy: return "Something fancy"
         case .fast: return "Something fast"
         case .homeMade: return "Something home-made"
+        case .light: return "Something light"
         case .none: return "I don't eat"
         }
     }
@@ -34,6 +38,7 @@ enum FoodOption: String {
         case .fancy: return "ic_cutlery"
         case .fast: return "ic_pizza"
         case .homeMade: return "ic_grocery"
+        case .light: return "ic_coffee"
         case .none: return "ic_drink"
         }
     }
