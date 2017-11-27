@@ -53,4 +53,9 @@ public class ActionSheetSelectItem: ActionSheetItem {
         cell.tintColor = isSelected ? appearance.selectedTintColor : appearance.tintColor
         cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
+    
+    open override func handleTap() {
+        super.handleTap()
+        isSelected = !isSelected
+    }
 }

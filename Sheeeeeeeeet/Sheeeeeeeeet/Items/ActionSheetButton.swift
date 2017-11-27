@@ -1,5 +1,5 @@
 //
-//  ActionSheetCancelButton.swift
+//  ActionSheetButton.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-26.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class ActionSheetCancelButton: ActionSheetButton {
+public class ActionSheetButton: ActionSheetItem {
     
     
     // MARK: - Initialization
     
-    public override init(title: String) {
+    public init(title: String) {
         super.init(title: title)
     }
     
@@ -21,7 +21,7 @@ public class ActionSheetCancelButton: ActionSheetButton {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
+        self.appearance = ActionSheetButtonAppearance(copy: appearance.okButton)
     }
     
     open override func applyAppearance(to cell: UITableViewCell) {
@@ -29,3 +29,5 @@ public class ActionSheetCancelButton: ActionSheetButton {
         cell.textLabel?.textAlignment = .center
     }
 }
+
+

@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class ActionSheetOkButton: ActionSheetItem {
+public class ActionSheetOkButton: ActionSheetButton {
     
     
     // MARK: - Initialization
     
-    public init(title: String) {
+    public override init(title: String) {
         super.init(title: title)
     }
     

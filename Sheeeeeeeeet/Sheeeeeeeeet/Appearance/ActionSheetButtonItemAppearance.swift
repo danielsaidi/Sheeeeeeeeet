@@ -1,5 +1,5 @@
 //
-//  ActionSheetOkButtonAppearance.swift
+//  ActionSheetButtonItemAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,4 +8,5 @@
 
 import UIKit
 
-public class ActionSheetOkButtonAppearance: ActionSheetButtonAppearance {}
+public class ActionSheetButtonAppearance: ActionSheetItemAppearance {}
+

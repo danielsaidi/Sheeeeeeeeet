@@ -83,4 +83,6 @@ open class ActionSheetItem: NSObject {
         applyAppearance(to: cell)
         return cell
     }
+    
+    open func handleTap() {}
 }

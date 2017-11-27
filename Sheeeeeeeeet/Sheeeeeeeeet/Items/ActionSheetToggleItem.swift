@@ -22,8 +22,8 @@ public class ActionSheetToggleItem: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String, isEnabled: Bool, value: Any? = nil, image: UIImage? = nil) {
-        self.isEnabled = isEnabled
+    public init(title: String, isToggled: Bool, value: Any? = nil, image: UIImage? = nil) {
+        self.isToggled = isToggled
         super.init(title: title, value: value, image: image)
         tapBehavior = .none
     }
@@ -31,7 +31,7 @@ public class ActionSheetToggleItem: ActionSheetItem {
     
     // MARK: - Properties
     
-    open var isEnabled: Bool
+    open var isToggled: Bool
     
     open var toggleAppearance: ActionSheetToggleItemAppearance? {
         return appearance as? ActionSheetToggleItemAppearance
@@ -47,8 +47,13 @@ public class ActionSheetToggleItem: ActionSheetItem {
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         guard let appearance = toggleAppearance else { return }
-        cell.accessoryView = UIImageView(image: isEnabled ? appearance.enabledIcon : appearance.disabledIcon)
-        cell.tintColor = isEnabled ? appearance.enabledTintColor : appearance.disabledTintColor
-        cell.textLabel?.textColor = isEnabled ? appearance.enabledTextColor : appearance.disabledTextColor
+        cell.accessoryView = UIImageView(image: isToggled ? appearance.enabledIcon : appearance.disabledIcon)
+        cell.tintColor = isToggled ? appearance.enabledTintColor : appearance.disabledTintColor
+        cell.textLabel?.textColor = isToggled ? appearance.enabledTextColor : appearance.disabledTextColor
+    }
+    
+    open override func handleTap() {
+        super.handleTap()
+        isToggled = !isToggled
     }
 }
