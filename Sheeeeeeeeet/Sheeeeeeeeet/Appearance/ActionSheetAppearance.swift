@@ -39,6 +39,7 @@ open class ActionSheetAppearance {
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
         okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
         popover = ActionSheetPopoverApperance(copy: copy.popover)
+        sectionMargin = ActionSheetSectionMarginAppearance(copy: copy.sectionMargin)
         sectionTitle = ActionSheetSectionTitleAppearance(copy: copy.sectionTitle)
         selectItem = ActionSheetSelectItemAppearance(copy: copy.selectItem)
         title = ActionSheetTitleAppearance(copy: copy.title)
@@ -89,6 +90,10 @@ open class ActionSheetAppearance {
     
     public lazy var sectionTitle: ActionSheetSectionTitleAppearance = {
         return ActionSheetSectionTitleAppearance(copy: item)
+    }()
+    
+    public lazy var sectionMargin: ActionSheetSectionMarginAppearance = {
+        return ActionSheetSectionMarginAppearance(height: 20)
     }()
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {

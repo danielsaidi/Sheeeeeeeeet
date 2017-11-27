@@ -16,14 +16,16 @@ enum TableViewOption {
     standard,
     singleSelect,
     multiSelect,
-    toggle
+    toggle,
+    sections
     
     var displayName: String {
         switch self {
         case .standard: return "Standard action sheet"
         case .singleSelect: return "Single-select action sheet"
         case .multiSelect: return "Multi-select action sheet"
-        case .toggle: return "Toggle sheet"
+        case .toggle: return "Toggle action sheet"
+        case .sections: return "Section divided action sheet"
         }
     }
 }

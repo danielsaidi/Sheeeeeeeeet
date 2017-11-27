@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         .singleSelect,
         .multiSelect,
         .toggle,
+        .sections
     ]
     
     func foodOptions() -> [FoodOption] {
@@ -56,20 +57,6 @@ class ViewController: UIViewController {
             tableView?.delegate = self
             tableView?.dataSource = self
         }
-    }
-    
-    
-    // MARK: - Actions
-    
-    func actionSheetItemTapped(_ sheet: ActionSheet, _ item: ActionSheetItem) {
-        guard item.value != nil else { return }
-        alert(item: item)
-    }
-    
-    func multiSelectionSubmitted(_ sheet: ActionSheet, _ item: ActionSheetItem) {
-        guard item.tapBehavior == .dismiss else { return }
-        
-        alert(item: item)
     }
 }
 
@@ -87,7 +74,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Action Sheet Examples"
+        return "Select Example"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,6 +99,7 @@ extension ViewController: UITableViewDelegate {
         case .singleSelect: actionSheet = singleSelectActionSheet(preselected: .fancy)
         case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
         case .toggle: actionSheet = toggleActionSheet(preselected: [.fancy, .fast])
+        case .sections: actionSheet = sectionActionSheet()
         }
         
         actionSheet?.present(in: self, from: cell)

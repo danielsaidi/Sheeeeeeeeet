@@ -42,4 +42,11 @@ enum FoodOption: String {
         case .none: return "ic_drink"
         }
     }
+    
+    var isCheap: Bool {
+        switch self {
+        case .fancy: return false
+        default: return true
+        }
+    }
 }

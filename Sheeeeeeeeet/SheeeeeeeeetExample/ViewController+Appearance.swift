@@ -30,6 +30,12 @@ extension ViewController {
         appearance.title.separatorInsets.right = .greatestFiniteMagnitude
         appearance.title.font = UIFont(name: robotoMedium, size: 15)
         
+        appearance.sectionTitle.separatorInsets.right = .greatestFiniteMagnitude
+        appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
+        appearance.sectionTitle.height = 20
+        
+        appearance.sectionMargin.height = 20
+        
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.selectedTextColor = green
         appearance.selectItem.selectedTintColor = green

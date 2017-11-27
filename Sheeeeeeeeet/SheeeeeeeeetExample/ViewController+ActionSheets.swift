@@ -71,6 +71,29 @@ extension ViewController {
             self.alert(items: toggled)
         }
     }
+    
+    func sectionActionSheet() -> ActionSheet {
+        let cheapOptions = foodOptions().filter { $0.isCheap }
+        let cheapItems = cheapOptions.map { $0.singleSelectItem(isSelected: false) }
+        let expensiveOptions = foodOptions().filter { !$0.isCheap }
+        let expensiveItems = expensiveOptions.map { $0.singleSelectItem(isSelected: false) }
+        
+        var items: [ActionSheetItem] = [titleItem]
+        items.append(ActionSheetSectionTitle(title: "Cheap"))
+        cheapItems.forEach { items.append($0) }
+        items.append(ActionSheetSectionMargin())
+        items.append(ActionSheetSectionTitle(title: "Expensive"))
+        expensiveItems.forEach { items.append($0) }
+        items.append(okButton)
+        items.append(cancelButton)
+        
+        return ActionSheet(items: items) { (sheet, item) in
+            guard item.value as? Bool == true else { return }
+            let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }
+            let toggled = items.filter { $0.isToggled }
+            self.alert(items: toggled)
+        }
+    }
 }
 
 
