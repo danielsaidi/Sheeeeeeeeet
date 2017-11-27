@@ -20,6 +20,10 @@ extension ViewController {
         alert(message: message)
     }
     
+    func alert(option: TableViewOption) {
+        alert(message: option.alertMessage)
+    }
+    
     func alert(message: String) {
         let title = "You selected:"
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

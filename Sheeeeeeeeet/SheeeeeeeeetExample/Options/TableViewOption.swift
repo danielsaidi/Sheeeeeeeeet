@@ -20,18 +20,27 @@ enum TableViewOption {
     links,
     sections,
     danger,
-    headerView
+    headerView,
+    peekPop
     
     var displayName: String {
         switch self {
         case .standard: return "Standard"
         case .singleSelect: return "Single-select"
         case .multiSelect: return "Multi-select"
-        case .toggle: return "Toggle options"
+        case .toggle: return "Toggle Options"
         case .links: return "Links"
         case .sections: return "Sections"
-        case .danger: return "Destructive action"
-        case .headerView: return "Header view"
+        case .danger: return "Destructive Action"
+        case .headerView: return "Header View"
+        case .peekPop: return "Peek & Pop"
+        }
+    }
+    
+    var alertMessage: String {
+        switch self {
+        case .peekPop: return "Use 3D touch to preview an action sheet"
+        default: return ""
         }
     }
 }

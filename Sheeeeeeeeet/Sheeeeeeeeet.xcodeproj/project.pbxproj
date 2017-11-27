@@ -255,20 +255,17 @@
 		453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */ = {
 			isa = PBXGroup;
 			children = (
+				456EAA4D1FCCC27F00A719ED /* ActionSheetPreviewer.swift */,
 				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
-				453C04661FC065AE0028FA02 /* Assets.xcassets */,
 				456EAA421FCCA02E00A719ED /* Extensions */,
-				456EAA171FCC615A00A719ED /* Fonts */,
 				453C046B1FC065AE0028FA02 /* Info.plist */,
-				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
-				453C04631FC065AE0028FA02 /* Main.storyboard */,
 				456EAA3E1FCC920700A719ED /* Options */,
+				456EAA511FCCC7AB00A719ED /* Storyboards */,
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
 				456EAA351FCC668F00A719ED /* ViewController+ActionSheets.swift */,
 				456EAA331FCC665800A719ED /* ViewController+Alerts.swift */,
 				456EAA371FCC66ED00A719ED /* ViewController+Appearance.swift */,
-				456EAA4D1FCCC27F00A719ED /* ActionSheetPreviewer.swift */,
 			);
 			path = SheeeeeeeeetExample;
 			sourceTree = "<group>";
@@ -370,7 +367,9 @@
 		456EAA3B1FCC8FF200A719ED /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				456EAA3C1FCC8FF200A719ED /* title-image.png */,
+				453C04661FC065AE0028FA02 /* Assets.xcassets */,
+				456EAA171FCC615A00A719ED /* Fonts */,
+				456EAA501FCCC79800A719ED /* Images */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -390,6 +389,23 @@
 				456EAA431FCCA03700A719ED /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		456EAA501FCCC79800A719ED /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				456EAA3C1FCC8FF200A719ED /* title-image.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		456EAA511FCCC7AB00A719ED /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
+				453C04631FC065AE0028FA02 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		45EB3FDF1FC8699600EF555E /* Cells */ = {

@@ -44,9 +44,10 @@ class ViewController: UIViewController {
         .multiSelect,
         .toggle,
         .links,
-        .sections,
         .headerView,
-        .danger
+        .sections,
+        .danger,
+        .peekPop
     ]
     
     func foodOptions() -> [FoodOption] {
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
     
     // MARK: - Functions
     
-    func actionSheet(at indexPath: IndexPath) -> ActionSheet {
+    func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
         switch tableViewOptions[indexPath.row] {
         case .standard: return standardActionSheet()
         case .singleSelect: return singleSelectActionSheet(preselected: .fancy)
@@ -76,6 +77,7 @@ class ViewController: UIViewController {
         case .headerView: return headerViewActionSheet()
         case .sections: return sectionActionSheet()
         case .danger: return destructiveActionSheet()
+        case .peekPop: return nil
         }
     }
 }
@@ -123,8 +125,10 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let option = tableViewOptions[indexPath.row]
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        actionSheet = self.actionSheet(at: indexPath)
+        guard let sheet = actionSheet(at: indexPath) else { return alert(option: option) }
+        actionSheet = sheet
         actionSheet?.present(in: self, from: cell)
     }
 }
