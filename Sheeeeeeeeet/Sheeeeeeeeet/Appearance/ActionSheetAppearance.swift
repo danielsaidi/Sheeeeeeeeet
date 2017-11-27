@@ -34,7 +34,7 @@ public class ActionSheetAppearance {
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
         okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
         popover = ActionSheetPopoverApperance(copy: copy.popover)
-        sectionHeader = ActionSheetSectionHeaderAppearance(copy: copy.sectionHeader)
+        sectionTitle = ActionSheetSectionTitleAppearance(copy: copy.sectionTitle)
         selectItem = ActionSheetSelectItemAppearance(copy: copy.selectItem)
         title = ActionSheetTitleAppearance(copy: copy.title)
         toggleItem = ActionSheetToggleItemAppearance(copy: copy.toggleItem)
@@ -65,8 +65,8 @@ public class ActionSheetAppearance {
         return ActionSheetPopoverApperance(width: 300, cornerRadius: 4)
     }()
     
-    public lazy var sectionHeader: ActionSheetSectionHeaderAppearance = {
-        return ActionSheetSectionHeaderAppearance(copy: item)
+    public lazy var sectionTitle: ActionSheetSectionTitleAppearance = {
+        return ActionSheetSectionTitleAppearance(copy: item)
     }()
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {

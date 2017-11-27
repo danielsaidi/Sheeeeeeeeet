@@ -1,5 +1,5 @@
 //
-//  ActionSheetSectionHeader.swift
+//  ActionSheetSectionTitle.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ActionSheetSectionHeader: ActionSheetItem {
+public class ActionSheetSectionTitle: ActionSheetItem {
     
     
     // MARK: - Initialization
@@ -21,6 +21,6 @@ public class ActionSheetSectionHeader: ActionSheetItem {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetSectionHeaderAppearance(copy: appearance.sectionHeader)
+        self.appearance = ActionSheetSectionTitleAppearance(copy: appearance.sectionTitle)
     }
 }

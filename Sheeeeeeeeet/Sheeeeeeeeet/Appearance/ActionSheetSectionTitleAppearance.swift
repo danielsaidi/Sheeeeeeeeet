@@ -1,5 +1,5 @@
 //
-//  ActionSheetSectionHeaderAppearance.swift
+//  ActionSheetSectionTitleAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-19.
@@ -8,4 +8,4 @@
 
 import UIKit
 
-public class ActionSheetSectionHeaderAppearance: ActionSheetItemAppearance {}
+public class ActionSheetSectionTitleAppearance: ActionSheetItemAppearance {}
