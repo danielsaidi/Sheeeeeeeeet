@@ -49,6 +49,11 @@ open class ActionSheetItem: NSObject {
     open var appearance: ActionSheetItemAppearance
     open var tapBehavior: ActionSheetItemTapBehavior = .dismiss
     
+    open var displayValue: String {
+        guard let value = value else { return title }
+        return "\(value)"
+    }
+    
     
     // MARK: - Internal Properties
     

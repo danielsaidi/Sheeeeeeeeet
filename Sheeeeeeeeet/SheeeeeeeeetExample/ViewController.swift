@@ -10,7 +10,10 @@
  
  Action sheet appearance should be configured as globally as
  possible, e.g. by a bootstrapper when the app starts. It is
- handled here to simplify the example.
+ handled here to simplify understanding the example.
+ 
+ To make the example easier to overview, the view controller
+ has been split up in many smaller files.
  
  */
 
@@ -30,37 +33,30 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    var actionSheet: ActionSheet?
+    fileprivate var actionSheet: ActionSheet?
+    fileprivate var actionSheetItems: [ActionSheetItem]?
     
     
-    // MARK: -
+    // MARK: - Actions
     
+    func actionSheetItemTapped(_ sheet: ActionSheet, _ item: ActionSheetItem) {
+        guard item.tapBehavior == .dismiss else { return }
+        alert(item: item)
+    }
     
+    func multiSelectionSubmitted(_ sheet: ActionSheet, _ item: ActionSheetItem) {
+        guard item.tapBehavior == .dismiss else { return }
+        
+        alert(item: item)
+    }
     
     
     
     
     @IBAction func showActionSheet(_ sender: Any) {
-        actionSheet = standardActionSheet { item in
-            print(item.value)
-        }
+        actionSheet = createDefaultActionSheet(action: actionSheetItemTapped)
         
         //actionSheet?.headerView?.backgroundColor = .red
         actionSheet?.present(in: self, from: sender as? UIView)
-    }
-}
-
-
-// MARK: - Private Functions
-
-fileprivate extension ViewController {
-    
-    func applyActionSheetAppearance() {
-        let appearance = ActionSheetAppearance.standard
-        
-        appearance.title.separatorInsets.right = .greatestFiniteMagnitude
-        
-        
-        
     }
 }

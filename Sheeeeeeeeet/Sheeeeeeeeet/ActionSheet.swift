@@ -24,7 +24,7 @@
 
 import UIKit
 
-public typealias ActionSheetItemSelectAction = (ActionSheetItem) -> ()
+public typealias ActionSheetItemSelectAction = (ActionSheet, ActionSheetItem) -> ()
 
 
 open class ActionSheet: UIViewController {
@@ -127,10 +127,11 @@ open class ActionSheet: UIViewController {
     
     fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
         return ActionSheetDelegate(actionSheet: self) { [weak self] item in
-            self?.tableView.reloadData()
-            self?.action(item)
+            guard let sheet = self else { return }
+            sheet.tableView.reloadData()
+            sheet.action(sheet, item)
             if item.dismissesOnTap {
-                self?.dismiss()
+                sheet.dismiss()
             }
         }
     }()
