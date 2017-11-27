@@ -12,15 +12,15 @@ import Sheeeeeeeeet
 extension ViewController {
     
     func getFoodOptions() -> [FoodOption] {
-        return [.fast, .homeMade, .fineDining, .nothing]
+        return [.fast, .homeMade, .fancy, .none]
     }
     
     func createDefaultActionSheet(
         action: @escaping ActionSheetItemSelectAction) -> ActionSheet {
-        let title = ActionSheetTitle(title: "Pick your favorite food")
         let options = getFoodOptions()
         var items = options.map { ActionSheetItem(title: $0.displayName, value: $0, image: $0.image) }
-        items.insert(title, at: 0)
+        items.insert(ActionSheetTitle(title: "Pick your favorite food"), at: 0)
+        items.append(ActionSheetCancelButton(title: "CANCEL"))
         return ActionSheet(items: items, action: action)
     }
 }

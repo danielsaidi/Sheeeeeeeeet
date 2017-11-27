@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     func actionSheetItemTapped(_ sheet: ActionSheet, _ item: ActionSheetItem) {
-        guard item.tapBehavior == .dismiss else { return }
+        guard item.value != nil else { return }
         alert(item: item)
     }
     

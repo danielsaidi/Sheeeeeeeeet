@@ -11,17 +11,17 @@ import UIKit
 enum FoodOption: String {
     
     case
+    fancy,
     fast,
-    fineDining,
     homeMade,
-    nothing
+    none
     
     var displayName: String {
         switch self {
+        case .fancy: return "Something fancy"
         case .fast: return "Something fast"
-        case .fineDining: return "Something fancy"
         case .homeMade: return "Something home-made"
-        case .nothing: return "I don't eat"
+        case .none: return "I don't eat"
         }
     }
     
@@ -31,10 +31,10 @@ enum FoodOption: String {
     
     var imageName: String {
         switch self {
+        case .fancy: return "ic_cutlery"
         case .fast: return "ic_pizza"
-        case .fineDining: return "ic_cutlery"
         case .homeMade: return "ic_grocery"
-        case .nothing: return "ic_drink"
+        case .none: return "ic_drink"
         }
     }
 }
