@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         .toggle,
         .links,
         .sections,
+        .headerView,
         .danger
     ]
     
@@ -76,7 +77,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Pick Example"
+        return "Pick Action Sheet Example"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,6 +103,7 @@ extension ViewController: UITableViewDelegate {
         case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
         case .toggle: actionSheet = toggleActionSheet(preselected: [.fancy, .fast])
         case .links: actionSheet = linkActionSheet()
+        case .headerView: actionSheet = headerViewActionSheet()
         case .sections: actionSheet = sectionActionSheet()
         case .danger: actionSheet = destructiveActionSheet()
         }

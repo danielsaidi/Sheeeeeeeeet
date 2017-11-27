@@ -19,7 +19,8 @@ enum TableViewOption {
     toggle,
     links,
     sections,
-    danger
+    danger,
+    headerView
     
     var displayName: String {
         switch self {
@@ -30,6 +31,7 @@ enum TableViewOption {
         case .links: return "Links"
         case .sections: return "Sections"
         case .danger: return "Destructive action"
+        case .headerView: return "Header view"
         }
     }
 }

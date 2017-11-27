@@ -84,6 +84,14 @@ extension ViewController {
         }
     }
     
+    func headerViewActionSheet() -> ActionSheet {
+        let sheet = standardActionSheet()
+        let image = UIImage(named: "title-image")
+        sheet.headerView = UIImageView(image: image)
+        sheet.headerView?.frame.size.height = 150
+        return sheet
+    }
+    
     func sectionActionSheet() -> ActionSheet {
         let cheapOptions = foodOptions().filter { $0.isCheap }
         let cheapItems = cheapOptions.map { $0.item() }
