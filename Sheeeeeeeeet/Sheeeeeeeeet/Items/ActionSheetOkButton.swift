@@ -11,6 +11,8 @@
  OK buttons have no special behavior, but can be used when a
  user should apply action sheet changes by tapping an button.
  
+ The value of an OK button is `true` by default.
+ 
  */
 
 import UIKit
@@ -20,8 +22,8 @@ public class ActionSheetOkButton: ActionSheetButton {
     
     // MARK: - Initialization
     
-    public override init(title: String) {
-        super.init(title: title)
+    public init(title: String) {
+        super.init(title: title, value: true)
     }
     
     
@@ -29,10 +31,5 @@ public class ActionSheetOkButton: ActionSheetButton {
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = ActionSheetOkButtonAppearance(copy: appearance.okButton)
-    }
-    
-    open override func applyAppearance(to cell: UITableViewCell) {
-        super.applyAppearance(to: cell)
-        cell.textLabel?.textAlignment = .center
     }
 }

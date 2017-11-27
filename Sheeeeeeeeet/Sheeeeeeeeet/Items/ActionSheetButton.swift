@@ -20,8 +20,8 @@ public class ActionSheetButton: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String) {
-        super.init(title: title)
+    public init(title: String, value: Bool?) {
+        super.init(title: title, value: value)
     }
     
     

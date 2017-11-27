@@ -11,6 +11,8 @@
  Cancel buttons have no special behavior, but can be used in
  sheets where a user applies changes by tapping an OK button.
  
+ The value of a cancel button is `nil` by default.
+ 
  */
 
 import UIKit
@@ -20,8 +22,8 @@ public class ActionSheetCancelButton: ActionSheetButton {
     
     // MARK: - Initialization
     
-    public override init(title: String) {
-        super.init(title: title)
+    public init(title: String) {
+        super.init(title: title, value: nil)
     }
     
     
@@ -29,10 +31,5 @@ public class ActionSheetCancelButton: ActionSheetButton {
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
-    }
-    
-    open override func applyAppearance(to cell: UITableViewCell) {
-        super.applyAppearance(to: cell)
-        cell.textLabel?.textAlignment = .center
     }
 }

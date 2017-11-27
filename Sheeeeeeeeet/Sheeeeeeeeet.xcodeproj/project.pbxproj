@@ -56,6 +56,8 @@
 		456EAA3D1FCC8FF200A719ED /* title-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA3C1FCC8FF200A719ED /* title-image.png */; };
 		456EAA401FCC922100A719ED /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA3F1FCC922100A719ED /* TableViewOption.swift */; };
 		456EAA441FCCA03700A719ED /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA431FCCA03700A719ED /* UIColor+Hex.swift */; };
+		456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */; };
+		456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -154,6 +156,8 @@
 		456EAA3C1FCC8FF200A719ED /* title-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title-image.png"; sourceTree = "<group>"; };
 		456EAA3F1FCC922100A719ED /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
 		456EAA431FCCA03700A719ED /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButtonAppearance.swift; sourceTree = "<group>"; };
+		456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButton.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 			children = (
 				456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */,
 				456EA9FC1FCB109500A719ED /* ActionSheetCancelButton.swift */,
+				456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */,
 				45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */,
 				456EA9F61FCAB13500A719ED /* ActionSheetItemTapBehavior.swift */,
 				456EA9FE1FCB10A900A719ED /* ActionSheetLinkItem.swift */,
@@ -304,6 +309,7 @@
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */,
 				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
+				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
 				456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
@@ -582,7 +588,9 @@
 				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */,
+				456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */,
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,
+				456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
 				456EAA0B1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift in Sources */,
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,

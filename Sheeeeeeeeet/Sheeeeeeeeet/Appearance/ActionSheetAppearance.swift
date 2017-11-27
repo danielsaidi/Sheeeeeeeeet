@@ -33,6 +33,7 @@ open class ActionSheetAppearance {
         contentInset = copy.contentInset
         
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
+        dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
         headerView = ActionSheetHeaderViewAppearance(copy: copy.headerView)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
@@ -58,6 +59,12 @@ open class ActionSheetAppearance {
     
     public lazy var cancelButton: ActionSheetCancelButtonAppearance = {
         return ActionSheetCancelButtonAppearance(copy: item)
+    }()
+    
+    public lazy var dangerButton: ActionSheetDangerButtonAppearance = {
+        let appearance = ActionSheetDangerButtonAppearance(copy: item)
+        appearance.textColor = .red
+        return appearance
     }()
     
     public lazy var headerView: ActionSheetHeaderViewAppearance = {

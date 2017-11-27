@@ -17,7 +17,9 @@ extension ViewController {
     // MARK: - Helper properties
     
     fileprivate var cancel: String { return "Cancel" }
+    fileprivate var cancelButton: ActionSheetCancelButton { return ActionSheetCancelButton(title: cancel) }
     fileprivate var ok: String { return "OK" }
+    fileprivate var okButton: ActionSheetOkButton { return ActionSheetOkButton(title: ok) }
     fileprivate var titleItem: ActionSheetTitle { return ActionSheetTitle(title: titleString) }
     fileprivate var titleString: String { return "What do you want to eat?" }
     
@@ -43,10 +45,10 @@ extension ViewController {
     func multiSelectActionSheet(preselected: [FoodOption]) -> ActionSheet {
         var items = foodOptions().map { $0.multiSelectItem(isSelected: preselected.contains($0)) }
         items.insert(titleItem, at: 0)
-        items.append(ActionSheetOkButton(title: ok))
-        items.append(ActionSheetCancelButton(title: cancel))
+        items.append(okButton)
+        items.append(cancelButton)
         return ActionSheet(items: items) { (sheet, item) in
-            guard item.value == nil else { return }
+            guard item.value as? Bool == true else { return }
             let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
             let selected = items.filter { $0.isSelected }
             self.alert(items: selected)
@@ -56,10 +58,10 @@ extension ViewController {
     func toggleActionSheet(preselected: [FoodOption]) -> ActionSheet {
         var items = foodOptions().map { $0.toggleItem(isToggled: preselected.contains($0)) }
         items.insert(titleItem, at: 0)
-        items.append(ActionSheetOkButton(title: ok))
-        items.append(ActionSheetCancelButton(title: cancel))
+        items.append(okButton)
+        items.append(cancelButton)
         return ActionSheet(items: items) { (sheet, item) in
-            guard item.value == nil else { return }
+            guard item.value as? Bool == true else { return }
             let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }
             let toggled = items.filter { $0.isToggled }
             self.alert(items: toggled)
