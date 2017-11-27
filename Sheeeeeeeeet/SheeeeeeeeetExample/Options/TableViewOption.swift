@@ -23,6 +23,7 @@ enum TableViewOption {
     headerView,
     peekPop
     
+    
     var displayName: String {
         switch self {
         case .standard: return "Standard"
@@ -37,10 +38,29 @@ enum TableViewOption {
         }
     }
     
+    
     var alertMessage: String {
         switch self {
-        case .peekPop: return "Use 3D touch to preview an action sheet"
+        case .peekPop: return "Use 3D Touch to preview an action sheet. Use long press if your device does not have 3D Touch."
         default: return ""
+        }
+    }
+    
+    var image: UIImage? {
+        return UIImage(named: imageName)
+    }
+    
+    var imageName: String {
+        switch self {
+        case .standard: return "ic_list"
+        case .singleSelect: return "ic_checkmark"
+        case .multiSelect: return "ic_checkmarks"
+        case .toggle: return "ic_circle_checked"
+        case .links: return "ic_arrow_right"
+        case .sections: return "ic_sections"
+        case .danger: return "ic_warning"
+        case .headerView: return "ic_header_view"
+        case .peekPop: return "ic_peek"
         }
     }
 }

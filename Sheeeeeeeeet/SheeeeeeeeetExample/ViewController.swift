@@ -113,6 +113,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let option = tableViewOptions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.tintColor = .darkGray
+        cell.imageView?.image = option.image
         cell.textLabel?.text = option.displayName
         return cell
     }
