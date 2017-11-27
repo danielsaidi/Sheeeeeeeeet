@@ -28,16 +28,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyActionSheetAppearance()
+        setupPeekAndPop()
     }
     
     
     // MARK: - Properties
     
-    fileprivate var actionSheet: ActionSheet?
+    var actionSheet: ActionSheet?
     
-    fileprivate var actionSheetItems: [ActionSheetItem]?
+    var actionSheetPreviewer: ActionSheetPreviewer?
     
-    fileprivate var tableViewOptions: [TableViewOption] = [
+    var tableViewOptions: [TableViewOption] = [
         .standard,
         .singleSelect,
         .multiSelect,
@@ -60,6 +61,33 @@ class ViewController: UIViewController {
             tableView?.delegate = self
             tableView?.dataSource = self
         }
+    }
+    
+    
+    // MARK: - Functions
+    
+    func actionSheet(at indexPath: IndexPath) -> ActionSheet {
+        switch tableViewOptions[indexPath.row] {
+        case .standard: return standardActionSheet()
+        case .singleSelect: return singleSelectActionSheet(preselected: .fancy)
+        case .multiSelect: return multiSelectActionSheet(preselected: [.fancy, .fast])
+        case .toggle: return toggleActionSheet(preselected: [.fancy, .fast])
+        case .links: return linkActionSheet()
+        case .headerView: return headerViewActionSheet()
+        case .sections: return sectionActionSheet()
+        case .danger: return destructiveActionSheet()
+        }
+    }
+}
+
+
+// MARK: - Private Functions
+
+fileprivate extension ViewController {
+    
+    func setupPeekAndPop() {
+        guard let view = tableView else { return }
+        actionSheetPreviewer = ActionSheetPreviewer(vc: self, sourceView: view)
     }
 }
 
@@ -96,19 +124,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        
-        switch tableViewOptions[indexPath.row] {
-        case .standard: actionSheet = standardActionSheet()
-        case .singleSelect: actionSheet = singleSelectActionSheet(preselected: .fancy)
-        case .multiSelect: actionSheet = multiSelectActionSheet(preselected: [.fancy, .fast])
-        case .toggle: actionSheet = toggleActionSheet(preselected: [.fancy, .fast])
-        case .links: actionSheet = linkActionSheet()
-        case .headerView: actionSheet = headerViewActionSheet()
-        case .sections: actionSheet = sectionActionSheet()
-        case .danger: actionSheet = destructiveActionSheet()
-        }
-        
+        actionSheet = self.actionSheet(at: indexPath)
         actionSheet?.present(in: self, from: cell)
     }
-    
 }

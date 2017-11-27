@@ -69,6 +69,7 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        applyRoundCorners()
         positionViews()
     }
     
@@ -158,7 +159,6 @@ open class ActionSheet: UIViewController {
     }
     
     open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
-        applyRoundCorners()
         items.forEach { $0.applyAppearance(appearance) }
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
     }
