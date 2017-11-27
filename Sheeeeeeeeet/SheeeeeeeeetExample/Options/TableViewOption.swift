@@ -15,21 +15,15 @@ enum TableViewOption {
     case
     standard,
     singleSelect,
-    singleSelectPreselected,
     multiSelect,
-    multiSelectPreselected,
-    toggle,
-    togglePreselected
+    toggle
     
     var displayName: String {
         switch self {
-        case .standard: return "Standard sheet"
-        case .singleSelect: return "Single-select sheet"
-        case .singleSelectPreselected: return "Single-select sheet (preselected)"
-        case .multiSelect: return "Multi-select sheet"
-        case .multiSelectPreselected: return "Multi-select sheet (preselected)"
+        case .standard: return "Standard action sheet"
+        case .singleSelect: return "Single-select action sheet"
+        case .multiSelect: return "Multi-select action sheet"
         case .toggle: return "Toggle sheet"
-        case .togglePreselected: return "Toggle sheet (preselected)"
         }
     }
 }
