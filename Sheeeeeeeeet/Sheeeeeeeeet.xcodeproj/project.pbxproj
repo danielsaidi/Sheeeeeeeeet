@@ -33,6 +33,9 @@
 		456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */; };
 		456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */; };
 		456EAA0B1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */; };
+		456EAA0E1FCC13A400A719ED /* DefaultActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */; };
+		456EAA111FCC204A00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
+		456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -63,6 +66,20 @@
 			remoteInfo = Sheeeeeeeeet;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		456EAA131FCC204A00A719ED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +113,7 @@
 		456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonItemAppearance.swift; sourceTree = "<group>"; };
 		456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButton.swift; sourceTree = "<group>"; };
 		456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderViewAppearance.swift; sourceTree = "<group>"; };
+		456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultActionSheetPresenter.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -130,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				456EAA111FCC204A00A719ED /* Sheeeeeeeeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +162,7 @@
 				453C042E1FC0655D0028FA02 /* SheeeeeeeeetTests */,
 				453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */,
 				453C04221FC0655C0028FA02 /* Products */,
+				456EAA0F1FCC203100A719ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
+				456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */,
 				45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */,
 			);
 			path = Presenters;
@@ -247,6 +268,13 @@
 				45EB3FD11FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		456EAA0F1FCC203100A719ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		45EB3FDF1FC8699600EF555E /* Cells */ = {
@@ -315,6 +343,7 @@
 				453C04591FC065AE0028FA02 /* Sources */,
 				453C045A1FC065AE0028FA02 /* Frameworks */,
 				453C045B1FC065AE0028FA02 /* Resources */,
+				456EAA131FCC204A00A719ED /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,6 +475,7 @@
 				453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */,
 				45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */,
 				45EB3FE51FC87B1500EF555E /* ActionSheetDataSource.swift in Sources */,
+				456EAA0E1FCC13A400A719ED /* DefaultActionSheetPresenter.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
 				456EA9F51FC8C7DB00A719ED /* ActionSheetDelegate.swift in Sources */,
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
@@ -696,6 +726,7 @@
 		453C046D1FC065AE0028FA02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
@@ -711,6 +742,7 @@
 		453C046E1FC065AE0028FA02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;

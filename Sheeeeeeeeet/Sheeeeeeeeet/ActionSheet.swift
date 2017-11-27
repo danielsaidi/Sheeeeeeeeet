@@ -16,9 +16,9 @@
  To change the global appearance for every action sheet that
  is used in your app, use `UIActionSheetAppearance.standard`.
  
- IMPORTANT: Do not remove the not required init with nibName
- and bundle. It looks like it is not needed, but iOS uses it
- under the hood.
+ IMPORTANT: Remember to always keep a strong reference to an
+ action sheet, otherwise the action sheet may be deallocated
+ while the view is still presented in a crippled state.
  
  */
 
@@ -53,6 +53,8 @@ open class ActionSheet: UIViewController {
         setup()
     }
     
+    deinit { print("\(type(of: self)) deinit") }
+    
     
     // MARK: - Setup
     
@@ -65,11 +67,8 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        applyRoundCorners()
         positionViews()
     }
-    
-    
     
     
     // MARK: - Dependencies
@@ -85,7 +84,7 @@ open class ActionSheet: UIViewController {
     }()
     
     open var contentHeight: CGFloat {
-        let itemHeight = tableViewItems.reduce(0) { $0 + $1.appearance.height }
+        let itemHeight = items.reduce(0) { $0 + $1.appearance.height }
         guard let view = headerView else { return itemHeight }
         let headerHeight = view.frame.height
         return itemHeight + headerHeight + appearance.headerView.bottomMargin
@@ -114,9 +113,7 @@ open class ActionSheet: UIViewController {
         return CGSize(width: width, height: contentHeight)
     }
     
-    open var tableViewItems: [ActionSheetItem] {
-        return items
-    }
+    fileprivate var safeAreaInsets: UIEdgeInsets?
     
     
     // MARK: - Private Properties
@@ -126,10 +123,10 @@ open class ActionSheet: UIViewController {
     }()
     
     fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
-        return ActionSheetDelegate(actionSheet: self) { item in
-            self.tableView.reloadData()
+        return ActionSheetDelegate(actionSheet: self) { [weak self] item in
+            self?.tableView.reloadData()
             if item.dismissesOnTap {
-                self.dismiss()
+                self?.dismiss()
             }
         }
     }()
@@ -156,6 +153,8 @@ open class ActionSheet: UIViewController {
     }
     
     open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
+        applyRoundCorners()
+        applySafeAreaInsets(from: vc)
         items.forEach { $0.applyAppearance(appearance) }
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
     }
@@ -164,7 +163,7 @@ open class ActionSheet: UIViewController {
     // MARK: - Public Functions
     
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
-        return tableViewItems[indexPath.row]
+        return items[indexPath.row]
     }
 }
 
@@ -176,9 +175,14 @@ fileprivate extension ActionSheet {
     func applyRoundCorners() {
         tableView.clipsToBounds = true
         headerView?.clipsToBounds = true
-        
         tableView.layer.cornerRadius = appearance.cornerRadius
         headerView?.layer.cornerRadius = appearance.cornerRadius
+    }
+    
+    func applySafeAreaInsets(from vc: UIViewController) {
+        if #available(iOS 11.0, *) {
+            safeAreaInsets = vc.view.safeAreaInsets
+        }
     }
     
     func positionViews() {

@@ -17,16 +17,18 @@
  as the rest of the popover view, this presenter will remove
  any header view that is set for the action sheet. It should
  not even be needed, since a popover points at the object it
- will affect.
+ will affect. However, since
  
  */
 
 import UIKit
 
-
-// MARK: - ActionSheetPresenter
-
 open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
+    
+    
+    // MARK: - Initialization
+    
+    deinit { print("\(type(of: self)) deinit") }
     
     
     // MARK: - Properties
@@ -35,13 +37,10 @@ open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
     fileprivate var actionSheetHeaderView: UIView?
     
     
-    
     // MARK: - ActionSheetPresenter
     
     public func dismiss(sheet: ActionSheet, completion: (() -> ())?) {
         sheet.presentingViewController?.dismiss(animated: true, completion: completion)
-        sheet.view.backgroundColor = actionSheetBackgroundColor
-        sheet.headerView = actionSheetHeaderView
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: (() -> ())?) {

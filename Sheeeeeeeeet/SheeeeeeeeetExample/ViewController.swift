@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     @IBAction func showActionSheet(_ sender: Any) {
         
         ActionSheetAppearance.standard.selectItem.selectedTextColor = .green
-        
-        let actionSheet = ActionSheet(items: [item1, item2, item3], presenter: PopoverActionSheetPresenter())
+        let presenter = /*PopoverActionSheetPresenter()// */DefaultActionSheetPresenter()
+        let actionSheet = ActionSheet(items: [item1, item2, item3], presenter: presenter)
         actionSheet.headerView = UIView.init(frame: CGRect(x: 0, y: 0, width: 10, height: 100))
         actionSheet.headerView?.backgroundColor = .red
         actionSheet.present(in: self, from: sender as? UIView)

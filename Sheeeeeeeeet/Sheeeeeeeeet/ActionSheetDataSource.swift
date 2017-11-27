@@ -30,7 +30,7 @@ open class ActionSheetDataSource: NSObject, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actionSheet?.tableViewItems.count ?? 0
+        return actionSheet?.items.count ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
