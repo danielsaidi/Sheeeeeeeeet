@@ -24,22 +24,22 @@
 
 import UIKit
 
+public typealias ActionSheetItemSelectAction = (ActionSheetItem) -> ()
+
 
 open class ActionSheet: UIViewController {
     
     
     // MARK: - Initialization
     
-    public init(presenter: ActionSheetPresenter) {
-        super.init(nibName: nil, bundle: nil)
-        self.presenter = presenter
-        setup()
-    }
-    
-    public init(items: [ActionSheetItem], presenter: ActionSheetPresenter) {
+    public init(
+        items: [ActionSheetItem],
+        presenter: ActionSheetPresenter,
+        action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
         self.items = items
         self.presenter = presenter
+        self.action = action
         setup()
     }
     
@@ -48,7 +48,9 @@ open class ActionSheet: UIViewController {
         setup()
     }
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    public override init(
+        nibName nibNameOrNil: String?,
+        bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
@@ -73,7 +75,10 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Dependencies
     
+    open var action: ActionSheetItemSelectAction!
+    
     open var presenter: ActionSheetPresenter!
+    
     
     
     // MARK: - Properties
@@ -123,6 +128,7 @@ open class ActionSheet: UIViewController {
     fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
         return ActionSheetDelegate(actionSheet: self) { [weak self] item in
             self?.tableView.reloadData()
+            self?.action(item)
             if item.dismissesOnTap {
                 self?.dismiss()
             }

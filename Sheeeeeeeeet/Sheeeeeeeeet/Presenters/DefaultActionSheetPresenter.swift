@@ -98,10 +98,11 @@ fileprivate extension DefaultActionSheetPresenter {
     
     func getFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         var targetFrame = view.frame
-        targetFrame = targetFrame.insetBy(dx: 20, dy: 20)
+        let inset = sheet.appearance.contentInset
+        targetFrame = targetFrame.insetBy(dx: inset, dy: inset)
         targetFrame.size.height = sheet.contentHeight
-        targetFrame.origin.y = view.frame.height - sheet.contentHeight - 20
-        targetFrame.origin.y -= 1.5 * view.safeAreaInsets.bottom
+        targetFrame.origin.y = view.frame.height - sheet.contentHeight
+        targetFrame.origin.y -= max(view.safeAreaInsets.bottom, inset)
         return targetFrame
     }
     
