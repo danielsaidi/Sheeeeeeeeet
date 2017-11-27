@@ -92,4 +92,3 @@ open class ActionSheetAppearance {
         return ActionSheetToggleItemAppearance(copy: item)
     }()
 }
-

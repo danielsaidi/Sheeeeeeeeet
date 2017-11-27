@@ -1,0 +1,28 @@
+disabled_rules: # rule identifiers to exclude from running
+  #- cyclomatic_complexity
+  #- file_length
+  #- function_body_length
+  - line_length
+  #- opening_brace
+  #- todo
+  #- trailing_newline
+  - trailing_whitespace
+  #- type_name
+  #- type_body_length
+  #- variable_name_max_length
+
+excluded: # paths to ignore during linting. overridden by `included`.
+  - Pods
+# parameterized rules are first parameterized as a warning level, then error level.
+# type_body_length:
+#   - 300 # warning
+#   - 400 # error
+
+# This is a strange one, since it also includes init functions
+function_parameter_count:
+  warning: 8
+  error: 8
+
+variable_name:
+  excluded: # excluded via string array
+    - vc

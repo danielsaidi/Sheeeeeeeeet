@@ -133,10 +133,10 @@ open class ActionSheet: UIViewController {
             }
         }
     }()
-    
+
 
     // MARK: - View Properties
-    
+
     fileprivate(set) public lazy var tableView: UITableView = {
         let tableView = UITableView(frame: view.frame, style: .plain)
         tableView.isScrollEnabled = false
@@ -147,7 +147,7 @@ open class ActionSheet: UIViewController {
         view.addSubview(tableView)
         return tableView
     }()
-    
+
     
     // MARK: - Presentation Functions
     
