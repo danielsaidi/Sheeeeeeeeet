@@ -11,13 +11,15 @@ import Sheeeeeeeeet
 
 class ViewController: UIViewController {
 
+    let item1 = ActionSheetItem(title: "foo", value: "foo", image: nil)
+    let item2 = ActionSheetSelectItem(title: "bar", isSelected: true, value: 4, image: nil)
+    let item3 = ActionSheetSelectItem(title: "baz", isSelected: false, value: 5, image: nil)
+    
     @IBAction func showActionSheet(_ sender: Any) {
         
-        let item1 = ActionSheetItem(title: "foo", value: "foo", image: nil)
-        let item2 = ActionSheetSelectItem(title: "bar", isSelected: true, value: 4, image: nil)
-        let item3 = ActionSheetSelectItem(title: "baz", isSelected: false, value: 5, image: nil)
+        ActionSheetAppearance.standard.selectItem.selectedTextColor = .green
+        
         let actionSheet = ActionSheet(items: [item1, item2, item3], presenter: PopoverActionSheetPresenter())
         actionSheet.present(in: self, from: sender as? UIView)
-        print(actionSheet.contentHeight)
     }
 }

@@ -36,8 +36,7 @@ open class ActionSheetDelegate: NSObject, UITableViewDelegate {
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = actionSheet?.item(at: indexPath) else { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        print("SeHELECT")
+        item.handleTap()
         selectAction(item)
     }
 }
-
