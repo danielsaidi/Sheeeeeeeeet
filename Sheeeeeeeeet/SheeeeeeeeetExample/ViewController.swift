@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     var actionSheet: ActionSheet?
     
-    var actionSheetPreviewer: ActionSheetPreviewer?
+    var actionSheetPreviewer: ActionSheetPreviewer<ViewController>?
     
     var tableViewOptions: [TableViewOption] = [
         .standard,
@@ -104,6 +104,14 @@ extension ViewController: ActionSheetPreviewSource {
             let path = view.indexPathForRow(at: location)
             else { return nil }
         return actionSheet(at: path)
+    }
+    
+    func previewSourceView(for location: CGPoint) -> UIView? {
+        guard
+            let view = tableView,
+            let path = view.indexPathForRow(at: location)
+            else { return nil }
+        return view.cellForRow(at: path)
     }
 }
 

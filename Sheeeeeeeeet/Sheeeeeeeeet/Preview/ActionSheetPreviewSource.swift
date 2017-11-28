@@ -8,7 +8,10 @@
 
 import UIKit
 
-public protocol ActionSheetPreviewSource {
+public protocol ActionSheetPreviewSource: class {
 
+    var actionSheet: ActionSheet? { get set }
+    
     func actionSheet(at location: CGPoint) -> ActionSheet?
+    func previewSourceView(for location: CGPoint) -> UIView?
 }

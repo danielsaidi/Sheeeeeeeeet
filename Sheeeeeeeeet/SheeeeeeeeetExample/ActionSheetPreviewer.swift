@@ -9,12 +9,12 @@
 import UIKit
 import Sheeeeeeeeet
 
-class ActionSheetPreviewer: NSObject {
+class ActionSheetPreviewer<T: UIViewController & ActionSheetPreviewSource>: NSObject, UIViewControllerPreviewingDelegate {
     
     
     // MARK: - Initialization
     
-    init(vc: ViewController, sourceView: UIView) {
+    init(vc: T, sourceView: UIView) {
         self.vc = vc
         self.sourceView = sourceView
         super.init()
@@ -28,34 +28,26 @@ class ActionSheetPreviewer: NSObject {
     
     // MARK: - Properties
     
-    weak var cell: UITableViewCell?
-    weak var vc: ViewController?
+    weak var vc: T?
     weak var sourceView: UIView?
-}
-
-
-// MARK: - Actions
-
-@objc extension ActionSheetPreviewer {
+    weak var previewSourceView: UIView?
     
-    func sourceViewLongPressed(gesture: UILongPressGestureRecognizer) {
+    // MARK: - Actions
+
+    @objc func sourceViewLongPressed(gesture: UILongPressGestureRecognizer) {
         guard gesture.state == .began else { return }
         let location = gesture.location(in: sourceView)
         guard
             let vc = vc,
-            let tableView = sourceView as? UITableView,
-            let indexPath = tableView.indexPathForRow(at: location),
-            let sheet = vc.actionSheet(at: indexPath)
+            let sheet = vc.actionSheet(at: location),
+            let previewSourceView = vc.previewSourceView(for: location)
             else { return }
         vc.actionSheet = sheet
-        sheet.present(in: vc, from: cell)
+        sheet.present(in: vc, from: previewSourceView)
     }
-}
 
-
-// MARK: - Private Functions
-
-fileprivate extension ActionSheetPreviewer {
+    
+    // MARK: - Private Functions
     
     func applyLongPressGesture(to sourceView: UIView) {
         sourceView.isUserInteractionEnabled = true
@@ -63,32 +55,27 @@ fileprivate extension ActionSheetPreviewer {
         let longPress = UILongPressGestureRecognizer(target: self, action: action)
         sourceView.addGestureRecognizer(longPress)
     }
-}
 
 
-// MARK: - UIViewControllerPreviewingDelegate
-
-extension ActionSheetPreviewer: UIViewControllerPreviewingDelegate {
+    // MARK: - UIViewControllerPreviewingDelegate
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
             let vc = vc,
-            let view = sourceView as? UITableView,
-            let path = view.indexPathForRow(at: location),
-            let cell = view.cellForRow(at: path),
-            let sheet = vc.actionSheet(at: path)
+            let sheet = vc.actionSheet(at: location),
+            let previewSourceView = vc.previewSourceView(for: location)
             else { return nil }
-        self.cell = cell
-        previewingContext.sourceRect = cell.frame
+        self.previewSourceView = previewSourceView
+        previewingContext.sourceRect = previewSourceView.frame
         return sheet
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         guard
             let vc = vc,
-            let cell = cell,
+            let previewSourceView = previewSourceView,
             let sheet = viewControllerToCommit as? ActionSheet else { return }
         vc.actionSheet = sheet
-        sheet.pop(in: vc, from: cell)
+        sheet.pop(in: vc, from: previewSourceView)
     }
 }
