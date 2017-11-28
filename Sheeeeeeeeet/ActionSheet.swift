@@ -8,13 +8,27 @@
 
 /*
  
- purpose?
- how does it work?
- subclasses - how to?
- dismissStyle
+ This is the main class in the Sheeeeeeeeet library. You can
+ use it to create action sheets and present them in any view
+ controller, from any source view.
  
+ To create an action sheet, call the initializer with a list
+ of items and an action block that should be called whenever
+ an item is selected. You can also inject a custom presenter
+ if you want to customize how your action sheet is presented
+ and dismissed.
+ 
+ `ActionSheet` can be subclassed, which may be nice whenever
+ you use Sheeeeeeeeet in your own app, where you may have an
+ app specific use case. To customize the setup step, you can
+ override `setup` if you don't want to hassle with the inits.
+ 
+ Sheeeeeeeeet's action sheet appearance if easily customized.
  To change the global appearance for every action sheet that
  is used in your app, use `UIActionSheetAppearance.standard`.
+ To change the appearance of a single action sheet, use it's
+ `appearance` property. To change the appearance of a single
+ item, use it's `appearance` property.
  
  IMPORTANT: Remember to always keep a strong reference to an
  action sheet, otherwise the action sheet may be deallocated

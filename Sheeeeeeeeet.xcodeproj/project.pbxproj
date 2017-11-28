@@ -62,6 +62,11 @@
 		456EAA561FCD914000A719ED /* ActionSheetPreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA551FCD914000A719ED /* ActionSheetPreviewer.swift */; };
 		456EAA5F1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA5E1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift */; };
 		456EAA611FCE0E1C00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
+		457EC2BF1FCE1ACD000EF1AD /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; };
+		457EC2C01FCE1ACD000EF1AD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; };
+		457EC2C21FCE1ADF000EF1AD /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		457EC2C31FCE1ADF000EF1AD /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -118,6 +123,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				457EC2C21FCE1ADF000EF1AD /* Nimble.framework in CopyFiles */,
+				457EC2C31FCE1ADF000EF1AD /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +189,9 @@
 		456EAA5C1FCE0E1C00A719ED /* SheeeeeeeeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheeeeeeeeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		456EAA5E1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheeeeeeeeetTests.swift; sourceTree = "<group>"; };
 		456EAA601FCE0E1C00A719ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -216,6 +226,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457EC2BF1FCE1ACD000EF1AD /* Quick.framework in Frameworks */,
+				457EC2C01FCE1ACD000EF1AD /* Nimble.framework in Frameworks */,
 				456EAA611FCE0E1C00A719ED /* Sheeeeeeeeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +351,8 @@
 		456EAA0F1FCC203100A719ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */,
+				457EC2BD1FCE1ACD000EF1AD /* Quick.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -431,6 +445,7 @@
 			children = (
 				456EAA5E1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
+				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
 			);
 			path = SheeeeeeeeetTests;
 			sourceTree = "<group>";
@@ -683,6 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				456EAA5F1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift in Sources */,
+				457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
