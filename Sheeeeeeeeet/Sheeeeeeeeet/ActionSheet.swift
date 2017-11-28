@@ -153,13 +153,18 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Presentation Functions
     
-    open func dismiss(completion: (() -> ())? = nil) {
-        presenter.dismiss(sheet: self, completion: completion)
+    open func dismiss() {
+        presenter.dismiss(sheet: self)
     }
     
-    open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
+    open func pop(in vc: UIViewController, from view: UIView?) {
         prepareForPresentation()
-        presenter.present(sheet: self, in: vc, from: view, completion: completion)
+        presenter.pop(sheet: self, in: vc, from: view)
+    }
+    
+    open func present(in vc: UIViewController, from view: UIView?) {
+        prepareForPresentation()
+        presenter.present(sheet: self, in: vc, from: view)
     }
     
     open func prepareForPresentation() {

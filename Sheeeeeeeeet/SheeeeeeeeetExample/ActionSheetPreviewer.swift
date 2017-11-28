@@ -89,6 +89,6 @@ extension ActionSheetPreviewer: UIViewControllerPreviewingDelegate {
             let cell = cell,
             let sheet = viewControllerToCommit as? ActionSheet else { return }
         vc.actionSheet = sheet
-        sheet.present(in: vc, from: cell)
+        sheet.pop(in: vc, from: cell)
     }
 }

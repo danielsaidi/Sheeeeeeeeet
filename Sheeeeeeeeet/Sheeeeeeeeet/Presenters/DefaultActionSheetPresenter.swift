@@ -32,8 +32,8 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
     }
     
     public convenience init(backgroundColor: UIColor) {
-        let iPadPresenter = PopoverActionSheetPresenter()
-        self.init(backgroundColor: backgroundColor, iPadPresenter: iPadPresenter)
+        let popover = PopoverActionSheetPresenter()
+        self.init(backgroundColor: backgroundColor, iPadPresenter: popover)
     }
     
     public init(backgroundColor: UIColor, iPadPresenter: ActionSheetPresenter?) {
@@ -46,15 +46,14 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
     
     // MARK: - Properties
     
-    fileprivate var actionSheetView: UIView?
-    
     fileprivate var backgroundColor: UIColor?
     
+    fileprivate var actionSheetView: UIView?
     fileprivate var backgroundView: UIView?
     
     fileprivate var iPadPresenter: ActionSheetPresenter?
     
-    fileprivate var shouldDelegatePresentation: Bool {
+    fileprivate var shouldUseiPadPresenter: Bool {
         let ipad = UIDevice.current.userInterfaceIdiom == .pad
         return ipad && iPadPresenter != nil
     }
@@ -62,21 +61,22 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
     
     // MARK: - ActionSheetPresenter
     
-    public func dismiss(sheet: ActionSheet, completion: (() -> ())?) {
-        if shouldDelegatePresentation {
-            iPadPresenter?.dismiss(sheet: sheet, completion: completion)
-            return
-        }
-        dismissActionSheet()
+    open func dismiss(sheet: ActionSheet) {
+        shouldUseiPadPresenter ?
+            iPadPresenter?.dismiss(sheet: sheet) :
+            dismissActionSheet()
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: (() -> ())?) {
-        if shouldDelegatePresentation {
-            iPadPresenter?.present(sheet: sheet, in: vc, from: view, completion: completion)
-            return
-        }
-        addBackgroundView(to: vc.view)
-        addActionSheet(sheet, to: vc.view)
+    open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+        shouldUseiPadPresenter ?
+            iPadPresenter?.present(sheet: sheet, in: vc, from: view) :
+            addActionSheet(sheet, to: vc.view, fromBottom: false)
+    }
+    
+    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+        shouldUseiPadPresenter ?
+            iPadPresenter?.present(sheet: sheet, in: vc, from: view) :
+            addActionSheet(sheet, to: vc.view, fromBottom: true)
     }
 }
 
@@ -114,13 +114,16 @@ fileprivate extension DefaultActionSheetPresenter {
         return targetFrame
     }
     
-    func addActionSheet(_ sheet: ActionSheet, to view: UIView) {
+    func addActionSheet(_ sheet: ActionSheet, to view: UIView, fromBottom: Bool = true) {
         guard let actionSheetView = sheet.view else { return }
+        addBackgroundView(to: view)
         actionSheetView.frame.size.height = sheet.contentHeight
         actionSheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         let frame = getFrame(for: sheet, in: view)
-        actionSheetView.frame = frame
-        actionSheetView.frame.origin.y += 100
+        if fromBottom {
+            actionSheetView.frame = frame
+            actionSheetView.frame.origin.y += 100
+        }
         view.addSubview(actionSheetView)
         animate({ actionSheetView.frame = frame })
         self.actionSheetView = actionSheetView

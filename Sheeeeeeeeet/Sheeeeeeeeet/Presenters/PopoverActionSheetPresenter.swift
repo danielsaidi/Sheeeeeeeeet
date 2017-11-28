@@ -39,17 +39,21 @@ open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - ActionSheetPresenter
     
-    public func dismiss(sheet: ActionSheet, completion: (() -> ())?) {
-        sheet.presentingViewController?.dismiss(animated: true, completion: completion)
+    open func dismiss(sheet: ActionSheet) {
+        sheet.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: (() -> ())?) {
+    open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+        present(sheet: sheet, in: vc, from: view)
+    }
+    
+    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         guard sheet.contentHeight > 0 else { return }
         adjustSheetForPopoverPresentation(sheet)
         sheet.preferredContentSize = sheet.preferredPopoverSize
-        let popover = getPopoverPresentationController(for: sheet, in: vc)
+        let popover = popoverPresentationController(for: sheet, in: vc)
         setup(popover: popover, for: view)
-        vc.present(sheet, animated: true, completion: completion)
+        vc.present(sheet, animated: true, completion: nil)
     }
 }
 
@@ -65,7 +69,7 @@ fileprivate extension PopoverActionSheetPresenter {
         sheet.headerView = nil
     }
     
-    func getPopoverPresentationController(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
+    func popoverPresentationController(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController
         popover?.backgroundColor = sheet.view.backgroundColor
