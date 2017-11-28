@@ -60,7 +60,6 @@
 		456EAA4C1FCCB13000A719ED /* ActionSheetSectionMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA4B1FCCB13000A719ED /* ActionSheetSectionMargin.swift */; };
 		456EAA541FCD81DE00A719ED /* ActionSheetPreviewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA531FCD81DE00A719ED /* ActionSheetPreviewSource.swift */; };
 		456EAA561FCD914000A719ED /* ActionSheetPreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA551FCD914000A719ED /* ActionSheetPreviewer.swift */; };
-		456EAA5F1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA5E1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift */; };
 		456EAA611FCE0E1C00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
 		457EC2BF1FCE1ACD000EF1AD /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; };
 		457EC2C01FCE1ACD000EF1AD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; };
@@ -187,7 +186,6 @@
 		456EAA531FCD81DE00A719ED /* ActionSheetPreviewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPreviewSource.swift; sourceTree = "<group>"; };
 		456EAA551FCD914000A719ED /* ActionSheetPreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPreviewer.swift; sourceTree = "<group>"; };
 		456EAA5C1FCE0E1C00A719ED /* SheeeeeeeeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheeeeeeeeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		456EAA5E1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheeeeeeeeetTests.swift; sourceTree = "<group>"; };
 		456EAA601FCE0E1C00A719ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
@@ -443,7 +441,6 @@
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
-				456EAA5E1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
 			);
@@ -697,7 +694,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456EAA5F1FCE0E1C00A719ED /* SheeeeeeeeetTests.swift in Sources */,
 				457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

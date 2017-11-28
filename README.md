@@ -174,7 +174,7 @@ All the best!
 
 
 
-[header-image]: Sheeeeeeeeet/SheeeeeeeeetExample/Assets/Images/title-image.png "Sheeeeeeeeeit"
+[header-image]: SheeeeeeeeetExample/Assets/Images/title-image.png "Sheeeeeeeeeit"
 
 [Carthage]: https://github.com/Carthage/Carthage
 [CocoaPods]: https://cocoapods.org/
