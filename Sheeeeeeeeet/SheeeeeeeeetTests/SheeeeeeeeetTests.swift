@@ -2,12 +2,11 @@
 //  SheeeeeeeeetTests.swift
 //  SheeeeeeeeetTests
 //
-//  Created by Daniel Saidi on 2017-11-18.
+//  Created by Saidi Daniel (BookBeat) on 2017-11-28.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
 import XCTest
-@testable import Sheeeeeeeeet
 
 class SheeeeeeeeetTests: XCTestCase {
     
