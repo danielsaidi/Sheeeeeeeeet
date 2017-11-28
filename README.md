@@ -3,24 +3,26 @@
 ![Sheeeeeeeeeit][header-image]
 
 
-## About
+## About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for adding custom action sheets to your iOS apps.
-It comes with many built-in item action sheet item types, and can be extended by
-custom types are more specific to your app or domain.
+It comes with a bunch of built-in item action sheet items and can be extended by
+custom items that are more specific to your app or domain.
 
 Sheeeeeeeeet action sheets can be designed to look just like standard iOS action
-sheets or completely differently. It's completely up to you to design the action
-sheets that are used in your application.
+sheets or completely different. You can apply a global appearance style, as well
+as individual styles for separate action sheets or action sheet items.
 
 Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
-touch. An optional fallback to long press is available.
+touch, with an optional long press gesture fallback for unsupported devices.
+
 
 
 ## Demo Application
 
-This repository contains a demo application. Just open the project, then run the
-`SheeeeeeeeetExample` target to try different types of action sheets.
+This repository contains a demo application. Open the `Sheeeeeeeeet` project and
+run the `SheeeeeeeeetExample` target to try different types of action sheets.
+
 
 
 ## Install
@@ -29,24 +31,37 @@ Sheeeeeeeeet can be installed with `CocoaPods` and `Carthage`:
 
 ### CocoaPods
 
-TBD
+To add Sheeeeeeeeet to your app using CocoaPods, just create a `Podfile` in your
+project root and add this line:
+
+```
+pod 'Sheeeeeeeeet'
+```
+
+After that, simply run `pod install`. For more information about using CocoaPods,
+visit the [official website][CocoaPods].
 
 ### Carthage
 
-TBD
+To add Sheeeeeeeeet to your app using Carthage, just create a `Cartfile` in your
+project root and add this line:
+
+```
+github "danielsaidi/Sheeeeeeeeet"
+```
+
+After that, simply run `carthage update` (with any options you prefer). For more
+information about Carthage, visit the [official website][Carthage].
+
 
 
 ## Presenting an action sheet
 
-Presenting custom action sheets with Sheeeeeeeeet is super-simple. Simply create
+Presenting custom action sheets with Sheeeeeeeeet is super simple. Simply create
 an action sheet with a set of items, then present it in your view controller. To
-support popover on iPad, you can also present the sheet from a certain view.
-
-This is a short example on how to present an action sheet with three items:
+support popover mode on iPad, you can also provide the sheet with a source view:
 
 ```
-// Do this in any view controller
-
 func showAlert(tappedButton: UIView?) {
 
     let items = [
@@ -69,14 +84,15 @@ func showAlert(tappedButton: UIView?) {
 }
 ```
 
-There are a many different items and components that you can use in Sheeeeeeeeet:
+It is important to keep a strong reference to the action sheet, otherwise it may
+be deallocated while being presented.
+
 
 
 ## Components
 
 Sheet comes with some built in `items`, `buttons`, `titles` and `views` that can
 be used to compose flexible action sheets.
-
 
 ### Items
 
@@ -91,7 +107,6 @@ comes with the following built-in item types:
 To create your own item types, either inherit `ActionSheetItem` or any item type
 that best suits your needs.
 
-
 ### Buttons
 
 Action sheet buttons are used to discard an action sheet or to apply any changes
@@ -103,7 +118,6 @@ made within it. Sheeeeeeeeet comes with the following built-in button types:
 
 To create your own button type, either inherit `ActionSheetButton` or any button
 type that best suits your needs.
-
 
 ### Titles
 
@@ -117,11 +131,11 @@ no interactive use:
 To add some margin above a section title, add an `ActionSheetSectionMargin` item
 before the section title.
 
-
 ### Header View
 
 If you set the `headerView` property of an action sheet, it will be displayed as
 a floating header above the action sheet options. You can use any view you like.
+
 
 
 ## Appearance
@@ -132,9 +146,38 @@ they are created. They create their own copies, which can be customized as well.
 
 
 
+## Peek and pop
+
+Sheeeeeeeeet supports peek and pop on 3D touch enabled devices. To apply this in
+a view controller, have the view controller implement `ActionSheetPreviewSource`,
+then create an `ActionSheetPreviewer` instance (keep a strong reference to it as
+well) and provide it with the view from which previews should be displayed. This
+could e.g. be a collection or table view.
+
+You can use `ActionSheetPreviewer` on devices without 3D touch as well. On these
+devices, the previewer can be told to fallback to a long press gesture instead.
+
+
+
+## About me
+
+Feel free to reach out if you have any questions or if you want to contribute to
+Sheeeeeeeeet:
+
+* E-mail: [daniel.saidi@gmail.com](mailto:daniel.saidi@gmail.com)
+* Twitter: [@danielsaidi](http://www.twitter.com/danielsaidi)
+* Web site: [danielsaidi.com](http://www.danielsaidi.com)
+
+All the best!
+
+
+
 
 
 [header-image]: Sheeeeeeeeet/SheeeeeeeeetExample/Assets/Images/title-image.png "Sheeeeeeeeeit"
+
+[Carthage]: https://github.com/Carthage/Carthage
+[CocoaPods]: https://cocoapods.org/
 
 [ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetItem.swift
 [ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetSelectItem.swift
@@ -142,9 +185,9 @@ they are created. They create their own copies, which can be customized as well.
 [ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetLinkItem.swift
 
 
-[ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionOkButton.swift
-[ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionCancelButton.swift
-[ActionSheetDangerButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionDangerButton.swift
+[ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetOkButton.swift
+[ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetCancelButton.swift
+[ActionSheetDangerButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetDangerButton.swift
 
 
 [ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Sheeeeeeeeet/Items/ActionSheetTitle.swift
