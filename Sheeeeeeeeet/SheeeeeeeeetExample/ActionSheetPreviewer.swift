@@ -73,14 +73,14 @@ extension ActionSheetPreviewer: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
             let vc = vc,
-            let tableView = sourceView as? UITableView,
-            let indexPath = tableView.indexPathForRow(at: location),
-            let cell = tableView.cellForRow(at: indexPath)
+            let view = sourceView as? UITableView,
+            let path = view.indexPathForRow(at: location),
+            let cell = view.cellForRow(at: path),
+            let sheet = vc.actionSheet(at: path)
             else { return nil }
-        
         self.cell = cell
         previewingContext.sourceRect = cell.frame
-        return vc.actionSheet(at: indexPath)
+        return sheet
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

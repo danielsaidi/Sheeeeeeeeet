@@ -96,13 +96,21 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
 
 fileprivate extension DefaultActionSheetPresenter {
     
+    func bottomMargin(for sheet: ActionSheet, in view: UIView) -> CGFloat {
+        if #available(iOS 11.0, *) {
+            return view.safeAreaInsets.bottom
+        } else {
+            return sheet.appearance.contentInset
+        }
+    }
+    
     func getFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         var targetFrame = view.frame
         let inset = sheet.appearance.contentInset
         targetFrame = targetFrame.insetBy(dx: inset, dy: inset)
         targetFrame.size.height = sheet.contentHeight
         targetFrame.origin.y = view.frame.height - sheet.contentHeight
-        targetFrame.origin.y -= max(view.safeAreaInsets.bottom, inset)
+        targetFrame.origin.y -= bottomMargin(for: sheet, in: view)
         return targetFrame
     }
     
@@ -114,10 +122,18 @@ fileprivate extension DefaultActionSheetPresenter {
         actionSheetView.frame = frame
         actionSheetView.frame.origin.y += 100
         view.addSubview(actionSheetView)
-        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
-        animator.addAnimations { actionSheetView.frame = frame }
-        animator.startAnimation()
+        animate({ actionSheetView.frame = frame })
         self.actionSheetView = actionSheetView
+    }
+    
+    func animate(
+        _ animation: @escaping () -> (),
+        completion: (() -> ())? = nil) {
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: [.curveEaseOut],
+            animations: animation) { _ in completion?() }
     }
     
     func addBackgroundView(to view: UIView) {
@@ -127,9 +143,7 @@ fileprivate extension DefaultActionSheetPresenter {
         backgroundView.alpha = 0
         addDismissTap(to: backgroundView)
         view.addSubview(backgroundView)
-        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
-        animator.addAnimations { backgroundView.alpha = 1 }
-        animator.startAnimation()
+        animate({ backgroundView.alpha = 1 })
         self.backgroundView = backgroundView
     }
     
@@ -144,17 +158,11 @@ fileprivate extension DefaultActionSheetPresenter {
         guard let view = actionSheetView else { return }
         var frame = view.frame
         frame.origin.y += frame.height + 100
-        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
-        animator.addAnimations { view.frame = frame }
-        animator.addCompletion { _ in view.removeFromSuperview() }
-        animator.startAnimation()
+        animate({ view.frame = frame }) { view.removeFromSuperview() }
     }
     
     func removeBackgroundView() {
         guard let view = backgroundView else { return }
-        let animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 1, animations: nil)
-        animator.addAnimations { view.alpha = 0 }
-        animator.addCompletion { _ in view.removeFromSuperview() }
-        animator.startAnimation()
+        animate({ view.alpha = 0 }) { view.removeFromSuperview() }
     }
 }
