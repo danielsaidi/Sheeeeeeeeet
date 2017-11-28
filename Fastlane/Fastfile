@@ -12,20 +12,16 @@ platform :ios do
     ensure_git_status_clean
     ensure_git_branch(branch: 'master')
     test
-    
     version = version_bump_podspec(path: "Sheeeeeeeeet.podspec", version_number: options[:name])
-    increment_build_number(build_number: version)
 
-#    git_commit(
-#      path: [
-#        "Sheeeeeeeeet.podspec",
-#        "Fastlane/"],
-#      message: "Bump to #{version}"
-#    )
+    git_commit(
+      path: ["Sheeeeeeeeet.podspec"],
+      message: "Bump to #{version}"
+    )
 
-    #add_git_tag(tag: version)
-    #push_git_tags()
-    #push_to_git_remote()
+    add_git_tag(tag: version)
+    push_git_tags()
+    push_to_git_remote()
   end
 
   
