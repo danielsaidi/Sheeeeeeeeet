@@ -6,6 +6,22 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This class can be used to add 3D touch previews to any view
+ controller that implements `ActionSheetPreviewSource`. Just
+ create a strong instance of the class, using the controller
+ as well as the source view that should be used for previews,
+ and implement `ActionSheetPreviewSource`.
+ 
+ For devices that lack 3D touch preview support, you can add
+ long press support instead. This will not preview an action
+ sheet, but instead open it when the source view is properly
+ long pressed. Just set `useLongPressIfPreviewIsUnsupported`
+ to `true` when creating the `ActionSheetPreviewer` instance.
+ 
+ */
+
 import UIKit
 
 open class ActionSheetPreviewer: NSObject, UIViewControllerPreviewingDelegate {
