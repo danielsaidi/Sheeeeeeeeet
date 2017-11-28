@@ -258,12 +258,10 @@
 		453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */ = {
 			isa = PBXGroup;
 			children = (
-				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
 				456EAA421FCCA02E00A719ED /* Extensions */,
-				453C046B1FC065AE0028FA02 /* Info.plist */,
 				456EAA3E1FCC920700A719ED /* Options */,
-				456EAA511FCCC7AB00A719ED /* Storyboards */,
+				456EAA571FCD9D8500A719ED /* Supporting Files */,
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
 				456EAA351FCC668F00A719ED /* ViewController+ActionSheets.swift */,
 				456EAA331FCC665800A719ED /* ViewController+Alerts.swift */,
@@ -401,15 +399,6 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		456EAA511FCCC7AB00A719ED /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
-				453C04631FC065AE0028FA02 /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		456EAA521FCD81C400A719ED /* Preview */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +406,17 @@
 				456EAA531FCD81DE00A719ED /* ActionSheetPreviewSource.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		456EAA571FCD9D8500A719ED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
+				453C046B1FC065AE0028FA02 /* Info.plist */,
+				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
+				453C04631FC065AE0028FA02 /* Main.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		45EB3FDF1FC8699600EF555E /* Cells */ = {
@@ -898,7 +898,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
-				INFOPLIST_FILE = SheeeeeeeeetExample/Info.plist;
+				INFOPLIST_FILE = "SheeeeeeeeetExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.SheeeeeeeeetExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -914,7 +914,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
-				INFOPLIST_FILE = SheeeeeeeeetExample/Info.plist;
+				INFOPLIST_FILE = "SheeeeeeeeetExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.SheeeeeeeeetExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";

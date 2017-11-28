@@ -12,6 +12,9 @@
  separate sections. They are not selectable, but will send a
  tap event to the action sheet in which they are used.
  
+ To add additional space above a section title, make sure to
+ add a `ActionSheetSectionMargin` before the section title.
+ 
  */
 
 import UIKit

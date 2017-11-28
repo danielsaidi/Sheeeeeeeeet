@@ -10,7 +10,8 @@
  
  This class represents a regular action sheet item, like the
  ones used in UIAlertController. It has a title, an optional
- value and an optional image.
+ value and an optional image. All other item classes inherit
+ this class.
  
  The default tap behavior of an action sheet item is to tell
  the action sheet that it was tapped, then dismiss the sheet.
