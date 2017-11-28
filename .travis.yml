@@ -10,7 +10,8 @@ before_install:
   - pod repo update
   - gem install cocoapods --pre
   - brew outdated xctool || brew upgrade xctool
-  
+
 script:
-- set -o pipefail && xcodebuild test -workspace Example/iExtra.xcworkspace -scheme iExtra-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+  - xcodebuild -project "Sheeeeeeeeet.xcodeproj" -scheme "SheeeeeeeeetExample" -sdk "iphonesimulator" | xcpretty -c
+  - pod lib lint
+  - fastlane test
