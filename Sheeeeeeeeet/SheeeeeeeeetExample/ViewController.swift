@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyActionSheetAppearance()
-        actionSheetPreviewer = ActionSheetPreviewer(in: self, sourceView: tableView)
+        setupPreviewHandling()
     }
     
     
@@ -79,6 +79,17 @@ class ViewController: UIViewController {
         case .danger: return destructiveActionSheet()
         case .peekPop: return nil
         }
+    }
+}
+
+
+// MARK: - Private Functions
+
+fileprivate extension ViewController {
+    
+    func setupPreviewHandling() {
+        guard let view = tableView else { return }
+        actionSheetPreviewer = ActionSheetPreviewer(in: self, sourceView: view)
     }
 }
 
