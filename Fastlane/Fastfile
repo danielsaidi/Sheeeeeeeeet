@@ -30,7 +30,7 @@ platform :ios do
   desc "Run unit tests"
   lane :test do
     scan(
-      project: "Sheeeeeeeeet/Sheeeeeeeeet.xcodeproj",
+      project: "Sheeeeeeeeet.xcodeproj",
       scheme: "SheeeeeeeeetTests",
       devices: ["iPhone 6s"]
     )    
