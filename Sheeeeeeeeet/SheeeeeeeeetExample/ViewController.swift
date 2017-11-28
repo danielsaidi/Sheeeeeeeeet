@@ -94,6 +94,20 @@ fileprivate extension ViewController {
 }
 
 
+// MARK: - ActionSheetPreviewSource
+
+extension ViewController: ActionSheetPreviewSource {
+    
+    func actionSheet(at location: CGPoint) -> ActionSheet? {
+        guard
+            let view = tableView,
+            let path = view.indexPathForRow(at: location)
+            else { return nil }
+        return actionSheet(at: path)
+    }
+}
+
+
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
