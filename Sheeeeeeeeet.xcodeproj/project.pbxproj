@@ -84,6 +84,13 @@
 			remoteGlobalIDString = 453C04201FC0655C0028FA02;
 			remoteInfo = Sheeeeeeeeet;
 		};
+		456EAA761FCE17CC00A719ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 453C04181FC0655C0028FA02 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 453C045C1FC065AE0028FA02;
+			remoteInfo = SheeeeeeeeetExample;
+		};
 		45EB3FE21FC878BC00EF555E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 453C04181FC0655C0028FA02 /* Project object */;
@@ -103,6 +110,15 @@
 				456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		456EAA6D1FCE165900A719ED /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -486,11 +502,13 @@
 				456EAA581FCE0E1C00A719ED /* Sources */,
 				456EAA591FCE0E1C00A719ED /* Frameworks */,
 				456EAA5A1FCE0E1C00A719ED /* Resources */,
+				456EAA6D1FCE165900A719ED /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				456EAA631FCE0E1C00A719ED /* PBXTargetDependency */,
+				456EAA771FCE17CC00A719ED /* PBXTargetDependency */,
 			);
 			name = SheeeeeeeeetTests;
 			productName = SheeeeeeeeetTests;
@@ -675,6 +693,11 @@
 			isa = PBXTargetDependency;
 			target = 453C04201FC0655C0028FA02 /* Sheeeeeeeeet */;
 			targetProxy = 456EAA621FCE0E1C00A719ED /* PBXContainerItemProxy */;
+		};
+		456EAA771FCE17CC00A719ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 453C045C1FC065AE0028FA02 /* SheeeeeeeeetExample */;
+			targetProxy = 456EAA761FCE17CC00A719ED /* PBXContainerItemProxy */;
 		};
 		45EB3FE31FC878BC00EF555E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -898,6 +921,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SheeeeeeeeetTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -913,6 +937,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SheeeeeeeeetTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

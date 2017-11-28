@@ -19,5 +19,5 @@ custom types are more specific to your app or domain.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'Sheeeeeeeeet/Sheeeeeeeeet/**/*.swift'
+  s.source_files = 'Sheeeeeeeeet/**/*.swift'
 end
