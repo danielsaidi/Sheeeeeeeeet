@@ -69,9 +69,7 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        items.forEach { $0.applyAppearance(appearance) }
-        applyRoundCorners()
-        positionViews()
+        prepareForPresentation()
     }
     
     
@@ -160,7 +158,14 @@ open class ActionSheet: UIViewController {
     }
     
     open func present(in vc: UIViewController, from view: UIView?, completion: (() -> ())? = nil) {
+        prepareForPresentation()
         presenter.present(sheet: self, in: vc, from: view, completion: completion)
+    }
+    
+    open func prepareForPresentation() {
+        items.forEach { $0.applyAppearance(appearance) }
+        applyRoundCorners()
+        positionViews()
     }
     
     
