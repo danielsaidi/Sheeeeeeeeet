@@ -1,0 +1,16 @@
+# references:
+# * http://www.objc.io/issue-6/travis-ci.html
+# * https://github.com/supermarin/xcpretty#usage
+
+osx_image: xcode9
+language: swift
+
+before_install:
+  - brew update
+  - pod repo update
+  - gem install cocoapods --pre
+  - brew outdated xctool || brew upgrade xctool
+  
+script:
+- set -o pipefail && xcodebuild test -workspace Example/iExtra.xcworkspace -scheme iExtra-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+- pod lib lint
