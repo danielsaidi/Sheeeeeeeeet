@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyActionSheetAppearance()
-        setupPeekAndPop()
+        actionSheetPreviewer = ActionSheetPreviewer(in: self, sourceView: tableView)
     }
     
     
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     var actionSheet: ActionSheet?
     
-    var actionSheetPreviewer: ActionSheetPreviewer<ViewController>?
+    var actionSheetPreviewer: ActionSheetPreviewer?
     
     var tableViewOptions: [TableViewOption] = [
         .standard,
@@ -83,20 +83,13 @@ class ViewController: UIViewController {
 }
 
 
-// MARK: - Private Functions
-
-fileprivate extension ViewController {
-    
-    func setupPeekAndPop() {
-        guard let view = tableView else { return }
-        actionSheetPreviewer = ActionSheetPreviewer(vc: self, sourceView: view)
-    }
-}
-
-
 // MARK: - ActionSheetPreviewSource
 
 extension ViewController: ActionSheetPreviewSource {
+    
+    var previewSourceView: UIView? {
+        return tableView
+    }
     
     func actionSheet(at location: CGPoint) -> ActionSheet? {
         guard
@@ -106,7 +99,7 @@ extension ViewController: ActionSheetPreviewSource {
         return actionSheet(at: path)
     }
     
-    func previewSourceView(for location: CGPoint) -> UIView? {
+    func presentationSourceView(at location: CGPoint) -> UIView? {
         guard
             let view = tableView,
             let path = view.indexPathForRow(at: location)

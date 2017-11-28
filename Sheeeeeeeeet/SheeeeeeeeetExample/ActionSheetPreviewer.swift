@@ -9,15 +9,20 @@
 import UIKit
 import Sheeeeeeeeet
 
-class ActionSheetPreviewer<T: UIViewController & ActionSheetPreviewSource>: NSObject, UIViewControllerPreviewingDelegate {
+class ActionSheetPreviewer: NSObject, UIViewControllerPreviewingDelegate {
+    
+    
+    // MARK: - Typealias
+    
+    typealias ActionSheetPreviewSourceViewController = UIViewController & ActionSheetPreviewSource
     
     
     // MARK: - Initialization
     
-    init(vc: T, sourceView: UIView) {
+    init(in vc: ActionSheetPreviewSourceViewController, sourceView: UIView?) {
         self.vc = vc
-        self.sourceView = sourceView
         super.init()
+        guard let sourceView = sourceView else { return }
         if vc.traitCollection.forceTouchCapability == .available {
             vc.registerForPreviewing(with: self, sourceView: sourceView)
         } else {
@@ -28,54 +33,67 @@ class ActionSheetPreviewer<T: UIViewController & ActionSheetPreviewSource>: NSOb
     
     // MARK: - Properties
     
-    weak var vc: T?
-    weak var sourceView: UIView?
-    weak var previewSourceView: UIView?
+    fileprivate(set) weak var vc: ActionSheetPreviewSourceViewController?
+    fileprivate(set) weak var sourceView: UIView?
+    
+    fileprivate weak var presentationSourceView: UIView?
+    
     
     // MARK: - Actions
 
     @objc func sourceViewLongPressed(gesture: UILongPressGestureRecognizer) {
-        guard gesture.state == .began else { return }
+        guard
+            gesture.state == .began,
+            let sourceView = sourceView
+            else { return }
+        
         let location = gesture.location(in: sourceView)
+        
         guard
             let vc = vc,
             let sheet = vc.actionSheet(at: location),
-            let previewSourceView = vc.previewSourceView(for: location)
+            let presentationSourceView = vc.presentationSourceView(at: location)
             else { return }
+        
         vc.actionSheet = sheet
-        sheet.present(in: vc, from: previewSourceView)
+        sheet.present(in: vc, from: presentationSourceView)
     }
 
     
     // MARK: - Private Functions
     
-    func applyLongPressGesture(to sourceView: UIView) {
-        sourceView.isUserInteractionEnabled = true
+    func applyLongPressGesture(to view: UIView) {
+        view.isUserInteractionEnabled = true
         let action = #selector(sourceViewLongPressed(gesture:))
-        let longPress = UILongPressGestureRecognizer(target: self, action: action)
-        sourceView.addGestureRecognizer(longPress)
+        let press = UILongPressGestureRecognizer(target: self, action: action)
+        view.addGestureRecognizer(press)
     }
 
 
     // MARK: - UIViewControllerPreviewingDelegate
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    func previewingContext(
+        _ previewingContext: UIViewControllerPreviewing,
+        viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
             let vc = vc,
             let sheet = vc.actionSheet(at: location),
-            let previewSourceView = vc.previewSourceView(for: location)
+            let sourceView = vc.presentationSourceView(at: location)
             else { return nil }
-        self.previewSourceView = previewSourceView
-        previewingContext.sourceRect = previewSourceView.frame
+        self.presentationSourceView = sourceView
+        previewingContext.sourceRect = sourceView.frame
         return sheet
     }
     
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+    func previewingContext(
+        _ previewingContext: UIViewControllerPreviewing,
+        commit viewControllerToCommit: UIViewController) {
         guard
             let vc = vc,
-            let previewSourceView = previewSourceView,
-            let sheet = viewControllerToCommit as? ActionSheet else { return }
+            let sheet = viewControllerToCommit as? ActionSheet,
+            let sourceView = presentationSourceView
+            else { return }
         vc.actionSheet = sheet
-        sheet.pop(in: vc, from: previewSourceView)
+        sheet.pop(in: vc, from: sourceView)
     }
 }

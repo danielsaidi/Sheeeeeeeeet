@@ -13,5 +13,5 @@ public protocol ActionSheetPreviewSource: class {
     var actionSheet: ActionSheet? { get set }
     
     func actionSheet(at location: CGPoint) -> ActionSheet?
-    func previewSourceView(for location: CGPoint) -> UIView?
+    func presentationSourceView(at location: CGPoint) -> UIView?
 }
