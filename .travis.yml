@@ -7,10 +7,8 @@ language: swift
 
 before_install:
   - brew update
-  - pod repo update
-  - gem install cocoapods --pre
+  - brew install carthage
   - brew outdated xctool || brew upgrade xctool
-  - pod install
   - carthage update
 
 script:
