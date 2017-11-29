@@ -52,8 +52,7 @@ open class ActionSheet: UIViewController {
         presenter: ActionSheetPresenter = DefaultActionSheetPresenter(),
         action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
-        self.items = items.filter { !($0 is ActionSheetButton) }
-        self.buttons = items.flatMap { $0 as? ActionSheetButton }
+        setItems(items)
         self.presenter = presenter
         self.itemSelectAction = action
         setup()
@@ -91,9 +90,24 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Dependencies
     
-    open var itemSelectAction: ActionSheetItemSelectAction!
+    open lazy var appearance: ActionSheetAppearance = {
+        return ActionSheetAppearance(copy: .standard)
+    }()
     
-    open lazy var itemTapAction: ActionSheetItemTapAction! = {
+    open lazy var presenter: ActionSheetPresenter = {
+        return DefaultActionSheetPresenter()
+    }()
+    
+    
+    // MARK: - Actions
+    
+    open lazy var itemSelectAction: ActionSheetItemSelectAction = {
+        return { [weak self] sheet, item in
+            print("ActionSheet.itemSelectAction not set")
+        }
+    }()
+    
+    open lazy var itemTapAction: ActionSheetItemTapAction = {
         return { [weak self] item in
             guard let _self = self else { return }
             _self.itemTableView.reloadData()
@@ -104,33 +118,57 @@ open class ActionSheet: UIViewController {
         }
     }()
     
-    open var presenter: ActionSheetPresenter!
     
+    // MARK: - Item Properties
+    
+    fileprivate(set) open var buttons = [ActionSheetButton]()
+    
+    fileprivate(set) open var items = [ActionSheetItem]()
+    
+    open func setItems(_ items: [ActionSheetItem]) {
+        self.items = items.filter { !($0 is ActionSheetButton) }
+        self.buttons = items.flatMap { $0 as? ActionSheetButton }
+    }
     
     
     // MARK: - Properties
     
-    open var buttons = [ActionSheetButton]()
-    
-    open lazy var appearance: ActionSheetAppearance = {
-        let standard = ActionSheetAppearance.standard
-        return ActionSheetAppearance(copy: standard)
-    }()
-    
-    open var contentHeight: CGFloat {
-        let itemHeight = items.reduce(0) { $0 + $1.appearance.height }
-        guard let view = headerView else { return itemHeight }
-        let headerHeight = view.frame.height
-        return itemHeight + headerHeight + appearance.headerView.bottomMargin
+    open var buttonsHeight: CGFloat {
+        return buttons.reduce(0) { $0 + $1.appearance.height }
     }
     
-    open var items = [ActionSheetItem]()
+    open var buttonsTotalHeight: CGFloat {
+        return buttonsHeight
+    }
+    
+    open var contentWidth: CGFloat {
+        return super.preferredContentSize.width
+    }
+
+    open var contentHeight: CGFloat {
+        return headerTotalHeight + itemsTotalHeight + buttonsTotalHeight
+    }
+    
+    open var headerHeight: CGFloat? {
+        return headerView?.frame.height
+    }
+    
+    open var headerTotalHeight: CGFloat {
+        guard let height = headerHeight else { return 0 }
+        return height + appearance.contentInset
+    }
+    
+    open var itemsHeight: CGFloat {
+        return items.reduce(0) { $0 + $1.appearance.height }
+    }
+    
+    open var itemsTotalHeight: CGFloat {
+        guard itemsHeight > 0 else { return 0 }
+        return itemsHeight + appearance.contentInset
+    }
     
     open override var preferredContentSize: CGSize {
-        get {
-            let width = super.preferredContentSize.width
-            return CGSize(width: width, height: contentHeight)
-        }
+        get { return CGSize(width: contentWidth, height: contentHeight) }
         set { super.preferredContentSize = newValue }
     }
     
@@ -138,20 +176,17 @@ open class ActionSheet: UIViewController {
         let width = appearance.popover.width
         return CGSize(width: width, height: contentHeight)
     }
-    
-    
-    // MARK: - Private Properties
-    
-    fileprivate lazy var tableViewDataSource: ActionSheetItemDataSource = {
-        return ActionSheetItemDataSource(actionSheet: self)
-    }()
-    
-    fileprivate lazy var tableViewDelegate: ActionSheetItemDelegate = {
-        return ActionSheetItemDelegate(actionSheet: self)
-    }()
 
 
     // MARK: - View Properties
+    
+    open lazy var buttonsTableView: UITableView = {
+        let tableView = createTableView()
+        tableView.dataSource = buttonHandler
+        tableView.delegate = buttonHandler
+        view.addSubview(tableView)
+        return tableView
+    }()
 
     open var headerView: UIView? {
         didSet {
@@ -162,14 +197,22 @@ open class ActionSheet: UIViewController {
     }
 
     open lazy var itemTableView: UITableView = {
-        let tableView = UITableView(frame: view.frame, style: .plain)
-        tableView.isScrollEnabled = false
-        tableView.tableFooterView = UIView.empty
-        tableView.dataSource = tableViewDataSource
-        tableView.delegate = tableViewDelegate
-        tableView.cellLayoutMarginsFollowReadableWidth = false
+        let tableView = createTableView()
+        tableView.dataSource = itemHandler
+        tableView.delegate = itemHandler
         view.addSubview(tableView)
         return tableView
+    }()
+    
+    
+    // MARK: - Data Properties
+    
+    fileprivate lazy var buttonHandler: ActionSheetButtonHandler = {
+        return ActionSheetButtonHandler(actionSheet: self)
+    }()
+    
+    fileprivate lazy var itemHandler: ActionSheetItemHandler = {
+        return ActionSheetItemHandler(actionSheet: self)
     }()
 
     
@@ -216,6 +259,14 @@ fileprivate extension ActionSheet {
     func applyRoundCorners(to view: UIView?) {
         view?.clipsToBounds = true
         view?.layer.cornerRadius = appearance.cornerRadius
+    }
+    
+    func createTableView() -> UITableView {
+        let tableView = UITableView(frame: view.frame, style: .plain)
+        tableView.isScrollEnabled = false
+        tableView.tableFooterView = UIView.empty
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        return tableView
     }
     
     func positionViews() {

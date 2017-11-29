@@ -1,5 +1,5 @@
 //
-//  ActionSheetItemDataSource.swift
+//  ActionSheetItemHandler.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class ActionSheetItemDataSource: NSObject, UITableViewDataSource {
+open class ActionSheetItemHandler: NSObject {
     
     
     // MARK: - Initialization
@@ -25,10 +25,13 @@ open class ActionSheetItemDataSource: NSObject, UITableViewDataSource {
     fileprivate var items: [ActionSheetItem] {
         return actionSheet?.items ?? []
     }
-    
-    
-    // MARK: - UITableViewDataSource
+}
 
+
+// MARK: - UITableViewDataSource
+
+extension ActionSheetItemHandler: UITableViewDataSource {
+    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -43,5 +46,18 @@ open class ActionSheetItemDataSource: NSObject, UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(items[indexPath.row].appearance.height)
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+
+extension ActionSheetItemHandler: UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        item.handleTap()
+        actionSheet?.itemTapAction(item)
     }
 }

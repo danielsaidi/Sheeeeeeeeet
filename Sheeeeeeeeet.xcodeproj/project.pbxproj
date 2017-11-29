@@ -19,7 +19,6 @@
 		453C047D1FC161B70028FA02 /* UIView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C047C1FC161B70028FA02 /* UIView+Empty.swift */; };
 		453C04821FC16A370028FA02 /* ActionSheetTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */; };
 		453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */; };
-		456EA9F51FC8C7DB00A719ED /* ActionSheetItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EA9F41FC8C7DB00A719ED /* ActionSheetItemDelegate.swift */; };
 		456EA9F71FCAB13500A719ED /* ActionSheetItemTapBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EA9F61FCAB13500A719ED /* ActionSheetItemTapBehavior.swift */; };
 		456EA9F91FCAC77D00A719ED /* ActionSheetToggleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EA9F81FCAC77D00A719ED /* ActionSheetToggleItem.swift */; };
 		456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EA9FA1FCAC9CC00A719ED /* ActionSheetSelectItem.swift */; };
@@ -66,6 +65,7 @@
 		457EC2C21FCE1ADF000EF1AD /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C31FCE1ADF000EF1AD /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */; };
+		457EC2CC1FCEB906000EF1AD /* ActionSheetButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2CA1FCEB906000EF1AD /* ActionSheetButtonHandler.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -77,7 +77,7 @@
 		45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */; };
 		45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */; };
 		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */; };
-		45EB3FE51FC87B1500EF555E /* ActionSheetItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemDataSource.swift */; };
+		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +146,6 @@
 		453C047C1FC161B70028FA02 /* UIView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Empty.swift"; sourceTree = "<group>"; };
 		453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleAppearance.swift; sourceTree = "<group>"; };
 		453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleAppearance.swift; sourceTree = "<group>"; };
-		456EA9F41FC8C7DB00A719ED /* ActionSheetItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemDelegate.swift; sourceTree = "<group>"; };
 		456EA9F61FCAB13500A719ED /* ActionSheetItemTapBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTapBehavior.swift; sourceTree = "<group>"; };
 		456EA9F81FCAC77D00A719ED /* ActionSheetToggleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetToggleItem.swift; sourceTree = "<group>"; };
 		456EA9FA1FCAC9CC00A719ED /* ActionSheetSelectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItem.swift; sourceTree = "<group>"; };
@@ -190,6 +189,7 @@
 		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
+		457EC2CA1FCEB906000EF1AD /* ActionSheetButtonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonHandler.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemCell.swift; sourceTree = "<group>"; };
 		45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverActionSheetPresenter.swift; sourceTree = "<group>"; };
 		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverApperance.swift; sourceTree = "<group>"; };
-		45EB3FE41FC87B1500EF555E /* ActionSheetItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemDataSource.swift; sourceTree = "<group>"; };
+		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +260,7 @@
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
 				453C04801FC16A220028FA02 /* Appearance */,
 				45EB3FDF1FC8699600EF555E /* Cells */,
-				457EC2C81FCEAC67000EF1AD /* Data */,
+				457EC2C81FCEAC67000EF1AD /* Handlers */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C04731FC069940028FA02 /* Items */,
@@ -446,13 +446,13 @@
 			path = SheeeeeeeeetTests;
 			sourceTree = "<group>";
 		};
-		457EC2C81FCEAC67000EF1AD /* Data */ = {
+		457EC2C81FCEAC67000EF1AD /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				45EB3FE41FC87B1500EF555E /* ActionSheetItemDataSource.swift */,
-				456EA9F41FC8C7DB00A719ED /* ActionSheetItemDelegate.swift */,
+				457EC2CA1FCEB906000EF1AD /* ActionSheetButtonHandler.swift */,
+				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
 			);
-			path = Data;
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		45EB3FDF1FC8699600EF555E /* Cells */ = {
@@ -673,13 +673,13 @@
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,
 				453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */,
 				45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */,
-				45EB3FE51FC87B1500EF555E /* ActionSheetItemDataSource.swift in Sources */,
+				45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */,
 				456EAA0E1FCC13A400A719ED /* DefaultActionSheetPresenter.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
-				456EA9F51FC8C7DB00A719ED /* ActionSheetItemDelegate.swift in Sources */,
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
 				456EA9F71FCAB13500A719ED /* ActionSheetItemTapBehavior.swift in Sources */,
 				456EAA561FCD914000A719ED /* ActionSheetPreviewer.swift in Sources */,
+				457EC2CC1FCEB906000EF1AD /* ActionSheetButtonHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
