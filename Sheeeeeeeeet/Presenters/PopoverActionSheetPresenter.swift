@@ -64,7 +64,7 @@ fileprivate extension PopoverActionSheetPresenter {
     
     func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
         actionSheetBackgroundColor = sheet.view.backgroundColor
-        sheet.view.backgroundColor = sheet.itemTableView.backgroundColor
+        sheet.view.backgroundColor = sheet.itemsView.backgroundColor
         actionSheetHeaderView = sheet.headerView
         sheet.headerView = nil
     }

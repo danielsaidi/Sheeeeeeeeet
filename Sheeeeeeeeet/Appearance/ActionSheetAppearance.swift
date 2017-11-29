@@ -49,9 +49,9 @@ open class ActionSheetAppearance {
     
     // MARK: - Properties
     
-    public var cornerRadius: CGFloat = 15
+    public var cornerRadius: CGFloat = 10
     
-    public var contentInset: CGFloat = 20
+    public var contentInset: CGFloat = 15
     
     
     // MARK: - Appearance Properties

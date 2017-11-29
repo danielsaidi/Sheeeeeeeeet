@@ -110,7 +110,7 @@ open class ActionSheet: UIViewController {
     open lazy var itemTapAction: ActionSheetItemTapAction = {
         return { [weak self] item in
             guard let _self = self else { return }
-            _self.itemTableView.reloadData()
+            _self.itemsView.reloadData()
             _self.itemSelectAction(_self, item)
             if item.dismissesOnTap {
                 _self.dismiss()
@@ -180,12 +180,12 @@ open class ActionSheet: UIViewController {
 
     // MARK: - View Properties
     
-    open lazy var buttonsTableView: UITableView = {
-        let tableView = createTableView()
-        tableView.dataSource = buttonHandler
-        tableView.delegate = buttonHandler
-        view.addSubview(tableView)
-        return tableView
+    open lazy var buttonsView: UITableView = {
+        let view = createTableView()
+        view.dataSource = buttonHandler
+        view.delegate = buttonHandler
+        self.view.addSubview(view)
+        return view
     }()
 
     open var headerView: UIView? {
@@ -196,12 +196,12 @@ open class ActionSheet: UIViewController {
         }
     }
 
-    open lazy var itemTableView: UITableView = {
-        let tableView = createTableView()
-        tableView.dataSource = itemHandler
-        tableView.delegate = itemHandler
-        view.addSubview(tableView)
-        return tableView
+    open lazy var itemsView: UITableView = {
+        let view = createTableView()
+        view.dataSource = itemHandler
+        view.delegate = itemHandler
+        self.view.addSubview(view)
+        return view
     }()
     
     
@@ -234,6 +234,7 @@ open class ActionSheet: UIViewController {
     
     open func prepareForPresentation() {
         items.forEach { $0.applyAppearance(appearance) }
+        buttons.forEach { $0.applyAppearance(appearance) }
         applyRoundCorners()
         positionViews()
     }
@@ -252,8 +253,9 @@ open class ActionSheet: UIViewController {
 fileprivate extension ActionSheet {
     
     func applyRoundCorners() {
-        applyRoundCorners(to: itemTableView)
         applyRoundCorners(to: headerView)
+        applyRoundCorners(to: itemsView)
+        applyRoundCorners(to: buttonsView)
     }
     
     func applyRoundCorners(to view: UIView?) {
@@ -271,25 +273,28 @@ fileprivate extension ActionSheet {
     
     func positionViews() {
         let width = view.frame.width
-        positionItemTableView(width: width)
-        positionViewsRelativeToHeaderView()
+        positionHeaderView(width: width)
+        positionItemsView(width: width)
+        positionButtonsView(width: width)
     }
     
-    func positionItemTableView(width: CGFloat) {
-        itemTableView.frame.origin.x = 0
-        itemTableView.frame.origin.y = 0
-        itemTableView.frame.size.width = width
-        itemTableView.frame.size.height = contentHeight
+    func positionButtonsView(width: CGFloat) {
+        buttonsView.frame.origin.x = 0
+        buttonsView.frame.origin.y = headerTotalHeight + itemsTotalHeight
+        buttonsView.frame.size.width = width
+        buttonsView.frame.size.height = buttonsTotalHeight
     }
     
-    func positionViewsRelativeToHeaderView() {
-        guard let headerView = headerView else { return }
-        let headerHeight = headerView.frame.height
-        let headerMargin = appearance.headerView.bottomMargin
-        headerView.frame.origin = .zero
-        headerView.frame.size.width = view.frame.width
-        let tableStartY = headerHeight + headerMargin
-        itemTableView.frame.origin.y = tableStartY
-        itemTableView.frame.size.height -= tableStartY
+    func positionHeaderView(width: CGFloat) {
+        guard let view = headerView else { return }
+        view.frame.origin = .zero
+        view.frame.size.width = width
+    }
+    
+    func positionItemsView(width: CGFloat) {
+        itemsView.frame.origin.x = 0
+        itemsView.frame.origin.y = headerTotalHeight
+        itemsView.frame.size.width = width
+        itemsView.frame.size.height = itemsHeight
     }
 }
