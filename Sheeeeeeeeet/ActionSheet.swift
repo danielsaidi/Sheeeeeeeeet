@@ -164,6 +164,7 @@ open class ActionSheet: UIViewController {
     
     open var itemsTotalHeight: CGFloat {
         guard itemsHeight > 0 else { return 0 }
+        guard buttonsTotalHeight > 0 else { return itemsHeight }
         return itemsHeight + appearance.contentInset
     }
     
