@@ -10,6 +10,8 @@ before_install:
   - pod repo update
   - gem install cocoapods --pre
   - brew outdated xctool || brew upgrade xctool
+  - pod install
+  - carthage update
 
 script:
   - xcodebuild -project "Sheeeeeeeeet.xcodeproj" -scheme "SheeeeeeeeetExample" -sdk "iphonesimulator" | xcpretty -c
