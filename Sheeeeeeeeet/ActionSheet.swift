@@ -141,21 +141,21 @@ open class ActionSheet: UIViewController {
         return buttonsHeight
     }
     
-    open var contentWidth: CGFloat {
-        return super.preferredContentSize.width
-    }
-
     open var contentHeight: CGFloat {
         return headerTotalHeight + itemsTotalHeight + buttonsTotalHeight
     }
     
-    open var headerHeight: CGFloat? {
-        return headerView?.frame.height
+    open var contentWidth: CGFloat {
+        return super.preferredContentSize.width
+    }
+    
+    open var headerHeight: CGFloat {
+        return headerView?.frame.height ?? 0
     }
     
     open var headerTotalHeight: CGFloat {
-        guard let height = headerHeight else { return 0 }
-        return height + appearance.contentInset
+        guard headerHeight > 0 else { return 0 }
+        return headerHeight + appearance.contentInset
     }
     
     open var itemsHeight: CGFloat {
@@ -208,11 +208,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Data Properties
     
-    fileprivate lazy var buttonHandler: ActionSheetButtonHandler = {
+    public lazy var buttonHandler: ActionSheetButtonHandler = {
         return ActionSheetButtonHandler(actionSheet: self)
     }()
     
-    fileprivate lazy var itemHandler: ActionSheetItemHandler = {
+    public lazy var itemHandler: ActionSheetItemHandler = {
         return ActionSheetItemHandler(actionSheet: self)
     }()
 

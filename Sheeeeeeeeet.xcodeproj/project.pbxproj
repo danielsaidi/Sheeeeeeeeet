@@ -29,7 +29,6 @@
 		456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA041FCB110B00A719ED /* ActionSheetTitle.swift */; };
 		456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */; };
 		456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */; };
-		456EAA0B1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */; };
 		456EAA0E1FCC13A400A719ED /* DefaultActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */; };
 		456EAA111FCC204A00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
 		456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -156,7 +155,6 @@
 		456EAA041FCB110B00A719ED /* ActionSheetTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitle.swift; sourceTree = "<group>"; };
 		456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonItemAppearance.swift; sourceTree = "<group>"; };
 		456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButton.swift; sourceTree = "<group>"; };
-		456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderViewAppearance.swift; sourceTree = "<group>"; };
 		456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultActionSheetPresenter.swift; sourceTree = "<group>"; };
 		456EAA191FCC615A00A719ED /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		456EAA1A1FCC615A00A719ED /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */,
 				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
 				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
-				456EAA0A1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
 				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
@@ -669,7 +666,6 @@
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,
 				456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
-				456EAA0B1FCBFA2400A719ED /* ActionSheetHeaderViewAppearance.swift in Sources */,
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,
 				453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */,
 				45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */,

@@ -34,7 +34,6 @@ open class ActionSheetAppearance {
         
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
         dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
-        headerView = ActionSheetHeaderViewAppearance(copy: copy.headerView)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
         okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
@@ -66,10 +65,6 @@ open class ActionSheetAppearance {
         let appearance = ActionSheetDangerButtonAppearance(copy: item)
         appearance.textColor = .red
         return appearance
-    }()
-    
-    public lazy var headerView: ActionSheetHeaderViewAppearance = {
-        return ActionSheetHeaderViewAppearance(bottomMargin: 20)
     }()
     
     public lazy var item: ActionSheetItemAppearance = {
