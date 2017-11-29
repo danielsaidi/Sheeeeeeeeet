@@ -8,7 +8,7 @@ disabled_rules: # rule identifiers to exclude from running
   #- trailing_newline
   - trailing_whitespace
   #- type_name
-  #- type_body_length
+  - type_body_length
   #- variable_name_max_length
 
 excluded: # paths to ignore during linting. overridden by `included`.
