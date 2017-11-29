@@ -39,6 +39,7 @@
 import UIKit
 
 public typealias ActionSheetItemSelectAction = (ActionSheet, ActionSheetItem) -> ()
+public typealias ActionSheetItemTapAction = (ActionSheetItem) -> ()
 
 
 open class ActionSheet: UIViewController {
@@ -51,9 +52,10 @@ open class ActionSheet: UIViewController {
         presenter: ActionSheetPresenter = DefaultActionSheetPresenter(),
         action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
-        self.items = items
+        self.items = items.filter { !($0 is ActionSheetButton) }
+        self.buttons = items.flatMap { $0 as? ActionSheetButton }
         self.presenter = presenter
-        self.action = action
+        self.itemSelectAction = action
         setup()
     }
     
@@ -89,13 +91,26 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Dependencies
     
-    open var action: ActionSheetItemSelectAction!
+    open var itemSelectAction: ActionSheetItemSelectAction!
+    
+    open lazy var itemTapAction: ActionSheetItemTapAction! = {
+        return { [weak self] item in
+            guard let _self = self else { return }
+            _self.itemTableView.reloadData()
+            _self.itemSelectAction(_self, item)
+            if item.dismissesOnTap {
+                _self.dismiss()
+            }
+        }
+    }()
     
     open var presenter: ActionSheetPresenter!
     
     
     
     // MARK: - Properties
+    
+    open var buttons = [ActionSheetButton]()
     
     open lazy var appearance: ActionSheetAppearance = {
         let standard = ActionSheetAppearance.standard
@@ -107,14 +122,6 @@ open class ActionSheet: UIViewController {
         guard let view = headerView else { return itemHeight }
         let headerHeight = view.frame.height
         return itemHeight + headerHeight + appearance.headerView.bottomMargin
-    }
-    
-    open var headerView: UIView? {
-        didSet {
-            oldValue?.removeFromSuperview()
-            guard let header = headerView else { return }
-            view.addSubview(header)
-        }
     }
     
     open var items = [ActionSheetItem]()
@@ -135,25 +142,26 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Private Properties
     
-    fileprivate lazy var tableViewDataSource: ActionSheetDataSource = {
-        return ActionSheetDataSource(actionSheet: self)
+    fileprivate lazy var tableViewDataSource: ActionSheetItemDataSource = {
+        return ActionSheetItemDataSource(actionSheet: self)
     }()
     
-    fileprivate lazy var tableViewDelegate: ActionSheetDelegate = {
-        return ActionSheetDelegate(actionSheet: self) { [weak self] item in
-            guard let sheet = self else { return }
-            sheet.tableView.reloadData()
-            sheet.action(sheet, item)
-            if item.dismissesOnTap {
-                sheet.dismiss()
-            }
-        }
+    fileprivate lazy var tableViewDelegate: ActionSheetItemDelegate = {
+        return ActionSheetItemDelegate(actionSheet: self)
     }()
 
 
     // MARK: - View Properties
 
-    fileprivate(set) public lazy var tableView: UITableView = {
+    open var headerView: UIView? {
+        didSet {
+            oldValue?.removeFromSuperview()
+            guard let header = headerView else { return }
+            view.addSubview(header)
+        }
+    }
+
+    open lazy var itemTableView: UITableView = {
         let tableView = UITableView(frame: view.frame, style: .plain)
         tableView.isScrollEnabled = false
         tableView.tableFooterView = UIView.empty
@@ -201,19 +209,26 @@ open class ActionSheet: UIViewController {
 fileprivate extension ActionSheet {
     
     func applyRoundCorners() {
-        tableView.clipsToBounds = true
-        headerView?.clipsToBounds = true
-        tableView.layer.cornerRadius = appearance.cornerRadius
-        headerView?.layer.cornerRadius = appearance.cornerRadius
+        applyRoundCorners(to: itemTableView)
+        applyRoundCorners(to: headerView)
+    }
+    
+    func applyRoundCorners(to view: UIView?) {
+        view?.clipsToBounds = true
+        view?.layer.cornerRadius = appearance.cornerRadius
     }
     
     func positionViews() {
         let width = view.frame.width
-        tableView.frame.origin.x = 0
-        tableView.frame.origin.y = 0
-        tableView.frame.size.width = width
-        tableView.frame.size.height = contentHeight
+        positionItemTableView(width: width)
         positionViewsRelativeToHeaderView()
+    }
+    
+    func positionItemTableView(width: CGFloat) {
+        itemTableView.frame.origin.x = 0
+        itemTableView.frame.origin.y = 0
+        itemTableView.frame.size.width = width
+        itemTableView.frame.size.height = contentHeight
     }
     
     func positionViewsRelativeToHeaderView() {
@@ -223,7 +238,7 @@ fileprivate extension ActionSheet {
         headerView.frame.origin = .zero
         headerView.frame.size.width = view.frame.width
         let tableStartY = headerHeight + headerMargin
-        tableView.frame.origin.y = tableStartY
-        tableView.frame.size.height -= tableStartY
+        itemTableView.frame.origin.y = tableStartY
+        itemTableView.frame.size.height -= tableStartY
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ActionSheetDataSource.swift
+//  ActionSheetItemDataSource.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class ActionSheetDataSource: NSObject, UITableViewDataSource {
+open class ActionSheetItemDataSource: NSObject, UITableViewDataSource {
     
     
     // MARK: - Initialization
@@ -22,6 +22,10 @@ open class ActionSheetDataSource: NSObject, UITableViewDataSource {
     
     fileprivate weak var actionSheet: ActionSheet?
     
+    fileprivate var items: [ActionSheetItem] {
+        return actionSheet?.items ?? []
+    }
+    
     
     // MARK: - UITableViewDataSource
 
@@ -30,16 +34,14 @@ open class ActionSheetDataSource: NSObject, UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actionSheet?.items.count ?? 0
+        return items.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = actionSheet?.item(at: indexPath)
-        return item?.cell(for: tableView) ?? UITableViewCell()
+        return items[indexPath.row].cell(for: tableView)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let item = actionSheet?.item(at: indexPath)
-        return CGFloat(item?.appearance.height ?? 0)
+        return CGFloat(items[indexPath.row].appearance.height)
     }
 }

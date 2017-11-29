@@ -1,5 +1,5 @@
 //
-//  ActionSheetDelegate.swift
+//  ActionSheetItemDelegate.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,22 +8,19 @@
 
 import UIKit
 
-open class ActionSheetDelegate: NSObject, UITableViewDelegate {
+open class ActionSheetItemDelegate: NSObject, UITableViewDelegate {
     
     
     // MARK: - Initialization
     
-    init(actionSheet: ActionSheet, selectAction: @escaping (ActionSheetItem) -> ()) {
+    init(actionSheet: ActionSheet) {
         self.actionSheet = actionSheet
-        self.selectAction = selectAction
     }
     
     
     // MARK: - Properties
     
     fileprivate weak var actionSheet: ActionSheet?
-    
-    fileprivate let selectAction: (ActionSheetItem) -> ()
     
     
     // MARK: - UITableViewDelegate
@@ -37,6 +34,6 @@ open class ActionSheetDelegate: NSObject, UITableViewDelegate {
         guard let item = actionSheet?.item(at: indexPath) else { return }
         tableView.deselectRow(at: indexPath, animated: true)
         item.handleTap()
-        selectAction(item)
+        actionSheet?.itemTapAction(item)
     }
 }

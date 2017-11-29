@@ -54,7 +54,7 @@ class ActionSheetTests: QuickSpec {
                 let sheet = ActionSheet(items: []) { sheet, item in
                     counter += 1
                 }
-                sheet.action(sheet, ActionSheetItem(title: "foo"))
+                sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))
                 
                 expect(counter).to(equal(1))
             }
