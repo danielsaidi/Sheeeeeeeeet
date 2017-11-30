@@ -10,8 +10,7 @@ import UIKit
 
 public protocol ActionSheetPreviewSource: class {
 
-    var actionSheet: ActionSheet? { get set }
-    
     func actionSheet(at location: CGPoint) -> ActionSheet?
     func presentationSourceView(at location: CGPoint) -> UIView?
+    func setCurrentActionSheet(_ sheet: ActionSheet)
 }

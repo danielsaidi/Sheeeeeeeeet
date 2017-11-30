@@ -98,10 +98,6 @@ fileprivate extension ViewController {
 
 extension ViewController: ActionSheetPreviewSource {
     
-    var previewSourceView: UIView? {
-        return tableView
-    }
-    
     func actionSheet(at location: CGPoint) -> ActionSheet? {
         guard
             let view = tableView,
@@ -116,6 +112,10 @@ extension ViewController: ActionSheetPreviewSource {
             let path = view.indexPathForRow(at: location)
             else { return nil }
         return view.cellForRow(at: path)
+    }
+    
+    func setCurrentActionSheet(_ sheet: ActionSheet) {
+        actionSheet = sheet
     }
 }
 

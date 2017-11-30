@@ -73,7 +73,7 @@ open class ActionSheetPreviewer: NSObject, UIViewControllerPreviewingDelegate {
             let presentationSourceView = vc.presentationSourceView(at: location)
             else { return }
         
-        vc.actionSheet = sheet
+        vc.setCurrentActionSheet(sheet)
         sheet.present(in: vc, from: presentationSourceView)
     }
     
@@ -111,7 +111,7 @@ open class ActionSheetPreviewer: NSObject, UIViewControllerPreviewingDelegate {
             let sheet = viewControllerToCommit as? ActionSheet,
             let sourceView = presentationSourceView
             else { return }
-        vc.actionSheet = sheet
+        vc.setCurrentActionSheet(sheet)
         sheet.pop(in: vc, from: sourceView)
     }
 }
