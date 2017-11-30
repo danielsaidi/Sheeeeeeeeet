@@ -127,7 +127,8 @@ open class ActionSheet: UIViewController {
     
     open func setItems(_ items: [ActionSheetItem]) {
         self.items = items.filter { !($0 is ActionSheetButton) }
-        self.buttons = items.flatMap { $0 as? ActionSheetButton }
+        buttons = items.flatMap { $0 as? ActionSheetButton }
+        itemsView.reloadData()
     }
     
     
