@@ -27,31 +27,28 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
     // MARK: - Initialization
     
     public convenience init() {
-        let color = UIColor.black.withAlphaComponent(0.3)
-        self.init(backgroundColor: color)
-    }
-    
-    public convenience init(backgroundColor: UIColor) {
         let popover = PopoverActionSheetPresenter()
-        self.init(backgroundColor: backgroundColor, iPadPresenter: popover)
+        self.init(iPadPresenter: popover)
     }
     
-    public init(backgroundColor: UIColor, iPadPresenter: ActionSheetPresenter?) {
-        self.backgroundColor = backgroundColor
+    public init(iPadPresenter: ActionSheetPresenter?) {
         self.iPadPresenter = iPadPresenter
     }
     
     deinit { print("\(type(of: self)) deinit") }
     
     
+    // MARK: - Dependencies
+    
+    fileprivate let iPadPresenter: ActionSheetPresenter?
+    
+    
     // MARK: - Properties
     
-    fileprivate var backgroundColor: UIColor?
+    public var backgroundColor = UIColor.black.withAlphaComponent(0.4)
     
-    fileprivate var actionSheetView: UIView?
-    fileprivate var backgroundView: UIView?
-    
-    fileprivate var iPadPresenter: ActionSheetPresenter?
+    public fileprivate(set) var actionSheetView: UIView?
+    public fileprivate(set) var backgroundView: UIView?
     
     fileprivate var shouldUseiPadPresenter: Bool {
         let ipad = UIDevice.current.userInterfaceIdiom == .pad
