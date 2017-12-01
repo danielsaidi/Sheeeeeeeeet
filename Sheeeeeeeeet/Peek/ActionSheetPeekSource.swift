@@ -1,5 +1,5 @@
 //
-//  ActionSheetPreviewSource.swift
+//  ActionSheetPeekSource.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-28.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ActionSheetPreviewSource: class {
+public protocol ActionSheetPeekSource: class {
 
     func actionSheet(at location: CGPoint) -> ActionSheet?
     func presentationSourceView(at location: CGPoint) -> UIView?

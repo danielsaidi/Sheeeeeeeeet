@@ -1,5 +1,5 @@
 //
-//  ActionSheetPreviewer.swift
+//  ActionSheetPeekHandler.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2017-11-27.
@@ -8,42 +8,43 @@
 
 /*
  
- This class can be used to add 3D touch previews to any view
- controller that implements `ActionSheetPreviewSource`. Just
- create a strong instance of the class, using the controller
- as well as the source view that should be used for previews,
- and implement `ActionSheetPreviewSource`.
+ This class can be used to add 3D touch action sheet peek to
+ any view controller that implements `ActionSheetPeekSource`.
+ Just call an action sheet's `enablePeek(in:from:)` to setup
+ peek for a view controller.
  
- For devices that lack 3D touch preview support, you can add
- long press support instead. This will not preview an action
- sheet, but instead open it when the source view is properly
- long pressed. Just set `useLongPressIfPreviewIsUnsupported`
- to `true` when creating the `ActionSheetPreviewer` instance.
+ A view controller can allow peeks from many different views.
+ Just call `enablePeek(in:from:)` multiple times.
+ 
+ For devices that lack 3D touch preview support, you can let
+ the peek handler support long press as a fallback option. A
+ long press will not peek the sheet, but display it directly.
+ Just set `longPressFallback` to `true`.
  
  */
 
 import UIKit
 
-open class ActionSheetPreviewer: NSObject, UIViewControllerPreviewingDelegate {
+open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate {
     
     
     // MARK: - Typealias
     
-    public typealias ActionSheetPreviewSourceViewController = UIViewController & ActionSheetPreviewSource
+    public typealias ActionSheetPeekSourceViewController = UIViewController & ActionSheetPeekSource
     
     
     // MARK: - Initialization
     
     public init(
-        in vc: ActionSheetPreviewSourceViewController,
+        in vc: ActionSheetPeekSourceViewController,
         sourceView: UIView,
-        useLongPressIfPreviewIsUnsupported: Bool = true) {
+        longPressFallback: Bool = true) {
         self.vc = vc
         self.sourceView = sourceView
         super.init()
         if vc.traitCollection.forceTouchCapability == .available {
             vc.registerForPreviewing(with: self, sourceView: sourceView)
-        } else if useLongPressIfPreviewIsUnsupported {
+        } else if longPressFallback {
             applyLongPressGesture(to: sourceView)
         }
     }
@@ -51,7 +52,7 @@ open class ActionSheetPreviewer: NSObject, UIViewControllerPreviewingDelegate {
     
     // MARK: - Properties
     
-    fileprivate(set) weak var vc: ActionSheetPreviewSourceViewController?
+    fileprivate(set) weak var vc: ActionSheetPeekSourceViewController?
     fileprivate(set) weak var sourceView: UIView?
     
     fileprivate weak var presentationSourceView: UIView?

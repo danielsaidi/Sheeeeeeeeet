@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     
     var actionSheet: ActionSheet?
     
-    var actionSheetPreviewer: ActionSheetPreviewer?
+    var actionSheetPeekHandler: ActionSheetPeekHandler?
     
     var tableViewOptions: [TableViewOption] = [
         .standard,
@@ -89,14 +89,14 @@ fileprivate extension ViewController {
     
     func setupPreviewHandling() {
         guard let view = tableView else { return }
-        actionSheetPreviewer = ActionSheetPreviewer(in: self, sourceView: view)
+        actionSheetPeekHandler = ActionSheetPeekHandler(in: self, sourceView: view)
     }
 }
 
 
 // MARK: - ActionSheetPreviewSource
 
-extension ViewController: ActionSheetPreviewSource {
+extension ViewController: ActionSheetPeekSource {
     
     func actionSheet(at location: CGPoint) -> ActionSheet? {
         guard

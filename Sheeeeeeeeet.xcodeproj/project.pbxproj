@@ -56,8 +56,8 @@
 		456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */; };
 		456EAA4A1FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA491FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift */; };
 		456EAA4C1FCCB13000A719ED /* ActionSheetSectionMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA4B1FCCB13000A719ED /* ActionSheetSectionMargin.swift */; };
-		456EAA541FCD81DE00A719ED /* ActionSheetPreviewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA531FCD81DE00A719ED /* ActionSheetPreviewSource.swift */; };
-		456EAA561FCD914000A719ED /* ActionSheetPreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA551FCD914000A719ED /* ActionSheetPreviewer.swift */; };
+		456EAA541FCD81DE00A719ED /* ActionSheetPeekSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA531FCD81DE00A719ED /* ActionSheetPeekSource.swift */; };
+		456EAA561FCD914000A719ED /* ActionSheetPeekHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA551FCD914000A719ED /* ActionSheetPeekHandler.swift */; };
 		456EAA611FCE0E1C00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
 		457EC2BF1FCE1ACD000EF1AD /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; };
 		457EC2C01FCE1ACD000EF1AD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; };
@@ -182,8 +182,8 @@
 		456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButton.swift; sourceTree = "<group>"; };
 		456EAA491FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionMarginAppearance.swift; sourceTree = "<group>"; };
 		456EAA4B1FCCB13000A719ED /* ActionSheetSectionMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionMargin.swift; sourceTree = "<group>"; };
-		456EAA531FCD81DE00A719ED /* ActionSheetPreviewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPreviewSource.swift; sourceTree = "<group>"; };
-		456EAA551FCD914000A719ED /* ActionSheetPreviewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPreviewer.swift; sourceTree = "<group>"; };
+		456EAA531FCD81DE00A719ED /* ActionSheetPeekSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPeekSource.swift; sourceTree = "<group>"; };
+		456EAA551FCD914000A719ED /* ActionSheetPeekHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPeekHandler.swift; sourceTree = "<group>"; };
 		456EAA5C1FCE0E1C00A719ED /* SheeeeeeeeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheeeeeeeeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		456EAA601FCE0E1C00A719ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
@@ -262,12 +262,12 @@
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
 				453C04801FC16A220028FA02 /* Appearance */,
 				45EB3FDF1FC8699600EF555E /* Cells */,
-				457EC2C81FCEAC67000EF1AD /* Handlers */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
+				457EC2C81FCEAC67000EF1AD /* Handlers */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C04731FC069940028FA02 /* Items */,
+				456EAA521FCD81C400A719ED /* Peek */,
 				453C04741FC0699D0028FA02 /* Presenters */,
-				456EAA521FCD81C400A719ED /* Preview */,
 				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
 			);
 			path = Sheeeeeeeeet;
@@ -419,13 +419,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		456EAA521FCD81C400A719ED /* Preview */ = {
+		456EAA521FCD81C400A719ED /* Peek */ = {
 			isa = PBXGroup;
 			children = (
-				456EAA551FCD914000A719ED /* ActionSheetPreviewer.swift */,
-				456EAA531FCD81DE00A719ED /* ActionSheetPreviewSource.swift */,
+				456EAA551FCD914000A719ED /* ActionSheetPeekHandler.swift */,
+				456EAA531FCD81DE00A719ED /* ActionSheetPeekSource.swift */,
 			);
-			path = Preview;
+			path = Peek;
 			sourceTree = "<group>";
 		};
 		456EAA571FCD9D8500A719ED /* Supporting Files */ = {
@@ -658,7 +658,7 @@
 				453C04781FC0E8940028FA02 /* ActionSheetAppearance.swift in Sources */,
 				453C04821FC16A370028FA02 /* ActionSheetTitleAppearance.swift in Sources */,
 				456EA9FF1FCB10A900A719ED /* ActionSheetLinkItem.swift in Sources */,
-				456EAA541FCD81DE00A719ED /* ActionSheetPreviewSource.swift in Sources */,
+				456EAA541FCD81DE00A719ED /* ActionSheetPeekSource.swift in Sources */,
 				45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */,
 				45EB3FD21FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift in Sources */,
 				45F969DD1FD1411D00292F28 /* PopActionSheetPresenter.swift in Sources */,
@@ -682,7 +682,7 @@
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
 				456EA9F71FCAB13500A719ED /* ActionSheetItemTapBehavior.swift in Sources */,
-				456EAA561FCD914000A719ED /* ActionSheetPreviewer.swift in Sources */,
+				456EAA561FCD914000A719ED /* ActionSheetPeekHandler.swift in Sources */,
 				457EC2CC1FCEB906000EF1AD /* ActionSheetButtonHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
