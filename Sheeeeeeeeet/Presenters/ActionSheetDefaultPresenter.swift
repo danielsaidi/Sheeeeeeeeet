@@ -52,12 +52,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
             super.dismiss(sheet: sheet)
     }
     
-    open override func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        shouldUseiPadPresenter ?
-            iPadPresenter?.pop(sheet: sheet, in: vc, from: view) :
-            super.pop(sheet: sheet, in: vc, from: view)
-    }
-    
     open override func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         shouldUseiPadPresenter ?
             iPadPresenter?.present(sheet: sheet, in: vc, from: view) :
@@ -72,8 +66,8 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
         backgroundView?.backgroundColor = backgroundColor
     }
     
-    open override func presentBackgroundView(fromBottom: Bool) {
-        super.presentBackgroundView(fromBottom: fromBottom)
+    open override func presentBackgroundView() {
+        super.presentBackgroundView()
         guard let view = backgroundView else { return }
         view.alpha = 0
         animate { view.alpha = 1 }

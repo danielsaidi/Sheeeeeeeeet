@@ -31,22 +31,18 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
         dismissActionSheet()
     }
     
-    open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        addActionSheet(sheet, to: vc.view, fromBottom: false)
-    }
-    
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        addActionSheet(sheet, to: vc.view, fromBottom: true)
+        addActionSheet(sheet, to: vc.view)
     }
     
     
     // MARK: - Protected Functions
     
-    open func addActionSheet(_ sheet: ActionSheet, to view: UIView, fromBottom: Bool = true) {
+    open func addActionSheet(_ sheet: ActionSheet, to view: UIView) {
         addBackgroundView(to: view)
         addActionSheetView(from: sheet, to: view)
-        presentBackgroundView(fromBottom: fromBottom)
-        presentActionSheet(sheet, in: view, fromBottom: fromBottom)
+        presentBackgroundView()
+        presentActionSheet(sheet, in: view)
     }
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
@@ -83,20 +79,16 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
             animations: animation) { _ in completion?() }
     }
     
-    open func presentActionSheet(_ sheet: ActionSheet, in view: UIView, fromBottom: Bool) {
+    open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
         guard let sheetView = actionSheetView else { return }
         let frame = getBottomFrame(for: sheet, in: view)
         sheetView.frame = frame
-        if fromBottom {
-            sheetView.frame.origin.y += 100
-            animate { sheetView.frame = frame }
-        } else {
-            sheetView.center = view.center
-        }
+        sheetView.frame.origin.y += 100
+        animate { sheetView.frame = frame }
         sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
     }
     
-    open func presentBackgroundView(fromBottom: Bool) {}
+    open func presentBackgroundView() {}
     
     open func removeActionSheetView() {
         guard let view = actionSheetView else { return }

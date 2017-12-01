@@ -228,11 +228,6 @@ open class ActionSheet: UIViewController {
         currentPresenter = nil
     }
     
-    open func pop(in vc: UIViewController, from view: UIView?) {
-        prepareForPresentation()
-        presenter.pop(sheet: self, in: vc, from: view)
-    }
-    
     open func present(in vc: UIViewController, from view: UIView?) {
         present(in: vc, from: view, with: presenter)
     }
