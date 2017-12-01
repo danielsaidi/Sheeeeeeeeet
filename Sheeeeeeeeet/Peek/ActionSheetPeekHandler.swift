@@ -10,16 +10,18 @@
  
  This class can be used to add 3D touch action sheet peek to
  any view controller that implements `ActionSheetPeekSource`.
- Just call an action sheet's `enablePeek(in:from:)` to setup
- peek for a view controller.
+ Just create a strong reference instance of the class in the
+ view controller and peek will work right away.
  
  A view controller can allow peeks from many different views.
- Just call `enablePeek(in:from:)` multiple times.
+ Just create one `ActionSheetPeekHandler` instance for every
+ source view.
  
  For devices that lack 3D touch preview support, you can let
  the peek handler support long press as a fallback option. A
  long press will not peek the sheet, but display it directly.
- Just set `longPressFallback` to `true`.
+ The default behavior is to enable this behavior. To disable
+ it, set `longPressFallback` to `false` in init.
  
  */
 

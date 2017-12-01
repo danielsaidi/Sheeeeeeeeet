@@ -148,14 +148,14 @@ they are created. They create their own copies, which can be customized as well.
 
 ## Peek and pop
 
-Sheeeeeeeeet supports peek and pop on 3D touch enabled devices. To apply this in
-a view controller, have the view controller implement `ActionSheetPreviewSource`,
-then create an `ActionSheetPreviewer` instance (keep a strong reference to it as
-well) and provide it with the view from which previews should be displayed. This
-could e.g. be a collection or table view.
+Sheeeeeeeeet supports peek & pop on 3D touch devices. To enable this in any view
+controller that implements `ActionSheetPeekSource` just create a strong instance
+of `ActionSheetPeekHandler`. You must provide it with the source view from where
+peeks should originate. This could e.g. be a collection or table view.
 
-You can use `ActionSheetPreviewer` on devices without 3D touch as well. On these
-devices, the previewer can be told to fallback to a long press gesture instead.
+You can use the peek handler on devices that does not support 3D touch. On these
+devices, the peek handler will fallback to a long press gesture. You can disable
+this by setting `longPressFallback` to `false` when creating the peek handler.
 
 
 
@@ -167,8 +167,6 @@ Sheeeeeeeeet:
 * E-mail: [daniel.saidi@gmail.com](mailto:daniel.saidi@gmail.com)
 * Twitter: [@danielsaidi](http://www.twitter.com/danielsaidi)
 * Web site: [danielsaidi.com](http://www.danielsaidi.com)
-
-All the best!
 
 
 
