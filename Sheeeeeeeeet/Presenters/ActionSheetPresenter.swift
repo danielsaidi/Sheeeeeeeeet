@@ -42,15 +42,7 @@ public protocol ActionSheetPresenter: class {
 
 public extension ActionSheetPresenter {
     
-    func bottomMargin(for sheet: ActionSheet, in view: UIView) -> CGFloat {
-        if #available(iOS 11.0, *) {
-            return view.safeAreaInsets.bottom
-        } else {
-            return sheet.appearance.contentInset
-        }
-    }
-    
-    func getBottomFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
+    func bottomFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         var targetFrame = view.frame
         let inset = sheet.appearance.contentInset
         targetFrame = targetFrame.insetBy(dx: inset, dy: inset)
@@ -58,5 +50,13 @@ public extension ActionSheetPresenter {
         targetFrame.origin.y = view.frame.height - sheet.contentHeight
         targetFrame.origin.y -= bottomMargin(for: sheet, in: view)
         return targetFrame
+    }
+    
+    func bottomMargin(for sheet: ActionSheet, in view: UIView) -> CGFloat {
+        if #available(iOS 11.0, *) {
+            return view.safeAreaInsets.bottom
+        } else {
+            return sheet.appearance.contentInset
+        }
     }
 }

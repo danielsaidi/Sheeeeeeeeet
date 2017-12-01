@@ -22,8 +22,9 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     // MARK: - Properties
     
     open var actionSheetView: UIView?
-    open var backgroundView: UIView?
     
+    open var backgroundView: UIView?
+
     
     // MARK: - ActionSheetPresenter
     
@@ -75,9 +76,13 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
             animations: animation) { _ in completion?() }
     }
     
+    open func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
+        return bottomFrame(for: sheet, in: view)
+    }
+    
     open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
         guard let sheetView = actionSheetView else { return }
-        let frame = getBottomFrame(for: sheet, in: view)
+        let frame = presentationFrame(for: sheet, in: view)
         sheetView.frame = frame
         sheetView.frame.origin.y += 100
         animate { sheetView.frame = frame }

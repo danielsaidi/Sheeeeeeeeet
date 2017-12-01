@@ -10,8 +10,11 @@
  
  This presenter will present action sheets as regular action
  sheets, i.e. as UIAlertControllers are displayed on a phone.
- It will, however, fallback to a ActionSheetPopoverPresenter
- whenever used on an iPad.
+ 
+ On iPads, this presenter will use its iPadPresenter instead,
+ if it is set. The iPad presenter that is used by default is
+ `ActionSheetPopoverPresenter`, which strips the header view
+ and puts the buttons together with the items.
  
  */
 
@@ -24,6 +27,10 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
     
     public override init() {
         iPadPresenter = ActionSheetPopoverPresenter()
+    }
+    
+    public init(iPadPresenter: ActionSheetPresenter?) {
+        self.iPadPresenter = iPadPresenter
     }
     
     deinit { print("\(type(of: self)) deinit") }
