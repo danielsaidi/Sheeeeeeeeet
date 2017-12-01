@@ -66,7 +66,7 @@ open class DefaultActionSheetPresenter: ActionSheetPresenter {
     
     open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         shouldUseiPadPresenter ?
-            iPadPresenter?.present(sheet: sheet, in: vc, from: view) :
+            iPadPresenter?.pop(sheet: sheet, in: vc, from: view) :
             addActionSheet(sheet, to: vc.view, fromBottom: false)
     }
     
@@ -101,7 +101,7 @@ fileprivate extension DefaultActionSheetPresenter {
         }
     }
     
-    func getFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
+    func getBottomFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         var targetFrame = view.frame
         let inset = sheet.appearance.contentInset
         targetFrame = targetFrame.insetBy(dx: inset, dy: inset)
@@ -112,18 +112,33 @@ fileprivate extension DefaultActionSheetPresenter {
     }
     
     func addActionSheet(_ sheet: ActionSheet, to view: UIView, fromBottom: Bool = true) {
-        guard let actionSheetView = sheet.view else { return }
         addBackgroundView(to: view)
+        addActionSheetView(from: sheet, to: view)
+        presentBackgroundView(fromBottom: fromBottom)
+        presentActionSheet(sheet, in: view, fromBottom: fromBottom)
+    }
+    
+    func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
+        guard let actionSheetView = sheet.view else { return }
         actionSheetView.frame.size.height = sheet.contentHeight
-        actionSheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        let frame = getFrame(for: sheet, in: view)
-        if fromBottom {
-            actionSheetView.frame = frame
-            actionSheetView.frame.origin.y += 100
-        }
         view.addSubview(actionSheetView)
-        animate({ actionSheetView.frame = frame })
         self.actionSheetView = actionSheetView
+    }
+    
+    func addBackgroundView(to view: UIView) {
+        let backgroundView = UIView(frame: view.frame)
+        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        backgroundView.backgroundColor = backgroundColor
+        addDismissTap(to: backgroundView)
+        view.addSubview(backgroundView)
+        self.backgroundView = backgroundView
+    }
+    
+    func addDismissTap(to view: UIView) {
+        view.isUserInteractionEnabled = true
+        let action = #selector(dismissActionSheet)
+        let tap = UITapGestureRecognizer(target: self, action: action)
+        view.addGestureRecognizer(tap)
     }
     
     func animate(
@@ -136,22 +151,21 @@ fileprivate extension DefaultActionSheetPresenter {
             animations: animation) { _ in completion?() }
     }
     
-    func addBackgroundView(to view: UIView) {
-        let backgroundView = UIView(frame: view.frame)
-        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundView.backgroundColor = backgroundColor
-        backgroundView.alpha = 0
-        addDismissTap(to: backgroundView)
-        view.addSubview(backgroundView)
-        animate({ backgroundView.alpha = 1 })
-        self.backgroundView = backgroundView
+    func presentActionSheet(_ sheet: ActionSheet, in view: UIView, fromBottom: Bool) {
+        guard let sheetView = actionSheetView else { return }
+        let frame = getBottomFrame(for: sheet, in: view)
+        if fromBottom {
+            sheetView.frame = frame
+            sheetView.frame.origin.y += 100
+        }
+        sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        animate({ sheetView.frame = frame })
     }
     
-    func addDismissTap(to view: UIView) {
-        view.isUserInteractionEnabled = true
-        let action = #selector(dismissActionSheet)
-        let tap = UITapGestureRecognizer(target: self, action: action)
-        view.addGestureRecognizer(tap)
+    func presentBackgroundView(fromBottom: Bool) {
+        guard let view = backgroundView else { return }
+        view.alpha = 0
+        animate({ view.alpha = 1 })
     }
     
     func removeActionSheetView() {
