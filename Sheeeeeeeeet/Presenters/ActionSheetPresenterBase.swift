@@ -96,11 +96,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
         sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
     }
     
-    open func presentBackgroundView(fromBottom: Bool) {
-        guard let view = backgroundView else { return }
-        view.alpha = 0
-        animate { view.alpha = 1 }
-    }
+    open func presentBackgroundView(fromBottom: Bool) {}
     
     open func removeActionSheetView() {
         guard let view = actionSheetView else { return }

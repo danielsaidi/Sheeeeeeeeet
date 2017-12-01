@@ -113,6 +113,7 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             let sourceView = presentationSourceView
             else { return }
         vc.setCurrentActionSheet(sheet)
-        sheet.pop(in: vc, from: sourceView)
+        let presenter = ActionSheetPopPresenter()
+        sheet.present(in: vc, from: sourceView, with: presenter)
     }
 }

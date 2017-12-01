@@ -1,5 +1,5 @@
 //
-//  PopoverActionSheetPresenter.swift
+//  ActionSheetPopoverPresenter.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -24,7 +24,7 @@
 
 import UIKit
 
-open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
+open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     
     // MARK: - Initialization
@@ -61,7 +61,7 @@ open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
 
 // MARK: - Private Functions
 
-fileprivate extension PopoverActionSheetPresenter {
+fileprivate extension ActionSheetPopoverPresenter {
     
     func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
         sheet.view.backgroundColor = sheet.itemsView.backgroundColor

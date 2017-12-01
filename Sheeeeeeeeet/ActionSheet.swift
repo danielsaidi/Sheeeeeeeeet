@@ -49,7 +49,7 @@ open class ActionSheet: UIViewController {
     
     public init(
         items: [ActionSheetItem],
-        presenter: ActionSheetPresenter = DefaultActionSheetPresenter(),
+        presenter: ActionSheetPresenter = ActionSheetDefaultPresenter(),
         action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
         setItems(items)
@@ -94,8 +94,10 @@ open class ActionSheet: UIViewController {
         return ActionSheetAppearance(copy: .standard)
     }()
     
+    open var currentPresenter: ActionSheetPresenter?
+    
     open lazy var presenter: ActionSheetPresenter = {
-        return DefaultActionSheetPresenter()
+        return ActionSheetDefaultPresenter()
     }()
     
     
@@ -221,7 +223,9 @@ open class ActionSheet: UIViewController {
     // MARK: - Presentation Functions
     
     open func dismiss() {
+        let presenter = currentPresenter ?? self.presenter
         presenter.dismiss(sheet: self)
+        currentPresenter = nil
     }
     
     open func pop(in vc: UIViewController, from view: UIView?) {
@@ -230,7 +234,15 @@ open class ActionSheet: UIViewController {
     }
     
     open func present(in vc: UIViewController, from view: UIView?) {
+        present(in: vc, from: view, with: presenter)
+    }
+    
+    open func present(
+        in vc: UIViewController,
+        from view: UIView?,
+        with presenter: ActionSheetPresenter) {
         prepareForPresentation()
+        currentPresenter = presenter
         presenter.present(sheet: self, in: vc, from: view)
     }
     

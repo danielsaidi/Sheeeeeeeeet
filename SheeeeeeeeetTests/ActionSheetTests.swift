@@ -75,7 +75,7 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("applies the provided presenter") {
-                let presenter = PopoverActionSheetPresenter()
+                let presenter = ActionSheetPopoverPresenter()
                 let sheet = ActionSheetTestClass(items: [], presenter: presenter, action: { sheet, item in })
                 expect(sheet.presenter).to(be(presenter))
             }
@@ -140,7 +140,7 @@ class ActionSheetTests: QuickSpec {
             it("is lazily created if not manually set") {
                 let sheet = ActionSheetTestClass(nibName: nil, bundle: nil)
                 let presenter = sheet.presenter
-                expect(presenter is DefaultActionSheetPresenter).to(beTrue())
+                expect(presenter is ActionSheetDefaultPresenter).to(beTrue())
             }
         }
         

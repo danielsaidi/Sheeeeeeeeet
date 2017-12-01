@@ -1,5 +1,5 @@
 //
-//  DefaultActionSheetPresenter.swift
+//  ActionSheetDefaultPresenter.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-27.
@@ -10,23 +10,20 @@
  
  This presenter will present action sheets as regular action
  sheets, i.e. as UIAlertControllers are displayed on a phone.
- It will, however, fallback to a PopoverActionSheetPresenter
+ It will, however, fallback to a ActionSheetPopoverPresenter
  whenever used on an iPad.
- 
- If a presentation follows a peek, this presenter will use a
- PopActionSheetPresenter to handle the presentation instead.
  
  */
 
 import UIKit
 
-open class DefaultActionSheetPresenter: ActionSheetPresenterBase {
+open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
     
     
     // MARK: - Initialization
     
     public override init() {
-        iPadPresenter = PopoverActionSheetPresenter()
+        iPadPresenter = ActionSheetPopoverPresenter()
     }
     
     deinit { print("\(type(of: self)) deinit") }
@@ -73,5 +70,12 @@ open class DefaultActionSheetPresenter: ActionSheetPresenterBase {
     open override func addBackgroundView(to view: UIView) {
         super.addBackgroundView(to: view)
         backgroundView?.backgroundColor = backgroundColor
+    }
+    
+    open override func presentBackgroundView(fromBottom: Bool) {
+        super.presentBackgroundView(fromBottom: fromBottom)
+        guard let view = backgroundView else { return }
+        view.alpha = 0
+        animate { view.alpha = 1 }
     }
 }
