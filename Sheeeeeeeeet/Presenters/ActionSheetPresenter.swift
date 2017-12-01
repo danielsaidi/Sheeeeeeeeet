@@ -6,6 +6,21 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ Action sheet presenters are used by Sheeeeeeeeet to present
+ action sheets in different ways, e.g. by the default bottom
+ slide, popping over from the tapped view etc.
+ 
+ When implementing this presenter protocol, `present` is the
+ standard way of presenting action sheets, e.g. after button
+ taps, while `dismiss` is the standard (and so far only) way
+ of dismissing them. `pop` can be used to specify how sheets
+ should be presented after a peek (a peek could be happening
+ on any view controller, not just the sheet).
+ 
+ */
+
 import Foundation
 
 public protocol ActionSheetPresenter: class {
