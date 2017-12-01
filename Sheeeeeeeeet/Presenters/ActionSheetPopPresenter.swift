@@ -13,26 +13,18 @@ public class ActionSheetPopPresenter: ActionSheetPresenterBase {
     
     // MARK: - Protected Functions
     
+    public override func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
+        super.addActionSheetView(from: sheet, to: view)
+        actionSheetView?.applyPopoverShadow()
+    }
+    
     public override func addBackgroundView(to view: UIView) {
         super.addBackgroundView(to: view)
-        guard let view = backgroundView else { return }
-        let mask = view.autoresizingMask
-        let blurContainer = UIView(frame: view.frame)
-        view.addSubview(blurContainer)
-        blurContainer.frame = view.bounds
-        blurContainer.autoresizingMask = mask
-        let blurView = self.blurView(withStyle: .light)
-        blurContainer.addSubview(blurView)
-        blurView.frame = view.bounds
-        blurView.autoresizingMask = mask
+        backgroundView?.addBlurView()
     }
-}
-
-
-fileprivate extension ActionSheetPopPresenter {
     
-    func blurView(withStyle style: UIBlurEffectStyle) -> UIView {
-        let blur = UIBlurEffect(style: style)
-        return UIVisualEffectView(effect: blur)
+    public override func removeActionSheetView() {
+        super.removeActionSheetView()
+        actionSheetView?.removePopoverShadow()
     }
 }

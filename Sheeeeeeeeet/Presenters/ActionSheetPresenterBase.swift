@@ -32,18 +32,14 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        addActionSheet(sheet, to: vc.view)
+        addBackgroundView(to: vc.view)
+        addActionSheetView(from: sheet, to: vc.view)
+        presentBackgroundView()
+        presentActionSheet(sheet, in: vc.view)
     }
     
     
     // MARK: - Protected Functions
-    
-    open func addActionSheet(_ sheet: ActionSheet, to view: UIView) {
-        addBackgroundView(to: view)
-        addActionSheetView(from: sheet, to: view)
-        presentBackgroundView()
-        presentActionSheet(sheet, in: view)
-    }
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
         guard let actionSheetView = sheet.view else { return }

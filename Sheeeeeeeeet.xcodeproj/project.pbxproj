@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */; };
+		4537E85B1FD179E30007501C /* UIView+PopShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+PopShadow.swift */; };
+		4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85C1FD17B1A0007501C /* UIView+Blur.swift */; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C045F1FC065AE0028FA02 /* AppDelegate.swift */; };
 		453C04621FC065AE0028FA02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04611FC065AE0028FA02 /* ViewController.swift */; };
@@ -133,6 +135,8 @@
 
 /* Begin PBXFileReference section */
 		4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
+		4537E85A1FD179E30007501C /* UIView+PopShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PopShadow.swift"; sourceTree = "<group>"; };
+		4537E85C1FD17B1A0007501C /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 			children = (
 				45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */,
 				453C047C1FC161B70028FA02 /* UIView+Empty.swift */,
+				4537E85A1FD179E30007501C /* UIView+PopShadow.swift */,
+				4537E85C1FD17B1A0007501C /* UIView+Blur.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -671,8 +677,10 @@
 				45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */,
 				456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */,
 				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */,
+				4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */,
+				4537E85B1FD179E30007501C /* UIView+PopShadow.swift in Sources */,
 				456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */,
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,
 				456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */,
