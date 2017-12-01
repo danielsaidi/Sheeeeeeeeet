@@ -77,6 +77,8 @@
 		45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */; };
 		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
+		45F969DD1FD1411D00292F28 /* PopActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F969DC1FD1411D00292F28 /* PopActionSheetPresenter.swift */; };
+		45F969DF1FD1602D00292F28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45F969DE1FD1602D00292F28 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,8 @@
 		45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverActionSheetPresenter.swift; sourceTree = "<group>"; };
 		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverApperance.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
+		45F969DC1FD1411D00292F28 /* PopActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopActionSheetPresenter.swift; sourceTree = "<group>"; };
+		45F969DE1FD1602D00292F28 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +313,7 @@
 				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
 				456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */,
 				45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */,
+				45F969DC1FD1411D00292F28 /* PopActionSheetPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				453C046B1FC065AE0028FA02 /* Info.plist */,
 				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
 				453C04631FC065AE0028FA02 /* Main.storyboard */,
+				45F969DE1FD1602D00292F28 /* README.md */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				456EAA2F1FCC615A00A719ED /* Roboto-MediumItalic.ttf in Resources */,
 				456EAA2B1FCC615A00A719ED /* Roboto-Italic.ttf in Resources */,
 				456EAA2C1FCC615A00A719ED /* Roboto-Light.ttf in Resources */,
+				45F969DF1FD1602D00292F28 /* README.md in Resources */,
 				456EAA261FCC615A00A719ED /* LICENSE.txt in Resources */,
 				456EAA2A1FCC615A00A719ED /* Roboto-BoldItalic.ttf in Resources */,
 				456EAA281FCC615A00A719ED /* Roboto-BlackItalic.ttf in Resources */,
@@ -654,6 +661,7 @@
 				456EAA541FCD81DE00A719ED /* ActionSheetPreviewSource.swift in Sources */,
 				45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */,
 				45EB3FD21FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift in Sources */,
+				45F969DD1FD1411D00292F28 /* PopActionSheetPresenter.swift in Sources */,
 				456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */,
 				456EAA4C1FCCB13000A719ED /* ActionSheetSectionMargin.swift in Sources */,
 				45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */,

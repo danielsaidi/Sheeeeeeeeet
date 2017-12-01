@@ -13,11 +13,12 @@
  should only be used when an action sheet is displayed on an
  iPad device.
  
- Since a popover has an arrow that should use the same color
+ The default action sheet presenter will fallback to using a
+ popover presenter whenever presentation occurs on an iPad.
+ 
+ Since popovers have an arrow that should use the same color
  as the rest of the popover view, this presenter will remove
- any header view that is set for the action sheet. It should
- not even be needed, since a popover points at the object it
- will affect. However, since
+ any header view from the action sheet.
  
  */
 
@@ -33,8 +34,8 @@ open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Properties
     
-    fileprivate var actionSheetBackgroundColor: UIColor?
-    fileprivate var actionSheetHeaderView: UIView?
+    public fileprivate(set) var actionSheetView: UIView?
+    public fileprivate(set) var backgroundView: UIView?
     
     
     // MARK: - ActionSheetPresenter
@@ -63,9 +64,7 @@ open class PopoverActionSheetPresenter: NSObject, ActionSheetPresenter {
 fileprivate extension PopoverActionSheetPresenter {
     
     func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
-        actionSheetBackgroundColor = sheet.view.backgroundColor
         sheet.view.backgroundColor = sheet.itemsView.backgroundColor
-        actionSheetHeaderView = sheet.headerView
         sheet.headerView = nil
     }
     
