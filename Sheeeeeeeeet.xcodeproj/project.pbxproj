@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C045F1FC065AE0028FA02 /* AppDelegate.swift */; };
 		453C04621FC065AE0028FA02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04611FC065AE0028FA02 /* ViewController.swift */; };
@@ -131,6 +132,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -311,9 +313,10 @@
 			isa = PBXGroup;
 			children = (
 				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
+				4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */,
 				456EAA0D1FCC13A400A719ED /* DefaultActionSheetPresenter.swift */,
-				45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */,
 				45F969DC1FD1411D00292F28 /* PopActionSheetPresenter.swift */,
+				45EB3FDB1FC856D200EF555E /* PopoverActionSheetPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,
 				456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
+				4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */,
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,
 				453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */,
 				45EB3FDC1FC856D200EF555E /* PopoverActionSheetPresenter.swift in Sources */,
