@@ -18,7 +18,7 @@
  
  Since popovers have an arrow that should use the same color
  as the rest of the popover view, this presenter will remove
- any header view from the action sheet.
+ any header view from the sheet and combine items and buttons.
  
  */
 
@@ -50,6 +50,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         guard sheet.contentHeight > 0 else { return }
+        adjustItems(for: sheet)
         adjustSheetForPopoverPresentation(sheet)
         sheet.preferredContentSize = sheet.preferredPopoverSize
         let popover = popoverPresentationController(for: sheet, in: vc)
@@ -62,6 +63,11 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 // MARK: - Private Functions
 
 fileprivate extension ActionSheetPopoverPresenter {
+    
+    func adjustItems(for sheet: ActionSheet) {
+        sheet.items = sheet.items + sheet.buttons
+        sheet.buttons = []
+    }
     
     func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
         sheet.view.backgroundColor = sheet.itemsView.backgroundColor

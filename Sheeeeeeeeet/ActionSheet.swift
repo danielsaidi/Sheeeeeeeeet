@@ -52,7 +52,7 @@ open class ActionSheet: UIViewController {
         presenter: ActionSheetPresenter = ActionSheetDefaultPresenter(),
         action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
-        setItems(items)
+        setupItemsAndButtons(with: items)
         self.presenter = presenter
         self.itemSelectAction = action
         setup()
@@ -123,11 +123,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Item Properties
     
-    fileprivate(set) open var buttons = [ActionSheetButton]()
+    open var buttons = [ActionSheetButton]()
     
-    fileprivate(set) open var items = [ActionSheetItem]()
+    open var items = [ActionSheetItem]()
     
-    open func setItems(_ items: [ActionSheetItem]) {
+    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
         self.items = items.filter { !($0 is ActionSheetButton) }
         buttons = items.flatMap { $0 as? ActionSheetButton }
         itemsView.reloadData()
@@ -238,7 +238,7 @@ open class ActionSheet: UIViewController {
         with presenter: ActionSheetPresenter) {
         prepareForPresentation()
         currentPresenter = presenter
-        presenter.present(sheet: self, in: vc, from: view)
+        presenter.present(sheet: self, in: vc.rootViewController, from: view)
     }
     
     open func prepareForPresentation() {

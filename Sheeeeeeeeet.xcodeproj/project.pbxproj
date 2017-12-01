@@ -10,6 +10,7 @@
 		4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */; };
 		4537E85B1FD179E30007501C /* UIView+PopShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+PopShadow.swift */; };
 		4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85C1FD17B1A0007501C /* UIView+Blur.swift */; };
+		4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C045F1FC065AE0028FA02 /* AppDelegate.swift */; };
 		453C04621FC065AE0028FA02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04611FC065AE0028FA02 /* ViewController.swift */; };
@@ -137,6 +138,7 @@
 		4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
 		4537E85A1FD179E30007501C /* UIView+PopShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PopShadow.swift"; sourceTree = "<group>"; };
 		4537E85C1FD17B1A0007501C /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
+		4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewController.swift"; sourceTree = "<group>"; };
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				453C047C1FC161B70028FA02 /* UIView+Empty.swift */,
 				4537E85A1FD179E30007501C /* UIView+PopShadow.swift */,
 				4537E85C1FD17B1A0007501C /* UIView+Blur.swift */,
+				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */,
 				456EAA0E1FCC13A400A719ED /* ActionSheetDefaultPresenter.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
+				4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */,
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
 				456EA9F71FCAB13500A719ED /* ActionSheetItemTapBehavior.swift in Sources */,
 				456EAA561FCD914000A719ED /* ActionSheetPeekHandler.swift in Sources */,
