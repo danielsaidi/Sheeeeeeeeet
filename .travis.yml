@@ -13,5 +13,4 @@ before_install:
 
 script:
   - xcodebuild -project "Sheeeeeeeeet.xcodeproj" -scheme "SheeeeeeeeetExample" -sdk "iphonesimulator" | xcpretty -c
-  - pod lib lint
   - fastlane test

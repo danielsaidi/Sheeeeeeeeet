@@ -14,6 +14,7 @@
 		4537E8631FD299EA0007501C /* ActionSheetPeekBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8621FD299EA0007501C /* ActionSheetPeekBehavior.swift */; };
 		4537E8651FD2A37A0007501C /* ViewController+PeekPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8641FD2A37A0007501C /* ViewController+PeekPop.swift */; };
 		4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8661FD2A55F0007501C /* ViewController+TableView.swift */; };
+		4537E86F1FD32A200007501C /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4537E86E1FD32A200007501C /* .travis.yml */; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C045F1FC065AE0028FA02 /* AppDelegate.swift */; };
 		453C04621FC065AE0028FA02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04611FC065AE0028FA02 /* ViewController.swift */; };
@@ -145,6 +146,7 @@
 		4537E8621FD299EA0007501C /* ActionSheetPeekBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPeekBehavior.swift; sourceTree = "<group>"; };
 		4537E8641FD2A37A0007501C /* ViewController+PeekPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PeekPop.swift"; sourceTree = "<group>"; };
 		4537E8661FD2A55F0007501C /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
+		4537E86E1FD32A200007501C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 		456EAA571FCD9D8500A719ED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4537E86E1FD32A200007501C /* .travis.yml */,
 				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				453C046B1FC065AE0028FA02 /* Info.plist */,
 				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
@@ -621,6 +624,7 @@
 				456EAA2D1FCC615A00A719ED /* Roboto-LightItalic.ttf in Resources */,
 				456EAA2F1FCC615A00A719ED /* Roboto-MediumItalic.ttf in Resources */,
 				456EAA2B1FCC615A00A719ED /* Roboto-Italic.ttf in Resources */,
+				4537E86F1FD32A200007501C /* .travis.yml in Resources */,
 				456EAA2C1FCC615A00A719ED /* Roboto-Light.ttf in Resources */,
 				45F969DF1FD1602D00292F28 /* README.md in Resources */,
 				456EAA261FCC615A00A719ED /* LICENSE.txt in Resources */,
