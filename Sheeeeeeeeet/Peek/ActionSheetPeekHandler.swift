@@ -17,6 +17,10 @@
  Just create one `ActionSheetPeekHandler` instance for every
  source view.
  
+ The default peek behavior is to only peek an action sheet's
+ header view, then display the full sheet once the user pops.
+ You can change this by injecting another behavior in `init`.
+ 
  For devices that lack 3D touch preview support, you can let
  the peek handler support long press as a fallback option. A
  long press will not peek the sheet, but display it directly.
@@ -40,10 +44,13 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
     public init(
         in vc: ActionSheetPeekSourceViewController,
         sourceView: UIView,
+        peekBehavior: ActionSheetPeekBehavior = .header,
         longPressFallback: Bool = true) {
         self.vc = vc
         self.sourceView = sourceView
+        self.peekBehavior = peekBehavior
         super.init()
+        
         if vc.traitCollection.forceTouchCapability == .available {
             vc.registerForPreviewing(with: self, sourceView: sourceView)
         } else if longPressFallback {
@@ -54,41 +61,13 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
     
     // MARK: - Properties
     
-    fileprivate(set) weak var vc: ActionSheetPeekSourceViewController?
+    fileprivate(set) public var peekBehavior: ActionSheetPeekBehavior
     fileprivate(set) weak var sourceView: UIView?
+    fileprivate(set) weak var vc: ActionSheetPeekSourceViewController?
     
+    fileprivate var popButtons = [ActionSheetButton]()
+    fileprivate var popItems = [ActionSheetItem]()
     fileprivate weak var presentationSourceView: UIView?
-    
-    
-    // MARK: - Actions
-    
-    @objc func sourceViewLongPressed(gesture: UILongPressGestureRecognizer) {
-        guard
-            gesture.state == .began,
-            let vc = vc,
-            let sourceView = sourceView
-            else { return }
-        
-        let location = gesture.location(in: sourceView)
-        
-        guard
-            let sheet = vc.actionSheet(at: location),
-            let presentationSourceView = vc.presentationSourceView(at: location)
-            else { return }
-        
-        vc.setCurrentActionSheet(sheet)
-        sheet.present(in: vc, from: presentationSourceView)
-    }
-    
-    
-    // MARK: - Private Functions
-    
-    fileprivate func applyLongPressGesture(to view: UIView) {
-        view.isUserInteractionEnabled = true
-        let action = #selector(sourceViewLongPressed(gesture:))
-        let press = UILongPressGestureRecognizer(target: self, action: action)
-        view.addGestureRecognizer(press)
-    }
     
     
     // MARK: - UIViewControllerPreviewingDelegate
@@ -97,12 +76,13 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
         _ previewingContext: UIViewControllerPreviewing,
         viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
-            let vc = vc,
-            let sheet = vc.actionSheet(at: location),
-            let sourceView = vc.presentationSourceView(at: location)
+            let sheet = vc?.actionSheet(at: location),
+            let view = vc?.presentationSourceView(at: location),
+            shouldPeek(sheet)
             else { return nil }
-        self.presentationSourceView = sourceView
-        previewingContext.sourceRect = sourceView.frame
+        prepareSheetForPeek(sheet)
+        self.presentationSourceView = view
+        previewingContext.sourceRect = view.frame
         return sheet
     }
     
@@ -112,10 +92,71 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
         guard
             let vc = vc,
             let sheet = viewControllerToCommit as? ActionSheet,
-            let sourceView = presentationSourceView
+            let view = presentationSourceView
             else { return }
+        prepareSheetForPop(sheet)
         vc.setCurrentActionSheet(sheet)
         let presenter = ActionSheetPopPresenter()
-        sheet.present(in: vc, from: sourceView, with: presenter)
+        sheet.present(in: vc, from: view, with: presenter)
+    }
+}
+
+
+// MARK: - Actions
+
+@objc extension ActionSheetPeekHandler {
+    
+    func sourceViewLongPressed(gesture: UILongPressGestureRecognizer) {
+        guard
+            let vc = vc,
+            let point = longPressLocation(for: gesture),
+            let sheet = vc.actionSheet(at: point),
+            let view = vc.presentationSourceView(at: point)
+            else { return }
+        vc.setCurrentActionSheet(sheet)
+        sheet.present(in: vc, from: view)
+    }
+}
+
+
+// MARK: - Private Functions
+
+fileprivate extension ActionSheetPeekHandler {
+    
+    func applyLongPressGesture(to view: UIView) {
+        view.isUserInteractionEnabled = true
+        let action = #selector(sourceViewLongPressed(gesture:))
+        let press = UILongPressGestureRecognizer(target: self, action: action)
+        view.addGestureRecognizer(press)
+    }
+    
+    func longPressLocation(for gesture: UILongPressGestureRecognizer) -> CGPoint? {
+        guard gesture.state == .began else { return nil }
+        return gesture.location(in: sourceView ?? UIView())
+    }
+    
+    func prepareSheetForPeek(_ sheet: ActionSheet) {
+        popItems = sheet.items
+        popButtons = sheet.buttons
+        switch peekBehavior {
+        case .header: sheet.setupItemsAndButtons(with: [])
+        case .sheet: return
+        }
+    }
+    
+    func prepareSheetForPop(_ sheet: ActionSheet) {
+        if peekBehavior == .header {
+            sheet.items = popItems
+            sheet.buttons = popButtons
+        }
+        popItems = []
+        popButtons = []
+    }
+    
+    func shouldPeek(_ sheet: ActionSheet) -> Bool {
+        switch peekBehavior {
+        case .header: return sheet.headerView != nil
+        case .sheet: return true
+        }
     }
 }

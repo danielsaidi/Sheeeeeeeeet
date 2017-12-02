@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyActionSheetAppearance()
-        setupPreviewHandling()
+        setupPreviewHandling(with: .sheet)
     }
     
     
@@ -47,7 +47,9 @@ class ViewController: UIViewController {
         .headerView,
         .sections,
         .danger,
-        .peekPop
+        .peekPop,
+        .peekPopSheet,
+        .peekPopHeader
     ]
     
     func foodOptions() -> [FoodOption] {
@@ -77,8 +79,17 @@ class ViewController: UIViewController {
         case .headerView: return headerViewActionSheet()
         case .sections: return sectionActionSheet()
         case .danger: return destructiveActionSheet()
-        case .peekPop: return nil
+        default: return nil
         }
+    }
+    
+    func handleNonSheetOption(_ option: TableViewOption) {
+        switch option {
+        case .peekPopHeader: setupPreviewHandling(with: .header)
+        case .peekPopSheet: setupPreviewHandling(with: .sheet)
+        default: return
+        }
+        alert(option: option)
     }
 }
 
@@ -87,76 +98,11 @@ class ViewController: UIViewController {
 
 fileprivate extension ViewController {
     
-    func setupPreviewHandling() {
+    func setupPreviewHandling(with peekBehavior: ActionSheetPeekBehavior) {
         guard let view = tableView else { return }
-        actionSheetPeekHandler = ActionSheetPeekHandler(in: self, sourceView: view)
-    }
-}
-
-
-// MARK: - ActionSheetPreviewSource
-
-extension ViewController: ActionSheetPeekSource {
-    
-    func actionSheet(at location: CGPoint) -> ActionSheet? {
-        guard
-            let view = tableView,
-            let path = view.indexPathForRow(at: location)
-            else { return nil }
-        return actionSheet(at: path)
-    }
-    
-    func presentationSourceView(at location: CGPoint) -> UIView? {
-        guard
-            let view = tableView,
-            let path = view.indexPathForRow(at: location)
-            else { return nil }
-        return view.cellForRow(at: path)
-    }
-    
-    func setCurrentActionSheet(_ sheet: ActionSheet) {
-        actionSheet = sheet
-    }
-}
-
-
-// MARK: - UITableViewDataSource
-
-extension ViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewOptions.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Examples"
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let option = tableViewOptions[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.tintColor = .darkGray
-        cell.imageView?.image = option.image
-        cell.textLabel?.text = option.displayName
-        return cell
-    }
-}
-
-
-// MARK: - UITableViewDelegate
-
-extension ViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let option = tableViewOptions[indexPath.row]
-        guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        guard let sheet = actionSheet(at: indexPath) else { return alert(option: option) }
-        actionSheet = sheet
-        actionSheet?.present(in: self, from: cell)
+        actionSheetPeekHandler = ActionSheetPeekHandler(
+            in: self,
+            sourceView: view,
+            peekBehavior: peekBehavior)
     }
 }

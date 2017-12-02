@@ -2,7 +2,7 @@
 //  UIViewController+RootViewController.swift
 //  Sheeeeeeeeet
 //
-//  Created by Saidi Daniel (BookBeat) on 2017-12-01.
+//  Created by Daniel Saidi on 2017-12-01.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 

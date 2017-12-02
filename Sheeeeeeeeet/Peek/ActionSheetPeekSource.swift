@@ -10,7 +10,7 @@ import UIKit
 
 public protocol ActionSheetPeekSource: class {
 
-    func actionSheet(at location: CGPoint) -> ActionSheet?
-    func presentationSourceView(at location: CGPoint) -> UIView?
+    func actionSheet(at point: CGPoint) -> ActionSheet?
+    func presentationSourceView(at point: CGPoint) -> UIView?
     func setCurrentActionSheet(_ sheet: ActionSheet)
 }

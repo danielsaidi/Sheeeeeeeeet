@@ -21,7 +21,9 @@ enum TableViewOption {
     sections,
     danger,
     headerView,
-    peekPop
+    peekPop,
+    peekPopHeader,
+    peekPopSheet
     
     
     var displayName: String {
@@ -35,13 +37,17 @@ enum TableViewOption {
         case .danger: return "Destructive Action"
         case .headerView: return "Header View"
         case .peekPop: return "Peek & Pop"
+        case .peekPopHeader: return "Peek & Pop: Show Header"
+        case .peekPopSheet: return "Peek & Pop: Show Full Sheet"
         }
     }
     
     
     var alertMessage: String {
         switch self {
-        case .peekPop: return "Use 3D Touch to preview an action sheet. Use long press if your device does not have 3D Touch."
+        case .peekPop: return "Use 3D Touch to peek and pop an action sheet. Long press if your device does not have 3D Touch."
+        case .peekPopHeader: return "You can now only peek action sheets with a header view."
+        case .peekPopSheet: return "You can now peek all action sheets in the list."
         default: return ""
         }
     }
@@ -61,6 +67,8 @@ enum TableViewOption {
         case .danger: return "ic_warning"
         case .headerView: return "ic_header_view"
         case .peekPop: return "ic_peek"
+        case .peekPopHeader: return "ic_peek"
+        case .peekPopSheet: return "ic_peek"
         }
     }
 }
