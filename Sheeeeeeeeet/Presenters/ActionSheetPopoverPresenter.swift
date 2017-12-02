@@ -64,7 +64,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 fileprivate extension ActionSheetPopoverPresenter {
     
     func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
-        sheet.items += sheet.buttons
+        sheet.items = sheet.items + sheet.buttons
         sheet.buttons = []
         sheet.headerView = nil
         sheet.view.backgroundColor = sheet.itemsView.backgroundColor
