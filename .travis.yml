@@ -6,11 +6,11 @@ osx_image: xcode9
 language: swift
 
 before_install:
-  - brew update
   - brew upgrade carthage
   - brew outdated xctool || brew upgrade xctool
   - carthage update
 
 script:
   - xcodebuild -project "Sheeeeeeeeet.xcodeproj" -scheme "SheeeeeeeeetExample" -sdk "iphonesimulator" | xcpretty -c
+  - pod lib lint
   - fastlane test

@@ -1,5 +1,13 @@
 # Sheeeeeeeeet
 
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
+[![GitHub version](https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg)](http://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet)
+[![Build Status](https://travis-ci.org/danielsaidi/Sheeeeeeeeet)](https://travis-ci.org/danielsaidi/Sheeeeeeeeet)
+
+
+
+
+
 ![Sheeeeeeeeeit][header-image]
 
 
