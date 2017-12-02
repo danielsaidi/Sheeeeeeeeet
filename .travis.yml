@@ -6,7 +6,6 @@ osx_image: xcode9
 language: swift
 
 before_install:
-  - brew upgrade carthage
   - brew outdated xctool || brew upgrade xctool
   - carthage update
 
