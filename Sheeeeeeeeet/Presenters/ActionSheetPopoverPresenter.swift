@@ -50,7 +50,6 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         guard sheet.contentHeight > 0 else { return }
-        adjustItems(for: sheet)
         adjustSheetForPopoverPresentation(sheet)
         sheet.preferredContentSize = sheet.preferredPopoverSize
         let popover = popoverPresentationController(for: sheet, in: vc)
@@ -64,14 +63,11 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 
 fileprivate extension ActionSheetPopoverPresenter {
     
-    func adjustItems(for sheet: ActionSheet) {
+    func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
         sheet.items = sheet.items + sheet.buttons
         sheet.buttons = []
-    }
-    
-    func adjustSheetForPopoverPresentation(_ sheet: ActionSheet) {
-        sheet.view.backgroundColor = sheet.itemsView.backgroundColor
         sheet.headerView = nil
+        sheet.view.backgroundColor = sheet.itemsView.backgroundColor
     }
     
     func popoverPresentationController(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {

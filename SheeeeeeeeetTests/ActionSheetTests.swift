@@ -196,7 +196,7 @@ class ActionSheetTests: QuickSpec {
                 let item2 = ActionSheetItem(title: "bar")
                 let items = [item1, item2, button]
                 let sheet = actionSheet(with: [])
-                sheet.setItems(items)
+                sheet.setupItemsAndButtons(with: items)
                 
                 expect(sheet.items.count).to(equal(2))
                 expect(sheet.items.first!).to(be(item1))
@@ -464,6 +464,5 @@ class ActionSheetTests: QuickSpec {
         
         // MARK: - Presentation Functions
         
-        // TODO: Write tests with mocks
     }
 }
