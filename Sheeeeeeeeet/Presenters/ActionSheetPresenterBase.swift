@@ -76,17 +76,21 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
             animations: animation) { _ in completion?() }
     }
     
+    open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
+        guard let sheetView = actionSheetView else { return }
+        sheetView.frame = presentationTransitionStartFrame(for: sheet, in: view)
+        animate { sheetView.frame = self.presentationFrame(for: sheet, in: view) }
+        sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+    }
+    
     open func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         return bottomFrame(for: sheet, in: view)
     }
     
-    open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
-        guard let sheetView = actionSheetView else { return }
-        let frame = presentationFrame(for: sheet, in: view)
-        sheetView.frame = frame
-        sheetView.frame.origin.y += 100
-        animate { sheetView.frame = frame }
-        sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+    open func presentationTransitionStartFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
+        var frame = presentationFrame(for: sheet, in: view)
+        frame.origin.y += 100
+        return frame
     }
     
     open func presentBackgroundView() {}
