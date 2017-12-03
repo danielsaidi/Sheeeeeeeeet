@@ -5,25 +5,23 @@
 [![Build Status](https://api.travis-ci.org/danielsaidi/Sheeeeeeeeet.svg)](https://travis-ci.org/danielsaidi/Sheeeeeeeeet)
 
 
-
-
-
 ![Sheeeeeeeeeit][header-image]
 
 
 ## About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for adding custom action sheets to your iOS apps.
-It comes with a bunch of built-in item action sheet items and can be extended by
-custom items that are more specific to your app or domain.
+It comes with a set of built-in action sheet items and can be extended by custom
+items that are more specific to your app/domain.
 
 Sheeeeeeeeet action sheets can be designed to look just like standard iOS action
-sheets or completely different. You can apply a global appearance style, as well
-as individual styles for separate action sheets or action sheet items.
+sheets or way different. You can apply a global appearance as well as individual
+appearances for separate action sheets. You can even apply individual apperances
+to single items.
 
 Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
-touch, with an optional long press gesture fallback for unsupported devices.
-
+touch, with an optional long press gesture fallback for unsupported devices. You
+can configure Sheeeeeeeeet to either pop just the header view or the full sheet.
 
 
 ## Demo Application
@@ -32,44 +30,39 @@ This repository contains a demo application. Open the `Sheeeeeeeeet` project and
 run the `SheeeeeeeeetExample` target to try different types of action sheets.
 
 
-
 ## Install
 
 Sheeeeeeeeet can be installed with `CocoaPods` and `Carthage`:
 
 ### CocoaPods
 
-To add Sheeeeeeeeet to your app using CocoaPods, just create a `Podfile` in your
-project root and add this line:
+To install Sheeeeeeeeet with CocoaPods, add this line to your `Podfile`:
 
 ```
 pod 'Sheeeeeeeeet'
 ```
 
-After that, simply run `pod install`. For more information about using CocoaPods,
-visit the [official website][CocoaPods].
+then run `pod install`. For more info, visit the [CocoaPod website][CocoaPods].
 
 ### Carthage
 
-To add Sheeeeeeeeet to your app using Carthage, just create a `Cartfile` in your
-project root and add this line:
+To install Sheeeeeeeeet with Carthage, add this line to your `Cartfile`:
 
 ```
 github "danielsaidi/Sheeeeeeeeet"
 ```
 
-After that, simply run `carthage update` (with any options you prefer). For more
-information about Carthage, visit the [official website][Carthage].
-
+then run `carthage update`. For more info, visit [Carthage website][Carthage].
 
 
 ## Presenting an action sheet
 
-Presenting custom action sheets with Sheeeeeeeeet is super simple. Simply create
-an action sheet with a set of items, then present it in your view controller. To
-support popover mode on iPad, you can also provide the sheet with a source view:
+Presenting custom action sheets with Sheeeeeeeeet is easy. Just create an action
+sheet with a set of items, then present it in a view controller. To use popovers
+on iPad, you can also provide the sheet with a `from` source view:
 
 ```
+// This code is presumed to be in a view controller
 func showAlert(tappedButton: UIView?) {
 
     let items = [
@@ -80,12 +73,10 @@ func showAlert(tappedButton: UIView?) {
         ActionSheetCancelButton(title: "Cancel")
     ]
 
-    // Remember to keep a string reference to the action sheet!
+    // Remember to keep a strong reference to the action sheet!
     self.actionSheet = ActionSheet(items: items) { (sheet, item) in
-        guard item.value as? Bool == true else { return }
-        let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }
-        let toggled = items.filter { $0.isToggled }
-        self.alert(items: toggled)
+        guard let number = item.value as? Int else { return }
+        print("Your favorite number is \(number)")
     }
 
     actionSheet.present(in: self, from: tappedButton)
@@ -96,42 +87,44 @@ It is important to keep a strong reference to the action sheet, otherwise it may
 be deallocated while being presented.
 
 
-
 ## Components
 
-Sheet comes with some built in `items`, `buttons`, `titles` and `views` that can
+Sheet comes with some built-in `items`, `buttons`, `titles` and `views` that can
 be used to compose flexible action sheets.
 
 ### Items
 
-Action sheet items are used to present various options to the user. Sheeeeeeeeet
-comes with the following built-in item types:
+Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
 * [Standard Item][ActionSheetItem]
 * [Select Item][ActionSheetSelectItem]
 * [Toggle Item][ActionSheetToggleItem]
 * [Link Item][ActionSheetLinkItem]
 
-To create your own item types, either inherit `ActionSheetItem` or any item type
-that best suits your needs.
+To create custom item types, inherit `ActionSheetItem` or an item type that best
+suits your needs.
 
 ### Buttons
 
-Action sheet buttons are used to discard an action sheet or to apply any changes
-made within it. Sheeeeeeeeet comes with the following built-in button types:
+Buttons are used to discard or apply the effect of an action sheet. Sheeeeeeeeet
+comes with these built-in types:
 
-* [OK Button][ActionSheetOkButton]
-* [Cancel Button][ActionSheetCancelButton]
-* [Danger Button][ActionSheetDangerButton]
+* [OK button][ActionSheetOkButton]
+* [Cancel button][ActionSheetCancelButton]
+* [Danger button][ActionSheetDangerButton]
 
-To create your own button type, either inherit `ActionSheetButton` or any button
-type that best suits your needs.
+To create custom button types, inherit `ActionSheetButton` or a button type that
+best suits your needs.
+
+Buttons are automatically separated from other items when you create your action
+sheet instance, and are presented in a separate list. On popovers, however, they
+are added back to the end of the item list, since popovers look different.
 
 ### Titles
 
-Sheet comes with additional components, that can be used to add titles, sections,
-headers and margins to action sheets. They are also action sheet items, but have
-no interactive use:
+Sheeeeeeeeet comes with some built-in components, that can be used to add titles,
+sections, headers and margins to action sheets. They are also items, but have no
+interactive use:
 
 * [Title][ActionSheetTitle]
 * [Section Title][ActionSheetSectionTitle]
@@ -144,30 +137,34 @@ before the section title.
 If you set the `headerView` property of an action sheet, it will be displayed as
 a floating header above the action sheet options. You can use any view you like.
 
+Header are completely removed in popovers, since popovers are solid bodies, with
+no transparent space separating different content types.
 
 
 ## Appearance
 
 Sheeeeeeeeet can be globally styled by using the `ActionSheetAppearance.standard`
-instance. All action sheets and their items use this appearance as template when
-they are created. They create their own copies, which can be customized as well.
-
+instance. All action sheets then copies this instance when they are created, and
+can thus be individually styled without affecting the global style. Action sheet
+items then copies their action sheet's appearance and can be individually styled
+as well.
 
 
 ## Peek and pop
 
 Sheeeeeeeeet supports peek & pop on 3D touch devices. To enable this in any view
 controller that implements `ActionSheetPeekSource` just create a strong instance
-of `ActionSheetPeekHandler`. You must provide it with the source view from where
-peeks should originate. This could e.g. be a collection or table view.
+of `ActionSheetPeekHandler`. 
 
-You can use the peek handler on devices that does not support 3D touch. On these
-devices, the peek handler will fallback to a long press gesture. You can disable
-this by setting `longPressFallback` to `false` when creating the peek handler.
+You must provide the peek handler with a source view, from where peeks originate.
+This could e.g. be a collection or table view. The peek handler uses this source
+view to determine the correct 3D touched frame.
+
+ON devices that have no 3D touch support, the peek handler will fallback to long
+presses. You can disable this by setting `longPressFallback` to `false` in `init`.
 
 
-
-## About me
+## Contact me
 
 Feel free to reach out if you have any questions or if you want to contribute to
 Sheeeeeeeeet:
