@@ -6,19 +6,14 @@
 
 
 <p align="center">
-    <img src ="SheeeeeeeeetExample/Assets/Images/title-image.png" />
+    <img src ="Resources/device.gif" />
 </p>
-
 
 ## About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for adding custom action sheets to your iOS apps.
 It comes with a set of built-in action sheet items and can be extended by custom
 items that are more specific to your app/domain.
-
-<p align="center">
-    <img src ="Resources/device.gif" />
-</p>
 
 Sheeeeeeeeet action sheets can be designed to look just like standard iOS action
 sheets or way different. You can apply a global appearance as well as individual
