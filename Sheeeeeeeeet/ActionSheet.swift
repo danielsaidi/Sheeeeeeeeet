@@ -63,13 +63,6 @@ open class ActionSheet: UIViewController {
         setup()
     }
     
-    public override init(
-        nibName nibNameOrNil: String?,
-        bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
     deinit { print("\(type(of: self)) deinit") }
     
     

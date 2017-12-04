@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import Sheeeeeeeeet
 
-fileprivate class ActionSheetTestClass: ActionSheet {
+private class ActionSheetTestClass: ActionSheet {
     
     var didDismiss = 0
     var didPrepareForPresentation = 0
@@ -31,7 +31,7 @@ class ActionSheetTests: QuickSpec {
     override func spec() {
         
         func actionSheet(with items: [ActionSheetItem]) -> ActionSheetTestClass {
-            return ActionSheetTestClass(items: items, action: { sheet, item in })
+            return ActionSheetTestClass(items: items, action: { _, _ in })
         }
         
         var sheet: ActionSheetTestClass!
@@ -76,7 +76,7 @@ class ActionSheetTests: QuickSpec {
             
             it("applies the provided presenter") {
                 let presenter = ActionSheetPopoverPresenter()
-                let sheet = ActionSheetTestClass(items: [], presenter: presenter, action: { sheet, item in })
+                let sheet = ActionSheetTestClass(items: [], presenter: presenter, action: { _, _ in })
                 expect(sheet.presenter).to(be(presenter))
             }
             
@@ -107,7 +107,7 @@ class ActionSheetTests: QuickSpec {
         describe("laying out subviews") {
             
             it("prepares for presentation") {
-                let sheet = ActionSheetTestClass(items: [], action: { sheet, item in })
+                let sheet = ActionSheetTestClass(items: [], action: { _, _ in })
                 sheet.viewDidLayoutSubviews()
                 expect(sheet.didPrepareForPresentation).to(equal(1))
             }
@@ -132,15 +132,6 @@ class ActionSheetTests: QuickSpec {
                 sheet.appearance = newApperance
                 let appearance = sheet.appearance
                 expect(appearance.sectionMargin.height).to(equal(newApperance.sectionMargin.height))
-            }
-        }
-        
-        describe("presenter") {
-            
-            it("is lazily created if not manually set") {
-                let sheet = ActionSheetTestClass(nibName: nil, bundle: nil)
-                let presenter = sheet.presenter
-                expect(presenter is ActionSheetDefaultPresenter).to(beTrue())
             }
         }
         
