@@ -56,8 +56,9 @@ extension ActionSheetItemHandler: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        item.handleTap()
+        item.handleTap(in: cell)
         actionSheet?.itemTapAction(item)
     }
 }

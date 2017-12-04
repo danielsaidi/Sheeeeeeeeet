@@ -52,8 +52,8 @@ public class ActionSheetToggleItem: ActionSheetItem {
         cell.textLabel?.textColor = isToggled ? appearance.toggledTextColor : appearance.untoggledTextColor
     }
     
-    open override func handleTap() {
-        super.handleTap()
+    open override func handleTap(in cell: UITableViewCell?) {
+        super.handleTap(in: cell)
         isToggled = !isToggled
     }
 }

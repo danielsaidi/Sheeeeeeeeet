@@ -84,5 +84,5 @@ open class ActionSheetItem: NSObject {
         return cell
     }
     
-    open func handleTap() {}
+    open func handleTap(in cell: UITableViewCell?) {}
 }
