@@ -112,7 +112,7 @@ open class ActionSheet: UIViewController {
     open lazy var itemTapAction: ActionSheetItemTapAction = {
         return { [weak self] item in
             guard let _self = self else { return }
-            _self.itemsView.reloadData()
+            _self.reloadData()
             _self.itemSelectAction(_self, item)
             if item.dismissesOnTap {
                 _self.dismiss()
@@ -130,7 +130,7 @@ open class ActionSheet: UIViewController {
     open func setupItemsAndButtons(with items: [ActionSheetItem]) {
         self.items = items.filter { !($0 is ActionSheetButton) }
         buttons = items.flatMap { $0 as? ActionSheetButton }
-        itemsView.reloadData()
+        reloadData()
     }
     
     
@@ -253,6 +253,11 @@ open class ActionSheet: UIViewController {
     
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
         return items[indexPath.row]
+    }
+    
+    open func reloadData() {
+        itemsView.reloadData()
+        buttonsView.reloadData()
     }
 }
 
