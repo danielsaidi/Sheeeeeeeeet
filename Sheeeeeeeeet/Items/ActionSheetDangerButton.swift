@@ -17,7 +17,7 @@
 
 import UIKit
 
-public class ActionSheetDangerButton: ActionSheetButton {
+open class ActionSheetDangerButton: ActionSheetButton {
     
     
     // MARK: - Initialization

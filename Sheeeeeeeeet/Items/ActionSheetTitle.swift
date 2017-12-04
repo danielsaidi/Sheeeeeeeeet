@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class ActionSheetTitle: ActionSheetItem {
+open class ActionSheetTitle: ActionSheetItem {
     
     
     // MARK: - Initialization

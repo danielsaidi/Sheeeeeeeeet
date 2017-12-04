@@ -17,7 +17,7 @@
 
 import UIKit
 
-public class ActionSheetToggleItem: ActionSheetItem {
+open class ActionSheetToggleItem: ActionSheetItem {
 
     
     // MARK: - Initialization

@@ -19,7 +19,7 @@
 
 import UIKit
 
-public class ActionSheetSelectItem: ActionSheetItem {
+open class ActionSheetSelectItem: ActionSheetItem {
     
     
     // MARK: - Initialization

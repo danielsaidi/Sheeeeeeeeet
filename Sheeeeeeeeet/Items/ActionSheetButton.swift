@@ -15,7 +15,7 @@
 
 import UIKit
 
-public class ActionSheetButton: ActionSheetItem {
+open class ActionSheetButton: ActionSheetItem {
     
     
     // MARK: - Initialization

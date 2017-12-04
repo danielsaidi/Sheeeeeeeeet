@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class ActionSheetSectionMargin: ActionSheetItem {
+open class ActionSheetSectionMargin: ActionSheetItem {
     
     
     // MARK: - Initialization

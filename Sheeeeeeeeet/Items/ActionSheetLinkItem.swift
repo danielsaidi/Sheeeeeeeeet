@@ -15,7 +15,7 @@
 
 import UIKit
 
-public class ActionSheetLinkItem: ActionSheetItem {
+open class ActionSheetLinkItem: ActionSheetItem {
     
     
     // MARK: - Properties
