@@ -102,6 +102,7 @@ fileprivate extension ViewController {
         guard let view = tableView else { return }
         actionSheetPeekHandler = ActionSheetPeekHandler(
             in: self,
+            peekSource: self,
             sourceView: view,
             peekBehavior: peekBehavior)
     }

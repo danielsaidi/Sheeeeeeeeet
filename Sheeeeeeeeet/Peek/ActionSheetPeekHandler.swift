@@ -34,19 +34,16 @@ import UIKit
 open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate {
     
     
-    // MARK: - Typealias
-    
-    public typealias ActionSheetPeekSourceViewController = UIViewController & ActionSheetPeekSource
-    
-    
     // MARK: - Initialization
     
     public init(
-        in vc: ActionSheetPeekSourceViewController,
+        in vc: UIViewController,
+        peekSource: ActionSheetPeekSource,
         sourceView: UIView,
         peekBehavior: ActionSheetPeekBehavior = .header,
         longPressFallback: Bool = true) {
         self.vc = vc
+        self.peekSource = peekSource
         self.sourceView = sourceView
         self.peekBehavior = peekBehavior
         super.init()
@@ -62,8 +59,9 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
     // MARK: - Properties
     
     fileprivate(set) public var peekBehavior: ActionSheetPeekBehavior
+    fileprivate(set) weak var peekSource: ActionSheetPeekSource?
     fileprivate(set) weak var sourceView: UIView?
-    fileprivate(set) weak var vc: ActionSheetPeekSourceViewController?
+    fileprivate(set) weak var vc: UIViewController?
     
     fileprivate var popButtons = [ActionSheetButton]()
     fileprivate var popItems = [ActionSheetItem]()
@@ -76,8 +74,8 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
         _ previewingContext: UIViewControllerPreviewing,
         viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
-            let sheet = vc?.actionSheet(at: location),
-            let view = vc?.presentationSourceView(at: location),
+            let sheet = peekSource?.actionSheet(at: location),
+            let view = peekSource?.presentationSourceView(at: location),
             shouldPeek(sheet)
             else { return nil }
         prepareSheetForPeek(sheet)
@@ -95,7 +93,7 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             let view = presentationSourceView
             else { return }
         prepareSheetForPop(sheet)
-        vc.setCurrentActionSheet(sheet)
+        peekSource?.setCurrentActionSheet(sheet)
         let presenter = ActionSheetPopPresenter()
         sheet.present(in: vc, from: view, with: presenter)
     }
@@ -110,10 +108,10 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
         guard
             let vc = vc,
             let point = longPressLocation(for: gesture),
-            let sheet = vc.actionSheet(at: point),
-            let view = vc.presentationSourceView(at: point)
+            let sheet = peekSource?.actionSheet(at: point),
+            let view = peekSource?.presentationSourceView(at: point)
             else { return }
-        vc.setCurrentActionSheet(sheet)
+        peekSource?.setCurrentActionSheet(sheet)
         sheet.present(in: vc, from: view)
     }
 }
