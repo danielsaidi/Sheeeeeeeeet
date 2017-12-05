@@ -99,12 +99,14 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
         guard let view = actionSheetView else { return }
         var frame = view.frame
         frame.origin.y += frame.height + 100
-        animate({ view.frame = frame }) { view.removeFromSuperview() }
+        let animation = { view.frame = frame }
+        animate(animation) { view.removeFromSuperview() }
     }
     
     open func removeBackgroundView() {
         guard let view = backgroundView else { return }
-        animate({ view.alpha = 0 }) { view.removeFromSuperview() }
+        let animation = { view.alpha = 0 }
+        animate(animation) { view.removeFromSuperview() }
     }
 }
 

@@ -78,7 +78,7 @@ extension ViewController {
         title.title = "What do you want to buy?"
         items.insert(titleItem, at: 0)
         items.append(cancelButton)
-        return ActionSheet(items: items) { (sheet, item) in
+        return ActionSheet(items: items) { (_, item) in
             guard item.value != nil else { return }
             self.alert(item: item)
         }
@@ -106,7 +106,7 @@ extension ViewController {
         expensiveItems.forEach { items.append($0) }
         items.append(cancelButton)
         
-        return ActionSheet(items: items) { (sheet, item) in
+        return ActionSheet(items: items) { (_, item) in
             guard item.value != nil else { return }
             self.alert(item: item)
         }
