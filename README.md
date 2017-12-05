@@ -175,6 +175,10 @@ Sheeeeeeeeet:
 * Web site: [danielsaidi.com](http://www.danielsaidi.com)
 
 
+## License
+
+iExtra is available under the MIT license. See the LICENSE file for more info.
+
 
 
 
