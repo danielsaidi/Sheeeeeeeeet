@@ -5,7 +5,7 @@ default_platform :ios
 platform :ios do
 
 
-# Version Bump ================
+  # Version ================
 
   desc "Create a new version"
   lane :version do |options|
@@ -31,7 +31,7 @@ platform :ios do
   lane :test do
     scan(
       project: "Sheeeeeeeeet.xcodeproj",
-      scheme: "SheeeeeeeeetTests",
+      scheme: "Sheeeeeeeeet",
       devices: ["iPhone 6s"]
     )    
   end

@@ -43,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453C04201FC0655C0028FA02"
-            BuildableName = "Sheeeeeeeeet.framework"
-            BlueprintName = "Sheeeeeeeeet"
+            BlueprintIdentifier = "453C045C1FC065AE0028FA02"
+            BuildableName = "SheeeeeeeeetExample.app"
+            BlueprintName = "SheeeeeeeeetExample"
             ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,15 +63,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453C04201FC0655C0028FA02"
-            BuildableName = "Sheeeeeeeeet.framework"
-            BlueprintName = "Sheeeeeeeeet"
+            BlueprintIdentifier = "453C045C1FC065AE0028FA02"
+            BuildableName = "SheeeeeeeeetExample.app"
+            BlueprintName = "SheeeeeeeeetExample"
             ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
