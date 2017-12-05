@@ -30,7 +30,7 @@ extension ViewController {
         var items = foodOptions().map { $0.item() }
         items.insert(titleItem, at: 0)
         items.append(cancelButton)
-        return ActionSheet(items: items) { (sheet, item) in
+        return ActionSheet(items: items) { (_, item) in
             guard item.value != nil else { return }
             self.alert(item: item)
         }
@@ -40,7 +40,7 @@ extension ViewController {
         var items = foodOptions().map { $0.singleSelectItem(isSelected: $0 == preselected) }
         items.insert(titleItem, at: 0)
         items.append(cancelButton)
-        return ActionSheet(items: items) { (sheet, item) in
+        return ActionSheet(items: items) { (_, item) in
             guard item.value != nil else { return }
             self.alert(item: item)
         }
