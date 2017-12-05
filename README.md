@@ -62,7 +62,7 @@ Presenting custom action sheets with Sheeeeeeeeet is easy. Just create an action
 sheet with a set of items, then present it in a view controller. To use popovers
 on iPad, you can also provide the sheet with a `from` source view:
 
-```
+```swift
 // This code is presumed to be in a view controller
 func showAlert(tappedButton: UIView?) {
 
