@@ -54,7 +54,8 @@ public extension ActionSheetPresenter {
     
     func bottomMargin(for sheet: ActionSheet, in view: UIView) -> CGFloat {
         if #available(iOS 11.0, *) {
-            return view.safeAreaInsets.bottom
+            let safeInset = view.safeAreaInsets.bottom
+            return max(safeInset, sheet.appearance.contentInset)
         } else {
             return sheet.appearance.contentInset
         }
