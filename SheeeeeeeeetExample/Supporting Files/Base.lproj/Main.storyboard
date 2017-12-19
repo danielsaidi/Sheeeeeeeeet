@@ -53,7 +53,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sheeeeeeeeet" id="hUy-QT-oGw"/>
+                    <navigationItem key="navigationItem" title="Sheeeeeeeeet" id="hUy-QT-oGw">
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="Lyv-RF-n81">
+                            <connections>
+                                <action selector="testFromBarButtonItem:" destination="BYZ-38-t0r" id="Cbb-9z-Avm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="UVF-b8-L9g" id="mdc-Dk-lLU"/>
                     </connections>
@@ -79,7 +85,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTO-DO-sue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130.4000000000001" y="114.69265367316342"/>
+            <point key="canvasLocation" x="681" y="116"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6UY-gL-lT4">
@@ -87,6 +93,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hZu-4D-7bi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZhK-JU-2G9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -96,7 +103,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hcm-tv-kF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="491.19999999999999" y="114.24287856071965"/>
+            <point key="canvasLocation" x="-124" y="115"/>
         </scene>
     </scenes>
 </document>

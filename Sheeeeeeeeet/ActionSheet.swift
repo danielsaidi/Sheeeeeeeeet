@@ -225,8 +225,8 @@ open class ActionSheet: UIViewController {
         present(in: vc, from: view, with: presenter)
     }
     
-    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem?) {
-        present(in: vc, from: view, with: presenter)
+    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
+        present(in: vc, from: barButtonItem, with: presenter)
     }
     
     open func present(

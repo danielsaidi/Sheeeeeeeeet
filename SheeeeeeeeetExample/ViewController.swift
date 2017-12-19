@@ -68,6 +68,13 @@ class ViewController: UIViewController {
     }
     
     
+    // MARK: - Action
+    
+    @IBAction func testFromBarButtonItem(_ sender: UIBarButtonItem) {
+        let sheet = headerViewActionSheet()
+        sheet.present(in: self, from: sender)
+    }
+    
     // MARK: - Functions
     
     func actionSheet(at indexPath: IndexPath) -> ActionSheet? {

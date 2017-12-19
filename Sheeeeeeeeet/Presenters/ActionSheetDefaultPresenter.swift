@@ -65,6 +65,12 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
             super.present(sheet: sheet, in: vc, from: view)
     }
     
+    open override func present(sheet: ActionSheet, in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
+        shouldUseiPadPresenter ?
+            iPadPresenter?.present(sheet: sheet, in: vc, from: barButtonItem) :
+            super.present(sheet: sheet, in: vc, from: barButtonItem)
+    }
+    
     
     // MARK: - Protected Functions
     
