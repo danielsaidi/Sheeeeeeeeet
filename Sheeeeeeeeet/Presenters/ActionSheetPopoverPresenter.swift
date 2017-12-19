@@ -53,7 +53,17 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         adjustSheetForPopoverPresentation(sheet)
         sheet.preferredContentSize = sheet.preferredPopoverSize
         let popover = popoverPresentationController(for: sheet, in: vc)
-        setup(popover: popover, for: view)
+        popover?.sourceView = view
+        popover?.sourceRect = view?.bounds ?? CGRect()
+        vc.present(sheet, animated: true, completion: nil)
+    }
+    
+    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem) {
+        guard sheet.contentHeight > 0 else { return }
+        adjustSheetForPopoverPresentation(sheet)
+        sheet.preferredContentSize = sheet.preferredPopoverSize
+        let popover = popoverPresentationController(for: sheet, in: vc)
+        popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: nil)
     }
 }
@@ -76,15 +86,5 @@ fileprivate extension ActionSheetPopoverPresenter {
         popover?.backgroundColor = sheet.view.backgroundColor
         popover?.delegate = vc as? UIPopoverPresentationControllerDelegate
         return popover
-    }
-    
-    func setup(popover: UIPopoverPresentationController?, for view: UIView?) {
-        guard let view = view else { return }
-        popover?.sourceView = view
-        let bounds = view.bounds
-        var center = bounds.origin
-        center.x += bounds.size.width / 2
-        center.y += bounds.size.height / 2
-        popover?.sourceRect = CGRect(x: center.x, y: center.y, width: 1, height: 1)
     }
 }

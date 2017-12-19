@@ -33,6 +33,14 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+        present(sheet: sheet, in: vc)
+    }
+    
+    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem) {
+        present(sheet: sheet, in: vc)
+    }
+    
+    open func present(sheet: ActionSheet, in vc: UIViewController) {
         addBackgroundView(to: vc.view)
         addActionSheetView(from: sheet, to: vc.view)
         presentBackgroundView()

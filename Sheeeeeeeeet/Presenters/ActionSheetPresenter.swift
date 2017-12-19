@@ -35,6 +35,7 @@ public protocol ActionSheetPresenter: class {
     
     func dismiss(sheet: ActionSheet)
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
+    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem)
 }
 
 
