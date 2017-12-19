@@ -1,6 +1,8 @@
 disabled_rules:
+  - cyclomatic_complexity
   - file_length
   - function_body_length
+  - identifier_name
   - line_length
   - shorthand_operator
   - trailing_whitespace
