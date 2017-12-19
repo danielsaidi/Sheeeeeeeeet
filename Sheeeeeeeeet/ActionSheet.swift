@@ -225,6 +225,10 @@ open class ActionSheet: UIViewController {
         present(in: vc, from: view, with: presenter)
     }
     
+    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem?) {
+        present(in: vc, from: view, with: presenter)
+    }
+    
     open func present(
         in vc: UIViewController,
         from view: UIView?,
@@ -232,6 +236,15 @@ open class ActionSheet: UIViewController {
         prepareForPresentation()
         currentPresenter = presenter
         presenter.present(sheet: self, in: vc.rootViewController, from: view)
+    }
+    
+    open func present(
+        in vc: UIViewController,
+        from barButtonItem: UIBarButtonItem,
+        with presenter: ActionSheetPresenter) {
+        prepareForPresentation()
+        currentPresenter = presenter
+        presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem)
     }
     
     open func prepareForPresentation() {
