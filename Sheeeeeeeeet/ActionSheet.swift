@@ -202,12 +202,12 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Data Properties
     
-    public lazy var buttonHandler: ActionSheetButtonHandler = {
-        return ActionSheetButtonHandler(actionSheet: self)
+    public lazy var buttonHandler: ActionSheetItemHandler = {
+        return ActionSheetItemHandler(actionSheet: self, handle: .buttons)
     }()
     
     public lazy var itemHandler: ActionSheetItemHandler = {
-        return ActionSheetItemHandler(actionSheet: self)
+        return ActionSheetItemHandler(actionSheet: self, handle: .items)
     }()
 
     

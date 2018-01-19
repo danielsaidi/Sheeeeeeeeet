@@ -73,7 +73,6 @@
 		457EC2C21FCE1ADF000EF1AD /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C31FCE1ADF000EF1AD /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */; };
-		457EC2CC1FCEB906000EF1AD /* ActionSheetButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2CA1FCEB906000EF1AD /* ActionSheetButtonHandler.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -207,7 +206,6 @@
 		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
-		457EC2CA1FCEB906000EF1AD /* ActionSheetButtonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonHandler.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -278,10 +276,10 @@
 			isa = PBXGroup;
 			children = (
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
+				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
 				453C04801FC16A220028FA02 /* Appearance */,
-				45EB3FDF1FC8699600EF555E /* Cells */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
-				457EC2C81FCEAC67000EF1AD /* Handlers */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C04731FC069940028FA02 /* Items */,
 				456EAA521FCD81C400A719ED /* Peek */,
@@ -474,23 +472,6 @@
 				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
 			);
 			path = SheeeeeeeeetTests;
-			sourceTree = "<group>";
-		};
-		457EC2C81FCEAC67000EF1AD /* Handlers */ = {
-			isa = PBXGroup;
-			children = (
-				457EC2CA1FCEB906000EF1AD /* ActionSheetButtonHandler.swift */,
-				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
-			);
-			path = Handlers;
-			sourceTree = "<group>";
-		};
-		45EB3FDF1FC8699600EF555E /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -717,7 +698,6 @@
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
 				456EA9F71FCAB13500A719ED /* ActionSheetItemTapBehavior.swift in Sources */,
 				456EAA561FCD914000A719ED /* ActionSheetPeekHandler.swift in Sources */,
-				457EC2CC1FCEB906000EF1AD /* ActionSheetButtonHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

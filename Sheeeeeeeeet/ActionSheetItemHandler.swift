@@ -1,20 +1,28 @@
 //
-//  ActionSheetButtonHandler.swift
+//  ActionSheetItemHandler.swift
 //  Sheeeeeeeeet
 //
-//  Created by Daniel Saidi on 2017-11-29.
+//  Created by Daniel Saidi on 2017-11-24.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
 import UIKit
 
-open class ActionSheetButtonHandler: NSObject {
+open class ActionSheetItemHandler: NSObject {
     
     
     // MARK: - Initialization
     
-    init(actionSheet: ActionSheet) {
+    init(actionSheet: ActionSheet, handle collectionType: CollectionType) {
         self.actionSheet = actionSheet
+        self.collectionType = collectionType
+    }
+    
+    
+    // MARK: - Enum
+    
+    public enum CollectionType {
+        case items, buttons
     }
     
     
@@ -22,43 +30,48 @@ open class ActionSheetButtonHandler: NSObject {
     
     fileprivate weak var actionSheet: ActionSheet?
     
-    fileprivate var buttons: [ActionSheetButton] {
-        return actionSheet?.buttons ?? []
+    fileprivate var collectionType: CollectionType
+    
+    fileprivate var items: [ActionSheetItem] {
+        switch collectionType {
+        case .buttons: return actionSheet?.buttons ?? []
+        case .items: return actionSheet?.items ?? []
+        }
     }
 }
 
 
 // MARK: - UITableViewDataSource
 
-extension ActionSheetButtonHandler: UITableViewDataSource {
+extension ActionSheetItemHandler: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return buttons.count
+        return items.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return buttons[indexPath.row].cell(for: tableView)
+        return items[indexPath.row].cell(for: tableView)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(buttons[indexPath.row].appearance.height)
+        return CGFloat(items[indexPath.row].appearance.height)
     }
 }
 
 
 // MARK: - UITableViewDelegate
 
-extension ActionSheetButtonHandler: UITableViewDelegate {
+extension ActionSheetItemHandler: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let button = buttons[indexPath.row]
+        let item = items[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        button.handleTap(in: cell)
-        actionSheet?.itemTapAction(button)
+        item.handleTap(in: cell)
+        actionSheet?.itemTapAction(item)
     }
 }
