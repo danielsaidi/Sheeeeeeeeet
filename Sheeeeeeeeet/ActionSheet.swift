@@ -87,8 +87,6 @@ open class ActionSheet: UIViewController {
         return ActionSheetAppearance(copy: .standard)
     }()
     
-    open var currentPresenter: ActionSheetPresenter?
-    
     open lazy var presenter: ActionSheetPresenter = {
         return ActionSheetDefaultPresenter()
     }()
@@ -216,34 +214,16 @@ open class ActionSheet: UIViewController {
     // MARK: - Presentation Functions
     
     open func dismiss() {
-        let presenter = currentPresenter ?? self.presenter
         presenter.dismiss(sheet: self)
-        currentPresenter = nil
     }
     
     open func present(in vc: UIViewController, from view: UIView?) {
-        present(in: vc, from: view, with: presenter)
-    }
-    
-    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
-        present(in: vc, from: barButtonItem, with: presenter)
-    }
-    
-    open func present(
-        in vc: UIViewController,
-        from view: UIView?,
-        with presenter: ActionSheetPresenter) {
         prepareForPresentation()
-        currentPresenter = presenter
         presenter.present(sheet: self, in: vc.rootViewController, from: view)
     }
     
-    open func present(
-        in vc: UIViewController,
-        from barButtonItem: UIBarButtonItem,
-        with presenter: ActionSheetPresenter) {
+    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
         prepareForPresentation()
-        currentPresenter = presenter
         presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem)
     }
     
