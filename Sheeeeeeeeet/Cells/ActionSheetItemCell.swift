@@ -8,24 +8,4 @@
 
 import UIKit
 
-open class ActionSheetItemCell: UITableViewCell {
-    
-    
-    // MARK: - Public Functions
-    
-    override open func layoutSubviews() {
-        super.layoutSubviews()
-        adjustImageMargin()
-    }
-}
-
-
-fileprivate extension ActionSheetItemCell {
-    
-    func adjustImageMargin() {
-        guard let view = imageView, let label = textLabel else { return }
-        guard view.image != nil else { return }
-        view.center.x += 5
-        label.center.x += 5
-    }
-}
+open class ActionSheetItemCell: UITableViewCell { }
