@@ -56,38 +56,6 @@ github "danielsaidi/Sheeeeeeeeet"
 then run `carthage update`. For more info, visit [Carthage website][Carthage].
 
 
-## Presenting an action sheet
-
-Presenting custom action sheets with Sheeeeeeeeet is easy. Just create an action
-sheet with a set of items, then present it in a view controller. To use popovers
-on iPad, you can also provide the sheet with a `from` source view:
-
-```swift
-// This code is presumed to be in a view controller
-func showAlert(tappedButton: UIView?) {
-
-    let items = [
-        ActionSheetTitle(title: "Select your favorite number"),
-        ActionSheetItem(title: "One", value: 1, image: UIImage(named: "one"))
-        ActionSheetItem(title: "Two", value: 2, image: UIImage(named: "two"))
-        ActionSheetItem(title: "42", value: 42, image: UIImage(named: "42"))
-        ActionSheetCancelButton(title: "Cancel")
-    ]
-
-    // Remember to keep a strong reference to the action sheet!
-    self.actionSheet = ActionSheet(items: items) { (sheet, item) in
-        guard let number = item.value as? Int else { return }
-        print("Your favorite number is \(number)")
-    }
-
-    actionSheet.present(in: self, from: tappedButton)
-}
-```
-
-It is important to keep a strong reference to the action sheet, otherwise it may
-be deallocated while being presented.
-
-
 ## Components
 
 Sheet comes with some built-in `items`, `buttons`, `titles` and `views` that can
@@ -145,9 +113,9 @@ no transparent space separating different content types.
 ## Appearance
 
 Sheeeeeeeeet can be globally styled by using the `ActionSheetAppearance.standard`
-instance. All action sheets then copies this instance when they are created, and
-can thus be individually styled without affecting the global style. Action sheet
-items then copies their action sheet's appearance and can be individually styled
+instance. All action sheets copies this instance when they are created. They can
+then be individually styled without affecting the global style. Each item in the
+sheet then copies their action sheet's appearance and can be individually styled
 as well.
 
 
@@ -177,13 +145,9 @@ Sheeeeeeeeet:
 
 ## License
 
-iExtra is available under the MIT license. See the LICENSE file for more info.
+Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
 
-
-
-[header-image]: SheeeeeeeeetExample/Assets/Images/title-image.png "Sheeeeeeeeeit"
-[demo-gif]: Resources/device.gif "Example gif"
 
 [Carthage]: https://github.com/Carthage/Carthage
 [CocoaPods]: https://cocoapods.org/
