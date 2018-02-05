@@ -1,8 +1,7 @@
 <p align="center">
-    <img src ="SheeeeeeeeetExample/Assets/Assets.xcassets/AppIcon.appiconset/Icon-320.png" style="border-radius: 13%" />
+    <img src ="Resources/Title.png" />
     <h1 align="center">Sheeeeeeeeet</h1>
 </p>
-
 
 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
@@ -11,7 +10,7 @@
 
 
 <p align="center">
-    <img src ="Resources/device.gif" />
+    <img src ="Resources/Demo.gif" />
 </p>
 
 ## About Sheeeeeeeeet
@@ -70,10 +69,10 @@ be used to compose flexible action sheets.
 
 Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
-* [Standard Item][ActionSheetItem]
-* [Select Item][ActionSheetSelectItem]
-* [Toggle Item][ActionSheetToggleItem]
-* [Link Item][ActionSheetLinkItem]
+* [Standard Item][ActionSheetItem] - Standard single select items
+* [Select Item][ActionSheetSelectItem] - Single or multiple select items
+* [Toggle Item][ActionSheetToggleItem] - Single or multiple toggle items
+* [Link Item][ActionSheetLinkItem] - Navigation links
 
 To create custom item types, inherit `ActionSheetItem` or an item type that best
 suits your needs.
@@ -83,9 +82,9 @@ suits your needs.
 Buttons are used to discard or apply the effect of an action sheet. Sheeeeeeeeet
 comes with these built-in types:
 
-* [OK button][ActionSheetOkButton]
-* [Cancel button][ActionSheetCancelButton]
-* [Danger button][ActionSheetDangerButton]
+* [OK button][ActionSheetOkButton] - Standard OK button with a `true` value
+* [Cancel button][ActionSheetCancelButton] - Standard cancel button
+* [Danger button][ActionSheetDangerButton] - Standard OK button with OMG!! style
 
 To create custom button types, inherit `ActionSheetButton` or a button type that
 best suits your needs.
@@ -100,8 +99,8 @@ Sheeeeeeeeet comes with some built-in components, that can be used to add titles
 sections, headers and margins to action sheets. They are also items, but have no
 interactive use:
 
-* [Title][ActionSheetTitle]
-* [Section Title][ActionSheetSectionTitle]
+* [Title][ActionSheetTitle] - Shown topmost for an entire sheet
+* [Section Title][ActionSheetSectionTitle] - Shown topmost for a section
 
 To add some margin above a section title, add an `ActionSheetSectionMargin` item
 before the section title.
