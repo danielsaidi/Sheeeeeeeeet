@@ -16,12 +16,12 @@ extension ViewController {
     }
     
     func alert(items: [ActionSheetItem]) {
-        let message = items.map { $0.title }.joined(separator: " + ")
-        alertSelection(message)
+        alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     
     func alert(option: TableViewOption) {
-        alert(title: nil, message: option.alertMessage)
+        guard let message = option.alertMessage else { return }
+        alert(title: nil, message: message)
     }
     
     func alert(title: String?, message: String) {

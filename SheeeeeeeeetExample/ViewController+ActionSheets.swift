@@ -58,17 +58,21 @@ fileprivate extension ViewController {
     }
     
     func singleSelectActionSheet(preselected: FoodOption?) -> ActionSheet {
-        var items = foodOptions().map { $0.singleSelectItem(isSelected: $0 == preselected) }
+        var items = foodOptions().map { $0.selectItem(isSelected: $0 == preselected) }
         items.insert(titleItem, at: 0)
+        items.append(okButton)
         items.append(cancelButton)
-        return ActionSheet(items: items) { (_, item) in
-            guard item.value != nil else { return }
+        return ActionSheet(items: items) { (sheet, item) in
+            let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+            let deselect = items.filter { $0.title != item.title }
+            deselect.forEach { $0.isSelected = false }
+            guard item.value as? Bool == true else { return }
             self.alert(item: item)
         }
     }
     
     func multiSelectActionSheet(preselected: [FoodOption]) -> ActionSheet {
-        var items = foodOptions().map { $0.multiSelectItem(isSelected: preselected.contains($0)) }
+        var items = foodOptions().map { $0.selectItem(isSelected: preselected.contains($0)) }
         items.insert(titleItem, at: 0)
         items.append(okButton)
         items.append(cancelButton)
@@ -170,18 +174,14 @@ fileprivate extension FoodOption {
             image: image)
     }
     
-    func multiSelectItem(isSelected: Bool) -> ActionSheetItem {
-        let item = singleSelectItem(isSelected: isSelected)
-        item.tapBehavior = .none
-        return item
-    }
-    
-    func singleSelectItem(isSelected: Bool) -> ActionSheetItem {
-        return ActionSheetSelectItem(
+    func selectItem(isSelected: Bool) -> ActionSheetItem {
+        let item = ActionSheetSelectItem(
             title: displayName,
             isSelected: isSelected,
             value: self,
             image: image)
+        item.tapBehavior = .none
+        return item
     }
     
     func toggleItem(isToggled: Bool) -> ActionSheetItem {
