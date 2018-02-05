@@ -1,4 +1,9 @@
-# Sheeeeeeeeet
+<p align="center">
+    <img src ="SheeeeeeeeetExample/Assets/Assets.xcassets/AppIcon.appiconset/Icon-320.png" style="border-radius: 13%" />
+    <h1 align="center">Sheeeeeeeeet</h1>
+</p>
+
+
 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![GitHub version](https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg)](http://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet)
