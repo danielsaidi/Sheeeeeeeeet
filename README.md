@@ -14,17 +14,16 @@
 ## About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for adding custom action sheets to your iOS apps.
-It comes with a set of built-in action sheet items and can be extended by custom
-items that are more specific to your app/domain.
+It comes with a set of built-in items and can be extended with custom items that
+are more specific to your app/domain.
 
-Sheeeeeeeeet action sheets can be designed to look just like standard iOS action
-sheets or way different. You can apply a global appearance as well as individual
-appearances for separate action sheets. You can even apply individual apperances
-to single items.
+Sheeeeeeeeet can be designed to look just like standard iOS action sheets or way
+different. You can add a global appearance as well as individual appearances for
+single action sheets and items.
 
 Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
 touch, with an optional long press gesture fallback for unsupported devices. You
-can configure Sheeeeeeeeet to either pop just the header view or the full sheet.
+can configure Sheeeeeeeeet to peek just the header view or the full sheet.
 
 
 ## Preview
