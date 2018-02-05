@@ -56,7 +56,6 @@
 		456EAA321FCC615A00A719ED /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA251FCC615A00A719ED /* Roboto-ThinItalic.ttf */; };
 		456EAA341FCC665800A719ED /* ViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA331FCC665800A719ED /* ViewController+Alerts.swift */; };
 		456EAA361FCC668F00A719ED /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA351FCC668F00A719ED /* ViewController+ActionSheets.swift */; };
-		456EAA381FCC66ED00A719ED /* ViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA371FCC66ED00A719ED /* ViewController+Appearance.swift */; };
 		456EAA3A1FCC6A7700A719ED /* FoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA391FCC6A7700A719ED /* FoodOption.swift */; };
 		456EAA3D1FCC8FF200A719ED /* title-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA3C1FCC8FF200A719ED /* title-image.png */; };
 		456EAA401FCC922100A719ED /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA3F1FCC922100A719ED /* TableViewOption.swift */; };
@@ -73,6 +72,7 @@
 		457EC2C21FCE1ADF000EF1AD /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C31FCE1ADF000EF1AD /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */; };
+		45A488E42028CD0500822C21 /* DemoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A488E32028CD0500822C21 /* DemoAppearance.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -190,7 +190,6 @@
 		456EAA251FCC615A00A719ED /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		456EAA331FCC665800A719ED /* ViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alerts.swift"; sourceTree = "<group>"; };
 		456EAA351FCC668F00A719ED /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
-		456EAA371FCC66ED00A719ED /* ViewController+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Appearance.swift"; sourceTree = "<group>"; };
 		456EAA391FCC6A7700A719ED /* FoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodOption.swift; sourceTree = "<group>"; };
 		456EAA3C1FCC8FF200A719ED /* title-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title-image.png"; sourceTree = "<group>"; };
 		456EAA3F1FCC922100A719ED /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
@@ -206,6 +205,7 @@
 		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
+		45A488E32028CD0500822C21 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -292,6 +292,8 @@
 		453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */ = {
 			isa = PBXGroup;
 			children = (
+				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
+				45A488E22028CCE500822C21 /* Appearance */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
 				456EAA421FCCA02E00A719ED /* Extensions */,
 				456EAA3E1FCC920700A719ED /* Options */,
@@ -299,7 +301,6 @@
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
 				456EAA351FCC668F00A719ED /* ViewController+ActionSheets.swift */,
 				456EAA331FCC665800A719ED /* ViewController+Alerts.swift */,
-				456EAA371FCC66ED00A719ED /* ViewController+Appearance.swift */,
 				4537E8641FD2A37A0007501C /* ViewController+PeekPop.swift */,
 				4537E8661FD2A55F0007501C /* ViewController+TableView.swift */,
 			);
@@ -456,7 +457,6 @@
 			children = (
 				4537E8721FD32D610007501C /* .swiftlint.yml */,
 				4537E86E1FD32A200007501C /* .travis.yml */,
-				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				453C046B1FC065AE0028FA02 /* Info.plist */,
 				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
 				453C04631FC065AE0028FA02 /* Main.storyboard */,
@@ -472,6 +472,14 @@
 				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
 			);
 			path = SheeeeeeeeetTests;
+			sourceTree = "<group>";
+		};
+		45A488E22028CCE500822C21 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				45A488E32028CD0500822C21 /* DemoAppearance.swift */,
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -705,7 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456EAA381FCC66ED00A719ED /* ViewController+Appearance.swift in Sources */,
+				45A488E42028CD0500822C21 /* DemoAppearance.swift in Sources */,
 				456EAA441FCCA03700A719ED /* UIColor+Hex.swift in Sources */,
 				453C04621FC065AE0028FA02 /* ViewController.swift in Sources */,
 				453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */,

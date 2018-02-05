@@ -1,17 +1,17 @@
 //
-//  ViewController+Appearance.swift
+//  DemoAppearance.swift
 //  SheeeeeeeeetExample
 //
-//  Created by Daniel Saidi on 2017-11-27.
-//  Copyright © 2017 Daniel Saidi. All rights reserved.
+//  Created by Daniel Saidi on 2018-02-05.
+//  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
 import UIKit
 import Sheeeeeeeeet
 
-extension ViewController {
-    
-    func applyActionSheetAppearance() {
+class DemoAppearance: UIImageView {
+
+    static func apply() {
         
         let green = UIColor(hex: 0x81c03f)
         let pink = UIColor(hex: 0xec5f72)

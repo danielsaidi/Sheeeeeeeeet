@@ -10,9 +10,30 @@ import UIKit
 import Sheeeeeeeeet
 
 
-// MARK: - Action Sheet Extensions
+// MARK: - Public Extensions
 
 extension ViewController {
+    
+    func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
+        switch tableViewOptions[indexPath.row] {
+        case .standard: return standardActionSheet()
+        case .singleSelect: return singleSelectActionSheet(preselected: .fancy)
+        case .multiSelect: return multiSelectActionSheet(preselected: [.fancy, .fast])
+        case .toggle: return toggleActionSheet(preselected: [.fancy, .fast])
+        case .links: return linkActionSheet()
+        case .headerView: return headerViewActionSheet()
+        case .sections: return sectionActionSheet()
+        case .danger: return destructiveActionSheet()
+        default: return nil
+        }
+    }
+}
+
+
+// MARK: - Action Sheet Extensions
+
+fileprivate extension ViewController {
+    
     
     // MARK: - Helper properties
     

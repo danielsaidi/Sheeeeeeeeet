@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+// MARK: - UITableViewDataSource
+
 extension ViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -31,6 +34,9 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 }
+
+
+// MARK: - UITableViewDelegate
 
 extension ViewController: UITableViewDelegate {
     

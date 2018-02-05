@@ -78,8 +78,9 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             let view = peekSource?.presentationSourceView(at: location),
             shouldPeek(sheet)
             else { return nil }
+        
         prepareSheetForPeek(sheet)
-        self.presentationSourceView = view
+        presentationSourceView = view
         previewingContext.sourceRect = view.frame
         return sheet
     }
@@ -92,6 +93,7 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             let sheet = viewControllerToCommit as? ActionSheet,
             let view = presentationSourceView
             else { return }
+        
         prepareSheetForPop(sheet)
         peekSource?.setCurrentActionSheet(sheet)
         sheet.presenter = ActionSheetPopPresenter()

@@ -12,23 +12,26 @@ import Sheeeeeeeeet
 extension ViewController {
     
     func alert(item: ActionSheetItem) {
-        alert(message: item.title)
+        alertSelection(item.title)
     }
     
     func alert(items: [ActionSheetItem]) {
         let message = items.map { $0.title }.joined(separator: " + ")
-        alert(message: message)
+        alertSelection(message)
     }
     
     func alert(option: TableViewOption) {
-        alert(message: option.alertMessage)
+        alert(title: nil, message: option.alertMessage)
     }
     
-    func alert(message: String) {
-        let title = "You selected:"
+    func alert(title: String?, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func alertSelection(_ value: String) {
+        alert(title: "You selected:", message: value)
     }
 }

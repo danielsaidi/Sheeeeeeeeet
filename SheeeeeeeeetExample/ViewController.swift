@@ -8,12 +8,16 @@
 
 /*
  
- Action sheet appearance should be configured as globally as
+ To make the example easier to overview, the view controller
+ has been split up into many smaller files.
+ 
+ Action sheet appearance is setup by `AppDelegate` using the
+ `DemoAppearance` class. In a real
+ 
+ should be configured as globally as
  possible, e.g. by a bootstrapper when the app starts. It is
  handled here to simplify understanding the example.
  
- To make the example easier to overview, the view controller
- has been split up in many smaller files.
  
  */
 
@@ -28,7 +32,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyActionSheetAppearance()
         setupPreviewHandling(with: .sheet)
     }
     
@@ -66,45 +69,21 @@ class ViewController: UIViewController {
             tableView?.dataSource = self
         }
     }
-    
-    
-    // MARK: - Action
-    
-    @IBAction func testFromBarButtonItem(_ sender: UIBarButtonItem) {
-        let sheet = headerViewActionSheet()
-        sheet.present(in: self, from: sender)
-    }
-    
-    // MARK: - Functions
-    
-    func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
-        switch tableViewOptions[indexPath.row] {
-        case .standard: return standardActionSheet()
-        case .singleSelect: return singleSelectActionSheet(preselected: .fancy)
-        case .multiSelect: return multiSelectActionSheet(preselected: [.fancy, .fast])
-        case .toggle: return toggleActionSheet(preselected: [.fancy, .fast])
-        case .links: return linkActionSheet()
-        case .headerView: return headerViewActionSheet()
-        case .sections: return sectionActionSheet()
-        case .danger: return destructiveActionSheet()
-        default: return nil
-        }
-    }
+}
+
+
+// MARK: - Public Functions
+
+extension ViewController {
     
     func handleNonSheetOption(_ option: TableViewOption) {
         switch option {
         case .peekPopHeader: setupPreviewHandling(with: .header)
         case .peekPopSheet: setupPreviewHandling(with: .sheet)
-        default: return
+        default: break
         }
         alert(option: option)
     }
-}
-
-
-// MARK: - Private Functions
-
-fileprivate extension ViewController {
     
     func setupPreviewHandling(with peekBehavior: ActionSheetPeekBehavior) {
         guard let view = tableView else { return }

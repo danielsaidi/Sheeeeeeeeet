@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "453C045C1FC065AE0028FA02"
+               BuildableName = "SheeeeeeeeetExample.app"
+               BlueprintName = "SheeeeeeeeetExample"
+               ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
