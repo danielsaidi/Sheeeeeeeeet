@@ -1,17 +1,15 @@
-<p align="center">
-    <img src ="Resources/Title.png" />
-    <h1 align="center">Sheeeeeeeeet</h1>
-</p>
-
+# Sheeeeeeeeet
 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![GitHub version](https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg)](http://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet)
 [![Build Status](https://api.travis-ci.org/danielsaidi/Sheeeeeeeeet.svg)](https://travis-ci.org/danielsaidi/Sheeeeeeeeet)
 
 
+
 <p align="center">
-    <img src ="Resources/Demo.gif" />
+    <img src ="Resources/Title.png" />
 </p>
+
 
 ## About Sheeeeeeeeet
 
@@ -28,6 +26,12 @@ Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
 touch, with an optional long press gesture fallback for unsupported devices. You
 can configure Sheeeeeeeeet to either pop just the header view or the full sheet.
 
+
+## Preview
+
+<p align="center">
+    <img src ="Resources/Demo.gif" />
+</p>
 
 ## Demo Application
 
