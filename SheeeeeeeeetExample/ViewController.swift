@@ -12,12 +12,8 @@
  has been split up into many smaller files.
  
  Action sheet appearance is setup by `AppDelegate` using the
- `DemoAppearance` class. In a real
- 
- should be configured as globally as
- possible, e.g. by a bootstrapper when the app starts. It is
- handled here to simplify understanding the example.
- 
+ `DemoAppearance` class. You can play around with it to view
+ how sheets and items are affected by appearance changes.
  
  */
 
