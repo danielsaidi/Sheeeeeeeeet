@@ -14,7 +14,22 @@ class ActionSheetSectionTitleTests: QuickSpec {
     
     override func spec() {
         
-        describe("") {
+        let item = ActionSheetSectionTitle(title: "foo")
+        
+        describe("when created") {
+            
+            it("applies provided values") {
+                expect(item.title).to(equal("foo"))
+                expect(item.value).to(beNil())
+                expect(item.image).to(beNil())
+            }
+        }
+        
+        describe("tap behavior") {
+            
+            it("is none") {
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
+            }
         }
     }
 }
