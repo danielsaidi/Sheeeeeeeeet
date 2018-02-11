@@ -208,8 +208,8 @@ by setting `longPressFallback` to `false` when creating the peek handler.
 
 ## Contact me
 
-Feel free to reach out if you have any questions or if you want to contribute to
-Sheeeeeeeeet:
+I hope you like this library. Feel free to reach out if you have questions or if
+you want to contribute in any way:
 
 * E-mail: [daniel.saidi@gmail.com](mailto:daniel.saidi@gmail.com)
 * Twitter: [@danielsaidi](http://www.twitter.com/danielsaidi)
