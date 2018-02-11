@@ -48,7 +48,7 @@ open class ActionSheetItem: NSObject {
     open var title: String
     
     open var appearance: ActionSheetItemAppearance
-    open var tapBehavior: ActionSheetItemTapBehavior = .dismiss
+    open var tapBehavior = ActionSheetItemTapBehavior.dismiss
     
     
     // MARK: - Internal Properties
