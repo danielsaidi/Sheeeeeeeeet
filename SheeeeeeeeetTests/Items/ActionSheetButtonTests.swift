@@ -14,11 +14,20 @@ class ActionSheetButtonTests: QuickSpec {
     
     override func spec() {
         
+        let item = ActionSheetButton(title: "foo", value: true)
+        
+        describe("when created") {
+            
+            it("applies provided values") {
+                expect(item.title).to(equal("foo"))
+                expect(item.value as? Bool).to(equal(true))
+            }
+        }
+        
         describe("tap behavior") {
             
             it("is dismiss") {
-                let item = ActionSheetButton(title: "foo", value: true)
-                expect(item.tapBehavior).to(equal(ActionSheetItemTapBehavior.dismiss))
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
             }
         }
     }

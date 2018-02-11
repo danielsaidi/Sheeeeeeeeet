@@ -13,10 +13,10 @@
  value and an optional image. All other item classes inherit
  this class.
  
- The default tap behavior of an action sheet item is to tell
- the action sheet that it was tapped, then dismiss the sheet.
- If you don't want the item to dismiss the action sheet, you
- can set the `tapBehavior` property to `none`.
+ The default tap behavior of action sheet items is "dismiss",
+ which means that the action sheet is told that the item was
+ tapped and is then dismissed. If you don't want the item to
+ dismiss the action sheet, set `tapBehavior` to `.none`.
  
  An action sheet item's appearance is set by the sheet, when
  it is presented. To use custom appearances for single items,
@@ -41,6 +41,13 @@ open class ActionSheetItem: NSObject {
     }
     
     
+    // MARK: - Tap Behavior
+    
+    public enum TapBehavior {
+        case dismiss, none
+    }
+    
+    
     // MARK: - Properties
     
     open var value: Any?
@@ -48,7 +55,7 @@ open class ActionSheetItem: NSObject {
     open var title: String
     
     open var appearance: ActionSheetItemAppearance
-    open var tapBehavior = ActionSheetItemTapBehavior.dismiss
+    open var tapBehavior = TapBehavior.dismiss
     
     
     // MARK: - Internal Properties
