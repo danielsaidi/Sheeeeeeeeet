@@ -18,6 +18,11 @@
 		45352D6D2030BC0E00A0F890 /* ActionSheetToggleItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D612030BC0E00A0F890 /* ActionSheetToggleItemTests.swift */; };
 		45352D6E2030BC0E00A0F890 /* ActionSheetSelectItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D622030BC0E00A0F890 /* ActionSheetSelectItemTests.swift */; };
 		45352D6F2030BC0E00A0F890 /* ActionSheetTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */; };
+		45352D822030D9D400A0F890 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45352D812030D9D400A0F890 /* README.md */; };
+		45352D852030D9E300A0F890 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D832030D9E300A0F890 /* .swiftlint.yml */; };
+		45352D862030D9E300A0F890 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D842030D9E300A0F890 /* .travis.yml */; };
+		45352D8D2030DACB00A0F890 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 45352D8B2030DACB00A0F890 /* Cartfile */; };
+		45352D8E2030DACB00A0F890 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45352D8C2030DACB00A0F890 /* Cartfile.private */; };
 		4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */; };
 		4537E85B1FD179E30007501C /* UIView+PopShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+PopShadow.swift */; };
 		4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85C1FD17B1A0007501C /* UIView+Blur.swift */; };
@@ -25,8 +30,6 @@
 		4537E8631FD299EA0007501C /* ActionSheetPeekBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8621FD299EA0007501C /* ActionSheetPeekBehavior.swift */; };
 		4537E8651FD2A37A0007501C /* ViewController+PeekPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8641FD2A37A0007501C /* ViewController+PeekPop.swift */; };
 		4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8661FD2A55F0007501C /* ViewController+TableView.swift */; };
-		4537E86F1FD32A200007501C /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4537E86E1FD32A200007501C /* .travis.yml */; };
-		4537E8731FD32D610007501C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4537E8721FD32D610007501C /* .swiftlint.yml */; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C045F1FC065AE0028FA02 /* AppDelegate.swift */; };
 		453C04621FC065AE0028FA02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04611FC065AE0028FA02 /* ViewController.swift */; };
@@ -96,7 +99,6 @@
 		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
 		45F969DD1FD1411D00292F28 /* ActionSheetPopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F969DC1FD1411D00292F28 /* ActionSheetPopPresenter.swift */; };
-		45F969DF1FD1602D00292F28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45F969DE1FD1602D00292F28 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,11 @@
 		45352D612030BC0E00A0F890 /* ActionSheetToggleItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetToggleItemTests.swift; sourceTree = "<group>"; };
 		45352D622030BC0E00A0F890 /* ActionSheetSelectItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemTests.swift; sourceTree = "<group>"; };
 		45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleTests.swift; sourceTree = "<group>"; };
+		45352D812030D9D400A0F890 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		45352D832030D9E300A0F890 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		45352D842030D9E300A0F890 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
+		45352D8B2030DACB00A0F890 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		45352D8C2030DACB00A0F890 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
 		4537E85A1FD179E30007501C /* UIView+PopShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PopShadow.swift"; sourceTree = "<group>"; };
 		4537E85C1FD17B1A0007501C /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
@@ -167,8 +174,6 @@
 		4537E8621FD299EA0007501C /* ActionSheetPeekBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPeekBehavior.swift; sourceTree = "<group>"; };
 		4537E8641FD2A37A0007501C /* ViewController+PeekPop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+PeekPop.swift"; sourceTree = "<group>"; };
 		4537E8661FD2A55F0007501C /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
-		4537E86E1FD32A200007501C /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
-		4537E8721FD32D610007501C /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -239,7 +244,6 @@
 		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverApperance.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
 		45F969DC1FD1411D00292F28 /* ActionSheetPopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopPresenter.swift; sourceTree = "<group>"; };
-		45F969DE1FD1602D00292F28 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +291,19 @@
 				45352D612030BC0E00A0F890 /* ActionSheetToggleItemTests.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		45352D802030D95500A0F890 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45352D832030D9E300A0F890 /* .swiftlint.yml */,
+				45352D842030D9E300A0F890 /* .travis.yml */,
+				45352D8B2030DACB00A0F890 /* Cartfile */,
+				45352D8C2030DACB00A0F890 /* Cartfile.private */,
+				453C046B1FC065AE0028FA02 /* Info.plist */,
+				45352D812030D9D400A0F890 /* README.md */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		453C04171FC0655C0028FA02 = {
@@ -337,7 +354,7 @@
 				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
 				453C04631FC065AE0028FA02 /* Main.storyboard */,
 				456EAA3E1FCC920700A719ED /* Options */,
-				456EAA571FCD9D8500A719ED /* Supporting Files */,
+				45352D802030D95500A0F890 /* Supporting Files */,
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
 				456EAA351FCC668F00A719ED /* ViewController+ActionSheets.swift */,
 				456EAA331FCC665800A719ED /* ViewController+Alerts.swift */,
@@ -491,17 +508,6 @@
 			path = Peek;
 			sourceTree = "<group>";
 		};
-		456EAA571FCD9D8500A719ED /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4537E8721FD32D610007501C /* .swiftlint.yml */,
-				4537E86E1FD32A200007501C /* .travis.yml */,
-				453C046B1FC065AE0028FA02 /* Info.plist */,
-				45F969DE1FD1602D00292F28 /* README.md */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,20 +655,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4537E8731FD32D610007501C /* .swiftlint.yml in Resources */,
+				45352D8D2030DACB00A0F890 /* Cartfile in Resources */,
 				456EAA291FCC615A00A719ED /* Roboto-Bold.ttf in Resources */,
+				45352D852030D9E300A0F890 /* .swiftlint.yml in Resources */,
 				456EAA3D1FCC8FF200A719ED /* title-image.png in Resources */,
 				456EAA2D1FCC615A00A719ED /* Roboto-LightItalic.ttf in Resources */,
 				456EAA2F1FCC615A00A719ED /* Roboto-MediumItalic.ttf in Resources */,
 				456EAA2B1FCC615A00A719ED /* Roboto-Italic.ttf in Resources */,
-				4537E86F1FD32A200007501C /* .travis.yml in Resources */,
 				456EAA2C1FCC615A00A719ED /* Roboto-Light.ttf in Resources */,
-				45F969DF1FD1602D00292F28 /* README.md in Resources */,
+				45352D822030D9D400A0F890 /* README.md in Resources */,
 				456EAA261FCC615A00A719ED /* LICENSE.txt in Resources */,
 				456EAA2A1FCC615A00A719ED /* Roboto-BoldItalic.ttf in Resources */,
+				45352D862030D9E300A0F890 /* .travis.yml in Resources */,
 				456EAA281FCC615A00A719ED /* Roboto-BlackItalic.ttf in Resources */,
 				456EAA311FCC615A00A719ED /* Roboto-Thin.ttf in Resources */,
 				456EAA301FCC615A00A719ED /* Roboto-Regular.ttf in Resources */,
+				45352D8E2030DACB00A0F890 /* Cartfile.private in Resources */,
 				453C046A1FC065AE0028FA02 /* LaunchScreen.storyboard in Resources */,
 				456EAA2E1FCC615A00A719ED /* Roboto-Medium.ttf in Resources */,
 				456EAA321FCC615A00A719ED /* Roboto-ThinItalic.ttf in Resources */,
@@ -987,7 +995,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
-				INFOPLIST_FILE = "SheeeeeeeeetExample/Supporting Files/Info.plist";
+				INFOPLIST_FILE = SheeeeeeeeetExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.SheeeeeeeeetExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1003,7 +1011,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PMEDFW438U;
-				INFOPLIST_FILE = "SheeeeeeeeetExample/Supporting Files/Info.plist";
+				INFOPLIST_FILE = SheeeeeeeeetExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.SheeeeeeeeetExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
