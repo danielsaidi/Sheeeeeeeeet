@@ -6,65 +6,130 @@
 
 
 
-<p align="center">
-    <img src ="Resources/Title.png" />
-</p>
-
-
 ## About Sheeeeeeeeet
 
-Sheeeeeeeeet is a Swift library for adding custom action sheets to your iOS apps.
-It comes with a set of built-in items and can be extended with custom items that
-are more specific to your app/domain.
+Sheeeeeeeeet is a Swift library for creating custom action sheets. It comes with
+some built-in items and can be extended with custom items that are more specific
+to your app as well.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Sheeeeeeeeet can be designed to look just like standard iOS action sheets or way
-different. You can add a global appearance as well as individual appearances for
-single action sheets and items.
+Sheeeeeeeeet can be designed to look just like normal UIKit action sheets or way
+different. You can apply a global appearance to all action sheets, then override
+that global style with individual styles for each action sheet and item.
 
 Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
-touch, with an optional long press gesture fallback for unsupported devices. You
-can configure Sheeeeeeeeet to peek just the header view or the full sheet.
+touch, with a long press gesture fallback for unsupported devices. You can setup
+Sheeeeeeeeet to peek just the header view or the full sheet.
 
 
-## Demo Application
-
-This repository contains a demo application. Open the `Sheeeeeeeeet` project and
-run the `SheeeeeeeeetExample` target to try different types of action sheets.
-
-
-## Install
-
-Sheeeeeeeeet can be installed with `CocoaPods` and `Carthage`:
+## Installation
 
 ### CocoaPods
 
-To install Sheeeeeeeeet with CocoaPods, add this line to your `Podfile`:
+Add this to your `Podfile`, run `pod install` then remember to use the generated
+workspace afterwards:
 
 ```
 pod 'Sheeeeeeeeet'
 ```
 
-then run `pod install`. For more info, visit the [CocoaPod website][CocoaPods].
-
 ### Carthage
 
-To install Sheeeeeeeeet with Carthage, add this line to your `Cartfile`:
+Add this to your `Cartfile`, run `carthage update` then add the framework to the
+app from `Carthage/Build`:
 
 ```
 github "danielsaidi/Sheeeeeeeeet"
 ```
 
-then run `carthage update`. For more info, visit [Carthage website][Carthage].
+### Manual
+
+To add `Sheeeeeeeeet` to your app without Carthage or CocoaPods, clone this repo
+and place it somewhere in your project folder. Then, add `Sheeeeeeeeet.xcodeproj`
+to your project, select your app target and add the Sheeeeeeeeet framework as an
+embedded binary under `General` and as a target dependency under `Build Phases`.
 
 
-## Components
+## Example Application
 
-Sheet comes with some built-in `items`, `buttons`, `titles` and `views` that can
-be used to compose flexible action sheets.
+This repository contains an example application. Open the `Sheeeeeeeeet` project
+and run the `SheeeeeeeeetExample` target to try different types of action sheets.
+
+
+## Example Code
+
+Below are some basic ways to create custom action sheets with `Sheeeeeeeeet`. In
+larger applications, you'll probably want to use your own domain model as values.
+Check out the example app to see how you can use models to create items:
+
+
+```swift
+func createStandardActionSheet() -> ActionSheet {
+    let title = ActionSheetTitle(title: "Select an option")
+    let item1 = ActionSheetItem(title: "Option 1", value: "1", image: image1)
+    let item2 = ActionSheetItem(title: "Option 2", value: "2", image: image2)
+    let button = ActionSheetOkButton(title: "OK")
+    return ActionSheet(items: items) { (_, item) in
+        guard let value = item.value as? String else { return }
+        // You now have the selected value, e.g. "1". The ok button uses `true`.
+    }
+}
+
+func createSingleSelectActionSheet() -> ActionSheet {
+    let title = ActionSheetTitle(title: "Select an option")
+    let item1 = ActionSheetSelectItem(title: "Option 1", isSelected: true, value: "1", image: image1)
+    let item2 = ActionSheetSelectItem(title: "Option 2", isSelected: false, value: "2", image: image2)
+    let button = ActionSheetOkButton(title: "OK")
+    return ActionSheet(items: items) { (_, item) in
+        let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+        let selected = items.filter { $0.isSelected }
+        if item.value as? Bool == true { return self.alert(items: selected) }   // OK
+        let deselect = items.filter { $0.title != item.title }
+        deselect.forEach { $0.isSelected = false }
+        guard item.value as? Bool == true else { return }
+        self.alert(item: item)
+    }
+}
+
+func createMultiSelectActionSheet() -> ActionSheet {
+    let title = ActionSheetTitle(title: "Select an option")
+    let item1 = ActionSheetSelectItem(title: "Option 1", isSelected: true, value: "1", image: image1)
+    let item2 = ActionSheetSelectItem(title: "Option 2", isSelected: false, value: "2", image: image2)
+    let button = ActionSheetOkButton(title: "OK")
+    return ActionSheet(items: items) { (_, item) in
+        let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+        let selected = items.filter { $0.isSelected }
+        if item.value as? Bool == true { return self.alert(items: selected) }   // OK
+        let deselect = items.filter { $0.title != item.title }
+        deselect.forEach { $0.isSelected = false }
+        guard item.value as? Bool == true else { return }
+        self.alert(item: item)
+    }
+}
+```
+
+These are just some ways to create action sheets. Have a look at the example app
+for more examples.
+
+To present an action sheet, you just have to call the `present` function as such:
+
+```
+actionSheet.present(in: self, from: sourceView)
+```
+
+where `sourceView` will be used when the sheet is presented using a popover, e.g.
+on iPads. You can customize how a sheet is presented by replacing its `presenter`
+with another implementation.
+
+
+## Action Sheet Components
+
+`Sheeeeeeeeet` comes with a large set of built-in components that can be used to
+compose flexible action sheets. To create your own custom items, just inherit an
+item class that best suits your needs.
 
 ### Items
 
@@ -75,20 +140,23 @@ Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 * [Toggle Item][ActionSheetToggleItem] - Single or multiple toggle items
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
-To create custom item types, inherit `ActionSheetItem` or an item type that best
-suits your needs.
+The standard item corresponds to a default `UIKit` action sheet action. It has a
+title and an image and serve as the base class for all other item types. It uses
+`.dismiss` as `tapBehavior`, which automatically dismisses the action sheet when
+it is tapped.
+
+Select and toggle items are basically identical, but can be individually styled.
+They both use `.none` as `tapBehavior`, which means that they will not cause the
+action sheet to be dismissed. Instead, add a submit button to the sheet.
 
 ### Buttons
 
-Buttons are used to discard or apply the effect of an action sheet. Sheeeeeeeeet
+Buttons are used to apply or discard the effect of an action sheet. Sheeeeeeeeet
 comes with these built-in types:
 
 * [OK button][ActionSheetOkButton] - Standard OK button with a `true` value
 * [Cancel button][ActionSheetCancelButton] - Standard cancel button
-* [Danger button][ActionSheetDangerButton] - Standard OK button with OMG!! style
-
-To create custom button types, inherit `ActionSheetButton` or a button type that
-best suits your needs.
+* [Danger button][ActionSheetDangerButton] - OK button with an alert style
 
 Buttons are automatically separated from other items when you create your action
 sheet instance, and are presented in a separate list. On popovers, however, they
@@ -96,46 +164,46 @@ are added back to the end of the item list, since popovers look different.
 
 ### Titles
 
-Sheeeeeeeeet comes with some built-in components, that can be used to add titles,
-sections, headers and margins to action sheets. They are also items, but have no
-interactive use:
+Titles are non-interactive items. Sheeeeeeeeet comes with these built-in types:
 
 * [Title][ActionSheetTitle] - Shown topmost for an entire sheet
 * [Section Title][ActionSheetSectionTitle] - Shown topmost for a section
+* [Section Margin][ActionSheetSectionMargin] - Should be added before section titles
 
-To add some margin above a section title, add an `ActionSheetSectionMargin` item
-before the section title.
+You can add title components anywhere you want in your action sheets, although a
+title probably looks best topmost.
 
-### Header View
+### Header Views
 
 If you set the `headerView` property of an action sheet, it will be displayed as
-a floating header above the action sheet options. You can use any view you like.
+a floating header above the action sheet. You can use any view as long as it can
+be resized to fit the header view size.
 
-Header are completely removed in popovers, since popovers are solid bodies, with
-no transparent space separating different content types.
+Header views are completely removed in popovers, since popovers are solid bodies
+with no transparent background.
 
 
 ## Appearance
 
 Sheeeeeeeeet can be globally styled by using the `ActionSheetAppearance.standard`
 instance. All action sheets copies this instance when they are created. They can
-then be individually styled without affecting the global style. Each item in the
-sheet then copies their action sheet's appearance and can be individually styled
-as well.
+then be individually styled without affecting the global style.
+
+Have a look at the demo application to see how global and individual styling can
+be setup. It's really easy.
 
 
 ## Peek and pop
 
-Sheeeeeeeeet supports peek & pop on 3D touch devices. To enable this in any view
-controller that implements `ActionSheetPeekSource` just create a strong instance
-of `ActionSheetPeekHandler`. 
+Sheeeeeeeeet supports peek & pop on 3D Touch devices, with a long press fallback
+on devices without 3D Touch. To enable peek and pop for any view controller that
+implements `ActionSheetPeekSource` just create a strong `ActionSheetPeekHandler`
+instance and provide it with a source view, from where peeks originate. This can
+e.g. be a collection or table view. The peek handler uses this view to determine
+the correct 3D touched frame.
 
-You must provide the peek handler with a source view, from where peeks originate.
-This could e.g. be a collection or table view. The peek handler uses this source
-view to determine the correct 3D touched frame.
-
-ON devices that have no 3D touch support, the peek handler will fallback to long
-presses. You can disable this by setting `longPressFallback` to `false` in `init`.
+If you want to use 3D touch, but not the long press fallback, you can disable it
+by setting `longPressFallback` to `false` when creating the peek handler.
 
 
 ## Contact me
@@ -170,3 +238,4 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
 [ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetTitle.swift
 [ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSectionTitle.swift
+[ActionSheetSectionMargin]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSectionMargin.swift

@@ -64,6 +64,8 @@ fileprivate extension ViewController {
         items.append(cancelButton)
         return ActionSheet(items: items) { (sheet, item) in
             let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+            let selected = items.filter { $0.isSelected }
+            if item.value as? Bool == true { return self.alert(items: selected) }
             let deselect = items.filter { $0.title != item.title }
             deselect.forEach { $0.isSelected = false }
             guard item.value as? Bool == true else { return }
