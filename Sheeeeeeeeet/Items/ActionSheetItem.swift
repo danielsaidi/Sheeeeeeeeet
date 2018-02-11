@@ -58,16 +58,6 @@ open class ActionSheetItem: NSObject {
     open var tapBehavior = TapBehavior.dismiss
     
     
-    // MARK: - Internal Properties
-    
-    var dismissesOnTap: Bool {
-        switch tapBehavior {
-        case .dismiss: return true
-        default: return false
-        }
-    }
-    
-    
     // MARK: - Functions
     
     open func applyAppearance(_ appearance: ActionSheetAppearance) {

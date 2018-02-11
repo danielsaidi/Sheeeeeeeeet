@@ -105,7 +105,7 @@ open class ActionSheet: UIViewController {
             guard let _self = self else { return }
             _self.reloadData()
             _self.itemSelectAction(_self, item)
-            if item.dismissesOnTap {
+            if item.tapBehavior == .dismiss {
                 _self.dismiss()
             }
         }
