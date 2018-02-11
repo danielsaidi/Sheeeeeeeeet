@@ -20,8 +20,11 @@ extension ViewController {
     }
     
     func alert(option: TableViewOption) {
-        guard let message = option.alertMessage else { return }
-        alert(title: nil, message: message)
+        guard
+            let title = option.alertTitle,
+            let message = option.alertMessage
+            else { return }
+        alert(title: title, message: message)
     }
     
     func alert(title: String?, message: String) {

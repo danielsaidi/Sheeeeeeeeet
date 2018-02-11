@@ -334,6 +334,8 @@
 				45A488E22028CCE500822C21 /* Appearance */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
 				456EAA421FCCA02E00A719ED /* Extensions */,
+				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
+				453C04631FC065AE0028FA02 /* Main.storyboard */,
 				456EAA3E1FCC920700A719ED /* Options */,
 				456EAA571FCD9D8500A719ED /* Supporting Files */,
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
@@ -495,8 +497,6 @@
 				4537E8721FD32D610007501C /* .swiftlint.yml */,
 				4537E86E1FD32A200007501C /* .travis.yml */,
 				453C046B1FC065AE0028FA02 /* Info.plist */,
-				453C04681FC065AE0028FA02 /* LaunchScreen.storyboard */,
-				453C04631FC065AE0028FA02 /* Main.storyboard */,
 				45F969DE1FD1602D00292F28 /* README.md */,
 			);
 			path = "Supporting Files";

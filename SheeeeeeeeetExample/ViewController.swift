@@ -9,7 +9,7 @@
 /*
  
  To make the example easier to overview, the view controller
- has been split up into many smaller files.
+ has been split up into extension files.
  
  Action sheet appearance is setup by `AppDelegate` using the
  `DemoAppearance` class. You can play around with it to view
@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         .headerView,
         .sections,
         .danger,
-        .peekPop,
         .peekPopSheet,
         .peekPopHeader
     ]
