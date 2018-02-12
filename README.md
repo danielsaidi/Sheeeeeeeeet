@@ -1,5 +1,5 @@
 <p align="center">
-    <img src ="Resources/Logo.png" />
+    <img src ="Resources/Logo.png" width=400 />
 </p>
 
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
