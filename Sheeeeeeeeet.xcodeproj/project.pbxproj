@@ -24,7 +24,7 @@
 		45352D8D2030DACB00A0F890 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 45352D8B2030DACB00A0F890 /* Cartfile */; };
 		45352D8E2030DACB00A0F890 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45352D8C2030DACB00A0F890 /* Cartfile.private */; };
 		4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */; };
-		4537E85B1FD179E30007501C /* UIView+PopShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+PopShadow.swift */; };
+		4537E85B1FD179E30007501C /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+Shadow.swift */; };
 		4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85C1FD17B1A0007501C /* UIView+Blur.swift */; };
 		4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */; };
 		4537E8631FD299EA0007501C /* ActionSheetPeekBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8621FD299EA0007501C /* ActionSheetPeekBehavior.swift */; };
@@ -168,7 +168,7 @@
 		45352D8B2030DACB00A0F890 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		45352D8C2030DACB00A0F890 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
-		4537E85A1FD179E30007501C /* UIView+PopShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PopShadow.swift"; sourceTree = "<group>"; };
+		4537E85A1FD179E30007501C /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		4537E85C1FD17B1A0007501C /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewController.swift"; sourceTree = "<group>"; };
 		4537E8621FD299EA0007501C /* ActionSheetPeekBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPeekBehavior.swift; sourceTree = "<group>"; };
@@ -398,9 +398,9 @@
 			isa = PBXGroup;
 			children = (
 				45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */,
-				453C047C1FC161B70028FA02 /* UIView+Empty.swift */,
-				4537E85A1FD179E30007501C /* UIView+PopShadow.swift */,
 				4537E85C1FD17B1A0007501C /* UIView+Blur.swift */,
+				453C047C1FC161B70028FA02 /* UIView+Empty.swift */,
+				4537E85A1FD179E30007501C /* UIView+Shadow.swift */,
 				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
 			);
 			path = Extensions;
@@ -736,7 +736,7 @@
 				4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */,
-				4537E85B1FD179E30007501C /* UIView+PopShadow.swift in Sources */,
+				4537E85B1FD179E30007501C /* UIView+Shadow.swift in Sources */,
 				456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */,
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,
 				456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */,

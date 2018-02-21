@@ -22,7 +22,6 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     // MARK: - Properties
     
     open var actionSheetView: UIView?
-    
     open var backgroundView: UIView?
 
     

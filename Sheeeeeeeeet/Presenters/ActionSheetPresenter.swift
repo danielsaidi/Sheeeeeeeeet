@@ -9,8 +9,8 @@
 /*
  
  Action sheet presenters are used by Sheeeeeeeeet to present
- action sheets in different ways, e.g. by the default bottom
- slide, popping over from the tapped view etc.
+ action sheets in different ways, e.g. with a default bottom
+ slide, showing a popover from the tapped view etc.
  
  When implementing this presenter protocol, `present` is the
  standard way of presenting action sheets, e.g. after button
@@ -18,14 +18,6 @@
  of dismissing them. `pop` can be used to specify how sheets
  should be presented after a peek (a peek could be happening
  on any view controller, not just the sheet).
- 
- The `ActionSheetPresenter` protocol is a bit bloated, since
- it has a `pop` function that is called by the previewer. It
- should instead have a `behavior` parameter for the `present`
- function. It should have a default value and a `pop` option.
- The default presenter should use its pop presenter if it is
- set to `pop`, otherwise use its standard behavior (a bottom
- transition for iPhones and a popover presenter for iPads).
  
  */
 

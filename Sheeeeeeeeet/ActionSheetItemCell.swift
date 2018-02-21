@@ -6,6 +6,14 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This is the base class for all different cell types in this
+ library. It makes it possible to set a global appearance on
+ all item cells in an app.
+ 
+ */
+
 import UIKit
 
 open class ActionSheetItemCell: UITableViewCell { }

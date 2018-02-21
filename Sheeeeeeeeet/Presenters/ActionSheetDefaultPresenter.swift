@@ -9,12 +9,12 @@
 /*
  
  This presenter will present action sheets as regular action
- sheets, i.e. as UIAlertControllers are displayed on a phone.
+ sheets, which means that it presents sheets from the bottom
+ on iPhones and in a popover on iPads.
  
- On iPads, this presenter will use its iPadPresenter instead,
- if it is set. The iPad presenter that is used by default is
- `ActionSheetPopoverPresenter`, which strips the header view
- and puts the buttons together with the items.
+ To customize how action sheets are presented on iPads, just
+ set the `iPadPresenter` property to a custom presenter. The
+ `ActionSheetPopoverPresenter` class is used by default.
  
  */
 

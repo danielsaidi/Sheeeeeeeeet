@@ -10,18 +10,25 @@
  
  This is the main class in the Sheeeeeeeeet library. You can
  use it to create action sheets and present them in any view
- controller, from any source view.
+ controller, from any source view or bar button item.
  
- To create an action sheet, call the initializer with a list
- of items and an action block that should be called whenever
- an item is selected. You can also inject a custom presenter
- if you want to customize how your action sheet is presented
- and dismissed.
+ To create an action sheet, just call the initializer with a
+ list of items and buttons and a block that should be called
+ whenever an item is selected.
+ 
+ You can also inject a custom sheet presenter if you want to
+ customize how your sheet is presented and dismissed. If you
+ do not use a custom presenter, `ActionSheetDefaultPresenter`
+ is used by deault.
  
  `ActionSheet` can be subclassed, which may be nice whenever
- you use Sheeeeeeeeet in your own app, where you may have an
- app specific use case. To customize the setup step, you can
- override `setup` if you don't want to hassle with the inits.
+ you use Sheeeeeeeeet in your own app and want to use an app
+ specific domain model. For instance, if you want to present
+ a list of `Food` items, you could create a `FoodActionSheet`
+ subclass, that is responsible to populate itself with items.
+ When you subclass `ActionSheet` you can either override the
+ initializers. However, you could also just override `setup`
+ and configure the action sheet in your override.
  
  Sheeeeeeeeet's action sheet appearance if easily customized.
  To change the global appearance for every action sheet that

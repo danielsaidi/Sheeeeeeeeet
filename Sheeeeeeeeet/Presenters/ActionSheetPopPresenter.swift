@@ -6,6 +6,15 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This presenter can be used to present an action sheet after
+ it has been peeked, using peek and pop. It applies a custom
+ peek-like blur and shadow to the sheet and also animates it
+ nicely from the center of the screen.
+ 
+ */
+
 import UIKit
 
 public class ActionSheetPopPresenter: ActionSheetPresenterBase {
@@ -14,7 +23,6 @@ public class ActionSheetPopPresenter: ActionSheetPresenterBase {
     // MARK: - Protected Functions
     
     public override func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
-        //sheet.headerView = nil
         super.addActionSheetView(from: sheet, to: view)
         actionSheetView?.applyPopoverShadow()
     }

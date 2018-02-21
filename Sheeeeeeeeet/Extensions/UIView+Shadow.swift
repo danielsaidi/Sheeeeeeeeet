@@ -1,5 +1,5 @@
 //
-//  UIView+PopShadow.swift
+//  UIView+Shadow.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-12-01.
