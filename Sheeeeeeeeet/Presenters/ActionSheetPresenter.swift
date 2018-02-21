@@ -37,8 +37,10 @@ public extension ActionSheetPresenter {
     
     func bottomFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         var targetFrame = view.frame
-        let inset = sheet.appearance.contentInset
-        targetFrame = targetFrame.insetBy(dx: inset, dy: inset)
+        let leftMargin = sheet.margin(at: .left)
+        let rightMargin = sheet.margin(at: .right)
+        let maxMargin = max(leftMargin, rightMargin)
+        targetFrame = targetFrame.insetBy(dx: maxMargin, dy: 0)
         targetFrame.size.height = sheet.contentHeight
         targetFrame.origin.y = view.frame.height - sheet.contentHeight
         targetFrame.origin.y -= sheet.margin(at: .bottom)
