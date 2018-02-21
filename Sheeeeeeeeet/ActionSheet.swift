@@ -183,11 +183,9 @@ open class ActionSheet: UIViewController {
     // MARK: - View Properties
     
     open lazy var buttonsView: UITableView = {
-        let view = createTableView()
-        view.dataSource = buttonHandler
-        view.delegate = buttonHandler
-        self.view.addSubview(view)
-        return view
+        let tableView = createTableView(handler: buttonHandler)
+        view.addSubview(tableView)
+        return tableView
     }()
 
     open var headerView: UIView? {
@@ -197,24 +195,22 @@ open class ActionSheet: UIViewController {
             view.addSubview(header)
         }
     }
-
+    
     open lazy var itemsView: UITableView = {
-        let view = createTableView()
-        view.dataSource = itemHandler
-        view.delegate = itemHandler
-        self.view.addSubview(view)
-        return view
+        let tableView = createTableView(handler: itemHandler)
+        view.addSubview(tableView)
+        return tableView
     }()
     
     
     // MARK: - Data Properties
     
     public lazy var buttonHandler: ActionSheetItemHandler = {
-        return ActionSheetItemHandler(actionSheet: self, handle: .buttons)
+        return ActionSheetItemHandler(actionSheet: self, handles: .buttons)
     }()
     
     public lazy var itemHandler: ActionSheetItemHandler = {
-        return ActionSheetItemHandler(actionSheet: self, handle: .items)
+        return ActionSheetItemHandler(actionSheet: self, handles: .items)
     }()
 
     
@@ -270,11 +266,13 @@ fileprivate extension ActionSheet {
         view?.layer.cornerRadius = appearance.cornerRadius
     }
     
-    func createTableView() -> UITableView {
+    func createTableView(handler: ActionSheetItemHandler) -> UITableView {
         let tableView = UITableView(frame: view.frame, style: .plain)
         tableView.isScrollEnabled = false
         tableView.tableFooterView = UIView.empty
         tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.dataSource = handler
+        tableView.delegate = handler
         return tableView
     }
     

@@ -13,7 +13,7 @@ open class ActionSheetItemHandler: NSObject {
     
     // MARK: - Initialization
     
-    init(actionSheet: ActionSheet, handle collectionType: CollectionType) {
+    init(actionSheet: ActionSheet, handles collectionType: CollectionType) {
         self.actionSheet = actionSheet
         self.collectionType = collectionType
     }
