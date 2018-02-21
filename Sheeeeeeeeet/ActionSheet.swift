@@ -109,12 +109,7 @@ open class ActionSheet: UIViewController {
     
     open lazy var itemTapAction: ActionSheetItemTapAction = {
         return { [weak self] item in
-            guard let _self = self else { return }
-            _self.reloadData()
-            _self.itemSelectAction(_self, item)
-            if item.tapBehavior == .dismiss {
-                _self.dismiss()
-            }
+            self?.handleTap(on: item)
         }
     }()
     
@@ -229,8 +224,8 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Presentation Functions
     
-    open func dismiss() {
-        presenter.dismiss(sheet: self)
+    open func dismiss(completion: @escaping () -> ()) {
+        presenter.dismiss(sheet: self) { completion() }
     }
     
     open func present(in vc: UIViewController, from view: UIView?) {
@@ -292,6 +287,15 @@ fileprivate extension ActionSheet {
         tableView.dataSource = handler
         tableView.delegate = handler
         return tableView
+    }
+    
+    func handleTap(on item: ActionSheetItem) {
+        reloadData()
+        if item.tapBehavior == .dismiss {
+            dismiss { self.itemSelectAction(self, item) }
+        } else {
+            itemSelectAction(self, item)
+        }
     }
     
     func positionViews() {

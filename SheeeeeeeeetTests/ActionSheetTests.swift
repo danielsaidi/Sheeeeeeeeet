@@ -15,8 +15,9 @@ private class ActionSheetTestClass: ActionSheet {
     var didDismiss = 0
     var didPrepareForPresentation = 0
     
-    override func dismiss() {
-        super.dismiss()
+    override func dismiss(completion: @escaping () -> ()) {
+        super.dismiss { completion() }
+        completion()
         didDismiss += 1
     }
     

@@ -40,8 +40,8 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - ActionSheetPresenter
     
-    open func dismiss(sheet: ActionSheet) {
-        sheet.presentingViewController?.dismiss(animated: true, completion: nil)
+    public func dismiss(sheet: ActionSheet, completion: @escaping () -> ()) {
+        sheet.presentingViewController?.dismiss(animated: true, completion: completion)
     }
     
     open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
