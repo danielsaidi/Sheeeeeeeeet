@@ -29,21 +29,3 @@ public protocol ActionSheetPresenter: class {
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem)
 }
-
-
-// MARK: - Public Functions
-
-public extension ActionSheetPresenter {
-    
-    func bottomFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
-        var targetFrame = view.frame
-        let leftMargin = sheet.margin(at: .left)
-        let rightMargin = sheet.margin(at: .right)
-        let maxMargin = max(leftMargin, rightMargin)
-        targetFrame = targetFrame.insetBy(dx: maxMargin, dy: 0)
-        targetFrame.size.height = sheet.contentHeight
-        targetFrame.origin.y = view.frame.height - sheet.contentHeight
-        targetFrame.origin.y -= sheet.margin(at: .bottom)
-        return targetFrame
-    }
-}

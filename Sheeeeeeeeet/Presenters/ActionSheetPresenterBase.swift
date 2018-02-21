@@ -91,7 +91,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     }
     
     open func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
-        return bottomFrame(for: sheet, in: view)
+        return sheet.bottomPresentationFrame
     }
     
     open func presentationTransitionStartFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {

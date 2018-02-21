@@ -35,11 +35,6 @@ xcode-select --install
 fastlane ios version
 ```
 Create a new version
-### ios testpod
-```
-fastlane ios testpod
-```
-
 ### ios test
 ```
 fastlane ios test

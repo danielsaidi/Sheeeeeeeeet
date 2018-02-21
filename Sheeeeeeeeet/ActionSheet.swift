@@ -134,6 +134,19 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Properties
     
+    open var bottomPresentationFrame: CGRect {
+        guard let view = view.superview else { return .zero }
+        var frame = view.frame
+        let leftMargin = margin(at: .left)
+        let rightMargin = margin(at: .right)
+        let maxMargin = max(leftMargin, rightMargin)
+        frame = frame.insetBy(dx: maxMargin, dy: 0)
+        frame.size.height = contentHeight
+        frame.origin.y = view.frame.height - contentHeight
+        frame.origin.y -= margin(at: .bottom)
+        return frame
+    }
+    
     open var buttonsHeight: CGFloat {
         return buttons.reduce(0) { $0 + $1.appearance.height }
     }
@@ -241,8 +254,8 @@ open class ActionSheet: UIViewController {
     // MARK: - Public Functions
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
-        let contentInset = appearance.contentInset
-        return margin.value(in: view.superview, fallback: contentInset)
+        let fallback = appearance.contentInset
+        return margin.value(in: view.superview, fallback: fallback)
     }
     
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
