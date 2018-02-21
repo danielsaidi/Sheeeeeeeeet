@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4531B7EA203E3373001CE86B /* ActionSheetMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */; };
 		45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D582030BC0E00A0F890 /* ActionSheetButtonTests.swift */; };
 		45352D652030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D592030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift */; };
 		45352D662030BC0E00A0F890 /* ActionSheetDangerButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D5A2030BC0E00A0F890 /* ActionSheetDangerButtonTests.swift */; };
@@ -151,6 +152,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMargin.swift; sourceTree = "<group>"; };
 		45352D582030BC0E00A0F890 /* ActionSheetButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTests.swift; sourceTree = "<group>"; };
 		45352D592030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleTests.swift; sourceTree = "<group>"; };
 		45352D5A2030BC0E00A0F890 /* ActionSheetDangerButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButtonTests.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
 				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
 				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
+				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
 				453C04801FC16A220028FA02 /* Appearance */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
@@ -723,6 +726,7 @@
 				453C04821FC16A370028FA02 /* ActionSheetTitleAppearance.swift in Sources */,
 				456EA9FF1FCB10A900A719ED /* ActionSheetLinkItem.swift in Sources */,
 				456EAA541FCD81DE00A719ED /* ActionSheetPeekSource.swift in Sources */,
+				4531B7EA203E3373001CE86B /* ActionSheetMargin.swift in Sources */,
 				45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */,
 				45EB3FD21FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift in Sources */,
 				45F969DD1FD1411D00292F28 /* ActionSheetPopPresenter.swift in Sources */,

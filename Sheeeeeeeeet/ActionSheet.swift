@@ -240,6 +240,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Public Functions
     
+    open func margin(at margin: ActionSheetMargin) -> CGFloat {
+        let contentInset = appearance.contentInset
+        return margin.value(in: view.superview, fallback: contentInset)
+    }
+    
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
         return items[indexPath.row]
     }
