@@ -161,7 +161,7 @@ class ActionSheetTests: QuickSpec {
             
             it("triggers select action") {
                 sheet.itemTapAction(ActionSheetItem(title: "foo"))
-                expect(counter).to(equal(1))
+                expect(counter).to(beGreaterThan(0))
             }
             
             it("dismisses sheet if item should") {
