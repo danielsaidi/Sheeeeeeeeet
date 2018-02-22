@@ -202,26 +202,7 @@ class ActionSheetTests: QuickSpec {
         
         // MARK: - Properties
         
-        describe("buttons height") {
-            
-            let ok = ActionSheetOkButton(title: "OK")
-            let cancel = ActionSheetCancelButton(title: "Cancel")
-            let item1 = ActionSheetItem(title: "foo")
-            let item2 = ActionSheetItem(title: "bar")
-            
-            it("is zero if sheet has no buttons") {
-                let sheet = actionSheet(with: [item1, item2])
-                expect(sheet.buttonsHeight).to(equal(0))
-            }
-            
-            it("has correct value if sheet has buttons") {
-                let sheet = actionSheet(with: [item1, item2, ok, cancel])
-                sheet.prepareForPresentation()
-                expect(sheet.buttonsHeight).to(equal(50))
-            }
-        }
-        
-        describe("buttons total height") {
+        describe("buttons section height") {
             
             let ok = ActionSheetOkButton(title: "OK")
             let cancel = ActionSheetCancelButton(title: "Cancel")
@@ -231,6 +212,25 @@ class ActionSheetTests: QuickSpec {
             it("is zero if sheet has no buttons") {
                 let sheet = actionSheet(with: [item1, item2])
                 expect(sheet.buttonsTotalHeight).to(equal(0))
+            }
+            
+            it("has correct value if sheet has buttons") {
+                let sheet = actionSheet(with: [item1, item2, ok, cancel])
+                sheet.prepareForPresentation()
+                expect(sheet.buttonsHeight).to(equal(50))
+            }
+        }
+        
+        describe("buttons view height") {
+            
+            let ok = ActionSheetOkButton(title: "OK")
+            let cancel = ActionSheetCancelButton(title: "Cancel")
+            let item1 = ActionSheetItem(title: "foo")
+            let item2 = ActionSheetItem(title: "bar")
+            
+            it("is zero if sheet has no buttons") {
+                let sheet = actionSheet(with: [item1, item2])
+                expect(sheet.buttonsHeight).to(equal(0))
             }
             
             it("has correct value if sheet has buttons") {
@@ -307,53 +307,34 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
+        describe("header total height") {
+            
+            it("is zero of sheet has no header view") {
+                let sheet = actionSheet(with: [])
+                expect(sheet.headerSectionHeight).to(equal(0))
+            }
+            
+            it("has correct value if sheet has header view") {
+                let sheet = actionSheet(with: [])
+                let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+                sheet.headerView = view
+                expect(sheet.headerSectionHeight).to(equal(110))
+            }
+        }
+        
         describe("header height") {
             
             it("is zero of sheet has no header view") {
                 let sheet = actionSheet(with: [])
                 sheet.prepareForPresentation()
-                expect(sheet.headerHeight).to(equal(0))
+                expect(sheet.headerViewHeight).to(equal(0))
             }
             
             it("has correct value if sheet has header view") {
                 let sheet = actionSheet(with: [])
                 let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                 sheet.headerView = view
-                expect(sheet.headerHeight).to(equal(100))
-            }
-        }
-        
-        describe("header total height") {
-            
-            it("is zero of sheet has no header view") {
-                let sheet = actionSheet(with: [])
-                expect(sheet.headerTotalHeight).to(equal(0))
-            }
-            
-            it("has correct value if sheet has header view") {
-                let sheet = actionSheet(with: [])
-                let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-                sheet.headerView = view
-                expect(sheet.headerTotalHeight).to(equal(110))
-            }
-        }
-        
-        describe("items height") {
-            
-            let ok = ActionSheetOkButton(title: "OK")
-            let cancel = ActionSheetCancelButton(title: "Cancel")
-            let item1 = ActionSheetItem(title: "foo")
-            let item2 = ActionSheetItem(title: "bar")
-            
-            it("is zero if sheet has no items") {
-                let sheet = actionSheet(with: [ok, cancel])
-                expect(sheet.itemsHeight).to(equal(0))
-            }
-            
-            it("has correct value if sheet has items") {
-                let sheet = actionSheet(with: [item1, item2, ok, cancel])
-                sheet.prepareForPresentation()
-                expect(sheet.itemsHeight).to(equal(100))
+                expect(sheet.headerViewHeight).to(equal(100))
             }
         }
         
@@ -366,13 +347,32 @@ class ActionSheetTests: QuickSpec {
             
             it("is zero if sheet has no items") {
                 let sheet = actionSheet(with: [ok, cancel])
-                expect(sheet.itemsTotalHeight).to(equal(0))
+                expect(sheet.itemsSectionHeight).to(equal(0))
             }
             
             it("has correct value if sheet has items") {
                 let sheet = actionSheet(with: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
-                expect(sheet.itemsTotalHeight).to(equal(110))
+                expect(sheet.itemsSectionHeight).to(equal(110))
+            }
+        }
+        
+        describe("items view height") {
+            
+            let ok = ActionSheetOkButton(title: "OK")
+            let cancel = ActionSheetCancelButton(title: "Cancel")
+            let item1 = ActionSheetItem(title: "foo")
+            let item2 = ActionSheetItem(title: "bar")
+            
+            it("is zero if sheet has no items") {
+                let sheet = actionSheet(with: [ok, cancel])
+                expect(sheet.itemsViewHeight).to(equal(0))
+            }
+            
+            it("has correct value if sheet has items") {
+                let sheet = actionSheet(with: [item1, item2, ok, cancel])
+                sheet.prepareForPresentation()
+                expect(sheet.itemsViewHeight).to(equal(100))
             }
         }
         

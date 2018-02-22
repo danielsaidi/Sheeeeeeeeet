@@ -142,39 +142,39 @@ open class ActionSheet: UIViewController {
         return frame
     }
     
-    open var buttonsHeight: CGFloat {
+    open var buttonsSectionHeight: CGFloat {
+        return buttonsViewHeight
+    }
+    
+    open var buttonsViewHeight: CGFloat {
         return buttons.reduce(0) { $0 + $1.appearance.height }
     }
     
-    open var buttonsTotalHeight: CGFloat {
-        return buttonsHeight
-    }
-    
     open var contentHeight: CGFloat {
-        return headerTotalHeight + itemsTotalHeight + buttonsTotalHeight
+        return headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
     }
     
     open var contentWidth: CGFloat {
         return super.preferredContentSize.width
     }
     
-    open var headerHeight: CGFloat {
+    open var headerViewHeight: CGFloat {
         return headerView?.frame.height ?? 0
     }
     
-    open var headerTotalHeight: CGFloat {
-        guard headerHeight > 0 else { return 0 }
-        return headerHeight + appearance.contentInset
+    open var headerSectionHeight: CGFloat {
+        guard headerViewHeight > 0 else { return 0 }
+        return headerViewHeight + appearance.contentInset
     }
     
-    open var itemsHeight: CGFloat {
+    open var itemsSectionHeight: CGFloat {
+        guard itemsViewHeight > 0 else { return 0 }
+        guard buttonsSectionHeight > 0 else { return itemsViewHeight }
+        return itemsViewHeight + appearance.contentInset
+    }
+    
+    open var itemsViewHeight: CGFloat {
         return items.reduce(0) { $0 + $1.appearance.height }
-    }
-    
-    open var itemsTotalHeight: CGFloat {
-        guard itemsHeight > 0 else { return 0 }
-        guard buttonsTotalHeight > 0 else { return itemsHeight }
-        return itemsHeight + appearance.contentInset
     }
     
     open override var preferredContentSize: CGSize {
@@ -307,9 +307,9 @@ fileprivate extension ActionSheet {
     
     func positionButtonsView(width: CGFloat) {
         buttonsView.frame.origin.x = 0
-        buttonsView.frame.origin.y = headerTotalHeight + itemsTotalHeight
+        buttonsView.frame.origin.y = headerSectionHeight + itemsSectionHeight
         buttonsView.frame.size.width = width
-        buttonsView.frame.size.height = buttonsTotalHeight
+        buttonsView.frame.size.height = buttonsViewHeight
     }
     
     func positionHeaderView(width: CGFloat) {
@@ -320,8 +320,8 @@ fileprivate extension ActionSheet {
     
     func positionItemsView(width: CGFloat) {
         itemsView.frame.origin.x = 0
-        itemsView.frame.origin.y = headerTotalHeight
+        itemsView.frame.origin.y = headerSectionHeight
         itemsView.frame.size.width = width
-        itemsView.frame.size.height = itemsHeight
+        itemsView.frame.size.height = itemsViewHeight
     }
 }
