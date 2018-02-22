@@ -211,13 +211,13 @@ class ActionSheetTests: QuickSpec {
             
             it("is zero if sheet has no buttons") {
                 let sheet = actionSheet(with: [item1, item2])
-                expect(sheet.buttonsTotalHeight).to(equal(0))
+                expect(sheet.buttonsSectionHeight).to(equal(0))
             }
             
             it("has correct value if sheet has buttons") {
                 let sheet = actionSheet(with: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
-                expect(sheet.buttonsHeight).to(equal(50))
+                expect(sheet.buttonsSectionHeight).to(equal(50))
             }
         }
         
@@ -230,13 +230,13 @@ class ActionSheetTests: QuickSpec {
             
             it("is zero if sheet has no buttons") {
                 let sheet = actionSheet(with: [item1, item2])
-                expect(sheet.buttonsHeight).to(equal(0))
+                expect(sheet.buttonsViewHeight).to(equal(0))
             }
             
             it("has correct value if sheet has buttons") {
                 let sheet = actionSheet(with: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
-                expect(sheet.buttonsHeight).to(equal(50))
+                expect(sheet.buttonsViewHeight).to(equal(50))
             }
         }
         
