@@ -53,10 +53,10 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
     
     // MARK: - ActionSheetPresenter
     
-    open override func dismiss(sheet: ActionSheet, completion: @escaping () -> ()) {
+    open override func dismiss(completion: @escaping () -> ()) {
         shouldUseiPadPresenter ?
-            iPadPresenter?.dismiss(sheet: sheet, completion: completion) :
-            super.dismiss(sheet: sheet, completion: completion)
+            iPadPresenter?.dismiss(completion: completion) :
+            super.dismiss(completion: completion)
     }
     
     open override func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {

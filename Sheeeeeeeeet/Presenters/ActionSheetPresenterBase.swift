@@ -27,7 +27,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     
     // MARK: - ActionSheetPresenter
     
-    open func dismiss(sheet: ActionSheet, completion: @escaping () -> ()) {
+    open func dismiss(completion: @escaping () -> ()) {
         dismissActionSheet()
         completion()
     }

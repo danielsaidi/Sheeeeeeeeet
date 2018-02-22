@@ -25,7 +25,7 @@ import Foundation
 
 public protocol ActionSheetPresenter: class {
     
-    func dismiss(sheet: ActionSheet, completion: @escaping () -> ())
+    func dismiss(completion: @escaping () -> ())
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem)
 }
