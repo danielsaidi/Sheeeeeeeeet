@@ -71,6 +71,12 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
             super.present(sheet: sheet, in: vc, from: barButtonItem)
     }
     
+    open override func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect? {
+        return shouldUseiPadPresenter ?
+            iPadPresenter?.presentationFrame(for: sheet, in: view) :
+            super.presentationFrame(for: sheet, in: view)
+    }
+    
     
     // MARK: - Protected Functions
     

@@ -67,6 +67,10 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         popover.barButtonItem = item
         vc.present(sheet, animated: true, completion: nil)
     }
+    
+    public func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect? {
+        return nil
+    }
 }
 
 

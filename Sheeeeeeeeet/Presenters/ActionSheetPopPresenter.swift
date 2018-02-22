@@ -33,7 +33,7 @@ public class ActionSheetPopPresenter: ActionSheetPresenterBase {
     }
     
     public override func presentationTransitionStartFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
-        var frame = presentationFrame(for: sheet, in: view)
+        var frame = presentationFrame(for: sheet, in: view) ?? .zero
         let screen = UIScreen.main.bounds.size
         frame.origin.x = screen.width/2 - frame.size.width/2
         frame.origin.y = screen.height/2 - frame.size.height/2

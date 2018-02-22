@@ -129,6 +129,14 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Properties
     
+    open var availableItemHeight: CGFloat {
+        let screen = UIScreen.main.bounds.height
+        let margins = margin(at: .top) + margin(at: .bottom)
+        let inset = appearance.contentInset
+        let sections = headerSectionHeight + buttonsSectionHeight
+        return screen - margins - sections - inset
+    }
+    
     open var bottomPresentationFrame: CGRect {
         guard let view = view.superview else { return .zero }
         var frame = view.frame
@@ -174,7 +182,15 @@ open class ActionSheet: UIViewController {
     }
     
     open var itemsViewHeight: CGFloat {
-        return items.reduce(0) { $0 + $1.appearance.height }
+        let required = requiredItemHeight
+        let available = availableItemHeight
+        return min(required, available)
+    }
+    
+    open var itemsViewRequiresScrolling: Bool {
+        let required = requiredItemHeight
+        let available = availableItemHeight
+        return available < required
     }
     
     open override var preferredContentSize: CGSize {
@@ -185,6 +201,10 @@ open class ActionSheet: UIViewController {
     open var preferredPopoverSize: CGSize {
         let width = appearance.popover.width
         return CGSize(width: width, height: contentHeight)
+    }
+    
+    open var requiredItemHeight: CGFloat {
+        return items.reduce(0) { $0 + $1.appearance.height }
     }
 
 
@@ -303,6 +323,13 @@ fileprivate extension ActionSheet {
         positionHeaderView(width: width)
         positionItemsView(width: width)
         positionButtonsView(width: width)
+        positionSheet()
+    }
+    
+    func positionSheet() {
+        guard let superview = view.superview else { return }
+        guard let frame = presenter.presentationFrame(for: self, in: superview) else { return }
+        view.frame = frame
     }
     
     func positionButtonsView(width: CGFloat) {
@@ -323,5 +350,6 @@ fileprivate extension ActionSheet {
         itemsView.frame.origin.y = headerSectionHeight
         itemsView.frame.size.width = width
         itemsView.frame.size.height = itemsViewHeight
+        itemsView.isScrollEnabled = itemsViewRequiresScrolling
     }
 }
