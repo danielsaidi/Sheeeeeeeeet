@@ -24,6 +24,7 @@ extension ViewController {
         case .headerView: return headerViewActionSheet()
         case .sections: return sectionActionSheet()
         case .danger: return destructiveActionSheet()
+        case .customcustom: return customcustomActionSheet()
         default: return nil
         }
     }
@@ -154,6 +155,56 @@ fileprivate extension ViewController {
             let toggled = items.filter { $0.isToggled }
             self.alert(items: toggled)
         }
+    }
+    
+    
+    static var myCellDataHolders: [MyCellDataHolder] = {
+        var myCellDataHolders: [MyCellDataHolder] = []
+        for i in 0...20 {
+            myCellDataHolders.append(MyCellDataHolder.init(title: "\(i)", subtitle: "\(i)", isSelected: false))
+        }
+        return myCellDataHolders
+    }()
+    
+    func customcustomActionSheet() -> ActionSheet {
+        let titleItem = ActionSheetTitle(title: "CUSTOMCUSTOM")
+        
+        //Copy them so we don't change isSelected of original value
+        let data = ViewController.myCellDataHolders.map { MyCellDataHolder(copy: $0) }
+        
+        let customcustomItem = ActionSheetCollectionViewItem(
+            cellType: MyCollectionViewCell.self,
+            cellConfigBlock: { (cell, row) in
+                let item = data[row]
+                cell.configureWith(item: item)
+        },
+            cellSelectionBlock: { (cell, row) in
+                let item = data[row]
+                item.isSelected = !item.isSelected
+                cell.configureWith(item: item)
+        },
+            numItems: data.count)
+        
+        let okButton = self.okButton
+        let optionItems = foodOptions().map { $0.item() }
+
+        let items = [titleItem, optionItems.first!, customcustomItem, optionItems.last!, okButton, cancelButton]
+        
+        let sheet = ActionSheet(items: items) { (_, item) in
+            if item == okButton {
+                ViewController.myCellDataHolders.forEach({ (originalData) in
+                    guard let idx = data.index(of: originalData) else { return }
+                    let newData = data[idx]
+                    originalData.isSelected = newData.isSelected
+                })
+                let selectedItems = data.filter { $0.isSelected }
+                let selectedstr = selectedItems.flatMap { String($0.title) }
+                self.alertSelection("Selected items in collection view: \(selectedstr)")
+            } else {
+                self.alert(item: item)
+            }
+        }
+        return sheet
     }
 }
 

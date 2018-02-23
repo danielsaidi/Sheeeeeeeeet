@@ -47,7 +47,8 @@ class ViewController: UIViewController {
         .sections,
         .danger,
         .peekPopSheet,
-        .peekPopHeader
+        .peekPopHeader,
+        .customcustom
     ]
     
     func foodOptions() -> [FoodOption] {

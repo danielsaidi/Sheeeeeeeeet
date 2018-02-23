@@ -43,6 +43,7 @@ open class ActionSheetAppearance {
         selectItem = ActionSheetSelectItemAppearance(copy: copy.selectItem)
         title = ActionSheetTitleAppearance(copy: copy.title)
         toggleItem = ActionSheetToggleItemAppearance(copy: copy.toggleItem)
+        collectionViewItem = ActionSheetCollectionViewItemAppearance(copy: copy.collectionViewItem)
     }
     
     
@@ -101,5 +102,9 @@ open class ActionSheetAppearance {
     
     public lazy var toggleItem: ActionSheetToggleItemAppearance = {
         return ActionSheetToggleItemAppearance(copy: item)
+    }()
+    
+    public lazy var collectionViewItem: ActionSheetCollectionViewItemAppearance = {
+        return ActionSheetCollectionViewItemAppearance(copy: item)
     }()
 }

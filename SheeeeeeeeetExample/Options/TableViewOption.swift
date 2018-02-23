@@ -22,7 +22,8 @@ enum TableViewOption {
     sections,
     singleSelect,
     standard,
-    toggle
+    toggle,
+    customcustom
     
     
     var title: String {
@@ -37,6 +38,7 @@ enum TableViewOption {
         case .singleSelect: return "Single-select"
         case .standard: return "Standard"
         case .toggle: return "Toggle Options"
+        case .customcustom: return "CUSTOMCUSTOM"
         }
     }
     
@@ -52,6 +54,7 @@ enum TableViewOption {
         case .singleSelect: return "Show a sheet where you can select a single value."
         case .standard: return "Show a sheet where you can pick a single option."
         case .toggle: return "Show a sheet where you can toggle multiple values."
+        case .customcustom: return "CUSTOMCUSTOM"
         }
     }
     
@@ -87,6 +90,7 @@ enum TableViewOption {
         case .singleSelect: return "ic_checkmark"
         case .standard: return "ic_list"
         case .toggle: return "ic_circle_checked"
+        case .customcustom: return "ic_circle_checked"
         }
     }
 }
