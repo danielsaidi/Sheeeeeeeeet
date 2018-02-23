@@ -35,8 +35,6 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    var actionSheet: ActionSheet?
-    
     var actionSheetPeekHandler: ActionSheetPeekHandler?
     
     var tableViewOptions: [TableViewOption] = [

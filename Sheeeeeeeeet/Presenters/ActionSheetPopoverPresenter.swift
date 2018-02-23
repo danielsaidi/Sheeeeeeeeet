@@ -42,13 +42,16 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         return NotificationCenter.default
     }
     
-    fileprivate weak var sheet: ActionSheet?
+    fileprivate var sheet: ActionSheet?
     
     
     // MARK: - ActionSheetPresenter
     
     public func dismiss(completion: @escaping () -> ()) {
-        sheet?.presentingViewController?.dismiss(animated: true, completion: completion)
+        sheet?.presentingViewController?.dismiss(animated: true) {
+            completion()
+            self.sheet = nil
+        }
     }
     
     open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {

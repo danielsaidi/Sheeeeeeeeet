@@ -26,8 +26,4 @@ extension ViewController: ActionSheetPeekSource {
             else { return nil }
         return view.cellForRow(at: path)
     }
-    
-    func setCurrentActionSheet(_ sheet: ActionSheet) {
-        actionSheet = sheet
-    }
 }

@@ -21,6 +21,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     
     // MARK: - Properties
     
+    open var actionSheet: ActionSheet?
     open var actionSheetView: UIView?
     open var backgroundView: UIView?
 
@@ -41,6 +42,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController) {
+        self.actionSheet = sheet
         addBackgroundView(to: vc.view)
         addActionSheetView(from: sheet, to: vc.view)
         presentBackgroundView()
@@ -124,6 +126,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
 @objc public extension ActionSheetPresenterBase {
     
     public func dismissActionSheet() {
+        actionSheet = nil
         removeActionSheetView()
         removeBackgroundView()
     }

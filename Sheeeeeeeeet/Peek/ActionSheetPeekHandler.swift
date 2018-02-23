@@ -63,6 +63,7 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
     fileprivate(set) weak var sourceView: UIView?
     fileprivate(set) weak var vc: UIViewController?
     
+    fileprivate var actionSheet: ActionSheet?
     fileprivate var popButtons = [ActionSheetButton]()
     fileprivate var popItems = [ActionSheetItem]()
     fileprivate weak var presentationSourceView: UIView?
@@ -78,10 +79,10 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             let view = peekSource?.presentationSourceView(at: location),
             shouldPeek(sheet)
             else { return nil }
-        
         prepareSheetForPeek(sheet)
         presentationSourceView = view
         previewingContext.sourceRect = view.frame
+        actionSheet = sheet
         return sheet
     }
     
@@ -95,7 +96,6 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             else { return }
         
         prepareSheetForPop(sheet)
-        peekSource?.setCurrentActionSheet(sheet)
         sheet.presenter = ActionSheetPopPresenter()
         sheet.present(in: vc, from: view)
     }
@@ -113,7 +113,6 @@ open class ActionSheetPeekHandler: NSObject, UIViewControllerPreviewingDelegate 
             let sheet = peekSource?.actionSheet(at: point),
             let view = peekSource?.presentationSourceView(at: point)
             else { return }
-        peekSource?.setCurrentActionSheet(sheet)
         sheet.present(in: vc, from: view)
     }
 }
