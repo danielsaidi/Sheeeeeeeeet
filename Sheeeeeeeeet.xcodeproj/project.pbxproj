@@ -54,7 +54,6 @@
 		456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */; };
 		456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */; };
 		456EAA0E1FCC13A400A719ED /* ActionSheetDefaultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0D1FCC13A400A719ED /* ActionSheetDefaultPresenter.swift */; };
-		456EAA111FCC204A00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
 		456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		456EAA261FCC615A00A719ED /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA191FCC615A00A719ED /* LICENSE.txt */; };
 		456EAA271FCC615A00A719ED /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA1A1FCC615A00A719ED /* Roboto-Black.ttf */; };
@@ -117,13 +116,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 453C045C1FC065AE0028FA02;
 			remoteInfo = SheeeeeeeeetExample;
-		};
-		45EB3FE21FC878BC00EF555E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 453C04181FC0655C0028FA02 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 453C04201FC0655C0028FA02;
-			remoteInfo = Sheeeeeeeeet;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -262,7 +254,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456EAA111FCC204A00A719ED /* Sheeeeeeeeet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +568,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				45EB3FE31FC878BC00EF555E /* PBXTargetDependency */,
 			);
 			name = SheeeeeeeeetExample;
 			productName = SheeeeeeeeetExample;
@@ -810,11 +800,6 @@
 			isa = PBXTargetDependency;
 			target = 453C045C1FC065AE0028FA02 /* SheeeeeeeeetExample */;
 			targetProxy = 456EAA761FCE17CC00A719ED /* PBXContainerItemProxy */;
-		};
-		45EB3FE31FC878BC00EF555E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 453C04201FC0655C0028FA02 /* Sheeeeeeeeet */;
-			targetProxy = 45EB3FE21FC878BC00EF555E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
