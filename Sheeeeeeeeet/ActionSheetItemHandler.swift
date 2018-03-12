@@ -72,6 +72,7 @@ extension ActionSheetItemHandler: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         item.handleTap(in: cell)
+        item.handleTap(in: actionSheet)
         actionSheet?.itemTapAction(item)
     }
 }

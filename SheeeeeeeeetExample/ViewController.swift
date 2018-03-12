@@ -39,8 +39,8 @@ class ViewController: UIViewController {
     
     var tableViewOptions: [TableViewOption] = [
         .standard,
+        .select,
         .singleSelect,
-        .multiSelect,
         .toggle,
         .links,
         .headerView,

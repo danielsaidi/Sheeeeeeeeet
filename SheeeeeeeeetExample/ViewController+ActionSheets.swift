@@ -17,8 +17,8 @@ extension ViewController {
     func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
         switch tableViewOptions[indexPath.row] {
         case .standard: return standardActionSheet()
-        case .singleSelect: return singleSelectActionSheet(preselected: .fancy)
-        case .multiSelect: return multiSelectActionSheet(preselected: [.fancy, .fast])
+        case .select: return multiSelectActionSheet(preselected: [.fancy, .fast])
+        case .singleSelect: return singleSelectActionSheet()
         case .toggle: return toggleActionSheet(preselected: [.fancy, .fast])
         case .links: return linkActionSheet()
         case .headerView: return headerViewActionSheet()
@@ -58,23 +58,33 @@ fileprivate extension ViewController {
         }
     }
     
-    func singleSelectActionSheet(preselected: FoodOption?) -> ActionSheet {
-        let items = singleSelectActionSheetItems(preselected)
+    func singleSelectActionSheet() -> ActionSheet {
+        let items = singleSelectActionSheetItems()
         return ActionSheet(items: items) { (sheet, item) in
-            let selectItems = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
-            let selectedItems = selectItems.filter { $0.isSelected }
-            let deselectItems = selectItems.filter { $0.title != item.title }
-            deselectItems.forEach { $0.isSelected = false }
             guard item is ActionSheetOkButton else { return }
+            let selectItems = sheet.items.flatMap { $0 as? ActionSheetSingleSelectItem }
+            let selectedItems = selectItems.filter { $0.isSelected }
             self.alert(items: selectedItems)
         }
     }
     
-    func singleSelectActionSheetItems(_ preselected: FoodOption?) -> [ActionSheetItem] {
-        var items = foodOptions().map { $0.selectItem(isSelected: $0 == preselected) }
-        items.insert(titleItem, at: 0)
+    func singleSelectActionSheetItems() -> [ActionSheetItem] {
+        var items = [ActionSheetItem]()
+        items.append(titleItem)
+        items.append(contentsOf: singleSelectActionSheetItemsGroup(.fast, group: "Appetizer"))
+        items.append(ActionSheetSectionMargin())
+        items.append(contentsOf: singleSelectActionSheetItemsGroup(.homeMade, group: "Main Dish"))
         items.append(okButton)
         items.append(cancelButton)
+        return items
+    }
+    
+    func singleSelectActionSheetItemsGroup(_ preselected: FoodOption?, group: String) -> [ActionSheetItem] {
+        var items = [ActionSheetItem]()
+        let options = foodOptions().filter { $0 != .none && $0 != .fancy }
+        let foodItems = options.map { $0.singleSelectItem(isSelected: $0 == preselected, group: group) }
+        items.append(ActionSheetSectionTitle(title: group))
+        items.append(contentsOf: foodItems)
         return items
     }
     
@@ -253,6 +263,15 @@ fileprivate extension FoodOption {
             image: image)
         item.tapBehavior = .none
         return item
+    }
+    
+    func singleSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {
+        return ActionSheetSingleSelectItem(
+            title: displayName,
+            isSelected: isSelected,
+            group: group,
+            value: self,
+            image: image)
     }
     
     func toggleItem(isToggled: Bool) -> ActionSheetItem {
