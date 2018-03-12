@@ -52,7 +52,6 @@ extension ViewController: UITableViewDelegate {
         guard let sheet = actionSheet(at: indexPath) else {
             return handleNonSheetOption(option)
         }
-        //let actionSheet = sheet
         sheet.present(in: self, from: cell)
     }
 }

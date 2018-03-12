@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         .links,
         .headerView,
         .sections,
+        .collections,
         .danger,
         .peekPopSheet,
         .peekPopHeader

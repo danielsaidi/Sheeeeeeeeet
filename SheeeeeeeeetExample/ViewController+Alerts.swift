@@ -19,6 +19,10 @@ extension ViewController {
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     
+    func alert(items: [MyCollectionViewCell.Item]) {
+        alertSelection(items.map { $0.title }.joined(separator: " + "))
+    }
+    
     func alert(option: TableViewOption) {
         guard
             let title = option.alertTitle,

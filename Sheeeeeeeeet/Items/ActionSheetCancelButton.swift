@@ -10,8 +10,7 @@
  
  Cancel buttons have no special behavior, but can be used in
  sheets where a user applies changes by tapping an OK button.
- 
- The value of a cancel button is `nil` by default.
+ The default cancel button value is `nil`.
  
  */
 

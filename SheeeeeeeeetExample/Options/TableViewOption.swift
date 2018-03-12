@@ -14,6 +14,7 @@ enum TableViewOption {
     
     case
     danger,
+    collections,
     headerView,
     links,
     multiSelect,
@@ -27,6 +28,7 @@ enum TableViewOption {
     
     var title: String {
         switch self {
+        case .collections: return "Collections"
         case .danger: return "Destructive Action"
         case .headerView: return "Header View"
         case .links: return "Links"
@@ -42,6 +44,7 @@ enum TableViewOption {
     
     var description: String {
         switch self {
+        case .collections: return "Show a sheet with horizontal collections items."
         case .danger: return "Show a sheet with a destructive action."
         case .headerView: return "Show a sheet with a custom header view."
         case .links: return "Show a sheet with links."
@@ -54,7 +57,6 @@ enum TableViewOption {
         case .toggle: return "Show a sheet where you can toggle multiple values."
         }
     }
-    
     
     var alertTitle: String? {
         switch self {
@@ -77,6 +79,7 @@ enum TableViewOption {
     
     var imageName: String {
         switch self {
+        case .collections: return "ic_view_module"
         case .danger: return "ic_warning"
         case .headerView: return "ic_header_view"
         case .links: return "ic_arrow_right"
