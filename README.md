@@ -108,8 +108,8 @@ Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
 * [Standard Item][ActionSheetItem] - A standard, tappable action sheet item
 * [Select Item][ActionSheetSelectItem] - A single- or multi-select item with an `isSelected` state
-* 💥 [Single Select Item][ActionSheetSingleSelectItem] - A single-select exclusive item with built-in handling
-* 💥 [Collection Item][ActionSheetCollectionItem] - An action sheet item with an embedded collection view
+* 🍾 [Single Select Item][ActionSheetSingleSelectItem] - A single-select exclusive item with built-in handling
+* 🍾 [Collection Item][ActionSheetCollectionItem] - An action sheet item with an embedded collection view
 * [Toggle Item][ActionSheetToggleItem] - A single- or multi-toggle item with an `isToggled` state
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
