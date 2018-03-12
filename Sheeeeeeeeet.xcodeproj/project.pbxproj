@@ -246,6 +246,14 @@
 		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
 		459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCollectionItemContentCell.swift; sourceTree = "<group>"; };
+		459DA1BB2056C14900644490 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		459DA1BC2056C14A00644490 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		459DA1BD2056C14A00644490 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
+		459DA1BE2056C14A00644490 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		459DA1BF2056C14A00644490 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		459DA1C02056C14A00644490 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		459DA1C12056C14A00644490 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
 		45A488E32028CD0500822C21 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
@@ -327,8 +335,9 @@
 				453C04231FC0655C0028FA02 /* Sheeeeeeeeet */,
 				453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */,
 				456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */,
-				453C04221FC0655C0028FA02 /* Products */,
 				456EAA0F1FCC203100A719ED /* Frameworks */,
+				459DA1BA2056C10800644490 /* Library Files */,
+				453C04221FC0655C0028FA02 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -556,6 +565,21 @@
 				1D42892A20403A18005D4369 /* MyCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		459DA1BA2056C10800644490 /* Library Files */ = {
+			isa = PBXGroup;
+			children = (
+				459DA1BC2056C14A00644490 /* .swift-version */,
+				459DA1BF2056C14A00644490 /* .swiftlint.yml */,
+				459DA1C02056C14A00644490 /* .travis.yml */,
+				459DA1C12056C14A00644490 /* Cartfile */,
+				459DA1BD2056C14A00644490 /* Cartfile.private */,
+				459DA1C22056C15600644490 /* Fastfile */,
+				459DA1BB2056C14900644490 /* LICENSE */,
+				459DA1BE2056C14A00644490 /* README.md */,
+			);
+			name = "Library Files";
 			sourceTree = "<group>";
 		};
 		45A488E22028CCE500822C21 /* Appearance */ = {
