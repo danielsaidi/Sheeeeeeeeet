@@ -40,5 +40,37 @@ class ActionSheetSelectItemTests: QuickSpec {
                 expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
             }
         }
+        
+        describe("when tapped") {
+            
+            var sheet: ActionSheet!
+            
+            beforeEach {
+                sheet = ActionSheet(items: [
+                    getItem(isSelected: true),
+                    getItem(isSelected: false)
+                    ], action: { _, _ in })
+            }
+            
+            it("selects unselected item") {
+                let item = getItem(isSelected: false)
+                item.handleTap(in: sheet)
+                expect(item.isSelected).to(beTrue())
+            }
+            
+            it("deselects selected item") {
+                let item = getItem(isSelected: true)
+                item.handleTap(in: sheet)
+                expect(item.isSelected).to(beFalse())
+            }
+            
+            it("does not affect other sheet items") {
+                let item = getItem(isSelected: true)
+                item.handleTap(in: sheet)
+                let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+                expect(items.first!.isSelected).to(beTrue())
+                expect(items.last!.isSelected).to(beFalse())
+            }
+        }
     }
 }

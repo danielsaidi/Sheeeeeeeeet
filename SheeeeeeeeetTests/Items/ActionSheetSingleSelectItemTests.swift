@@ -36,9 +36,49 @@ class ActionSheetSingleSelectItemTests: QuickSpec {
         
         describe("tap behavior") {
             
-            it("is dismiss") {
+            it("is none") {
                 let item = getItem(isSelected: true)
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
+            }
+        }
+        
+        describe("when tapped") {
+            
+            var sheet: ActionSheet!
+            
+            beforeEach {
+                sheet = ActionSheet(items: [
+                    getItem(isSelected: true, group: "foo"),
+                    getItem(isSelected: false, group: "foo"),
+                    getItem(isSelected: true, group: "bar"),
+                    getItem(isSelected: false, group: "bar"),
+                    getItem(isSelected: true, group: "baz"),
+                    getItem(isSelected: false, group: "baz")
+                    ], action: { _, _ in })
+            }
+            
+            it("selects unselected item") {
+                let item = getItem(isSelected: false)
+                item.handleTap(in: sheet)
+                expect(item.isSelected).to(beTrue())
+            }
+            
+            it("does not deselect selected item") {
+                let item = getItem(isSelected: true)
+                item.handleTap(in: sheet)
+                expect(item.isSelected).to(beTrue())
+            }
+            
+            it("does not affect sheet items in other groups") {
+                let item = getItem(isSelected: false, group: "baz")
+                item.handleTap(in: sheet)
+                let items = sheet.items.flatMap { $0 as? ActionSheetSingleSelectItem }
+                expect(items[0].isSelected).to(beTrue())
+                expect(items[1].isSelected).to(beFalse())
+                expect(items[2].isSelected).to(beTrue())
+                expect(items[3].isSelected).to(beFalse())
+                expect(items[4].isSelected).to(beFalse())
+                expect(items[5].isSelected).to(beFalse())
             }
         }
     }

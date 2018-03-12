@@ -9,7 +9,13 @@
 /*
  
  Single select items look like normal select items, but will
- deselect other single select items within the same group.
+ deselect other single select items within the same group. A
+ single select item doesn't deselect itself when tapped many
+ consecutive times.
+ 
+ Since a single select item hints at a context that probably
+ requires some kind of confirmation, single select items use
+ `none` as default `tapBehavior`.
  
  */
 
@@ -23,10 +29,22 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     public init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
         self.group = group
         super.init(title: title, isSelected: isSelected, value: value, image: image)
+        tapBehavior = .none
     }
 
     
     // MARK: - Properties
     
     open var group: String
+    
+    
+    // MARK: - Functions
+    
+    open override func handleTap(in actionSheet: ActionSheet?) {
+        guard let sheet = actionSheet else { return }
+        let items = sheet.items.flatMap { $0 as? ActionSheetSingleSelectItem }
+        let deselectItems = items.filter { $0.group == group }
+        deselectItems.forEach { $0.isSelected = false }
+        isSelected = true
+    }
 }

@@ -40,5 +40,37 @@ class ActionSheetToggleItemTests: QuickSpec {
                 expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
             }
         }
+        
+        describe("when tapped") {
+            
+            var sheet: ActionSheet!
+            
+            beforeEach {
+                sheet = ActionSheet(items: [
+                    getItem(isToggled: true),
+                    getItem(isToggled: false)
+                    ], action: { _, _ in })
+            }
+            
+            it("toggles untoggled item") {
+                let item = getItem(isToggled: false)
+                item.handleTap(in: sheet)
+                expect(item.isToggled).to(beTrue())
+            }
+            
+            it("detoggles toggled item") {
+                let item = getItem(isToggled: true)
+                item.handleTap(in: sheet)
+                expect(item.isToggled).to(beFalse())
+            }
+            
+            it("does not affect other sheet items") {
+                let item = getItem(isToggled: true)
+                item.handleTap(in: sheet)
+                let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }
+                expect(items.first!.isToggled).to(beTrue())
+                expect(items.last!.isToggled).to(beFalse())
+            }
+        }
     }
 }

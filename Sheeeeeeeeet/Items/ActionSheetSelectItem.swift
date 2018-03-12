@@ -11,9 +11,15 @@
  Select items are used to let the user select one or several
  items in an action sheet.
  
- The default behavior is to automatically dismiss the action
- sheet. To disable this behavior, set `tapBehavior` to `none`
- for every item, then add a button that dismisses the sheet.
+ The difference between default and select items is that the
+ default item has no selected state, while a select item can
+ show an icon and be highlighted when selected.
+ 
+ The default select item behavior is to dismiss the sheet on
+ tap, which means that a select item by default behaves like
+ a default item. To disable this behavior, set `tapBehavior`
+ to `none`, then add a button that dismisses the sheet, e.g.
+ an "OK" and a "Cancel" button.
  
  */
 
@@ -53,8 +59,8 @@ open class ActionSheetSelectItem: ActionSheetItem {
         cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
     
-    open override func handleTap(in cell: UITableViewCell?) {
-        super.handleTap(in: cell)
+    open override func handleTap(in actionSheet: ActionSheet?) {
+        super.handleTap(in: actionSheet)
         isSelected = !isSelected
     }
 }
