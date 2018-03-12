@@ -63,9 +63,9 @@ and run the `SheeeeeeeeetExample` target to try different types of action sheets
 
 ## Example Code
 
-Below are some basic ways to create custom action sheets with `Sheeeeeeeeet`. In
-larger applications, you'll probably want to use your own domain model as values.
-Check out the example app to see how you can use models to create items:
+Below is a basic way to create an action sheets with `Sheeeeeeeeet`. Have a look
+at the example app for more examples, e.g. multi and single select items, toggle
+items, links etc.
 
 
 ```swift
@@ -74,47 +74,16 @@ func createStandardActionSheet() -> ActionSheet {
     let item1 = ActionSheetItem(title: "Option 1", value: "1", image: image1)
     let item2 = ActionSheetItem(title: "Option 2", value: "2", image: image2)
     let button = ActionSheetOkButton(title: "OK")
-    return ActionSheet(items: items) { (_, item) in
+    return ActionSheet(items: items) { _, item in
         guard let value = item.value as? String else { return }
         // You now have the selected value, e.g. "1". The ok button uses `true`.
     }
 }
-
-func createSingleSelectActionSheet() -> ActionSheet {
-    let title = ActionSheetTitle(title: "Select an option")
-    let item1 = ActionSheetSelectItem(title: "Option 1", isSelected: true, value: "1", image: image1)
-    let item2 = ActionSheetSelectItem(title: "Option 2", isSelected: false, value: "2", image: image2)
-    let button = ActionSheetOkButton(title: "OK")
-    return ActionSheet(items: items) { (_, item) in
-        let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
-        let selected = items.filter { $0.isSelected }
-        if item.value as? Bool == true { return self.alert(items: selected) }   // OK
-        let deselect = items.filter { $0.title != item.title }
-        deselect.forEach { $0.isSelected = false }
-        guard item.value as? Bool == true else { return }
-        self.alert(item: item)
-    }
-}
-
-func createMultiSelectActionSheet() -> ActionSheet {
-    let title = ActionSheetTitle(title: "Select an option")
-    let item1 = ActionSheetSelectItem(title: "Option 1", isSelected: true, value: "1", image: image1)
-    let item2 = ActionSheetSelectItem(title: "Option 2", isSelected: false, value: "2", image: image2)
-    let button = ActionSheetOkButton(title: "OK")
-    return ActionSheet(items: items) { (_, item) in
-        let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
-        let selected = items.filter { $0.isSelected }
-        if item.value as? Bool == true { return self.alert(items: selected) }   // OK
-        let deselect = items.filter { $0.title != item.title }
-        deselect.forEach { $0.isSelected = false }
-        guard item.value as? Bool == true else { return }
-        self.alert(item: item)
-    }
-}
 ```
 
-These are just some ways to create action sheets. Have a look at the example app
-for more examples.
+In a larger app, you'll probably want to use your own domain model. Any model is
+a valid item `value`, which means that you can always get the raw item value for
+any item in a sheet.
 
 To present an action sheet, you just have to call the `present` function as such:
 
