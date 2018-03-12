@@ -106,9 +106,11 @@ item class that best suits your needs.
 
 Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
-* [Standard Item][ActionSheetItem] - Standard single select items
-* [Select Item][ActionSheetSelectItem] - Single or multiple select items
-* [Toggle Item][ActionSheetToggleItem] - Single or multiple toggle items
+* [Standard Item][ActionSheetItem] - A standard, tappable action sheet item
+* [Select Item][ActionSheetSelectItem] - A single- or multi-select item with an `isSelected` state
+* [Single Select Item][ActionSheetSingleSelectItem] - A single-select exclusive item with built-in handling
+* [Collection Item][ActionSheetCollectionItem] - An action sheet item with an embedded collection view
+* [Toggle Item][ActionSheetToggleItem] - A single- or multi-toggle item with an `isToggled` state
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
 The standard item corresponds to a default `UIKit` action sheet action. It has a
@@ -197,7 +199,9 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [CocoaPods]: https://cocoapods.org/
 
 [ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetItem.swift
+[ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCollectionItem.swift
 [ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSelectItem.swift
+[ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSingleSelectItem.swift
 [ActionSheetToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetToggleItem.swift
 [ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetLinkItem.swift
 
