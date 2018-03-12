@@ -1,28 +1,29 @@
 //
-//  ActionSheetSelectItemTests.swift
-//  Sheeeeeeeeet
+//  ActionSheetSingleSelectItemTests.swift
+//  SheeeeeeeeetTests
 //
-//  Created by Daniel Saidi on 2017-11-26.
-//  Copyright © 2017 Daniel Saidi. All rights reserved.
+//  Created by Daniel Saidi on 2018-03-12.
+//  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
 import Quick
 import Nimble
 import Sheeeeeeeeet
 
-class ActionSheetSelectItemTests: QuickSpec {
+class ActionSheetSingleSelectItemTests: QuickSpec {
     
     override func spec() {
         
-        func getItem(isSelected: Bool) -> ActionSheetSelectItem {
-            return ActionSheetSelectItem(title: "foo", isSelected: isSelected, value: true, image: UIImage())
+        func getItem(isSelected: Bool, group: String = "") -> ActionSheetSingleSelectItem {
+            return ActionSheetSingleSelectItem(title: "foo", isSelected: isSelected, group: group, value: true, image: UIImage())
         }
         
         describe("when created") {
             
             it("applies provided values") {
-                let item = getItem(isSelected: true)
+                let item = getItem(isSelected: true, group: "my group")
                 expect(item.title).to(equal("foo"))
+                expect(item.group).to(equal("my group"))
                 expect(item.value as? Bool).to(equal(true))
                 expect(item.image).toNot(beNil())
             }
