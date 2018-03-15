@@ -1,8 +1,8 @@
 //
-//  ActionSheetCollectionViewContentCell.swift
+//  ActionSheetCollectionItemContentCell.swift
 //  Sheeeeeeeeet
 //
-//  Created by Jonas Ullström on 2018-03-01.
+//  Created by Jonas Ullström (ullstrm) on 2018-03-01.
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 

@@ -1,8 +1,8 @@
 //
-//  ActionSheetCancelButtonAppearance.swift
+//  ActionSheetCollectionItem.swift
 //  Sheeeeeeeeet
 //
-//  Created by Jonas Ullström on 2018-03-01.
+//  Created by Jonas Ullström (ullstrm) on 2018-03-01.
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
@@ -42,7 +42,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     public let itemCount: Int
     public let selectionAction: CollectionItemCellAction
     public let setupAction: CollectionItemCellAction
-
+    
     
     // MARK: - Functions
     
