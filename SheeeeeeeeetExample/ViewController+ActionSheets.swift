@@ -44,7 +44,11 @@ fileprivate extension ViewController {
     fileprivate var okButton: ActionSheetOkButton { return ActionSheetOkButton(title: ok) }
     fileprivate var titleItem: ActionSheetTitle { return ActionSheetTitle(title: titleString) }
     fileprivate var titleString: String { return "What do you want to eat?" }
-    
+
+    // MARK: - Dependency properties
+
+    static weak var currentSheet: ActionSheet?
+
     
     // MARK: - Functions
     
@@ -171,7 +175,7 @@ fileprivate extension ViewController {
     func collectionActionSheet() -> ActionSheet {
         let collectionItems = collectionActionSheetCollectionItems()
         let items = collectionActionSheetItems(with: collectionItems)
-        return ActionSheet(items: items) { (_, item) in
+        let sheet = ActionSheet(items: items) { (_, item) in
             if item is ActionSheetOkButton {
                 let selectedItems = collectionItems.filter { $0.isSelected }
                 self.alert(items: selectedItems)
@@ -179,6 +183,8 @@ fileprivate extension ViewController {
                 self.alert(item: item)
             }
         }
+        ViewController.currentSheet = sheet
+        return sheet
     }
     
     func collectionActionSheetCollectionItems() -> [MyCollectionViewCell.Item] {
@@ -189,10 +195,15 @@ fileprivate extension ViewController {
         }
         return items
     }
-    
+
+
     func collectionActionSheetItems(with collectionItems: [MyCollectionViewCell.Item]) -> [ActionSheetItem] {
         let foodItems = foodOptions().map { $0.item() }
-        
+
+        let subtitle = "Selected items "
+        let titleItemCustom = ActionSheetItem(title: "What do you want to eat?",
+                                              subtitle: "\(subtitle)\(collectionItems.filter { $0.isSelected }.count)")
+
         let setupAction = { (cell: MyCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             cell.configureWith(item: item)
@@ -201,17 +212,20 @@ fileprivate extension ViewController {
         let selectionAction = { (cell: MyCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             item.isSelected = !item.isSelected
+            titleItemCustom.subtitle = "\(subtitle)\(collectionItems.filter { $0.isSelected }.count)"
             cell.configureWith(item: item)
+
+            ViewController.currentSheet?.reloadData()
         }
-        
+
         let collectionItem = ActionSheetCollectionItem(
             cellType: MyCollectionViewCell.self,
             itemCount: collectionItems.count,
             setupAction: setupAction,
             selectionAction: selectionAction
         )
-        
-        return [titleItem, foodItems.first!, collectionItem, foodItems.last!, okButton, cancelButton]
+
+        return [titleItemCustom, foodItems.first!, collectionItem, foodItems.last!, okButton, cancelButton]
     }
     
     func destructiveActionSheet() -> ActionSheet {

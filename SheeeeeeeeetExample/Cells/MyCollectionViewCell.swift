@@ -39,7 +39,7 @@ class MyCollectionViewCell: UICollectionViewCell {
         var title: String
         var subtitle: String
         var isSelected: Bool
-        
+
         static func == (lhs: Item, rhs: Item) -> Bool {
             return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
         }
@@ -57,8 +57,8 @@ class MyCollectionViewCell: UICollectionViewCell {
     
     func configureWith(item: Item) {
         titleLabel?.text = item.title
-        titleLabel?.textColor = item.isSelected ? .orange : .black
-        badge?.backgroundColor = item.isSelected ? .darkGray : .lightGray
+        titleLabel?.textColor = item.isSelected ? .white : .black
+        badge?.backgroundColor = item.isSelected ? .green : .lightGray
     }
 }
 
@@ -73,5 +73,5 @@ extension MyCollectionViewCell: ActionSheetCollectionItemContentCell {
     static let rightInset: CGFloat = 20
     static let topInset: CGFloat = 10
     static let bottomInset: CGFloat = 10
-    static let itemSpacing: CGFloat = 30
+    static let itemSpacing: CGFloat = 14
 }

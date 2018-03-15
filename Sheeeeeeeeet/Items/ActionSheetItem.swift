@@ -31,11 +31,12 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Initialization
     
-    public init(title: String, value: Any? = nil, image: UIImage? = nil) {
+    public init(title: String, subtitle: String? = nil, value: Any? = nil, image: UIImage? = nil) {
         let appearance = ActionSheetAppearance.standard.item
         self.title = title
         self.value = value
         self.image = image
+        self.subtitle = subtitle
         self.appearance = ActionSheetItemAppearance(copy: appearance)
         super.init()
     }
@@ -46,14 +47,15 @@ open class ActionSheetItem: NSObject {
     public enum TapBehavior {
         case dismiss, none
     }
-    
-    
+
+
     // MARK: - Properties
     
-    open var value: Any?
     open var image: UIImage?
+    open var subtitle: String?
     open var title: String
-    
+    open var value: Any?
+
     open var appearance: ActionSheetItemAppearance
     open var tapBehavior = TapBehavior.dismiss
     
@@ -71,12 +73,13 @@ open class ActionSheetItem: NSObject {
         cell.tintColor = appearance.tintColor
         cell.textLabel?.textColor = appearance.textColor
         cell.textLabel?.font = appearance.font
+        cell.detailTextLabel?.text = subtitle
     }
     
     open func cell(for tableView: UITableView) -> UITableViewCell {
         let id = type(of: self).className
         let cell = tableView.dequeueReusableCell(withIdentifier: id) as? ActionSheetItemCell
-            ?? ActionSheetItemCell(style: .default, reuseIdentifier: id)
+            ?? ActionSheetItemCell(style: .value1, reuseIdentifier: id)
         applyAppearance(to: cell)
         return cell
     }
