@@ -13,6 +13,9 @@
  own project. Note that you must use cells that do implement
  `ActionSheetCollectionItemContentCell`.
  
+ If you want collection view cell selections to reload the action
+ sheet the collection item is displayed in, just set the `actionSheet` property.
+ 
  */
 
 import Foundation
@@ -40,7 +43,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     
     public let cellType: T.Type
     public let itemCount: Int
-    public let selectionAction: CollectionItemCellAction
+    public fileprivate(set) var selectionAction: CollectionItemCellAction
     public let setupAction: CollectionItemCellAction
     
     
@@ -66,8 +69,23 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
         return cell
     }
     
+    open func extendSelectionAction(toReload actionSheet: ActionSheet) {
+        weak var sheet = actionSheet
+        extendSelectionAction(with: { _, _ in
+            sheet?.reloadData()
+        })
+    }
     
-    // MARK: - Collection View Delegate+Datasource
+    open func extendSelectionAction(with action: @escaping CollectionItemCellAction) {
+        let currentSelectionAction = selectionAction
+        selectionAction = { cell, index in
+            currentSelectionAction(cell, index)
+            action(cell, index)
+        }
+    }
+    
+    
+    // MARK: - UICollectionViewDataSource
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemCount
@@ -80,6 +98,9 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
         setupAction(cell, indexPath.row)
         return cell
     }
+    
+    
+    // MARK: - UICollectionViewDelegate
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? T else { return }

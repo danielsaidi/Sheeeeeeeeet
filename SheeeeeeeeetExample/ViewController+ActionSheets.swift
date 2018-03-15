@@ -46,15 +46,10 @@ fileprivate extension ViewController {
     fileprivate var titleString: String { return "What do you want to eat?" }
 
 
-    // MARK: - Dependency properties
-
-    static weak var currentSheet: ActionSheet?
-
-
     // MARK: - Helper functions
 
-    fileprivate func subtitle(for collectionItems: [MyCollectionViewCell.Item]) -> String {
-        return "Selected items \(collectionItems.filter { $0.isSelected }.count)"
+    fileprivate func selectionSubtitle(for collectionItems: [MyCollectionViewCell.Item]) -> String {
+        return "Selected items: \(collectionItems.filter { $0.isSelected }.count)"
     }
 
     
@@ -181,17 +176,18 @@ fileprivate extension ViewController {
     }
     
     func collectionActionSheet() -> ActionSheet {
-        let collectionItems = collectionActionSheetCollectionItems()
-        let items = collectionActionSheetItems(with: collectionItems)
+        let collectionCellItems = collectionActionSheetCollectionItems()
+        let items = collectionActionSheetItems(with: collectionCellItems)
+        let collectionItems = items.flatMap { $0 as? ActionSheetCollectionItem<MyCollectionViewCell> }
         let sheet = ActionSheet(items: items) { (_, item) in
             if item is ActionSheetOkButton {
-                let selectedItems = collectionItems.filter { $0.isSelected }
+                let selectedItems = collectionCellItems.filter { $0.isSelected }
                 self.alert(items: selectedItems)
             } else {
                 self.alert(item: item)
             }
         }
-        ViewController.currentSheet = sheet
+        collectionItems.forEach { $0.extendSelectionAction(toReload: sheet) }
         return sheet
     }
     
@@ -206,21 +202,19 @@ fileprivate extension ViewController {
 
     func collectionActionSheetItems(with collectionItems: [MyCollectionViewCell.Item]) -> [ActionSheetItem] {
         let foodItems = foodOptions().map { $0.item() }
-
-        let titleItemCustom = ActionSheetItem(title: titleString, subtitle: subtitle(for: collectionItems))
+        let titleSpace = ActionSheetSectionMargin()
+        let title = ActionSheetSectionTitle(title: titleString, subtitle: selectionSubtitle(for: collectionItems))
 
         let setupAction = { (cell: MyCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             cell.configureWith(item: item)
         }
         
-        let selectionAction = {[ weak self] (cell: MyCollectionViewCell, index: Int) in
+        let selectionAction = { [ weak self] (cell: MyCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             item.isSelected = !item.isSelected
-            titleItemCustom.subtitle = self?.subtitle(for: collectionItems)
+            title.subtitle = self?.selectionSubtitle(for: collectionItems)
             cell.configureWith(item: item)
-
-            ViewController.currentSheet?.reloadData()
         }
 
         let collectionItem = ActionSheetCollectionItem(
@@ -230,7 +224,7 @@ fileprivate extension ViewController {
             selectionAction: selectionAction
         )
 
-        return [titleItemCustom, foodItems.first!, collectionItem, foodItems.last!, okButton, cancelButton]
+        return [titleSpace, title, titleSpace, foodItems.first!, collectionItem, foodItems.last!, okButton, cancelButton]
     }
     
     func destructiveActionSheet() -> ActionSheet {

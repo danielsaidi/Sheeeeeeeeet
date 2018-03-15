@@ -34,9 +34,9 @@ open class ActionSheetItem: NSObject {
     public init(title: String, subtitle: String? = nil, value: Any? = nil, image: UIImage? = nil) {
         let appearance = ActionSheetAppearance.standard.item
         self.title = title
+        self.subtitle = subtitle
         self.value = value
         self.image = image
-        self.subtitle = subtitle
         self.appearance = ActionSheetItemAppearance(copy: appearance)
         super.init()
     }
@@ -57,6 +57,7 @@ open class ActionSheetItem: NSObject {
     open var value: Any?
 
     open var appearance: ActionSheetItemAppearance
+    open var cellStyle: UITableViewCellStyle = .default
     open var tapBehavior = TapBehavior.dismiss
     
     
@@ -81,7 +82,7 @@ open class ActionSheetItem: NSObject {
     open func cell(for tableView: UITableView) -> UITableViewCell {
         let id = type(of: self).className
         let cell = tableView.dequeueReusableCell(withIdentifier: id) as? ActionSheetItemCell
-            ?? ActionSheetItemCell(style: .value1, reuseIdentifier: id)
+            ?? ActionSheetItemCell(style: cellStyle, reuseIdentifier: id)
         applyAppearance(to: cell)
         return cell
     }

@@ -14,14 +14,22 @@ class ActionSheetSectionTitleTests: QuickSpec {
     
     override func spec() {
         
-        let item = ActionSheetSectionTitle(title: "foo")
+        let item = ActionSheetSectionTitle(title: "foo", subtitle: "bar")
         
         describe("when created") {
             
             it("applies provided values") {
                 expect(item.title).to(equal("foo"))
+                expect(item.subtitle).to(equal("bar"))
                 expect(item.value).to(beNil())
                 expect(item.image).to(beNil())
+            }
+        }
+        
+        describe("cell style") {
+            
+            it("is value1") {
+                expect(item.cellStyle).to(equal(UITableViewCellStyle.value1))
             }
         }
         

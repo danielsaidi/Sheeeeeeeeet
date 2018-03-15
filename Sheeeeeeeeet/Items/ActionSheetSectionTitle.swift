@@ -8,9 +8,10 @@
 
 /*
  
- Section title items can be used to split action sheets into
- separate sections. They are not selectable, but will send a
- tap event to the action sheet in which they are used.
+ Section title items can be used to segment action sheets in
+ sections. They serve no purpose beyond to visually indicate
+ that certain items belong together. A section item can have
+ a title and a subtitle.
  
  To add additional space above a section title, make sure to
  add a `ActionSheetSectionMargin` before the section title.
@@ -24,9 +25,10 @@ open class ActionSheetSectionTitle: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String) {
-        super.init(title: title)
+    public init(title: String, subtitle: String? = nil) {
+        super.init(title: title, subtitle: subtitle)
         tapBehavior = .none
+        cellStyle = .value1
     }
     
     
