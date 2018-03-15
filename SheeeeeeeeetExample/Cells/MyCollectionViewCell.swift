@@ -2,7 +2,7 @@
 //  MyCollectionViewCell.swift
 //  SheeeeeeeeetExample
 //
-//  Created by Jonas Ullström on 2018-02-23.
+//  Created by Jonas Ullström (ullstrm) on 2018-02-23.
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
