@@ -74,6 +74,8 @@ open class ActionSheetItem: NSObject {
         cell.textLabel?.textColor = appearance.textColor
         cell.textLabel?.font = appearance.font
         cell.detailTextLabel?.text = subtitle
+        cell.detailTextLabel?.font = appearance.subtitleFont
+        cell.detailTextLabel?.textColor = appearance.subtitleTextColor
     }
     
     open func cell(for tableView: UITableView) -> UITableViewCell {
