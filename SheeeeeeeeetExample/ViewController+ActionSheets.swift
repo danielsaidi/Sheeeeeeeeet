@@ -45,9 +45,17 @@ fileprivate extension ViewController {
     fileprivate var titleItem: ActionSheetTitle { return ActionSheetTitle(title: titleString) }
     fileprivate var titleString: String { return "What do you want to eat?" }
 
+
     // MARK: - Dependency properties
 
     static weak var currentSheet: ActionSheet?
+
+
+    // MARK: - Helper functions
+
+    fileprivate func subtitle(for collectionItems: [MyCollectionViewCell.Item]) -> String {
+        return "Selected items \(collectionItems.filter { $0.isSelected }.count)"
+    }
 
     
     // MARK: - Functions
@@ -127,7 +135,7 @@ fileprivate extension ViewController {
         items.append(cancelButton)
         return items
     }
-        
+
     func linkActionSheet() -> ActionSheet {
         let items = linkActionSheetItems()
         return ActionSheet(items: items) { (_, item) in
@@ -196,23 +204,20 @@ fileprivate extension ViewController {
         return items
     }
 
-
     func collectionActionSheetItems(with collectionItems: [MyCollectionViewCell.Item]) -> [ActionSheetItem] {
         let foodItems = foodOptions().map { $0.item() }
 
-        let subtitle = "Selected items "
-        let titleItemCustom = ActionSheetItem(title: "What do you want to eat?",
-                                              subtitle: "\(subtitle)\(collectionItems.filter { $0.isSelected }.count)")
+        let titleItemCustom = ActionSheetItem(title: titleString, subtitle: subtitle(for: collectionItems))
 
         let setupAction = { (cell: MyCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             cell.configureWith(item: item)
         }
         
-        let selectionAction = { (cell: MyCollectionViewCell, index: Int) in
+        let selectionAction = {[ weak self] (cell: MyCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             item.isSelected = !item.isSelected
-            titleItemCustom.subtitle = "\(subtitle)\(collectionItems.filter { $0.isSelected }.count)"
+            titleItemCustom.subtitle = self?.subtitle(for: collectionItems)
             cell.configureWith(item: item)
 
             ViewController.currentSheet?.reloadData()
