@@ -26,6 +26,8 @@ class DemoAppearance: UIImageView {
         appearance.item.font = UIFont(name: robotoRegular, size: 17)
         appearance.item.textColor = .darkGray
         appearance.item.tintColor = .darkGray
+        appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
+        appearance.item.subtitleTextColor = .darkGray
         
         appearance.title.separatorInsets.right = .greatestFiniteMagnitude
         appearance.title.font = UIFont(name: robotoMedium, size: 15)
