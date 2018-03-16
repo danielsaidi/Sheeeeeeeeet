@@ -8,7 +8,7 @@
 
 // This enum is only used to populate our example sheets.
 
-import UIKit
+import Sheeeeeeeeet
 
 enum FoodOption: String {
     
@@ -18,6 +18,7 @@ enum FoodOption: String {
     homeMade,
     light,
     none
+    
     
     var displayName: String {
         switch self {
