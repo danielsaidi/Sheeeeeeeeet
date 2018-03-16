@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyAppearance()
+        DemoAppearance.apply()
         setupPreviewHandling(with: .sheet)
     }
     
@@ -36,6 +36,10 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     var actionSheetPeekHandler: ActionSheetPeekHandler?
+    
+    var foodOptions: [FoodOption] {
+        return [.fast, .light, .homeMade, .fancy, .none]
+    }
     
     var tableViewOptions: [TableViewOption] = [
         .standard,
@@ -50,10 +54,6 @@ class ViewController: UIViewController {
         .peekPopSheet,
         .peekPopHeader
     ]
-    
-    func foodOptions() -> [FoodOption] {
-        return [.fast, .light, .homeMade, .fancy, .none]
-    }
     
     
     // MARK: - Outlets
@@ -70,6 +70,22 @@ class ViewController: UIViewController {
 // MARK: - Public Functions
 
 extension ViewController {
+    
+    func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
+        let options = foodOptions
+        switch tableViewOptions[indexPath.row] {
+        case .collections: return CollectionActionSheet(options: options, action: alert)
+        case .danger: return DestructiveActionSheet(options: options, action: alert)
+        case .headerView: return HeaderActionSheet(options: options, action: alert)
+        case .links: return LinkActionSheet(options: options, action: alert)
+        case .sections: return SectionActionSheet(options: options, action: alert)
+        case .select: return MultiSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
+        case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
+        case .toggle: return ToggleActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
+        case .standard: return StandardActionSheet(options: options, action: alert)
+        default: return nil
+        }
+    }
     
     func handleNonSheetOption(_ option: TableViewOption) {
         switch option {
