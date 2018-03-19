@@ -35,6 +35,10 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
     // MARK: - Functions
     
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        self.appearance = ActionSheetSingleSelectItemAppearance(copy: appearance.singleSelectItem)
+    }
+    
     open override func handleTap(in actionSheet: ActionSheet?) {
         guard let sheet = actionSheet else { return }
         let items = sheet.items.flatMap { $0 as? ActionSheetSingleSelectItem }

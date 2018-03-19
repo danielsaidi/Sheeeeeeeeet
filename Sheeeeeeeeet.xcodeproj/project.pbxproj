@@ -31,11 +31,6 @@
 		45352D6D2030BC0E00A0F890 /* ActionSheetToggleItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D612030BC0E00A0F890 /* ActionSheetToggleItemTests.swift */; };
 		45352D6E2030BC0E00A0F890 /* ActionSheetSelectItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D622030BC0E00A0F890 /* ActionSheetSelectItemTests.swift */; };
 		45352D6F2030BC0E00A0F890 /* ActionSheetTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */; };
-		45352D822030D9D400A0F890 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45352D812030D9D400A0F890 /* README.md */; };
-		45352D852030D9E300A0F890 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D832030D9E300A0F890 /* .swiftlint.yml */; };
-		45352D862030D9E300A0F890 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 45352D842030D9E300A0F890 /* .travis.yml */; };
-		45352D8D2030DACB00A0F890 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 45352D8B2030DACB00A0F890 /* Cartfile */; };
-		45352D8E2030DACB00A0F890 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 45352D8C2030DACB00A0F890 /* Cartfile.private */; };
 		4537E8591FD167590007501C /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */; };
 		4537E85B1FD179E30007501C /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+Shadow.swift */; };
 		4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85C1FD17B1A0007501C /* UIView+Blur.swift */; };
@@ -55,6 +50,7 @@
 		453C047D1FC161B70028FA02 /* UIView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C047C1FC161B70028FA02 /* UIView+Empty.swift */; };
 		453C04821FC16A370028FA02 /* ActionSheetTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */; };
 		453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */; };
+		454093C62060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */; };
 		454EDC5E205BBC5F008E4311 /* SingleSelectActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */; };
 		454EDC60205BBDB3008E4311 /* ToggleActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC5F205BBDB3008E4311 /* ToggleActionSheet.swift */; };
 		454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC61205BBE75008E4311 /* LinkActionSheet.swift */; };
@@ -187,11 +183,6 @@
 		45352D612030BC0E00A0F890 /* ActionSheetToggleItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetToggleItemTests.swift; sourceTree = "<group>"; };
 		45352D622030BC0E00A0F890 /* ActionSheetSelectItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemTests.swift; sourceTree = "<group>"; };
 		45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleTests.swift; sourceTree = "<group>"; };
-		45352D812030D9D400A0F890 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		45352D832030D9E300A0F890 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		45352D842030D9E300A0F890 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
-		45352D8B2030DACB00A0F890 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		45352D8C2030DACB00A0F890 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = SOURCE_ROOT; };
 		4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
 		4537E85A1FD179E30007501C /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		4537E85C1FD17B1A0007501C /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
@@ -215,6 +206,8 @@
 		453C047C1FC161B70028FA02 /* UIView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Empty.swift"; sourceTree = "<group>"; };
 		453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleAppearance.swift; sourceTree = "<group>"; };
 		453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleAppearance.swift; sourceTree = "<group>"; };
+		454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItemAppearance.swift; sourceTree = "<group>"; };
+		454093C7206018B90079F29D /* RELEASENOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASENOTES.md; sourceTree = "<group>"; };
 		454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectActionSheet.swift; sourceTree = "<group>"; };
 		454EDC5F205BBDB3008E4311 /* ToggleActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleActionSheet.swift; sourceTree = "<group>"; };
 		454EDC61205BBE75008E4311 /* LinkActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkActionSheet.swift; sourceTree = "<group>"; };
@@ -342,12 +335,7 @@
 		45352D802030D95500A0F890 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				45352D832030D9E300A0F890 /* .swiftlint.yml */,
-				45352D842030D9E300A0F890 /* .travis.yml */,
-				45352D8B2030DACB00A0F890 /* Cartfile */,
-				45352D8C2030DACB00A0F890 /* Cartfile.private */,
 				453C046B1FC065AE0028FA02 /* Info.plist */,
-				45352D812030D9D400A0F890 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -473,6 +461,7 @@
 				456EAA491FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift */,
 				453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */,
 				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
+				454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */,
 				453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */,
 				45EB3FD11FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift */,
 			);
@@ -602,6 +591,7 @@
 				459DA1C22056C15600644490 /* Fastfile */,
 				459DA1BB2056C14900644490 /* LICENSE */,
 				459DA1BE2056C14A00644490 /* README.md */,
+				454093C7206018B90079F29D /* RELEASENOTES.md */,
 			);
 			name = "Library Files";
 			sourceTree = "<group>";
@@ -761,24 +751,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45352D8D2030DACB00A0F890 /* Cartfile in Resources */,
 				456EAA291FCC615A00A719ED /* Roboto-Bold.ttf in Resources */,
-				45352D852030D9E300A0F890 /* .swiftlint.yml in Resources */,
 				456EAA3D1FCC8FF200A719ED /* title-image.png in Resources */,
 				456EAA2D1FCC615A00A719ED /* Roboto-LightItalic.ttf in Resources */,
 				456EAA2F1FCC615A00A719ED /* Roboto-MediumItalic.ttf in Resources */,
 				456EAA2B1FCC615A00A719ED /* Roboto-Italic.ttf in Resources */,
 				456EAA2C1FCC615A00A719ED /* Roboto-Light.ttf in Resources */,
-				45352D822030D9D400A0F890 /* README.md in Resources */,
 				456EAA261FCC615A00A719ED /* LICENSE.txt in Resources */,
 				1D42892120400673005D4369 /* (null) in Resources */,
 				456EAA2A1FCC615A00A719ED /* Roboto-BoldItalic.ttf in Resources */,
-				45352D862030D9E300A0F890 /* .travis.yml in Resources */,
 				456EAA281FCC615A00A719ED /* Roboto-BlackItalic.ttf in Resources */,
 				1D42892C20403A18005D4369 /* MyCollectionViewCell.xib in Resources */,
 				456EAA311FCC615A00A719ED /* Roboto-Thin.ttf in Resources */,
 				456EAA301FCC615A00A719ED /* Roboto-Regular.ttf in Resources */,
-				45352D8E2030DACB00A0F890 /* Cartfile.private in Resources */,
 				453C046A1FC065AE0028FA02 /* LaunchScreen.storyboard in Resources */,
 				456EAA2E1FCC615A00A719ED /* Roboto-Medium.ttf in Resources */,
 				456EAA321FCC615A00A719ED /* Roboto-ThinItalic.ttf in Resources */,
@@ -837,6 +822,7 @@
 				45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */,
 				1D428929204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift in Sources */,
 				45EB3FD21FC84C0600EF555E /* ActionSheetToggleItemAppearance.swift in Sources */,
+				454093C62060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift in Sources */,
 				1D428917203F2235005D4369 /* (null) in Sources */,
 				45F969DD1FD1411D00292F28 /* ActionSheetPopPresenter.swift in Sources */,
 				456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */,

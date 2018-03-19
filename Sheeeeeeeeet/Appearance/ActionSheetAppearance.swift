@@ -42,6 +42,7 @@ open class ActionSheetAppearance {
         sectionMargin = ActionSheetSectionMarginAppearance(copy: copy.sectionMargin)
         sectionTitle = ActionSheetSectionTitleAppearance(copy: copy.sectionTitle)
         selectItem = ActionSheetSelectItemAppearance(copy: copy.selectItem)
+        singleSelectItem = ActionSheetSingleSelectItemAppearance(copy: copy.singleSelectItem)
         title = ActionSheetTitleAppearance(copy: copy.title)
         toggleItem = ActionSheetToggleItemAppearance(copy: copy.toggleItem)
     }
@@ -98,6 +99,10 @@ open class ActionSheetAppearance {
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {
         return ActionSheetSelectItemAppearance(copy: item)
+    }()
+    
+    public lazy var singleSelectItem: ActionSheetSingleSelectItemAppearance = {
+        return ActionSheetSingleSelectItemAppearance(copy: selectItem)
     }()
     
     public lazy var title: ActionSheetTitleAppearance = {

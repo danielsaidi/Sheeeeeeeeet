@@ -15,6 +15,7 @@ class DemoAppearance: UIImageView {
         
         let green = UIColor(hex: 0x81c03f)
         let pink = UIColor(hex: 0xec5f72)
+        let purple = UIColor(hex: 0xd9007b)
         let disabledBlack = UIColor.black.withAlphaComponent(0.3)
         
         let robotoBlack = "Roboto-Black"
@@ -41,7 +42,12 @@ class DemoAppearance: UIImageView {
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.selectedTextColor = green
         appearance.selectItem.selectedTintColor = green
-        appearance.selectItem.selectedTintColorLeftIcon = UIColor.red
+        appearance.selectItem.selectedTintColorLeftIcon = purple
+        
+        appearance.singleSelectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        appearance.singleSelectItem.selectedTextColor = purple
+        appearance.singleSelectItem.selectedTintColor = purple
+        appearance.singleSelectItem.selectedTintColorLeftIcon = green
         
         appearance.toggleItem.untoggledIcon = UIImage(named: "ic_circle")
         appearance.toggleItem.untoggledTextColor = disabledBlack

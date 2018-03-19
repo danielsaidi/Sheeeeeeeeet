@@ -8,10 +8,15 @@ generated aggregate of all new commits in the version tag.
 
 Breaking changes! The toggle item has been a strange part of Sheeeeeeeeet. It is
 basically a select item with individual styling, which is easy to customize with
-the built-in appearance model. 
+the built-in appearance. We have therefore decided to remove this item type from
+`Sheeeeeeeeet`, with hopes that it will make the api more obvious.
 
-We have therefore decided to remove the toggle item type from Sheeeeeeeeet, with
-hopes that it will make the api more obvious.
+The `ActionSheetSingleSelectItem` tap behavior has been changed to use `.dismiss`.
+This makes the behavior consistent with the standard select item. This means you
+have to manually set the tap behavior `.none` whenever you need that behavior.
+
+We have added a `ActionSheetSingleSelectItemAppearance` class to the library and
+added a new `singleSelectItem` property to the appearance class.
 
 
 
