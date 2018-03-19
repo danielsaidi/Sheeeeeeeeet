@@ -25,6 +25,7 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
             selectedIcon = copy.selectedIcon
             selectedTextColor = copy.selectedTextColor ?? selectedTextColor
             selectedTintColor = copy.selectedTintColor ?? selectedTintColor
+            selectedTintColorLeftIcon = copy.selectedTintColorLeftIcon ?? selectedTintColor
         }
     }
     
@@ -34,4 +35,5 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     public var selectedIcon: UIImage?
     public var selectedTextColor: UIColor?
     public var selectedTintColor: UIColor?
+    public var selectedTintColorLeftIcon: UIColor?
 }

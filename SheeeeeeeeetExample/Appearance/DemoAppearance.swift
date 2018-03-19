@@ -41,6 +41,7 @@ class DemoAppearance: UIImageView {
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.selectedTextColor = green
         appearance.selectItem.selectedTintColor = green
+        appearance.selectItem.selectedTintColorLeftIcon = UIColor.red
         
         appearance.toggleItem.untoggledIcon = UIImage(named: "ic_circle")
         appearance.toggleItem.untoggledTextColor = disabledBlack
