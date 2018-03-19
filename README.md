@@ -26,6 +26,7 @@ Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
 touch, with a long press gesture fallback for unsupported devices. You can setup
 Sheeeeeeeeet to peek just the header view or the full sheet.
 
+By the end of this `README.md` file, this project will have you saying [Sheeeeeeeeet][SheeeeeeeeetRef]!
 
 ## Installation
 
@@ -214,3 +215,4 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetTitle.swift
 [ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSectionTitle.swift
 [ActionSheetSectionMargin]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSectionMargin.swift
+[SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
