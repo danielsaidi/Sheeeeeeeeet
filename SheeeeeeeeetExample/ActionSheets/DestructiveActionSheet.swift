@@ -21,8 +21,8 @@ class DestructiveActionSheet: ActionSheet {
         let items = DestructiveActionSheet.items(for: options)
         super.init(items: items) { sheet, item in
             guard item is ActionSheetDangerButton else { return }
-            let items = sheet.items.flatMap { $0 as? ActionSheetToggleItem }
-            action(items.filter { $0.isToggled })
+            let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+            action(items.filter { $0.isSelected })
         }
     }
     
@@ -37,9 +37,9 @@ fileprivate extension DestructiveActionSheet {
         let titleItem = ActionSheetTitle(title: "Remove Payment Options")
         let image = UIImage(named: "ic_credit_card")
         let visaTitle = "Visa **** **** **** 4321"
-        let visa = ActionSheetToggleItem(title: visaTitle, isToggled: false, value: "visa", image: image)
+        let visa = ActionSheetSelectItem(title: visaTitle, isSelected: false, value: "visa", image: image)
         let masterTitle = "MasterCard **** **** **** 9876"
-        let master = ActionSheetToggleItem(title: masterTitle, isToggled: false, value: "master", image: image)
+        let master = ActionSheetSelectItem(title: masterTitle, isSelected: false, value: "master", image: image)
         let removeButton = ActionSheetDangerButton(title: "Remove")
         return [titleItem, visa, master, createCancelButton(), removeButton]
     }

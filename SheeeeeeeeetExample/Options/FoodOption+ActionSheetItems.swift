@@ -44,12 +44,4 @@ extension FoodOption {
         item.tapBehavior = .none
         return item
     }
-    
-    func toggleItem(isToggled: Bool) -> ActionSheetItem {
-        return ActionSheetToggleItem(
-            title: displayName,
-            isToggled: isToggled,
-            value: self,
-            image: image)
-    }
 }

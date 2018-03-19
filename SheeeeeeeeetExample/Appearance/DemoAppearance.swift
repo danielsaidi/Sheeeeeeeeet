@@ -16,7 +16,6 @@ class DemoAppearance: UIImageView {
         let green = UIColor(hex: 0x81c03f)
         let pink = UIColor(hex: 0xec5f72)
         let purple = UIColor(hex: 0xd9007b)
-        let disabledBlack = UIColor.black.withAlphaComponent(0.3)
         
         let robotoBlack = "Roboto-Black"
         let robotoMedium = "Roboto-Medium"
@@ -48,13 +47,6 @@ class DemoAppearance: UIImageView {
         appearance.singleSelectItem.selectedTextColor = purple
         appearance.singleSelectItem.selectedTintColor = purple
         appearance.singleSelectItem.selectedTintColorLeftIcon = green
-        
-        appearance.toggleItem.untoggledIcon = UIImage(named: "ic_circle")
-        appearance.toggleItem.untoggledTextColor = disabledBlack
-        appearance.toggleItem.untoggledTintColor = disabledBlack
-        appearance.toggleItem.toggledIcon = UIImage(named: "ic_circle_checked")
-        appearance.toggleItem.toggledTextColor = .darkGray
-        appearance.toggleItem.toggledTintColor = .darkGray
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         

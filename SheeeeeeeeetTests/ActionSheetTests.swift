@@ -171,7 +171,8 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("does not dismiss sheet if item should not") {
-                let item = ActionSheetToggleItem(title: "foo", isToggled: false)
+                let item = ActionSheetSelectItem(title: "foo", isSelected: false)
+                item.tapBehavior = .none
                 sheet.itemTapAction(item)
                 expect(sheet.didDismiss).to(equal(0))
             }
