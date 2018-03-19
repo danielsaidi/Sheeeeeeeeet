@@ -13,10 +13,6 @@
  single select item doesn't deselect itself when tapped many
  consecutive times.
  
- Since a single select item hints at a context that probably
- requires some kind of confirmation, single select items use
- `none` as default `tapBehavior`.
- 
  */
 
 import UIKit
@@ -29,7 +25,6 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     public init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
         self.group = group
         super.init(title: title, isSelected: isSelected, value: value, image: image)
-        tapBehavior = .none
     }
 
     

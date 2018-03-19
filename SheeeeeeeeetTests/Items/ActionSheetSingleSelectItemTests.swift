@@ -36,9 +36,9 @@ class ActionSheetSingleSelectItemTests: QuickSpec {
         
         describe("tap behavior") {
             
-            it("is none") {
+            it("is dismiss") {
                 let item = getItem(isSelected: true)
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
             }
         }
         

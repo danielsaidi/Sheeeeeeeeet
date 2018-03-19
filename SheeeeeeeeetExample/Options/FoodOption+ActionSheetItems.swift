@@ -35,12 +35,14 @@ extension FoodOption {
     }
     
     func singleSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {
-        return ActionSheetSingleSelectItem(
+        let item = ActionSheetSingleSelectItem(
             title: displayName,
             isSelected: isSelected,
             group: group,
             value: self,
             image: image)
+        item.tapBehavior = .none
+        return item
     }
     
     func toggleItem(isToggled: Bool) -> ActionSheetItem {

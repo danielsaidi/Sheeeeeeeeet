@@ -26,7 +26,8 @@ Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
 touch, with a long press gesture fallback for unsupported devices. You can setup
 Sheeeeeeeeet to peek just the header view or the full sheet.
 
-By the end of this `README.md` file, this project will have you saying [Sheeeeeeeeet][SheeeeeeeeetRef]!
+By the end of this `README.md`, this project will have you saying [Sheeeeeeeeet][SheeeeeeeeetRef]!
+
 
 ## Installation
 
@@ -109,9 +110,8 @@ Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
 * [Standard Item][ActionSheetItem] - A standard, tappable action sheet item
 * [Select Item][ActionSheetSelectItem] - A single- or multi-select item with an `isSelected` state
-* 🍾 [Single Select Item][ActionSheetSingleSelectItem] - A single-select exclusive item with built-in handling
-* 🍾 [Collection Item][ActionSheetCollectionItem] - An action sheet item with an embedded collection view
-* [Toggle Item][ActionSheetToggleItem] - A single- or multi-toggle item with an `isToggled` state
+* [Single Select Item][ActionSheetSingleSelectItem] - A single-select exclusive item with built-in handling
+* [Collection Item][ActionSheetCollectionItem] - An action sheet item with an embedded collection view
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
 The standard item corresponds to a default `UIKit` action sheet action. It has a
@@ -203,7 +203,6 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCollectionItem.swift
 [ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSelectItem.swift
 [ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSingleSelectItem.swift
-[ActionSheetToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetToggleItem.swift
 [ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetLinkItem.swift
 
 
