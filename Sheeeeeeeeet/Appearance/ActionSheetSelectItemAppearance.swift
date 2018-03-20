@@ -20,12 +20,12 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
         selectedTextColor = copy.textColor
-        selectedTintColor = copy.tintColor
+        selectedTintColorRightIcon = copy.tintColor
         if let copy = copy as? ActionSheetSelectItemAppearance {
             selectedIcon = copy.selectedIcon
             selectedTextColor = copy.selectedTextColor ?? selectedTextColor
-            selectedTintColor = copy.selectedTintColor ?? selectedTintColor
-            selectedTintColorLeftIcon = copy.selectedTintColorLeftIcon ?? selectedTintColor
+            selectedTintColorRightIcon = copy.selectedTintColorRightIcon ?? selectedTintColorRightIcon
+            selectedTintColorLeftIcon = copy.selectedTintColorLeftIcon ?? selectedTintColorRightIcon
         }
     }
     
@@ -34,6 +34,6 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     
     public var selectedIcon: UIImage?
     public var selectedTextColor: UIColor?
-    public var selectedTintColor: UIColor?
+    public var selectedTintColorRightIcon: UIColor?
     public var selectedTintColorLeftIcon: UIColor?
 }
