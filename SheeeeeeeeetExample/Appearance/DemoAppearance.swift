@@ -40,12 +40,12 @@ class DemoAppearance: UIImageView {
         
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.selectedTextColor = green
-        appearance.selectItem.selectedTintColor = green
+        appearance.selectItem.selectedTintColorRightIcon = green
         appearance.selectItem.selectedTintColorLeftIcon = purple
         
         appearance.singleSelectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.singleSelectItem.selectedTextColor = purple
-        appearance.singleSelectItem.selectedTintColor = purple
+        appearance.singleSelectItem.selectedTintColorRightIcon = purple
         appearance.singleSelectItem.selectedTintColorLeftIcon = green
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
