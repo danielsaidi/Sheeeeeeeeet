@@ -1,7 +1,14 @@
 # Release Notes
 
-These release notes are so far manually created. They should probably be an auto
-generated aggregate of all new commits in the version tag.
+Sheeeeeeeeet may have breaking changes in minor versions and revisions, until it
+reaches 1.0.0.
+
+
+## 0.8.1
+
+The color properties in `ActionSheetSelectItemAppearance` have been renamed. The
+change is small, but if you have customized these values in your app, the change
+will be breaking and require you to use the new property names.
 
 
 ## 0.8.0
