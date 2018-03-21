@@ -13,6 +13,7 @@ class DemoAppearance: UIImageView {
 
     static func apply() {
         
+        let blue = UIColor(hex: 0x0FA2F5)
         let green = UIColor(hex: 0x81c03f)
         let pink = UIColor(hex: 0xec5f72)
         let purple = UIColor(hex: 0xd9007b)
@@ -24,10 +25,10 @@ class DemoAppearance: UIImageView {
         let appearance = ActionSheetAppearance.standard
         
         appearance.item.font = UIFont(name: robotoRegular, size: 17)
-        appearance.item.textColor = .darkGray
+        appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
         appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
-        appearance.item.subtitleTextColor = .darkGray
+        appearance.item.subtitleTextColor = blue
         
         appearance.title.separatorInsets.right = .greatestFiniteMagnitude
         appearance.title.font = UIFont(name: robotoMedium, size: 15)
@@ -39,14 +40,14 @@ class DemoAppearance: UIImageView {
         appearance.sectionMargin.height = 20
         
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        appearance.selectItem.selectedTintColor = blue
         appearance.selectItem.selectedTextColor = green
-        appearance.selectItem.selectedTintColorRightIcon = green
-        appearance.selectItem.selectedTintColorLeftIcon = purple
+        appearance.selectItem.selectedIconTintColor = purple
         
         appearance.singleSelectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        appearance.singleSelectItem.selectedTintColor = green
         appearance.singleSelectItem.selectedTextColor = purple
-        appearance.singleSelectItem.selectedTintColorRightIcon = purple
-        appearance.singleSelectItem.selectedTintColorLeftIcon = green
+        appearance.singleSelectItem.selectedIconTintColor = blue
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         

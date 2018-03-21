@@ -6,6 +6,19 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This appearance inherits the base appearance and applies to
+ select items. The additional properties are applied when an
+ item is selected:
+ 
+ * `selectedIcon` is displayed rightmost, e.g. a checkmark
+ * `selectedTextColor` is applied to the text (duh)
+ * `selectedTintColor` is applied to both icons if they are rendered as template images
+ * `selectedIconTintColor` can override `selectedTintColor` for the selected icon
+ 
+ */
+
 import UIKit
 
 open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
@@ -20,12 +33,12 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
         selectedTextColor = copy.textColor
-        selectedTintColorRightIcon = copy.tintColor
+        selectedTintColor = copy.tintColor
         if let copy = copy as? ActionSheetSelectItemAppearance {
             selectedIcon = copy.selectedIcon
             selectedTextColor = copy.selectedTextColor ?? selectedTextColor
-            selectedTintColorRightIcon = copy.selectedTintColorRightIcon ?? selectedTintColorRightIcon
-            selectedTintColorLeftIcon = copy.selectedTintColorLeftIcon ?? selectedTintColorRightIcon
+            selectedTintColor = copy.selectedTintColor ?? selectedTintColor
+            selectedIconTintColor = copy.selectedIconTintColor ?? selectedTintColor
         }
     }
     
@@ -33,7 +46,7 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     // MARK: - Properties
     
     public var selectedIcon: UIImage?
+    public var selectedIconTintColor: UIColor?
     public var selectedTextColor: UIColor?
-    public var selectedTintColorRightIcon: UIColor?
-    public var selectedTintColorLeftIcon: UIColor?
+    public var selectedTintColor: UIColor?
 }

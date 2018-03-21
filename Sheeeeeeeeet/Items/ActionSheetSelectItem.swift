@@ -54,9 +54,9 @@ open class ActionSheetSelectItem: ActionSheetItem {
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         guard let appearance = selectAppearance else { return }
-        cell.accessoryView = UIImageView(image: isSelected ? appearance.selectedIcon : nil)
-        cell.tintColor = isSelected ? appearance.selectedTintColorRightIcon : appearance.tintColor
-        cell.imageView?.tintColor = isSelected ? appearance.selectedTintColorLeftIcon : appearance.tintColor
+        cell.accessoryView = isSelected ? UIImageView(image: appearance.selectedIcon) : nil
+        cell.accessoryView?.tintColor = isSelected ? appearance.selectedIconTintColor : appearance.tintColor
+        cell.tintColor = isSelected ? appearance.selectedTintColor : appearance.tintColor
         cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
     
