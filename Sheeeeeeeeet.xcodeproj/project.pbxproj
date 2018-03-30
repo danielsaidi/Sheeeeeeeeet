@@ -53,6 +53,7 @@
 		454EDC5E205BBC5F008E4311 /* SingleSelectActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */; };
 		454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC61205BBE75008E4311 /* LinkActionSheet.swift */; };
 		454EDC64205BCF14008E4311 /* SectionActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC63205BCF14008E4311 /* SectionActionSheet.swift */; };
+		455DEE2C206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455DEE2B206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift */; };
 		456203C1205BD00100A3E141 /* DestructiveActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456203C0205BD00100A3E141 /* DestructiveActionSheet.swift */; };
 		456203C3205BD0DE00A3E141 /* HeaderActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456203C2205BD0DE00A3E141 /* HeaderActionSheet.swift */; };
 		456203C5205BD24000A3E141 /* CollectionActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456203C4205BD24000A3E141 /* CollectionActionSheet.swift */; };
@@ -206,6 +207,7 @@
 		454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectActionSheet.swift; sourceTree = "<group>"; };
 		454EDC61205BBE75008E4311 /* LinkActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkActionSheet.swift; sourceTree = "<group>"; };
 		454EDC63205BCF14008E4311 /* SectionActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionActionSheet.swift; sourceTree = "<group>"; };
+		455DEE2B206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenterTests.swift; sourceTree = "<group>"; };
 		456203C0205BD00100A3E141 /* DestructiveActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveActionSheet.swift; sourceTree = "<group>"; };
 		456203C2205BD0DE00A3E141 /* HeaderActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderActionSheet.swift; sourceTree = "<group>"; };
 		456203C4205BD24000A3E141 /* CollectionActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionActionSheet.swift; sourceTree = "<group>"; };
@@ -457,6 +459,14 @@
 			path = Appearance;
 			sourceTree = "<group>";
 		};
+		455DEE2A206E115900173E67 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				455DEE2B206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		456EAA0F1FCC203100A719ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +556,7 @@
 				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				45352D572030BBC900A0F890 /* Items */,
+				455DEE2A206E115900173E67 /* Presenters */,
 			);
 			path = SheeeeeeeeetTests;
 			sourceTree = "<group>";
@@ -882,6 +893,7 @@
 				45352D6B2030BC0E00A0F890 /* ActionSheetCancelButtonTests.swift in Sources */,
 				457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */,
 				45352D6F2030BC0E00A0F890 /* ActionSheetTitleTests.swift in Sources */,
+				455DEE2C206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift in Sources */,
 				459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */,
 				45352D692030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift in Sources */,
 				45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */,

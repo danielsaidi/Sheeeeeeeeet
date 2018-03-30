@@ -36,6 +36,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     // MARK: - Properties
     
     public fileprivate(set) var actionSheetView: UIView?
+    
     public fileprivate(set) var backgroundView: UIView?
     
     fileprivate var notificationCenter: NotificationCenter {
@@ -52,10 +53,6 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
             completion()
             self.sheet = nil
         }
-    }
-    
-    open func pop(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        present(sheet: sheet, in: vc, from: view)
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
@@ -102,11 +99,16 @@ fileprivate extension ActionSheetPopoverPresenter {
         return popover
     }
     
+    func popoverItems(for sheet: ActionSheet) -> [ActionSheetItem] {
+        let items: [ActionSheetItem] = sheet.items + sheet.buttons
+        return items.filter { !($0 is ActionSheetCancelButton) }
+    }
+    
     func setupSheetForPopoverPresentation(_ sheet: ActionSheet) {
         self.sheet = sheet
-        sheet.items = sheet.items + sheet.buttons
-        sheet.buttons = []
         sheet.headerView = nil
+        sheet.items = popoverItems(for: sheet)
+        sheet.buttons = []
         sheet.preferredContentSize = sheet.preferredPopoverSize
         sheet.view.backgroundColor = sheet.itemsView.backgroundColor
     }
