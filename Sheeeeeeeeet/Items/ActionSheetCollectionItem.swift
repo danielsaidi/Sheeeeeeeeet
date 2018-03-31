@@ -50,6 +50,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        super.applyAppearance(appearance)
         self.appearance = ActionSheetCollectionItemAppearance(copy: appearance.collectionItem)
         self.appearance.height = T.defaultSize.height + T.topInset + T.bottomInset + 0.5
     }

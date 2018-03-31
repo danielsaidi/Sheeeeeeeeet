@@ -28,7 +28,7 @@ extension ActionSheet {
         return ActionSheetOkButton(title: "OK")
     }
     
-    static func createTitleItem(title: String, subtitle: String? = nil) -> ActionSheetTitle {
-        return ActionSheetTitle(title: title, subtitle: subtitle)
+    static func createTitleItem(title: String) -> ActionSheetTitle {
+        return ActionSheetTitle(title: title)
     }
 }

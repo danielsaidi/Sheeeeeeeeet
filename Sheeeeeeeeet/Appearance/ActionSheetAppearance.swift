@@ -37,6 +37,8 @@ open class ActionSheetAppearance {
         dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
+        multiSelectItem = ActionSheetMultiSelectItemAppearance(copy: copy.multiSelectItem)
+        multiSelectToggleItem = ActionSheetMultiSelectToggleItemAppearance(copy: copy.multiSelectToggleItem)
         okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
         popover = ActionSheetPopoverApperance(copy: copy.popover)
         sectionMargin = ActionSheetSectionMarginAppearance(copy: copy.sectionMargin)
@@ -78,6 +80,14 @@ open class ActionSheetAppearance {
     
     public lazy var linkItem: ActionSheetLinkItemAppearance = {
         return ActionSheetLinkItemAppearance(copy: item)
+    }()
+    
+    public lazy var multiSelectItem: ActionSheetMultiSelectItemAppearance = {
+        return ActionSheetMultiSelectItemAppearance(copy: selectItem)
+    }()
+    
+    public lazy var multiSelectToggleItem: ActionSheetMultiSelectToggleItemAppearance = {
+        return ActionSheetMultiSelectToggleItemAppearance(copy: item)
     }()
     
     public lazy var okButton: ActionSheetOkButtonAppearance = {

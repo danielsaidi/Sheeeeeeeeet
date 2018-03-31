@@ -28,6 +28,7 @@ open class ActionSheetLinkItem: ActionSheetItem {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        super.applyAppearance(appearance)
         self.appearance = ActionSheetLinkItemAppearance(copy: appearance.linkItem)
     }
     

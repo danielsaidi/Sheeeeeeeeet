@@ -15,7 +15,8 @@ class SingleSelectActionSheet: ActionSheet {
         super.init(items: items) { sheet, item in
             guard item is ActionSheetOkButton else { return }
             let selectItems = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
-            action(selectItems.filter { $0.isSelected })
+            let selectedItems = selectItems.filter { $0.isSelected }
+            action(selectedItems)
         }
     }
     

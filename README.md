@@ -108,20 +108,25 @@ item class that best suits your needs.
 
 Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
-* [Standard Item][ActionSheetItem] - A standard, tappable action sheet item
-* [Select Item][ActionSheetSelectItem] - A single- or multi-select item with an `isSelected` state
-* [Single Select Item][ActionSheetSingleSelectItem] - A single-select exclusive item with built-in handling
-* [Collection Item][ActionSheetCollectionItem] - An action sheet item with an embedded collection view
+* [Standard Item][ActionSheetItem] - Standard, tappable items that dismiss the action sheet
+* [Select Item][ActionSheetSelectItem] - Standard items with an additional `isSelected` state
+* [Single-Select Item][ActionSheetSingleSelectItem] - Single-select items that deselec all other single-select items in the same group
+* [Multi-Select Item][ActionSheetMultiSelectItem] - Multi-select items that don't dismiss the action sheet
+* [Multi-Select Toggle Item][ActionSheetMultiSelectToggleItem] - Header items that selects/deselects all multi-select items in the same group
+* [Collection Item][ActionSheetCollectionItem] - Super-flexible items that contain an embedded collection view
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
 The standard item corresponds to a default `UIKit` action sheet action. It has a
 title and an image and serve as the base class for all other item types. It uses
-`.dismiss` as `tapBehavior`, which automatically dismisses the action sheet when
+`.dismiss` as `tapBehavior`, which means that it dismisses the action sheet when
 it is tapped.
 
-Select and toggle items are basically identical, but can be individually styled.
-They both use `.none` as `tapBehavior`, which means that they will not cause the
-action sheet to be dismissed. Instead, add a submit button to the sheet.
+All other items inherit the standard item type and its appearance. They can then
+be individually styled.
+
+Single and multi-select items use `.none` as `tapBehavior`. This means that they
+will NOT dismiss the action sheet when tapped. Instead, you should use them with
+a submit/ok and (probably) a cancel button.
 
 ### Buttons
 
@@ -201,17 +206,19 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
 [ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetItem.swift
 [ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCollectionItem.swift
+[ActionSheetMultiSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetMultiSelectItem.swift
+[ActionSheetMultiSelectToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetMultiSelectToggleItem.swift
 [ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSelectItem.swift
 [ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSingleSelectItem.swift
 [ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetLinkItem.swift
 
 
-[ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetOkButton.swift
-[ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCancelButton.swift
-[ActionSheetDangerButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetDangerButton.swift
+[ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetOkButton.swift
+[ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetCancelButton.swift
+[ActionSheetDangerButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetDangerButton.swift
 
 
-[ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetTitle.swift
-[ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSectionTitle.swift
-[ActionSheetSectionMargin]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSectionMargin.swift
+[ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetTitle.swift
+[ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionTitle.swift
+[ActionSheetSectionMargin]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionMargin.swift
 [SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo

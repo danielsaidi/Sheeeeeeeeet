@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         .standard,
         .select,
         .singleSelect,
+        .multiSelect,
         .links,
         .headerView,
         .sections,
@@ -77,8 +78,9 @@ extension ViewController {
         case .danger: return DestructiveActionSheet(options: options, action: alert)
         case .headerView: return HeaderActionSheet(options: options, action: alert)
         case .links: return LinkActionSheet(options: options, action: alert)
+        case .multiSelect: return MultiSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .sections: return SectionActionSheet(options: options, action: alert)
-        case .select: return MultiSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
+        case .select: return SelectActionSheet(options: options, preselected: .fancy, action: alert)
         case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .standard: return StandardActionSheet(options: options, action: alert)
         default: return nil

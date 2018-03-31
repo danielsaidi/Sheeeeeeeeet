@@ -77,6 +77,9 @@ open class ActionSheetItem: NSObject {
         cell.detailTextLabel?.text = subtitle
         cell.detailTextLabel?.font = appearance.subtitleFont
         cell.detailTextLabel?.textColor = appearance.subtitleTextColor
+        if tapBehavior == .none {
+            cell.selectionStyle = .none
+        }
     }
     
     open func cell(for tableView: UITableView) -> UITableViewCell {

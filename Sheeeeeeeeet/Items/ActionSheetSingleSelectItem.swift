@@ -9,9 +9,7 @@
 /*
  
  Single select items look like normal select items, but will
- deselect other single select items within the same group. A
- single select item doesn't deselect itself when tapped many
- consecutive times.
+ deselect other single select items within the same `group`.
  
  */
 
@@ -20,22 +18,10 @@ import UIKit
 open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
     
-    // MARK: - Initialization
-    
-    public init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
-        self.group = group
-        super.init(title: title, isSelected: isSelected, value: value, image: image)
-    }
-
-    
-    // MARK: - Properties
-    
-    open var group: String
-    
-    
-    // MARK: - Functions
+     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        super.applyAppearance(appearance)
         self.appearance = ActionSheetSingleSelectItemAppearance(copy: appearance.singleSelectItem)
     }
     

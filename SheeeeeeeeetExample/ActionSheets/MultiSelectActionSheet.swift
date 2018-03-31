@@ -13,28 +13,10 @@ class MultiSelectActionSheet: ActionSheet {
     init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
         let items = MultiSelectActionSheet.items(for: options, preselected: preselected)
         super.init(items: items) { sheet, item in
-            
-            if item is ActionSheetTitle {
-                
-                var selectAction: Bool
-
-                let selectItems = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
-                if (selectItems.filter { $0.isSelected }).count > 0 {
-                    selectAction = false
-                    item.subtitle = "Select all"
-                } else {
-                    selectAction = true
-                    item.subtitle = "Deselect all"
-                }
-
-                for itemToUpdate in sheet.items {
-                    (itemToUpdate as? ActionSheetSelectItem)?.isSelected = selectAction
-                }
-            }
-            
             guard item is ActionSheetOkButton else { return }
             let selectItems = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
-            action(selectItems.filter { $0.isSelected })
+            let selectedItems = selectItems.filter { $0.isSelected }
+            action(selectedItems)
         }
     }
     
@@ -46,10 +28,23 @@ class MultiSelectActionSheet: ActionSheet {
 fileprivate extension MultiSelectActionSheet {
     
     static func items(for options: [FoodOption], preselected: [FoodOption]) -> [ActionSheetItem] {
-        var items = options.map { $0.selectItem(isSelected: preselected.contains($0)) }
-        items.insert(createTitleItem(title: standardTitle, subtitle: preselected.count > 0 ? "Deselect all" : "Select all"), at: 0)
+        var items = [ActionSheetItem]()
+        items.append(createTitleItem(title: standardTitle))
+        items.append(contentsOf: itemsGroup(for: options, preselected: .fast, group: "Appetizer"))
+        items.append(ActionSheetSectionMargin())
+        items.append(contentsOf: itemsGroup(for: options, preselected: .homeMade, group: "Main Dish"))
         items.append(createOkButton())
         items.append(createCancelButton())
+        return items
+    }
+    
+    static func itemsGroup(for options: [FoodOption], preselected: FoodOption?, group: String) -> [ActionSheetItem] {
+        var items = [ActionSheetItem]()
+        let options = options.filter { $0 != .none && $0 != .fancy }
+        let foodItems = options.map { $0.multiSelectItem(isSelected: $0 == preselected, group: group) }
+        let toggler = ActionSheetMultiSelectToggleItem(title: group, state: .selectAll, group: group, selectAllTitle: "Select all", deselectAllTitle: "Deselect all")
+        items.append(toggler)
+        items.append(contentsOf: foodItems)
         return items
     }
 }

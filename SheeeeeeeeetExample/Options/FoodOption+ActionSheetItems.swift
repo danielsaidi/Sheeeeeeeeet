@@ -24,14 +24,21 @@ extension FoodOption {
             image: image)
     }
     
+    func multiSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {
+        return ActionSheetMultiSelectItem(
+            title: displayName,
+            isSelected: isSelected,
+            group: group,
+            value: self,
+            image: image)
+    }
+    
     func selectItem(isSelected: Bool) -> ActionSheetItem {
-        let item = ActionSheetSelectItem(
+        return ActionSheetSelectItem(
             title: displayName,
             isSelected: isSelected,
             value: self,
             image: image)
-        item.tapBehavior = .none
-        return item
     }
     
     func singleSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {

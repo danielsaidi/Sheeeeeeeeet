@@ -21,11 +21,8 @@ open class ActionSheetTitle: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String, subtitle: String? = nil) {
-        super.init(title: title, subtitle: subtitle)
-        if subtitle != nil {
-            cellStyle = .subtitle
-        }
+    public init(title: String) {
+        super.init(title: title)
         tapBehavior = .none
     }
     
@@ -38,12 +35,6 @@ open class ActionSheetTitle: ActionSheetItem {
     
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
-        cell.selectionStyle = .none
         cell.textLabel?.textAlignment = .center
-        cell.detailTextLabel?.text = subtitle
-    }
-    
-    open override func handleTap(in actionSheet: ActionSheet?) {
-        super.handleTap(in: actionSheet)
     }
 }

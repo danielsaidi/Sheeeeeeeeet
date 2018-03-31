@@ -17,6 +17,7 @@ class DemoAppearance: UIImageView {
         let green = UIColor(hex: 0x81c03f)
         let pink = UIColor(hex: 0xec5f72)
         let purple = UIColor(hex: 0xd9007b)
+        let red = UIColor(hex: 0xff3333)
         
         let robotoBlack = "Roboto-Black"
         let robotoMedium = "Roboto-Medium"
@@ -48,6 +49,16 @@ class DemoAppearance: UIImageView {
         appearance.singleSelectItem.selectedTintColor = green
         appearance.singleSelectItem.selectedTextColor = purple
         appearance.singleSelectItem.selectedIconTintColor = blue
+        
+        appearance.multiSelectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        appearance.multiSelectItem.selectedTintColor = purple
+        appearance.multiSelectItem.selectedTextColor = blue
+        appearance.multiSelectItem.selectedIconTintColor = green
+        
+        appearance.multiSelectToggleItem.separatorInsets.right = .greatestFiniteMagnitude
+        appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
+        appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
+        appearance.multiSelectToggleItem.deselectAllTextColor = red
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         
