@@ -23,6 +23,7 @@
  * `ActionSheetSingleSelectItem` automatically deselects any
  other single select items in the same group. This means you
  don't have to implement this behavior.
+ 
  * `ActionSheetMultiSelectItem` can be used together with an
  `ActionSheetMultiSelectToggleItem`, which can automatically
  select/deselect all multi select items in the same group.
