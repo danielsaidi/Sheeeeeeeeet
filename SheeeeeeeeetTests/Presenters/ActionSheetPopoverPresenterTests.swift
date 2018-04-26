@@ -13,7 +13,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         
         beforeEach {
             let items: [ActionSheetItem] = [
-                ActionSheetSelectItem(title: "test", isSelected: true),
+                ActionSheetSingleSelectItem(title: "test", isSelected: true),
                 ActionSheetCancelButton(title: "Cancel"),
                 ActionSheetOkButton(title: "OK")
             ]
@@ -41,7 +41,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             
             it("removes cancel button") {
                 expect(sheet.items.count).to(equal(2))
-                expect(sheet.items.first! is ActionSheetSelectItem).to(beTrue())
+                expect(sheet.items.first! is ActionSheetSingleSelectItem).to(beTrue())
                 expect(sheet.items.last! is ActionSheetOkButton).to(beTrue())
             }
         }

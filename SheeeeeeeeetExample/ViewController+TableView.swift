@@ -47,11 +47,8 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let option = self.option(at: indexPath)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        guard let sheet = actionSheet(at: indexPath) else {
-            return handleNonSheetOption(option)
-        }
+        guard let sheet = actionSheet(at: indexPath) else { return }
         sheet.present(in: self, from: cell)
     }
 }

@@ -29,13 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DemoAppearance.apply()
-        setupPreviewHandling(with: .sheet)
     }
     
     
     // MARK: - Properties
-    
-    var actionSheetPeekHandler: ActionSheetPeekHandler?
     
     var foodOptions: [FoodOption] {
         return [.fast, .light, .homeMade, .fancy, .none]
@@ -49,9 +46,7 @@ class ViewController: UIViewController {
         .headerView,
         .sections,
         .collections,
-        .danger,
-        .peekPopSheet,
-        .peekPopHeader
+        .danger
     ]
     
     
@@ -81,25 +76,6 @@ extension ViewController {
         case .sections: return SectionActionSheet(options: options, action: alert)
         case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .standard: return StandardActionSheet(options: options, action: alert)
-        default: return nil
         }
-    }
-    
-    func handleNonSheetOption(_ option: TableViewOption) {
-        switch option {
-        case .peekPopHeader: setupPreviewHandling(with: .header)
-        case .peekPopSheet: setupPreviewHandling(with: .sheet)
-        default: break
-        }
-        alert(option: option)
-    }
-    
-    func setupPreviewHandling(with peekBehavior: ActionSheetPeekBehavior) {
-        guard let view = tableView else { return }
-        actionSheetPeekHandler = ActionSheetPeekHandler(
-            in: self,
-            peekSource: self,
-            sourceView: view,
-            peekBehavior: peekBehavior)
     }
 }

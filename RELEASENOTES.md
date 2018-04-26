@@ -4,11 +4,26 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions, until it
 reaches 1.0.0.
 
 
+## 0.9.0
+
+This version has some breaking changes:
+
+* I have made `ActionSheetSelectItem` private, to enforce using single and multi
+  select items. This makes the api much clearer.
+
+* I have chosen to remove the peek/pop features, since the implementation is not
+  that good and it feels strange to peek and pop an action sheet. I hope that no
+  one actually used this stuff (especially since it looked horrible). You can of
+  course still use Sheeeeeeeeeet with peek and pop, but now you have to write it
+  yourself...which is really easy to do.
+
+
 ## 0.8.1
 
 The color properties in `ActionSheetSelectItemAppearance` have been renamed. The
 change is small, but if you have customized these values in your app, the change
 will be breaking and require you to use the new property names.
+
 
 
 ## 0.8.0

@@ -15,7 +15,7 @@ class ActionSheetSelectItemTests: QuickSpec {
     override func spec() {
         
         func getItem(isSelected: Bool) -> ActionSheetSelectItem {
-            return ActionSheetSelectItem(title: "foo", isSelected: isSelected, value: true, image: UIImage())
+            return ActionSheetMultiSelectItem(title: "foo", isSelected: isSelected, value: true, image: UIImage())
         }
         
         describe("when created") {
@@ -30,14 +30,6 @@ class ActionSheetSelectItemTests: QuickSpec {
             it("applies provided selection state") {
                 expect(getItem(isSelected: true).isSelected).to(beTrue())
                 expect(getItem(isSelected: false).isSelected).to(beFalse())
-            }
-        }
-        
-        describe("tap behavior") {
-            
-            it("is dismiss") {
-                let item = getItem(isSelected: true)
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
             }
         }
         
