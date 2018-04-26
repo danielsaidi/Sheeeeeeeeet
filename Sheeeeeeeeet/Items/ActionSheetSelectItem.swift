@@ -46,7 +46,7 @@ open class ActionSheetSelectItem: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
+    init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
         self.isSelected = isSelected
         self.group = group
         super.init(title: title, value: value, image: image)

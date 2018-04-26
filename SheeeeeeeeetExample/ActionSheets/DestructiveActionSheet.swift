@@ -37,9 +37,9 @@ fileprivate extension DestructiveActionSheet {
         let titleItem = ActionSheetTitle(title: "Remove Payment Options")
         let image = UIImage(named: "ic_credit_card")
         let visaTitle = "Visa **** **** **** 4321"
-        let visa = ActionSheetSelectItem(title: visaTitle, isSelected: false, value: "visa", image: image)
+        let visa = ActionSheetMultiSelectItem(title: visaTitle, isSelected: false, value: "visa", image: image)
         let masterTitle = "MasterCard **** **** **** 9876"
-        let master = ActionSheetSelectItem(title: masterTitle, isSelected: false, value: "master", image: image)
+        let master = ActionSheetMultiSelectItem(title: masterTitle, isSelected: false, value: "master", image: image)
         let removeButton = ActionSheetDangerButton(title: "Remove")
         return [titleItem, visa, master, createCancelButton(), removeButton]
     }

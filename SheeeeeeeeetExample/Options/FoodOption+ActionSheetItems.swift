@@ -33,14 +33,6 @@ extension FoodOption {
             image: image)
     }
     
-    func selectItem(isSelected: Bool) -> ActionSheetItem {
-        return ActionSheetSelectItem(
-            title: displayName,
-            isSelected: isSelected,
-            value: self,
-            image: image)
-    }
-    
     func singleSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {
         let item = ActionSheetSingleSelectItem(
             title: displayName,
