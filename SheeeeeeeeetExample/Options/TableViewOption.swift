@@ -23,7 +23,8 @@ enum TableViewOption {
     sections,
     select,
     singleSelect,
-    standard
+    standard,
+    standardNonDismissable
     
     
     var title: String {
@@ -39,6 +40,7 @@ enum TableViewOption {
         case .select: return "Select items"
         case .singleSelect: return "Single-select items"
         case .standard: return "Standard items"
+        case .standardNonDismissable: return "Standard items non-dismissable"
         }
     }
     
@@ -55,6 +57,7 @@ enum TableViewOption {
         case .select: return "Show a sheet where selected items are highlighted."
         case .singleSelect: return "Show a sheet where you can select a single value."
         case .standard: return "Show a sheet where you can pick a single option."
+        case .standardNonDismissable: return "Same as tandard, but you cannot dismiss it with tap outside."
         }
     }
     
@@ -90,6 +93,7 @@ enum TableViewOption {
         case .select: return "ic_checkmark"
         case .singleSelect: return "ic_checkmark"
         case .standard: return "ic_list"
+        case .standardNonDismissable: return "ic_list"
         }
     }
 }

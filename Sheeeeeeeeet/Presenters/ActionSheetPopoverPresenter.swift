@@ -35,6 +35,8 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Properties
     
+    public var isDismissableWithTap = true
+    
     public fileprivate(set) var actionSheetView: UIView?
     
     public fileprivate(set) var backgroundView: UIView?
@@ -59,6 +61,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         guard let popover = self.popover(for: sheet, in: vc) else { return }
         popover.sourceView = view
         popover.sourceRect = view?.bounds ?? CGRect()
+        popover.delegate = self
         vc.present(sheet, animated: true, completion: nil)
     }
     
@@ -70,6 +73,12 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     public func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect? {
         return nil
+    }
+}
+
+extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
+    public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+        return isDismissableWithTap
     }
 }
 

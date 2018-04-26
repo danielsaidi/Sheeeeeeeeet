@@ -52,7 +52,8 @@ class ViewController: UIViewController {
         .collections,
         .danger,
         .peekPopSheet,
-        .peekPopHeader
+        .peekPopHeader,
+        .standardNonDismissable
     ]
     
     
@@ -83,6 +84,10 @@ extension ViewController {
         case .select: return SelectActionSheet(options: options, preselected: .fancy, action: alert)
         case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .standard: return StandardActionSheet(options: options, action: alert)
+        case .standardNonDismissable:
+            let sheet = StandardActionSheet(options: options, action: alert)
+            sheet.presenter.isDismissableWithTap = false
+            return sheet
         default: return nil
         }
     }
