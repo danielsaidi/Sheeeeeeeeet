@@ -21,7 +21,6 @@ enum TableViewOption {
     peekPopHeader,
     peekPopSheet,
     sections,
-    select,
     singleSelect,
     standard
     
@@ -36,7 +35,6 @@ enum TableViewOption {
         case .peekPopHeader: return "Peek & Pop: Show Header"
         case .peekPopSheet: return "Peek & Pop: Show Full Sheet"
         case .sections: return "Sections"
-        case .select: return "Select items"
         case .singleSelect: return "Single-select items"
         case .standard: return "Standard items"
         }
@@ -52,7 +50,6 @@ enum TableViewOption {
         case .peekPopHeader: return "Setup the app to only peek header views."
         case .peekPopSheet: return "Setup the app to peek entire sheets."
         case .sections: return "Show a sheet where items are divided in sections."
-        case .select: return "Show a sheet where selected items are highlighted."
         case .singleSelect: return "Show a sheet where you can select a single value."
         case .standard: return "Show a sheet where you can pick a single option."
         }
@@ -87,7 +84,6 @@ enum TableViewOption {
         case .peekPopHeader: return "ic_peek"
         case .peekPopSheet: return "ic_peek"
         case .sections: return "ic_sections"
-        case .select: return "ic_checkmark"
         case .singleSelect: return "ic_checkmark"
         case .standard: return "ic_list"
         }
