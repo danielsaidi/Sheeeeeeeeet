@@ -10,32 +10,15 @@ import Quick
 import Nimble
 import Sheeeeeeeeet
 
-private class ActionSheetTestClass: ActionSheet {
-    
-    var didDismiss = 0
-    var didPrepareForPresentation = 0
-    
-    override func dismiss(completion: @escaping () -> ()) {
-        super.dismiss { completion() }
-        completion()
-        didDismiss += 1
-    }
-    
-    override func prepareForPresentation() {
-        super.prepareForPresentation()
-        didPrepareForPresentation += 1
-    }
-}
-
 class ActionSheetTests: QuickSpec {
     
     override func spec() {
         
-        func actionSheet(withItems items: [ActionSheetItem]) -> ActionSheetTestClass {
-            return ActionSheetTestClass(items: items, action: { _, _ in })
+        func actionSheet(withItems items: [ActionSheetItem]) -> MockActionSheet {
+            return MockActionSheet(items: items, action: { _, _ in })
         }
         
-        var sheet: ActionSheetTestClass!
+        var sheet: MockActionSheet!
         
         beforeEach {
             ActionSheetAppearance.standard.item.height = 50
@@ -81,13 +64,13 @@ class ActionSheetTests: QuickSpec {
             
             it("applies provided presenter") {
                 let presenter = ActionSheetPopoverPresenter()
-                let sheet = ActionSheetTestClass(items: [], presenter: presenter, action: { _, _ in })
+                let sheet = MockActionSheet(items: [], presenter: presenter, action: { _, _ in })
                 expect(sheet.presenter).to(be(presenter))
             }
             
             it("applies provided action") {
                 var counter = 0
-                let sheet = ActionSheetTestClass(items: []) { _, _  in counter += 1 }
+                let sheet = MockActionSheet(items: []) { _, _  in counter += 1 }
                 sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
             }
@@ -97,6 +80,11 @@ class ActionSheetTests: QuickSpec {
                 let appearance = sheet.appearance
                 let standard = ActionSheetAppearance.standard
                 expect(appearance.sectionMargin.height).to(equal(standard.sectionMargin.height))
+            }
+            
+            it("applies default tap action") {
+                let sheet = actionSheet(withItems: [])
+                expect(sheet.itemTapAction).toNot(beNil())
             }
         }
         
@@ -121,7 +109,7 @@ class ActionSheetTests: QuickSpec {
             it("prepares for presentation") {
                 let sheet = actionSheet(withItems: [])
                 sheet.viewDidLayoutSubviews()
-                expect(sheet.didPrepareForPresentation).to(equal(1))
+                expect(sheet.prepareForPresentationInvokeCount).to(equal(1))
             }
         }
         
@@ -145,7 +133,7 @@ class ActionSheetTests: QuickSpec {
             
             beforeEach {
                 counter = 0
-                sheet = ActionSheetTestClass(items: []) { _, _  in counter += 1 }
+                sheet = MockActionSheet(items: []) { _, _  in counter += 1 }
             }
             
             it("triggers select action") {
@@ -156,14 +144,14 @@ class ActionSheetTests: QuickSpec {
             it("dismisses sheet if item should") {
                 let item = ActionSheetItem(title: "foo")
                 sheet.itemTapAction(item)
-                expect(sheet.didDismiss).to(equal(1))
+                expect(sheet.dismissInvokeCount).to(equal(1))
             }
             
             it("does not dismiss sheet if item should not") {
                 let item = ActionSheetItem(title: "foo")
                 item.tapBehavior = .none
                 sheet.itemTapAction(item)
-                expect(sheet.didDismiss).to(equal(0))
+                expect(sheet.dismissInvokeCount).to(equal(0))
             }
         }
         
