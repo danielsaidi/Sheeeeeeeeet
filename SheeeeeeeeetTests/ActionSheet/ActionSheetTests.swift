@@ -31,7 +31,7 @@ class ActionSheetTests: QuickSpec {
     
     override func spec() {
         
-        func actionSheet(with items: [ActionSheetItem]) -> ActionSheetTestClass {
+        func actionSheet(withItems items: [ActionSheetItem]) -> ActionSheetTestClass {
             return ActionSheetTestClass(items: items, action: { _, _ in })
         }
         
@@ -53,7 +53,7 @@ class ActionSheetTests: QuickSpec {
                 let item1 = ActionSheetItem(title: "foo")
                 let item2 = ActionSheetItem(title: "bar")
                 let items = [item1, item2]
-                let sheet = actionSheet(with: items)
+                let sheet = actionSheet(withItems: items)
                 
                 expect(sheet.items.count).to(equal(2))
                 expect(sheet.items.first!).to(be(item1))
@@ -64,8 +64,7 @@ class ActionSheetTests: QuickSpec {
                 let button = ActionSheetOkButton(title: "Sheeeeeeeeet!")
                 let item1 = ActionSheetItem(title: "foo")
                 let item2 = ActionSheetItem(title: "bar")
-                let items = [item1, item2, button]
-                let sheet = actionSheet(with: items)
+                let sheet = actionSheet(withItems: [item1, item2, button])
                 
                 expect(sheet.items.count).to(equal(2))
                 expect(sheet.items.first!).to(be(item1))
@@ -76,7 +75,7 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("applies default presenter if none is provided") {
-                let sheet = ActionSheetTestClass(items: [], action: { _, _ in })
+                let sheet = actionSheet(withItems: [])
                 expect(sheet.presenter).toNot(beNil())
             }
             
@@ -92,6 +91,13 @@ class ActionSheetTests: QuickSpec {
                 sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
             }
+            
+            it("applies copy of standard appearance") {
+                let sheet = actionSheet(withItems: [])
+                let appearance = sheet.appearance
+                let standard = ActionSheetAppearance.standard
+                expect(appearance.sectionMargin.height).to(equal(standard.sectionMargin.height))
+            }
         }
         
         
@@ -100,7 +106,7 @@ class ActionSheetTests: QuickSpec {
         describe("setup") {
             
             it("makes view background clear") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 sheet.view.backgroundColor = .red
                 sheet.setup()
                 expect(sheet.view.backgroundColor).to(equal(UIColor.clear))
@@ -113,31 +119,9 @@ class ActionSheetTests: QuickSpec {
         describe("laying out subviews") {
             
             it("prepares for presentation") {
-                let sheet = ActionSheetTestClass(items: [], action: { _, _ in })
+                let sheet = actionSheet(withItems: [])
                 sheet.viewDidLayoutSubviews()
                 expect(sheet.didPrepareForPresentation).to(equal(1))
-            }
-        }
-        
-        
-        // MARK: - Dependencies
-        
-        describe("appearance") {
-            
-            it("copies standard appearance when lazily created") {
-                let sheet = actionSheet(with: [])
-                let appearance = sheet.appearance
-                let standard = ActionSheetAppearance.standard
-                expect(appearance.sectionMargin.height).to(equal(standard.sectionMargin.height))
-            }
-            
-            it("does not copy standard appearance when manually set") {
-                let sheet = actionSheet(with: [])
-                let newApperance = ActionSheetAppearance()
-                newApperance.sectionMargin.height = 121214
-                sheet.appearance = newApperance
-                let appearance = sheet.appearance
-                expect(appearance.sectionMargin.height).to(equal(newApperance.sectionMargin.height))
             }
         }
         
@@ -148,7 +132,7 @@ class ActionSheetTests: QuickSpec {
             
             it("can be manually set") {
                 var counter = 0
-                let sheet = ActionSheetTestClass(items: []) { _, _ in }
+                let sheet = actionSheet(withItems: [])
                 sheet.itemSelectAction = { _, _  in counter += 1 }
                 sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
@@ -184,28 +168,6 @@ class ActionSheetTests: QuickSpec {
         }
         
         
-        // MARK: - Item Properties
-        
-        describe("setting items") {
-            
-            it("separates items into items and buttons") {
-                let button = ActionSheetOkButton(title: "Sheeeeeeeeet!")
-                let item1 = ActionSheetItem(title: "foo")
-                let item2 = ActionSheetItem(title: "bar")
-                let items = [item1, item2, button]
-                let sheet = actionSheet(with: [])
-                sheet.setupItemsAndButtons(with: items)
-                
-                expect(sheet.items.count).to(equal(2))
-                expect(sheet.items.first!).to(be(item1))
-                expect(sheet.items.last!).to(be(item2))
-                
-                expect(sheet.buttons.count).to(equal(1))
-                expect(sheet.buttons.first!).to(be(button))
-            }
-        }
-        
-        
         // MARK: - Properties
         
         describe("buttons section height") {
@@ -216,12 +178,12 @@ class ActionSheetTests: QuickSpec {
             let item2 = ActionSheetItem(title: "bar")
             
             it("is zero if sheet has no buttons") {
-                let sheet = actionSheet(with: [item1, item2])
+                let sheet = actionSheet(withItems: [item1, item2])
                 expect(sheet.buttonsSectionHeight).to(equal(0))
             }
             
             it("has correct value if sheet has buttons") {
-                let sheet = actionSheet(with: [item1, item2, ok, cancel])
+                let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
                 expect(sheet.buttonsSectionHeight).to(equal(50))
             }
@@ -235,12 +197,12 @@ class ActionSheetTests: QuickSpec {
             let item2 = ActionSheetItem(title: "bar")
             
             it("is zero if sheet has no buttons") {
-                let sheet = actionSheet(with: [item1, item2])
+                let sheet = actionSheet(withItems: [item1, item2])
                 expect(sheet.buttonsViewHeight).to(equal(0))
             }
             
             it("has correct value if sheet has buttons") {
-                let sheet = actionSheet(with: [item1, item2, ok, cancel])
+                let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
                 expect(sheet.buttonsViewHeight).to(equal(50))
             }
@@ -256,7 +218,7 @@ class ActionSheetTests: QuickSpec {
             context("with only items") {
                 
                 beforeEach {
-                    sheet = actionSheet(with: [title, item1, item2])
+                    sheet = actionSheet(withItems: [title, item1, item2])
                     sheet.prepareForPresentation()
                 }
                 
@@ -268,7 +230,7 @@ class ActionSheetTests: QuickSpec {
             context("with header") {
                 
                 beforeEach {
-                    sheet = actionSheet(with: [title, item1, item2])
+                    sheet = actionSheet(withItems: [title, item1, item2])
                     sheet.headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                     sheet.prepareForPresentation()
                 }
@@ -281,7 +243,7 @@ class ActionSheetTests: QuickSpec {
             context("with buttons") {
                 
                 beforeEach {
-                    sheet = actionSheet(with: [title, item1, item2, button])
+                    sheet = actionSheet(withItems: [title, item1, item2, button])
                     sheet.prepareForPresentation()
                 }
                 
@@ -293,7 +255,7 @@ class ActionSheetTests: QuickSpec {
             context("with header and buttons") {
                 
                 beforeEach {
-                    sheet = actionSheet(with: [title, item1, item2, button])
+                    sheet = actionSheet(withItems: [title, item1, item2, button])
                     sheet.headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                     sheet.prepareForPresentation()
                 }
@@ -307,7 +269,7 @@ class ActionSheetTests: QuickSpec {
         describe("content width") {
             
             it("uses preferred content size width") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 sheet.preferredContentSize.width = 123
                 expect(sheet.contentWidth).to(equal(123))
             }
@@ -316,12 +278,12 @@ class ActionSheetTests: QuickSpec {
         describe("header total height") {
             
             it("is zero of sheet has no header view") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 expect(sheet.headerSectionHeight).to(equal(0))
             }
             
             it("has correct value if sheet has header view") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                 sheet.headerView = view
                 expect(sheet.headerSectionHeight).to(equal(110))
@@ -331,13 +293,13 @@ class ActionSheetTests: QuickSpec {
         describe("header height") {
             
             it("is zero of sheet has no header view") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 sheet.prepareForPresentation()
                 expect(sheet.headerViewHeight).to(equal(0))
             }
             
             it("has correct value if sheet has header view") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                 sheet.headerView = view
                 expect(sheet.headerViewHeight).to(equal(100))
@@ -352,12 +314,12 @@ class ActionSheetTests: QuickSpec {
             let item2 = ActionSheetItem(title: "bar")
             
             it("is zero if sheet has no items") {
-                let sheet = actionSheet(with: [ok, cancel])
+                let sheet = actionSheet(withItems: [ok, cancel])
                 expect(sheet.itemsSectionHeight).to(equal(0))
             }
             
             it("has correct value if sheet has items") {
-                let sheet = actionSheet(with: [item1, item2, ok, cancel])
+                let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
                 expect(sheet.itemsSectionHeight).to(equal(110))
             }
@@ -371,12 +333,12 @@ class ActionSheetTests: QuickSpec {
             let item2 = ActionSheetItem(title: "bar")
             
             it("is zero if sheet has no items") {
-                let sheet = actionSheet(with: [ok, cancel])
+                let sheet = actionSheet(withItems: [ok, cancel])
                 expect(sheet.itemsViewHeight).to(equal(0))
             }
             
             it("has correct value if sheet has items") {
-                let sheet = actionSheet(with: [item1, item2, ok, cancel])
+                let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
                 sheet.prepareForPresentation()
                 expect(sheet.itemsViewHeight).to(equal(100))
             }
@@ -388,7 +350,7 @@ class ActionSheetTests: QuickSpec {
                 let item1 = ActionSheetItem(title: "foo")
                 let item2 = ActionSheetItem(title: "bar")
                 let items = [item1, item2]
-                let sheet = actionSheet(with: items)
+                let sheet = actionSheet(withItems: items)
                 sheet.preferredContentSize = CGSize(width: 10, height: 20)
                 
                 expect(sheet.preferredContentSize.height).to(equal(100))
@@ -401,7 +363,7 @@ class ActionSheetTests: QuickSpec {
             let item2 = ActionSheetItem(title: "bar")
             
             beforeEach {
-                sheet = actionSheet(with: [item1, item2])
+                sheet = actionSheet(withItems: [item1, item2])
             }
             
             it("uses appearance width") {
@@ -420,7 +382,7 @@ class ActionSheetTests: QuickSpec {
         describe("buttons view") {
             
             it("is lazily created") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 let view = sheet.buttonsView
                 expect(view.dataSource).to(be(sheet.buttonHandler))
                 expect(view.delegate).to(be(sheet.buttonHandler))
@@ -431,14 +393,14 @@ class ActionSheetTests: QuickSpec {
         describe("header view") {
             
             it("adds header view to action sheet view") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                 sheet.headerView = header
                 expect(header.superview).to(be(sheet.view))
             }
             
             it("removes previous header view from superview") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 let header1 = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                 let header2 = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
                 sheet.headerView = header1
@@ -451,7 +413,7 @@ class ActionSheetTests: QuickSpec {
         describe("items view") {
             
             it("is lazily created") {
-                let sheet = actionSheet(with: [])
+                let sheet = actionSheet(withItems: [])
                 let view = sheet.itemsView
                 expect(view.dataSource).to(be(sheet.itemHandler))
                 expect(view.delegate).to(be(sheet.itemHandler))
@@ -460,7 +422,25 @@ class ActionSheetTests: QuickSpec {
         }
         
         
-        // MARK: - Presentation Functions
+        // MARK: - Public Functions
         
+        describe("setting up items and buttons with item array") {
+            
+            it("separates items into items and buttons") {
+                let button = ActionSheetOkButton(title: "Sheeeeeeeeet!")
+                let item1 = ActionSheetItem(title: "foo")
+                let item2 = ActionSheetItem(title: "bar")
+                let items = [item1, item2, button]
+                let sheet = actionSheet(withItems: [])
+                sheet.setupItemsAndButtons(with: items)
+                
+                expect(sheet.items.count).to(equal(2))
+                expect(sheet.items.first!).to(be(item1))
+                expect(sheet.items.last!).to(be(item2))
+                
+                expect(sheet.buttons.count).to(equal(1))
+                expect(sheet.buttons.first!).to(be(button))
+            }
+        }
     }
 }

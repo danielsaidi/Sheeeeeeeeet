@@ -87,9 +87,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Dependencies
     
-    open lazy var appearance: ActionSheetAppearance = {
-        return ActionSheetAppearance(copy: .standard)
-    }()
+    open var appearance = ActionSheetAppearance(copy: .standard)
     
     open var presenter: ActionSheetPresenter
     
