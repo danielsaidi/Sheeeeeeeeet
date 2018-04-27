@@ -120,7 +120,6 @@
 		45EB3FDC1FC856D200EF555E /* ActionSheetPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */; };
 		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
-		45F969DD1FD1411D00292F28 /* ActionSheetPopPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F969DC1FD1411D00292F28 /* ActionSheetPopPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,7 +283,6 @@
 		45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenter.swift; sourceTree = "<group>"; };
 		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverApperance.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
-		45F969DC1FD1411D00292F28 /* ActionSheetPopPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +415,6 @@
 				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
 				4537E8581FD167590007501C /* ActionSheetPresenterBase.swift */,
 				456EAA0D1FCC13A400A719ED /* ActionSheetDefaultPresenter.swift */,
-				45F969DC1FD1411D00292F28 /* ActionSheetPopPresenter.swift */,
 				45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */,
 			);
 			path = Presenters;
@@ -458,7 +455,6 @@
 			children = (
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
 				453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */,
-				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
 				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
 				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
 			);
@@ -632,6 +628,7 @@
 		459DA1B820568E4500644490 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
 				1D428925204039B4005D4369 /* ActionSheetCollectionItemCell.swift */,
 				1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */,
 				459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */,
@@ -891,7 +888,6 @@
 				1D428929204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift in Sources */,
 				454093C62060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift in Sources */,
 				1D428917203F2235005D4369 /* (null) in Sources */,
-				45F969DD1FD1411D00292F28 /* ActionSheetPopPresenter.swift in Sources */,
 				456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */,
 				456EAA4C1FCCB13000A719ED /* ActionSheetSectionMargin.swift in Sources */,
 				45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */,
