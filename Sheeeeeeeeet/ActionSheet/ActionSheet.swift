@@ -37,10 +37,6 @@
  `appearance` property. To change the appearance of a single
  item, use it's `appearance` property.
  
- IMPORTANT: Remember to always keep a strong reference to an
- action sheet, otherwise the action sheet may be deallocated
- while the view is still presented in a crippled state.
- 
  */
 
 import UIKit
