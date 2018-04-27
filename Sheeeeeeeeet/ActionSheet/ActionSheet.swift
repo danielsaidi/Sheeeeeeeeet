@@ -120,11 +120,8 @@ open class ActionSheet: UIViewController {
     // MARK: - Properties
     
     open var availableItemHeight: CGFloat {
-        let screen = UIScreen.main.bounds.height
-        let margins = margin(at: .top) + margin(at: .bottom)
-        let inset = appearance.contentInset
-        let sections = headerSectionHeight + buttonsSectionHeight
-        return screen - margins - sections - inset
+        let height = UIScreen.main.bounds.height
+        return availableItemHeight(forScreenHeight: height)
     }
     
     open var bottomPresentationFrame: CGRect {
@@ -257,6 +254,13 @@ open class ActionSheet: UIViewController {
     
     
     // MARK: - Public Functions
+    
+    open func availableItemHeight(forScreenHeight height: CGFloat) -> CGFloat {
+        let margins = margin(at: .top) + margin(at: .bottom)
+        let inset = appearance.contentInset
+        let sections = headerSectionHeight + buttonsSectionHeight
+        return height - margins - sections - inset
+    }
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
         let fallback = appearance.contentInset

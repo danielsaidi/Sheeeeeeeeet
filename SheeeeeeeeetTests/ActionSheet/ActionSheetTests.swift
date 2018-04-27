@@ -118,7 +118,7 @@ class ActionSheetTests: QuickSpec {
         
         describe("item select action") {
             
-            it("can be manually set") {
+            it("can be overwritten") {
                 var counter = 0
                 let sheet = actionSheet(withItems: [])
                 sheet.itemSelectAction = { _, _  in counter += 1 }
@@ -134,6 +134,14 @@ class ActionSheetTests: QuickSpec {
             beforeEach {
                 counter = 0
                 sheet = MockActionSheet(items: []) { _, _  in counter += 1 }
+            }
+            
+            it("can be overwritten") {
+                var counter = 0
+                let sheet = actionSheet(withItems: [])
+                sheet.itemTapAction = { _  in counter += 1 }
+                sheet.itemTapAction(ActionSheetItem(title: "foo"))
+                expect(counter).to(equal(1))
             }
             
             it("triggers select action") {
@@ -157,6 +165,11 @@ class ActionSheetTests: QuickSpec {
         
         
         // MARK: - Properties
+        
+        describe("available item height") {
+            
+            
+        }
         
         describe("buttons section height") {
             
