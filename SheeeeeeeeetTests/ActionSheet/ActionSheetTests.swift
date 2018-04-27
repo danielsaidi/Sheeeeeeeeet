@@ -171,7 +171,7 @@ class ActionSheetTests: QuickSpec {
             
             func getReducedHeight(for sheet: ActionSheet) -> CGFloat {
                 let screenHeight = UIScreen.main.bounds.height
-                let margins = sheet.margin(at: .top) + sheet.margin(at: .bottom)
+                let margins = 2 * sheet.margin(at: .top) + sheet.margin(at: .bottom)
                 let availableHeight = screenHeight - margins
                 return availableHeight - sheet.availableItemHeight
             }
@@ -181,13 +181,6 @@ class ActionSheetTests: QuickSpec {
                 sheet.appearance.contentInset = 0
                 let height = getReducedHeight(for: sheet)
                 expect(height).to(equal(0))
-            }
-            
-            it("removes twice the content inset size") {
-                let sheet = actionSheet(withItems: [])
-                sheet.appearance.contentInset = 10
-                let height = getReducedHeight(for: sheet)
-                expect(height).to(equal(20))
             }
             
             it("removes header view size") {

@@ -121,9 +121,8 @@ open class ActionSheet: UIViewController {
     
     open var availableItemHeight: CGFloat {
         return UIScreen.main.bounds.height
-            - margin(at: .top)
+            - 2 * margin(at: .top)
             - margin(at: .bottom)
-            - 2 * appearance.contentInset
             - headerSectionHeight
             - buttonsSectionHeight
     }
