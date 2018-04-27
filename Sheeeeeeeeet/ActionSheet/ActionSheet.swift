@@ -56,7 +56,7 @@ open class ActionSheet: UIViewController {
     
     public init(
         items: [ActionSheetItem],
-        presenter: ActionSheetPresenter = ActionSheetDefaultPresenter(),
+        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping ActionSheetItemSelectAction) {
         super.init(nibName: nil, bundle: nil)
         setupItemsAndButtons(with: items)
