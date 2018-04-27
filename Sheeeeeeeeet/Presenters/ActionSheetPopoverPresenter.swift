@@ -30,6 +30,8 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Initialization
     
+    public override init() { }
+    
     deinit { print("\(type(of: self)) deinit") }
     
     
@@ -126,7 +128,7 @@ fileprivate extension ActionSheetPopoverPresenter {
     func subscribeToNotifications() {
         unsubscribeFromNotifications()
         let action = #selector(applicationWillClose)
-        let notifications = [Notification.Name.UIApplicationWillResignActive, Notification.Name.UIApplicationWillTerminate]
+        let notifications: [Notification.Name] = [.UIApplicationWillResignActive, .UIApplicationWillTerminate]
         notifications.forEach {
             notificationCenter.addObserver(self, selector: action, name: $0, object: nil)
         }

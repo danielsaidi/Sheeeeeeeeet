@@ -1,12 +1,15 @@
 # Release Notes
 
-Sheeeeeeeeet may have breaking changes in minor versions and revisions, until it
-reaches 1.0.0.
+Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
 ## 0.9.0
 
-This version has some breaking changes:
+The new `isDismissableWithTapOnBackground` presenter property can be used to set
+whether or not an action sheet can be dismissed by tapping on the background. It
+is true by default for all presenters.
+
+This version also has some breaking changes:
 
 * I have made `ActionSheetSelectItem` private, to enforce using single and multi
   select items. This makes the api much clearer.

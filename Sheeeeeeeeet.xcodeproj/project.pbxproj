@@ -47,6 +47,8 @@
 		453C047D1FC161B70028FA02 /* UIView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C047C1FC161B70028FA02 /* UIView+Empty.swift */; };
 		453C04821FC16A370028FA02 /* ActionSheetTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */; };
 		453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */; };
+		453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C796E2093189700DE42B5 /* ActionSheet+PresenterTests.swift */; };
+		453C797120931BAC00DE42B5 /* ActionSheet+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */; };
 		454093C62060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */; };
 		454EDC5E205BBC5F008E4311 /* SingleSelectActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */; };
 		454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EDC61205BBE75008E4311 /* LinkActionSheet.swift */; };
@@ -202,6 +204,8 @@
 		453C047C1FC161B70028FA02 /* UIView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Empty.swift"; sourceTree = "<group>"; };
 		453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleAppearance.swift; sourceTree = "<group>"; };
 		453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleAppearance.swift; sourceTree = "<group>"; };
+		453C796E2093189700DE42B5 /* ActionSheet+PresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+PresenterTests.swift"; sourceTree = "<group>"; };
+		453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Presenter.swift"; sourceTree = "<group>"; };
 		454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItemAppearance.swift; sourceTree = "<group>"; };
 		454093C7206018B90079F29D /* RELEASENOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = RELEASENOTES.md; sourceTree = "<group>"; };
 		454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectActionSheet.swift; sourceTree = "<group>"; };
@@ -359,10 +363,7 @@
 		453C04231FC0655C0028FA02 /* Sheeeeeeeeet */ = {
 			isa = PBXGroup;
 			children = (
-				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
-				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
-				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
-				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
+				453C797220931BFB00DE42B5 /* ActionSheet */,
 				453C04801FC16A220028FA02 /* Appearance */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
@@ -450,6 +451,27 @@
 				455DEE32206F682F00173E67 /* Titles */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		453C797220931BFB00DE42B5 /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
+				453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */,
+				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
+				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
+			);
+			path = ActionSheet;
+			sourceTree = "<group>";
+		};
+		453C797320931C1300DE42B5 /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
+				453C796E2093189700DE42B5 /* ActionSheet+PresenterTests.swift */,
+			);
+			path = ActionSheet;
 			sourceTree = "<group>";
 		};
 		455DEE2A206E115900173E67 /* Presenters */ = {
@@ -599,7 +621,7 @@
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
-				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
+				453C797320931C1300DE42B5 /* ActionSheet */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				45352D572030BBC900A0F890 /* Items */,
 				455DEE2A206E115900173E67 /* Presenters */,
@@ -863,6 +885,7 @@
 				456EA9FF1FCB10A900A719ED /* ActionSheetLinkItem.swift in Sources */,
 				455DEE36206F705000173E67 /* ActionSheetMultiSelectItemAppearance.swift in Sources */,
 				4531B7EA203E3373001CE86B /* ActionSheetMargin.swift in Sources */,
+				453C797120931BAC00DE42B5 /* ActionSheet+Presenter.swift in Sources */,
 				1D42891F20400580005D4369 /* (null) in Sources */,
 				45EB3FD01FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift in Sources */,
 				1D428929204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift in Sources */,
@@ -944,6 +967,7 @@
 				459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */,
 				45352D692030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift in Sources */,
 				45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */,
+				453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */,
 				45352D652030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift in Sources */,
 				455DEE3A206F71B500173E67 /* ActionSheetMultiSelectItemTests.swift in Sources */,
 				45352D672030BC0E00A0F890 /* ActionSheetItemTests.swift in Sources */,
