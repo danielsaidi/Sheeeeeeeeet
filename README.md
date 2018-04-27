@@ -20,11 +20,7 @@ to your app as well.
 
 Sheeeeeeeeet can be designed to look just like normal UIKit action sheets or way
 different. You can apply a global appearance to all action sheets, then override
-that global style with individual styles for each action sheet and item.
-
-Sheeeeeeeeet action sheets can be peeked & popped on all devices that support 3D
-touch, with a long press gesture fallback for unsupported devices. You can setup
-Sheeeeeeeeet to peek just the header view or the full sheet.
+that global style with individual styles for each action sheet.
 
 By the end of this `README.md`, this project will have you saying [Sheeeeeeeeet][SheeeeeeeeetRef]!
 
@@ -85,11 +81,11 @@ func createStandardActionSheet() -> ActionSheet {
 
 In a larger app, you'll probably want to use your own domain model. Any model is
 a valid item `value`, which means that you can always get the raw item value for
-any item in a sheet.
+any tapped item in a sheet.
 
 To present an action sheet, you just have to call the `present` function as such:
 
-```
+```swift
 actionSheet.present(in: self, from: sourceView)
 ```
 
@@ -108,25 +104,22 @@ item class that best suits your needs.
 
 Items are used to present options. Sheeeeeeeeet comes with these built-in types:
 
-* [Standard Item][ActionSheetItem] - Standard, tappable items that dismiss the action sheet
-* [Select Item][ActionSheetSelectItem] - Standard items with an additional `isSelected` state
-* [Single-Select Item][ActionSheetSingleSelectItem] - Single-select items that deselec all other single-select items in the same group
-* [Multi-Select Item][ActionSheetMultiSelectItem] - Multi-select items that don't dismiss the action sheet
-* [Multi-Select Toggle Item][ActionSheetMultiSelectToggleItem] - Header items that selects/deselects all multi-select items in the same group
-* [Collection Item][ActionSheetCollectionItem] - Super-flexible items that contain an embedded collection view
+* [Standard Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped
+* [Single-Select Item][ActionSheetSingleSelectItem] - Deselects all other single-select items in the same group and dismisses the sheet
+* [Multi-Select Item][ActionSheetMultiSelectItem] - Doesn't deselect other select items and doesn't dismiss the sheet
+* [Multi-Select Toggle Item][ActionSheetMultiSelectToggleItem] - Selects/deselects all multi-select items in the same group
+* [Collection Item][ActionSheetCollectionItem] - A super-flexible item with an embedded collection view
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
 The standard item corresponds to a default `UIKit` action sheet action. It has a
 title and an image and serve as the base class for all other item types. It uses
 `.dismiss` as `tapBehavior`, which means that it dismisses the action sheet when
-it is tapped.
+it is tapped. All other items inherit this standard item type and its appearance.
+They can then be individually styled.
 
-All other items inherit the standard item type and its appearance. They can then
-be individually styled.
-
-Single and multi-select items use `.none` as `tapBehavior`. This means that they
-will NOT dismiss the action sheet when tapped. Instead, you should use them with
-a submit/ok and (probably) a cancel button.
+Change the value of the `tapBehavior` property to change how items behave when a
+user taps them. For instance, if you want single-select items to not dismiss the
+sheet when they are tapped, set their tap behavor to `.none`.
 
 ### Buttons
 
@@ -170,19 +163,6 @@ then be individually styled without affecting the global style.
 
 Have a look at the demo application to see how global and individual styling can
 be setup. It's really easy.
-
-
-## Peek and pop
-
-Sheeeeeeeeet supports peek & pop on 3D Touch devices, with a long press fallback
-on devices without 3D Touch. To enable peek and pop for any view controller that
-implements `ActionSheetPeekSource` just create a strong `ActionSheetPeekHandler`
-instance and provide it with a source view, from where peeks originate. This can
-e.g. be a collection or table view. The peek handler uses this view to determine
-the correct 3D touched frame.
-
-If you want to use 3D touch, but not the long press fallback, you can disable it
-by setting `longPressFallback` to `false` when creating the peek handler.
 
 
 ## Contact me

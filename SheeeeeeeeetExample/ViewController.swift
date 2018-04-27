@@ -29,13 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DemoAppearance.apply()
-        setupPreviewHandling(with: .sheet)
     }
     
     
     // MARK: - Properties
-    
-    var actionSheetPeekHandler: ActionSheetPeekHandler?
     
     var foodOptions: [FoodOption] {
         return [.fast, .light, .homeMade, .fancy, .none]
@@ -43,16 +40,13 @@ class ViewController: UIViewController {
     
     var tableViewOptions: [TableViewOption] = [
         .standard,
-        .select,
         .singleSelect,
         .multiSelect,
         .links,
         .headerView,
         .sections,
-        .collections,
+        .collections
         .danger,
-        .peekPopSheet,
-        .peekPopHeader,
         .standardNonDismissable
     ]
     
@@ -81,7 +75,6 @@ extension ViewController {
         case .links: return LinkActionSheet(options: options, action: alert)
         case .multiSelect: return MultiSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .sections: return SectionActionSheet(options: options, action: alert)
-        case .select: return SelectActionSheet(options: options, preselected: .fancy, action: alert)
         case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .standard: return StandardActionSheet(options: options, action: alert)
         case .standardNonDismissable:
@@ -90,23 +83,5 @@ extension ViewController {
             return sheet
         default: return nil
         }
-    }
-    
-    func handleNonSheetOption(_ option: TableViewOption) {
-        switch option {
-        case .peekPopHeader: setupPreviewHandling(with: .header)
-        case .peekPopSheet: setupPreviewHandling(with: .sheet)
-        default: break
-        }
-        alert(option: option)
-    }
-    
-    func setupPreviewHandling(with peekBehavior: ActionSheetPeekBehavior) {
-        guard let view = tableView else { return }
-        actionSheetPeekHandler = ActionSheetPeekHandler(
-            in: self,
-            peekSource: self,
-            sourceView: view,
-            peekBehavior: peekBehavior)
     }
 }

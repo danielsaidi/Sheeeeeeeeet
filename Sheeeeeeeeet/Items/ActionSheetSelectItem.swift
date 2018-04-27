@@ -13,27 +13,29 @@
  this type has an `isSelected` state, a selected icon and an
  extended appearance.
  
- Use this class when you prefer the default `ActionSheetItem`
- item behavior but also want to highlight currently selected
- items in a sheet. A select items, by default, dismisses the
- action sheet when it's tapped, much like the base item.
+ This item type is not meant to be used directly. However, a
+ `selectItem` appearance property is still available, if you
+ want to style single and multiselect items the same way.
  
- You can also use any of the subclasses instead of this type:
+ Instead of this type, you should use any of its subclasses:
  
- * `ActionSheetSingleSelectItem` automatically deselects any
- other single select items in the same group. This means you
- don't have to implement this behavior.
- * `ActionSheetMultiSelectItem` can be used together with an
- `ActionSheetMultiSelectToggleItem`, which can automatically
- select/deselect all multi select items in the same group.
+ * `ActionSheetSingleSelectItem` should be used whenever the
+ user should only be able to select a single item in a sheet.
+ Single select items automatically deselect all other single
+ select items in the same group when tapped, which means you
+ can use many groups in the same sheet. A single select item
+ by default dismisses the action sheet when it is tapped. To
+ change this behavior, set `tapBehavior` to `.none`.
  
- The subclasses also have their own extended appearances, so
- you can customize them. These appearances inherit this base
- appearance, however.
- 
- The `group` property is not used by this item, although you
- can use it in your custom code. It is, however, used by the
- single select item and the multi select item toggler.
+ * `ActionSheetMultiSelectItem` should be used when the user
+ should be able to select one or several items in a sheet. A
+ multiselect item will not affect any other select items. It
+ can also be used with an `ActionSheetMultiSelectToggleItem`,
+ which can automatically toggle the selection state of every
+ multiselect item in the same group. A multiselect item does
+ not dismiss the sheet, since the user will most probably be
+ in a context, where any changes made in the sheet should be
+ applied with an OK button. See the example app.
  
  */
 
@@ -44,7 +46,7 @@ open class ActionSheetSelectItem: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
+    init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
         self.isSelected = isSelected
         self.group = group
         super.init(title: title, value: value, image: image)

@@ -23,14 +23,6 @@ extension ViewController {
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     
-    func alert(option: TableViewOption) {
-        guard
-            let title = option.alertTitle,
-            let message = option.alertMessage
-            else { return }
-        alert(title: title, message: message)
-    }
-    
     func alert(title: String?, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)

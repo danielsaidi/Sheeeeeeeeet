@@ -2,7 +2,7 @@
 //  ActionSheetMultiSelectToggleItem.swift
 //  Sheeeeeeeeet
 //
-//  Created by Saidi Daniel (BookBeat) on 2018-03-31.
+//  Created by Daniel Saidi on 2018-03-31.
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
