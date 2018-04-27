@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         .links,
         .headerView,
         .sections,
-        .collections
+        .collections,
         .danger,
         .standardNonDismissable
     ]
@@ -79,9 +79,8 @@ extension ViewController {
         case .standard: return StandardActionSheet(options: options, action: alert)
         case .standardNonDismissable:
             let sheet = StandardActionSheet(options: options, action: alert)
-            sheet.presenter.isDismissableWithTap = false
+            sheet.presenter.isDismissableWithTapOnBackground = false
             return sheet
-        default: return nil
         }
     }
 }

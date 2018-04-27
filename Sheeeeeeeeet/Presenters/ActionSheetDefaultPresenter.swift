@@ -22,15 +22,6 @@ import UIKit
 
 open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
     
-    override open var isDismissableWithTap: Bool {
-        get {
-            return super.isDismissableWithTap
-        }
-        set {
-            iPadPresenter?.isDismissableWithTap = newValue
-            super.isDismissableWithTap = newValue
-        }
-    }
     
     // MARK: - Initialization
     
@@ -53,6 +44,16 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
     // MARK: - Properties
     
     public var backgroundColor = UIColor.black.withAlphaComponent(0.4)
+    
+    override open var isDismissableWithTapOnBackground: Bool {
+        get {
+            return super.isDismissableWithTapOnBackground
+        }
+        set {
+            iPadPresenter?.isDismissableWithTapOnBackground = newValue
+            super.isDismissableWithTapOnBackground = newValue
+        }
+    }
     
     fileprivate var shouldUseiPadPresenter: Bool {
         let ipad = UIDevice.current.userInterfaceIdiom == .pad

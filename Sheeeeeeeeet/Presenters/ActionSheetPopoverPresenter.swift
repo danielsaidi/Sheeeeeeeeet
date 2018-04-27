@@ -35,7 +35,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Properties
     
-    public var isDismissableWithTap = true
+    public var isDismissableWithTapOnBackground = true
     
     public fileprivate(set) var actionSheetView: UIView?
     
@@ -77,8 +77,9 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 }
 
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
+    
     public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        return isDismissableWithTap
+        return isDismissableWithTapOnBackground
     }
 }
 

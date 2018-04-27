@@ -12,12 +12,12 @@
  action sheets in different ways, e.g. with a default bottom
  slide, showing a popover from the tapped view etc.
  
- When implementing this presenter protocol, `present` is the
- standard way of presenting action sheets, e.g. after button
- taps, while `dismiss` is the standard (and so far only) way
- of dismissing them. `pop` can be used to specify how sheets
- should be presented after a peek (a peek could be happening
- on any view controller, not just the sheet).
+ When implementing this protocol, `present(in:from:)` is the
+ standard way to present an action sheet, while `dismiss` is
+ the standard way to dismiss it.
+ 
+ `isDismissableWithTapOnBackground` is used to specify if an
+ action sheet can be dismissed by tapping on the background.
  
  */
 
@@ -25,7 +25,7 @@ import Foundation
 
 public protocol ActionSheetPresenter: class {
     
-    var isDismissableWithTap: Bool { get set }
+    var isDismissableWithTapOnBackground: Bool { get set }
     
     func dismiss(completion: @escaping () -> ())
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
