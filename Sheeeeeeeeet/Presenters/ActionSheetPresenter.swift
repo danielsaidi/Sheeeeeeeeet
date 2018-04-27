@@ -25,6 +25,8 @@ import Foundation
 
 public protocol ActionSheetPresenter: class {
     
+    var isDismissableWithTap: Bool { get set }
+    
     func dismiss(completion: @escaping () -> ())
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem)

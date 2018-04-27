@@ -21,6 +21,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     
     // MARK: - Properties
     
+    open var isDismissableWithTap = true
     open var actionSheet: ActionSheet?
     open var actionSheetView: UIView?
     open var backgroundView: UIView?
@@ -69,7 +70,7 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     
     open func addDismissTap(to view: UIView) {
         view.isUserInteractionEnabled = true
-        let action = #selector(dismissActionSheet)
+        let action = #selector(dismissTapAction)
         let tap = UITapGestureRecognizer(target: self, action: action)
         view.addGestureRecognizer(tap)
     }
@@ -118,6 +119,12 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
         let animation = { view.alpha = 0 }
         animate(animation) { view.removeFromSuperview() }
     }
+    
+    open func dismissActionSheet() {
+        actionSheet = nil
+        removeActionSheetView()
+        removeBackgroundView()
+    }
 }
 
 
@@ -125,9 +132,9 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
 
 @objc public extension ActionSheetPresenterBase {
     
-    public func dismissActionSheet() {
-        actionSheet = nil
-        removeActionSheetView()
-        removeBackgroundView()
+    public func dismissTapAction() {
+        guard isDismissableWithTap else { return }
+        dismissActionSheet()
     }
+    
 }

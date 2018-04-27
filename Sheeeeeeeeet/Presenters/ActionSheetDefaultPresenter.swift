@@ -22,6 +22,15 @@ import UIKit
 
 open class ActionSheetDefaultPresenter: ActionSheetPresenterBase {
     
+    override open var isDismissableWithTap: Bool {
+        get {
+            return super.isDismissableWithTap
+        }
+        set {
+            iPadPresenter?.isDismissableWithTap = newValue
+            super.isDismissableWithTap = newValue
+        }
+    }
     
     // MARK: - Initialization
     
