@@ -49,7 +49,7 @@ class ActionSheetTests: QuickSpec {
         
         describe("creating an action sheet") {
             
-            it("applies the provided items") {
+            it("applies provided items") {
                 let item1 = ActionSheetItem(title: "foo")
                 let item2 = ActionSheetItem(title: "bar")
                 let items = [item1, item2]
@@ -60,7 +60,7 @@ class ActionSheetTests: QuickSpec {
                 expect(sheet.items.last!).to(be(item2))
             }
             
-            it("separates items into items and buttons") {
+            it("separates provided items and buttons") {
                 let button = ActionSheetOkButton(title: "Sheeeeeeeeet!")
                 let item1 = ActionSheetItem(title: "foo")
                 let item2 = ActionSheetItem(title: "bar")
@@ -75,13 +75,18 @@ class ActionSheetTests: QuickSpec {
                 expect(sheet.buttons.first!).to(be(button))
             }
             
-            it("applies the provided presenter") {
+            it("applies default presenter if none is provided") {
+                let sheet = ActionSheetTestClass(items: [], action: { _, _ in })
+                expect(sheet.presenter).toNot(beNil())
+            }
+            
+            it("applies provided presenter") {
                 let presenter = ActionSheetPopoverPresenter()
                 let sheet = ActionSheetTestClass(items: [], presenter: presenter, action: { _, _ in })
                 expect(sheet.presenter).to(be(presenter))
             }
             
-            it("applies the provided action") {
+            it("applies provided action") {
                 var counter = 0
                 let sheet = ActionSheetTestClass(items: []) { _, _  in counter += 1 }
                 sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))

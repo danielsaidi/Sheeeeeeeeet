@@ -54,14 +54,15 @@ open class ActionSheet: UIViewController {
         items: [ActionSheetItem],
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping ActionSheetItemSelectAction) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         setupItemsAndButtons(with: items)
-        self.presenter = presenter
         self.itemSelectAction = action
         setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
+        self.presenter = ActionSheet.defaultPresenter
         super.init(coder: aDecoder)
         setup()
     }
@@ -90,9 +91,7 @@ open class ActionSheet: UIViewController {
         return ActionSheetAppearance(copy: .standard)
     }()
     
-    open lazy var presenter: ActionSheetPresenter = {
-        return ActionSheetDefaultPresenter()
-    }()
+    open var presenter: ActionSheetPresenter
     
     
     // MARK: - Actions
