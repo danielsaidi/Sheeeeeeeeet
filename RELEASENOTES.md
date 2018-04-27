@@ -5,27 +5,53 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 
 ## 0.9.0
 
+`ActionSheetDefaultPresenter` used to contain an embedded iPad presenter. I have
+never been happy with this design, and have now redesigned this setup. I removed
+the embedded presenter, merged `ActionSheetDefaultPresenter` with the base class
+and now let the action sheet initializer resolve which default presenter to use.
+
+I have felt a little lost in how to use the various select items, especially now
+when Sheeeeeeeeet has select items, single-select items and multiselect items. I
+initially designed the select item to be a regular item, that could indicate its
+selected state. However, this behaved strange when another item became selected, 
+since the initially selected item was not deselected. After introducing this new
+item set, with single-select items and multiselect items, I have come to realize
+that the base class is probably not a good stand-alone class and have decided to
+make it private, to enforce using either of the two subclasses.
+
 The new `isDismissableWithTapOnBackground` presenter property can be used to set
 whether or not an action sheet can be dismissed by tapping on the background. It
 is true by default for all presenters.
 
-This version also has some breaking changes:
+### Bug fixes:
 
-* I have made `ActionSheetSelectItem` private, to enforce using single and multi
-  select items. This makes the api much clearer.
+* `ActionSheetPopoverPresenter` did not release its action sheet whenever a user
+  tapped on the background, causing a memory leak. This is fixed.
 
-* I have chosen to remove the peek/pop features, since the implementation is not
-  that good and it feels strange to peek and pop an action sheet. I hope that no
-  one actually used this stuff (especially since it looked horrible). You can of
-  course still use Sheeeeeeeeeet with peek and pop, but now you have to write it
-  yourself...which is really easy to do.
+### Breaking changes:
+
+* `ActionSheetDefaultPresenter` no longer have an embedded `iPadPresenter`. This
+  is no longer needed, since the action sheet resolves the default presenter for
+  the current device.
+
+* `ActionSheetPresenterBase` has been removed and is now fully incorporated with
+  the `ActionSheetDefaultPresenter` class.
+
+* `ActionSheetSelectItem`s initializer has been made library internal to enforce
+  using single and multi select items instead. This makes the api much clearer.
+
+* I have chosen to remove the `peek & pop` features, since the implementation is
+  so-so and it feels strange to peek and pop an action sheet. I hope that no one
+  actually used this feature (since it looked horrible from 0.8, for some reason).
+  You can still use Sheeeeeeeeeet with peek and pop, since the action sheets are
+  regular view controllers, but you have to write the logic yourself.
+
 
 
 ## 0.8.1
 
 The color properties in `ActionSheetSelectItemAppearance` have been renamed. The
-change is small, but if you have customized these values in your app, the change
-will be breaking and require you to use the new property names.
+change is small, but the change  breaking and require you to use the new property names.
 
 
 
