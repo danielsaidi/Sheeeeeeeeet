@@ -120,8 +120,12 @@ open class ActionSheet: UIViewController {
     // MARK: - Properties
     
     open var availableItemHeight: CGFloat {
-        let height = UIScreen.main.bounds.height
-        return availableItemHeight(forScreenHeight: height)
+        return UIScreen.main.bounds.height
+            - margin(at: .top)
+            - margin(at: .bottom)
+            - 2 * appearance.contentInset
+            - headerSectionHeight
+            - buttonsSectionHeight
     }
     
     open var bottomPresentationFrame: CGRect {
@@ -153,13 +157,13 @@ open class ActionSheet: UIViewController {
         return super.preferredContentSize.width
     }
     
-    open var headerViewHeight: CGFloat {
-        return headerView?.frame.height ?? 0
-    }
-    
     open var headerSectionHeight: CGFloat {
         guard headerViewHeight > 0 else { return 0 }
         return headerViewHeight + appearance.contentInset
+    }
+    
+    open var headerViewHeight: CGFloat {
+        return headerView?.frame.height ?? 0
     }
     
     open var itemsSectionHeight: CGFloat {
@@ -220,13 +224,9 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Data Properties
     
-    public lazy var buttonHandler: ActionSheetItemHandler = {
-        return ActionSheetItemHandler(actionSheet: self, handles: .buttons)
-    }()
+    public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
     
-    public lazy var itemHandler: ActionSheetItemHandler = {
-        return ActionSheetItemHandler(actionSheet: self, handles: .items)
-    }()
+    public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
 
     
     // MARK: - Presentation Functions
@@ -254,13 +254,6 @@ open class ActionSheet: UIViewController {
     
     
     // MARK: - Public Functions
-    
-    open func availableItemHeight(forScreenHeight height: CGFloat) -> CGFloat {
-        let margins = margin(at: .top) + margin(at: .bottom)
-        let inset = appearance.contentInset
-        let sections = headerSectionHeight + buttonsSectionHeight
-        return height - margins - sections - inset
-    }
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
         let fallback = appearance.contentInset

@@ -8,7 +8,6 @@ class MockActionSheet: ActionSheet {
     
     override func dismiss(completion: @escaping () -> ()) {
         super.dismiss { completion() }
-        completion()
         dismissInvokeCount += 1
     }
     

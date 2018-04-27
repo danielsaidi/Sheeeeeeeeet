@@ -109,6 +109,7 @@
 		45CF8FAD205BB42900F01A3F /* MultiSelectActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF8FAC205BB42900F01A3F /* MultiSelectActionSheet.swift */; };
 		45CF8FAF205BB55800F01A3F /* FoodOption+ActionSheetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF8FAE205BB55800F01A3F /* FoodOption+ActionSheetItems.swift */; };
 		45D008D320934E3300F1C099 /* MockActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D008D220934E3300F1C099 /* MockActionSheet.swift */; };
+		45D008D520936AFC00F1C099 /* MockActionSheetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D008D420936AFC00F1C099 /* MockActionSheetPresenter.swift */; };
 		45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */; };
 		45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */; };
 		45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */; };
@@ -272,6 +273,7 @@
 		45CF8FAC205BB42900F01A3F /* MultiSelectActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectActionSheet.swift; sourceTree = "<group>"; };
 		45CF8FAE205BB55800F01A3F /* FoodOption+ActionSheetItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FoodOption+ActionSheetItems.swift"; sourceTree = "<group>"; };
 		45D008D220934E3300F1C099 /* MockActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActionSheet.swift; sourceTree = "<group>"; };
+		45D008D420936AFC00F1C099 /* MockActionSheetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActionSheetPresenter.swift; sourceTree = "<group>"; };
 		45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemAppearance.swift; sourceTree = "<group>"; };
 		45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemAppearance.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				455DEE2B206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift */,
+				45D008D420936AFC00F1C099 /* MockActionSheetPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -964,6 +967,7 @@
 				45352D692030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift in Sources */,
 				45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */,
 				453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */,
+				45D008D520936AFC00F1C099 /* MockActionSheetPresenter.swift in Sources */,
 				45352D652030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift in Sources */,
 				455DEE3A206F71B500173E67 /* ActionSheetMultiSelectItemTests.swift in Sources */,
 				45352D672030BC0E00A0F890 /* ActionSheetItemTests.swift in Sources */,

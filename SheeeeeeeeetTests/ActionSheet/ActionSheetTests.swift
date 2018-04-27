@@ -19,6 +19,7 @@ class ActionSheetTests: QuickSpec {
         }
         
         var sheet: MockActionSheet!
+        var presenter: MockActionSheetPresenter!
         
         beforeEach {
             ActionSheetAppearance.standard.item.height = 50
@@ -168,7 +169,48 @@ class ActionSheetTests: QuickSpec {
         
         describe("available item height") {
             
+            func getReducedHeight(for sheet: ActionSheet) -> CGFloat {
+                let screenHeight = UIScreen.main.bounds.height
+                let margins = sheet.margin(at: .top) + sheet.margin(at: .bottom)
+                let availableHeight = screenHeight - margins
+                return availableHeight - sheet.availableItemHeight
+            }
             
+            it("uses all available space if sheet takes up no other space") {
+                let sheet = actionSheet(withItems: [])
+                sheet.appearance.contentInset = 0
+                let height = getReducedHeight(for: sheet)
+                expect(height).to(equal(0))
+            }
+            
+            it("removes twice the content inset size") {
+                let sheet = actionSheet(withItems: [])
+                sheet.appearance.contentInset = 10
+                let height = getReducedHeight(for: sheet)
+                expect(height).to(equal(20))
+            }
+            
+            it("removes header view size") {
+                let sheet = actionSheet(withItems: [])
+                sheet.appearance.contentInset = 0
+                sheet.headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+                let height = getReducedHeight(for: sheet)
+                expect(height).to(equal(100))
+            }
+            
+            it("removes button total size") {
+                let item = ActionSheetOkButton(title: "")
+                let sheet = actionSheet(withItems: [item, item])
+                sheet.appearance.contentInset = 0
+                sheet.appearance.okButton.height = 40
+                sheet.prepareForPresentation()
+                let height = getReducedHeight(for: sheet)
+                expect(height).to(equal(80))
+            }
+        }
+        
+        describe("bottom presentation frame") {
+            // TODO: Write unit tests
         }
         
         describe("buttons section height") {
@@ -276,7 +318,7 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
-        describe("header total height") {
+        describe("header section height") {
             
             it("is zero of sheet has no header view") {
                 let sheet = actionSheet(withItems: [])
@@ -291,7 +333,7 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
-        describe("header height") {
+        describe("header view height") {
             
             it("is zero of sheet has no header view") {
                 let sheet = actionSheet(withItems: [])
@@ -307,7 +349,7 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
-        describe("items total height") {
+        describe("items section height") {
             
             let ok = ActionSheetOkButton(title: "OK")
             let cancel = ActionSheetCancelButton(title: "Cancel")
@@ -393,21 +435,24 @@ class ActionSheetTests: QuickSpec {
         
         describe("header view") {
             
-            it("adds header view to action sheet view") {
-                let sheet = actionSheet(withItems: [])
-                let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-                sheet.headerView = header
-                expect(header.superview).to(be(sheet.view))
-            }
-            
-            it("removes previous header view from superview") {
-                let sheet = actionSheet(withItems: [])
-                let header1 = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-                let header2 = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-                sheet.headerView = header1
-                sheet.headerView = header2
-                expect(header1.superview).to(beNil())
-                expect(header2.superview).to(be(sheet.view))
+            describe("when set") {
+                
+                it("adds header view to action sheet view") {
+                    let sheet = actionSheet(withItems: [])
+                    let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+                    sheet.headerView = header
+                    expect(header.superview).to(be(sheet.view))
+                }
+                
+                it("removes previous header view from superview") {
+                    let sheet = actionSheet(withItems: [])
+                    let header1 = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+                    let header2 = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+                    sheet.headerView = header1
+                    sheet.headerView = header2
+                    expect(header1.superview).to(beNil())
+                    expect(header2.superview).to(be(sheet.view))
+                }
             }
         }
         
@@ -423,7 +468,95 @@ class ActionSheetTests: QuickSpec {
         }
         
         
+        // MARK: - Presentation Function
+        
+        describe("dismissing sheet") {
+            
+            beforeEach {
+                sheet = actionSheet(withItems: [])
+                presenter = MockActionSheetPresenter()
+                sheet.presenter = presenter
+            }
+            
+            it("calls presenter with completion") {
+                var count = 0
+                let completion: () -> () = { count += 1 }
+                sheet.dismiss(completion: completion)
+                presenter.dismissInvokeCompletions.first!()
+                expect(presenter.dismissInvokeCount).to(equal(1))
+                expect(count).to(equal(1))
+            }
+        }
+        
+        describe("presenting from view") {
+            
+            beforeEach {
+                sheet = actionSheet(withItems: [])
+                presenter = MockActionSheetPresenter()
+                sheet.presenter = presenter
+            }
+            
+            it("prepares for presentation") {
+                sheet.present(in: UIViewController(), from: UIView())
+                expect(sheet.prepareForPresentationInvokeCount).to(equal(1))
+            }
+            
+            it("calls presenter with values and completion") {
+                let vc = UIViewController()
+                let view = UIView()
+                sheet.present(in: vc, from: view)
+                expect(presenter.presentInvokeCount).to(equal(1))
+                expect(presenter.presentInvokeViewControllers.first!).to(be(vc))
+                expect(presenter.presentInvokeViews.first!).to(be(view))
+            }
+        }
+        
+        describe("presenting from bar button item") {
+            
+            beforeEach {
+                sheet = actionSheet(withItems: [])
+                presenter = MockActionSheetPresenter()
+                sheet.presenter = presenter
+            }
+            
+            it("prepares for presentation") {
+                sheet.present(in: UIViewController(), from: UIView())
+                expect(sheet.prepareForPresentationInvokeCount).to(equal(1))
+            }
+            
+            it("calls presenter with values and completion") {
+                let vc = UIViewController()
+                let item = UIBarButtonItem()
+                sheet.present(in: vc, from: item)
+                expect(presenter.presentInvokeCount).to(equal(1))
+                expect(presenter.presentInvokeViewControllers.first!).to(be(vc))
+                expect(presenter.presentInvokeTabBarItems.first!).to(be(item))
+            }
+        }
+        
+        
         // MARK: - Public Functions
+        
+        describe("item at index path") {
+            
+            it("returns correct item") {
+                let item1 = ActionSheetItem(title: "")
+                let item2 = ActionSheetItem(title: "")
+                let item3 = ActionSheetItem(title: "")
+                sheet = actionSheet(withItems: [item1, item2, item3])
+                let index = IndexPath(row: 1, section: 0)
+                expect(sheet.item(at: index)).to(be(item2))
+            }
+            
+            it("looks in adjusted item collection") {
+                let item1 = ActionSheetItem(title: "")
+                let item2 = ActionSheetOkButton(title: "")
+                let item3 = ActionSheetItem(title: "")
+                sheet = actionSheet(withItems: [item1, item2, item3])
+                let index = IndexPath(row: 1, section: 0)
+                expect(sheet.item(at: index)).to(be(item3))
+            }
+        }
         
         describe("setting up items and buttons with item array") {
             
