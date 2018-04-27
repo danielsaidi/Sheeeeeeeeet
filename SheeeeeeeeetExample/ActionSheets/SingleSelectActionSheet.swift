@@ -12,7 +12,7 @@ class SingleSelectActionSheet: ActionSheet {
     
     init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
         let items = SingleSelectActionSheet.items(for: options, preselected: preselected)
-        super.init(items: items + items) { sheet, item in
+        super.init(items: items) { sheet, item in
             guard item is ActionSheetOkButton else { return }
             let selectItems = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
             let selectedItems = selectItems.filter { $0.isSelected }
