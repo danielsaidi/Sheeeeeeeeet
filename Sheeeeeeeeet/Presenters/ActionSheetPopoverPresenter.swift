@@ -81,7 +81,8 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     
     public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        return isDismissableWithTapOnBackground
+        if isDismissableWithTapOnBackground { dismiss {}}
+        return false
     }
 }
 
