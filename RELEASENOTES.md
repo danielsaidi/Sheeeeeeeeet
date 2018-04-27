@@ -3,7 +3,7 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
-## 0.9.0
+## [0.9.0](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/6?closed=1)
 
 `ActionSheetDefaultPresenter` used to contain an embedded iPad presenter. I have
 never been happy with this design, and have now redesigned this setup. I removed
@@ -48,14 +48,30 @@ is true by default for all presenters.
 
 
 
+## [0.8.4](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/5?closed=1)
+
+Sheeeeeeeeet now has a new `ActionSheetMultiSelectToggleItem` item, which can be
+used to select and deselect all multiselect items in the same group.
+
+
+
+## [0.8.3](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/4?closed=1)
+
+In this version, no cancel buttons will be displayed in popover presented action
+sheets, since the convention is to dismiss a popover by tapping anywhere outside
+the popover callout view.
+
+
+
 ## 0.8.1
 
 The color properties in `ActionSheetSelectItemAppearance` have been renamed. The
-change is small, but the change  breaking and require you to use the new property names.
+change is small, but the change will be breaking if you have used the properties
+to customize your action sheet appearances.
 
 
 
-## 0.8.0
+## [0.8.0](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/3?closed=1)
 
 Breaking changes! The toggle item has been a strange part of Sheeeeeeeeet. It is
 basically a select item with individual styling, which is easy to customize with
