@@ -17,18 +17,19 @@ import Sheeeeeeeeet
 
 extension ActionSheet {
     
-    static var standardTitle: String { return "What do you want to eat?" }
-
-    
-    static func createCancelButton() -> ActionSheetCancelButton {
+    static var cancelButton: ActionSheetCancelButton {
         return ActionSheetCancelButton(title: "Cancel")
     }
     
-    static func createOkButton() -> ActionSheetOkButton {
+    static var okButton: ActionSheetOkButton {
         return ActionSheetOkButton(title: "OK")
     }
     
-    static func createTitleItem(title: String) -> ActionSheetTitle {
+    static var standardTitle: String {
+        return "What do you want to eat?"
+    }
+    
+    static func titleItem(title: String) -> ActionSheetTitle {
         return ActionSheetTitle(title: title)
     }
 }

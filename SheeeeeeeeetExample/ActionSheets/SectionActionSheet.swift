@@ -27,7 +27,7 @@ fileprivate extension SectionActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
-        items.append(createTitleItem(title: standardTitle))
+        items.append(titleItem(title: standardTitle))
         items.append(ActionSheetSectionTitle(title: "Cheap"))
         let cheap = options.filter { $0.isCheap }.map { $0.item() }
         cheap.forEach { items.append($0) }
@@ -35,7 +35,7 @@ fileprivate extension SectionActionSheet {
         items.append(ActionSheetSectionTitle(title: "Expensive"))
         let expensive = options.filter { !$0.isCheap }.map { $0.item() }
         expensive.forEach { items.append($0) }
-        items.append(createCancelButton())
+        items.append(cancelButton)
         return items
     }
 }

@@ -19,7 +19,7 @@ import Sheeeeeeeeet
 class CollectionActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([MyCollectionViewCell.Item]) -> ()) {
-        let collectionItems = CollectionActionSheet.collectionItems()
+        let collectionItems = CollectionActionSheet.collectionItems
         super.init(items: []) { _, item in
             guard item is ActionSheetOkButton else { return }
             action(collectionItems.filter { $0.isSelected })
@@ -35,8 +35,12 @@ class CollectionActionSheet: ActionSheet {
 
 fileprivate extension CollectionActionSheet {
     
-    func selectionSubtitle(for collectionItems: [MyCollectionViewCell.Item]) -> String {
-        return "Selected items: \(collectionItems.filter { $0.isSelected }.count)"
+    static var collectionItems: [MyCollectionViewCell.Item] {
+        var items: [MyCollectionViewCell.Item] = []
+        for i in 0...20 {
+            items.append(MyCollectionViewCell.Item(title: "\(i)", subtitle: "\(i)"))
+        }
+        return items
     }
     
     func items(for options: [FoodOption], collectionItems: [MyCollectionViewCell.Item]) -> [ActionSheetItem] {
@@ -67,15 +71,11 @@ fileprivate extension CollectionActionSheet {
             title,
             ActionSheetSectionMargin(),
             collectionItem,
-            ActionSheet.createOkButton(),
-            ActionSheet.createCancelButton()]
+            ActionSheet.okButton,
+            ActionSheet.cancelButton]
     }
     
-    static func collectionItems() -> [MyCollectionViewCell.Item] {
-        var items: [MyCollectionViewCell.Item] = []
-        for i in 0...20 {
-            items.append(MyCollectionViewCell.Item(title: "\(i)", subtitle: "\(i)"))
-        }
-        return items
+    func selectionSubtitle(for collectionItems: [MyCollectionViewCell.Item]) -> String {
+        return "Selected items: \(collectionItems.filter { $0.isSelected }.count)"
     }
 }

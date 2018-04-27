@@ -29,12 +29,12 @@ fileprivate extension SingleSelectActionSheet {
     
     static func items(for options: [FoodOption], preselected: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
-        items.append(createTitleItem(title: standardTitle))
+        items.append(titleItem(title: standardTitle))
         items.append(contentsOf: itemsGroup(for: options, preselected: .fast, group: "Appetizer"))
         items.append(ActionSheetSectionMargin())
         items.append(contentsOf: itemsGroup(for: options, preselected: .homeMade, group: "Main Dish"))
-        items.append(createOkButton())
-        items.append(createCancelButton())
+        items.append(okButton)
+        items.append(cancelButton)
         return items
     }
     

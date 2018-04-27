@@ -41,6 +41,6 @@ fileprivate extension DestructiveActionSheet {
         let masterTitle = "MasterCard **** **** **** 9876"
         let master = ActionSheetMultiSelectItem(title: masterTitle, isSelected: false, value: "master", image: image)
         let removeButton = ActionSheetDangerButton(title: "Remove")
-        return [titleItem, visa, master, createCancelButton(), removeButton]
+        return [titleItem, visa, master, cancelButton, removeButton]
     }
 }

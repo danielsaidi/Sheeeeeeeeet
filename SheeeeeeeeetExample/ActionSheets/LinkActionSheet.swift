@@ -27,8 +27,8 @@ fileprivate extension LinkActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         var items = options.map { $0.linkItem() }
-        items.insert(createTitleItem(title: standardTitle), at: 0)
-        items.append(createCancelButton())
+        items.insert(titleItem(title: standardTitle), at: 0)
+        items.append(cancelButton)
         return items
     }
 }
