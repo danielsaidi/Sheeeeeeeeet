@@ -3,6 +3,15 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## [0.9.1](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/6?closed=1)
+
+This version contains minor updates and minor breaking changes in internal logic.
+
+* The `ActionSheet` `appearance` and `presenter` properties are not lazy anymore.
+  Their initial values are set in a different way as well. `itemSelectAction` is
+  now set differently by the two initializers.
+
+
 ## [0.9.0](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/6?closed=1)
 
 `ActionSheetDefaultPresenter` used to contain an embedded iPad presenter. I have

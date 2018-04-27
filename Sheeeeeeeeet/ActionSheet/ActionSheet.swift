@@ -37,6 +37,14 @@
  `appearance` property. To change the appearance of a single
  item, use it's `appearance` property.
  
+ `ActionSheet` has two actions that are triggered by tapping
+ an item. `itemTapAction` is used by the sheet itself when a
+ tap occurs on an item. You can override this if you want to,
+ but you don't have to. `itemSelectAction`, however, must be
+ set to detect when an item is selected after a tap. This is
+ the main item action to observe, and the action you provide
+ in the initializer.
+ 
  */
 
 import UIKit
@@ -55,14 +63,15 @@ open class ActionSheet: UIViewController {
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping ActionSheetItemSelectAction) {
         self.presenter = presenter
+        itemSelectAction = action
         super.init(nibName: nil, bundle: nil)
         setupItemsAndButtons(with: items)
-        self.itemSelectAction = action
         setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        self.presenter = ActionSheet.defaultPresenter
+        presenter = ActionSheet.defaultPresenter
+        itemSelectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
         setup()
     }
@@ -94,17 +103,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Actions
     
-    open lazy var itemSelectAction: ActionSheetItemSelectAction = {
-        return { [weak self] sheet, item in
-            print("ActionSheet.itemSelectAction not set")
-        }
-    }()
+    open var itemSelectAction: ActionSheetItemSelectAction
     
-    open lazy var itemTapAction: ActionSheetItemTapAction = {
-        return { [weak self] item in
-            self?.handleTap(on: item)
-        }
-    }()
+    open lazy var itemTapAction: ActionSheetItemTapAction = { [weak self] item in
+        self?.handleTap(on: item)
+    }
     
     
     // MARK: - Item Properties
@@ -112,12 +115,6 @@ open class ActionSheet: UIViewController {
     open var buttons = [ActionSheetButton]()
     
     open var items = [ActionSheetItem]()
-    
-    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
-        self.items = items.filter { !($0 is ActionSheetButton) }
-        buttons = items.flatMap { $0 as? ActionSheetButton }
-        reloadData()
-    }
     
     
     // MARK: - Properties
@@ -273,6 +270,12 @@ open class ActionSheet: UIViewController {
     open func reloadData() {
         itemsView.reloadData()
         buttonsView.reloadData()
+    }
+    
+    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
+        self.items = items.filter { !($0 is ActionSheetButton) }
+        buttons = items.flatMap { $0 as? ActionSheetButton }
+        reloadData()
     }
 }
 
