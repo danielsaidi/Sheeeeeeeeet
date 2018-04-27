@@ -49,6 +49,6 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         guard let sheet = actionSheet(at: indexPath) else { return }
-        sheet.present(in: self, from: cell)
+        sheet.present(in: self, from: cell.textLabel)
     }
 }
