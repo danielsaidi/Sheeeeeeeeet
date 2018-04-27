@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         .sections,
         .collections,
         .danger,
-        .standardNonDismissable
+        .nonDismissable
     ]
     
     
@@ -77,7 +77,7 @@ extension ViewController {
         case .sections: return SectionActionSheet(options: options, action: alert)
         case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
         case .standard: return StandardActionSheet(options: options, action: alert)
-        case .standardNonDismissable:
+        case .nonDismissable:
             let sheet = StandardActionSheet(options: options, action: alert)
             sheet.presenter.isDismissableWithTapOnBackground = false
             return sheet

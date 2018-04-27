@@ -18,23 +18,23 @@ enum TableViewOption {
     headerView,
     links,
     multiSelect,
+    nonDismissable,
     sections,
     singleSelect,
-    standard,
-    standardNonDismissable
+    standard
     
     
     var title: String {
         switch self {
-        case .collections: return "Collections"
+        case .collections: return "Collection items"
         case .danger: return "Destructive Action"
         case .headerView: return "Header View"
-        case .links: return "Links"
+        case .links: return "Link items"
         case .multiSelect: return "Multi-select items"
-        case .sections: return "Sections"
+        case .nonDismissable: return "Non-dismissable sheets"
+        case .sections: return "Section items"
         case .singleSelect: return "Single-select items"
         case .standard: return "Standard items"
-        case .standardNonDismissable: return "Standard items non-dismissable"
         }
     }
     
@@ -43,12 +43,12 @@ enum TableViewOption {
         case .collections: return "Show a sheet with horizontal collections items."
         case .danger: return "Show a sheet with a destructive action."
         case .headerView: return "Show a sheet with a custom header view."
-        case .links: return "Show a sheet with links."
+        case .links: return "Show a sheet with tappable links."
         case .multiSelect: return "Show a sheet where you can select multiple values."
+        case .nonDismissable: return "Show a sheet that cannot be dismissed by tapping outside the sheet."
         case .sections: return "Show a sheet where items are divided in sections."
         case .singleSelect: return "Show a sheet where you can select a single value."
         case .standard: return "Show a sheet where you can pick a single option."
-        case .standardNonDismissable: return "Same as tandard, but you cannot dismiss it with tap outside."
         }
     }
     
@@ -66,7 +66,7 @@ enum TableViewOption {
         case .sections: return "ic_sections"
         case .singleSelect: return "ic_checkmark"
         case .standard: return "ic_list"
-        case .standardNonDismissable: return "ic_list"
+        case .nonDismissable: return "ic_list"
         }
     }
 }
