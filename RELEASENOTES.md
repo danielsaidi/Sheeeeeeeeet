@@ -23,6 +23,14 @@ The new `isDismissableWithTapOnBackground` presenter property can be used to set
 whether or not an action sheet can be dismissed by tapping on the background. It
 is true by default for all presenters.
 
+### Improvements:
+
+* The demo app presents action sheets from the tapped cells. However, this means
+  that on iPad, the popover will not use the full available screen height, since
+  it will be displayed above or below the cell. I have changed this, so that the
+  action sheet is presented from the cell's text label instead, which causes the
+  action sheet to float above the cell and make use of the entire screen size.
+
 ### Bug fixes:
 
 * `ActionSheetPopoverPresenter` did not release its action sheet whenever a user
