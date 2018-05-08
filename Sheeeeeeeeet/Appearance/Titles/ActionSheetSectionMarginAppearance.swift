@@ -16,7 +16,7 @@ open class ActionSheetSectionMarginAppearance: ActionSheetItemAppearance {
     public init(height: CGFloat) {
         super.init()
         self.height = height
-        separatorInsets.right = .greatestFiniteMagnitude
+        separatorInsets.right = 100_000_000
     }
     
     public init(copy: ActionSheetSectionMarginAppearance) {

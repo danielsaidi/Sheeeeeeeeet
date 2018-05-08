@@ -17,10 +17,6 @@
  any header view as well as combine items and buttons into a
  single section.
  
- Since popovers cause flickering if they are still open when
- an app is resumed, this presenter will dismiss a sheet when
- the app resigns its active state or is terminated.
- 
  */
 
 import UIKit
@@ -103,7 +99,6 @@ fileprivate extension ActionSheetPopoverPresenter {
     
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         guard sheet.contentHeight > 0 else { return nil }
-        subscribeToNotifications()
         setupSheetForPopoverPresentation(sheet)
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController
@@ -124,18 +119,5 @@ fileprivate extension ActionSheetPopoverPresenter {
         sheet.buttons = []
         sheet.preferredContentSize = sheet.preferredPopoverSize
         sheet.view.backgroundColor = sheet.itemsView.backgroundColor
-    }
-    
-    func subscribeToNotifications() {
-        unsubscribeFromNotifications()
-        let action = #selector(applicationWillClose)
-        let notifications: [Notification.Name] = [.UIApplicationWillResignActive, .UIApplicationWillTerminate]
-        notifications.forEach {
-            notificationCenter.addObserver(self, selector: action, name: $0, object: nil)
-        }
-    }
-    
-    func unsubscribeFromNotifications() {
-        notificationCenter.removeObserver(self)
     }
 }

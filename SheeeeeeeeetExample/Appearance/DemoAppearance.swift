@@ -10,7 +10,7 @@ import UIKit
 import Sheeeeeeeeet
 
 class DemoAppearance: UIImageView {
-
+    
     static func apply() {
         
         let blue = UIColor(hex: 0x0FA2F5)
@@ -25,16 +25,18 @@ class DemoAppearance: UIImageView {
         
         let appearance = ActionSheetAppearance.standard
         
+        let separatorInsetHiddenValue: CGFloat = 100_000_000
+        
         appearance.item.font = UIFont(name: robotoRegular, size: 17)
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
         appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
         appearance.item.subtitleTextColor = blue
         
-        appearance.title.separatorInsets.right = .greatestFiniteMagnitude
+        appearance.title.separatorInsets.right = separatorInsetHiddenValue
         appearance.title.font = UIFont(name: robotoMedium, size: 15)
         
-        appearance.sectionTitle.separatorInsets.right = .greatestFiniteMagnitude
+        appearance.sectionTitle.separatorInsets.right = separatorInsetHiddenValue
         appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
         appearance.sectionTitle.height = 20
         
@@ -55,7 +57,7 @@ class DemoAppearance: UIImageView {
         appearance.multiSelectItem.selectedTextColor = blue
         appearance.multiSelectItem.selectedIconTintColor = green
         
-        appearance.multiSelectToggleItem.separatorInsets.right = .greatestFiniteMagnitude
+        appearance.multiSelectToggleItem.separatorInsets.right = separatorInsetHiddenValue
         appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
         appearance.multiSelectToggleItem.deselectAllTextColor = red
