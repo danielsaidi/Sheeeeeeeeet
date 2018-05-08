@@ -3,13 +3,33 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
-## [0.9.1](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/6?closed=1)
+## [0.9.2](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/8?closed=1)
+
+In this version, the `ActionSheetDefaultPresenter` initializer is finally public.
+I have forgot to do this for a couple of versions, which means that you have not
+been able to create custom instances of this class from within an app.
+
+This means that you can set the presenter to a `ActionSheetDefaultPresenter` for
+any action sheet, which means that even iPads can now get iPhone-styled sheets.
+
+
+
+## [0.9.1](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/7?closed=1)
 
 This version contains minor updates and minor breaking changes in internal logic.
 
 * The `ActionSheet` `appearance` and `presenter` properties are not lazy anymore.
   Their initial values are set in a different way as well. `itemSelectAction` is
   now set differently by the two initializers.
+
+* Popover action sheets on iPad caused a strange flickering effect, if they were
+  presented when the app was awaken from the background. @ullstrm found out that
+  it was caused by setting the separator inset to .greatestFiniteMagnitude in an
+  iPad popover. Really strange, but fixed by setting it to a laaaarge value.
+
+* Sheeeeeeeeet did handle the flickering bug by dismissing the popover sheets as
+  the app was sent to the background. This is no longer needed.
+
 
 
 ## [0.9.0](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/6?closed=1)
