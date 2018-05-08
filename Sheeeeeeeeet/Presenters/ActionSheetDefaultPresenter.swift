@@ -20,6 +20,8 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     // MARK: - Initialization
     
+    public init() {}
+    
     deinit { print("\(type(of: self)) deinit") }
     
     
