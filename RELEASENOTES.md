@@ -3,7 +3,14 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
-## [0.9.2](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/8?closed=1)
+## [0.9.3](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/8?closed=1)
+
+This fixes a crash that occured if the library was installed with CocoaPods. The
+podspec didn't include xibs, which caused the collection item to crash.
+
+
+
+## [0.9.2]
 
 In this version, the `ActionSheetDefaultPresenter` initializer is finally public.
 I have forgot to do this for a couple of versions, which means that you have not
