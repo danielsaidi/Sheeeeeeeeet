@@ -172,6 +172,7 @@
 		1D42892A20403A18005D4369 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		1D42892B20403A18005D4369 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		1D42892E20403A48005D4369 /* ActionSheetCollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCollectionItem.swift; sourceTree = "<group>"; };
+		4512AA0020BD4DB000AD1D66 /* Sheeeeeeeeet.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sheeeeeeeeet.podspec; sourceTree = "<group>"; };
 		4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMargin.swift; sourceTree = "<group>"; };
 		45352D582030BC0E00A0F890 /* ActionSheetButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTests.swift; sourceTree = "<group>"; };
 		45352D592030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleTests.swift; sourceTree = "<group>"; };
@@ -660,6 +661,7 @@
 				459DA1BB2056C14900644490 /* LICENSE */,
 				459DA1BE2056C14A00644490 /* README.md */,
 				454093C7206018B90079F29D /* RELEASENOTES.md */,
+				4512AA0020BD4DB000AD1D66 /* Sheeeeeeeeet.podspec */,
 			);
 			name = "Library Files";
 			sourceTree = "<group>";
