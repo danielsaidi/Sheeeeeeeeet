@@ -3,6 +3,14 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.9.4
+
+This version fixes a bug where all items with tap behavior `.none` did not get a
+highlight effect when they were tapped. Instead, title items set `selectionStyle`
+to `.none` for their cell.
+
+
+
 ## [0.9.3](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/8?closed=1)
 
 This fixes a crash that occured if the library was installed with CocoaPods. The
