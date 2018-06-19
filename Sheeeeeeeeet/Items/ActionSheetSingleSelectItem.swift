@@ -33,6 +33,7 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     }
     
     open override func handleTap(in actionSheet: ActionSheet?) {
+        super.handleTap(in: actionSheet)
         guard let sheet = actionSheet else { return }
         let items = sheet.items.flatMap { $0 as? ActionSheetSingleSelectItem }
         let deselectItems = items.filter { $0.group == group }

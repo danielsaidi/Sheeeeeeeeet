@@ -68,6 +68,7 @@ extension ActionSheetItemHandler: UITableViewDataSource {
 extension ActionSheetItemHandler: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard items.count > indexPath.row else { return }
         let item = items[indexPath.row]
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
