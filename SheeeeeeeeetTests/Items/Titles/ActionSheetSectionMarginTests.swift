@@ -23,12 +23,18 @@ class ActionSheetSectionMarginTests: QuickSpec {
                 expect(item.value).to(beNil())
                 expect(item.image).to(beNil())
             }
+            
+            it("applies non-provided values") {
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
+            }
         }
         
-        describe("tap behavior") {
+        describe("applying appearance to cell") {
             
-            it("is none") {
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
+            it("is correctly configures cell") {
+                let cell = UITableViewCell()
+                item.applyAppearance(to: cell)
+                expect(cell.selectionStyle).to(equal(UITableViewCellSelectionStyle.none))
             }
         }
     }

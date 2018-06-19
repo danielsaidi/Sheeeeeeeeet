@@ -37,4 +37,9 @@ open class ActionSheetSectionTitle: ActionSheetItem {
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = ActionSheetSectionTitleAppearance(copy: appearance.sectionTitle)
     }
+    
+    open override func applyAppearance(to cell: UITableViewCell) {
+        super.applyAppearance(to: cell)
+        cell.selectionStyle = .none
+    }
 }
