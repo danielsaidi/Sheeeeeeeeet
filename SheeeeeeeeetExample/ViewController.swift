@@ -24,14 +24,6 @@ import Sheeeeeeeeet
 class ViewController: UIViewController {
 
     
-    // MARK: - View Controller Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        DemoAppearance.apply()
-    }
-    
-    
     // MARK: - Properties
     
     var foodOptions: [FoodOption] {

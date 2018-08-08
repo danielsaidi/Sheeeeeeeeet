@@ -16,6 +16,7 @@ open class ActionSheetItemAppearance {
     public init() {}
     
     public init(copy: ActionSheetItemAppearance) {
+        backgroundColor = copy.backgroundColor
         font = copy.font
         height = copy.height
         separatorInsets = copy.separatorInsets
@@ -28,6 +29,7 @@ open class ActionSheetItemAppearance {
     
     // MARK: - Properties
     
+    public var backgroundColor: UIColor?
     public var font: UIFont?
     public var height: CGFloat = 50
     public var separatorInsets: UIEdgeInsets = .zero

@@ -3,6 +3,13 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.9.5
+
+This version adds a `backgroundColor` property to `ActionSheetItemAppearance`. I
+however want to emphasize that many appearance properties that can be controlled
+with the appearance classes, can also be setup using standard appearance proxies.
+
+
 ## 0.9.4
 
 This version fixes a bug where all items with tap behavior `.none` did not get a

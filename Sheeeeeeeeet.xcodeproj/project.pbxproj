@@ -103,7 +103,6 @@
 		459DA1B720568D9B00644490 /* ActionSheetCollectionItemContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */; };
 		459DA1C42056C4F900644490 /* ActionSheetSingleSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459DA1C32056C4F900644490 /* ActionSheetSingleSelectItem.swift */; };
 		459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459DA1C52056C6B400644490 /* ActionSheetSingleSelectItemTests.swift */; };
-		45A488E42028CD0500822C21 /* DemoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A488E32028CD0500822C21 /* DemoAppearance.swift */; };
 		45CF8FA7205BAE9800F01A3F /* StandardActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF8FA6205BAE9800F01A3F /* StandardActionSheet.swift */; };
 		45CF8FAB205BAF3100F01A3F /* ActionSheet+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF8FAA205BAF3100F01A3F /* ActionSheet+Items.swift */; };
 		45CF8FAD205BB42900F01A3F /* MultiSelectActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF8FAC205BB42900F01A3F /* MultiSelectActionSheet.swift */; };
@@ -268,7 +267,6 @@
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
 		459DA1C32056C4F900644490 /* ActionSheetSingleSelectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItem.swift; sourceTree = "<group>"; };
 		459DA1C52056C6B400644490 /* ActionSheetSingleSelectItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItemTests.swift; sourceTree = "<group>"; };
-		45A488E32028CD0500822C21 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		45CF8FA6205BAE9800F01A3F /* StandardActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardActionSheet.swift; sourceTree = "<group>"; };
 		45CF8FAA205BAF3100F01A3F /* ActionSheet+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Items.swift"; sourceTree = "<group>"; };
 		45CF8FAC205BB42900F01A3F /* MultiSelectActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectActionSheet.swift; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 			children = (
 				45CF8FA5205BAE3800F01A3F /* ActionSheets */,
 				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
-				45A488E22028CCE500822C21 /* Appearance */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
 				459DA1B92056A0AD00644490 /* Cells */,
 				456EAA421FCCA02E00A719ED /* Extensions */,
@@ -399,14 +396,9 @@
 		453C04731FC069940028FA02 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				1D42892E20403A48005D4369 /* ActionSheetCollectionItem.swift */,
 				45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */,
-				456EA9FE1FCB10A900A719ED /* ActionSheetLinkItem.swift */,
-				455DEE37206F70C400173E67 /* ActionSheetMultiSelectItem.swift */,
-				455DEE3B206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift */,
-				456EA9FA1FCAC9CC00A719ED /* ActionSheetSelectItem.swift */,
-				459DA1C32056C4F900644490 /* ActionSheetSingleSelectItem.swift */,
 				455DEE2D206F670200173E67 /* Buttons */,
+				45BE4FE2211AF2CC007B8D31 /* Items */,
 				455DEE2E206F671000173E67 /* Titles */,
 			);
 			path = Items;
@@ -666,12 +658,17 @@
 			name = "Library Files";
 			sourceTree = "<group>";
 		};
-		45A488E22028CCE500822C21 /* Appearance */ = {
+		45BE4FE2211AF2CC007B8D31 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				45A488E32028CD0500822C21 /* DemoAppearance.swift */,
+				1D42892E20403A48005D4369 /* ActionSheetCollectionItem.swift */,
+				456EA9FE1FCB10A900A719ED /* ActionSheetLinkItem.swift */,
+				455DEE37206F70C400173E67 /* ActionSheetMultiSelectItem.swift */,
+				455DEE3B206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift */,
+				456EA9FA1FCAC9CC00A719ED /* ActionSheetSelectItem.swift */,
+				459DA1C32056C4F900644490 /* ActionSheetSingleSelectItem.swift */,
 			);
-			path = Appearance;
+			path = Items;
 			sourceTree = "<group>";
 		};
 		45CF8FA5205BAE3800F01A3F /* ActionSheets */ = {
@@ -928,7 +925,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45A488E42028CD0500822C21 /* DemoAppearance.swift in Sources */,
 				456EAA441FCCA03700A719ED /* UIColor+Hex.swift in Sources */,
 				456203C1205BD00100A3E141 /* DestructiveActionSheet.swift in Sources */,
 				453C04621FC065AE0028FA02 /* ViewController.swift in Sources */,

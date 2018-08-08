@@ -68,6 +68,7 @@ open class ActionSheetItem: NSObject {
     }
     
     open func applyAppearance(to cell: UITableViewCell) {
+        cell.backgroundColor = appearance.backgroundColor
         cell.imageView?.image = image
         cell.textLabel?.text = title
         cell.selectionStyle = .default
