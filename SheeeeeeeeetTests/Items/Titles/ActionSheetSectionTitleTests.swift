@@ -26,7 +26,7 @@ class ActionSheetSectionTitleTests: QuickSpec {
             }
             
             it("applies non-provided values") {
-                expect(item.cellStyle).to(equal(UITableViewCellStyle.value1))
+                expect(item.cellStyle).to(equal(UITableViewCell.CellStyle.value1))
                 expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
             }
         }
@@ -36,7 +36,7 @@ class ActionSheetSectionTitleTests: QuickSpec {
             it("is correctly configures cell") {
                 let cell = UITableViewCell()
                 item.applyAppearance(to: cell)
-                expect(cell.selectionStyle).to(equal(UITableViewCellSelectionStyle.none))
+                expect(cell.selectionStyle).to(equal(UITableViewCell.SelectionStyle.none))
             }
         }
     }

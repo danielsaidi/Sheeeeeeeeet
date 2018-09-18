@@ -34,7 +34,7 @@ class ActionSheetSectionMarginTests: QuickSpec {
             it("is correctly configures cell") {
                 let cell = UITableViewCell()
                 item.applyAppearance(to: cell)
-                expect(cell.selectionStyle).to(equal(UITableViewCellSelectionStyle.none))
+                expect(cell.selectionStyle).to(equal(UITableViewCell.SelectionStyle.none))
             }
         }
     }

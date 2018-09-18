@@ -32,7 +32,7 @@ class ActionSheetMultiSelectToggleItemTests: QuickSpec {
         describe("cell style") {
             
             it("is value1") {
-                expect(getItem().cellStyle).to(equal(UITableViewCellStyle.value1))
+                expect(getItem().cellStyle).to(equal(UITableViewCell.CellStyle.value1))
             }
         }
         

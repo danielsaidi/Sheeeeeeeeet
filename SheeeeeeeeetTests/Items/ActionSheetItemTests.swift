@@ -28,7 +28,7 @@ class ActionSheetItemTests: QuickSpec {
         describe("cell style") {
             
             it("is default") {
-                expect(item.cellStyle).to(equal(UITableViewCellStyle.default))
+                expect(item.cellStyle).to(equal(UITableViewCell.CellStyle.default))
             }
         }
         
