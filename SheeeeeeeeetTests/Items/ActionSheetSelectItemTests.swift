@@ -59,7 +59,7 @@ class ActionSheetSelectItemTests: QuickSpec {
             it("does not affect other sheet items") {
                 let item = getItem(isSelected: true)
                 item.handleTap(in: sheet)
-                let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+                let items = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
                 expect(items.first!.isSelected).to(beTrue())
                 expect(items.last!.isSelected).to(beFalse())
             }

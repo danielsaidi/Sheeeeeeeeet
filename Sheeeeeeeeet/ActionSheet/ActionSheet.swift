@@ -270,7 +270,7 @@ open class ActionSheet: UIViewController {
     
     open func setupItemsAndButtons(with items: [ActionSheetItem]) {
         self.items = items.filter { !($0 is ActionSheetButton) }
-        buttons = items.flatMap { $0 as? ActionSheetButton }
+        buttons = items.compactMap { $0 as? ActionSheetButton }
         reloadData()
     }
 }

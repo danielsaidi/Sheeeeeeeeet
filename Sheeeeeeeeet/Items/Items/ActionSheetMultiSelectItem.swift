@@ -44,7 +44,7 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
     open override func handleTap(in actionSheet: ActionSheet?) {
         super.handleTap(in: actionSheet)
         guard let sheet = actionSheet else { return }
-        let toggleItems = sheet.items.flatMap { $0 as? ActionSheetMultiSelectToggleItem }
+        let toggleItems = sheet.items.compactMap { $0 as? ActionSheetMultiSelectToggleItem }
         let items = toggleItems.filter { $0.group == group }
         items.forEach { $0.updateState(for: sheet) }
     }

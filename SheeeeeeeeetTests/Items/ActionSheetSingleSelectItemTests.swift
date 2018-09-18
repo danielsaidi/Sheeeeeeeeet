@@ -72,7 +72,7 @@ class ActionSheetSingleSelectItemTests: QuickSpec {
             it("does not affect sheet items in other groups") {
                 let item = getItem(isSelected: false, group: "baz")
                 item.handleTap(in: sheet)
-                let items = sheet.items.flatMap { $0 as? ActionSheetSingleSelectItem }
+                let items = sheet.items.compactMap { $0 as? ActionSheetSingleSelectItem }
                 expect(items[0].isSelected).to(beTrue())
                 expect(items[1].isSelected).to(beFalse())
                 expect(items[2].isSelected).to(beTrue())

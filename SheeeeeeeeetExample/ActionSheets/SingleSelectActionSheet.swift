@@ -14,7 +14,7 @@ class SingleSelectActionSheet: ActionSheet {
         let items = SingleSelectActionSheet.items(for: options, preselected: preselected)
         super.init(items: items) { sheet, item in
             guard item is ActionSheetOkButton else { return }
-            let selectItems = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+            let selectItems = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
             let selectedItems = selectItems.filter { $0.isSelected }
             action(selectedItems)
         }

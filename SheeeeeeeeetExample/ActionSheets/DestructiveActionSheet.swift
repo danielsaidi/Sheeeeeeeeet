@@ -21,7 +21,7 @@ class DestructiveActionSheet: ActionSheet {
         let items = DestructiveActionSheet.items(for: options)
         super.init(items: items) { sheet, item in
             guard item is ActionSheetDangerButton else { return }
-            let items = sheet.items.flatMap { $0 as? ActionSheetSelectItem }
+            let items = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
             action(items.filter { $0.isSelected })
         }
     }
