@@ -3,6 +3,12 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.9.6
+
+This version migrates Sheeeeeeeeeet to Swift 4.2. You will need Xcode 10 to work
+with the source code from now on.
+
+
 ## 0.9.5
 
 This version adds a `backgroundColor` property to `ActionSheetItemAppearance`. I
