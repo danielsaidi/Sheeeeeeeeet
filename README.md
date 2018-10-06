@@ -2,9 +2,12 @@
     <img src ="Resources/Logo.png" width=400 />
 </p>
 
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
-[![GitHub version](https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg)](http://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet)
+[![Version](https://badge.fury.io/gh/danielsaidi%2FCarthage.svg?style=flat)](http://badge.fury.io/gh/danielsaidi%2FCarthage)
+[![Carthage](https://img.shields.io/badge/carthage-supported-green.svg?style=flat)](github)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Carthage.svg?style=flat)](pod)
+![Platform](https://img.shields.io/cocoapods/p/Carthage.svg?style=flat)
 [![Build Status](https://api.travis-ci.org/danielsaidi/Sheeeeeeeeet.svg)](https://travis-ci.org/danielsaidi/Sheeeeeeeeet)
+[![License](https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102)](https://github.com/ellerbrock/open-source-badge/)
 
 
 
@@ -18,34 +21,28 @@ to your app as well.
     <img src ="Resources/Demo.gif" />
 </p>
 
-Sheeeeeeeeet can be designed to look just like normal UIKit action sheets or way
-different. You can apply a global appearance to all action sheets, then override
-that global style with individual styles for each action sheet.
+Sheeeeeeeeet can be styled to look just like normal `UIKit` action sheets or way
+different. You can apply a global style and override it with an individual style
+for each action sheet.
 
 By the end of this `README.md`, this project will have you saying [Sheeeeeeeeet][SheeeeeeeeetRef]!
 
 
 ## Installation
 
-### CocoaPods
+### [CocoaPods](CocoaPods)
 
-Add this to your `Podfile`, run `pod install` then remember to use the generated
-workspace afterwards:
-
-```
+```ruby
 pod 'Sheeeeeeeeet'
 ```
 
-### Carthage
-
-Add this to your `Cartfile`, run `carthage update` then add the framework to the
-app from `Carthage/Build`:
+### [Carthage](Carthage)
 
 ```
 github "danielsaidi/Sheeeeeeeeet"
 ```
 
-### Manual
+### Manual installation
 
 To add `Sheeeeeeeeet` to your app without Carthage or CocoaPods, clone this repo
 and place it somewhere in your project folder. Then, add `Sheeeeeeeeet.xcodeproj`
@@ -55,8 +52,9 @@ embedded binary under `General` and as a target dependency under `Build Phases`.
 
 ## Example Application
 
-This repository contains an example application. Open the `Sheeeeeeeeet` project
-and run the `SheeeeeeeeetExample` target to try different types of action sheets.
+This repository contains an example app. Before you can run it, you must install 
+[Carthage](Carthage) (e.g. using `brew`) and run `carthage update --platform iOS`.
+You can then open the project and try out the different sheets and item types.
 
 
 ## Example Code
@@ -69,70 +67,69 @@ items, links etc.
 ```swift
 func createStandardActionSheet() -> ActionSheet {
     let title = ActionSheetTitle(title: "Select an option")
-    let item1 = ActionSheetItem(title: "Option 1", value: "1", image: image1)
-    let item2 = ActionSheetItem(title: "Option 2", value: "2", image: image2)
+    let item1 = ActionSheetItem(title: "Option 1", value: 1, image: image1)
+    let item2 = ActionSheetItem(title: "Option 2", value: Car(), image: image2)
     let button = ActionSheetOkButton(title: "OK")
-    return ActionSheet(items: items) { _, item in
-        guard let value = item.value as? String else { return }
-        // You now have the selected value, e.g. "1". The ok button uses `true`.
+    return ActionSheet(items: items) { sheet, item in
+        if let value = item.value as? Int { print("You selected the number 1") }
+        if let value = item.value as? Car { print("You selected a car") }
+        if item is ActionSheetOkButton { print("OK buttons has the value `true`") }
     }
 }
 ```
 
-In a larger app, you'll probably want to use your own domain model. Any model is
-a valid item `value`, which means that you can always get the raw item value for
-any tapped item in a sheet.
+In larger apps, you'll probably want to use your own domain model. All types are
+a valid item values, so you can pass in anything from ints and strings to custom
+types such as a `Date` or a `Car`.
 
 To present an action sheet, you just have to call the `present` function as such:
 
 ```swift
-actionSheet.present(in: self, from: sourceView)
+actionSheet.present(in: self, from: view)
 ```
 
-where `sourceView` will be used when the sheet is presented using a popover, e.g.
-on iPads. You can customize how a sheet is presented by replacing its `presenter`
-with another implementation.
+The from `view` parameter is used when a sheet is presented using a popover, e.g
+on iPads. You can customize how a sheet is presented by replacing its `presenter`.
 
 
 ## Action Sheet Components
 
-`Sheeeeeeeeet` comes with a large set of built-in components that can be used to
-compose flexible action sheets. To create your own custom items, just inherit an
-item class that best suits your needs.
+`Sheeeeeeeeet` contains a set of built-in components that can be used to compose
+flexible sheets. To create custom items, just subclass any of the built-in types.
 
 ### Items
 
-Items are used to present options. Sheeeeeeeeet comes with these built-in types:
+Action sheet items are used to present options. `Sheeeeeeeeet` has the following
+built-in item types:
 
-* [Standard Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped
-* [Single-Select Item][ActionSheetSingleSelectItem] - Deselects all other single-select items in the same group and dismisses the sheet
-* [Multi-Select Item][ActionSheetMultiSelectItem] - Doesn't deselect other select items and doesn't dismiss the sheet
+* [Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped
+* [Single-select item][ActionSheetSingleSelectItem] - Deselects all other single-select items in the same group and dismisses the sheet
+* [Multi-Select item][ActionSheetMultiSelectItem] - Doesn't deselect other items and doesn't dismiss the sheet
 * [Multi-Select Toggle Item][ActionSheetMultiSelectToggleItem] - Selects/deselects all multi-select items in the same group
-* [Collection Item][ActionSheetCollectionItem] - A super-flexible item with an embedded collection view
+* [Collection Item][ActionSheetCollectionItem] - A general, flexible item with an embedded collection view
 * [Link Item][ActionSheetLinkItem] - Navigation links
 
-The standard item corresponds to a default `UIKit` action sheet action. It has a
-title and an image and serve as the base class for all other item types. It uses
-`.dismiss` as `tapBehavior`, which means that it dismisses the action sheet when
-it is tapped. All other items inherit this standard item type and its appearance.
-They can then be individually styled.
+The standard item corresponds to a standard `UIKit` actionsheet action. It has a
+title, an optional subtitle and an image. It's the base class for all other item
+types, who also copies its standard appearance.
 
-Change the value of the `tapBehavior` property to change how items behave when a
-user taps them. For instance, if you want single-select items to not dismiss the
-sheet when they are tapped, set their tap behavor to `.none`.
+Each item type has a certain `tapBehavior`, which determines how it behaves when
+it is tapped. You can always change the value of this property to change how any
+item behaves. For instance, if you want a single-select item to not dismiss your
+action sheet, set the tap behavor to `.none`.
 
 ### Buttons
 
-Buttons are used to apply or discard the effect of an action sheet. Sheeeeeeeeet
-comes with these built-in types:
+Action sheet buttons are used to apply or discard the effects of an action sheet.
+`Sheeeeeeeeet` has the following built-in types:
 
-* [OK button][ActionSheetOkButton] - Standard OK button with a `true` value
-* [Cancel button][ActionSheetCancelButton] - Standard cancel button
-* [Danger button][ActionSheetDangerButton] - OK button with an alert style
+* [OK button][ActionSheetOkButton] - OK/apply button with a `true` value
+* [Cancel button][ActionSheetCancelButton] - Cancel button with a `nil` value
+* [Danger button][ActionSheetDangerButton] - OK/apply button with a `danger` style
 
-Buttons are automatically separated from other items when you create your action
-sheet instance, and are presented in a separate list. On popovers, however, they
-are added back to the end of the item list, since popovers look different.
+Buttons are automatically separated from other items and presented in a separate
+list item. On popovers, however, they are added back to the end of the item list,
+since popovers look different.
 
 ### Titles
 
@@ -140,10 +137,11 @@ Titles are non-interactive items. Sheeeeeeeeet comes with these built-in types:
 
 * [Title][ActionSheetTitle] - Shown topmost for an entire sheet
 * [Section Title][ActionSheetSectionTitle] - Shown topmost for a section
-* [Section Margin][ActionSheetSectionMargin] - Should be added before section titles
+* [Section Margin][ActionSheetSectionMargin] - Can be added before section titles
 
 You can add title components anywhere you want in your action sheets, although a
-title probably looks best topmost.
+title probably looks best topmost, a section title probably looks best before an
+item section etc.
 
 ### Header Views
 
@@ -157,12 +155,11 @@ with no transparent background.
 
 ## Appearance
 
-Sheeeeeeeeet can be globally styled by using the `ActionSheetAppearance.standard`
-instance. All action sheets copies this instance when they are created. They can
-then be individually styled without affecting the global style.
+Sheets can be globally styled by using the `ActionSheetAppearance.standard`. All
+sheets copy this appearance when they are created. They can then be individually
+styled without affecting the global appearance.
 
-Have a look at the demo application to see how global and individual styling can
-be setup. It's really easy.
+Have a look at the example app to see how global and individual appearances work.
 
 
 ## Contact me
@@ -180,9 +177,11 @@ you want to contribute in any way:
 Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
 
-
-[Carthage]: https://github.com/Carthage/Carthage
-[CocoaPods]: https://cocoapods.org/
+[Carthage]: https://github.com/Carthage
+[CocoaPods]: http://cocoapods.org
+[GitHub]: https://github.com/danielsaidi/Vandelay
+[Pod]: http://cocoapods.org/pods/Vandelay
+[SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
 
 [ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetItem.swift
 [ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCollectionItem.swift
@@ -201,4 +200,3 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetTitle.swift
 [ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionTitle.swift
 [ActionSheetSectionMargin]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionMargin.swift
-[SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
