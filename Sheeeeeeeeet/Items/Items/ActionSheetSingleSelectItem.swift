@@ -8,8 +8,13 @@
 
 /*
  
- Single select items look like normal select items, but will
- deselect other single select items within the same `group`.
+ `ActionSheetSingleSelectItem` should be used whenever users
+ should only be able to select a single item in a sheet or a
+ group. It automatically deselects other single select items
+ in the same group. You can have several groups in one sheet.
+ 
+ A single select item will dismiss the sheet when tapped. To
+ change this behavior, set `tapBehavior` to `.none`.
  
  */
 

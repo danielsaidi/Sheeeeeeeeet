@@ -8,16 +8,18 @@
 
 /*
  
- Multiselect items should be used when a user should be able
- to select one or several items.
+ `ActionSheetMultiSelectItem` should be used whenever a user
+ should be able to select one or several items in a sheet. A
+ multi select item will not affect other items, and will not
+ dismiss the sheet.
  
- Multi select items does not dismiss the sheet when they are
- tapped, since they are most probably in a context where the
- user should apply any changes made in the sheet.
+ Multi-select items can be used in combination with a toggle
+ item (`ActionSheetMultiSelectToggleItem`), which can toggle
+ the selected state of all items in the same group.
  
- Multi select items can be used together with the title-like
- `ActionSheetMultiSelectToggleItem` item type, which selects
- and deselects all items in a certain group.
+ A multi-select item does not dismiss the sheet, since users
+ will most probably be in a context where a change should be
+ applied with an OK button.
  
  */
 
