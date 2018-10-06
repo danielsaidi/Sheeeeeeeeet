@@ -22,8 +22,7 @@ open class ActionSheetTitle: ActionSheetItem {
     // MARK: - Initialization
     
     public init(title: String) {
-        super.init(title: title)
-        tapBehavior = .none
+        super.init(title: title, tapBehavior: .none)
     }
     
     

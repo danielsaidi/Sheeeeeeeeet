@@ -22,8 +22,7 @@ open class ActionSheetSectionMargin: ActionSheetItem {
     // MARK: - Initialization
     
     public init() {
-        super.init(title: "")
-        tapBehavior = .none
+        super.init(title: "", tapBehavior: .none)
     }
     
     

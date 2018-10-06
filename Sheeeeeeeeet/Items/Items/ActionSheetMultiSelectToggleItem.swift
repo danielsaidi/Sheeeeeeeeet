@@ -31,8 +31,9 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
         self.state = state
         self.deselectAllTitle = deselectAllTitle
         self.selectAllTitle = selectAllTitle
-        super.init(title: title)
-        tapBehavior = .none
+        super.init(
+            title: title,
+            tapBehavior: .none)
         cellStyle = .value1
     }
     

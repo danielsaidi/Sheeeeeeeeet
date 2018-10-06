@@ -20,8 +20,18 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
     // MARK: - Initialization
     
-    public override init(title: String, isSelected: Bool, group: String = "", value: Any? = nil, image: UIImage? = nil) {
-        super.init(title: title, isSelected: isSelected, group: group, value: value, image: image)
+    public init(
+        title: String,
+        isSelected: Bool,
+        group: String = "",
+        value: Any? = nil,
+        image: UIImage? = nil) {
+        super.init(
+            title: title,
+            isSelected: isSelected,
+            group: group,
+            value: value,
+            image: image)
     }
     
     

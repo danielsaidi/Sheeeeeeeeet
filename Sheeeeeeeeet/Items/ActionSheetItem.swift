@@ -31,12 +31,18 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Initialization
     
-    public init(title: String, subtitle: String? = nil, value: Any? = nil, image: UIImage? = nil) {
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        value: Any? = nil,
+        image: UIImage? = nil,
+        tapBehavior: TapBehavior = .dismiss) {
         let appearance = ActionSheetAppearance.standard.item
         self.title = title
         self.subtitle = subtitle
         self.value = value
         self.image = image
+        self.tapBehavior = tapBehavior
         self.appearance = ActionSheetItemAppearance(copy: appearance)
         super.init()
     }
@@ -58,7 +64,7 @@ open class ActionSheetItem: NSObject {
 
     open var appearance: ActionSheetItemAppearance
     open var cellStyle: UITableViewCell.CellStyle = .default
-    open var tapBehavior = TapBehavior.dismiss
+    open var tapBehavior: TapBehavior
     
     
     // MARK: - Functions

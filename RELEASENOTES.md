@@ -3,6 +3,14 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.9.7
+
+`ActionSheetItem` now has `tapBehavior` as part of the constructor.
+
+`ActionSheetCollectionItem` now uses `open` instead of `public` for `collection`
+and `layout` related functions as well, which means that you can override them.
+
+
 ## 0.9.6
 
 This version migrates Sheeeeeeeeeet to Swift 4.2. You will need Xcode 10 to work

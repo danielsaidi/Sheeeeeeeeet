@@ -26,8 +26,7 @@ open class ActionSheetSectionTitle: ActionSheetItem {
     // MARK: - Initialization
     
     public init(title: String, subtitle: String? = nil) {
-        super.init(title: title, subtitle: subtitle)
-        tapBehavior = .none
+        super.init(title: title, subtitle: subtitle, tapBehavior: .none)
         cellStyle = .value1
     }
     
