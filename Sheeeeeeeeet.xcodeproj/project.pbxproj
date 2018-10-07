@@ -344,7 +344,7 @@
 				456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */,
 				453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */,
 				456EAA0F1FCC203100A719ED /* Frameworks */,
-				459DA1BA2056C10800644490 /* Library Files */,
+				459DA1BA2056C10800644490 /* Project Files */,
 				453C04221FC0655C0028FA02 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -641,7 +641,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		459DA1BA2056C10800644490 /* Library Files */ = {
+		459DA1BA2056C10800644490 /* Project Files */ = {
 			isa = PBXGroup;
 			children = (
 				459DA1BC2056C14A00644490 /* .swift-version */,
@@ -655,7 +655,7 @@
 				454093C7206018B90079F29D /* RELEASENOTES.md */,
 				4512AA0020BD4DB000AD1D66 /* Sheeeeeeeeet.podspec */,
 			);
-			name = "Library Files";
+			name = "Project Files";
 			sourceTree = "<group>";
 		};
 		45BE4FE2211AF2CC007B8D31 /* Items */ = {

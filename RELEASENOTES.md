@@ -3,6 +3,15 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.9.8
+
+`ActionSheetPresenter` now has an `events` property, which contains presentation
+event actions that you can assign to get callbacks when certain events happen. A
+first `didDismissWithBackgroundTap` event has been added, which helps you detect
+if an action sheet is dismissed because a user tapped on the background, outside
+the actin sheet bounds. This works for both the standard and popover presenters.
+
+
 ## 0.9.7
 
 `ActionSheetItem` now has `tapBehavior` as part of the constructor.
