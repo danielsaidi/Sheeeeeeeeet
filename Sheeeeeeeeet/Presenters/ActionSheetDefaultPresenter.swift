@@ -27,12 +27,14 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     // MARK: - Properties
     
-    open var actionSheet: ActionSheet?
-    open var actionSheetView: UIView?
-    open var backgroundColor = UIColor.black.withAlphaComponent(0.4)
-    open var backgroundView: UIView?
+    open var availablePresentationSize: CGSize { return UIScreen.main.bounds.size }
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
+    
+    private var actionSheet: ActionSheet?
+    private var actionSheetView: UIView?
+    private var backgroundColor = UIColor.black.withAlphaComponent(0.4)
+    private var backgroundView: UIView?
     
     
     // MARK: - ActionSheetPresenter

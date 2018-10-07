@@ -26,19 +26,19 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Initialization
     
-    public override init() { }
-    
     deinit { print("\(type(of: self)) deinit") }
     
     
     // MARK: - Properties
     
+    open var availablePresentationSize: CGSize { return popover?.frameOfPresentedViewInContainerView.size ?? .zero }
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
     
     private var actionSheet: ActionSheet?
     private var actionSheetView: UIView?
     private var backgroundView: UIView?
+    private weak var popover: UIPopoverPresentationController?
     
     
     // MARK: - ActionSheetPresenter
@@ -53,16 +53,16 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        guard let popover = self.popover(for: sheet, in: vc) else { return }
-        popover.sourceView = view
-        popover.sourceRect = view?.bounds ?? CGRect()
-        popover.delegate = self
+        popover = self.popover(for: sheet, in: vc)
+        popover?.sourceView = view
+        popover?.sourceRect = view?.bounds ?? CGRect()
+        popover?.delegate = self
         vc.present(sheet, animated: true, completion: nil)
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem) {
-        guard let popover = self.popover(for: sheet, in: vc) else { return }
-        popover.barButtonItem = item
+        popover = self.popover(for: sheet, in: vc)
+        popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: nil)
     }
     
