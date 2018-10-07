@@ -33,25 +33,20 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Properties
     
-    public var isDismissableWithTapOnBackground = true
+    open var events = ActionSheetPresenterEvents()
+    open var isDismissableWithTapOnBackground = true
     
-    public fileprivate(set) var actionSheetView: UIView?
-    
-    public fileprivate(set) var backgroundView: UIView?
-    
-    fileprivate var notificationCenter: NotificationCenter {
-        return NotificationCenter.default
-    }
-    
-    fileprivate var sheet: ActionSheet?
+    private var actionSheet: ActionSheet?
+    private var actionSheetView: UIView?
+    private var backgroundView: UIView?
     
     
     // MARK: - ActionSheetPresenter
     
     public func dismiss(completion: @escaping () -> ()) {
-        sheet?.presentingViewController?.dismiss(animated: true) {
+        actionSheet?.presentingViewController?.dismiss(animated: true) {
             completion()
-            self.sheet = nil
+            self.actionSheet = nil
         }
     }
     
@@ -77,7 +72,9 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     
     public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        if isDismissableWithTapOnBackground { dismiss {}}
+        guard isDismissableWithTapOnBackground else { return false }
+        events.didDismissWithBackgroundTap?()
+        dismiss {}
         return false
     }
 }
@@ -113,7 +110,7 @@ fileprivate extension ActionSheetPopoverPresenter {
     }
     
     func setupSheetForPopoverPresentation(_ sheet: ActionSheet) {
-        self.sheet = sheet
+        self.actionSheet = sheet
         sheet.headerView = nil
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []

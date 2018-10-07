@@ -23,8 +23,16 @@
 
 import Foundation
 
-public protocol ActionSheetPresenter: class {
+public struct ActionSheetPresenterEvents {
     
+    public init() {}
+    
+    public var didDismissWithBackgroundTap: (() -> ())?
+}
+
+public protocol ActionSheetPresenter: AnyObject {
+    
+    var events: ActionSheetPresenterEvents { get set }
     var isDismissableWithTapOnBackground: Bool { get set }
     
     func dismiss(completion: @escaping () -> ())

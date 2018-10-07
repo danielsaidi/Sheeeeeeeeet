@@ -10,6 +10,9 @@ import Sheeeeeeeeet
 
 class MockActionSheetPresenter: ActionSheetPresenter {
     
+    var events = ActionSheetPresenterEvents()
+    var isDismissableWithTapOnBackground = false
+    
     var dismissInvokeCount = 0
     var dismissInvokeCompletions = [() -> ()]()
     var presentInvokeCount = 0
@@ -17,8 +20,6 @@ class MockActionSheetPresenter: ActionSheetPresenter {
     var presentInvokeViewControllers = [UIViewController]()
     var presentInvokeViews = [UIView?]()
     var presentInvokeTabBarItems = [UIBarButtonItem]()
-
-    var isDismissableWithTapOnBackground = false
     
     func dismiss(completion: @escaping () -> ()) {
         dismissInvokeCount += 1

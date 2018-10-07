@@ -31,6 +31,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     open var actionSheetView: UIView?
     open var backgroundColor = UIColor.black.withAlphaComponent(0.4)
     open var backgroundView: UIView?
+    open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
     
     
@@ -58,7 +59,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     }
     
     
-    // MARK: - Protected Functions
+    // MARK: - Protected, overridable Functions
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
         guard let actionSheetView = sheet.view else { return }
@@ -70,15 +71,15 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     open func addBackgroundView(to view: UIView) {
         let backgroundView = UIView(frame: view.frame)
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addDismissTap(to: backgroundView)
+        addBackgroundViewTapAction(to: backgroundView)
         view.addSubview(backgroundView)
         backgroundView.backgroundColor = backgroundColor
         self.backgroundView = backgroundView
     }
     
-    open func addDismissTap(to view: UIView) {
+    open func addBackgroundViewTapAction(to view: UIView) {
         view.isUserInteractionEnabled = true
-        let action = #selector(dismissTapAction)
+        let action = #selector(backgroundViewTapAction)
         let tap = UITapGestureRecognizer(target: self, action: action)
         view.addGestureRecognizer(tap)
     }
@@ -144,8 +145,9 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
 
 @objc public extension ActionSheetDefaultPresenter {
     
-    public func dismissTapAction() {
+    public func backgroundViewTapAction() {
         guard isDismissableWithTapOnBackground else { return }
+        events.didDismissWithBackgroundTap?()
         dismissActionSheet()
     }
 }
