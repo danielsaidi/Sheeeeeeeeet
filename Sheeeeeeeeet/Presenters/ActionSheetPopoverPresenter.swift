@@ -44,10 +44,12 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     // MARK: - ActionSheetPresenter
     
     public func dismiss(completion: @escaping () -> ()) {
-        actionSheet?.presentingViewController?.dismiss(animated: true) {
+        let dismissAction = {
             completion()
             self.actionSheet = nil
         }
+        guard let vc = actionSheet?.presentingViewController else { return dismissAction() }
+        vc.dismiss(animated: true) { dismissAction() }
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {

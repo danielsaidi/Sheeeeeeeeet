@@ -139,14 +139,15 @@ class ActionSheetTests: QuickSpec {
             
             it("can be overwritten") {
                 var counter = 0
-                let sheet = actionSheet(withItems: [])
+                sheet = actionSheet(withItems: [])
                 sheet.itemTapAction = { _  in counter += 1 }
                 sheet.itemTapAction(ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
             }
             
             it("triggers select action") {
-                sheet.itemTapAction(ActionSheetItem(title: "foo"))
+                let item = ActionSheetItem(title: "foo")
+                sheet.itemTapAction(item)
                 expect(counter).to(beGreaterThan(0))
             }
             
