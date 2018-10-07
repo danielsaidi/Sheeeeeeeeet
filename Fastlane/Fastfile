@@ -32,8 +32,7 @@ platform :ios do
   lane :test do
     scan(
       project: "Sheeeeeeeeet.xcodeproj",
-      scheme: "Sheeeeeeeeet",
-      devices: ["iPhone 6s"]
+      scheme: "Sheeeeeeeeet"
     )    
   end
 end

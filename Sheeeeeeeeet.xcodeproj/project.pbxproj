@@ -782,6 +782,7 @@
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 453C045C1FC065AE0028FA02;
 					};
 				};
 			};
@@ -1216,6 +1217,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SheeeeeeeeetExample.app/SheeeeeeeeetExample";
 			};
 			name = Debug;
 		};
@@ -1232,6 +1234,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SheeeeeeeeetExample.app/SheeeeeeeeetExample";
 			};
 			name = Release;
 		};

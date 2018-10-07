@@ -10,6 +10,6 @@ before_install:
   - carthage update
 
 script:
-  - set -o pipefail && xcodebuild -project "Sheeeeeeeeet.xcodeproj" -scheme "SheeeeeeeeetExample" -sdk "iphonesimulator" | xcpretty -c
+  - set -o pipefail && xcodebuild -project "Sheeeeeeeeet.xcodeproj" -scheme "Sheeeeeeeeet" -sdk "iphonesimulator" | xcpretty -c
   - pod lib lint
   - fastlane test

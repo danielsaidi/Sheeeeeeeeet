@@ -21,16 +21,30 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "453C045C1FC065AE0028FA02"
                BuildableName = "SheeeeeeeeetExample.app"
                BlueprintName = "SheeeeeeeeetExample"
+               ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "456EAA5B1FCE0E1C00A719ED"
+               BuildableName = "SheeeeeeeeetTests.xctest"
+               BlueprintName = "SheeeeeeeeetTests"
                ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
