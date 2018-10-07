@@ -23,7 +23,7 @@ class StandardActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension StandardActionSheet {
+private extension StandardActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         var items = options.map { $0.item() }

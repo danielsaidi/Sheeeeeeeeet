@@ -31,7 +31,7 @@ class DestructiveActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension DestructiveActionSheet {
+private extension DestructiveActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         let titleItem = ActionSheetTitle(title: "Remove Payment Options")

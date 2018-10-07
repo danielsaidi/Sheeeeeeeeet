@@ -28,11 +28,11 @@ open class ActionSheetItemHandler: NSObject {
     
     // MARK: - Properties
     
-    fileprivate weak var actionSheet: ActionSheet?
+    private weak var actionSheet: ActionSheet?
     
-    fileprivate var collectionType: CollectionType
+    private var collectionType: CollectionType
     
-    fileprivate var items: [ActionSheetItem] {
+    private var items: [ActionSheetItem] {
         switch collectionType {
         case .buttons: return actionSheet?.buttons ?? []
         case .items: return actionSheet?.items ?? []

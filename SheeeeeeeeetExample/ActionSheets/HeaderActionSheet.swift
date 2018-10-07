@@ -26,7 +26,7 @@ class HeaderActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension HeaderActionSheet {
+private extension HeaderActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         var items = options.map { $0.item() }

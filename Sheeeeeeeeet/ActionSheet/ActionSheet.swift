@@ -278,7 +278,7 @@ open class ActionSheet: UIViewController {
 
 // MARK: - Private Functions
 
-fileprivate extension ActionSheet {
+private extension ActionSheet {
     
     func applyRoundCorners() {
         applyRoundCorners(to: headerView)

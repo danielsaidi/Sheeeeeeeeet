@@ -25,7 +25,7 @@ class MultiSelectActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension MultiSelectActionSheet {
+private extension MultiSelectActionSheet {
     
     static func items(for options: [FoodOption], preselected: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()

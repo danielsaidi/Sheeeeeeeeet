@@ -30,8 +30,6 @@
 		45352D6C2030BC0E00A0F890 /* ActionSheetOkButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D602030BC0E00A0F890 /* ActionSheetOkButtonTests.swift */; };
 		45352D6E2030BC0E00A0F890 /* ActionSheetSelectItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D622030BC0E00A0F890 /* ActionSheetSelectItemTests.swift */; };
 		45352D6F2030BC0E00A0F890 /* ActionSheetTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */; };
-		4537E85B1FD179E30007501C /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85A1FD179E30007501C /* UIView+Shadow.swift */; };
-		4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E85C1FD17B1A0007501C /* UIView+Blur.swift */; };
 		4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */; };
 		4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537E8661FD2A55F0007501C /* ViewController+TableView.swift */; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -183,8 +181,6 @@
 		45352D602030BC0E00A0F890 /* ActionSheetOkButtonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButtonTests.swift; sourceTree = "<group>"; };
 		45352D622030BC0E00A0F890 /* ActionSheetSelectItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemTests.swift; sourceTree = "<group>"; };
 		45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleTests.swift; sourceTree = "<group>"; };
-		4537E85A1FD179E30007501C /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
-		4537E85C1FD17B1A0007501C /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewController.swift"; sourceTree = "<group>"; };
 		4537E8661FD2A55F0007501C /* ViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,9 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */,
-				4537E85C1FD17B1A0007501C /* UIView+Blur.swift */,
 				453C047C1FC161B70028FA02 /* UIView+Empty.swift */,
-				4537E85A1FD179E30007501C /* UIView+Shadow.swift */,
 				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
 			);
 			path = Extensions;
@@ -898,12 +892,10 @@
 				45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */,
 				456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */,
 				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */,
-				4537E85D1FD17B1A0007501C /* UIView+Blur.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				455DEE3E206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift in Sources */,
 				456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */,
 				459DA1B720568D9B00644490 /* ActionSheetCollectionItemContentCell.swift in Sources */,
-				4537E85B1FD179E30007501C /* UIView+Shadow.swift in Sources */,
 				459DA1C42056C4F900644490 /* ActionSheetSingleSelectItem.swift in Sources */,
 				456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */,
 				45EB3FCA1FC842C400EF555E /* ActionSheetLinkItemAppearance.swift in Sources */,

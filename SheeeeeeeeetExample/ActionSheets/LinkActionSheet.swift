@@ -23,7 +23,7 @@ class LinkActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension LinkActionSheet {
+private extension LinkActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         var items = options.map { $0.linkItem() }

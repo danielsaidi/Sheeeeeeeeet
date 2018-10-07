@@ -23,7 +23,7 @@ class SectionActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension SectionActionSheet {
+private extension SectionActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()

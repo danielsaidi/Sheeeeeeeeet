@@ -33,7 +33,7 @@ class CollectionActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension CollectionActionSheet {
+private extension CollectionActionSheet {
     
     static var collectionItems: [MyCollectionViewCell.Item] {
         var items: [MyCollectionViewCell.Item] = []

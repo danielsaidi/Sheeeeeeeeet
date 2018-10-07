@@ -25,7 +25,7 @@ class SingleSelectActionSheet: ActionSheet {
     }
 }
 
-fileprivate extension SingleSelectActionSheet {
+private extension SingleSelectActionSheet {
     
     static func items(for options: [FoodOption], preselected: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
