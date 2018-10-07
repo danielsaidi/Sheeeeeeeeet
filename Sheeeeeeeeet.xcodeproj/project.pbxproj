@@ -782,7 +782,6 @@
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 453C045C1FC065AE0028FA02;
 					};
 				};
 			};
@@ -1178,7 +1177,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C23URLS3EG;
+				DEVELOPMENT_TEAM = PMEDFW438U;
 				INFOPLIST_FILE = SheeeeeeeeetExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.SheeeeeeeeetExample;
@@ -1194,7 +1193,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C23URLS3EG;
+				DEVELOPMENT_TEAM = PMEDFW438U;
 				INFOPLIST_FILE = SheeeeeeeeetExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.SheeeeeeeeetExample;
@@ -1217,7 +1216,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SheeeeeeeeetExample.app/SheeeeeeeeetExample";
 			};
 			name = Debug;
 		};
@@ -1234,7 +1232,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SheeeeeeeeetExample.app/SheeeeeeeeetExample";
 			};
 			name = Release;
 		};
