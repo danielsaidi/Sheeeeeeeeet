@@ -44,12 +44,9 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     // MARK: - ActionSheetPresenter
     
     public func dismiss(completion: @escaping () -> ()) {
-        let dismissAction = {
-            completion()
-            self.actionSheet = nil
-        }
-        guard let vc = actionSheet?.presentingViewController else { return dismissAction() }
-        vc.dismiss(animated: true) { dismissAction() }
+        let dismissAction = { completion();  self.actionSheet = nil }
+        let vc = actionSheet?.presentingViewController
+        vc?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
@@ -71,9 +68,12 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     }
 }
 
+
+// MARK: - UIPopoverPresentationControllerDelegate
+
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     
-    public func popoverPresentationControllerShouldDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) -> Bool {
+    public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
         guard isDismissableWithTapOnBackground else { return false }
         events.didDismissWithBackgroundTap?()
         dismiss {}
@@ -82,23 +82,13 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
 }
 
 
-// MARK: - Actions
-
-@objc extension ActionSheetPopoverPresenter {
-    
-    func applicationWillClose() {
-        dismiss {}
-    }
-}
-
-
 // MARK: - Private Functions
 
-fileprivate extension ActionSheetPopoverPresenter {
+private extension ActionSheetPopoverPresenter {
     
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         guard sheet.contentHeight > 0 else { return nil }
-        setupSheetForPopoverPresentation(sheet)
+        setupSheetForPresentation(sheet)
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController
         popover?.backgroundColor = sheet.view.backgroundColor
@@ -111,7 +101,7 @@ fileprivate extension ActionSheetPopoverPresenter {
         return items.filter { !($0 is ActionSheetCancelButton) }
     }
     
-    func setupSheetForPopoverPresentation(_ sheet: ActionSheet) {
+    func setupSheetForPresentation(_ sheet: ActionSheet) {
         self.actionSheet = sheet
         sheet.headerView = nil
         sheet.items = popoverItems(for: sheet)
