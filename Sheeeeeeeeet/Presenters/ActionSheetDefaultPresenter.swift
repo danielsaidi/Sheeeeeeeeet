@@ -53,7 +53,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController) {
-        self.actionSheet = sheet
+        actionSheet = sheet
         addBackgroundView(to: vc.view)
         addActionSheetView(from: sheet, to: vc.view)
         presentBackgroundView()
@@ -64,19 +64,19 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     // MARK: - Protected, overridable Functions
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
-        guard let actionSheetView = sheet.view else { return }
-        actionSheetView.frame.size.height = sheet.contentHeight
-        view.addSubview(actionSheetView)
-        self.actionSheetView = actionSheetView
+        guard let sheetView = sheet.view else { return }
+        sheetView.frame.size.height = sheet.contentHeight
+        view.addSubview(sheetView)
+        actionSheetView = sheetView
     }
     
     open func addBackgroundView(to view: UIView) {
-        let backgroundView = UIView(frame: view.frame)
-        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addBackgroundViewTapAction(to: backgroundView)
-        view.addSubview(backgroundView)
-        backgroundView.backgroundColor = backgroundColor
-        self.backgroundView = backgroundView
+        let bgView = UIView(frame: view.frame)
+        bgView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addBackgroundViewTapAction(to: bgView)
+        view.addSubview(bgView)
+        bgView.backgroundColor = backgroundColor
+        backgroundView = bgView
     }
     
     open func addBackgroundViewTapAction(to view: UIView) {
@@ -91,11 +91,13 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     }
     
     open func animate(_ animation: @escaping () -> (), completion: (() -> ())?) {
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0,
-            options: [.curveEaseOut],
-            animations: animation) { _ in completion?() }
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: animation) { _ in completion?() }
+    }
+    
+    open func dismissActionSheet() {
+        actionSheet = nil
+        removeActionSheetView()
+        removeBackgroundView()
     }
     
     open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
@@ -133,12 +135,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         guard let view = backgroundView else { return }
         let animation = { view.alpha = 0 }
         animate(animation) { view.removeFromSuperview() }
-    }
-    
-    open func dismissActionSheet() {
-        actionSheet = nil
-        removeActionSheetView()
-        removeBackgroundView()
     }
 }
 
