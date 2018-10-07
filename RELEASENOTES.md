@@ -3,6 +3,13 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.9.9
+
+`ActionSheetItem` now has an `itemType` property, that can be used to e.g. check
+the type of item that is tapped. For now, the type enum contains `item`, `button`
+and `title`.
+
+
 ## 0.9.8
 
 `ActionSheetPresenter` now has an `events` property, which contains presentation

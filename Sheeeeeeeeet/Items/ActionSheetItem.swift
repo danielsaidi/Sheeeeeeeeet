@@ -48,7 +48,11 @@ open class ActionSheetItem: NSObject {
     }
     
     
-    // MARK: - Tap Behavior
+    // MARK: - Enums
+    
+    public enum ItemType {
+        case item, button, title
+    }
     
     public enum TapBehavior {
         case dismiss, none
@@ -56,6 +60,8 @@ open class ActionSheetItem: NSObject {
 
 
     // MARK: - Properties
+    
+    public var itemType: ItemType { return .item }
     
     open var image: UIImage?
     open var subtitle: String?

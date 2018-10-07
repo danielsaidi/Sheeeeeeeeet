@@ -26,6 +26,11 @@ open class ActionSheetButton: ActionSheetItem {
     }
     
     
+    // MARK: - Properties
+    
+    public override var itemType: ItemType { return .button }
+    
+    
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
