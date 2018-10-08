@@ -11,6 +11,12 @@ public extension ActionSheet {
     static var defaultPresenter: ActionSheetPresenter {
         return defaultPresenter(for: UIDevice.current.userInterfaceIdiom)
     }
+}
+
+
+// MARK: - Internal Extensions
+
+extension ActionSheet {
     
     static func defaultPresenter(for idiom: UIUserInterfaceIdiom) -> ActionSheetPresenter {
         let isIpad = idiom == .pad

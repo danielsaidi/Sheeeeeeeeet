@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-import Sheeeeeeeeet
+@testable import Sheeeeeeeeet
 
 class ActionSheet_PresenterTests: QuickSpec {
     
