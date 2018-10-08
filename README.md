@@ -102,21 +102,27 @@ flexible sheets. To create custom items, just subclass any of the built-in types
 Action sheet items are used to present options. `Sheeeeeeeeet` has the following
 built-in item types:
 
-* [Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped
-* [Single-select item][ActionSheetSingleSelectItem] - Deselects all other single-select items in the same group and dismisses the sheet
-* [Multi-Select item][ActionSheetMultiSelectItem] - Doesn't deselect other items and doesn't dismiss the sheet
-* [Multi-Select Toggle Item][ActionSheetMultiSelectToggleItem] - Selects/deselects all multi-select items in the same group
-* [Collection Item][ActionSheetCollectionItem] - A general, flexible item with an embedded collection view
-* [Link Item][ActionSheetLinkItem] - Navigation links
+* [Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped.
+* [Single-select Item][ActionSheetSingleSelectItem] - Deselects all other single-
+select items in the same group when tapped, then dismisses the sheet.
+* [Multi-Select Item][ActionSheetMultiSelectItem] - Doesn't deselect other items
+when tapped and doesn't dismiss the sheet.
+* [Multi-Select Toggle][ActionSheetMultiSelectToggleItem] - Toggles the selected
+state of all multi-select items in the same group.
+* [Link Item][ActionSheetLinkItem] - Navigation links.
+* [Collection Item][ActionSheetCollectionItem] - A general item with an embedded
+collection view that can contain any type of cells.
+* [Custom Item][ActionSheetCustomItem] - A super-flexible item, that can use any
+custom view. It doesn't handle items in the same way as any other item.
 
 The standard item corresponds to a standard `UIKit` actionsheet action. It has a
 title, an optional subtitle and an image. It's the base class for all other item
 types, who also copies its standard appearance.
 
 Each item type has a certain `tapBehavior`, which determines how it behaves when
-it is tapped. You can always change the value of this property to change how any
-item behaves. For instance, if you want a single-select item to not dismiss your
-action sheet, set the tap behavor to `.none`.
+it is tapped. You can always change this property to change how any item behaves. 
+For instance, if you want a single-select item to not dismiss your sheet, set it
+to `.none` for that item.
 
 ### Buttons
 
@@ -185,17 +191,16 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
 [ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetItem.swift
 [ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCollectionItem.swift
+[ActionSheetCustomItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCustomItem.swift
 [ActionSheetMultiSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetMultiSelectItem.swift
 [ActionSheetMultiSelectToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetMultiSelectToggleItem.swift
 [ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSelectItem.swift
 [ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSingleSelectItem.swift
 [ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetLinkItem.swift
 
-
 [ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetOkButton.swift
 [ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetCancelButton.swift
 [ActionSheetDangerButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetDangerButton.swift
-
 
 [ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetTitle.swift
 [ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionTitle.swift

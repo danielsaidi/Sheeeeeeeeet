@@ -5,10 +5,11 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 
 ## 0.10.0
 
-I have added a brand new item type: `ActionSheetCustomItem`. You can use it when
+`Sheeeeeeeeet` has a new item type: `ActionSheetCustomItem`. You can use it when
 you want to use a completely custom view in your action sheet. Just tell it what
 view you want to use and make sure that the view class inherits `ActionSheetItem`
-and implements `ActionSheetCustomItemCell`, and you're good to go.
+and implements `ActionSheetCustomItemCell`. Have a look at the example app for a
+simple example.
 
 `ActionSheetCollectionItem` `cellType` has been renamed to `itemCellType`, which
 makes it clearer that the type regards the collection view items.
