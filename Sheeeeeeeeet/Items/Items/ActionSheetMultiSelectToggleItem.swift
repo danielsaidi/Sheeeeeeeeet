@@ -69,14 +69,13 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
         super.applyAppearance(to: cell)
     }
     
-    open override func handleTap(in actionSheet: ActionSheet?) {
+    open override func handleTap(in actionSheet: ActionSheet, cell: UITableViewCell? = nil) {
         super.handleTap(in: actionSheet)
-        guard let sheet = actionSheet else { return }
-        let selectItems = sheet.items.compactMap { $0 as? ActionSheetMultiSelectItem }
+        let selectItems = actionSheet.items.compactMap { $0 as? ActionSheetMultiSelectItem }
         let items = selectItems.filter { $0.group == group }
         let shouldSelectAll = items.contains { !$0.isSelected }
         items.forEach { $0.isSelected = shouldSelectAll ? true : false }
-        updateState(for: sheet)
+        updateState(for: actionSheet)
     }
     
     open func updateState(for actionSheet: ActionSheet) {

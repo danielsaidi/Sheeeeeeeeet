@@ -13,15 +13,15 @@ open class ActionSheetItemHandler: NSObject {
     
     // MARK: - Initialization
     
-    init(actionSheet: ActionSheet, handles collectionType: CollectionType) {
+    init(actionSheet: ActionSheet, handles itemType: ItemType) {
         self.actionSheet = actionSheet
-        self.collectionType = collectionType
+        self.itemType = itemType
     }
     
     
     // MARK: - Enum
     
-    public enum CollectionType {
+    public enum ItemType {
         case items, buttons
     }
     
@@ -30,10 +30,10 @@ open class ActionSheetItemHandler: NSObject {
     
     private weak var actionSheet: ActionSheet?
     
-    private var collectionType: CollectionType
+    private var itemType: ItemType
     
     private var items: [ActionSheetItem] {
-        switch collectionType {
+        switch itemType {
         case .buttons: return actionSheet?.buttons ?? []
         case .items: return actionSheet?.items ?? []
         }
@@ -45,6 +45,10 @@ open class ActionSheetItemHandler: NSObject {
 
 extension ActionSheetItemHandler: UITableViewDataSource {
     
+    public func item(at indexPath: IndexPath) -> ActionSheetItem {
+        return items[indexPath.row]
+    }
+    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -54,11 +58,11 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return items[indexPath.row].cell(for: tableView)
+        return item(at: indexPath).cell(for: tableView)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(items[indexPath.row].appearance.height)
+        return CGFloat(item(at: indexPath).appearance.height)
     }
 }
 
@@ -69,11 +73,11 @@ extension ActionSheetItemHandler: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard items.count > indexPath.row else { return }
-        let item = items[indexPath.row]
+        let item = self.item(at: indexPath)
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        item.handleTap(in: cell)
-        item.handleTap(in: actionSheet)
-        actionSheet?.itemTapAction(item)
+        guard let sheet = actionSheet else { return }
+        item.handleTap(in: sheet, cell: cell)
+        sheet.itemTapAction(item)
     }
 }

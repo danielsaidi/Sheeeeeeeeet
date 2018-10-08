@@ -47,10 +47,9 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
         self.appearance = ActionSheetSingleSelectItemAppearance(copy: appearance.singleSelectItem)
     }
     
-    open override func handleTap(in actionSheet: ActionSheet?) {
-        super.handleTap(in: actionSheet)
-        guard let sheet = actionSheet else { return }
-        let items = sheet.items.compactMap { $0 as? ActionSheetSingleSelectItem }
+    open override func handleTap(in actionSheet: ActionSheet, cell: UITableViewCell? = nil) {
+        super.handleTap(in: actionSheet, cell: cell)
+        let items = actionSheet.items.compactMap { $0 as? ActionSheetSingleSelectItem }
         let deselectItems = items.filter { $0.group == group }
         deselectItems.forEach { $0.isSelected = false }
         isSelected = true

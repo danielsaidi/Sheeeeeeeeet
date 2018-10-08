@@ -102,7 +102,5 @@ open class ActionSheetItem: NSObject {
         return cell
     }
     
-    open func handleTap(in actionSheet: ActionSheet?) {}
-    
-    open func handleTap(in cell: UITableViewCell?) {}
+    open func handleTap(in actionSheet: ActionSheet, cell: UITableViewCell? = nil) {}
 }
