@@ -60,7 +60,7 @@ private extension CollectionActionSheet {
         }
         
         let collectionItem = ActionSheetCollectionItem(
-            cellType: MyCollectionViewCell.self,
+            itemCellType: MyCollectionViewCell.self,
             itemCount: collectionItems.count,
             setupAction: setupAction,
             selectionAction: selectionAction

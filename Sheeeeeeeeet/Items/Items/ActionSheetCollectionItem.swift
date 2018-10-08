@@ -13,9 +13,6 @@
  own project. Note that you must use cells that do implement
  `ActionSheetCollectionItemContentCell`.
  
- If you want collection view cell selections to reload the action
- sheet the collection item is displayed in, just set the `actionSheet` property.
- 
  */
 
 import Foundation
@@ -31,11 +28,11 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     // MARK: - Initialization
     
     public init(
-        cellType: T.Type,
+        itemCellType: T.Type,
         itemCount: Int,
         setupAction: @escaping CollectionItemCellAction,
         selectionAction: @escaping CollectionItemCellAction) {
-        self.cellType = cellType
+        self.itemCellType = itemCellType
         self.itemCount = itemCount
         self.setupAction = setupAction
         self.selectionAction = selectionAction
@@ -45,7 +42,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     
     // MARK: - Properties
     
-    public let cellType: T.Type
+    public let itemCellType: T.Type
     public let itemCount: Int
     public private(set) var selectionAction: CollectionItemCellAction
     public let setupAction: CollectionItemCellAction

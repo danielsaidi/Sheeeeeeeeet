@@ -3,11 +3,18 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.10.0
+
+`ActionSheetCollectionItem` `cellType` has been renamed to `itemCellType`, which
+makes it clearer that the type regards the collection view items.
+
+
 ## 0.9.9
 
-Let's all party like it's 0.9.9. I'm doing some refactoring and will introduce a
-few breaking changes that are easily fixed and hopefully won't affect you at all,
-except if you've done some subclassing.
+Let's all party like it's 0.9.9! 
+
+I've done some refactoring and will introduce a few breaking changes that can be
+easily fixed. They will hopefully not affect you at all.
 
 `ActionSheetItem` has an `itemType` property, that can be used to e.g. check the
 type of item that is tapped. For now, the enum has `item`, `button` and `title`.
@@ -21,9 +28,6 @@ and `ActionSheetItemTapAction` has been renamed to `ActionSheetItemTapAction`.
 
 The two `ActionSheetItem` `handleTap` functions have been combined to one single
 function.
-
-
-
 
 
 ## 0.9.8
