@@ -34,6 +34,7 @@ open class ActionSheetAppearance {
         
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
         collectionItem = ActionSheetCollectionItemAppearance(copy: copy.collectionItem)
+        customItem = ActionSheetCustomItemAppearance(copy: copy.customItem)
         dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
         item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
@@ -66,6 +67,12 @@ open class ActionSheetAppearance {
     
     public lazy var collectionItem: ActionSheetCollectionItemAppearance = {
         return ActionSheetCollectionItemAppearance(copy: item)
+    }()
+    
+    public lazy var customItem: ActionSheetCustomItemAppearance = {
+        let appearance = ActionSheetCustomItemAppearance(copy: item)
+        appearance.backgroundColor = nil
+        return appearance
     }()
     
     public lazy var dangerButton: ActionSheetDangerButtonAppearance = {

@@ -15,6 +15,7 @@ enum TableViewOption {
     case
     danger,
     collections,
+    customView,
     headerView,
     links,
     multiSelect,
@@ -27,6 +28,7 @@ enum TableViewOption {
     var title: String {
         switch self {
         case .collections: return "Collection items"
+        case .customView: return "Custom view"
         case .danger: return "Destructive Action"
         case .headerView: return "Header View"
         case .links: return "Link items"
@@ -41,6 +43,7 @@ enum TableViewOption {
     var description: String {
         switch self {
         case .collections: return "Show a sheet with horizontal collections items."
+        case .customView: return "Custom view items can embed any view."
         case .danger: return "Show a sheet with a destructive action."
         case .headerView: return "Show a sheet with a custom header view."
         case .links: return "Show a sheet with tappable links."
@@ -59,6 +62,7 @@ enum TableViewOption {
     var imageName: String {
         switch self {
         case .collections: return "ic_view_module"
+        case .customView: return "ic_custom"
         case .danger: return "ic_warning"
         case .headerView: return "ic_header_view"
         case .links: return "ic_arrow_right"

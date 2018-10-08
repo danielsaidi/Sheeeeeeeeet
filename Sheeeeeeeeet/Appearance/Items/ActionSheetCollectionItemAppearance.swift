@@ -6,12 +6,9 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 open class ActionSheetCollectionItemAppearance: ActionSheetItemAppearance {
-    
-    
-    // MARK: - Initialization
     
     public override init(copy: ActionSheetItemAppearance) {
         super.init()

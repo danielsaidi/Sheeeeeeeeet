@@ -24,18 +24,13 @@ import Foundation
 open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout where T: ActionSheetCollectionItemContentCell {
     
     
-    // MARK: - Configuration
-    
-    public typealias CollectionItemCellAction = (_ cell: T, _ index: Int) -> ()
-    
-    
     // MARK: - Initialization
     
     public init(
         itemCellType: T.Type,
         itemCount: Int,
-        setupAction: @escaping CollectionItemCellAction,
-        selectionAction: @escaping CollectionItemCellAction) {
+        setupAction: @escaping CellAction,
+        selectionAction: @escaping CellAction) {
         self.itemCellType = itemCellType
         self.itemCount = itemCount
         self.setupAction = setupAction
@@ -44,12 +39,17 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     }
     
     
+    // MARK: - Typealiases
+    
+    public typealias CellAction = (_ cell: T, _ index: Int) -> ()
+    
+    
     // MARK: - Properties
     
     public let itemCellType: T.Type
     public let itemCount: Int
-    public private(set) var selectionAction: CollectionItemCellAction
-    public let setupAction: CollectionItemCellAction
+    public private(set) var selectionAction: CellAction
+    public let setupAction: CellAction
     
     
     // MARK: - Functions
@@ -78,7 +78,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
         })
     }
     
-    open func extendSelectionAction(with action: @escaping CollectionItemCellAction) {
+    open func extendSelectionAction(with action: @escaping CellAction) {
         let currentSelectionAction = selectionAction
         selectionAction = { cell, index in
             currentSelectionAction(cell, index)
