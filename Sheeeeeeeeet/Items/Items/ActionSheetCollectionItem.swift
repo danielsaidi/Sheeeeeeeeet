@@ -9,9 +9,13 @@
 /*
  
  Collection items can be used to present item collections in
- a collection view, using custom cells that you keep in your
- own project. Note that you must use cells that do implement
- `ActionSheetCollectionItemContentCell`.
+ a collection view, using cell types that you define in your
+ project and implement `ActionSheetCollectionItemContentCell`.
+ The cell `.xib` should have the same name as the cell class.
+ 
+ This class will dequeue a different cell type than standard
+ action sheet items. If you look at `cell(for: ...)`, you'll
+ see that it uses `ActionSheetCollectionItemCell` for its id.
  
  */
 

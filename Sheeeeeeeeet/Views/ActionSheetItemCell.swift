@@ -16,4 +16,4 @@
 
 import UIKit
 
-open class ActionSheetItemCell: UITableViewCell { }
+open class ActionSheetItemCell: UITableViewCell {}
