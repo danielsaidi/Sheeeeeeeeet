@@ -61,7 +61,9 @@ open class ActionSheetItem: NSObject {
 
     // MARK: - Properties
     
-    public var itemType: ItemType { return .item }
+    public var cellReuseIdentifier: String { return className }
+    public var className: String { return type(of: self).className }
+    open var itemType: ItemType { return .item }
     
     open var image: UIImage?
     open var subtitle: String?
@@ -95,7 +97,7 @@ open class ActionSheetItem: NSObject {
     }
     
     open func cell(for tableView: UITableView) -> UITableViewCell {
-        let id = type(of: self).className
+        let id = cellReuseIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: id) as? ActionSheetItemCell
             ?? ActionSheetItemCell(style: cellStyle, reuseIdentifier: id)
         applyAppearance(to: cell)

@@ -33,7 +33,7 @@ open class ActionSheetSectionTitle: ActionSheetItem {
     
     // MARK: - Properties
     
-    public override var itemType: ItemType { return .title }
+    open override var itemType: ItemType { return .title }
     
     
     // MARK: - Functions

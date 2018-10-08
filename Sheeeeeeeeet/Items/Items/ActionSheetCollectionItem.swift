@@ -63,12 +63,8 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     }
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
-        let id = type(of: self).className
-        tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: id)
-        let dequeued = tableView.dequeueReusableCell(withIdentifier: id)
-        guard let cell = dequeued else { return UITableViewCell() }
-        applyAppearance(to: cell)
-        return cell
+        tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: cellReuseIdentifier)
+        return super.cell(for: tableView)
     }
     
     open func extendSelectionAction(toReload actionSheet: ActionSheet) {

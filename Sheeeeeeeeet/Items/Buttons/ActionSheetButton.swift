@@ -28,7 +28,7 @@ open class ActionSheetButton: ActionSheetItem {
     
     // MARK: - Properties
     
-    public override var itemType: ItemType { return .button }
+    open override var itemType: ItemType { return .button }
     
     
     // MARK: - Functions

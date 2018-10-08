@@ -8,6 +8,10 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 `ActionSheetCollectionItem` `cellType` has been renamed to `itemCellType`, which
 makes it clearer that the type regards the collection view items.
 
+`ActionSheetItem` now has a `cellReuseIdentifier` and `className` property, that
+can be useful when sublassing various item classes. It also makes it much easier
+to register custom cell types. See `ActionSheetCollectionItem` `cell(for: ...)`.
+
 
 ## 0.9.9
 
