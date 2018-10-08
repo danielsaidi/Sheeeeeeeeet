@@ -26,8 +26,8 @@ public enum ActionSheetMargin {
         }
     }
     
-    func value(in view: UIView?, fallback: CGFloat) -> CGFloat {
-        guard let value = self.value(in: view) else { return fallback }
-        return max(value, fallback)
+    func value(in view: UIView?, minimum: CGFloat) -> CGFloat {
+        guard let value = self.value(in: view) else { return minimum }
+        return max(value, minimum)
     }
 }

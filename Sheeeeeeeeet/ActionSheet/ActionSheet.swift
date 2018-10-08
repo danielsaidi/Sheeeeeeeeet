@@ -49,10 +49,6 @@
 
 import UIKit
 
-public typealias ActionSheetItemSelectAction = (ActionSheet, ActionSheetItem) -> ()
-public typealias ActionSheetItemTapAction = (ActionSheetItem) -> ()
-
-
 open class ActionSheet: UIViewController {
     
     
@@ -61,7 +57,7 @@ open class ActionSheet: UIViewController {
     public init(
         items: [ActionSheetItem],
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
-        action: @escaping ActionSheetItemSelectAction) {
+        action: @escaping SelectAction) {
         self.presenter = presenter
         itemSelectAction = action
         super.init(nibName: nil, bundle: nil)
@@ -94,6 +90,12 @@ open class ActionSheet: UIViewController {
     }
     
     
+    // MARK: - Typealiases
+    
+    public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
+    public typealias TapAction = (ActionSheetItem) -> ()
+    
+    
     // MARK: - Dependencies
     
     open var appearance = ActionSheetAppearance(copy: .standard)
@@ -103,9 +105,9 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Actions
     
-    open var itemSelectAction: ActionSheetItemSelectAction
+    open var itemSelectAction: SelectAction
     
-    open lazy var itemTapAction: ActionSheetItemTapAction = { [weak self] item in
+    open lazy var itemTapAction: TapAction = { [weak self] item in
         self?.handleTap(on: item)
     }
     
@@ -255,8 +257,8 @@ open class ActionSheet: UIViewController {
     // MARK: - Public Functions
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
-        let fallback = appearance.contentInset
-        return margin.value(in: view.superview, fallback: fallback)
+        let minimum = appearance.contentInset
+        return margin.value(in: view.superview, minimum: minimum)
     }
     
     public func item(at indexPath: IndexPath) -> ActionSheetItem {
