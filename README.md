@@ -2,10 +2,10 @@
     <img src ="Resources/Logo.png" width=400 />
 </p>
 
-[![Version](https://badge.fury.io/gh/danielsaidi%2FCarthage.svg?style=flat)](http://badge.fury.io/gh/danielsaidi%2FCarthage)
+[![Version](https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg?style=flat)](http://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet)
 [![Carthage](https://img.shields.io/badge/carthage-supported-green.svg?style=flat)](github)
-[![CocoaPods](https://img.shields.io/cocoapods/v/Carthage.svg?style=flat)](pod)
-![Platform](https://img.shields.io/cocoapods/p/Carthage.svg?style=flat)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Sheeeeeeeeet.svg?style=flat)](pod)
+![Platform](https://img.shields.io/cocoapods/p/Sheeeeeeeeet.svg?style=flat)
 [![Build Status](https://api.travis-ci.org/danielsaidi/Sheeeeeeeeet.svg)](https://travis-ci.org/danielsaidi/Sheeeeeeeeet)
 [![License](https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102)](https://github.com/ellerbrock/open-source-badge/)
 
@@ -113,7 +113,7 @@ state of all multi-select items in the same group.
 * [Collection Item][ActionSheetCollectionItem] - A general item with an embedded
 collection view that can contain any type of cells.
 * [Custom Item][ActionSheetCustomItem] - A super-flexible item, that can use any
-custom view. It doesn't handle items in the same way as any other item.
+custom view.
 
 The standard item corresponds to a standard `UIKit` actionsheet action. It has a
 title, an optional subtitle and an image. It's the base class for all other item
@@ -190,13 +190,13 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
 
 [ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetItem.swift
-[ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCollectionItem.swift
-[ActionSheetCustomItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetCustomItem.swift
-[ActionSheetMultiSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetMultiSelectItem.swift
-[ActionSheetMultiSelectToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetMultiSelectToggleItem.swift
-[ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSelectItem.swift
-[ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetSingleSelectItem.swift
-[ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetLinkItem.swift
+[ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetCollectionItem.swift
+[ActionSheetCustomItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetCustomItem.swift
+[ActionSheetMultiSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetMultiSelectItem.swift
+[ActionSheetMultiSelectToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetMultiSelectToggleItem.swift
+[ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetSelectItem.swift
+[ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetSingleSelectItem.swift
+[ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetLinkItem.swift
 
 [ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetOkButton.swift
 [ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetCancelButton.swift
