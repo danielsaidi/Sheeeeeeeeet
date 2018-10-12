@@ -173,8 +173,19 @@ with no transparent background.
 ## Appearance
 
 Sheets can be globally styled by using the `ActionSheetAppearance.standard`. All
-sheets copy this appearance when they are created. They can then be individually
-styled without affecting the global appearance.
+action sheet items will then copy this appearance upon creation, and apply it to
+all items each time it refreshes its content.
+
+If you want to apply a global style for all your action sheets, simply style the
+`ActionSheetAppearance.standard` property and all action sheets will be affected. 
+
+If you want to apply an individual style to a single action sheet, just style it
+using its `appearance` property (a copy of `ActionSheetAppearance.standard`), or
+completely replace it with a completely different appearance instance.
+
+If you want to apply an individual style to a single action sheet item, just set
+its optional `customAppearance` property to any custom value. Just be careful to
+copy any other appearance, otherwise you'll affect the original style.
 
 Have a look at the example app to see how global and individual appearances work.
 

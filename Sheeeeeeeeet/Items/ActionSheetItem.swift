@@ -72,13 +72,14 @@ open class ActionSheetItem: NSObject {
 
     open var appearance: ActionSheetItemAppearance
     open var cellStyle: UITableViewCell.CellStyle = .default
+    open var customAppearance: ActionSheetItemAppearance?
     open var tapBehavior: TapBehavior
     
     
     // MARK: - Functions
     
     open func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetItemAppearance(copy: appearance.item)
+        self.appearance = customAppearance ?? ActionSheetItemAppearance(copy: appearance.item)
     }
     
     open func applyAppearance(to cell: UITableViewCell) {

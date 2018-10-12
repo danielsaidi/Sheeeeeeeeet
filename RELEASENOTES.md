@@ -5,8 +5,8 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 
 ## 0.11.0
 
-This minor version fixes some appearance glitches and makes the appearance setup
-more consistent.
+This version adds a `customAppearance` property to `ActionSheetItem` and fixes a
+few appearance glitches. Overall, it makes the appearance setup more consistent.
 
 * I use early returns in every appearance class and have optimized imports. Many
 appearance classes have also been made `open` instead of `public`.
