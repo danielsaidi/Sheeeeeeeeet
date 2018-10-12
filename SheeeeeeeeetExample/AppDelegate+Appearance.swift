@@ -31,6 +31,10 @@ extension AppDelegate {
         appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
         appearance.item.subtitleTextColor = blue
         
+//        appearance.separatorColor = .red
+//        appearance.itemsSeparatorColor = .blue
+//        appearance.buttonsSeparatorColor = .green
+        
         appearance.title.hideSeparator()
         appearance.title.font = UIFont(name: robotoMedium, size: 15)
         

@@ -16,10 +16,17 @@
  list of items and buttons and a block that should be called
  whenever an item is selected.
  
+ 
+ ## Custom presentation
+ 
  You can also inject a custom sheet presenter if you want to
  customize how your sheet is presented and dismissed. If you
  do not use a custom presenter, `ActionSheetDefaultPresenter`
- is used by deault.
+ is used. It honors the default iOS behavior by using action
+ sheets on iPhones and popovers on iPad.
+ 
+ 
+ ## Subclassing
  
  `ActionSheet` can be subclassed, which may be nice whenever
  you use Sheeeeeeeeet in your own app and want to use an app
@@ -30,12 +37,18 @@
  initializers. However, you could also just override `setup`
  and configure the action sheet in your override.
  
+ 
+ ## Appearance
+ 
  Sheeeeeeeeet's action sheet appearance if easily customized.
  To change the global appearance for every action sheet that
  is used in your app, use `UIActionSheetAppearance.standard`.
  To change the appearance of a single action sheet, use it's
  `appearance` property. To change the appearance of a single
  item, use it's `appearance` property.
+ 
+ 
+ ## Triggered actions
  
  `ActionSheet` has two actions that are triggered by tapping
  an item. `itemTapAction` is used by the sheet itself when a
@@ -232,6 +245,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Presentation Functions
     
+    open func applyAppearance() {
+        itemsView.separatorColor = appearance.itemsSeparatorColor
+        buttonsView.separatorColor = appearance.buttonsSeparatorColor
+    }
+    
     open func dismiss(completion: @escaping () -> ()) {
         presenter.dismiss { completion() }
     }
@@ -247,6 +265,7 @@ open class ActionSheet: UIViewController {
     }
     
     open func prepareForPresentation() {
+        applyAppearance()
         items.forEach { $0.applyAppearance(appearance) }
         buttons.forEach { $0.applyAppearance(appearance) }
         applyRoundCorners()

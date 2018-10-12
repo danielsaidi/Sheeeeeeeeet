@@ -32,12 +32,16 @@ open class ActionSheetAppearance {
         cornerRadius = copy.cornerRadius
         contentInset = copy.contentInset
         
+        separatorColor = copy.separatorColor
+        itemsSeparatorColor = copy.itemsSeparatorColor ?? separatorColor
+        buttonsSeparatorColor = copy.buttonsSeparatorColor ?? separatorColor
+        
         item = ActionSheetItemAppearance(copy: copy.item)
         popover = ActionSheetPopoverApperance(copy: copy.popover)
         
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
-        okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
         dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
+        okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
         
         collectionItem = ActionSheetCollectionItemAppearance(copy: copy.collectionItem)
         customItem = ActionSheetCustomItemAppearance(copy: copy.customItem)
@@ -56,26 +60,30 @@ open class ActionSheetAppearance {
     // MARK: - Properties
     
     public var cornerRadius: CGFloat = 10
-    
     public var contentInset: CGFloat = 15
+    
+    public var separatorColor: UIColor?
+    public var itemsSeparatorColor: UIColor?
+    public var buttonsSeparatorColor: UIColor?
     
     
     // MARK: - Appearance Properties
     
     public static var standard = ActionSheetAppearance()
     
+    public lazy var item: ActionSheetItemAppearance = {
+        return ActionSheetItemAppearance()
+    }()
+    
+    public lazy var popover: ActionSheetPopoverApperance = {
+        return ActionSheetPopoverApperance(width: 300)
+    }()
+    
+    
+    // MARK: - Buttons
+    
     public lazy var cancelButton: ActionSheetCancelButtonAppearance = {
         return ActionSheetCancelButtonAppearance(copy: item)
-    }()
-    
-    public lazy var collectionItem: ActionSheetCollectionItemAppearance = {
-        return ActionSheetCollectionItemAppearance(copy: item)
-    }()
-    
-    public lazy var customItem: ActionSheetCustomItemAppearance = {
-        let appearance = ActionSheetCustomItemAppearance(copy: item)
-        appearance.backgroundColor = nil
-        return appearance
     }()
     
     public lazy var dangerButton: ActionSheetDangerButtonAppearance = {
@@ -84,8 +92,19 @@ open class ActionSheetAppearance {
         return appearance
     }()
     
-    public lazy var item: ActionSheetItemAppearance = {
-        return ActionSheetItemAppearance()
+    public lazy var okButton: ActionSheetOkButtonAppearance = {
+        return ActionSheetOkButtonAppearance(copy: item)
+    }()
+    
+    
+    // MARK: - Items
+    
+    public lazy var collectionItem: ActionSheetCollectionItemAppearance = {
+        return ActionSheetCollectionItemAppearance(copy: item)
+    }()
+    
+    public lazy var customItem: ActionSheetCustomItemAppearance = {
+        return ActionSheetCustomItemAppearance(copy: item)
     }()
     
     public lazy var linkItem: ActionSheetLinkItemAppearance = {
@@ -100,28 +119,23 @@ open class ActionSheetAppearance {
         return ActionSheetMultiSelectToggleItemAppearance(copy: item)
     }()
     
-    public lazy var okButton: ActionSheetOkButtonAppearance = {
-        return ActionSheetOkButtonAppearance(copy: item)
-    }()
-    
-    public lazy var popover: ActionSheetPopoverApperance = {
-        return ActionSheetPopoverApperance(width: 300)
-    }()
-    
-    public lazy var sectionTitle: ActionSheetSectionTitleAppearance = {
-        return ActionSheetSectionTitleAppearance(copy: item)
-    }()
-    
-    public lazy var sectionMargin: ActionSheetSectionMarginAppearance = {
-        return ActionSheetSectionMarginAppearance(copy: item)
-    }()
-    
     public lazy var selectItem: ActionSheetSelectItemAppearance = {
         return ActionSheetSelectItemAppearance(copy: item)
     }()
     
     public lazy var singleSelectItem: ActionSheetSingleSelectItemAppearance = {
         return ActionSheetSingleSelectItemAppearance(copy: selectItem)
+    }()
+    
+    
+    // MARK: - Titles
+    
+    public lazy var sectionMargin: ActionSheetSectionMarginAppearance = {
+        return ActionSheetSectionMarginAppearance(copy: item)
+    }()
+    
+    public lazy var sectionTitle: ActionSheetSectionTitleAppearance = {
+        return ActionSheetSectionTitleAppearance(copy: item)
     }()
     
     public lazy var title: ActionSheetTitleAppearance = {
