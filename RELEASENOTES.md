@@ -3,6 +3,30 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
+## 0.11.0
+
+This minor version fixes some appearance glitches and makes the appearance setup
+more consistent.
+
+* I use early returns in every appearance class and have optimized imports. Many
+appearance classes have also been made `open` instead of `public`.
+
+* The `ActionSheetCollectionItemAppearance` and `ActionSheetCustomItemAppearance`
+classes have no custom initializers. Use the same appearance adjustment approach
+as everywhere else.
+
+* The `ActionSheetPopoverApperance` class doesn't inherit any appearance classes
+and has thus been moved out to the appearance root.
+
+* The `ActionSheetSectionMarginAppearance` class now has both initializers, like
+every other item appearances. It just hides the separator after it's initialized.
+
+
+## 0.10.1
+
+This revision fixes a project config that caused Carthage installations to fail.
+
+
 ## 0.10.0
 
 `Sheeeeeeeeet` has a new item type: `ActionSheetCustomItem`. You can use it when

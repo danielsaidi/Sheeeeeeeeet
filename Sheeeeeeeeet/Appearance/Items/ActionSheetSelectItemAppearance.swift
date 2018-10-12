@@ -34,12 +34,11 @@ open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
         super.init(copy: copy)
         selectedTextColor = copy.textColor
         selectedTintColor = copy.tintColor
-        if let copy = copy as? ActionSheetSelectItemAppearance {
-            selectedIcon = copy.selectedIcon
-            selectedTextColor = copy.selectedTextColor ?? selectedTextColor
-            selectedTintColor = copy.selectedTintColor ?? selectedTintColor
-            selectedIconTintColor = copy.selectedIconTintColor ?? selectedTintColor
-        }
+        guard let copy = copy as? ActionSheetSelectItemAppearance else { return }
+        selectedIcon = copy.selectedIcon
+        selectedTextColor = copy.selectedTextColor ?? selectedTextColor
+        selectedTintColor = copy.selectedTintColor ?? selectedTintColor
+        selectedIconTintColor = copy.selectedIconTintColor ?? selectedTintColor
     }
     
     

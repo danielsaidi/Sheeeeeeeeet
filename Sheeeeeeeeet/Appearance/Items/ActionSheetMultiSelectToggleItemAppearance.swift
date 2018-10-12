@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ActionSheetMultiSelectToggleItemAppearance: ActionSheetItemAppearance {
+open class ActionSheetMultiSelectToggleItemAppearance: ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
@@ -19,10 +19,9 @@ public class ActionSheetMultiSelectToggleItemAppearance: ActionSheetItemAppearan
     
     public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
-        if let copy = copy as? ActionSheetMultiSelectToggleItemAppearance {
-            deselectAllTextColor = copy.deselectAllTextColor
-            selectAllTextColor = copy.selectAllTextColor
-        }
+        guard let copy = copy as? ActionSheetMultiSelectToggleItemAppearance else { return }
+        deselectAllTextColor = copy.deselectAllTextColor
+        selectAllTextColor = copy.selectAllTextColor
     }
     
     

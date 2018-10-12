@@ -6,6 +6,6 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 open class ActionSheetSectionTitleAppearance: ActionSheetItemAppearance {}

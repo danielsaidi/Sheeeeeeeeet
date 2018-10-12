@@ -440,6 +440,7 @@
 			children = (
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
+				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */,
 				455DEE31206F682A00173E67 /* Buttons */,
 				8499359C216BE13C000A0670 /* Items */,
 				455DEE32206F682F00173E67 /* Titles */,
@@ -617,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				453C797320931C1300DE42B5 /* ActionSheet */,
+				84D266A92170664A004502CC /* Appearance */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				45352D572030BBC900A0F890 /* Items */,
 				455DEE2A206E115900173E67 /* Presenters */,
@@ -703,7 +705,6 @@
 				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
 				455DEE35206F705000173E67 /* ActionSheetMultiSelectItemAppearance.swift */,
 				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
-				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */,
 				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
 				454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */,
 			);
@@ -719,6 +720,13 @@
 				849935A7216BFDE8000A0670 /* ViewController+ActionSheets.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84D266A92170664A004502CC /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

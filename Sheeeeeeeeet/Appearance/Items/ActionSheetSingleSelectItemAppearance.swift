@@ -6,7 +6,6 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-public class ActionSheetSingleSelectItemAppearance: ActionSheetSelectItemAppearance {
-}
+open class ActionSheetSingleSelectItemAppearance: ActionSheetSelectItemAppearance {}

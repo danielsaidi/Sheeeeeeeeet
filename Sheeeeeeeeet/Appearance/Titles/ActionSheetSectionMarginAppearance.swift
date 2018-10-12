@@ -6,20 +6,28 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 open class ActionSheetSectionMarginAppearance: ActionSheetItemAppearance {
     
     
     // MARK: - Initialization
     
-    public init(height: CGFloat) {
+    public override init() {
         super.init()
-        self.height = height
-        separatorInsets.right = 100_000_000
+        hideSeparator()
     }
     
-    public init(copy: ActionSheetSectionMarginAppearance) {
+    public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
+        hideSeparator()
+    }
+}
+
+
+private extension ActionSheetSectionMarginAppearance {
+    
+    func hideSeparator() {
+        separatorInsets.right = 100_000_000
     }
 }

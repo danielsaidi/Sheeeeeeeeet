@@ -27,6 +27,7 @@ extension AppDelegate {
         
         let separatorInsetHiddenValue: CGFloat = 100_000_000
         
+        appearance.item.backgroundColor = .red
         appearance.item.font = UIFont(name: robotoRegular, size: 17)
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray

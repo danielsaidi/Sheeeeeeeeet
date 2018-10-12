@@ -19,9 +19,8 @@ open class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
     
     public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
-        if let copy = copy as? ActionSheetLinkItemAppearance {
-            linkIcon = copy.linkIcon
-        }
+        guard let copy = copy as? ActionSheetLinkItemAppearance else { return }
+        linkIcon = copy.linkIcon
     }
     
     

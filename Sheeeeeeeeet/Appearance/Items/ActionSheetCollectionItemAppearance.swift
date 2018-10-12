@@ -8,10 +8,4 @@
 
 import Foundation
 
-open class ActionSheetCollectionItemAppearance: ActionSheetItemAppearance {
-    
-    public override init(copy: ActionSheetItemAppearance) {
-        super.init()
-        self.height = copy.height
-    }
-}
+open class ActionSheetCollectionItemAppearance: ActionSheetItemAppearance {}

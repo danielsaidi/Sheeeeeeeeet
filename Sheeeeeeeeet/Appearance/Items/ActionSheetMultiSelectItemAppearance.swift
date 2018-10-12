@@ -6,6 +6,6 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-public class ActionSheetMultiSelectItemAppearance: ActionSheetSelectItemAppearance {}
+open class ActionSheetMultiSelectItemAppearance: ActionSheetSelectItemAppearance {}

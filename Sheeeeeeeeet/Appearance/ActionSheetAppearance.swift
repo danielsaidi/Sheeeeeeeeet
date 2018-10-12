@@ -110,7 +110,7 @@ open class ActionSheetAppearance {
     }()
     
     public lazy var sectionMargin: ActionSheetSectionMarginAppearance = {
-        return ActionSheetSectionMarginAppearance(height: 20)
+        return ActionSheetSectionMarginAppearance(copy: item)
     }()
     
     public lazy var selectItem: ActionSheetSelectItemAppearance = {
