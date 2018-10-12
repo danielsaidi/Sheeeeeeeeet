@@ -32,20 +32,23 @@ open class ActionSheetAppearance {
         cornerRadius = copy.cornerRadius
         contentInset = copy.contentInset
         
+        item = ActionSheetItemAppearance(copy: copy.item)
+        popover = ActionSheetPopoverApperance(copy: copy.popover)
+        
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
+        okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
+        dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
+        
         collectionItem = ActionSheetCollectionItemAppearance(copy: copy.collectionItem)
         customItem = ActionSheetCustomItemAppearance(copy: copy.customItem)
-        dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
-        item = ActionSheetItemAppearance(copy: copy.item)
         linkItem = ActionSheetLinkItemAppearance(copy: copy.linkItem)
         multiSelectItem = ActionSheetMultiSelectItemAppearance(copy: copy.multiSelectItem)
         multiSelectToggleItem = ActionSheetMultiSelectToggleItemAppearance(copy: copy.multiSelectToggleItem)
-        okButton = ActionSheetOkButtonAppearance(copy: copy.okButton)
-        popover = ActionSheetPopoverApperance(copy: copy.popover)
-        sectionMargin = ActionSheetSectionMarginAppearance(copy: copy.sectionMargin)
-        sectionTitle = ActionSheetSectionTitleAppearance(copy: copy.sectionTitle)
         selectItem = ActionSheetSelectItemAppearance(copy: copy.selectItem)
         singleSelectItem = ActionSheetSingleSelectItemAppearance(copy: copy.singleSelectItem)
+        
+        sectionMargin = ActionSheetSectionMarginAppearance(copy: copy.sectionMargin)
+        sectionTitle = ActionSheetSectionTitleAppearance(copy: copy.sectionTitle)
         title = ActionSheetTitleAppearance(copy: copy.title)
     }
     

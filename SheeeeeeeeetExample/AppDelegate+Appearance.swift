@@ -25,19 +25,16 @@ extension AppDelegate {
         
         let appearance = ActionSheetAppearance.standard
         
-        let separatorInsetHiddenValue: CGFloat = 100_000_000
-        
-        appearance.item.backgroundColor = .red
         appearance.item.font = UIFont(name: robotoRegular, size: 17)
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
         appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
         appearance.item.subtitleTextColor = blue
         
-        appearance.title.separatorInsets.right = separatorInsetHiddenValue
+        appearance.title.hideSeparator()
         appearance.title.font = UIFont(name: robotoMedium, size: 15)
         
-        appearance.sectionTitle.separatorInsets.right = separatorInsetHiddenValue
+        appearance.sectionTitle.hideSeparator()
         appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
         appearance.sectionTitle.height = 20
         
@@ -58,7 +55,7 @@ extension AppDelegate {
         appearance.multiSelectItem.selectedTextColor = blue
         appearance.multiSelectItem.selectedIconTintColor = green
         
-        appearance.multiSelectToggleItem.separatorInsets.right = separatorInsetHiddenValue
+        appearance.multiSelectToggleItem.hideSeparator()
         appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
         appearance.multiSelectToggleItem.deselectAllTextColor = red
