@@ -11,15 +11,16 @@ more consistent.
 * I use early returns in every appearance class and have optimized imports. Many
 appearance classes have also been made `open` instead of `public`.
 
+* The `ActionSheetItemAppearance` now has extensions for `noSeparator`, that can
+be used to hide the separator for certain item types.
+
 * The `ActionSheetCollectionItemAppearance` and `ActionSheetCustomItemAppearance`
-classes have no custom initializers. Use the same appearance adjustment approach
+and `ActionSheetSectionMarginAppearance` classes have no overridden initializers
+anymore. This makes the work as expected when you use the same appearance tweaks
 as everywhere else.
 
 * The `ActionSheetPopoverApperance` class doesn't inherit any appearance classes
 and has thus been moved out to the appearance root.
-
-* The `ActionSheetSectionMarginAppearance` class now has both initializers, like
-every other item appearances. It just hides the separator after it's initialized.
 
 
 ## 0.10.1

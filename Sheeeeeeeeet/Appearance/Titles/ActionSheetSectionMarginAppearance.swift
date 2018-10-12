@@ -23,11 +23,3 @@ open class ActionSheetSectionMarginAppearance: ActionSheetItemAppearance {
         hideSeparator()
     }
 }
-
-
-private extension ActionSheetSectionMarginAppearance {
-    
-    func hideSeparator() {
-        separatorInsets.right = 100_000_000
-    }
-}
