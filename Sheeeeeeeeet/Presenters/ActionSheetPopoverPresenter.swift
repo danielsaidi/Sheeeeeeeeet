@@ -73,6 +73,16 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     
+    public func popoverPresentationController(_ popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView>) {
+        print("A")
+        print(availablePresentationSize)
+    }
+    
+    public func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        print("B")
+        print(availablePresentationSize)
+    }
+    
     public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
         guard isDismissableWithTapOnBackground else { return false }
         events.didDismissWithBackgroundTap?()
