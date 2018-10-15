@@ -142,19 +142,6 @@ open class ActionSheet: UIViewController {
             - buttonsSectionHeight
     }
     
-    open var bottomPresentationFrame: CGRect {
-        guard let view = view.superview else { return .zero }
-        var frame = view.frame
-        let leftMargin = margin(at: .left)
-        let rightMargin = margin(at: .right)
-        let maxMargin = max(leftMargin, rightMargin)
-        frame = frame.insetBy(dx: maxMargin, dy: 0)
-        frame.size.height = contentHeight
-        frame.origin.y = view.frame.height - contentHeight
-        frame.origin.y -= margin(at: .bottom)
-        return frame
-    }
-    
     open var buttonsSectionHeight: CGFloat {
         return buttonsViewHeight
     }
