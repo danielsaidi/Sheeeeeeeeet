@@ -5,11 +5,17 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 
 ## 0.12.0
 
-This version contains some breaking changes that probably won't affect you.
+This version contains some breaking changes, but they probably won't affect you:
 
-* The `bottomPresentationFrame` property has been removed from `ActionSheet` and
-added directly to `ActionSheetDefaultPresenter.presentationFrame(for:in:)`. This
-is more correct, since the sheet should know nothing about its presentation.
+* `ActionSheet.bottomPresentationFrame` has been removed. Its logic was added to
+`ActionSheetDefaultPresenter.presentationFrame(for:in:)`, which is more correct.
+
+* `ActionSheetPresenter.presentationFrame` has been removed, since it isn't used
+externally anymore. The nil property has been removed from the popover presenter.
+
+This version also contains a lot of non-breaking cleanup changes:
+
+* The `ActionSheet.positionSheet()` function had no effect and has been removed.
 
 
 ## 0.11.0

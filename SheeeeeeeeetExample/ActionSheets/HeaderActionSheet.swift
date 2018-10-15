@@ -11,7 +11,7 @@ import Sheeeeeeeeet
 class HeaderActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
-        let items = HeaderActionSheet.items(for: options + options + options)
+        let items = HeaderActionSheet.items(for: options)
         super.init(items: items) { _, item in
             if item.value == nil { return }
             action([item])

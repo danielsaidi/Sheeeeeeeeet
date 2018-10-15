@@ -62,26 +62,12 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: nil)
     }
-    
-    public func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect? {
-        return nil
-    }
 }
 
 
 // MARK: - UIPopoverPresentationControllerDelegate
 
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
-    
-    public func popoverPresentationController(_ popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverTo rect: UnsafeMutablePointer<CGRect>, in view: AutoreleasingUnsafeMutablePointer<UIView>) {
-        print("A")
-        print(availablePresentationSize)
-    }
-    
-    public func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        print("B")
-        print(availablePresentationSize)
-    }
     
     public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
         guard isDismissableWithTapOnBackground else { return false }

@@ -323,14 +323,7 @@ private extension ActionSheet {
         positionHeaderView(width: width)
         positionItemsView(width: width)
         positionButtonsView(width: width)
-        //positionSheet()
     }
-    
-//    func positionSheet() {
-//        guard let superview = view.superview else { return }
-//        guard let frame = presenter.presentationFrame(for: self, in: superview) else { return }
-//        view.frame = frame
-//    }
     
     func positionButtonsView(width: CGFloat) {
         buttonsView.frame.origin.x = 0

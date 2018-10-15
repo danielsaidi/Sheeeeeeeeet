@@ -39,5 +39,4 @@ public protocol ActionSheetPresenter: AnyObject {
     func dismiss(completion: @escaping () -> ())
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem)
-    func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect?
 }
