@@ -5,6 +5,14 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 
 ## 0.12.0
 
+
+This version deprecates members, which will be removed in the next minor version:
+
+* `ActionSheet.applyAppearance` (use `refresh` instead)
+* `ActionSheet.prepareForPresentation` (use `refresh` instead)
+
+
+
 This version contains some breaking changes, but they probably won't affect you:
 
 * `ActionSheet.bottomPresentationFrame` has been removed. Its logic was added to

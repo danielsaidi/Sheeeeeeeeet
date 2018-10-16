@@ -99,7 +99,7 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        prepareForPresentation()
+        refresh()
     }
     
     
@@ -233,29 +233,34 @@ open class ActionSheet: UIViewController {
     }()
     
     
-    // MARK: - Presentation Functions
+    // MARK: - Deprecated functionality
     
-    open func applyAppearance() {
-        itemsView.separatorColor = appearance.itemsSeparatorColor
-        buttonsView.separatorColor = appearance.buttonsSeparatorColor
-    }
+    @available(*, deprecated, message: "`applyAppearance` is deprecated, use `refresh` instead")
+    open func applyAppearance() { refresh() }
+    
+    @available(*, deprecated, message: "`prepareForPresentation` is deprecated, use `refresh` instead")
+    open func prepareForPresentation() { refresh() }
+    
+    
+    // MARK: - Presentation Functions
     
     open func dismiss(completion: @escaping () -> ()) {
         presenter.dismiss { completion() }
     }
     
     open func present(in vc: UIViewController, from view: UIView?) {
-        prepareForPresentation()
+        refresh()
         presenter.present(sheet: self, in: vc.rootViewController, from: view)
     }
     
     open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
-        prepareForPresentation()
+        refresh()
         presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem)
     }
     
-    open func prepareForPresentation() {
-        applyAppearance()
+    open func refresh() {
+        itemsView.separatorColor = appearance.itemsSeparatorColor
+        buttonsView.separatorColor = appearance.buttonsSeparatorColor
         items.forEach { $0.applyAppearance(appearance) }
         buttons.forEach { $0.applyAppearance(appearance) }
         applyRoundCorners()
