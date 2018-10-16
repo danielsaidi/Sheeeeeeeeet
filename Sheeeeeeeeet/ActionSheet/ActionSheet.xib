@@ -12,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionSheet" customModule="Sheeeeeeeeet" customModuleProvider="target">
             <connections>
+                <outlet property="bottomMargin" destination="0Ng-wM-pDU" id="e9x-Tl-lhM"/>
+                <outlet property="leftMargin" destination="am1-ek-BBj" id="Ixg-NB-46W"/>
+                <outlet property="rightMargin" destination="yS1-hl-lMK" id="Ztc-IM-42Q"/>
+                <outlet property="stackView" destination="a3t-st-aTv" id="JPA-a6-5tl"/>
+                <outlet property="topMargin" destination="HAP-aL-Tfx" id="Okk-TN-tDs"/>
                 <outlet property="view" destination="iN0-l3-epB" id="gl1-H2-KFe"/>
             </connections>
         </placeholder>
@@ -50,6 +55,7 @@
             <color key="backgroundColor" red="1" green="0.18940589469999999" blue="0.1750509361" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="a3t-st-aTv" secondAttribute="bottom" id="0Ng-wM-pDU"/>
+                <constraint firstItem="a3t-st-aTv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="HAP-aL-Tfx"/>
                 <constraint firstItem="a3t-st-aTv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="am1-ek-BBj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="a3t-st-aTv" secondAttribute="trailing" id="yS1-hl-lMK"/>
             </constraints>

@@ -99,7 +99,7 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        refresh()
+        refresh()
     }
     
     
@@ -123,6 +123,16 @@ open class ActionSheet: UIViewController {
     open lazy var itemTapAction: TapAction = { [weak self] item in
 //        self?.handleTap(on: item)
     }
+    
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var stackView: UIStackView?
+    
+    @IBOutlet weak var bottomMargin: NSLayoutConstraint?
+    @IBOutlet weak var leftMargin: NSLayoutConstraint?
+    @IBOutlet weak var rightMargin: NSLayoutConstraint?
+    @IBOutlet weak var topMargin: NSLayoutConstraint?
     
     
     // MARK: - Size Properties
@@ -278,16 +288,16 @@ open class ActionSheet: UIViewController {
 //        buttons.forEach { $0.applyAppearance(appearance) }
 //        applyRoundCorners()
 //        positionViews()
-//        presenter.positionSheet()
+        presenter.positionSheet()
     }
     
     
     // MARK: - Public Functions
     
-//    open func margin(at margin: ActionSheetMargin) -> CGFloat {
-//        let minimum = appearance.contentInset
-//        return margin.value(in: view.superview, minimum: minimum)
-//    }
+    open func margin(at margin: ActionSheetMargin) -> CGFloat {
+        let minimum = appearance.contentInset
+        return margin.value(in: view.superview, minimum: minimum)
+    }
 //
 //    public func item(at indexPath: IndexPath) -> ActionSheetItem {
 //        return items[indexPath.row]
