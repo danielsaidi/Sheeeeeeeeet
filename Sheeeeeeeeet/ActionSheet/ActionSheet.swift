@@ -265,6 +265,7 @@ open class ActionSheet: UIViewController {
         buttons.forEach { $0.applyAppearance(appearance) }
         applyRoundCorners()
         positionViews()
+        presenter.positionSheet()
     }
     
     

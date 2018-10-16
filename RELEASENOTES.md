@@ -5,13 +5,15 @@ Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0
 
 ## 0.12.0
 
+This version introduces a new `positionSheet` function in `ActionSheetPresenter`.
+It is used to solve a bug that made the action sheet to grow beyond the notch if
+the user rotated the device from portrait to landscape while an action sheet was
+presented on an iPhone with notch.
 
-This version deprecates members, which will be removed in the next minor version:
+This version deprecates some members, that are removed in the next minor version:
 
 * `ActionSheet.applyAppearance` (use `refresh` instead)
 * `ActionSheet.prepareForPresentation` (use `refresh` instead)
-
-
 
 This version contains some breaking changes, but they probably won't affect you:
 

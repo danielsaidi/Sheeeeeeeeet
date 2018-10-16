@@ -49,6 +49,8 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         vc?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
+    public func positionSheet() {}
+    
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         popover = self.popover(for: sheet, in: vc)
         popover?.sourceView = view

@@ -44,6 +44,11 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         completion()
     }
     
+    open func positionSheet() {
+        guard let sheet = actionSheet, let view = actionSheetView else { return }
+        view.frame = self.presentationFrame(for: sheet, in: view.superview!) ?? .zero
+    }
+    
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         present(sheet: sheet, in: vc)
     }
@@ -103,7 +108,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
         guard let sheetView = actionSheetView else { return }
         sheetView.frame = presentationTransitionStartFrame(for: sheet, in: view)
-        animate { sheetView.frame = self.presentationFrame(for: sheet, in: view) ?? .zero }
+        animate { self.positionSheet() }
         sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
     }
     

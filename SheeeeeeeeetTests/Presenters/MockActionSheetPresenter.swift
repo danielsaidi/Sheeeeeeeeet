@@ -27,6 +27,8 @@ class MockActionSheetPresenter: ActionSheetPresenter {
         dismissInvokeCompletions.append(completion)
     }
     
+    func positionSheet() {}
+    
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         presentInvokeCount += 1
         presentInvokeSheets.append(sheet)

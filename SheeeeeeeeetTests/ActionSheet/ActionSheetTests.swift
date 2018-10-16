@@ -107,10 +107,10 @@ class ActionSheetTests: QuickSpec {
         
         describe("laying out subviews") {
             
-            it("prepares for presentation") {
+            it("refreshes sheet") {
                 let sheet = actionSheet(withItems: [])
                 sheet.viewDidLayoutSubviews()
-                expect(sheet.prepareForPresentationInvokeCount).to(equal(1))
+                expect(sheet.refreshInvokeCount).to(equal(1))
             }
         }
         
@@ -490,9 +490,9 @@ class ActionSheetTests: QuickSpec {
                 sheet.presenter = presenter
             }
             
-            it("prepares for presentation") {
+            it("refreshes sheet") {
                 sheet.present(in: UIViewController(), from: UIView())
-                expect(sheet.prepareForPresentationInvokeCount).to(equal(1))
+                expect(sheet.refreshInvokeCount).to(equal(1))
             }
             
             it("calls presenter with values and completion") {
@@ -513,9 +513,9 @@ class ActionSheetTests: QuickSpec {
                 sheet.presenter = presenter
             }
             
-            it("prepares for presentation") {
+            it("refreshes sheet") {
                 sheet.present(in: UIViewController(), from: UIView())
-                expect(sheet.prepareForPresentationInvokeCount).to(equal(1))
+                expect(sheet.refreshInvokeCount).to(equal(1))
             }
             
             it("calls presenter with values and completion") {
