@@ -307,7 +307,8 @@ class ActionSheetTests: QuickSpec {
             
             it("uses preferred content size width") {
                 let sheet = actionSheet(withItems: [])
-                expect(sheet.contentSize.width).to(beGreaterThan(123))
+                sheet.preferredContentSize.width = 123
+                expect(sheet.contentSize.width).to(equal(123))
             }
         }
         

@@ -10,6 +10,12 @@ It is used to solve a bug that made the action sheet to grow beyond the notch if
 the user rotated the device from portrait to landscape while an action sheet was
 presented on an iPhone with notch.
 
+`ActionSheetAppearance` has a new `viewMargins` property, which can be used from
+now on to specify the margin between the header, item and buttons. `contentInset`
+was previously used for this, but this makes it possible to use different values
+for the insets and view margins.
+
+
 ### Bug fixes
 
 * `hideSeparator()` behaved incorrectly when rotating some example app sheets. I
