@@ -25,7 +25,7 @@ class CollectionActionSheet: ActionSheet {
             action(collectionItems.filter { $0.isSelected })
         }
         let items = self.items(for: options, collectionItems: collectionItems)
-        setupItemsAndButtons(with: items)
+//        setupItemsAndButtons(with: items)                 TODO
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +56,7 @@ private extension CollectionActionSheet {
             item.isSelected = !item.isSelected
             title.subtitle = self?.selectionSubtitle(for: collectionItems)
             cell.configureWith(item: item)
-            self?.reloadData()
+//            self?.reloadData()                            TODO
         }
         
         let collectionItem = ActionSheetCollectionItem(

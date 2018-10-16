@@ -74,7 +74,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     open func extendSelectionAction(toReload actionSheet: ActionSheet) {
         weak var sheet = actionSheet
         extendSelectionAction(with: { _, _ in
-            sheet?.reloadData()
+//            sheet?.reloadData()                           TODO
         })
     }
     

@@ -52,6 +52,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     public func positionSheet() {}
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+        setupSheetForPresentation(sheet)
         popover = self.popover(for: sheet, in: vc)
         popover?.sourceView = view
         popover?.sourceRect = view?.bounds ?? CGRect()
@@ -85,7 +86,6 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
 private extension ActionSheetPopoverPresenter {
     
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
-        setupSheetForPresentation(sheet)
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController
         popover?.backgroundColor = sheet.view.backgroundColor
@@ -103,7 +103,7 @@ private extension ActionSheetPopoverPresenter {
         sheet.headerView = nil
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []
-        sheet.preferredContentSize = sheet.preferredPopoverSize
-        sheet.view.backgroundColor = sheet.itemsView.backgroundColor
+//        sheet.preferredContentSize = sheet.preferredPopoverSize           TODO
+//        sheet.view.backgroundColor = sheet.itemsView.backgroundColor      TODO
     }
 }

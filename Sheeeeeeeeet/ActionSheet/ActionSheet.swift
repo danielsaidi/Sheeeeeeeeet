@@ -73,8 +73,8 @@ open class ActionSheet: UIViewController {
         action: @escaping SelectAction) {
         self.presenter = presenter
         itemSelectAction = action
-        super.init(nibName: nil, bundle: nil)
-        setupItemsAndButtons(with: items)
+        super.init(nibName: ActionSheet.className, bundle: Bundle(for: ActionSheet.self))
+//        setupItemsAndButtons(with: items)
         setup()
     }
     
@@ -99,7 +99,7 @@ open class ActionSheet: UIViewController {
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        refresh()
+//        refresh()
     }
     
     
@@ -121,138 +121,138 @@ open class ActionSheet: UIViewController {
     open var itemSelectAction: SelectAction
     
     open lazy var itemTapAction: TapAction = { [weak self] item in
-        self?.handleTap(on: item)
+//        self?.handleTap(on: item)
     }
     
     
     // MARK: - Size Properties
     
-    open var availableItemHeight: CGFloat {
-        return UIScreen.main.bounds.height
-            - 2 * margin(at: .top)
-            - margin(at: .bottom)
-            - headerSectionHeight
-            - buttonsSectionHeight
-    }
-    
-    open var contentSize: CGSize {
-        let height = headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
-        //let width = presenter.availablePresentationSize.width - horizontalMargins
-        let width = super.preferredContentSize.width
-        return CGSize(width: width, height: height)
-    }
-    
-    open override var preferredContentSize: CGSize {
-        get { return contentSize }
-        set { super.preferredContentSize = newValue }
-    }
-    
-    open var preferredPopoverSize: CGSize {
-        let width = appearance.popover.width
-        return CGSize(width: width, height: contentSize.height)
-    }
-    
-    open var requiredItemHeight: CGFloat {
-        return items.reduce(0) { $0 + $1.appearance.height }
-    }
+//    open var availableItemHeight: CGFloat {
+//        return UIScreen.main.bounds.height
+//            - 2 * margin(at: .top)
+//            - margin(at: .bottom)
+//            - headerSectionHeight
+//            - buttonsSectionHeight
+//    }
+//
+//    open var contentSize: CGSize {
+//        let height = headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
+//        //let width = presenter.availablePresentationSize.width - horizontalMargins
+//        let width = super.preferredContentSize.width
+//        return CGSize(width: width, height: height)
+//    }
+//
+//    open override var preferredContentSize: CGSize {
+//        get { return contentSize }
+//        set { super.preferredContentSize = newValue }
+//    }
+//
+//    open var preferredPopoverSize: CGSize {
+//        let width = appearance.popover.width
+//        return CGSize(width: width, height: contentSize.height)
+//    }
+//
+//    open var requiredItemHeight: CGFloat {
+//        return items.reduce(0) { $0 + $1.appearance.height }
+//    }
     
     
     // MARK: - Margins
     
-    public var horizontalMargins: CGFloat {
-        return margin(at: .left) + margin(at: .right)
-    }
-    
-    public var verticalMargins: CGFloat {
-        return margin(at: .top) + margin(at: .bottom)
-    }
+//    public var horizontalMargins: CGFloat {
+//        return margin(at: .left) + margin(at: .right)
+//    }
+//
+//    public var verticalMargins: CGFloat {
+//        return margin(at: .top) + margin(at: .bottom)
+//    }
     
     
     // MARK: - Header
     
-    open var headerSectionHeight: CGFloat {
-        guard headerViewHeight > 0 else { return 0 }
-        return headerViewHeight + appearance.contentInset
-    }
+//    open var headerSectionHeight: CGFloat {
+//        guard headerViewHeight > 0 else { return 0 }
+//        return headerViewHeight + appearance.contentInset
+//    }
     
-    open var headerView: UIView? {
-        didSet {
-            oldValue?.removeFromSuperview()
-            guard let header = headerView else { return }
-            view.addSubview(header)
-        }
-    }
-    
-    open var headerViewHeight: CGFloat {
-        return headerView?.frame.height ?? 0
-    }
+    open var headerView: UIView? //{
+//        didSet {
+//            oldValue?.removeFromSuperview()
+//            guard let header = headerView else { return }
+//            view.addSubview(header)
+//        }
+//    }
+//
+//    open var headerViewHeight: CGFloat {
+//        return headerView?.frame.height ?? 0
+//    }
     
     
     // MARK: - Items
     
     open var items = [ActionSheetItem]()
     
-    public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
-    
-    open var itemsSectionHeight: CGFloat {
-        guard itemsViewHeight > 0 else { return 0 }
-        guard buttonsSectionHeight > 0 else { return itemsViewHeight }
-        return itemsViewHeight + appearance.contentInset
-    }
-    
-    open lazy var itemsView: UITableView = {
-        let tableView = createTableView(handler: itemHandler)
-        view.addSubview(tableView)
-        return tableView
-    }()
-    
-    open var itemsViewHeight: CGFloat {
-        let required = requiredItemHeight
-        let available = availableItemHeight
-        return min(required, available)
-    }
-    
-    open var itemsViewRequiresScrolling: Bool {
-        let required = requiredItemHeight
-        let available = availableItemHeight
-        return available < required
-    }
+//    public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
+//
+//    open var itemsSectionHeight: CGFloat {
+//        guard itemsViewHeight > 0 else { return 0 }
+//        guard buttonsSectionHeight > 0 else { return itemsViewHeight }
+//        return itemsViewHeight + appearance.contentInset
+//    }
+//
+//    open lazy var itemsView: UITableView = {
+//        let tableView = createTableView(handler: itemHandler)
+//        view.addSubview(tableView)
+//        return tableView
+//    }()
+//
+//    open var itemsViewHeight: CGFloat {
+//        let required = requiredItemHeight
+//        let available = availableItemHeight
+//        return min(required, available)
+//    }
+//
+//    open var itemsViewRequiresScrolling: Bool {
+//        let required = requiredItemHeight
+//        let available = availableItemHeight
+//        return available < required
+//    }
     
     
     // MARK: - Buttons
     
     open var buttons = [ActionSheetButton]()
     
-    public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
-    
-    open var buttonsSectionHeight: CGFloat {
-        return buttonsViewHeight
-    }
-    
-    open lazy var buttonsView: UITableView = {
-        let tableView = createTableView(handler: buttonHandler)
-        view.addSubview(tableView)
-        return tableView
-    }()
-    
-    open var buttonsViewHeight: CGFloat {
-        return buttons.reduce(0) { $0 + $1.appearance.height }
-    }
+//    public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
+//
+//    open var buttonsSectionHeight: CGFloat {
+//        return buttonsViewHeight
+//    }
+//
+//    open lazy var buttonsView: UITableView = {
+//        let tableView = createTableView(handler: buttonHandler)
+//        view.addSubview(tableView)
+//        return tableView
+//    }()
+//
+//    open var buttonsViewHeight: CGFloat {
+//        return buttons.reduce(0) { $0 + $1.appearance.height }
+//    }
     
     
     // MARK: - Deprecated members
     
-    @available(*, deprecated, message: "`contentHeight` is deprecated, use `contentSize` instead")
-    open var contentHeight: CGFloat { return contentSize.height }
-    
-    @available(*, deprecated, message: "`contentWidth` is deprecated, use `contentSize` instead")
-    open var contentWidth: CGFloat { return contentSize.width }
-    
-    @available(*, deprecated, message: "`applyAppearance` is deprecated, use `refresh` instead")
-    open func applyAppearance() { refresh() }
-    
-    @available(*, deprecated, message: "`prepareForPresentation` is deprecated, use `refresh` instead")
-    open func prepareForPresentation() { refresh() }
+//    @available(*, deprecated, message: "`contentHeight` is deprecated, use `contentSize` instead")
+//    open var contentHeight: CGFloat { return contentSize.height }
+//
+//    @available(*, deprecated, message: "`contentWidth` is deprecated, use `contentSize` instead")
+//    open var contentWidth: CGFloat { return contentSize.width }
+//
+//    @available(*, deprecated, message: "`applyAppearance` is deprecated, use `refresh` instead")
+//    open func applyAppearance() { refresh() }
+//
+//    @available(*, deprecated, message: "`prepareForPresentation` is deprecated, use `refresh` instead")
+//    open func prepareForPresentation() { refresh() }
     
     
     // MARK: - Presentation Functions
@@ -260,49 +260,49 @@ open class ActionSheet: UIViewController {
     open func dismiss(completion: @escaping () -> ()) {
         presenter.dismiss { completion() }
     }
-    
+
     open func present(in vc: UIViewController, from view: UIView?) {
         refresh()
         presenter.present(sheet: self, in: vc.rootViewController, from: view)
     }
-    
+
     open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
         refresh()
         presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem)
     }
-    
+
     open func refresh() {
-        itemsView.separatorColor = appearance.itemsSeparatorColor
-        buttonsView.separatorColor = appearance.buttonsSeparatorColor
-        items.forEach { $0.applyAppearance(appearance) }
-        buttons.forEach { $0.applyAppearance(appearance) }
-        applyRoundCorners()
-        positionViews()
-        presenter.positionSheet()
+//        itemsView.separatorColor = appearance.itemsSeparatorColor
+//        buttonsView.separatorColor = appearance.buttonsSeparatorColor
+//        items.forEach { $0.applyAppearance(appearance) }
+//        buttons.forEach { $0.applyAppearance(appearance) }
+//        applyRoundCorners()
+//        positionViews()
+//        presenter.positionSheet()
     }
     
     
     // MARK: - Public Functions
     
-    open func margin(at margin: ActionSheetMargin) -> CGFloat {
-        let minimum = appearance.contentInset
-        return margin.value(in: view.superview, minimum: minimum)
-    }
-    
-    public func item(at indexPath: IndexPath) -> ActionSheetItem {
-        return items[indexPath.row]
-    }
-    
-    open func reloadData() {
-        itemsView.reloadData()
-        buttonsView.reloadData()
-    }
-    
-    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
-        self.items = items.filter { !($0 is ActionSheetButton) }
-        buttons = items.compactMap { $0 as? ActionSheetButton }
-        reloadData()
-    }
+//    open func margin(at margin: ActionSheetMargin) -> CGFloat {
+//        let minimum = appearance.contentInset
+//        return margin.value(in: view.superview, minimum: minimum)
+//    }
+//
+//    public func item(at indexPath: IndexPath) -> ActionSheetItem {
+//        return items[indexPath.row]
+//    }
+//
+//    open func reloadData() {
+//        itemsView.reloadData()
+//        buttonsView.reloadData()
+//    }
+//
+//    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
+//        self.items = items.filter { !($0 is ActionSheetButton) }
+//        buttons = items.compactMap { $0 as? ActionSheetButton }
+//        reloadData()
+//    }
 }
 
 
@@ -310,61 +310,61 @@ open class ActionSheet: UIViewController {
 
 private extension ActionSheet {
     
-    func applyRoundCorners() {
-        applyRoundCorners(to: headerView)
-        applyRoundCorners(to: itemsView)
-        applyRoundCorners(to: buttonsView)
-    }
-    
-    func applyRoundCorners(to view: UIView?) {
-        view?.clipsToBounds = true
-        view?.layer.cornerRadius = appearance.cornerRadius
-    }
-    
-    func createTableView(handler: ActionSheetItemHandler) -> UITableView {
-        let tableView = UITableView(frame: view.frame, style: .plain)
-        tableView.isScrollEnabled = false
-        tableView.tableFooterView = UIView.empty
-        tableView.cellLayoutMarginsFollowReadableWidth = false
-        tableView.dataSource = handler
-        tableView.delegate = handler
-        return tableView
-    }
-    
-    func handleTap(on item: ActionSheetItem) {
-        reloadData()
-        if item.tapBehavior == .dismiss {
-            dismiss { self.itemSelectAction(self, item) }
-        } else {
-            itemSelectAction(self, item)
-        }
-    }
-    
-    func positionViews() {
-        let width = view.frame.width
-        positionHeaderView(width: width)
-        positionItemsView(width: width)
-        positionButtonsView(width: width)
-    }
-    
-    func positionButtonsView(width: CGFloat) {
-        buttonsView.frame.origin.x = 0
-        buttonsView.frame.origin.y = headerSectionHeight + itemsSectionHeight
-        buttonsView.frame.size.width = width
-        buttonsView.frame.size.height = buttonsViewHeight
-    }
-    
-    func positionHeaderView(width: CGFloat) {
-        guard let view = headerView else { return }
-        view.frame.origin = .zero
-        view.frame.size.width = width
-    }
-    
-    func positionItemsView(width: CGFloat) {
-        itemsView.frame.origin.x = 0
-        itemsView.frame.origin.y = headerSectionHeight
-        itemsView.frame.size.width = width
-        itemsView.frame.size.height = itemsViewHeight
-        itemsView.isScrollEnabled = itemsViewRequiresScrolling
-    }
+//    func applyRoundCorners() {
+//        applyRoundCorners(to: headerView)
+//        applyRoundCorners(to: itemsView)
+//        applyRoundCorners(to: buttonsView)
+//    }
+//
+//    func applyRoundCorners(to view: UIView?) {
+//        view?.clipsToBounds = true
+//        view?.layer.cornerRadius = appearance.cornerRadius
+//    }
+//
+//    func createTableView(handler: ActionSheetItemHandler) -> UITableView {
+//        let tableView = UITableView(frame: view.frame, style: .plain)
+//        tableView.isScrollEnabled = false
+//        tableView.tableFooterView = UIView.empty
+//        tableView.cellLayoutMarginsFollowReadableWidth = false
+//        tableView.dataSource = handler
+//        tableView.delegate = handler
+//        return tableView
+//    }
+//
+//    func handleTap(on item: ActionSheetItem) {
+//        reloadData()
+//        if item.tapBehavior == .dismiss {
+//            dismiss { self.itemSelectAction(self, item) }
+//        } else {
+//            itemSelectAction(self, item)
+//        }
+//    }
+//
+//    func positionViews() {
+//        let width = view.frame.width
+//        positionHeaderView(width: width)
+//        positionItemsView(width: width)
+//        positionButtonsView(width: width)
+//    }
+//
+//    func positionButtonsView(width: CGFloat) {
+//        buttonsView.frame.origin.x = 0
+//        buttonsView.frame.origin.y = headerSectionHeight + itemsSectionHeight
+//        buttonsView.frame.size.width = width
+//        buttonsView.frame.size.height = buttonsViewHeight
+//    }
+//
+//    func positionHeaderView(width: CGFloat) {
+//        guard let view = headerView else { return }
+//        view.frame.origin = .zero
+//        view.frame.size.width = width
+//    }
+//
+//    func positionItemsView(width: CGFloat) {
+//        itemsView.frame.origin.x = 0
+//        itemsView.frame.origin.y = headerSectionHeight
+//        itemsView.frame.size.width = width
+//        itemsView.frame.size.height = itemsViewHeight
+//        itemsView.isScrollEnabled = itemsViewRequiresScrolling
+//    }
 }
