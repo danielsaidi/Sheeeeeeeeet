@@ -198,16 +198,10 @@ open class ActionSheet: UIViewController {
     open var requiredItemHeight: CGFloat {
         return items.reduce(0) { $0 + $1.appearance.height }
     }
-
-
-    // MARK: - View Properties
     
-    open lazy var buttonsView: UITableView = {
-        let tableView = createTableView(handler: buttonHandler)
-        view.addSubview(tableView)
-        return tableView
-    }()
-
+    
+    // MARK: - Header
+    
     open var headerView: UIView? {
         didSet {
             oldValue?.removeFromSuperview()
@@ -216,6 +210,11 @@ open class ActionSheet: UIViewController {
         }
     }
     
+    
+    // MARK: - Items
+    
+    public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
+    
     open lazy var itemsView: UITableView = {
         let tableView = createTableView(handler: itemHandler)
         view.addSubview(tableView)
@@ -223,12 +222,16 @@ open class ActionSheet: UIViewController {
     }()
     
     
-    // MARK: - Data Properties
+    // MARK: - Buttons
     
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
     
-    public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
-
+    open lazy var buttonsView: UITableView = {
+        let tableView = createTableView(handler: buttonHandler)
+        view.addSubview(tableView)
+        return tableView
+    }()
+    
     
     // MARK: - Presentation Functions
     
