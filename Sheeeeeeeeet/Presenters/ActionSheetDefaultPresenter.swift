@@ -27,14 +27,11 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     // MARK: - Properties
     
+    public private(set) var actionSheet: ActionSheet?
+    
     open var availablePresentationSize: CGSize { return UIScreen.main.bounds.size }
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
-    
-    private var actionSheet: ActionSheet?
-    //private var actionSheetView: UIView?
-    private var backgroundColor = UIColor.black.withAlphaComponent(0.4)
-    private var backgroundView: UIView?
     
     
     // MARK: - ActionSheetPresenter
@@ -56,18 +53,12 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     open func present(sheet: ActionSheet, in vc: UIViewController) {
         actionSheet = sheet
-        
-//        addBackgroundView(to: vc.view)
         addActionSheetView(from: sheet, to: vc.view)
-//        presentBackgroundView()
         presentActionSheet(sheet, in: vc.view)
     }
     
     open func refreshActionSheet() {
         guard let sheet = actionSheet else { return }
-        //        guard let sheet = actionSheet, let view = actionSheetView else { return }
-        //        view.frame = self.presentationFrame(for: sheet, in: view.superview!) ?? .zero
-        
         sheet.topMargin?.constant = sheet.margin(at: .top)
         sheet.leftMargin?.constant = sheet.margin(at: .left)
         sheet.rightMargin?.constant = sheet.margin(at: .right)
@@ -78,12 +69,9 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     // MARK: - Protected, overridable Functions
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
-        //guard let sheetView = sheet.view else { return }
         sheet.view.frame = view.frame
         sheet.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(sheet.view)
-        
-        //actionSheetView = sheetView
     }
 //
 //    open func addBackgroundView(to view: UIView) {
