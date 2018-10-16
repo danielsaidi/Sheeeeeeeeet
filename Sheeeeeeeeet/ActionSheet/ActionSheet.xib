@@ -15,6 +15,9 @@
                 <outlet property="backgroundView" destination="SY3-WL-g9a" id="kJl-sr-KSn"/>
                 <outlet property="bottomMargin" destination="0Ng-wM-pDU" id="e9x-Tl-lhM"/>
                 <outlet property="buttonsTableView" destination="4ww-lg-Kl7" id="ybX-2I-Py8"/>
+                <outlet property="buttonsTableViewHeight" destination="3xB-Am-CuT" id="irJ-Cj-nU5"/>
+                <outlet property="itemsTableView" destination="iQT-dy-e7d" id="qVi-cs-nm6"/>
+                <outlet property="itemsTableViewHeight" destination="929-kf-L2B" id="Vn3-T3-wVr"/>
                 <outlet property="leftMargin" destination="am1-ek-BBj" id="Ixg-NB-46W"/>
                 <outlet property="rightMargin" destination="yS1-hl-lMK" id="Ztc-IM-42Q"/>
                 <outlet property="stackView" destination="a3t-st-aTv" id="JPA-a6-5tl"/>
@@ -32,7 +35,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-st-aTv">
-                    <rect key="frame" x="0.0" y="277" width="375" height="390"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eio-5P-omJ">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -41,18 +44,18 @@
                                 <constraint firstAttribute="height" constant="150" id="ZKw-6e-7h3"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ja-qj-Snp">
-                            <rect key="frame" x="0.0" y="170" width="375" height="100"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="100" id="hXC-pI-WvP"/>
-                            </constraints>
-                        </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ww-lg-Kl7" customClass="IntrinsicTableView" customModule="Sheeeeeeeeet" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="290" width="375" height="100"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iQT-dy-e7d">
+                            <rect key="frame" x="0.0" y="170" width="375" height="357"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="100" placeholder="YES" id="3xB-Am-CuT"/>
+                                <constraint firstAttribute="height" priority="900" constant="10000" id="929-kf-L2B"/>
+                            </constraints>
+                        </tableView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ww-lg-Kl7" customClass="IntrinsicTableView" customModule="Sheeeeeeeeet" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="547" width="375" height="100"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="3xB-Am-CuT"/>
                             </constraints>
                         </tableView>
                     </subviews>

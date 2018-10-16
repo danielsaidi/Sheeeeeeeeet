@@ -46,17 +46,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         completion()
     }
     
-    open func positionSheet() {
-        guard let sheet = actionSheet else { return }
-//        guard let sheet = actionSheet, let view = actionSheetView else { return }
-//        view.frame = self.presentationFrame(for: sheet, in: view.superview!) ?? .zero
-        
-        sheet.topMargin?.constant = sheet.margin(at: .top)
-        sheet.leftMargin?.constant = sheet.margin(at: .left)
-        sheet.rightMargin?.constant = sheet.margin(at: .right)
-        sheet.bottomMargin?.constant = sheet.margin(at: .bottom)
-    }
-    
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         present(sheet: sheet, in: vc)
     }
@@ -72,6 +61,17 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         addActionSheetView(from: sheet, to: vc.view)
 //        presentBackgroundView()
         presentActionSheet(sheet, in: vc.view)
+    }
+    
+    open func refreshActionSheet() {
+        guard let sheet = actionSheet else { return }
+        //        guard let sheet = actionSheet, let view = actionSheetView else { return }
+        //        view.frame = self.presentationFrame(for: sheet, in: view.superview!) ?? .zero
+        
+        sheet.topMargin?.constant = sheet.margin(at: .top)
+        sheet.leftMargin?.constant = sheet.margin(at: .left)
+        sheet.rightMargin?.constant = sheet.margin(at: .right)
+        sheet.bottomMargin?.constant = sheet.margin(at: .bottom)
     }
     
     

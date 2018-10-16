@@ -49,9 +49,6 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         vc?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
-    public func positionSheet() {
-    }
-    
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
         setupSheetForPresentation(sheet)
         popover = self.popover(for: sheet, in: vc)
@@ -65,6 +62,18 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         popover = self.popover(for: sheet, in: vc)
         popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: nil)
+    }
+    
+    public func refreshActionSheet() {
+        guard let sheet = actionSheet else { return }
+        sheet.stackView?.arrangedSubviews[0].isHidden = true
+        sheet.buttonsTableView?.isHidden = true
+        sheet.preferredContentSize = CGSize(width: sheet.appearance.popover.width, height: sheet.itemsHeight)
+//        sheet.topMargin?.isActive = false
+//        sheet.view.topAnchor.constraint(equalTo: sheet.topLayoutGuide.topAnchor).isActive = true
+        popover?.backgroundColor = sheet.itemsTableView?.backgroundColor
+//        sheet.backgroundView?.isHidden = true
+//        sheet.itemsTableView?.isScrollEnabled = (sheet.itemsTableView?.frame.height ?? 0) > sheet.view.frame.height
     }
 }
 
@@ -104,7 +113,5 @@ private extension ActionSheetPopoverPresenter {
         sheet.headerView = nil
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []
-//        sheet.preferredContentSize = sheet.preferredPopoverSize           TODO
-//        sheet.view.backgroundColor = sheet.itemsView.backgroundColor      TODO
     }
 }
