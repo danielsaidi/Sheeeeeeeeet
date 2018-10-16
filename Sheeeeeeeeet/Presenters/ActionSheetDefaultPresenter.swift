@@ -37,10 +37,13 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     // MARK: - ActionSheetPresenter
     
     open func dismiss(completion: @escaping () -> ()) {
-        actionSheet = nil
-//        removeActionSheetView()
-//        removeBackgroundView()
-        completion()
+        let sheet = actionSheet
+        removeBackgroundView()
+        removeActionSheet {
+            sheet?.view.removeFromSuperview()
+            self.actionSheet = nil
+            completion()
+        }
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
@@ -54,7 +57,8 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     open func present(sheet: ActionSheet, in vc: UIViewController) {
         actionSheet = sheet
         addActionSheetView(from: sheet, to: vc.view)
-        presentActionSheet(sheet, in: vc.view)
+        presentActionSheet()
+        presentBackgroundView()
     }
     
     open func refreshActionSheet() {
@@ -72,23 +76,15 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         sheet.view.frame = view.frame
         sheet.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(sheet.view)
+        addBackgroundViewTapAction(to: sheet.backgroundView)
     }
-//
-//    open func addBackgroundView(to view: UIView) {
-//        let bgView = UIView(frame: view.frame)
-//        bgView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        addBackgroundViewTapAction(to: bgView)
-//        view.addSubview(bgView)
-//        bgView.backgroundColor = backgroundColor
-//        backgroundView = bgView
-//    }
-//
-//    open func addBackgroundViewTapAction(to view: UIView) {
-//        view.isUserInteractionEnabled = true
-//        let action = #selector(backgroundViewTapAction)
-//        let tap = UITapGestureRecognizer(target: self, action: action)
-//        view.addGestureRecognizer(tap)
-//    }
+
+    open func addBackgroundViewTapAction(to view: UIView?) {
+        view?.isUserInteractionEnabled = true
+        let action = #selector(backgroundViewTapAction)
+        let tap = UITapGestureRecognizer(target: self, action: action)
+        view?.addGestureRecognizer(tap)
+    }
     
     open func animate(_ animation: @escaping () -> ()) {
         animate(animation, completion: nil)
@@ -98,52 +94,33 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: animation) { _ in completion?() }
     }
     
-    open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
-//        guard let sheetView = actionSheetView else { return }
-//        sheetView.frame = presentationTransitionStartFrame(for: sheet, in: view)
-//        animate { self.positionSheet() }
-//        sheetView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+    open func presentActionSheet() {
+        guard let view = actionSheet?.stackView else { return }
+        let frame = view.frame
+        view.frame.origin.y += frame.height + 100
+        let animation = { view.frame = frame }
+        animate(animation)
     }
     
-    open func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect? {
-//        guard let view = sheet.view.superview else { return .zero }
-//        var frame = view.frame
-//        let leftMargin = sheet.margin(at: .left)
-//        let rightMargin = sheet.margin(at: .right)
-//        let maxMargin = max(leftMargin, rightMargin)
-//        frame = frame.insetBy(dx: maxMargin, dy: 0)
-//        frame.size.height = sheet.contentSize.height
-//        frame.origin.y = view.frame.height - sheet.contentSize.height
-//        frame.origin.y -= sheet.margin(at: .bottom)
-//        return frame
-        return .zero
+    open func presentBackgroundView() {
+        guard let view = actionSheet?.backgroundView else { return }
+        view.alpha = 0
+        let animation = { view.alpha = 1 }
+        animate(animation)
     }
-    
-//    open func presentationTransitionStartFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
-//        var frame = presentationFrame(for: sheet, in: view) ?? .zero
-//        frame.origin.y += 100
-//        return frame
-//    }
-//
-//    open func presentBackgroundView() {
-//        guard let view = backgroundView else { return }
-//        view.alpha = 0
-//        animate { view.alpha = 1 }
-//    }
-//
-//    open func removeActionSheetView() {
-//        guard let view = actionSheetView else { return }
-//        var frame = view.frame
-//        frame.origin.y += frame.height + 100
-//        let animation = { view.frame = frame }
-//        animate(animation) { view.removeFromSuperview() }
-//    }
-//
-//    open func removeBackgroundView() {
-//        guard let view = backgroundView else { return }
-//        let animation = { view.alpha = 0 }
-//        animate(animation) { view.removeFromSuperview() }
-//    }
+
+    open func removeActionSheet(completion: @escaping () -> ()) {
+        guard let view = actionSheet?.stackView else { return }
+        let frame = view.frame
+        let animation = { view.frame.origin.y += frame.height + 100 }
+        animate(animation) { completion() }
+    }
+
+    open func removeBackgroundView() {
+        guard let view = actionSheet?.backgroundView else { return }
+        let animation = { view.alpha = 0 }
+        animate(animation)
+    }
 }
 
 
