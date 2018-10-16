@@ -125,14 +125,7 @@ open class ActionSheet: UIViewController {
     }
     
     
-    // MARK: - Item Properties
-    
-    open var buttons = [ActionSheetButton]()
-    
-    open var items = [ActionSheetItem]()
-    
-    
-    // MARK: - Properties
+    // MARK: - Size Properties
     
     open var availableItemHeight: CGFloat {
         return UIScreen.main.bounds.height
@@ -142,46 +135,11 @@ open class ActionSheet: UIViewController {
             - buttonsSectionHeight
     }
     
-    open var buttonsSectionHeight: CGFloat {
-        return buttonsViewHeight
-    }
-    
-    open var buttonsViewHeight: CGFloat {
-        return buttons.reduce(0) { $0 + $1.appearance.height }
-    }
-    
     open var contentSize: CGSize {
         let height = headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
         //let width = presenter.availablePresentationSize.width - horizontalMargins
         let width = super.preferredContentSize.width
         return CGSize(width: width, height: height)
-    }
-    
-    open var headerSectionHeight: CGFloat {
-        guard headerViewHeight > 0 else { return 0 }
-        return headerViewHeight + appearance.contentInset
-    }
-    
-    open var headerViewHeight: CGFloat {
-        return headerView?.frame.height ?? 0
-    }
-    
-    open var itemsSectionHeight: CGFloat {
-        guard itemsViewHeight > 0 else { return 0 }
-        guard buttonsSectionHeight > 0 else { return itemsViewHeight }
-        return itemsViewHeight + appearance.contentInset
-    }
-    
-    open var itemsViewHeight: CGFloat {
-        let required = requiredItemHeight
-        let available = availableItemHeight
-        return min(required, available)
-    }
-    
-    open var itemsViewRequiresScrolling: Bool {
-        let required = requiredItemHeight
-        let available = availableItemHeight
-        return available < required
     }
     
     open override var preferredContentSize: CGSize {
@@ -212,6 +170,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Header
     
+    open var headerSectionHeight: CGFloat {
+        guard headerViewHeight > 0 else { return 0 }
+        return headerViewHeight + appearance.contentInset
+    }
+    
     open var headerView: UIView? {
         didSet {
             oldValue?.removeFromSuperview()
@@ -220,10 +183,22 @@ open class ActionSheet: UIViewController {
         }
     }
     
+    open var headerViewHeight: CGFloat {
+        return headerView?.frame.height ?? 0
+    }
+    
     
     // MARK: - Items
     
+    open var items = [ActionSheetItem]()
+    
     public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
+    
+    open var itemsSectionHeight: CGFloat {
+        guard itemsViewHeight > 0 else { return 0 }
+        guard buttonsSectionHeight > 0 else { return itemsViewHeight }
+        return itemsViewHeight + appearance.contentInset
+    }
     
     open lazy var itemsView: UITableView = {
         let tableView = createTableView(handler: itemHandler)
@@ -231,16 +206,38 @@ open class ActionSheet: UIViewController {
         return tableView
     }()
     
+    open var itemsViewHeight: CGFloat {
+        let required = requiredItemHeight
+        let available = availableItemHeight
+        return min(required, available)
+    }
+    
+    open var itemsViewRequiresScrolling: Bool {
+        let required = requiredItemHeight
+        let available = availableItemHeight
+        return available < required
+    }
+    
     
     // MARK: - Buttons
     
+    open var buttons = [ActionSheetButton]()
+    
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
+    
+    open var buttonsSectionHeight: CGFloat {
+        return buttonsViewHeight
+    }
     
     open lazy var buttonsView: UITableView = {
         let tableView = createTableView(handler: buttonHandler)
         view.addSubview(tableView)
         return tableView
     }()
+    
+    open var buttonsViewHeight: CGFloat {
+        return buttons.reduce(0) { $0 + $1.appearance.height }
+    }
     
     
     // MARK: - Deprecated members
