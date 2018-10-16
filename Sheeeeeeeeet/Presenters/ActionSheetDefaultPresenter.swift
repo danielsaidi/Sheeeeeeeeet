@@ -40,7 +40,9 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     // MARK: - ActionSheetPresenter
     
     open func dismiss(completion: @escaping () -> ()) {
-        dismissActionSheet()
+        actionSheet = nil
+//        removeActionSheetView()
+//        removeBackgroundView()
         completion()
     }
     
@@ -108,13 +110,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: animation) { _ in completion?() }
     }
     
-    open func dismissActionSheet() {
-        actionSheet = nil
-        
-//        removeActionSheetView()
-//        removeBackgroundView()
-    }
-    
     open func presentActionSheet(_ sheet: ActionSheet, in view: UIView) {
 //        guard let sheetView = actionSheetView else { return }
 //        sheetView.frame = presentationTransitionStartFrame(for: sheet, in: view)
@@ -171,6 +166,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     public func backgroundViewTapAction() {
         guard isDismissableWithTapOnBackground else { return }
         events.didDismissWithBackgroundTap?()
-        dismissActionSheet()
+        dismiss {}
     }
 }
