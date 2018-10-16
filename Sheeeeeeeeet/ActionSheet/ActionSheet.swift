@@ -150,12 +150,10 @@ open class ActionSheet: UIViewController {
         return buttons.reduce(0) { $0 + $1.appearance.height }
     }
     
-    open var contentHeight: CGFloat {
-        return headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
-    }
-    
-    open var contentWidth: CGFloat {
-        return super.preferredContentSize.width
+    open var contentSize: CGSize {
+        let height = headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
+        let width = super.preferredContentSize.width
+        return CGSize(width: width, height: height)
     }
     
     open var headerSectionHeight: CGFloat {
@@ -186,13 +184,13 @@ open class ActionSheet: UIViewController {
     }
     
     open override var preferredContentSize: CGSize {
-        get { return CGSize(width: contentWidth, height: contentHeight) }
+        get { return contentSize }
         set { super.preferredContentSize = newValue }
     }
     
     open var preferredPopoverSize: CGSize {
         let width = appearance.popover.width
-        return CGSize(width: width, height: contentHeight)
+        return CGSize(width: width, height: contentSize.height)
     }
     
     open var requiredItemHeight: CGFloat {
@@ -233,7 +231,13 @@ open class ActionSheet: UIViewController {
     }()
     
     
-    // MARK: - Deprecated functionality
+    // MARK: - Deprecated members
+    
+    @available(*, deprecated, message: "`contentHeight` is deprecated, use `contentSize` instead")
+    open var contentHeight: CGFloat { return contentSize.height }
+    
+    @available(*, deprecated, message: "`contentWidth` is deprecated, use `contentSize` instead")
+    open var contentWidth: CGFloat { return contentSize.width }
     
     @available(*, deprecated, message: "`applyAppearance` is deprecated, use `refresh` instead")
     open func applyAppearance() { refresh() }

@@ -197,7 +197,7 @@ class ActionSheetTests: QuickSpec {
                 let sheet = actionSheet(withItems: [item, item])
                 sheet.appearance.contentInset = 0
                 sheet.appearance.okButton.height = 40
-                sheet.prepareForPresentation()
+                sheet.refresh()
                 let height = getReducedHeight(for: sheet)
                 expect(height).to(equal(80))
             }
@@ -221,7 +221,7 @@ class ActionSheetTests: QuickSpec {
             
             it("has correct value if sheet has buttons") {
                 let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
-                sheet.prepareForPresentation()
+                sheet.refresh()
                 expect(sheet.buttonsSectionHeight).to(equal(50))
             }
         }
@@ -240,7 +240,7 @@ class ActionSheetTests: QuickSpec {
             
             it("has correct value if sheet has buttons") {
                 let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
-                sheet.prepareForPresentation()
+                sheet.refresh()
                 expect(sheet.buttonsViewHeight).to(equal(50))
             }
         }
@@ -256,11 +256,11 @@ class ActionSheetTests: QuickSpec {
                 
                 beforeEach {
                     sheet = actionSheet(withItems: [title, item1, item2])
-                    sheet.prepareForPresentation()
+                    sheet.refresh()
                 }
                 
                 it("has correct content height") {
-                    expect(sheet.contentHeight).to(equal(150))
+                    expect(sheet.contentSize.height).to(equal(150))
                 }
             }
             
@@ -269,11 +269,11 @@ class ActionSheetTests: QuickSpec {
                 beforeEach {
                     sheet = actionSheet(withItems: [title, item1, item2])
                     sheet.headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-                    sheet.prepareForPresentation()
+                    sheet.refresh()
                 }
                 
                 it("has correct content height") {
-                    expect(sheet.contentHeight).to(equal(260))
+                    expect(sheet.contentSize.height).to(equal(260))
                 }
             }
             
@@ -281,11 +281,11 @@ class ActionSheetTests: QuickSpec {
                 
                 beforeEach {
                     sheet = actionSheet(withItems: [title, item1, item2, button])
-                    sheet.prepareForPresentation()
+                    sheet.refresh()
                 }
                 
                 it("has correct content height") {
-                    expect(sheet.contentHeight).to(equal(180))
+                    expect(sheet.contentSize.height).to(equal(180))
                 }
             }
             
@@ -294,11 +294,11 @@ class ActionSheetTests: QuickSpec {
                 beforeEach {
                     sheet = actionSheet(withItems: [title, item1, item2, button])
                     sheet.headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-                    sheet.prepareForPresentation()
+                    sheet.refresh()
                 }
                 
                 it("has correct content height") {
-                    expect(sheet.contentHeight).to(equal(290))
+                    expect(sheet.contentSize.height).to(equal(290))
                 }
             }
         }
@@ -308,7 +308,7 @@ class ActionSheetTests: QuickSpec {
             it("uses preferred content size width") {
                 let sheet = actionSheet(withItems: [])
                 sheet.preferredContentSize.width = 123
-                expect(sheet.contentWidth).to(equal(123))
+                expect(sheet.contentSize.width).to(equal(123))
             }
         }
         
@@ -331,7 +331,7 @@ class ActionSheetTests: QuickSpec {
             
             it("is zero of sheet has no header view") {
                 let sheet = actionSheet(withItems: [])
-                sheet.prepareForPresentation()
+                sheet.refresh()
                 expect(sheet.headerViewHeight).to(equal(0))
             }
             
@@ -357,7 +357,7 @@ class ActionSheetTests: QuickSpec {
             
             it("has correct value if sheet has items") {
                 let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
-                sheet.prepareForPresentation()
+                sheet.refresh()
                 expect(sheet.itemsSectionHeight).to(equal(110))
             }
         }
@@ -376,7 +376,7 @@ class ActionSheetTests: QuickSpec {
             
             it("has correct value if sheet has items") {
                 let sheet = actionSheet(withItems: [item1, item2, ok, cancel])
-                sheet.prepareForPresentation()
+                sheet.refresh()
                 expect(sheet.itemsViewHeight).to(equal(100))
             }
         }

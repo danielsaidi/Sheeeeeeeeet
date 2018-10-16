@@ -45,7 +45,7 @@ open class ActionSheetItemAppearance {
 public extension ActionSheetItemAppearance {
     
     public static var noSeparator: UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 100_000)
     }
     
     public func hideSeparator() {

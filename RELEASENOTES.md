@@ -10,12 +10,19 @@ It is used to solve a bug that made the action sheet to grow beyond the notch if
 the user rotated the device from portrait to landscape while an action sheet was
 presented on an iPhone with notch.
 
-This version deprecates some members, that are removed in the next minor version:
+### Bug fixes
 
-* `ActionSheet.applyAppearance` (use `refresh` instead)
-* `ActionSheet.prepareForPresentation` (use `refresh` instead)
+* `hideSeparator()` behaved incorrectly when rotating some example app sheets. I
+have adjusted this function.
 
-This version contains some breaking changes, but they probably won't affect you:
+### Deprecated logic (will be removed in 0.13.0)
+
+* `ActionSheet.contentHeight` - use `contentSize` instead
+* `ActionSheet.contentWidth` - use `contentSize` instead
+* `ActionSheet.applyAppearance` - use `refresh` instead
+* `ActionSheet.prepareForPresentation` - use `refresh` instead
+
+### Breaking changes (but they probably won't affect you)
 
 * `ActionSheet.bottomPresentationFrame` has been removed. Its logic was added to
 `ActionSheetDefaultPresenter.presentationFrame(for:in:)`, which is more correct.
@@ -23,7 +30,7 @@ This version contains some breaking changes, but they probably won't affect you:
 * `ActionSheetPresenter.presentationFrame` has been removed, since it isn't used
 externally anymore. The nil property has been removed from the popover presenter.
 
-This version also contains a lot of non-breaking cleanup changes:
+### Non-breaking changes
 
 * The `ActionSheet.positionSheet()` function had no effect and has been removed.
 

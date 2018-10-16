@@ -85,7 +85,6 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
 private extension ActionSheetPopoverPresenter {
     
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
-        guard sheet.contentHeight > 0 else { return nil }
         setupSheetForPresentation(sheet)
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController

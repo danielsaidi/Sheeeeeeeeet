@@ -70,7 +70,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
         guard let sheetView = sheet.view else { return }
-        sheetView.frame.size.height = sheet.contentHeight
         view.addSubview(sheetView)
         actionSheetView = sheetView
     }
@@ -119,8 +118,8 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         let rightMargin = sheet.margin(at: .right)
         let maxMargin = max(leftMargin, rightMargin)
         frame = frame.insetBy(dx: maxMargin, dy: 0)
-        frame.size.height = sheet.contentHeight
-        frame.origin.y = view.frame.height - sheet.contentHeight
+        frame.size.height = sheet.contentSize.height
+        frame.origin.y = view.frame.height - sheet.contentSize.height
         frame.origin.y -= sheet.margin(at: .bottom)
         return frame
     }

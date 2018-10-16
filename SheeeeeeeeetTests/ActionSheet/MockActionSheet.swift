@@ -12,11 +12,6 @@ class MockActionSheet: ActionSheet {
         dismissInvokeCount += 1
     }
     
-    override func prepareForPresentation() {
-        super.prepareForPresentation()
-        prepareForPresentationInvokeCount += 1
-    }
-    
     override func refresh() {
         super.refresh()
         refreshInvokeCount += 1
