@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionSheet" customModule="Sheeeeeeeeet" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="SY3-WL-g9a" id="kJl-sr-KSn"/>
                 <outlet property="bottomMargin" destination="0Ng-wM-pDU" id="e9x-Tl-lhM"/>
+                <outlet property="buttonsTableView" destination="4ww-lg-Kl7" id="ybX-2I-Py8"/>
                 <outlet property="leftMargin" destination="am1-ek-BBj" id="Ixg-NB-46W"/>
                 <outlet property="rightMargin" destination="yS1-hl-lMK" id="Ztc-IM-42Q"/>
                 <outlet property="stackView" destination="a3t-st-aTv" id="JPA-a6-5tl"/>
@@ -25,6 +27,10 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SY3-WL-g9a">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a3t-st-aTv">
                     <rect key="frame" x="0.0" y="277" width="375" height="390"/>
                     <subviews>
@@ -42,21 +48,25 @@
                                 <constraint firstAttribute="height" constant="100" id="hXC-pI-WvP"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xZC-Tf-0zG">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ww-lg-Kl7" customClass="IntrinsicTableView" customModule="Sheeeeeeeeet" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="290" width="375" height="100"/>
-                            <color key="backgroundColor" red="0.45104343879999997" green="1" blue="0.29922929650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="100" id="K84-0m-gyV"/>
+                                <constraint firstAttribute="height" constant="100" placeholder="YES" id="3xB-Am-CuT"/>
                             </constraints>
-                        </view>
+                        </tableView>
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.18940589469999999" blue="0.1750509361" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="a3t-st-aTv" secondAttribute="bottom" id="0Ng-wM-pDU"/>
                 <constraint firstItem="a3t-st-aTv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="HAP-aL-Tfx"/>
+                <constraint firstItem="SY3-WL-g9a" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="QPw-j7-ds4"/>
+                <constraint firstItem="SY3-WL-g9a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qkx-K8-ysN"/>
                 <constraint firstItem="a3t-st-aTv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="am1-ek-BBj"/>
+                <constraint firstItem="SY3-WL-g9a" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="it1-TY-fQG"/>
+                <constraint firstItem="SY3-WL-g9a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="txK-fC-hst"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="a3t-st-aTv" secondAttribute="trailing" id="yS1-hl-lMK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

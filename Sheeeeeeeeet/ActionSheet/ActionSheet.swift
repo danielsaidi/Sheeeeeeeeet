@@ -74,7 +74,7 @@ open class ActionSheet: UIViewController {
         self.presenter = presenter
         itemSelectAction = action
         super.init(nibName: ActionSheet.className, bundle: Bundle(for: ActionSheet.self))
-//        setupItemsAndButtons(with: items)
+        setupItemsAndButtons(with: items)
         setup()
     }
     
@@ -127,7 +127,18 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var backgroundView: UIView?
+    
     @IBOutlet weak var stackView: UIStackView?
+    
+    @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
+        didSet {
+            guard let view = buttonsTableView else { return }
+            view.rowHeight = UITableView.automaticDimension
+            view.estimatedRowHeight = 44
+            setupTableView(view, handler: buttonHandler)
+        }
+    }
     
     @IBOutlet weak var bottomMargin: NSLayoutConstraint?
     @IBOutlet weak var leftMargin: NSLayoutConstraint?
@@ -233,7 +244,7 @@ open class ActionSheet: UIViewController {
     
     open var buttons = [ActionSheetButton]()
     
-//    public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
+    public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
 //
 //    open var buttonsSectionHeight: CGFloat {
 //        return buttonsViewHeight
@@ -286,7 +297,7 @@ open class ActionSheet: UIViewController {
 //        buttonsView.separatorColor = appearance.buttonsSeparatorColor
 //        items.forEach { $0.applyAppearance(appearance) }
 //        buttons.forEach { $0.applyAppearance(appearance) }
-//        applyRoundCorners()
+        applyRoundCorners()
 //        positionViews()
         presenter.positionSheet()
     }
@@ -308,11 +319,11 @@ open class ActionSheet: UIViewController {
 //        buttonsView.reloadData()
 //    }
 //
-//    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
-//        self.items = items.filter { !($0 is ActionSheetButton) }
-//        buttons = items.compactMap { $0 as? ActionSheetButton }
-//        reloadData()
-//    }
+    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
+        self.items = items.filter { !($0 is ActionSheetButton) }
+        buttons = items.compactMap { $0 as? ActionSheetButton }
+//        reloadData()          TODO
+    }
 }
 
 
@@ -320,17 +331,25 @@ open class ActionSheet: UIViewController {
 
 private extension ActionSheet {
     
-//    func applyRoundCorners() {
+    func applyRoundCorners() {
 //        applyRoundCorners(to: headerView)
 //        applyRoundCorners(to: itemsView)
-//        applyRoundCorners(to: buttonsView)
-//    }
-//
-//    func applyRoundCorners(to view: UIView?) {
-//        view?.clipsToBounds = true
-//        view?.layer.cornerRadius = appearance.cornerRadius
-//    }
-//
+        applyRoundCorners(to: buttonsTableView)
+    }
+
+    func applyRoundCorners(to view: UIView?) {
+        view?.clipsToBounds = true
+        view?.layer.cornerRadius = appearance.cornerRadius
+    }
+
+    
+    func setupTableView(_ view: UITableView, handler: ActionSheetItemHandler) {
+        view.tableFooterView = UIView.empty
+        view.cellLayoutMarginsFollowReadableWidth = false
+        view.dataSource = handler
+        view.delegate = handler
+    }
+    
 //    func createTableView(handler: ActionSheetItemHandler) -> UITableView {
 //        let tableView = UITableView(frame: view.frame, style: .plain)
 //        tableView.isScrollEnabled = false
