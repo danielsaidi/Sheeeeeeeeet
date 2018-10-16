@@ -152,6 +152,7 @@ open class ActionSheet: UIViewController {
     
     open var contentSize: CGSize {
         let height = headerSectionHeight + itemsSectionHeight + buttonsSectionHeight
+        //let width = presenter.availablePresentationSize.width - horizontalMargins
         let width = super.preferredContentSize.width
         return CGSize(width: width, height: height)
     }
@@ -195,6 +196,17 @@ open class ActionSheet: UIViewController {
     
     open var requiredItemHeight: CGFloat {
         return items.reduce(0) { $0 + $1.appearance.height }
+    }
+    
+    
+    // MARK: - Margins
+    
+    public var horizontalMargins: CGFloat {
+        return margin(at: .left) + margin(at: .right)
+    }
+    
+    public var verticalMargins: CGFloat {
+        return margin(at: .top) + margin(at: .bottom)
     }
     
     

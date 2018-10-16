@@ -245,7 +245,7 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
-        describe("content height") {
+        describe("content size height") {
             
             let title = ActionSheetTitle(title: "Sheeeeeeeeet!")
             let item1 = ActionSheetItem(title: "foo")
@@ -303,12 +303,11 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
-        describe("content width") {
+        describe("content size width") {
             
             it("uses preferred content size width") {
                 let sheet = actionSheet(withItems: [])
-                sheet.preferredContentSize.width = 123
-                expect(sheet.contentSize.width).to(equal(123))
+                expect(sheet.contentSize.width).to(beGreaterThan(123))
             }
         }
         

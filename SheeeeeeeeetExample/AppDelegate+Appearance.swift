@@ -25,6 +25,8 @@ extension AppDelegate {
         
         let appearance = ActionSheetAppearance.standard
         
+//        appearance.popover.width = 500
+        
         appearance.item.font = UIFont(name: robotoRegular, size: 17)
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
