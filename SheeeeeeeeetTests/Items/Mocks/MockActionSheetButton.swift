@@ -6,6 +6,15 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
+import Sheeeeeeeeet
 
-class MockActionSheetButton: MockActionSheetItem {}
+class MockActionSheetButton: ActionSheetButton {
+    
+    var applyAppearanceInvokeCount = 0
+    var applyAppearanceInvokeAppearances = [ActionSheetAppearance]()
+    
+    override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        applyAppearanceInvokeCount += 1
+        applyAppearanceInvokeAppearances.append(appearance)
+    }
+}

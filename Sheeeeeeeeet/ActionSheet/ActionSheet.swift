@@ -248,7 +248,7 @@ open class ActionSheet: UIViewController {
     }
     
     
-    // MARK: - Public Functions
+    // MARK: - Protected Functions
     
     open func handleTap(on item: ActionSheetItem) {
         reloadData()
