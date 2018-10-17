@@ -25,7 +25,7 @@ class CollectionActionSheet: ActionSheet {
             action(collectionItems.filter { $0.isSelected })
         }
         let items = self.items(for: options, collectionItems: collectionItems)
-        setupItemsAndButtons(with: items)
+        setup(items: items)
     }
     
     required init?(coder aDecoder: NSCoder) {

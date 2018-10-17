@@ -11,7 +11,6 @@ import UIKit
 extension UIViewController {
 
     var rootViewController: UIViewController {
-        guard let parent = self.parent else { return self }
-        return parent.rootViewController
+        return parent?.rootViewController ?? self
     }
 }

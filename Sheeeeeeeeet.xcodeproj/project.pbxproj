@@ -126,6 +126,10 @@
 		84539DB221778D0B0097039F /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB121778D0B0097039F /* MockTableView.swift */; };
 		84539DB42177BAB10097039F /* ActionSheetItemHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB32177BAB10097039F /* ActionSheetItemHandlerTests.swift */; };
 		84539DB62177CF470097039F /* ActionSheetMarginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB52177CF470097039F /* ActionSheetMarginTests.swift */; };
+		84539DB92177D20E0097039F /* NSObject+ClassNameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB82177D20E0097039F /* NSObject+ClassNameTests.swift */; };
+		84539DBB2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBA2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift */; };
+		84539DBD2177DEAC0097039F /* UIView+NibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBC2177DEAC0097039F /* UIView+NibTests.swift */; };
+		84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -304,6 +308,10 @@
 		84539DB121778D0B0097039F /* MockTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		84539DB32177BAB10097039F /* ActionSheetItemHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandlerTests.swift; sourceTree = "<group>"; };
 		84539DB52177CF470097039F /* ActionSheetMarginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMarginTests.swift; sourceTree = "<group>"; };
+		84539DB82177D20E0097039F /* NSObject+ClassNameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassNameTests.swift"; sourceTree = "<group>"; };
+		84539DBA2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewControllerTests.swift"; sourceTree = "<group>"; };
+		84539DBC2177DEAC0097039F /* UIView+NibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibTests.swift"; sourceTree = "<group>"; };
+		84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubviewsTests.swift"; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -638,12 +646,13 @@
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
-				84539DB021778D000097039F /* Views */,
 				453C797320931C1300DE42B5 /* ActionSheet */,
 				84D266A92170664A004502CC /* Appearance */,
+				84539DB72177D1F80097039F /* Extensions */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				45352D572030BBC900A0F890 /* Items */,
 				455DEE2A206E115900173E67 /* Presenters */,
+				84539DB021778D000097039F /* Views */,
 			);
 			path = SheeeeeeeeetTests;
 			sourceTree = "<group>";
@@ -735,6 +744,17 @@
 				84539DB121778D0B0097039F /* MockTableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		84539DB72177D1F80097039F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84539DB82177D20E0097039F /* NSObject+ClassNameTests.swift */,
+				84539DBA2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift */,
+				84539DBC2177DEAC0097039F /* UIView+NibTests.swift */,
+				84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8499359C216BE13C000A0670 /* Items */ = {
@@ -1051,6 +1071,8 @@
 				84539DAF217787650097039F /* MockActionSheetButton.swift in Sources */,
 				455DEE40206F76E300173E67 /* ActionSheetMultiSelectToggleItemTests.swift in Sources */,
 				45352D662030BC0E00A0F890 /* ActionSheetDangerButtonTests.swift in Sources */,
+				84539DBD2177DEAC0097039F /* UIView+NibTests.swift in Sources */,
+				84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */,
 				84539DAD217786E50097039F /* MockActionSheetItem.swift in Sources */,
 				45352D6B2030BC0E00A0F890 /* ActionSheetCancelButtonTests.swift in Sources */,
 				457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */,
@@ -1058,6 +1080,8 @@
 				455DEE2C206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift in Sources */,
 				459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */,
 				45D008D320934E3300F1C099 /* MockActionSheet.swift in Sources */,
+				84539DBB2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift in Sources */,
+				84539DB92177D20E0097039F /* NSObject+ClassNameTests.swift in Sources */,
 				45352D692030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift in Sources */,
 				45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */,
 				84539DB62177CF470097039F /* ActionSheetMarginTests.swift in Sources */,
