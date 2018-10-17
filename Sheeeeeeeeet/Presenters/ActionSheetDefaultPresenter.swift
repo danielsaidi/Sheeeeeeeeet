@@ -74,7 +74,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
         sheet.view.frame = view.frame
-        sheet.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(sheet.view)
         addBackgroundViewTapAction(to: sheet.backgroundView)
     }

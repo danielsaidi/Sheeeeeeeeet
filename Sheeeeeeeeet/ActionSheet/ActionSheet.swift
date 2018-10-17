@@ -125,15 +125,17 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var topMargin: NSLayoutConstraint?
+    @IBOutlet weak var leftMargin: NSLayoutConstraint?
+    @IBOutlet weak var rightMargin: NSLayoutConstraint?
+    @IBOutlet weak var bottomMargin: NSLayoutConstraint?
+    
     @IBOutlet weak var backgroundView: UIView?
-    
-    @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
-        didSet { setup(buttonsTableView, handler: buttonHandler) }
-    }
-    
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
-    
     @IBOutlet weak var stackView: UIStackView?
+    
+    @IBOutlet weak var headerViewContainer: UIView? {
+        didSet { headerViewContainer?.backgroundColor = .green }
+    }
     
     @IBOutlet weak var itemsTableView: UITableView? {
         didSet { setup(itemsTableView, handler: itemHandler) }
@@ -141,36 +143,16 @@ open class ActionSheet: UIViewController {
     
     @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
     
-    @IBOutlet weak var bottomMargin: NSLayoutConstraint?
-    @IBOutlet weak var leftMargin: NSLayoutConstraint?
-    @IBOutlet weak var rightMargin: NSLayoutConstraint?
-    @IBOutlet weak var topMargin: NSLayoutConstraint?
-    
-    
-    // MARK: - Margins
-    
-    public var horizontalMargins: CGFloat {
-        return margin(at: .left) + margin(at: .right)
+    @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
+        didSet { setup(buttonsTableView, handler: buttonHandler) }
     }
-
-    public var verticalMargins: CGFloat {
-        return margin(at: .top) + margin(at: .bottom)
-    }
+    
+    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     
     // MARK: - Header
     
-    open var headerView: UIView? //{
-//        didSet {
-//            oldValue?.removeFromSuperview()
-//            guard let header = headerView else { return }
-//            view.addSubview(header)
-//        }
-//    }
-//
-//    open var headerViewHeight: CGFloat {
-//        return headerView?.frame.height ?? 0
-//    }
+    open var headerView: UIView?
     
     
     // MARK: - Items
@@ -248,7 +230,7 @@ open class ActionSheet: UIViewController {
 private extension ActionSheet {
     
     func applyRoundCorners() {
-//        applyRoundCorners(to: headerView)             TODO
+        applyRoundCorners(to: headerViewContainer)
         applyRoundCorners(to: itemsTableView)
         applyRoundCorners(to: buttonsTableView)
     }
