@@ -11,11 +11,6 @@ import Sheeeeeeeeet
 
 extension ViewController {
     
-    func alert(button: UIButton) {
-        let title = button.title(for: .normal) ?? "?"
-        alert(title: "Button tapped", message: "You tapped \(title)")
-    }
-    
     func alert(item: ActionSheetItem) {
         alertSelection(item.title)
     }
@@ -33,6 +28,10 @@ extension ViewController {
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func alertByPrinting(button: UIButton) {
+        print("You tapped \(button.title)")
     }
     
     func alertSelection(_ value: String) {

@@ -15,7 +15,7 @@ extension ViewController {
         let options = foodOptions
         switch tableViewOptions[indexPath.row] {
         case .collections: return CollectionActionSheet(options: options, action: alert)
-        case .customView: return CustomActionSheet(options: options, buttonTapAction: alert)
+        case .customView: return CustomActionSheet(options: options, buttonTapAction: alertByPrinting)
         case .danger: return DestructiveActionSheet(options: options, action: alert)
         case .headerView: return HeaderActionSheet(options: options, action: alert)
         case .links: return LinkActionSheet(options: options, action: alert)

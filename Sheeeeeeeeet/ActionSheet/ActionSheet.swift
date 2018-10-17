@@ -227,7 +227,11 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshHeader() {
+        let height = headerView?.frame.height ?? 0
         headerViewContainer?.isHidden = headerView == nil
+        headerViewContainerHeight?.constant = height
+        guard let view = headerView else { return }
+        headerViewContainer?.addSubviewToFill(view)
     }
     
     open func refreshItems() {
@@ -238,6 +242,7 @@ open class ActionSheet: UIViewController {
     
     open func refreshButtons() {
         buttons.forEach { $0.applyAppearance(appearance) }
+        buttonsTableView?.isHidden = buttons.count == 0
         buttonsTableView?.separatorColor = appearance.buttonsSeparatorColor
         buttonsTableViewHeight?.constant = buttonsHeight
     }

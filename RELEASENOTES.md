@@ -46,7 +46,8 @@ have adjusted this function.
 ### Deprecated logic
 
 Instead of deprecating presentation-related properties and functions that are no
-longer used or available, I removed them completely. Let me know if you used any properties that are no longer available.
+longer used or available, I removed them completely. Let me know if you used any
+properties that are no longer available.
 
 * `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`.
 * `ActionSheetItem.itemSelectAction` is renamed to `selectAction`.
