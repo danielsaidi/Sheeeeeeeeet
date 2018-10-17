@@ -218,13 +218,26 @@ open class ActionSheet: UIViewController {
 
     open func refresh() {
         applyRoundCorners()
+        refreshHeader()
+        refreshItems()
+        refreshButtons()
+        presenter.refreshActionSheet()
+    }
+    
+    open func refreshHeader() {
+        headerViewContainer?.isHidden = headerView == nil
+    }
+    
+    open func refreshItems() {
         items.forEach { $0.applyAppearance(appearance) }
         itemsTableView?.separatorColor = appearance.itemsSeparatorColor
         itemsTableViewHeight?.constant = itemsHeight
+    }
+    
+    open func refreshButtons() {
         buttons.forEach { $0.applyAppearance(appearance) }
-        buttonsTableView?.separatorColor = appearance.itemsSeparatorColor
+        buttonsTableView?.separatorColor = appearance.buttonsSeparatorColor
         buttonsTableViewHeight?.constant = buttonsHeight
-        presenter.refreshActionSheet()
     }
     
     
