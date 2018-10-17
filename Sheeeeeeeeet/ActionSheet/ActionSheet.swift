@@ -144,41 +144,34 @@ open class ActionSheet: UIViewController {
     open var itemSelectAction: SelectAction { return selectAction }
     
     
-    // MARK: - Outlets
+    // MARK: - Margin Outlets
     
     @IBOutlet weak var topMargin: NSLayoutConstraint?
     @IBOutlet weak var leftMargin: NSLayoutConstraint?
     @IBOutlet weak var rightMargin: NSLayoutConstraint?
     @IBOutlet weak var bottomMargin: NSLayoutConstraint?
     
+    
+    // MARK: - View Outlets
+    
     @IBOutlet weak var backgroundView: UIView?
     @IBOutlet weak var stackView: UIStackView?
     
-    @IBOutlet weak var headerViewContainer: UIView? {
-        didSet { headerViewContainer?.backgroundColor = .clear }
-    }
     
-    @IBOutlet weak var itemsTableView: UITableView? {
-        didSet { setup(itemsTableView, with: itemHandler) }
-    }
-    
-    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
-    
-    @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
-        didSet { setup(buttonsTableView, with: buttonHandler) }
-    }
-    
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
-    
-    
-    // MARK: - Header
+    // MARK: - Header Properties
     
     open var headerView: UIView? {
         didSet { refresh() }
     }
     
+    @IBOutlet weak var headerViewContainer: UIView? {
+        didSet { headerViewContainer?.backgroundColor = .clear }
+    }
     
-    // MARK: - Items
+    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint!
+    
+    
+    // MARK: - Item Properties
     
     open var items = [ActionSheetItem]()
     
@@ -186,14 +179,26 @@ open class ActionSheet: UIViewController {
     
     open lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
+    @IBOutlet weak var itemsTableView: UITableView? {
+        didSet { setup(itemsTableView, with: itemHandler) }
+    }
     
-    // MARK: - Buttons
+    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
+    
+    
+    // MARK: - Button Properties
     
     open var buttons = [ActionSheetButton]()
     
     open var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
     
     open lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
+    
+    @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
+        didSet { setup(buttonsTableView, with: buttonHandler) }
+    }
+    
+    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     
     // MARK: - Presentation Functions

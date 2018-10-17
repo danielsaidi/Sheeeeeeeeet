@@ -17,6 +17,7 @@
                 <outlet property="buttonsTableView" destination="4ww-lg-Kl7" id="ybX-2I-Py8"/>
                 <outlet property="buttonsTableViewHeight" destination="3xB-Am-CuT" id="irJ-Cj-nU5"/>
                 <outlet property="headerViewContainer" destination="Eio-5P-omJ" id="igG-tq-9G0"/>
+                <outlet property="headerViewContainerHeight" destination="ZKw-6e-7h3" id="Npd-by-wqQ"/>
                 <outlet property="itemsTableView" destination="iQT-dy-e7d" id="qVi-cs-nm6"/>
                 <outlet property="itemsTableViewHeight" destination="929-kf-L2B" id="Vn3-T3-wVr"/>
                 <outlet property="leftMargin" destination="am1-ek-BBj" id="Ixg-NB-46W"/>

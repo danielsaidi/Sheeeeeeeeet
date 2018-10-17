@@ -5,9 +5,9 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
     
     // MARK: - Properties
     
-    static var itemCellIdentifier: String { return "Cell" }
+    static let itemCellIdentifier = ActionSheetCollectionItemCell.className
     
-    static var nib: UINib = UINib(nibName: "ActionSheetCollectionItemCell", bundle: Bundle.init(for: ActionSheetCollectionItemCell.self))
+    static let nib = ActionSheetCollectionItemCell.defaultNib
     
     
     // MARK: - Outlets

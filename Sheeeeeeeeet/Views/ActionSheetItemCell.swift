@@ -10,7 +10,7 @@
  
  This is the base class for all different cell types in this
  library. It makes it possible to set a global appearance on
- all item cells in an app.
+ all item cells, using `ActionSheetItemCell.appearance()`.
  
  */
 
