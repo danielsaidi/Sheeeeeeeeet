@@ -47,19 +47,19 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         vc?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
         setupSheetForPresentation(sheet)
         popover = self.popover(for: sheet, in: vc)
         popover?.sourceView = view
         popover?.sourceRect = view?.bounds ?? CGRect()
         popover?.delegate = self
-        vc.present(sheet, animated: true, completion: nil)
+        vc.present(sheet, animated: true, completion: completion)
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem) {
+    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
         popover = self.popover(for: sheet, in: vc)
         popover?.barButtonItem = item
-        vc.present(sheet, animated: true, completion: nil)
+        vc.present(sheet, animated: true, completion: completion)
     }
     
     public func refreshActionSheet() {

@@ -30,8 +30,6 @@ so changing your code to the new standard should be easy.
 removed in this version. You can use the new action sheet outlets instead, but I
 am not sure that many of these properties should be exposed at all.
 
-* `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`.
-
 * `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter. I think the
 library should have a good api instead of throwing cells and table views around.
 
@@ -50,8 +48,14 @@ have adjusted this function.
 ### Deprecated logic
 
 Instead of deprecating presentation-related properties and functions that are no
-longer used or availabler, I removed them completely instead. Let me know if you
-used any properties that are no longer available, that you need.
+longer used or available, I removed them completely. Let me know if you used any properties that are no longer available.
+
+* `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`.
+* `ActionSheetItem.itemSelectAction` is renamed to `selectAction`.
+* `ActionSheetItem.itemTapAction` is renamed to `tapAction`.
+
+Perform the deprecation warnings, and you should be all good.
+
 
 
 

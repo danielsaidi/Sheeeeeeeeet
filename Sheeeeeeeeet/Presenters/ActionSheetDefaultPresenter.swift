@@ -44,19 +44,19 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         }
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
-        present(sheet: sheet, in: vc)
+    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
+        present(sheet: sheet, in: vc, completion: completion)
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem) {
-        present(sheet: sheet, in: vc)
+    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
+        present(sheet: sheet, in: vc, completion: completion)
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController) {
+    open func present(sheet: ActionSheet, in vc: UIViewController, completion: @escaping () -> ()) {
         actionSheet = sheet
         addActionSheetView(from: sheet, to: vc.view)
-        presentActionSheet()
         presentBackgroundView()
+        presentActionSheet(completion: completion)
     }
     
     open func refreshActionSheet() {
@@ -91,12 +91,12 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseOut], animations: animation) { _ in completion?() }
     }
     
-    open func presentActionSheet() {
+    open func presentActionSheet(completion: @escaping () -> ()) {
         guard let view = actionSheet?.stackView else { return }
         let frame = view.frame
         view.frame.origin.y += frame.height + 100
         let animation = { view.frame = frame }
-        animate(animation)
+        animate(animation, completion: completion)
     }
     
     open func presentBackgroundView() {

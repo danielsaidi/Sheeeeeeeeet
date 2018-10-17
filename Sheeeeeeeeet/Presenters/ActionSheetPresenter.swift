@@ -36,7 +36,7 @@ public protocol ActionSheetPresenter: AnyObject {
     var isDismissableWithTapOnBackground: Bool { get set }
     
     func dismiss(completion: @escaping () -> ())
-    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?)
-    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem)
+    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ())
+    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ())
     func refreshActionSheet()
 }

@@ -79,7 +79,7 @@ open class ActionSheet: UIViewController {
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
         self.presenter = presenter
-        itemSelectAction = action
+        selectAction = action
         super.init(nibName: ActionSheet.className, bundle: Bundle(for: ActionSheet.self))
         setup(items: items)
         setup()
@@ -87,7 +87,7 @@ open class ActionSheet: UIViewController {
     
     public required init?(coder aDecoder: NSCoder) {
         presenter = ActionSheet.defaultPresenter
-        itemSelectAction = { _, _ in print("itemSelectAction is not set") }
+        selectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
         setup()
     }
@@ -105,7 +105,7 @@ open class ActionSheet: UIViewController {
         reloadData()
     }
     
-    @available(*, deprecated, message: "setupItemsAndButtons is deprecated. Use setup(items:) instead")
+    @available(*, deprecated, message: "setupItemsAndButtons(with:) is deprecated. Use setup(items:) instead")
     open func setupItemsAndButtons(with items: [ActionSheetItem]) {
         setup(items: items)
     }
@@ -135,11 +135,17 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Actions
     
-    open var itemSelectAction: SelectAction
+    open var selectAction: SelectAction
     
-    open lazy var itemTapAction: TapAction = { [weak self] item in
+    open lazy var tapAction: TapAction = { [weak self] item in
         self?.handleTap(on: item)
     }
+    
+    @available(*, deprecated, message: "itemSelectAction is deprecated. Use selectAction instead")
+    open var itemSelectAction: SelectAction { return selectAction }
+    
+    @available(*, deprecated, message: "itemTapAction is deprecated. Use tapAction instead")
+    open var itemTapAction: TapAction { return tapAction }
     
     
     // MARK: - Outlets
@@ -153,17 +159,17 @@ open class ActionSheet: UIViewController {
     @IBOutlet weak var stackView: UIStackView?
     
     @IBOutlet weak var headerViewContainer: UIView? {
-        didSet { headerViewContainer?.backgroundColor = .green }
+        didSet { headerViewContainer?.backgroundColor = .clear }
     }
     
     @IBOutlet weak var itemsTableView: UITableView? {
-        didSet { setup(itemsTableView, handler: itemHandler) }
+        didSet { setup(itemsTableView, with: itemHandler) }
     }
     
     @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
     
     @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
-        didSet { setup(buttonsTableView, handler: buttonHandler) }
+        didSet { setup(buttonsTableView, with: buttonHandler) }
     }
     
     @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
@@ -171,7 +177,9 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Header
     
-    open var headerView: UIView?
+    open var headerView: UIView? {
+        didSet { refresh() }
+    }
     
     
     // MARK: - Items
@@ -194,18 +202,18 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Presentation Functions
     
-    open func dismiss(completion: @escaping () -> ()) {
+    open func dismiss(completion: @escaping () -> () = {}) {
         presenter.dismiss { completion() }
     }
 
-    open func present(in vc: UIViewController, from view: UIView?) {
+    open func present(in vc: UIViewController, from view: UIView?, completion: @escaping () -> () = {}) {
         refresh()
-        presenter.present(sheet: self, in: vc.rootViewController, from: view)
+        presenter.present(sheet: self, in: vc.rootViewController, from: view, completion: completion)
     }
 
-    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem) {
+    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem, completion: @escaping () -> () = {}) {
         refresh()
-        presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem)
+        presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem, completion: completion)
     }
 
     open func refresh() {
@@ -253,7 +261,7 @@ private extension ActionSheet {
         view?.layer.cornerRadius = appearance.cornerRadius
     }
     
-    func setup(_ view: UITableView?, handler: ActionSheetItemHandler) {
+    func setup(_ view: UITableView?, with handler: ActionSheetItemHandler) {
         view?.tableFooterView = UIView.empty
         view?.cellLayoutMarginsFollowReadableWidth = false
         view?.rowHeight = UITableView.automaticDimension
@@ -268,9 +276,9 @@ private extension ActionSheet {
 
     func handleTap(on item: ActionSheetItem) {
         reloadData()
-        guard item.tapBehavior == .dismiss else { return itemSelectAction(self, item) }
+        guard item.tapBehavior == .dismiss else { return selectAction(self, item) }
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            self.dismiss { self.itemSelectAction(self, item) }
+            self.dismiss { self.selectAction(self, item) }
         }
     }
 }

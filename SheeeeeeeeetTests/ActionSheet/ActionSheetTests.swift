@@ -72,7 +72,7 @@ class ActionSheetTests: QuickSpec {
             it("applies provided action") {
                 var counter = 0
                 let sheet = MockActionSheet(items: []) { _, _  in counter += 1 }
-                sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))
+                sheet.selectAction(sheet, ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
             }
             
@@ -85,7 +85,7 @@ class ActionSheetTests: QuickSpec {
             
             it("applies default tap action") {
                 let sheet = actionSheet(withItems: [])
-                expect(sheet.itemTapAction).toNot(beNil())
+                expect(sheet.tapAction).toNot(beNil())
             }
         }
         
@@ -122,8 +122,8 @@ class ActionSheetTests: QuickSpec {
             it("can be overwritten") {
                 var counter = 0
                 let sheet = actionSheet(withItems: [])
-                sheet.itemSelectAction = { _, _  in counter += 1 }
-                sheet.itemSelectAction(sheet, ActionSheetItem(title: "foo"))
+                sheet.selectAction = { _, _  in counter += 1 }
+                sheet.selectAction(sheet, ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
             }
         }
@@ -140,27 +140,27 @@ class ActionSheetTests: QuickSpec {
             it("can be overwritten") {
                 var counter = 0
                 sheet = actionSheet(withItems: [])
-                sheet.itemTapAction = { _  in counter += 1 }
-                sheet.itemTapAction(ActionSheetItem(title: "foo"))
+                sheet.tapAction = { _  in counter += 1 }
+                sheet.tapAction(ActionSheetItem(title: "foo"))
                 expect(counter).to(equal(1))
             }
             
             it("triggers select action") {
                 let item = ActionSheetItem(title: "foo")
-                sheet.itemTapAction(item)
+                sheet.tapAction(item)
                 expect(counter).to(beGreaterThan(0))
             }
             
             it("dismisses sheet if item should") {
                 let item = ActionSheetItem(title: "foo")
-                sheet.itemTapAction(item)
+                sheet.tapAction(item)
                 expect(sheet.dismissInvokeCount).to(equal(1))
             }
             
             it("does not dismiss sheet if item should not") {
                 let item = ActionSheetItem(title: "foo")
                 item.tapBehavior = .none
-                sheet.itemTapAction(item)
+                sheet.tapAction(item)
                 expect(sheet.dismissInvokeCount).to(equal(0))
             }
         }
