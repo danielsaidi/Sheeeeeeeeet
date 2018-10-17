@@ -22,7 +22,7 @@ class ActionSheetTests: QuickSpec {
             return ActionSheetItem(title: title)
         }
         
-        func createSheet(_ items: [ActionSheetItem]) -> MockActionSheet {
+        func createSheet(_ items: [ActionSheetItem] = []) -> MockActionSheet {
             return MockActionSheet(items: items, action: { _, _ in })
         }
         
@@ -55,7 +55,7 @@ class ActionSheetTests: QuickSpec {
             }
 
             it("applies default presenter if none is provided") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 let isStandard = sheet.presenter is ActionSheetStandardPresenter
                 let isPopover = sheet.presenter is ActionSheetPopoverPresenter
                 let isValid = isStandard || isPopover
@@ -87,7 +87,7 @@ class ActionSheetTests: QuickSpec {
             it("is initially a copy of standard appearance") {
                 let original = ActionSheetAppearance.standard.popover.width
                 ActionSheetAppearance.standard.popover.width = -1
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 let appearance = sheet.appearance
                 ActionSheetAppearance.standard.popover.width = original
                 
@@ -101,7 +101,7 @@ class ActionSheetTests: QuickSpec {
         describe("header view") {
             
             it("refreshes the sheet when set") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 expect(sheet.refreshInvokeCount).to(equal(0))
                 sheet.headerView = UIView()
                 
@@ -112,7 +112,7 @@ class ActionSheetTests: QuickSpec {
         describe("header view container") {
             
             it("gets clear background color when set") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 let view = UIView()
                 view.backgroundColor = .red
                 sheet.headerViewContainer = view
@@ -142,7 +142,7 @@ class ActionSheetTests: QuickSpec {
         describe("item handler") {
             
             it("has correct item type") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 expect(sheet.itemHandler.itemType).to(equal(.items))
             }
             
@@ -161,7 +161,7 @@ class ActionSheetTests: QuickSpec {
         describe("item table view") {
             
             it("is correctly setup when set") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 let view = UITableView(frame: .zero)
                 sheet.itemsTableView = view
                 
@@ -194,7 +194,7 @@ class ActionSheetTests: QuickSpec {
         describe("button handler") {
             
             it("has correct item type") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 expect(sheet.buttonHandler.itemType).to(equal(.buttons))
             }
             
@@ -213,7 +213,7 @@ class ActionSheetTests: QuickSpec {
         describe("button table view") {
             
             it("is correctly setup when set") {
-                let sheet = createSheet([])
+                let sheet = createSheet()
                 let view = UITableView(frame: .zero)
                 sheet.buttonsTableView = view
                 
@@ -298,6 +298,112 @@ class ActionSheetTests: QuickSpec {
                     expect(presenter.presentInvokeViewControllers[0]).to(be(vc))
                     expect(presenter.presentInvokeItems[0]).to(be(item))
                     expect(counter).to(equal(1))
+                }
+            }
+        }
+        
+        
+        // MARK: - Refresh Functions
+        
+        describe("when refreshed") {
+            
+            var sheet: ActionSheet!
+            var headerViewContainer: UIView!
+            var itemsView: UITableView!
+            var buttonsView: UITableView!
+            
+            beforeEach {
+                sheet = createSheet()
+                sheet.appearance.cornerRadius = 90
+                headerViewContainer = UIView(frame: .zero)
+                itemsView = UITableView(frame: .zero)
+                buttonsView = UITableView(frame: .zero)
+                sheet.headerViewContainer = headerViewContainer
+                sheet.itemsTableView = itemsView
+                sheet.buttonsTableView = buttonsView
+            }
+            
+            it("applies round corners") {
+                sheet.refresh()
+                
+                expect(headerViewContainer.layer.cornerRadius).to(equal(90))
+                expect(itemsView.layer.cornerRadius).to(equal(90))
+                expect(buttonsView.layer.cornerRadius).to(equal(90))
+            }
+            
+            context("when refreshing header") {
+                
+                it("hides header container if header is nil") {
+                    sheet.refresh()
+                    
+                    expect(headerViewContainer.isHidden).to(beTrue())
+                }
+                
+                it("shows header container if header is nil") {
+                    let header = UIView(frame: .zero)
+                    sheet.headerView = header
+                    sheet.refresh()
+                    
+                    expect(headerViewContainer.isHidden).to(beFalse())
+                }
+                
+                it("adds header view to header container") {
+                    let header = UIView(frame: .zero)
+                    sheet.headerView = header
+                    expect(header.constraints.count).to(equal(0))
+                    sheet.refresh()
+                    
+                    expect(headerViewContainer.subviews.count).to(equal(1))
+                    expect(headerViewContainer.subviews[0]).to(be(header))
+                    expect(header.translatesAutoresizingMaskIntoConstraints).to(beFalse())
+                }
+            }
+            
+            context("when refreshing items") {
+                
+                it("applies appearances to all items") {
+                    let item1 = MockActionSheetItem(title: "foo")
+                    let item2 = MockActionSheetItem(title: "foo")
+                    sheet.setup(items: [item1, item2])
+                    sheet.refresh()
+                    
+                    expect(item1.applyAppearanceInvokeCount).to(equal(1))
+                    expect(item2.applyAppearanceInvokeCount).to(equal(1))
+                    expect(item1.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
+                    expect(item2.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
+                }
+                
+                it("applies separator color") {
+                    sheet.appearance.itemsSeparatorColor = .yellow
+                    let view = UITableView(frame: .zero)
+                    sheet.itemsTableView = view
+                    sheet.refresh()
+                    
+                    expect(view.separatorColor).to(equal(.yellow))
+                }
+            }
+            
+            context("when refreshing buttons") {
+                
+                it("applies appearances to all buttons") {
+                    let item1 = MockActionSheetButton(title: "foo")
+                    let item2 = MockActionSheetButton(title: "foo")
+                    sheet.setup(items: [item1, item2])
+                    sheet.refresh()
+                    
+                    expect(item1.applyAppearanceInvokeCount).to(equal(1))
+                    expect(item2.applyAppearanceInvokeCount).to(equal(1))
+                    expect(item1.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
+                    expect(item2.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
+                }
+                
+                it("applies separator color") {
+                    sheet.appearance.buttonsSeparatorColor = .yellow
+                    let view = UITableView(frame: .zero)
+                    sheet.buttonsTableView = view
+                    sheet.refresh()
+                    
+                    expect(view.separatorColor).to(equal(.yellow))
                 }
             }
         }
