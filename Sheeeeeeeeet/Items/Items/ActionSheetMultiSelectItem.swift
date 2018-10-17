@@ -53,8 +53,8 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
         self.appearance = ActionSheetMultiSelectItemAppearance(copy: appearance.multiSelectItem)
     }
     
-    open override func handleTap(in actionSheet: ActionSheet, cell: UITableViewCell? = nil) {
-        super.handleTap(in: actionSheet, cell: cell)
+    open override func handleTap(in actionSheet: ActionSheet) {
+        super.handleTap(in: actionSheet)
         let toggleItems = actionSheet.items.compactMap { $0 as? ActionSheetMultiSelectToggleItem }
         let items = toggleItems.filter { $0.group == group }
         items.forEach { $0.updateState(for: actionSheet) }

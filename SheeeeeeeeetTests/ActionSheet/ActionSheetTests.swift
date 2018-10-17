@@ -203,10 +203,6 @@ class ActionSheetTests: QuickSpec {
             }
         }
         
-        describe("bottom presentation frame") {
-            // TODO: Write unit tests
-        }
-        
         describe("buttons section height") {
             
             let ok = ActionSheetOkButton(title: "OK")

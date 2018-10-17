@@ -75,8 +75,8 @@ open class ActionSheetSelectItem: ActionSheetItem {
         cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
     
-    open override func handleTap(in actionSheet: ActionSheet, cell: UITableViewCell? = nil) {
-        super.handleTap(in: actionSheet, cell: cell)
+    open override func handleTap(in actionSheet: ActionSheet) {
+        super.handleTap(in: actionSheet)
         isSelected = !isSelected
     }
 }

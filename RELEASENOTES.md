@@ -30,6 +30,8 @@ have adjusted this function.
 
 ### Breaking changes (but they probably won't affect you)
 
+* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter.
+
 * `ActionSheet.bottomPresentationFrame` has been removed. Its logic was added to
 `ActionSheetDefaultPresenter.presentationFrame(for:in:)`, which is more correct.
 

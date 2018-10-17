@@ -255,10 +255,9 @@ private extension ActionSheet {
 
     func handleTap(on item: ActionSheetItem) {
         reloadData()
-        if item.tapBehavior == .dismiss {
-            dismiss { self.itemSelectAction(self, item) }
-        } else {
-            itemSelectAction(self, item)
+        guard item.tapBehavior == .dismiss else { return itemSelectAction(self, item) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            self.dismiss { self.itemSelectAction(self, item) }
         }
     }
 }
