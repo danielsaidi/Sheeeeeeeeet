@@ -3,17 +3,40 @@
 Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
 
 
-## 0.12.0
+## 1.0.0-pre
 
-This version introduces a new `positionSheet` function in `ActionSheetPresenter`.
-It is used to solve a bug that made the action sheet to grow beyond the notch if
-the user rotated the device from portrait to landscape while an action sheet was
-presented on an iPhone with notch.
+This is a pre-release to 1.0.0. It's not available as an official pod, so it can
+only be tested with Carthager or by using downloaded source code as a dev pod.
 
-`ActionSheetAppearance` has a new `viewMargins` property, which can be used from
-now on to specify the margin between the header, item and buttons. `contentInset`
-was previously used for this, but this makes it possible to use different values
-for the insets and view margins.
+This version decouples action sheets from their presentation to great extent. An
+action sheet still styles its items and components, but the presenters now takes
+care of a lot more than before. The sheet setup is now also based on constraints
+instead of manual calculations, which means that popover scrolling etc. works by
+how the constraints are setup, instead of relying on manual calculations.
+
+This should result in much more robust action sheets, but it requires testing on
+a wide range of devices and orientations before it can be released as a 1.0.
+
+
+### Breaking changes
+
+Since the presentation logic has been rewritten from scratch, you have to adjust
+your code to fit the new structure, if you have subclassed any presenter or made
+presentation tweaks in your sheets. The changes are too many and extensive to be
+listed here, so please have a look at the new structure. There is much less code,
+so changing your code to the new standard should be easy.
+
+* Overall, a lot of presentation-related properties and functions are completely
+removed in this version. You can use the new action sheet outlets instead, but I
+am not sure that many of these properties should be exposed at all.
+
+* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter. I think the
+library should have a good api instead of throwing cells and table views around.
+
+
+### New features
+
+* `ActionSheetAppearance` has new properties, which adds new way to style sheets.
 
 
 ### Bug fixes
@@ -21,26 +44,13 @@ for the insets and view margins.
 * `hideSeparator()` behaved incorrectly when rotating some example app sheets. I
 have adjusted this function.
 
-### Deprecated logic (will be removed in 0.13.0)
 
-* `ActionSheet.contentHeight` - use `contentSize` instead
-* `ActionSheet.contentWidth` - use `contentSize` instead
-* `ActionSheet.applyAppearance` - use `refresh` instead
-* `ActionSheet.prepareForPresentation` - use `refresh` instead
+### Deprecated logic
 
-### Breaking changes (but they probably won't affect you)
+Instead of deprecating presentation-related properties and functions that are no
+longer used or availabler, I removed them completely instead. Let me know if you
+used any properties that are no longer available, that you need.
 
-* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter.
-
-* `ActionSheet.bottomPresentationFrame` has been removed. Its logic was added to
-`ActionSheetDefaultPresenter.presentationFrame(for:in:)`, which is more correct.
-
-* `ActionSheetPresenter.presentationFrame` has been removed, since it isn't used
-externally anymore. The nil property has been removed from the popover presenter.
-
-### Non-breaking changes
-
-* The `ActionSheet.positionSheet()` function had no effect and has been removed.
 
 
 ## 0.11.0
