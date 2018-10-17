@@ -283,7 +283,7 @@ private extension ActionSheet {
     
     func setupAppearance(for tableView: UITableView?) {
         tableView?.estimatedRowHeight = 44
-        tableView?.tableFooterView = .empty
+        
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.cellLayoutMarginsFollowReadableWidth = false
     }
