@@ -21,7 +21,7 @@ public extension UIUserInterfaceIdiom {
     var defaultPresenter: ActionSheetPresenter {
         switch self {
         case .pad: return ActionSheetPopoverPresenter()
-        default: return ActionSheetDefaultPresenter()
+        default: return ActionSheetStandardPresenter()
         }
     }
 }

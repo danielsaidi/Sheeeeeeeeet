@@ -1,5 +1,5 @@
 //
-//  ActionSheetDefaultPresenter.swift
+//  ActionSheetStandardPresenter.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-27.
@@ -15,7 +15,7 @@
 
 import UIKit
 
-open class ActionSheetDefaultPresenter: ActionSheetPresenter {
+open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     
     // MARK: - Initialization
@@ -131,7 +131,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
 
 // MARK: - Actions
 
-@objc public extension ActionSheetDefaultPresenter {
+@objc public extension ActionSheetStandardPresenter {
     
     public func backgroundViewTapAction() {
         guard isDismissableWithTapOnBackground else { return }

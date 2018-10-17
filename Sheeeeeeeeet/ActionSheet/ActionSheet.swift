@@ -31,8 +31,8 @@
  
  You can inject a custom presenter if you want to change how
  the sheet is presented and dismissed. The default presenter
- is `ActionSheetDefaultPresenter`. It uses action sheets for
- iPhone devices and popovers for iPad devices.
+ for iPhone devices is `ActionSheetStandardPresenter`, while
+ iPad devices get `ActionSheetPopoverPresenter` instead.
  
  
  ## Subclassing

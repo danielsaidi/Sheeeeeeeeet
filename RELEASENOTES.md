@@ -1,8 +1,5 @@
 # Release Notes
 
-Sheeeeeeeeet may have breaking changes in minor versions and revisions below 1.0.
-
-
 ## 1.0.0-pre
 
 This is a pre-release to 1.0.0. It's not available as an official pod, so it can
@@ -26,10 +23,11 @@ presentation tweaks in your sheets. The changes are too many and extensive to be
 listed here, so please have a look at the new structure. There is much less code,
 so changing your code to the new standard should be easy.
 
-* `ActionSheet.itemTapAction` has been removed.
-* `ActionSheet.handleTap(on:)` is now called when an item is tapped.
-* `ActionSheetAppearance.viewMargins` is renamed to `groupMargins`.
-* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter.
+* `ActionSheet.itemTapAction` has been removed
+* `ActionSheet.handleTap(on:)` is now called when an item is tapped
+* `ActionSheetAppearance.viewMargins` is renamed to `groupMargins`
+* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter
+* `ActionSheetStandardPresenter` is renamed to `ActionSheetStandardPresenter`
 
 
 ### New features
@@ -39,8 +37,10 @@ so changing your code to the new standard should be easy.
 
 ### Bug fixes
 
-* `hideSeparator()` behaved incorrectly when rotating some example app sheets. I
-have adjusted this function.
+* The big presentation adjustments solves the scrolling issues that occured with
+popovers and many items.
+* The `hideSeparator()` function is adjusted to behave correctly when the device
+is rotated.
 
 
 ### Deprecated logic
@@ -49,11 +49,11 @@ Instead of deprecating presentation-related properties and functions that are no
 longer used or available, I removed them completely. Let me know if you used any
 properties that are no longer available.
 
-* `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`.
-* `ActionSheetItem.itemSelectAction` is renamed to `selectAction`.
+* `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`
+* `ActionSheetItem.itemSelectAction` is renamed to `selectAction`
 
-Perform the deprecation warnings, and you should be all good.
-
+Perform the deprecation warnings, and you should be all good. Deprecated members
+will be removed in the next minor version.
 
 
 
@@ -77,9 +77,11 @@ as everywhere else.
 and has thus been moved out to the appearance root.
 
 
+
 ## 0.10.1
 
 This revision fixes a project config that caused Carthage installations to fail.
+
 
 
 ## 0.10.0
@@ -98,6 +100,7 @@ can be useful when sublassing various item classes. It also makes it much easier
 to register custom cell types. See `ActionSheetCollectionItem` `cell(for: ...)`.
 
 The collection item `CollectionItemCellAction` has been renamed to `CellAction`.
+
 
 
 ## 0.9.9
@@ -121,6 +124,7 @@ The two `ActionSheetItem` `handleTap` functions have been combined to one single
 function.
 
 
+
 ## 0.9.8
 
 `ActionSheetPresenter` now has an `events` property, which contains presentation
@@ -128,6 +132,7 @@ event actions that you can assign to get callbacks when certain events happen. A
 first `didDismissWithBackgroundTap` event has been added, which helps you detect
 if an action sheet is dismissed because a user tapped on the background, outside
 the actin sheet bounds. This works for both the standard and popover presenters.
+
 
 
 ## 0.9.7
@@ -138,10 +143,12 @@ the actin sheet bounds. This works for both the standard and popover presenters.
 and `layout` related functions as well, which means that you can override them.
 
 
+
 ## 0.9.6
 
 This version migrates Sheeeeeeeeeet to Swift 4.2. You will need Xcode 10 to work
 with the source code from now on.
+
 
 
 ## 0.9.5
@@ -149,6 +156,7 @@ with the source code from now on.
 This version adds a `backgroundColor` property to `ActionSheetItemAppearance`. I
 however want to emphasize that many appearance properties that can be controlled
 with the appearance classes, can also be setup using standard appearance proxies.
+
 
 
 ## 0.9.4
@@ -173,11 +181,11 @@ podspec didn't include xibs, which caused the collection item to crash.
 
 ## [0.9.2]
 
-In this version, the `ActionSheetDefaultPresenter` initializer is finally public.
+In this version, the `ActionSheetStandardPresenter` initializer is finally public.
 I have forgot to do this for a couple of versions, which means that you have not
 been able to create custom instances of this class from within an app.
 
-This means that you can set the presenter to a `ActionSheetDefaultPresenter` for
+This means that you can set the presenter to a `ActionSheetStandardPresenter` for
 any action sheet, which means that even iPads can now get iPhone-styled sheets.
 
 
@@ -202,9 +210,9 @@ This version contains minor updates and minor breaking changes in internal logic
 
 ## [0.9.0](https://github.com/danielsaidi/Sheeeeeeeeet/milestone/6?closed=1)
 
-`ActionSheetDefaultPresenter` used to contain an embedded iPad presenter. I have
+`ActionSheetStandardPresenter` used to contain an embedded iPad presenter. I have
 never been happy with this design, and have now redesigned this setup. I removed
-the embedded presenter, merged `ActionSheetDefaultPresenter` with the base class
+the embedded presenter, merged `ActionSheetStandardPresenter` with the base class
 and now let the action sheet initializer resolve which default presenter to use.
 
 I have felt a little lost in how to use the various select items, especially now
@@ -235,12 +243,12 @@ is true by default for all presenters.
 
 ### Breaking changes:
 
-* `ActionSheetDefaultPresenter` no longer have an embedded `iPadPresenter`. This
+* `ActionSheetStandardPresenter` no longer have an embedded `iPadPresenter`. This
   is no longer needed, since the action sheet resolves the default presenter for
   the current device.
 
 * `ActionSheetPresenterBase` has been removed and is now fully incorporated with
-  the `ActionSheetDefaultPresenter` class.
+  the `ActionSheetStandardPresenter` class.
 
 * `ActionSheetSelectItem`s initializer has been made library internal to enforce
   using single and multi select items instead. This makes the api much clearer.

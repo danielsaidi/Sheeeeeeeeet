@@ -10,7 +10,7 @@ class ActionSheet_PresenterTests: QuickSpec {
             
             it("is standard presenter for iPhone") {
                 let presenter = ActionSheet.defaultPresenter(for: .phone)
-                expect(presenter is ActionSheetDefaultPresenter).to(beTrue())
+                expect(presenter is ActionSheetStandardPresenter).to(beTrue())
             }
             
             it("is popover presenter for iPad") {
