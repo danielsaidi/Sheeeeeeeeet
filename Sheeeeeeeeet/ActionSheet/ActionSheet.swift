@@ -184,7 +184,7 @@ open class ActionSheet: UIViewController {
     
     open var itemsHeight: CGFloat { return totalHeight(for: items) }
     
-    open lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, handles: .items)
+    open lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
     
     // MARK: - Buttons
@@ -193,7 +193,7 @@ open class ActionSheet: UIViewController {
     
     open var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
     
-    open lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, handles: .buttons)
+    open lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
     
     
     // MARK: - Presentation Functions
