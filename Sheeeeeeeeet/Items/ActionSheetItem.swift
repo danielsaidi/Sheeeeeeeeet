@@ -10,17 +10,19 @@
  
  This class represents a regular action sheet item, like the
  ones used in UIAlertController. It has a title, an optional
- value and an optional image. All other item classes inherit
- this class.
+ value and an optional image. All other items builds on this.
  
  The default tap behavior of action sheet items is "dismiss",
- which means that the action sheet is told that the item was
- tapped and is then dismissed. If you don't want the item to
- dismiss the action sheet, set `tapBehavior` to `.none`.
+ which means that the action sheet will dismiss itself after
+ handling the item tap. Set `tapBehavior` to `.none`, if you
+ don't want the action sheet to be dismissed when an item is
+ tapped. Some item types uses `.none` by default.
  
- An action sheet item's appearance is set by the sheet, when
- it is presented. To use custom appearances for single items,
- just modify the item's `appearance` property.
+ The item appearance is set by the sheet. It either uses the
+ global appearance or an individual instance. To use a fully
+ custom appearances for a single action sheet item, just set
+ the `customAppearance` property. Do not set the `appearance`
+ property; it will just be overwritten.
  
  */
 

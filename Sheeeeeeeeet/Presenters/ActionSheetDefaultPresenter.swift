@@ -27,10 +27,10 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     // MARK: - Properties
     
-    public private(set) var actionSheet: ActionSheet?
-    
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
+    
+    private var actionSheet: ActionSheet?
     
     
     // MARK: - ActionSheetPresenter
@@ -68,7 +68,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     }
     
     
-    // MARK: - Protected, overridable Functions
+    // MARK: - Protected Functions
     
     open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
         sheet.view.frame = view.frame

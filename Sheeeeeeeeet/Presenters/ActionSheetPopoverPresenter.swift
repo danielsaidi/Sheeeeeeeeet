@@ -34,8 +34,6 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     open var isDismissableWithTapOnBackground = true
     
     private var actionSheet: ActionSheet?
-    private var actionSheetView: UIView?
-    private var backgroundView: UIView?
     private weak var popover: UIPopoverPresentationController?
     
     
@@ -62,11 +60,20 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         vc.present(sheet, animated: true, completion: completion)
     }
     
-    public func refreshActionSheet() {
+    open func refreshActionSheet() {
         guard let sheet = actionSheet else { return }
-        sheet.stackView?.arrangedSubviews[0].isHidden = true
+        sheet.headerViewContainer?.isHidden = true
         sheet.buttonsTableView?.isHidden = true
-        sheet.preferredContentSize = CGSize(width: sheet.appearance.popover.width, height: sheet.itemsHeight)
+        refreshPopoverAppearance(for: sheet)
+    }
+    
+    
+    // MARK: - Protected Functions
+    
+    open func refreshPopoverAppearance(for sheet: ActionSheet) {
+        let width = sheet.appearance.popover.width
+        let height = sheet.itemsHeight
+        sheet.preferredContentSize = CGSize(width: width, height: height)
         popover?.backgroundColor = sheet.itemsTableView?.backgroundColor
     }
 }
@@ -92,7 +99,6 @@ private extension ActionSheetPopoverPresenter {
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController
-        popover?.backgroundColor = sheet.view.backgroundColor
         popover?.delegate = vc as? UIPopoverPresentationControllerDelegate
         return popover
     }
