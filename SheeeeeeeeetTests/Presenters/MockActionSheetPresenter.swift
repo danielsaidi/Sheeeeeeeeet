@@ -16,33 +16,33 @@ class MockActionSheetPresenter: ActionSheetPresenter {
     var dismissInvokeCount = 0
     var dismissInvokeCompletions = [() -> ()]()
     var presentInvokeCount = 0
+    var presentInvokeCompletions = [() -> ()]()
     var presentInvokeSheets = [ActionSheet]()
     var presentInvokeViewControllers = [UIViewController]()
     var presentInvokeViews = [UIView?]()
-    var presentInvokeTabBarItems = [UIBarButtonItem]()
+    var presentInvokeItems = [UIBarButtonItem]()
     
     func dismiss(completion: @escaping () -> ()) {
         dismissInvokeCount += 1
         dismissInvokeCompletions.append(completion)
     }
     
-    func positionSheet() {}
-    
-    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?) {
+    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
         presentInvokeCount += 1
         presentInvokeSheets.append(sheet)
         presentInvokeViewControllers.append(vc)
         presentInvokeViews.append(view)
+        presentInvokeCompletions.append(completion)
     }
     
-    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem) {
+    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
         presentInvokeCount += 1
         presentInvokeSheets.append(sheet)
         presentInvokeViewControllers.append(vc)
-        presentInvokeTabBarItems.append(item)
+        presentInvokeItems.append(item)
+        presentInvokeCompletions.append(completion)
     }
     
-    func presentationFrame(for sheet: ActionSheet, in view: UIView) -> CGRect? {
-        return nil
+    func refreshActionSheet() {
     }
 }

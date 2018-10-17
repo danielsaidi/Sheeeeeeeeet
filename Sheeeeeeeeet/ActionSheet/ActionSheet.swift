@@ -129,16 +129,13 @@ open class ActionSheet: UIViewController {
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
     
     
-    // MARK: - Dependencies
+    // MARK: - Properties
     
     open var appearance = ActionSheetAppearance(copy: .standard)
     
-    open var presenter: ActionSheetPresenter
-    
-    
-    // MARK: - Actions
-    
-    open var selectAction: SelectAction
+    public let presenter: ActionSheetPresenter
+
+    public let selectAction: SelectAction
     
     @available(*, deprecated, message: "itemSelectAction is deprecated. Use selectAction instead")
     open var itemSelectAction: SelectAction { return selectAction }
@@ -173,11 +170,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Item Properties
     
-    open var items = [ActionSheetItem]()
+    public var items = [ActionSheetItem]()
     
-    open var itemsHeight: CGFloat { return totalHeight(for: items) }
+    public var itemsHeight: CGFloat { return totalHeight(for: items) }
     
-    open lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
+    public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
     @IBOutlet weak var itemsTableView: UITableView? {
         didSet { setup(itemsTableView, with: itemHandler) }
@@ -188,13 +185,13 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Button Properties
     
-    open var buttons = [ActionSheetButton]()
+    public var buttons = [ActionSheetButton]()
     
-    open var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
+    public var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
     
-    open lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
+    public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
     
-    @IBOutlet weak var buttonsTableView: IntrinsicTableView? {
+    @IBOutlet weak var buttonsTableView: UITableView? {
         didSet { setup(buttonsTableView, with: buttonHandler) }
     }
     
@@ -217,6 +214,9 @@ open class ActionSheet: UIViewController {
         presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem, completion: completion)
     }
 
+    
+    // MARK: - Refresh Functions
+    
     open func refresh() {
         applyRoundCorners()
         refreshHeader()
@@ -293,7 +293,6 @@ private extension ActionSheet {
     
     func setupAppearance(for tableView: UITableView?) {
         tableView?.estimatedRowHeight = 44
-        
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.cellLayoutMarginsFollowReadableWidth = false
     }

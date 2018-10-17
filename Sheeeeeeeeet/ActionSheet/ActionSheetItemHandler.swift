@@ -30,9 +30,9 @@ open class ActionSheetItemHandler: NSObject {
     
     private weak var actionSheet: ActionSheet?
     
-    private var itemType: ItemType
+    let itemType: ItemType
     
-    private var items: [ActionSheetItem] {
+    var items: [ActionSheetItem] {
         switch itemType {
         case .buttons: return actionSheet?.buttons ?? []
         case .items: return actionSheet?.items ?? []
