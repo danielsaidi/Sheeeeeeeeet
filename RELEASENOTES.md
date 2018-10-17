@@ -30,6 +30,8 @@ so changing your code to the new standard should be easy.
 removed in this version. You can use the new action sheet outlets instead, but I
 am not sure that many of these properties should be exposed at all.
 
+* `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`.
+
 * `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter. I think the
 library should have a good api instead of throwing cells and table views around.
 

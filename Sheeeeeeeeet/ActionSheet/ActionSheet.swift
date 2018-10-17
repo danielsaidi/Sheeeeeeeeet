@@ -21,10 +21,10 @@
  
  You provide an action sheet with a collection of items when
  you create it. The sheet will automatically split the items
- up into items and buttons. However, if your items must have
- a reference to your action sheet, you can't use them in the
- init function. In those cases, use an empty item array then
- call `setupWithItemsAndButtons` after calling `super.init`.
+ into items and buttons. You can also create an action sheet
+ with an empty item collection, then call `setup(items:)` at
+ a later time. This is sometimes required if you must create
+ the action sheet before you can create the items.
  
  
  ## Presentation
@@ -81,7 +81,7 @@ open class ActionSheet: UIViewController {
         self.presenter = presenter
         itemSelectAction = action
         super.init(nibName: ActionSheet.className, bundle: Bundle(for: ActionSheet.self))
-        setupItemsAndButtons(with: items)
+        setup(items: items)
         setup()
     }
     
@@ -99,6 +99,17 @@ open class ActionSheet: UIViewController {
     
     open func setup() {}
     
+    open func setup(items: [ActionSheetItem]) {
+        self.items = items.filter { !($0 is ActionSheetButton) }
+        buttons = items.compactMap { $0 as? ActionSheetButton }
+        reloadData()
+    }
+    
+    @available(*, deprecated, message: "setupItemsAndButtons is deprecated. Use setup(items:) instead")
+    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
+        setup(items: items)
+    }
+    
     
     // MARK: - View Controller Lifecycle
     
@@ -111,6 +122,7 @@ open class ActionSheet: UIViewController {
     // MARK: - Typealiases
     
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
+    
     public typealias TapAction = (ActionSheetItem) -> ()
     
     
@@ -222,12 +234,6 @@ open class ActionSheet: UIViewController {
     open func reloadData() {
         itemsTableView?.reloadData()
         buttonsTableView?.reloadData()
-    }
-
-    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
-        self.items = items.filter { !($0 is ActionSheetButton) }
-        buttons = items.compactMap { $0 as? ActionSheetButton }
-        reloadData()
     }
 }
 
