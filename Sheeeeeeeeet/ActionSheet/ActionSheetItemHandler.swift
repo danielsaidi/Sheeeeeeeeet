@@ -45,7 +45,8 @@ open class ActionSheetItemHandler: NSObject {
 
 extension ActionSheetItemHandler: UITableViewDataSource {
     
-    public func item(at indexPath: IndexPath) -> ActionSheetItem {
+    public func item(at indexPath: IndexPath) -> ActionSheetItem? {
+        guard items.count > indexPath.row else { return nil }
         return items[indexPath.row]
     }
     
@@ -58,11 +59,13 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return item(at: indexPath).cell(for: tableView)
+        guard let item = self.item(at: indexPath) else { return UITableViewCell(frame: .zero) }
+        return item.cell(for: tableView)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(item(at: indexPath).appearance.height)
+        guard let item = self.item(at: indexPath) else { return 0 }
+        return CGFloat(item.appearance.height)
     }
 }
 
@@ -72,8 +75,7 @@ extension ActionSheetItemHandler: UITableViewDataSource {
 extension ActionSheetItemHandler: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard items.count > indexPath.row else { return }
-        let item = self.item(at: indexPath)
+        guard let item = self.item(at: indexPath) else { return }
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         guard let sheet = actionSheet else { return }
