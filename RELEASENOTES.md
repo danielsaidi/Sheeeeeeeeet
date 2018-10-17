@@ -26,14 +26,10 @@ presentation tweaks in your sheets. The changes are too many and extensive to be
 listed here, so please have a look at the new structure. There is much less code,
 so changing your code to the new standard should be easy.
 
-* Overall, a lot of presentation-related properties and functions are completely
-removed in this version. You can use the new action sheet outlets instead, but I
-am not sure that many of these properties should be exposed at all.
-
 * `ActionSheet.itemTapAction` has been removed.
 * `ActionSheet.handleTap(on:)` is now called when an item is tapped.
-* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter. I think the
-library should have a good api instead of throwing cells and table views around.
+* `ActionSheetAppearance.viewMargins` is renamed to `groupMargins`.
+* `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter.
 
 
 ### New features

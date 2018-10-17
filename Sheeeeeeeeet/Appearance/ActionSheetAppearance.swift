@@ -61,7 +61,7 @@ open class ActionSheetAppearance {
     
     public var cornerRadius: CGFloat = 10
     public var contentInset: CGFloat = 15
-    public var viewMargins: CGFloat = 15
+    public var groupMargins: CGFloat = 15
     
     public var separatorColor: UIColor?
     public var itemsSeparatorColor: UIColor?

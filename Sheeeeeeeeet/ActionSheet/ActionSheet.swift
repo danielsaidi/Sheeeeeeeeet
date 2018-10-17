@@ -217,6 +217,7 @@ open class ActionSheet: UIViewController {
         refreshHeader()
         refreshItems()
         refreshButtons()
+        stackView?.spacing = appearance.groupMargins
         presenter.refreshActionSheet()
     }
     
