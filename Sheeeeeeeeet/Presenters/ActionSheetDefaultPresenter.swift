@@ -29,7 +29,6 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     public private(set) var actionSheet: ActionSheet?
     
-    open var availablePresentationSize: CGSize { return UIScreen.main.bounds.size }
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
     

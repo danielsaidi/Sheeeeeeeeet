@@ -32,7 +32,6 @@ public struct ActionSheetPresenterEvents {
 
 public protocol ActionSheetPresenter: AnyObject {
     
-    var availablePresentationSize: CGSize { get }
     var events: ActionSheetPresenterEvents { get set }
     var isDismissableWithTapOnBackground: Bool { get set }
     

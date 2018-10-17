@@ -30,7 +30,6 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - Properties
     
-    open var availablePresentationSize: CGSize { return popover?.frameOfPresentedViewInContainerView.size ?? .zero }
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithTapOnBackground = true
     

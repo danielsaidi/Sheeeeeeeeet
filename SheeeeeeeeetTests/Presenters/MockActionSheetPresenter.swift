@@ -10,7 +10,6 @@ import Sheeeeeeeeet
 
 class MockActionSheetPresenter: ActionSheetPresenter {
     
-    var availablePresentationSize: CGSize = .zero
     var events = ActionSheetPresenterEvents()
     var isDismissableWithTapOnBackground = false
     
