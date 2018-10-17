@@ -46,6 +46,7 @@ open class ActionSheetItemHandler: NSObject {
 extension ActionSheetItemHandler: UITableViewDataSource {
     
     public func item(at indexPath: IndexPath) -> ActionSheetItem? {
+        guard indexPath.section == 0 else { return nil }
         guard items.count > indexPath.row else { return nil }
         return items[indexPath.row]
     }

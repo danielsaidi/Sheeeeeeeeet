@@ -3,6 +3,8 @@ import Sheeeeeeeeet
 class MockActionSheet: ActionSheet {
     
     var dismissInvokeCount = 0
+    var handleTapInvokeCount = 0
+    var handleTapInvokeItems = [ActionSheetItem]()
     var prepareForPresentationInvokeCount = 0
     var refreshInvokeCount = 0
     var reloadDataInvokeCount = 0
@@ -10,6 +12,12 @@ class MockActionSheet: ActionSheet {
     override func dismiss(completion: @escaping () -> ()) {
         super.dismiss { completion() }
         dismissInvokeCount += 1
+    }
+    
+    override func handleTap(on item: ActionSheetItem) {
+        super.handleTap(on: item)
+        handleTapInvokeCount += 1
+        handleTapInvokeItems.append(item)
     }
     
     override func refresh() {

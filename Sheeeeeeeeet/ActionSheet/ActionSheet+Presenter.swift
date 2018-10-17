@@ -16,7 +16,7 @@ public extension ActionSheet {
 
 // MARK: - Internal Extensions
 
-public extension UIUserInterfaceIdiom {
+extension UIUserInterfaceIdiom {
     
     var defaultPresenter: ActionSheetPresenter {
         switch self {

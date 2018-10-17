@@ -10,7 +10,16 @@ import UIKit
 
 class MockTableView: UITableView {
 
+    var deselectRowInvokeCount = 0
+    var deselectRowInvokePaths = [IndexPath]()
+    var deselectRowInvokeAnimated = [Bool]()
     var reloadDataInvokeCount = 0
+    
+    override func deselectRow(at indexPath: IndexPath, animated: Bool) {
+        deselectRowInvokeCount += 1
+        deselectRowInvokePaths.append(indexPath)
+        deselectRowInvokeAnimated.append(animated)
+    }
     
     override func reloadData() {
         super.reloadData()
