@@ -21,8 +21,7 @@
  The item appearance is set by the sheet. It either uses the
  global appearance or an individual instance. To use a fully
  custom appearances for a single action sheet item, just set
- the `customAppearance` property. Do not set the `appearance`
- property; it will just be overwritten.
+ the `customAppearance` property.
  
  */
 
@@ -63,19 +62,17 @@ open class ActionSheetItem: NSObject {
 
     // MARK: - Properties
     
-    public var cellReuseIdentifier: String { return className }
-    public var className: String { return type(of: self).className }
-    open var itemType: ItemType { return .item }
+    public internal(set) var appearance: ActionSheetItemAppearance
+    public var image: UIImage?
+    public var subtitle: String?
+    public var tapBehavior: TapBehavior
+    public var title: String
+    public var value: Any?
     
-    open var image: UIImage?
-    open var subtitle: String?
-    open var title: String
-    open var value: Any?
-
-    open var appearance: ActionSheetItemAppearance
-    open var cellStyle: UITableViewCell.CellStyle = .default
-    open var customAppearance: ActionSheetItemAppearance?
-    open var tapBehavior: TapBehavior
+    public var cellReuseIdentifier: String { return className }
+    public var cellStyle: UITableViewCell.CellStyle = .default
+    public var customAppearance: ActionSheetItemAppearance?
+    public var itemType: ItemType { return .item }
     
     
     // MARK: - Functions
@@ -89,10 +86,10 @@ open class ActionSheetItem: NSObject {
             cell.backgroundColor = color
         }
         cell.imageView?.image = image
-        cell.textLabel?.text = title
         cell.selectionStyle = .default
         cell.separatorInset = appearance.separatorInsets
         cell.tintColor = appearance.tintColor
+        cell.textLabel?.text = title
         cell.textLabel?.textAlignment = .left
         cell.textLabel?.textColor = appearance.textColor
         cell.textLabel?.font = appearance.font

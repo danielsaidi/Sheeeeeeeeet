@@ -16,9 +16,25 @@ class NSObject_ClassNameTests: QuickSpec {
         
         describe("class name") {
             
-            it("is a valid string representation of the type name") {
+            it("is valid for base type") {
                 expect(ActionSheet.className).to(equal("ActionSheet"))
+            }
+            
+            it("is valid for inherited type") {
+                expect(TestSheet.className).to(equal("TestSheet"))
+            }
+            
+            it("is valid for base type instance") {
+                let obj = ActionSheet(items: []) { _, _ in }
+                expect(obj.className).to(equal("ActionSheet"))
+            }
+            
+            it("is valid for inherited type instance") {
+                let obj = TestSheet(items: []) { _, _ in }
+                expect(obj.className).to(equal("TestSheet"))
             }
         }
     }
 }
+
+private class TestSheet: ActionSheet {}
