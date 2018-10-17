@@ -56,14 +56,19 @@
  its `customAppearance` property.
  
  
- ## Triggered actions
+ ## Handling item selections
  
- `ActionSheet` has two actions that are triggered by tapping
- an item. `itemTapAction` is used by the sheet itself when a
- tap occurs on an item. You can override this if you want to,
- but you probably shouldn't. `itemSelectAction`, however, is
- the main select action. You must provide it when you create
- an action sheet, so it can never be nil.
+ The `selectAction` is triggered when a user taps an item in
+ the action sheet. It provides you with the action sheet and
+ the selected item. It is very important to use `[weak self]`
+ in this block to avoid memory leaks.
+ 
+ 
+ ## Handling item taps
+ 
+ Action sheets receive a call to `handleTap(on:)` every time
+ an item is tapped. You can override it when you create your
+ own action sheet subclasses, but you probably shouldn't.
  
  */
 
@@ -123,8 +128,6 @@ open class ActionSheet: UIViewController {
     
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
     
-    public typealias TapAction = (ActionSheetItem) -> ()
-    
     
     // MARK: - Dependencies
     
@@ -137,15 +140,8 @@ open class ActionSheet: UIViewController {
     
     open var selectAction: SelectAction
     
-    open lazy var tapAction: TapAction = { [weak self] item in
-        self?.handleTap(on: item)
-    }
-    
     @available(*, deprecated, message: "itemSelectAction is deprecated. Use selectAction instead")
     open var itemSelectAction: SelectAction { return selectAction }
-    
-    @available(*, deprecated, message: "itemTapAction is deprecated. Use tapAction instead")
-    open var itemTapAction: TapAction { return tapAction }
     
     
     // MARK: - Outlets
@@ -243,13 +239,17 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Public Functions
     
+    open func handleTap(on item: ActionSheetItem) {
+        reloadData()
+        guard item.tapBehavior == .dismiss else { return selectAction(self, item) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            self.dismiss { self.selectAction(self, item) }
+        }
+    }
+    
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
         let minimum = appearance.contentInset
         return margin.value(in: view.superview, minimum: minimum)
-    }
-
-    open func item(at indexPath: IndexPath) -> ActionSheetItem {
-        return items[indexPath.row]
     }
 
     open func reloadData() {
@@ -274,24 +274,20 @@ private extension ActionSheet {
         view?.layer.cornerRadius = appearance.cornerRadius
     }
     
-    func setup(_ view: UITableView?, with handler: ActionSheetItemHandler) {
-        view?.tableFooterView = UIView.empty
-        view?.cellLayoutMarginsFollowReadableWidth = false
-        view?.rowHeight = UITableView.automaticDimension
-        view?.estimatedRowHeight = 44
-        view?.dataSource = handler
-        view?.delegate = handler
+    func setup(_ tableView: UITableView?, with handler: ActionSheetItemHandler) {
+        tableView?.delegate = handler
+        tableView?.dataSource = handler
+        setupAppearance(for: tableView)
+    }
+    
+    func setupAppearance(for tableView: UITableView?) {
+        tableView?.estimatedRowHeight = 44
+        tableView?.tableFooterView = .empty
+        tableView?.rowHeight = UITableView.automaticDimension
+        tableView?.cellLayoutMarginsFollowReadableWidth = false
     }
     
     func totalHeight(for items: [ActionSheetItem]) -> CGFloat {
         return items.reduce(0) { $0 + $1.appearance.height }
-    }
-
-    func handleTap(on item: ActionSheetItem) {
-        reloadData()
-        guard item.tapBehavior == .dismiss else { return selectAction(self, item) }
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            self.dismiss { self.selectAction(self, item) }
-        }
     }
 }

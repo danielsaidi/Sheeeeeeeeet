@@ -30,6 +30,8 @@ so changing your code to the new standard should be easy.
 removed in this version. You can use the new action sheet outlets instead, but I
 am not sure that many of these properties should be exposed at all.
 
+* `ActionSheet.itemTapAction` has been removed.
+* `ActionSheet.handleTap(on:)` is now called when an item is tapped.
 * `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter. I think the
 library should have a good api instead of throwing cells and table views around.
 
@@ -52,7 +54,6 @@ longer used or available, I removed them completely. Let me know if you used any
 
 * `ActionSheetItem.setupItemsAndButtons(with:)` is renamed to `setup(items:)`.
 * `ActionSheetItem.itemSelectAction` is renamed to `selectAction`.
-* `ActionSheetItem.itemTapAction` is renamed to `tapAction`.
 
 Perform the deprecation warnings, and you should be all good.
 
