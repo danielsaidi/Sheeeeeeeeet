@@ -65,6 +65,14 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         sheet.leftMargin?.constant = sheet.margin(at: .left)
         sheet.rightMargin?.constant = sheet.margin(at: .right)
         sheet.bottomMargin?.constant = sheet.margin(at: .bottom)
+        refreshScrollMode(for: sheet)
+    }
+    
+    open func refreshScrollMode(for sheet: ActionSheet) {
+        guard let view = sheet.itemsTableView else { return }
+        let contentHeight = view.contentSize.height
+        let frameHeight = view.frame.height
+        view.isScrollEnabled = contentHeight > frameHeight
     }
     
     
