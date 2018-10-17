@@ -9,13 +9,12 @@
 /*
  
  This presenter will present action sheets as popovers, just
- as regular UIAlertControllers are displayed on the iPad. It
- should only be used when a sheet is displayed on an iPad.
+ as a regular UIAlertController is displayed on the iPad.
  
  Since popovers have an arrow that should use the same color
  as the rest of the popover view, this presenter will remove
- any header view as well as combine items and buttons into a
- single section.
+ any header view and combine items and buttons into a single
+ item section.
  
  */
 
@@ -69,11 +68,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         sheet.stackView?.arrangedSubviews[0].isHidden = true
         sheet.buttonsTableView?.isHidden = true
         sheet.preferredContentSize = CGSize(width: sheet.appearance.popover.width, height: sheet.itemsHeight)
-//        sheet.topMargin?.isActive = false
-//        sheet.view.topAnchor.constraint(equalTo: sheet.topLayoutGuide.topAnchor).isActive = true
         popover?.backgroundColor = sheet.itemsTableView?.backgroundColor
-//        sheet.backgroundView?.isHidden = true
-//        sheet.itemsTableView?.isScrollEnabled = (sheet.itemsTableView?.frame.height ?? 0) > sheet.view.frame.height
     }
 }
 

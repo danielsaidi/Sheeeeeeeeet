@@ -8,8 +8,8 @@
 
 /*
  
- This presenter will present action sheets as regular action
- sheets, which means that it presents sheets from the bottom.
+ This presenter will present action sheets as regular iPhone
+ action sheets, from the bottom of the screen.
  
  */
 
