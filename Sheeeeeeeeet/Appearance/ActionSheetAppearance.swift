@@ -88,9 +88,7 @@ open class ActionSheetAppearance {
     }()
     
     public lazy var dangerButton: ActionSheetDangerButtonAppearance = {
-        let appearance = ActionSheetDangerButtonAppearance(copy: item)
-        appearance.textColor = .red
-        return appearance
+        return ActionSheetDangerButtonAppearance(copy: item)
     }()
     
     public lazy var okButton: ActionSheetOkButtonAppearance = {

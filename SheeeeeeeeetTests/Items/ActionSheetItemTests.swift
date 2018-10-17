@@ -47,6 +47,25 @@ class ActionSheetItemTests: QuickSpec {
             && appearance1.subtitleTextColor == appearance2.subtitleTextColor
     }
     
+    func compare(
+        _ cell: UITableViewCell,
+        item: ActionSheetItem,
+        appearance: ActionSheetItemAppearance,
+        textAlignment: NSTextAlignment = .left) -> Bool {
+        return cell.imageView?.image == item.image
+            && cell.selectionStyle == .default
+            //&& cell.separatorInset == appearance.item.separatorInsets))
+            && cell.tintColor == appearance.tintColor
+            && cell.textLabel?.text == item.title
+            && cell.textLabel?.textAlignment == textAlignment
+            && cell.textLabel?.textColor == appearance.textColor
+            && cell.textLabel?.font == appearance.font
+            && cell.detailTextLabel?.text == item.subtitle
+            && cell.detailTextLabel?.textColor == appearance.subtitleTextColor
+            && cell.detailTextLabel?.font == appearance.subtitleFont
+    }
+    
+    
     override func spec() {
         
         func createItem() -> MockActionSheetItem {
@@ -116,11 +135,10 @@ class ActionSheetItemTests: QuickSpec {
         
         describe("applying appearance") {
             
-            it("applies copy of appearance item if no custom appearance is set") {
+            it("applies standard copy if no custom appearance is set") {
                 let item = createItem()
-                let standard = ActionSheetAppearance.standard
-                item.applyAppearance(standard)
-                expect(self.compare(item.appearance, standard.item)).to(beTrue())
+                item.applyAppearance(ActionSheetAppearance.standard)
+                expect(self.compare(item.appearance, ActionSheetAppearance.standard.item)).to(beTrue())
             }
             
             it("applies custom appearance if set") {
@@ -130,8 +148,7 @@ class ActionSheetItemTests: QuickSpec {
                 custom.item.backgroundColor = .yellow
                 item.customAppearance = custom.item
                 item.applyAppearance(standard)
-                expect(self.compare(item.appearance, standard.item)).to(beFalse())
-                expect(self.compare(item.appearance, custom.item)).to(beTrue())
+                expect(item.appearance).to(be(custom.item))
             }
         }
         
@@ -143,20 +160,11 @@ class ActionSheetItemTests: QuickSpec {
                 let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
                 item.applyAppearance(appearance)
                 item.applyAppearance(to: cell)
-                
-                expect(cell.imageView?.image).to(be(item.image))
-                expect(cell.selectionStyle).to(equal(.default))
-                //expect(cell.separatorInset).to(equal(appearance.item.separatorInsets))
-                expect(cell.tintColor).to(equal(appearance.item.tintColor))
-                expect(cell.textLabel?.text).to(equal(item.title))
-                expect(cell.textLabel?.textAlignment).to(equal(.left))
-                expect(cell.textLabel?.textColor).to(equal(appearance.item.textColor))
-                expect(cell.textLabel?.font).to(equal(appearance.item.font))
-                expect(cell.detailTextLabel?.text).to(equal(item.subtitle))
-                expect(cell.detailTextLabel?.textColor).to(equal(appearance.item.subtitleTextColor))
-                expect(cell.detailTextLabel?.font).to(equal(appearance.item.subtitleFont))
+                expect(self.compare(cell, item: item, appearance: appearance.item)).to(beTrue())
             }
         }
+        
+        
         
         describe("resolving cell") {
             

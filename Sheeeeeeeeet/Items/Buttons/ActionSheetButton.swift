@@ -34,7 +34,8 @@ open class ActionSheetButton: ActionSheetItem {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetButtonAppearance(copy: appearance.okButton)
+        let custom = customAppearance as? ActionSheetButtonAppearance
+        self.appearance = custom ?? ActionSheetButtonAppearance(copy: appearance.okButton)
     }
     
     open override func applyAppearance(to cell: UITableViewCell) {

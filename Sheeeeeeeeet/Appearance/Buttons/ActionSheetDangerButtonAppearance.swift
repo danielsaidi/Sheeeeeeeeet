@@ -8,4 +8,14 @@
 
 import UIKit
 
-open class ActionSheetDangerButtonAppearance: ActionSheetButtonAppearance {}
+open class ActionSheetDangerButtonAppearance: ActionSheetButtonAppearance {
+    
+    public override init() {
+        super.init()
+    }
+    
+    public override init(copy: ActionSheetItemAppearance) {
+        super.init(copy: copy)
+        textColor = .red
+    }
+}
