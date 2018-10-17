@@ -125,6 +125,7 @@
 		84539DAF217787650097039F /* MockActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DAE217787650097039F /* MockActionSheetButton.swift */; };
 		84539DB221778D0B0097039F /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB121778D0B0097039F /* MockTableView.swift */; };
 		84539DB42177BAB10097039F /* ActionSheetItemHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB32177BAB10097039F /* ActionSheetItemHandlerTests.swift */; };
+		84539DB62177CF470097039F /* ActionSheetMarginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DB52177CF470097039F /* ActionSheetMarginTests.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -302,6 +303,7 @@
 		84539DAE217787650097039F /* MockActionSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActionSheetButton.swift; sourceTree = "<group>"; };
 		84539DB121778D0B0097039F /* MockTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		84539DB32177BAB10097039F /* ActionSheetItemHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandlerTests.swift; sourceTree = "<group>"; };
+		84539DB52177CF470097039F /* ActionSheetMarginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMarginTests.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				453C796E2093189700DE42B5 /* ActionSheet+PresenterTests.swift */,
 				45D008D220934E3300F1C099 /* MockActionSheet.swift */,
 				84539DB32177BAB10097039F /* ActionSheetItemHandlerTests.swift */,
+				84539DB52177CF470097039F /* ActionSheetMarginTests.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -1057,6 +1060,7 @@
 				45D008D320934E3300F1C099 /* MockActionSheet.swift in Sources */,
 				45352D692030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift in Sources */,
 				45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */,
+				84539DB62177CF470097039F /* ActionSheetMarginTests.swift in Sources */,
 				453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */,
 				84539DB221778D0B0097039F /* MockTableView.swift in Sources */,
 				45D008D520936AFC00F1C099 /* MockActionSheetPresenter.swift in Sources */,
