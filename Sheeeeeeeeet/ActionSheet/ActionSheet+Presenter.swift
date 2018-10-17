@@ -9,17 +9,19 @@
 public extension ActionSheet {
     
     static var defaultPresenter: ActionSheetPresenter {
-        return defaultPresenter(for: UIDevice.current.userInterfaceIdiom)
+        return UIDevice.current.userInterfaceIdiom.defaultPresenter
     }
 }
 
 
 // MARK: - Internal Extensions
 
-extension ActionSheet {
+public extension UIUserInterfaceIdiom {
     
-    static func defaultPresenter(for idiom: UIUserInterfaceIdiom) -> ActionSheetPresenter {
-        let isIpad = idiom == .pad
-        return isIpad ? ActionSheetPopoverPresenter() : ActionSheetDefaultPresenter()
+    var defaultPresenter: ActionSheetPresenter {
+        switch self {
+        case .pad: return ActionSheetPopoverPresenter()
+        default: return ActionSheetDefaultPresenter()
+        }
     }
 }

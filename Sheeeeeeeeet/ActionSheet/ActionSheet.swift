@@ -17,35 +17,43 @@
  whenever an item is selected.
  
  
- ## Custom presentation
+ ## Items
  
- You can also inject a custom sheet presenter if you want to
- customize how your sheet is presented and dismissed. If you
- do not use a custom presenter, `ActionSheetDefaultPresenter`
- is used. It honors the default iOS behavior by using action
- sheets on iPhones and popovers on iPad.
+ You provide an action sheet with a collection of items when
+ you create it. The sheet will automatically split the items
+ up into items and buttons. However, if your items must have
+ a reference to your action sheet, you can't use them in the
+ init function. In those cases, use an empty item array then
+ call `setupWithItemsAndButtons` after calling `super.init`.
+ 
+ 
+ ## Presentation
+ 
+ You can inject a custom presenter if you want to change how
+ the sheet is presented and dismissed. The default presenter
+ is `ActionSheetDefaultPresenter`. It uses action sheets for
+ iPhone devices and popovers for iPad devices.
  
  
  ## Subclassing
  
  `ActionSheet` can be subclassed, which may be nice whenever
- you use Sheeeeeeeeet in your own app and want to use an app
- specific domain model. For instance, if you want to present
- a list of `Food` items, you could create a `FoodActionSheet`
- subclass, that is responsible to populate itself with items.
- When you subclass `ActionSheet` you can either override the
- initializers. However, you could also just override `setup`
- and configure the action sheet in your override.
+ you want to use your own domain model. For instance, if you
+ want to present a list of `Food` items, you should create a
+ `FoodActionSheet` sheet, then populate it with `Food` items.
+ The selected value will then be of the type `Food`. You can
+ either override the initializers or the `setup` function to
+ change how you populate the sheet with items.
  
  
  ## Appearance
  
  Sheeeeeeeeet's action sheet appearance if easily customized.
- To change the global appearance for every action sheet that
- is used in your app, use `UIActionSheetAppearance.standard`.
- To change the appearance of a single action sheet, use it's
- `appearance` property. To change the appearance of a single
- item, use it's `appearance` property.
+ To change the global appearance for every sheet in your app,
+ just modify `ActionSheetAppearance.standard`. To change the
+ appearance of a single action sheet, modify the `appearance`
+ property. To change the appearance of a single item, modify
+ its `customAppearance` property.
  
  
  ## Triggered actions
@@ -53,10 +61,9 @@
  `ActionSheet` has two actions that are triggered by tapping
  an item. `itemTapAction` is used by the sheet itself when a
  tap occurs on an item. You can override this if you want to,
- but you don't have to. `itemSelectAction`, however, must be
- set to detect when an item is selected after a tap. This is
- the main item action to observe, and the action you provide
- in the initializer.
+ but you probably shouldn't. `itemSelectAction`, however, is
+ the main select action. You must provide it when you create
+ an action sheet, so it can never be nil.
  
  */
 
