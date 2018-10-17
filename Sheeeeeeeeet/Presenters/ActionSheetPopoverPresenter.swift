@@ -65,6 +65,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         sheet.headerViewContainer?.isHidden = true
         sheet.buttonsTableView?.isHidden = true
         refreshPopoverAppearance(for: sheet)
+        refreshScrollMode(for: sheet)
     }
     
     
@@ -75,6 +76,14 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         let height = sheet.itemsHeight
         sheet.preferredContentSize = CGSize(width: width, height: height)
         popover?.backgroundColor = sheet.itemsTableView?.backgroundColor
+    }
+    
+    open func refreshScrollMode(for sheet: ActionSheet) {
+        guard let popover = popover else { return }
+        guard let view = sheet.itemsTableView else { return }
+        let contentHeight = view.contentSize.height
+        let frameHeight = popover.frameOfPresentedViewInContainerView.height
+        view.isScrollEnabled = contentHeight > frameHeight
     }
 }
 

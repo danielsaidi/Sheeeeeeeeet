@@ -68,13 +68,6 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
         refreshScrollMode(for: sheet)
     }
     
-    open func refreshScrollMode(for sheet: ActionSheet) {
-        guard let view = sheet.itemsTableView else { return }
-        let contentHeight = view.contentSize.height
-        let frameHeight = view.frame.height
-        view.isScrollEnabled = contentHeight > frameHeight
-    }
-    
     
     // MARK: - Protected Functions
     
@@ -112,6 +105,13 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
         view.alpha = 0
         let animation = { view.alpha = 1 }
         animate(animation)
+    }
+    
+    open func refreshScrollMode(for sheet: ActionSheet) {
+        guard let view = sheet.itemsTableView else { return }
+        let contentHeight = view.contentSize.height
+        let frameHeight = view.frame.height
+        view.isScrollEnabled = contentHeight > frameHeight
     }
 
     open func removeActionSheet(completion: @escaping () -> ()) {
