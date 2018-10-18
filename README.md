@@ -67,19 +67,9 @@ to your project, select your app target and add the Sheeeeeeeeet framework as an
 embedded binary under `General` and as a target dependency under `Build Phases`.
 
 
-## Example Application
+## Creating and presenting an action sheet
 
-This repository contains an example app. Before you can run it, you must install 
-[Carthage](Carthage) (e.g. using `brew`) and run `carthage update --platform iOS`.
-You can then open the project and try out the different sheets and item types.
-
-
-## Example Code
-
-Below is a basic way to create an action sheets with `Sheeeeeeeeet`. Have a look
-at the example app for more examples, e.g. multi and single select items, toggle
-items, links etc.
-
+To create an action sheet, just specify its items and callback action, like this:
 
 ```swift
 func createStandardActionSheet() -> ActionSheet {
@@ -95,18 +85,41 @@ func createStandardActionSheet() -> ActionSheet {
 }
 ```
 
-In larger apps, you'll probably want to use your own domain model. All types are
-a valid item values, so you can pass in anything from ints and strings to custom
-types such as a `Date` or a `Car`.
-
-To present an action sheet, you just have to call the `present` function as such:
+To present the action sheet, just call any of its `present` functions, like this:
 
 ```swift
-actionSheet.present(in: self, from: view)
+actionSheet.present(in: self, from: view)   // or
+actionSheet.present(in: self, from: barButtonItem)
 ```
 
-The from `view` parameter is used when a sheet is presented using a popover, e.g
-on iPads. You can customize how a sheet is presented by replacing its `presenter`.
+The `from` view will only be used if the action sheet it presented in a popover.
+
+
+### Specifying items after initialization
+
+If you require a created action sheet instance to resolve which items to present
+(very common when you subclass `ActionSheet`), just create a sheet with no items
+then call `setup(with:)` once its created.
+
+### Creating domain-specific action sheets
+
+When you use `Sheeeeeeeeet` in your own app, you may want to use your own domain
+model, where the items represent your own domain-specific typed. Since all types
+are valid values, you can pass in anything from ints and strings to custom types
+such as `Date`s or `Car`s.
+
+If you create a domain-specific action sheet, like a `CarPickerActionSheet`, you
+may want it to use external dependencies to automatically resolve which items to
+display. In this case, you will probably create a custom initializer that builds
+the item collection based on some domain-specific logic. This also allows you to
+inject tracking, custom action etc.
+
+
+## Example Application
+
+This repository contains an example app. Before you can run it, you must install 
+[Carthage](Carthage) (e.g. using `brew`) and run `carthage update --platform iOS`.
+You can then open the project and try out the different sheets and item types.
 
 
 ## Action Sheet Components
@@ -121,7 +134,8 @@ built-in item types:
 
 * [Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped.
 * [Single-select Item][ActionSheetSingleSelectItem] - Deselects all other single-
-select items in the same group when tapped, then dismisses the sheet.
+select items in its group when tapped, then dismisses the sheet (set tapBehavior
+to `.none` to change this behavior).
 * [Multi-Select Item][ActionSheetMultiSelectItem] - Doesn't deselect other items
 when tapped and doesn't dismiss the sheet.
 * [Multi-Select Toggle][ActionSheetMultiSelectToggleItem] - Toggles the selected

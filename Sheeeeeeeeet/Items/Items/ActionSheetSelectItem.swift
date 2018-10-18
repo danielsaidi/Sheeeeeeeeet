@@ -31,7 +31,7 @@ open class ActionSheetSelectItem: ActionSheetItem {
     
     // MARK: - Initialization
     
-    init(
+    public init(
         title: String,
         isSelected: Bool,
         group: String = "",

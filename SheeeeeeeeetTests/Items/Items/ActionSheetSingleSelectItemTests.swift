@@ -14,18 +14,20 @@ class ActionSheetSingleSelectItemTests: QuickSpec {
     
     override func spec() {
         
-        func getItem(isSelected: Bool, group: String = "") -> ActionSheetSingleSelectItem {
+        func getItem(isSelected: Bool = false, group: String = "") -> ActionSheetSingleSelectItem {
             return ActionSheetSingleSelectItem(title: "foo", isSelected: isSelected, group: group, value: true, image: UIImage())
         }
         
         describe("when created") {
             
             it("applies provided values") {
-                let item = getItem(isSelected: true, group: "my group")
+                let item = ActionSheetSingleSelectItem(title: "foo", isSelected: true, group: "my group", value: true, image: UIImage(), tapBehavior: .none)
                 expect(item.title).to(equal("foo"))
+                expect(item.isSelected).to(beTrue())
                 expect(item.group).to(equal("my group"))
                 expect(item.value as? Bool).to(equal(true))
                 expect(item.image).toNot(beNil())
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
             }
             
             it("applies provided selection state") {
@@ -36,8 +38,8 @@ class ActionSheetSingleSelectItemTests: QuickSpec {
         
         describe("tap behavior") {
             
-            it("is dismiss") {
-                let item = getItem(isSelected: true)
+            it("is dismiss by default") {
+                let item = getItem()
                 expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
             }
         }
