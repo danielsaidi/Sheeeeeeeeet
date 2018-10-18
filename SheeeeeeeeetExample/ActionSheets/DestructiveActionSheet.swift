@@ -20,7 +20,7 @@ class DestructiveActionSheet: ActionSheet {
     init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
         let items = DestructiveActionSheet.items(for: options)
         super.init(items: items) { sheet, item in
-            guard item is ActionSheetDangerButton else { return }
+            guard item.isOkButton else { return }
             let items = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
             action(items.filter { $0.isSelected })
         }

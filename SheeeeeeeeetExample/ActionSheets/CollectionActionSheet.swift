@@ -21,7 +21,7 @@ class CollectionActionSheet: ActionSheet {
     init(options: [FoodOption], action: @escaping ([MyCollectionViewCell.Item]) -> ()) {
         let collectionItems = CollectionActionSheet.collectionItems
         super.init(items: []) { _, item in
-            guard item is ActionSheetOkButton else { return }
+            guard item.isOkButton else { return }
             action(collectionItems.filter { $0.isSelected })
         }
         let items = self.items(for: options, collectionItems: collectionItems)
