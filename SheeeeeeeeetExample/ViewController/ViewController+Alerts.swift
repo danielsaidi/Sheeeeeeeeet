@@ -35,8 +35,6 @@ extension ViewController {
     }
     
     func alertSelection(_ value: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-            self.alert(title: "You selected:", message: value)
-        }
+        self.alert(title: "You selected:", message: value)
     }
 }

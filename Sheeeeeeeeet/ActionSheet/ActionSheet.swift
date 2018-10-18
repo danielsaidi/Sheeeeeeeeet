@@ -270,10 +270,9 @@ open class ActionSheet: UIViewController {
     
     open func handleTap(on item: ActionSheetItem) {
         reloadData()
-        selectAction(self, item)
-        guard item.tapBehavior == .dismiss else { return }
+        guard item.tapBehavior == .dismiss else { return selectAction(self, item) }
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            self.dismiss {}
+            self.dismiss { self.selectAction(self, item) }
         }
     }
     

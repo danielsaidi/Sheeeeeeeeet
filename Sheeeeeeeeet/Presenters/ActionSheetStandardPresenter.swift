@@ -36,11 +36,11 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     // MARK: - ActionSheetPresenter
     
     open func dismiss(completion: @escaping () -> ()) {
+        completion()
         removeBackgroundView()
         removeActionSheet {
             self.actionSheet?.view.removeFromSuperview()
             self.actionSheet = nil
-            completion()
         }
     }
     
