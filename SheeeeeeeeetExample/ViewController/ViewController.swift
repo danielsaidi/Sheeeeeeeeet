@@ -52,4 +52,11 @@ class ViewController: UIViewController {
             tableView?.dataSource = self
         }
     }
+    
+    @IBAction func testBarButtonTapped(_ sender: UIBarButtonItem) {
+        let path = IndexPath(row: 1, section: 0)
+        guard let sheet = actionSheet(at: path) else { return }
+        sheet.presenter.events.didDismissWithBackgroundTap = { print("Background tap!") }
+        sheet.present(in: self, from: sender)
+    }
 }

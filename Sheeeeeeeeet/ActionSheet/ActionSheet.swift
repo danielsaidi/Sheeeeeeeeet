@@ -270,9 +270,10 @@ open class ActionSheet: UIViewController {
     
     open func handleTap(on item: ActionSheetItem) {
         reloadData()
-        guard item.tapBehavior == .dismiss else { return selectAction(self, item) }
+        selectAction(self, item)
+        guard item.tapBehavior == .dismiss else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            self.dismiss { self.selectAction(self, item) }
+            self.dismiss {}
         }
     }
     
@@ -293,6 +294,7 @@ open class ActionSheet: UIViewController {
 private extension ActionSheet {
     
     func applyRoundCorners() {
+        applyRoundCorners(to: headerView)
         applyRoundCorners(to: headerViewContainer)
         applyRoundCorners(to: itemsTableView)
         applyRoundCorners(to: buttonsTableView)

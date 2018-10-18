@@ -11,6 +11,10 @@ import Sheeeeeeeeet
 
 extension ViewController {
     
+    func alert(button: UIButton) {
+        alertSelection(button.title(for: .normal) ?? "None")
+    }
+    
     func alert(item: ActionSheetItem) {
         alertSelection(item.title)
     }
@@ -30,11 +34,9 @@ extension ViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func alertByPrinting(button: UIButton) {
-        print("You tapped \(button.title)")
-    }
-    
     func alertSelection(_ value: String) {
-        alert(title: "You selected:", message: value)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            self.alert(title: "You selected:", message: value)
+        }
     }
 }

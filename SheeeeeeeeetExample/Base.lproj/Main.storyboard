@@ -60,7 +60,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sheeeeeeeeet" id="hUy-QT-oGw"/>
+                    <navigationItem key="navigationItem" title="Sheeeeeeeeet" id="hUy-QT-oGw">
+                        <barButtonItem key="rightBarButtonItem" title="Test" id="dkC-bE-rGe">
+                            <connections>
+                                <action selector="testBarButtonTapped:" destination="BYZ-38-t0r" id="SEQ-ML-g0b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="UVF-b8-L9g" id="mdc-Dk-lLU"/>
                     </connections>
@@ -94,6 +100,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g6h-E6-DAd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7GX-Ni-4gw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

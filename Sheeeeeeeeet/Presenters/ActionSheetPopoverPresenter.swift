@@ -50,11 +50,11 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         popover = self.popover(for: sheet, in: vc)
         popover?.sourceView = view
         popover?.sourceRect = view?.bounds ?? CGRect()
-        popover?.delegate = self
         vc.present(sheet, animated: true, completion: completion)
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
+        setupSheetForPresentation(sheet)
         popover = self.popover(for: sheet, in: vc)
         popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: completion)
@@ -108,7 +108,7 @@ extension ActionSheetPopoverPresenter {
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         sheet.modalPresentationStyle = .popover
         let popover = sheet.popoverPresentationController
-        popover?.delegate = vc as? UIPopoverPresentationControllerDelegate
+        popover?.delegate = self
         return popover
     }
     
