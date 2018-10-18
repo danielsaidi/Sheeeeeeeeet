@@ -135,7 +135,7 @@ open class ActionSheet: UIViewController {
     
     public let presenter: ActionSheetPresenter
 
-    public let selectAction: SelectAction
+    public var selectAction: SelectAction
     
     @available(*, deprecated, message: "itemSelectAction is deprecated. Use selectAction instead")
     open var itemSelectAction: SelectAction { return selectAction }
