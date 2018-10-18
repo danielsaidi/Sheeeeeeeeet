@@ -31,6 +31,7 @@ open class ActionSheetAppearance {
     public init(copy: ActionSheetAppearance) {
         cornerRadius = copy.cornerRadius
         contentInset = copy.contentInset
+        groupMargins = copy.groupMargins
         
         separatorColor = copy.separatorColor
         itemsSeparatorColor = copy.itemsSeparatorColor ?? separatorColor
