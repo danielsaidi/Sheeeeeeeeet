@@ -134,13 +134,13 @@ built-in item types:
 
 * [Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped.
 * [Single-select Item][ActionSheetSingleSelectItem] - Deselects all other single-
-select items in its group when tapped, then dismisses the sheet (set tapBehavior
-to `.none` to change this behavior).
+select items in the same group when tapped. and by default dismisses the sheet.
 * [Multi-Select Item][ActionSheetMultiSelectItem] - Doesn't deselect other items
 when tapped and doesn't dismiss the sheet.
 * [Multi-Select Toggle][ActionSheetMultiSelectToggleItem] - Toggles the selected
 state of all multi-select items in the same group.
-* [Link Item][ActionSheetLinkItem] - Navigation links.
+* [Link Item][ActionSheetLinkItem] - Renders as a link, but behaves like regular
+action sheet items.
 * [Collection Item][ActionSheetCollectionItem] - A general item with an embedded
 collection view that can contain any type of cells.
 * [Custom Item][ActionSheetCustomItem] - A super-flexible item, that can use any
@@ -150,27 +150,30 @@ The standard item corresponds to a standard `UIKit` actionsheet action. It has a
 title, an optional subtitle and an image. It's the base class for all other item
 types, who also copies its standard appearance.
 
-Each item type has a certain `tapBehavior`, which determines how it behaves when
-it is tapped. You can always change this property to change how any item behaves. 
-For instance, if you want a single-select item to not dismiss your sheet, set it
-to `.none` for that item.
+Every item has a `tapBehavior`, that determines how the item behaves when tapped.
+Some item types use `.dismiss` as default, while others use `.none`. You can set
+this property to any value on any item.
 
 ### Buttons
 
 Action sheet buttons are used to apply or discard the effects of an action sheet.
 `Sheeeeeeeeet` has the following built-in types:
 
-* [OK button][ActionSheetOkButton] - OK/apply button with a `true` value
-* [Cancel button][ActionSheetCancelButton] - Cancel button with a `nil` value
-* [Danger button][ActionSheetDangerButton] - OK/apply button with a `danger` style
+* [OK button][ActionSheetOkButton] - A standard ok/apply button
+* [Cancel button][ActionSheetCancelButton] - A standard cancel button
+* [Danger button][ActionSheetDangerButton] - A dangerous ok/apply button
+
+OK buttons have `ActionSheetButton.ButtonType.ok` as value, while cancel buttons
+have `ActionSheetButton.ButtonType.cancel`. You can always check the tapped item
+for `isOkButton` and `isCancelButton` as well, if you need to determine what the
+selection action should do.
 
 Buttons are automatically separated from other items and presented in a separate
-list item. On popovers, however, they are added back to the end of the item list,
-since popovers look different.
+list item. On popovers, however, they are added back to the end of the item list.
 
 ### Titles
 
-Titles are non-interactive items. Sheeeeeeeeet comes with these built-in types:
+Titles are non-interactive items. `Sheeeeeeeeet` comes with these built-in types:
 
 * [Title][ActionSheetTitle] - Shown topmost for an entire sheet
 * [Section Title][ActionSheetSectionTitle] - Shown topmost for a section
