@@ -10,7 +10,8 @@
  
  Cancel buttons have no special behavior, but can be used in
  sheets where a user applies changes by tapping an OK button.
- The default cancel button value is `nil`.
+ 
+ The value of a cancel button value is `nil`.
  
  */
 
@@ -29,6 +30,6 @@ open class ActionSheetCancelButton: ActionSheetButton {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
+        self.appearance = customAppearance ?? ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
     }
 }

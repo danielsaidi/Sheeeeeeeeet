@@ -10,7 +10,7 @@ import Quick
 import Nimble
 import Sheeeeeeeeet
 
-class ActionSheetOkButtonTests: QuickSpec {
+class ActionSheetOkButtonTests: ActionSheetItemTests {
     
     override func spec() {
         
@@ -24,10 +24,19 @@ class ActionSheetOkButtonTests: QuickSpec {
             }
         }
         
-        describe("tap behavior") {
+        describe("applying appearance") {
             
-            it("is dismiss") {
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
+            it("applies standard copy if no custom appearance is set") {
+                item.applyAppearance(ActionSheetAppearance.standard)
+                expect(self.compare(item.appearance, ActionSheetAppearance.standard.okButton)).to(beTrue())
+            }
+            
+            it("applies custom appearance if set") {
+                let standard = ActionSheetAppearance.standard
+                let custom = ActionSheetAppearance(copy: standard)
+                item.customAppearance = custom.okButton
+                item.applyAppearance(standard)
+                expect(item.appearance).to(be(custom.okButton))
             }
         }
     }

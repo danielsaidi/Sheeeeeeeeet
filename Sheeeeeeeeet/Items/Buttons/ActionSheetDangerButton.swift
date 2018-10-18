@@ -11,7 +11,7 @@
  Danger buttons have no special behavior, but can be used to
  indicate that the effect of the action sheet is destructive.
  
- The value of a danger button is `true` by default.
+ The value of a danger button is `true`.
  
  */
 
@@ -30,6 +30,6 @@ open class ActionSheetDangerButton: ActionSheetButton {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetDangerButtonAppearance(copy: appearance.dangerButton)
+        self.appearance = customAppearance ?? ActionSheetDangerButtonAppearance(copy: appearance.dangerButton)
     }
 }

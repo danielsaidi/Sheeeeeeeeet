@@ -10,7 +10,7 @@
  
  This class is a base class for all action sheet buttons. It
  is not intended to be used directly. Instead, use the built
- in buttons or subclass this class to create your own button.
+ in buttons or subclass it to create your own button type.
  
  */
 
@@ -34,8 +34,7 @@ open class ActionSheetButton: ActionSheetItem {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        let custom = customAppearance as? ActionSheetButtonAppearance
-        self.appearance = custom ?? ActionSheetButtonAppearance(copy: appearance.okButton)
+        self.appearance = customAppearance ?? ActionSheetButtonAppearance(copy: appearance.okButton)
     }
     
     open override func applyAppearance(to cell: UITableViewCell) {

@@ -463,7 +463,7 @@ class ActionSheetTests: QuickSpec {
         
         describe("margin at position") {
             
-            it("uses apperance if no superview value exists") {
+            it("uses appearance if no superview value exists") {
                 let sheet = createSheet()
                 sheet.appearance.contentInset = 80
                 

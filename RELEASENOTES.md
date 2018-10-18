@@ -73,7 +73,7 @@ and `ActionSheetSectionMarginAppearance` classes have no overridden initializers
 anymore. This makes the work as expected when you use the same appearance tweaks
 as everywhere else.
 
-* The `ActionSheetPopoverApperance` class doesn't inherit any appearance classes
+* The `ActionSheetPopoverAppearance` class doesn't inherit any appearance classes
 and has thus been moved out to the appearance root.
 
 

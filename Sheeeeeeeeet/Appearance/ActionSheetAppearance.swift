@@ -37,7 +37,7 @@ open class ActionSheetAppearance {
         buttonsSeparatorColor = copy.buttonsSeparatorColor ?? separatorColor
         
         item = ActionSheetItemAppearance(copy: copy.item)
-        popover = ActionSheetPopoverApperance(copy: copy.popover)
+        popover = ActionSheetPopoverAppearance(copy: copy.popover)
         
         cancelButton = ActionSheetCancelButtonAppearance(copy: copy.cancelButton)
         dangerButton = ActionSheetDangerButtonAppearance(copy: copy.dangerButton)
@@ -76,8 +76,8 @@ open class ActionSheetAppearance {
         return ActionSheetItemAppearance()
     }()
     
-    public lazy var popover: ActionSheetPopoverApperance = {
-        return ActionSheetPopoverApperance(width: 300)
+    public lazy var popover: ActionSheetPopoverAppearance = {
+        return ActionSheetPopoverAppearance(width: 300)
     }()
     
     

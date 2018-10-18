@@ -1,5 +1,5 @@
 //
-//  ActionSheetPopoverApperance.swift
+//  ActionSheetPopoverAppearance.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2017-11-24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class ActionSheetPopoverApperance {
+open class ActionSheetPopoverAppearance {
     
     
     // MARK: - Initialization
@@ -17,7 +17,7 @@ open class ActionSheetPopoverApperance {
         self.width = width
     }
     
-    public init(copy: ActionSheetPopoverApperance) {
+    public init(copy: ActionSheetPopoverAppearance) {
         self.width = copy.width
     }
     

@@ -36,12 +36,16 @@ class ActionSheetItemTests: QuickSpec {
         appearance.subtitleTextColor = nil
     }
     
-    func compare(_ appearance1: ActionSheetItemAppearance, _ appearance2: ActionSheetItemAppearance) -> Bool {
+    func compare(
+        _ appearance1: ActionSheetItemAppearance,
+        _ appearance2: ActionSheetItemAppearance,
+        textColor: UIColor? = nil) -> Bool {
+        let textColor = textColor ?? appearance2.textColor
         return appearance1.backgroundColor == appearance2.backgroundColor
             && appearance1.font == appearance2.font
             && appearance1.height == appearance2.height
             && appearance1.separatorInsets == appearance2.separatorInsets
-            && appearance1.textColor == appearance2.textColor
+            && appearance1.textColor == textColor
             && appearance1.tintColor == appearance2.tintColor
             && appearance1.subtitleFont == appearance2.subtitleFont
             && appearance1.subtitleTextColor == appearance2.subtitleTextColor
@@ -51,14 +55,16 @@ class ActionSheetItemTests: QuickSpec {
         _ cell: UITableViewCell,
         item: ActionSheetItem,
         appearance: ActionSheetItemAppearance,
+        textColor: UIColor? = nil,
         textAlignment: NSTextAlignment = .left) -> Bool {
+        let compareColor = textColor ?? appearance.textColor
         return cell.imageView?.image == item.image
             && cell.selectionStyle == .default
             //&& cell.separatorInset == appearance.item.separatorInsets))
             && cell.tintColor == appearance.tintColor
             && cell.textLabel?.text == item.title
             && cell.textLabel?.textAlignment == textAlignment
-            && cell.textLabel?.textColor == appearance.textColor
+            && cell.textLabel?.textColor == compareColor
             && cell.textLabel?.font == appearance.font
             && cell.detailTextLabel?.text == item.subtitle
             && cell.detailTextLabel?.textColor == appearance.subtitleTextColor
@@ -130,6 +136,14 @@ class ActionSheetItemTests: QuickSpec {
             it("is nil by default") {
                 let item = createItem()
                 expect(item.customAppearance).to(beNil())
+            }
+        }
+        
+        describe("item type") {
+            
+            it("is item") {
+                let item = createItem()
+                expect(item.itemType).to(equal(.item))
             }
         }
         

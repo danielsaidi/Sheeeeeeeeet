@@ -31,9 +31,12 @@ class ActionSheetButtonTests: ActionSheetItemTests {
                 expect(item.title).to(equal("foo"))
                 expect(item.value as? Bool).to(equal(true))
             }
+        }
+        
+        describe("item type") {
             
-            it("uses dismiss tap behavior") {
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
+            it("is button") {
+                expect(item.itemType).to(equal(.button))
             }
         }
         
@@ -47,7 +50,6 @@ class ActionSheetButtonTests: ActionSheetItemTests {
             it("applies custom appearance if set") {
                 let standard = ActionSheetAppearance.standard
                 let custom = ActionSheetAppearance(copy: standard)
-                custom.okButton.backgroundColor = .yellow
                 item.customAppearance = custom.okButton
                 item.applyAppearance(standard)
                 expect(item.appearance).to(be(custom.okButton))

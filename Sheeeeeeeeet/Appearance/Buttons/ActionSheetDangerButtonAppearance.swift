@@ -12,6 +12,7 @@ open class ActionSheetDangerButtonAppearance: ActionSheetButtonAppearance {
     
     public override init() {
         super.init()
+        textColor = .red
     }
     
     public override init(copy: ActionSheetItemAppearance) {

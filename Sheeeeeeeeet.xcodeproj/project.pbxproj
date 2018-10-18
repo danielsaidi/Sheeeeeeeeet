@@ -65,7 +65,7 @@
 		456EAA011FCB10B800A719ED /* ActionSheetOkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA001FCB10B800A719ED /* ActionSheetOkButton.swift */; };
 		456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA021FCB10F000A719ED /* ActionSheetSectionTitle.swift */; };
 		456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA041FCB110B00A719ED /* ActionSheetTitle.swift */; };
-		456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */; };
+		456EAA071FCBF47E00A719ED /* ActionSheetButtonAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */; };
 		456EAA091FCBF4A800A719ED /* ActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */; };
 		456EAA0E1FCC13A400A719ED /* ActionSheetStandardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA0D1FCC13A400A719ED /* ActionSheetStandardPresenter.swift */; };
 		456EAA121FCC204A00A719ED /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -115,7 +115,7 @@
 		45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */; };
 		45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */; };
 		45EB3FDC1FC856D200EF555E /* ActionSheetPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */; };
-		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */; };
+		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA6217609D20097039F /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA5217609D20097039F /* IntrinsicTableView.swift */; };
@@ -241,7 +241,7 @@
 		456EAA001FCB10B800A719ED /* ActionSheetOkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButton.swift; sourceTree = "<group>"; };
 		456EAA021FCB10F000A719ED /* ActionSheetSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitle.swift; sourceTree = "<group>"; };
 		456EAA041FCB110B00A719ED /* ActionSheetTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitle.swift; sourceTree = "<group>"; };
-		456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonItemAppearance.swift; sourceTree = "<group>"; };
+		456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonAppearance.swift; sourceTree = "<group>"; };
 		456EAA081FCBF4A800A719ED /* ActionSheetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButton.swift; sourceTree = "<group>"; };
 		456EAA0D1FCC13A400A719ED /* ActionSheetStandardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetStandardPresenter.swift; sourceTree = "<group>"; };
 		456EAA191FCC615A00A719ED /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItem.swift; sourceTree = "<group>"; };
 		45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemCell.swift; sourceTree = "<group>"; };
 		45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenter.swift; sourceTree = "<group>"; };
-		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverApperance.swift; sourceTree = "<group>"; };
+		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverAppearance.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA5217609D20097039F /* IntrinsicTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
@@ -462,7 +462,7 @@
 			children = (
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
-				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverApperance.swift */,
+				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,
 				455DEE31206F682A00173E67 /* Buttons */,
 				8499359C216BE13C000A0670 /* Items */,
 				455DEE32206F682F00173E67 /* Titles */,
@@ -548,7 +548,7 @@
 		455DEE31206F682A00173E67 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				456EAA061FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift */,
+				456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */,
 				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
 				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
 				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
@@ -1012,8 +1012,8 @@
 				849935A2216BEAD8000A0670 /* ActionSheetCustomItemCell.swift in Sources */,
 				45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */,
 				45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */,
-				456EAA071FCBF47E00A719ED /* ActionSheetButtonItemAppearance.swift in Sources */,
-				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverApperance.swift in Sources */,
+				456EAA071FCBF47E00A719ED /* ActionSheetButtonAppearance.swift in Sources */,
+				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverAppearance.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				455DEE3E206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift in Sources */,
 				84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */,

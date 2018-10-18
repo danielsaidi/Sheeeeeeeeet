@@ -11,7 +11,7 @@
  OK buttons have no special behavior, but can be used when a
  user should apply action sheet changes by tapping an button.
  
- The value of an OK button is `true` by default.
+ The value of an OK button is `true`.
  
  */
 
@@ -30,6 +30,6 @@ open class ActionSheetOkButton: ActionSheetButton {
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetOkButtonAppearance(copy: appearance.okButton)
+        self.appearance = customAppearance ?? ActionSheetOkButtonAppearance(copy: appearance.okButton)
     }
 }
