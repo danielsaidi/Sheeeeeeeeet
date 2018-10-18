@@ -21,14 +21,20 @@ open class ActionSheetButton: ActionSheetItem {
     
     // MARK: - Initialization
     
-    public init(title: String, value: Bool?) {
+    public init(title: String, value: Any?) {
         super.init(title: title, value: value)
     }
     
+    public init(title: String, type: ButtonType) {
+        super.init(title: title, value: type)
+    }
     
-    // MARK: - Properties
     
-    open override var itemType: ItemType { return .button }
+    // MARK: - Values
+    
+    public enum ButtonType {
+        case ok, cancel
+    }
     
     
     // MARK: - Functions
@@ -40,5 +46,19 @@ open class ActionSheetButton: ActionSheetItem {
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         cell.textLabel?.textAlignment = .center
+    }
+}
+
+
+// MARK: - ActionSheetItem Extensions
+
+public extension ActionSheetItem {
+    
+    var isOkButton: Bool {
+        return value as? ActionSheetButton.ButtonType == .ok
+    }
+    
+    var isCancelButton: Bool {
+        return value as? ActionSheetButton.ButtonType == .cancel
     }
 }

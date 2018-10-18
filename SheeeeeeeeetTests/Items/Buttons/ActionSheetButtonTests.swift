@@ -17,7 +17,7 @@ class ActionSheetButtonTests: ActionSheetItemTests {
         var item: ActionSheetButton!
         
         beforeEach {
-            item = ActionSheetButton(title: "foo", value: true)
+            item = ActionSheetButton(title: "foo", type: .ok)
             self.prepareStandardAppearance()
         }
         
@@ -25,18 +25,31 @@ class ActionSheetButtonTests: ActionSheetItemTests {
             self.restoreStandardAppearance()
         }
         
-        describe("when created") {
+        describe("when created with value") {
+            
+            beforeEach {
+                item = ActionSheetButton(title: "foo", value: "bar")
+            }
             
             it("applies provided values") {
                 expect(item.title).to(equal("foo"))
-                expect(item.value as? Bool).to(equal(true))
+                expect(item.value as? String).to(equal("bar"))
+            }
+            
+            it("is correctly setup") {
+                expect(item.isOkButton).to(beFalse())
             }
         }
         
-        describe("item type") {
+        describe("when created with type") {
             
-            it("is button") {
-                expect(item.itemType).to(equal(.button))
+            it("applies provided values") {
+                expect(item.title).to(equal("foo"))
+            }
+            
+            it("is correctly setup") {
+                expect(item.value as? ActionSheetButton.ButtonType).to(equal(.ok))
+                expect(item.isOkButton).to(beTrue())
             }
         }
         

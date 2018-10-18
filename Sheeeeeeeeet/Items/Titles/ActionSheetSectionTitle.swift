@@ -31,11 +31,6 @@ open class ActionSheetSectionTitle: ActionSheetItem {
     }
     
     
-    // MARK: - Properties
-    
-    open override var itemType: ItemType { return .title }
-    
-    
     // MARK: - Functions
     
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {

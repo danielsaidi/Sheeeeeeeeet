@@ -20,7 +20,11 @@ class ActionSheetDangerButtonTests: ActionSheetItemTests {
             
             it("applies provided values") {
                 expect(item.title).to(equal("foo"))
-                expect(item.value as? Bool).to(equal(true))
+            }
+            
+            it("is correctly setup") {
+                expect(item.value as? ActionSheetButton.ButtonType).to(equal(.ok))
+                expect(item.isOkButton).to(beTrue())
             }
         }
         

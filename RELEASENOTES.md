@@ -14,6 +14,11 @@ how the constraints are setup, instead of relying on manual calculations.
 This should result in much more robust action sheets, but it requires testing on
 a wide range of devices and orientations before it can be released as a 1.0.
 
+`IMPORTANT` The button item values have changed. Insted of `true` and `nil` they
+now have a strong `ButtonType` value. You can still create custom buttons with a
+custom value, though. You can also use the new `isOkButton` and `isCancelButton`
+extensions to quickly see if a user tapped "OK" or "Cancel".
+
 
 ### Breaking changes
 
@@ -23,9 +28,11 @@ presentation tweaks in your sheets. The changes are too many and extensive to be
 listed here, so please have a look at the new structure. There is much less code,
 so changing your code to the new standard should be easy.
 
+* `ActionSheetButton` and its sublasses has new values.
 * `ActionSheet.itemTapAction` has been removed
 * `ActionSheet.handleTap(on:)` is now called when an item is tapped
 * `ActionSheetAppearance.viewMargins` is renamed to `groupMargins`
+* `ActionSheetItem.itemType` has been removed; just check the raw type
 * `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter
 * `ActionSheetStandardPresenter` is renamed to `ActionSheetStandardPresenter`
 
@@ -33,6 +40,9 @@ so changing your code to the new standard should be easy.
 ### New features
 
 * `ActionSheetAppearance` has new properties, which adds new way to style sheets.
+* `ActionSheetButton` adds `isOkButton` and `isCancelButton` extension functions
+to `ActionSheetItem`. They can be used to quickly check if a cancel or ok button
+was tapped, instead of having to check if the item can be cast to a button type. 
 
 
 ### Bug fixes

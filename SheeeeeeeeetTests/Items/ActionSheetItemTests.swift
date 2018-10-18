@@ -139,14 +139,6 @@ class ActionSheetItemTests: QuickSpec {
             }
         }
         
-        describe("item type") {
-            
-            it("is item") {
-                let item = createItem()
-                expect(item.itemType).to(equal(.item))
-            }
-        }
-        
         describe("applying appearance") {
             
             it("applies standard copy if no custom appearance is set") {

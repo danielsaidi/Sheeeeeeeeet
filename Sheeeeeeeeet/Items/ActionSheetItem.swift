@@ -51,10 +51,6 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Enums
     
-    public enum ItemType {
-        case item, button, title
-    }
-    
     public enum TapBehavior {
         case dismiss, none
     }
@@ -72,7 +68,6 @@ open class ActionSheetItem: NSObject {
     public var cellReuseIdentifier: String { return className }
     public var cellStyle: UITableViewCell.CellStyle = .default
     public var customAppearance: ActionSheetItemAppearance?
-    public var itemType: ItemType { return .item }
     
     
     // MARK: - Functions

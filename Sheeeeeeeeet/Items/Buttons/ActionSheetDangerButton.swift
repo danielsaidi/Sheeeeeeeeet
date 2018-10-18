@@ -10,21 +10,15 @@
  
  Danger buttons have no special behavior, but can be used to
  indicate that the effect of the action sheet is destructive.
+ They are basically just OK buttons with a "red alert" style.
  
- The value of a danger button is `true`.
+ The value of a danger button is `ButtonType.ok`.
  
  */
 
 import UIKit
 
-open class ActionSheetDangerButton: ActionSheetButton {
-    
-    
-    // MARK: - Initialization
-    
-    public init(title: String) {
-        super.init(title: title, value: true)
-    }
+open class ActionSheetDangerButton: ActionSheetOkButton {
     
     
     // MARK: - Functions
