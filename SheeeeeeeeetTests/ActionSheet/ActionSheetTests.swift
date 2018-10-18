@@ -307,44 +307,59 @@ class ActionSheetTests: QuickSpec {
         
         describe("when refreshing") {
             
-            var sheet: ActionSheet!
+            var sheet: MockActionSheet!
             var headerViewContainer: UIView!
             var itemsView: UITableView!
             var buttonsView: UITableView!
+            var stackView: UIStackView!
             
             beforeEach {
                 sheet = createSheet()
+                sheet.appearance.groupMargins = 123
                 sheet.appearance.cornerRadius = 90
                 headerViewContainer = UIView(frame: .zero)
                 itemsView = UITableView(frame: .zero)
                 buttonsView = UITableView(frame: .zero)
+                stackView = UIStackView(frame: .zero)
                 sheet.headerViewContainer = headerViewContainer
                 sheet.itemsTableView = itemsView
                 sheet.buttonsTableView = buttonsView
+                sheet.stackView = stackView
+                sheet.refreshButtonsVisibilityInvokeCount = 0
+                sheet.refreshHeaderVisibilityInvokeCount = 0
             }
             
-            it("applies round corners") {
-                sheet.refresh()
+            context("sheet") {
                 
-                expect(headerViewContainer.layer.cornerRadius).to(equal(90))
-                expect(itemsView.layer.cornerRadius).to(equal(90))
-                expect(buttonsView.layer.cornerRadius).to(equal(90))
+                it("applies round corners") {
+                    sheet.refresh()
+                    
+                    expect(headerViewContainer.layer.cornerRadius).to(equal(90))
+                    expect(itemsView.layer.cornerRadius).to(equal(90))
+                    expect(buttonsView.layer.cornerRadius).to(equal(90))
+                }
+                
+                it("applies stack view spacing") {
+                    sheet.refresh()
+                    
+                    expect(sheet.stackView?.spacing).to(equal(123))
+                }
+                
+                it("asks presenter to refresh sheet") {
+                    let presenter = MockActionSheetPresenter()
+                    let sheet = MockActionSheet(items: [], presenter: presenter) { (_, _) in }
+                    sheet.refresh()
+                    
+                    expect(presenter.refreshActionSheetInvokeCount).to(equal(1))
+                }
             }
             
             context("header") {
                 
-                it("hides header container if header is nil") {
+                it("refreshes header visibility") {
                     sheet.refresh()
                     
-                    expect(headerViewContainer.isHidden).to(beTrue())
-                }
-                
-                it("shows header container if header is nil") {
-                    let header = UIView(frame: .zero)
-                    sheet.headerView = header
-                    sheet.refresh()
-                    
-                    expect(headerViewContainer.isHidden).to(beFalse())
+                    expect(sheet.refreshHeaderVisibilityInvokeCount).to(equal(1))
                 }
                 
                 it("adds header view to header container") {
@@ -356,6 +371,22 @@ class ActionSheetTests: QuickSpec {
                     expect(headerViewContainer.subviews.count).to(equal(1))
                     expect(headerViewContainer.subviews[0]).to(be(header))
                     expect(header.translatesAutoresizingMaskIntoConstraints).to(beFalse())
+                }
+            }
+            
+            context("header visibility") {
+                
+                it("hides header container if header is nil") {
+                    sheet.refreshHeaderVisibility()
+                    
+                    expect(headerViewContainer.isHidden).to(beTrue())
+                }
+                
+                it("shows header container if header is nil") {
+                    sheet.headerView = UIView(frame: .zero)
+                    sheet.refreshHeaderVisibility()
+                    
+                    expect(headerViewContainer.isHidden).to(beFalse())
                 }
             }
             
@@ -463,7 +494,7 @@ class ActionSheetTests: QuickSpec {
         
         describe("margin at position") {
             
-            it("uses appearance if no superview value exists") {
+            it("uses apperance if no superview value exists") {
                 let sheet = createSheet()
                 sheet.appearance.contentInset = 80
                 

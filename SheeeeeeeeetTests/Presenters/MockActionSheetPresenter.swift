@@ -21,6 +21,7 @@ class MockActionSheetPresenter: ActionSheetPresenter {
     var presentInvokeViewControllers = [UIViewController]()
     var presentInvokeViews = [UIView?]()
     var presentInvokeItems = [UIBarButtonItem]()
+    var refreshActionSheetInvokeCount = 0
     
     func dismiss(completion: @escaping () -> ()) {
         dismissInvokeCount += 1
@@ -44,5 +45,6 @@ class MockActionSheetPresenter: ActionSheetPresenter {
     }
     
     func refreshActionSheet() {
+        refreshActionSheetInvokeCount += 1
     }
 }

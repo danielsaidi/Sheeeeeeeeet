@@ -162,10 +162,15 @@ open class ActionSheet: UIViewController {
     }
     
     @IBOutlet weak var headerViewContainer: UIView? {
-        didSet { headerViewContainer?.backgroundColor = .clear }
+        didSet {
+            headerViewContainer?.backgroundColor = .clear
+            refreshHeaderVisibility()
+        }
     }
     
-    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint!
+    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint! {
+        didSet { refreshHeaderVisibility() }
+    }
     
     
     // MARK: - Item Properties
@@ -192,10 +197,15 @@ open class ActionSheet: UIViewController {
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
     
     @IBOutlet weak var buttonsTableView: UITableView? {
-        didSet { setup(buttonsTableView, with: buttonHandler) }
+        didSet {
+            setup(buttonsTableView, with: buttonHandler)
+            refreshButtonsVisibility()
+        }
     }
     
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
+    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint? {
+        didSet { refreshButtonsVisibility() }
+    }
     
     
     // MARK: - Presentation Functions
@@ -227,11 +237,15 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshHeader() {
+        refreshHeaderVisibility()
         let height = headerView?.frame.height ?? 0
-        headerViewContainer?.isHidden = headerView == nil
         headerViewContainerHeight?.constant = height
         guard let view = headerView else { return }
         headerViewContainer?.addSubviewToFill(view)
+    }
+    
+    open func refreshHeaderVisibility() {
+        headerViewContainer?.isHidden = headerView == nil
     }
     
     open func refreshItems() {
@@ -241,10 +255,14 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshButtons() {
+        refreshButtonsVisibility()
         buttons.forEach { $0.applyAppearance(appearance) }
-        buttonsTableView?.isHidden = buttons.count == 0
         buttonsTableView?.separatorColor = appearance.buttonsSeparatorColor
         buttonsTableViewHeight?.constant = buttonsHeight
+    }
+    
+    open func refreshButtonsVisibility() {
+        buttonsTableView?.isHidden = buttons.count == 0
     }
     
     
