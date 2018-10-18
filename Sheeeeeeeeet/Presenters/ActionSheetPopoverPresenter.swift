@@ -101,9 +101,9 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
 }
 
 
-// MARK: - Private Functions
+// MARK: - Internal Functions
 
-private extension ActionSheetPopoverPresenter {
+extension ActionSheetPopoverPresenter {
     
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         sheet.modalPresentationStyle = .popover
@@ -112,15 +112,21 @@ private extension ActionSheetPopoverPresenter {
         return popover
     }
     
-    func popoverItems(for sheet: ActionSheet) -> [ActionSheetItem] {
-        let items: [ActionSheetItem] = sheet.items + sheet.buttons
-        return items.filter { !($0 is ActionSheetCancelButton) }
-    }
-    
     func setupSheetForPresentation(_ sheet: ActionSheet) {
         self.actionSheet = sheet
         sheet.headerView = nil
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []
+    }
+}
+
+
+// MARK: - Private Functions
+
+private extension ActionSheetPopoverPresenter {
+    
+    func popoverItems(for sheet: ActionSheet) -> [ActionSheetItem] {
+        let items: [ActionSheetItem] = sheet.items + sheet.buttons
+        return items.filter { !($0 is ActionSheetCancelButton) }
     }
 }

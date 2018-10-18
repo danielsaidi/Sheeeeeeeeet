@@ -27,8 +27,8 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     // MARK: - Properties
     
-    open var events = ActionSheetPresenterEvents()
-    open var isDismissableWithTapOnBackground = true
+    public var events = ActionSheetPresenterEvents()
+    public var isDismissableWithTapOnBackground = true
     
     private var actionSheet: ActionSheet?
     
