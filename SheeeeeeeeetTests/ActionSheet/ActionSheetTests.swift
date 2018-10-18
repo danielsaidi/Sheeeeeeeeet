@@ -376,13 +376,13 @@ class ActionSheetTests: QuickSpec {
             
             context("header visibility") {
                 
-                it("hides header container if header is nil") {
+                it("hides header container if header view is nil") {
                     sheet.refreshHeaderVisibility()
                     
                     expect(headerViewContainer.isHidden).to(beTrue())
                 }
                 
-                it("shows header container if header is nil") {
+                it("shows header container if header view is nil") {
                     sheet.headerView = UIView(frame: .zero)
                     sheet.refreshHeaderVisibility()
                     
@@ -416,6 +416,12 @@ class ActionSheetTests: QuickSpec {
             
             context("buttons") {
                 
+                it("refreshes buttons visibility") {
+                    sheet.refresh()
+                    
+                    expect(sheet.refreshButtonsVisibilityInvokeCount).to(equal(1))
+                }
+                
                 it("applies appearances to all buttons") {
                     let item1 = MockActionSheetButton(title: "foo", value: true)
                     let item2 = MockActionSheetButton(title: "foo", value: true)
@@ -436,22 +442,21 @@ class ActionSheetTests: QuickSpec {
                     
                     expect(view.separatorColor).to(equal(.yellow))
                 }
+            }
+            
+            context("button visibility") {
                 
-                it("hides buttons view if sheet has no buttons") {
-                    let view = UITableView(frame: .zero)
-                    sheet.buttonsTableView = view
-                    sheet.refresh()
+                it("hides buttons if sheet has no buttons") {
+                    sheet.refreshButtonsVisibility()
                     
-                    expect(view.isHidden).to(beTrue())
+                    expect(buttonsView.isHidden).to(beTrue())
                 }
                 
-                it("shows buttons view if sheet has buttons") {
+                it("shows buttons if sheet has buttons") {
                     sheet.setup(items: [MockActionSheetButton(title: "foo", value: true)])
-                    let view = UITableView(frame: .zero)
-                    sheet.buttonsTableView = view
-                    sheet.refresh()
+                    sheet.refreshButtonsVisibility()
                     
-                    expect(view.isHidden).to(beFalse())
+                    expect(buttonsView.isHidden).to(beFalse())
                 }
             }
         }
