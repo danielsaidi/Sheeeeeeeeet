@@ -25,33 +25,39 @@
 ## About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for creating custom action sheets. It comes with
-some built-in items and can be extended with custom items that are more specific
-to your app as well.
+a collection of built-in items and can be extended with your own custom items.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Sheeeeeeeeet can be styled to look just like normal `UIKit` action sheets or way
-different. You can apply a global style and override it with an individual style
-for each action sheet.
-
-By the end of this `README.md`, this project will have you saying [Sheeeeeeeeet][SheeeeeeeeetRef]!
+Sheeeeeeeeet can be styled to look just like normal `UIAlertController`s, or way
+different. You can apply a global style that applies to all sheets then override
+it for each action sheet. You can also apply custom styles to specific items.
 
 
 ## Installation
 
 ### [CocoaPods](CocoaPods)
 
+Add this to your `Podfile` then run `pod install`:
+
 ```ruby
 pod 'Sheeeeeeeeet'
 ```
 
+Remember to use the generated workspace (not the project file) after installing.
+
 ### [Carthage](Carthage)
+
+Add this to your `Cartfile` then run `carthage update --platform iOS`:
 
 ```
 github "danielsaidi/Sheeeeeeeeet"
 ```
+
+Once the update completes, link in the built framework from `Carthage/Build`.
+
 
 ### Manual installation
 
