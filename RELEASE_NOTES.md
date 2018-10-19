@@ -1,9 +1,8 @@
 # Release Notes
 
-## 1.0.0-pre
+## 1.0.0
 
-This is a pre-release to 1.0.0. It's not available as an official pod, so it can
-only be tested with Carthager or by using downloaded source code as a dev pod.
+Sheeeeeeeeet 1.0.0 is finally here, with many internal changes and some external.
 
 This version decouples action sheets from their presentation to great extent. An
 action sheet still styles its items and components, but the presenters now takes

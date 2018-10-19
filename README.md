@@ -63,8 +63,8 @@ Once the update completes, link in the built framework from `Carthage/Build`.
 
 To add `Sheeeeeeeeet` to your app without Carthage or CocoaPods, clone this repo
 and place it somewhere in your project folder. Then, add `Sheeeeeeeeet.xcodeproj`
-to your project, select your app target and add the Sheeeeeeeeet framework as an
-embedded binary under `General` and as a target dependency under `Build Phases`.
+to your project and add `Sheeeeeeeeet.framework` as an embedded app binary under
+`General` and as a target dependency under `Build Phases`.
 
 
 ## Creating and presenting an action sheet
@@ -94,6 +94,11 @@ actionSheet.present(in: self, from: barButtonItem)
 
 The `from` view will only be used if the action sheet it presented in a popover.
 
+### Domain-specific action sheets
+
+When you use `Sheeeeeeeeet` in your apps, you may want the items to represent an
+app domain-specific type, e.g. a `Movie`, or an app-specific list options. Since
+the item value is of `Any` type, you can use any type or enum as value.
 
 ### Specifying items after initialization
 
@@ -101,18 +106,12 @@ If you require a created action sheet instance to resolve which items to present
 (very common when you subclass `ActionSheet`), just create a sheet with no items
 then call `setup(with:)` once its created.
 
-### Creating domain-specific action sheets
-
-When you use `Sheeeeeeeeet` in your own app, you may want to use your own domain
-model, where the items represent your own domain-specific typed. Since all types
-are valid values, you can pass in anything from ints and strings to custom types
-such as `Date`s or `Car`s.
-
 If you create a domain-specific action sheet, like a `CarPickerActionSheet`, you
-may want it to use external dependencies to automatically resolve which items to
-display. In this case, you will probably create a custom initializer that builds
-the item collection based on some domain-specific logic. This also allows you to
-inject tracking, custom action etc.
+may have to use an injected dependency to load some data before you can populate
+your sheet with items. If the dependency is initializer injected, you first have
+to create the sheet with an empty item collection, then load the data using your
+injected dependency, then map the data to items, then finally inject these items
+into the sheet, using the `setup(with:)` approach described above.
 
 
 ## Example Application
@@ -156,8 +155,8 @@ this property to any value on any item.
 
 ### Buttons
 
-Action sheet buttons are used to apply or discard the effects of an action sheet.
-`Sheeeeeeeeet` has the following built-in types:
+Action sheet buttons are used to apply or discard an action sheet. `Sheeeeeeeeet`
+has the following built-in button types:
 
 * [OK button][ActionSheetOkButton] - A standard ok/apply button
 * [Cancel button][ActionSheetCancelButton] - A standard cancel button
@@ -173,21 +172,20 @@ list item. On popovers, however, they are added back to the end of the item list
 
 ### Titles
 
-Titles are non-interactive items. `Sheeeeeeeeet` comes with these built-in types:
+Titles are non-interactive text or space items. `Sheeeeeeeeet` has the following
+built-in title types:
 
 * [Title][ActionSheetTitle] - Shown topmost for an entire sheet
 * [Section Title][ActionSheetSectionTitle] - Shown topmost for a section
-* [Section Margin][ActionSheetSectionMargin] - Can be added before section titles
+* [Section Margin][ActionSheetSectionMargin] - Can embed a section title
 
 You can add title components anywhere you want in your action sheets, although a
-title probably looks best topmost, a section title probably looks best before an
-item section etc.
+title probably looks best topmost, a section title before an item section etc.
 
 ### Header Views
 
 If you set the `headerView` property of an action sheet, it will be displayed as
-a floating header above the action sheet. You can use any view as long as it can
-be resized to fit the header view size.
+a floating header above the action sheet. You can use any view as a header view.
 
 Header views are completely removed in popovers, since popovers are solid bodies
 with no transparent background.
