@@ -1,5 +1,11 @@
 # Release Notes
 
+## 1.0.1
+
+This version fixes a bug, where the presenters incorrectly updated the scrolling
+behavior of the action sheet when rotating the device.
+
+
 ## 1.0.0
 
 Sheeeeeeeeet 1.0.0 is finally here, with many internal changes and some external.
