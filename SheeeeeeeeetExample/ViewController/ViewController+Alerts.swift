@@ -16,14 +16,17 @@ extension ViewController {
     }
     
     func alert(item: ActionSheetItem) {
-        alertSelection(item.title)
+        alert(items: [item])
     }
     
     func alert(items: [ActionSheetItem]) {
+        let items = items.filter { !($0 is ActionSheetButton) }
+        guard items.count > 0 else { return }
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     
     func alert(items: [MyCollectionViewCell.Item]) {
+        guard items.count > 0 else { return }
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     

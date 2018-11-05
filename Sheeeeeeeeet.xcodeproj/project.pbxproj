@@ -136,7 +136,6 @@
 		849935A2216BEAD8000A0670 /* ActionSheetCustomItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */; };
 		849935A4216BF35C000A0670 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A3216BF35C000A0670 /* CustomActionSheet.swift */; };
 		849935A6216BFB9F000A0670 /* AppDelegate+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A5216BFB9F000A0670 /* AppDelegate+Appearance.swift */; };
-		849935A8216BFDE8000A0670 /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A7216BFDE8000A0670 /* ViewController+ActionSheets.swift */; };
 		84F87EBB217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F87EBA217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -318,7 +317,6 @@
 		849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemCell.swift; sourceTree = "<group>"; };
 		849935A3216BF35C000A0670 /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* AppDelegate+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Appearance.swift"; sourceTree = "<group>"; };
-		849935A7216BFDE8000A0670 /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
 		84F87EBA217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetStandardPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -785,7 +783,6 @@
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
 				456EAA331FCC665800A719ED /* ViewController+Alerts.swift */,
 				4537E8661FD2A55F0007501C /* ViewController+TableView.swift */,
-				849935A7216BFDE8000A0670 /* ViewController+ActionSheets.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -910,8 +907,8 @@
 			projectRoot = "";
 			targets = (
 				453C04201FC0655C0028FA02 /* Sheeeeeeeeet */,
-				453C045C1FC065AE0028FA02 /* SheeeeeeeeetExample */,
 				456EAA5B1FCE0E1C00A719ED /* SheeeeeeeeetTests */,
+				453C045C1FC065AE0028FA02 /* SheeeeeeeeetExample */,
 			);
 		};
 /* End PBXProject section */
@@ -1054,7 +1051,6 @@
 				45CF8FA7205BAE9800F01A3F /* StandardActionSheet.swift in Sources */,
 				1D42892D20403A18005D4369 /* MyCollectionViewCell.swift in Sources */,
 				454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */,
-				849935A8216BFDE8000A0670 /* ViewController+ActionSheets.swift in Sources */,
 				454EDC64205BCF14008E4311 /* SectionActionSheet.swift in Sources */,
 				456203C5205BD24000A3E141 /* CollectionActionSheet.swift in Sources */,
 				456203C3205BD0DE00A3E141 /* HeaderActionSheet.swift in Sources */,

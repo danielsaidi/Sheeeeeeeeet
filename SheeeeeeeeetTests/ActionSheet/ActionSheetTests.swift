@@ -491,7 +491,7 @@ class ActionSheetTests: QuickSpec {
                 let item = createItem("")
                 item.tapBehavior = .dismiss
                 sheet.handleTap(on: item)
-                
+
 //                expect(count).toEventually(equal(1), time)        TODO
 //                expect(sheet.dismissInvokeCount).to(equal(1))     TODO
             }
