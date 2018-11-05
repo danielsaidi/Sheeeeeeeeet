@@ -307,6 +307,7 @@ private extension ActionSheet {
     func setup(_ tableView: UITableView?, with handler: ActionSheetItemHandler) {
         tableView?.delegate = handler
         tableView?.dataSource = handler
+        tableView?.alwaysBounceVertical = false
         setupAppearance(for: tableView)
     }
     
