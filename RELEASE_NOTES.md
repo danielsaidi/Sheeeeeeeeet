@@ -1,5 +1,14 @@
 # Release Notes
 
+## 1.0.2
+
+This version adds new background color properties to the action sheet appearance,
+to make it possible to set the background color of the table views.
+
+This version fixes a bug, where the background color behind an action sheet went
+black when the action sheet was presented in a split view.
+
+
 ## 1.0.1
 
 This version fixes a bug, where the presenters incorrectly updated the scrolling
