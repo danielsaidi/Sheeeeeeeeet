@@ -130,6 +130,7 @@
 		84539DBD2177DEAC0097039F /* UIView+NibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBC2177DEAC0097039F /* UIView+NibTests.swift */; };
 		84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */; };
 		8453C22321A9EF2600C2FD16 /* ActionSheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */; };
+		8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -312,6 +313,7 @@
 		84539DBC2177DEAC0097039F /* UIView+NibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibTests.swift"; sourceTree = "<group>"; };
 		84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubviewsTests.swift"; sourceTree = "<group>"; };
 		8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTableView.swift; sourceTree = "<group>"; };
+		8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Fullscreen.swift"; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
 				84539DA721775C030097039F /* UIView+Nib.swift */,
 				84539DA9217765A30097039F /* UIView+Subviews.swift */,
+				8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -990,6 +993,7 @@
 				456EAA4A1FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift in Sources */,
 				455DEE3C206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift in Sources */,
 				1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */,
+				8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */,
 				45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */,
 				45EB3FD41FC84FD200EF555E /* NSObject+ClassName.swift in Sources */,
 				84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */,
