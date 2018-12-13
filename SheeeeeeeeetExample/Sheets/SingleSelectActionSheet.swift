@@ -6,12 +6,23 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
+/*
+ 
+ This example action sheet demonstrates how to create action
+ sheets with several `ActionSheetSingleSelectItem` items.
+ 
+ The action sheet has two different item sections. Selecting
+ items in one section will deselect another selected item in
+ the same section, but will not affect the other section.
+ 
+ */
+
 import Sheeeeeeeeet
 
-class MultiSelectActionSheet: ActionSheet {
+class SingleSelectActionSheet: ActionSheet {
     
     init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
-        let items = MultiSelectActionSheet.items(for: options, preselected: preselected)
+        let items = SingleSelectActionSheet.items(for: options, preselected: preselected)
         super.init(items: items) { sheet, item in
             guard item.isOkButton else { return }
             let selectItems = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
@@ -25,7 +36,7 @@ class MultiSelectActionSheet: ActionSheet {
     }
 }
 
-private extension MultiSelectActionSheet {
+private extension SingleSelectActionSheet {
     
     static func items(for options: [FoodOption], preselected: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
@@ -41,9 +52,8 @@ private extension MultiSelectActionSheet {
     static func itemsGroup(for options: [FoodOption], preselected: FoodOption?, group: String) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
         let options = options.filter { $0 != .none && $0 != .fancy }
-        let foodItems = options.map { $0.multiSelectItem(isSelected: $0 == preselected, group: group) }
-        let toggler = ActionSheetMultiSelectToggleItem(title: group, state: .selectAll, group: group, selectAllTitle: "Select all", deselectAllTitle: "Deselect all")
-        items.append(toggler)
+        let foodItems = options.map { $0.singleSelectItem(isSelected: $0 == preselected, group: group) }
+        items.append(ActionSheetSectionTitle(title: group))
         items.append(contentsOf: foodItems)
         return items
     }

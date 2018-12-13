@@ -8,9 +8,12 @@
 
 /*
  
- This action sheet calls `setupItemsAndButtons` after it has
- been initialized, since taps in the collection view have to
- reload the action sheet to update selection display.
+ This example action sheet demonstrates how to create action
+ sheets that use the `ActionSheetCollectionItem` item type.
+ 
+ This class calls `setup(items: ...)` after it's initialized,
+ since taps in the collection view must reload to the action
+ sheet in order to update the selection information.
  
  */
 

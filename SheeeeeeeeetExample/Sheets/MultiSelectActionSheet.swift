@@ -6,12 +6,26 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
+/*
+ 
+ This example action sheet demonstrates how to create action
+ sheets that use a set of `ActionSheetMultiSelectItem` items,
+ which can be used to select one or many items in a section.
+ 
+ The action sheet has two different item sections. Selecting
+ an item has no effect on other items in any of the sections,
+ since they are multiselect items. The action sheet also has
+ an `ActionSheetMultiSelectToggleItem`, which can be used to
+ select and deselect all items in both sections.
+ 
+ */
+
 import Sheeeeeeeeet
 
-class SingleSelectActionSheet: ActionSheet {
+class MultiSelectActionSheet: ActionSheet {
     
     init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
-        let items = SingleSelectActionSheet.items(for: options, preselected: preselected)
+        let items = MultiSelectActionSheet.items(for: options, preselected: preselected)
         super.init(items: items) { sheet, item in
             guard item.isOkButton else { return }
             let selectItems = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
@@ -25,7 +39,7 @@ class SingleSelectActionSheet: ActionSheet {
     }
 }
 
-private extension SingleSelectActionSheet {
+private extension MultiSelectActionSheet {
     
     static func items(for options: [FoodOption], preselected: [FoodOption]) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
@@ -41,8 +55,9 @@ private extension SingleSelectActionSheet {
     static func itemsGroup(for options: [FoodOption], preselected: FoodOption?, group: String) -> [ActionSheetItem] {
         var items = [ActionSheetItem]()
         let options = options.filter { $0 != .none && $0 != .fancy }
-        let foodItems = options.map { $0.singleSelectItem(isSelected: $0 == preselected, group: group) }
-        items.append(ActionSheetSectionTitle(title: group))
+        let foodItems = options.map { $0.multiSelectItem(isSelected: $0 == preselected, group: group) }
+        let toggler = ActionSheetMultiSelectToggleItem(title: group, state: .selectAll, group: group, selectAllTitle: "Select all", deselectAllTitle: "Deselect all")
+        items.append(toggler)
         items.append(contentsOf: foodItems)
         return items
     }

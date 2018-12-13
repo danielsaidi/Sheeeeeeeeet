@@ -6,6 +6,13 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
+/*
+ 
+ This extension isolates how the example app applies colors,
+ fonts etc to the example action sheets.
+ 
+ */
+
 import UIKit
 import Sheeeeeeeeet
 

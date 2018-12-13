@@ -8,8 +8,8 @@
 
 /*
  
- These extensions provides action sheets with functions that
- are shared by all example action sheets.
+ This extension provides functionality that can be shared by
+ all action sheets in the example app.
  
  */
 

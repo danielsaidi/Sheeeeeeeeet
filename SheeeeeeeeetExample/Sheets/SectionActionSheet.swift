@@ -6,6 +6,13 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
+/*
+ 
+ This example action sheet demonstrates how to create action
+ sheets with sections.
+ 
+ */
+
 import Sheeeeeeeeet
 
 class SectionActionSheet: ActionSheet {

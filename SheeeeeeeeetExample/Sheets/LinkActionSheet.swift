@@ -1,17 +1,25 @@
 //
-//  StandardActionSheet.swift
+//  LinkActionSheet.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Jonas Ullström on 2018-03-16.
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
+/*
+ 
+ This example action sheet demonstrates how to create action
+ sheets that use `ActionSheetLinkItem` items, that use arrow
+ icons to indicate navigation.
+ 
+ */
+
 import Sheeeeeeeeet
 
-class StandardActionSheet: ActionSheet {
+class LinkActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
-        let items = StandardActionSheet.items(for: options)
+        let items = LinkActionSheet.items(for: options)
         super.init(items: items) { _, item in
             if item.value == nil { return }
             action([item])
@@ -23,10 +31,10 @@ class StandardActionSheet: ActionSheet {
     }
 }
 
-private extension StandardActionSheet {
+private extension LinkActionSheet {
     
     static func items(for options: [FoodOption]) -> [ActionSheetItem] {
-        var items = options.map { $0.item() }
+        var items = options.map { $0.linkItem() }
         items.insert(titleItem(title: standardTitle), at: 0)
         items.append(cancelButton)
         return items

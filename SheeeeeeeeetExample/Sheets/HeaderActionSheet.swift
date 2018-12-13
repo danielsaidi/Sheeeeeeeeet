@@ -6,6 +6,13 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
+/*
+ 
+ This example action sheet demonstrates how to create action
+ sheets that use a custom header view.
+ 
+ */
+
 import Sheeeeeeeeet
 
 class HeaderActionSheet: ActionSheet {

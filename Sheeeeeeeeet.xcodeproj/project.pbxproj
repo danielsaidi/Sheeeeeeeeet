@@ -414,11 +414,11 @@
 		453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */ = {
 			isa = PBXGroup;
 			children = (
-				45CF8FA5205BAE3800F01A3F /* ActionSheets */,
 				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				849935A5216BFB9F000A0670 /* AppDelegate+Appearance.swift */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
 				459DA1B92056A0AD00644490 /* Cells */,
+				45CF8FA5205BAE3800F01A3F /* Sheets */,
 				456EAA421FCCA02E00A719ED /* Extensions */,
 				456EAA3E1FCC920700A719ED /* Options */,
 				45352D802030D95500A0F890 /* Supporting Files */,
@@ -712,7 +712,7 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		45CF8FA5205BAE3800F01A3F /* ActionSheets */ = {
+		45CF8FA5205BAE3800F01A3F /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
 				45CF8FAA205BAF3100F01A3F /* ActionSheet+Items.swift */,
@@ -726,7 +726,7 @@
 				454EDC5D205BBC5F008E4311 /* SingleSelectActionSheet.swift */,
 				45CF8FA6205BAE9800F01A3F /* StandardActionSheet.swift */,
 			);
-			path = ActionSheets;
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 		84539DAB217786D80097039F /* Mocks */ = {

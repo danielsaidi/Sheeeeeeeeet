@@ -8,8 +8,8 @@
 
 /*
  
- These extensions provides action sheets with functions that
- are shared by all example action sheets.
+ This example action sheet demonstrates how to create action
+ sheets that use the `ActionSheetDangerButton` button type.
  
  */
 
