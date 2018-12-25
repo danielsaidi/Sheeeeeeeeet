@@ -73,10 +73,10 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Deprecated Members
     
-    @available(*, deprecated, message: "setupItemsAndButtons(with:) is deprecated and will be removed in 1.4.0. Use `setup(items:)` instead")
+    @available(*, deprecated, message: "setupItemsAndButtons(with:) is deprecated and will be removed shortly. Use `setup(items:)` instead")
     open func setupItemsAndButtons(with items: [ActionSheetItem]) { setup(items: items) }
     
-    @available(*, deprecated, message: "itemSelectAction is deprecated and will be removed in 1.4.0. Use `selectAction` instead")
+    @available(*, deprecated, message: "itemSelectAction is deprecated and will be removed in shortly. Use `selectAction` instead")
     open var itemSelectAction: SelectAction { return selectAction }
     
     
