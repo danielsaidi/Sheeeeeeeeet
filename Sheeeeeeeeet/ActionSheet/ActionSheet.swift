@@ -97,8 +97,6 @@ open class ActionSheet: UIViewController {
         setup()
     }
     
-    deinit { print("\(type(of: self)) deinit") }
-    
     
     // MARK: - Setup
     

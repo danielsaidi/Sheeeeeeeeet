@@ -1,18 +1,28 @@
 # Release Notes
 
+
+## 1.0.3
+
+This version removes a debug print that I used to ensure that action sheets were
+properly deinitialized after being dismissed.
+
+
+
 ## 1.0.2
 
-This version adds new background color properties to the action sheet appearance,
-to make it possible to set the background color of the table views.
+This version adds new background color properties to the action sheet appearance
+class. They can be used to set the background color of an entire sheet.
 
 This version fixes a bug, where the background color behind an action sheet went
 black when the action sheet was presented in a split view.
+
 
 
 ## 1.0.1
 
 This version fixes a bug, where the presenters incorrectly updated the scrolling
 behavior of the action sheet when rotating the device.
+
 
 
 ## 1.0.0
@@ -26,13 +36,13 @@ instead of manual calculations, which means that popover scrolling etc. works by
 how the constraints are setup, instead of relying on manual calculations.
 
 This should result in much more robust action sheets, but it requires testing on
-a wide range of devices and orientations before it can be released as a 1.0.
+a wide range of devices and orientations, so please let me know if there are any
+issues with this approach.
 
 `IMPORTANT` The button item values have changed. Insted of `true` and `nil` they
 now have a strong `ButtonType` value. You can still create custom buttons with a
 custom value, though. You can also use the new `isOkButton` and `isCancelButton`
 extensions to quickly see if a user tapped "OK" or "Cancel".
-
 
 ### Breaking changes
 
@@ -50,7 +60,6 @@ so changing your code to the new standard should be easy.
 * `ActionSheetItem.handleTap(in:)` no longer has a `cell` parameter
 * `ActionSheetStandardPresenter` is renamed to `ActionSheetStandardPresenter`
 
-
 ### New features
 
 * `ActionSheetAppearance` has new properties, which adds new way to style sheets.
@@ -58,14 +67,12 @@ so changing your code to the new standard should be easy.
 to `ActionSheetItem`. They can be used to quickly check if a cancel or ok button
 was tapped, instead of having to check if the item can be cast to a button type. 
 
-
 ### Bug fixes
 
 * The big presentation adjustments solves the scrolling issues that occured with
 popovers and many items.
 * The `hideSeparator()` function is adjusted to behave correctly when the device
 is rotated.
-
 
 ### Deprecated logic
 
