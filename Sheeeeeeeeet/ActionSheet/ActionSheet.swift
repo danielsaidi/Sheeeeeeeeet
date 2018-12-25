@@ -13,31 +13,24 @@
  controller, from any source view or bar button item.
  
  
- ## Creating instances of this class
+ ## Creating action sheet instances
  
  You create instances of this class by providing `init(...)`
  with the items to present and an action to call whenever an
- item is selected. The `presenter` argument is optional, and
- should only be used when you want to change the default way
- the action sheet is presenter.
+ item is selected. If you must have an action sheet instance
+ before you can setup its items (this may happen when you're
+ subclassing), you can setup the items afterwards by calling
+ the `setup(items:)` function.
  
  
- ## Subclassing this class
+ ## Subclassing
  
  This class can be subclassed, which is a good practice when
  you want to use your own models in a controlled way. If you
  have a podcast app, you could have a `SleepTimerActionSheet`
- that automatically sets up its own `SleepTimerTime` options
- when it is created.
- 
- 
- ## Items and buttons
- 
- Action sheets automatically split up their items into items
- and buttons, since they are displayed in separate groups by
- default (except in popovers). If you can't create the items
- before the action sheet, you can setup the items afterwards,
- using `setup(items:)`.
+ that automatically sets up its `SleepTimerTime` options and
+ streamlines how you work with a sleep timer. This is a good
+ way to setup the base action sheet for specific use cases.
  
  
  ## Presentation
@@ -45,17 +38,16 @@
  You can inject a custom presenter if you want to change how
  the sheet is presented and dismissed. The default presenter
  for iPhone devices is `ActionSheetStandardPresenter`, while
- iPad devices get `ActionSheetPopoverPresenter` instead.
+ iPad devices most often get an `ActionSheetPopoverPresenter`.
  
  
  ## Appearance
  
- Sheeeeeeeeet's action sheet appearance if easily customized.
- To change the global appearance for every sheet in your app,
- just modify `ActionSheetAppearance.standard`. To change the
- appearance of a single action sheet, modify the `appearance`
- property. To change the appearance of a single item, modify
- its `customAppearance` property.
+ To change the global appearance for all action sheets, just
+ modify the `ActionSheetAppearance.standard` to look the way
+ you want. To change the appearance of a single action sheet,
+ modify its `appearance` property. To change the appearances
+ of single items, modify their `customAppearance` property.
  
  
  ## Handling item selections
@@ -63,7 +55,7 @@
  The `selectAction` is triggered when a user taps an item in
  the action sheet. It provides you with the action sheet and
  the selected item. It is very important to use `[weak self]`
- in this block to avoid memory leaks.
+ in this block, to avoid memory leaks.
  
  
  ## Handling item taps
@@ -79,10 +71,19 @@ import UIKit
 open class ActionSheet: UIViewController {
     
     
+    // MARK: - Deprecated Members
+    
+    @available(*, deprecated, message: "setupItemsAndButtons(with:) is deprecated and will be removed in 1.4.0. Use `setup(items:)` instead")
+    open func setupItemsAndButtons(with items: [ActionSheetItem]) { setup(items: items) }
+    
+    @available(*, deprecated, message: "itemSelectAction is deprecated and will be removed in 1.4.0. Use `selectAction` instead")
+    open var itemSelectAction: SelectAction { return selectAction }
+    
+    
     // MARK: - Initialization
     
     public init(
-        items: [ActionSheetItem],
+        items: [ActionSheetItem] = [],
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
         self.presenter = presenter
@@ -110,11 +111,6 @@ open class ActionSheet: UIViewController {
         reloadData()
     }
     
-    @available(*, deprecated, message: "setupItemsAndButtons(with:) is deprecated. Use setup(items:) instead")
-    open func setupItemsAndButtons(with items: [ActionSheetItem]) {
-        setup(items: items)
-    }
-    
     
     // MARK: - View Controller Lifecycle
     
@@ -137,8 +133,11 @@ open class ActionSheet: UIViewController {
 
     public var selectAction: SelectAction
     
-    @available(*, deprecated, message: "itemSelectAction is deprecated. Use selectAction instead")
-    open var itemSelectAction: SelectAction { return selectAction }
+    
+    // MARK: - View Outlets
+    
+    @IBOutlet weak var backgroundView: UIView?
+    @IBOutlet weak var stackView: UIStackView?
     
     
     // MARK: - Margin Outlets
@@ -147,12 +146,6 @@ open class ActionSheet: UIViewController {
     @IBOutlet weak var leftMargin: NSLayoutConstraint?
     @IBOutlet weak var rightMargin: NSLayoutConstraint?
     @IBOutlet weak var bottomMargin: NSLayoutConstraint?
-    
-    
-    // MARK: - View Outlets
-    
-    @IBOutlet weak var backgroundView: UIView?
-    @IBOutlet weak var stackView: UIStackView?
     
     
     // MARK: - Header Properties
@@ -219,9 +212,9 @@ open class ActionSheet: UIViewController {
         presenter.present(sheet: self, in: vc.rootViewController, from: view, completion: completion)
     }
 
-    open func present(in vc: UIViewController, from barButtonItem: UIBarButtonItem, completion: @escaping () -> () = {}) {
+    open func present(in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> () = {}) {
         refresh()
-        presenter.present(sheet: self, in: vc.rootViewController, from: barButtonItem, completion: completion)
+        presenter.present(sheet: self, in: vc.rootViewController, from: item, completion: completion)
     }
 
     
