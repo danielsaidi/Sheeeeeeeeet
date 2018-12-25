@@ -13,14 +13,31 @@
  controller, from any source view or bar button item.
  
  
- ## Items
+ ## Creating instances of this class
  
- You provide an action sheet with a collection of items when
- you create it. The sheet will automatically split the items
- into items and buttons. You can also create an action sheet
- with an empty item collection, then call `setup(items:)` at
- a later time. This is sometimes required if you must create
- the action sheet before you can create the items.
+ You create instances of this class by providing `init(...)`
+ with the items to present and an action to call whenever an
+ item is selected. The `presenter` argument is optional, and
+ should only be used when you want to change the default way
+ the action sheet is presenter.
+ 
+ 
+ ## Subclassing this class
+ 
+ This class can be subclassed, which is a good practice when
+ you want to use your own models in a controlled way. If you
+ have a podcast app, you could have a `SleepTimerActionSheet`
+ that automatically sets up its own `SleepTimerTime` options
+ when it is created.
+ 
+ 
+ ## Items and buttons
+ 
+ Action sheets automatically split up their items into items
+ and buttons, since they are displayed in separate groups by
+ default (except in popovers). If you can't create the items
+ before the action sheet, you can setup the items afterwards,
+ using `setup(items:)`.
  
  
  ## Presentation
@@ -29,17 +46,6 @@
  the sheet is presented and dismissed. The default presenter
  for iPhone devices is `ActionSheetStandardPresenter`, while
  iPad devices get `ActionSheetPopoverPresenter` instead.
- 
- 
- ## Subclassing
- 
- `ActionSheet` can be subclassed, which may be nice whenever
- you want to use your own domain model. For instance, if you
- want to present a list of `Food` items, you should create a
- `FoodActionSheet` sheet, then populate it with `Food` items.
- The selected value will then be of the type `Food`. You can
- either override the initializers or the `setup` function to
- change how you populate the sheet with items.
  
  
  ## Appearance
@@ -64,7 +70,7 @@
  
  Action sheets receive a call to `handleTap(on:)` every time
  an item is tapped. You can override it when you create your
- own action sheet subclasses, but you probably shouldn't.
+ own subclasses, but you probably should not.
  
  */
 
