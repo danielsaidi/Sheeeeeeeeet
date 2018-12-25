@@ -138,6 +138,8 @@
 		849935A2216BEAD8000A0670 /* ActionSheetCustomItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */; };
 		849935A4216BF35C000A0670 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A3216BF35C000A0670 /* CustomActionSheet.swift */; };
 		849935A6216BFB9F000A0670 /* AppDelegate+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A5216BFB9F000A0670 /* AppDelegate+Appearance.swift */; };
+		849F062921D26EDE0074C6E4 /* NSObject+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */; };
+		849F062B21D26F270074C6E4 /* NSObject+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F062A21D26F270074C6E4 /* NSObject+Bundle.swift */; };
 		84F87EBB217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F87EBA217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -321,6 +323,8 @@
 		849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemCell.swift; sourceTree = "<group>"; };
 		849935A3216BF35C000A0670 /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* AppDelegate+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Appearance.swift"; sourceTree = "<group>"; };
+		849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Bundle.swift"; sourceTree = "<group>"; };
+		849F062A21D26F270074C6E4 /* NSObject+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Bundle.swift"; sourceTree = "<group>"; };
 		84F87EBA217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetStandardPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -451,11 +455,12 @@
 		453C047B1FC161AA0028FA02 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */,
 				45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */,
-				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
+				8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */,
 				84539DA721775C030097039F /* UIView+Nib.swift */,
 				84539DA9217765A30097039F /* UIView+Subviews.swift */,
-				8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */,
+				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -749,10 +754,11 @@
 		84539DB72177D1F80097039F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				849F062A21D26F270074C6E4 /* NSObject+Bundle.swift */,
 				84539DB82177D20E0097039F /* NSObject+ClassNameTests.swift */,
-				84539DBA2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift */,
 				84539DBC2177DEAC0097039F /* UIView+NibTests.swift */,
 				84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */,
+				84539DBA2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1037,6 +1043,7 @@
 				455DEE38206F70C400173E67 /* ActionSheetMultiSelectItem.swift in Sources */,
 				456EAA0E1FCC13A400A719ED /* ActionSheetStandardPresenter.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
+				849F062921D26EDE0074C6E4 /* NSObject+Bundle.swift in Sources */,
 				4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */,
 				84539DA821775C030097039F /* UIView+Nib.swift in Sources */,
 				45EB3FCE1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift in Sources */,
@@ -1096,6 +1103,7 @@
 				84539DB92177D20E0097039F /* NSObject+ClassNameTests.swift in Sources */,
 				45352D692030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift in Sources */,
 				45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */,
+				849F062B21D26F270074C6E4 /* NSObject+Bundle.swift in Sources */,
 				84539DB62177CF470097039F /* ActionSheetMarginTests.swift in Sources */,
 				453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */,
 				84539DB221778D0B0097039F /* MockTableView.swift in Sources */,

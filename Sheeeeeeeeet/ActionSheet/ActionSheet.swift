@@ -12,10 +12,6 @@
  use it to create action sheets and present them in any view
  controller, from any source view or bar button item.
  
- To create an action sheet, just call the initializer with a
- list of items and buttons and a block that should be called
- whenever an item is selected.
- 
  
  ## Items
  
@@ -85,7 +81,7 @@ open class ActionSheet: UIViewController {
         action: @escaping SelectAction) {
         self.presenter = presenter
         selectAction = action
-        super.init(nibName: ActionSheet.className, bundle: Bundle(for: ActionSheet.self))
+        super.init(nibName: ActionSheet.className, bundle: ActionSheet.bundle)
         setup(items: items)
         setup()
     }
