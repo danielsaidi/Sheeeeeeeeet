@@ -125,13 +125,15 @@ open class ActionSheet: UIViewController {
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
     
     
-    // MARK: - Properties
-    
-    open var appearance = ActionSheetAppearance(copy: .standard)
+    // MARK: - Dependencies
     
     public let presenter: ActionSheetPresenter
-
-    public var selectAction: SelectAction
+    public let selectAction: SelectAction
+    
+    
+    // MARK: - Properties
+    
+    public var appearance = ActionSheetAppearance(copy: .standard)
     
     
     // MARK: - View Outlets

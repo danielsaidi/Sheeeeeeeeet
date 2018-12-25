@@ -4,11 +4,18 @@
 ## 1.1.0
 
 This version increases the action sheet integrity by restricting what you can do
-with it. This involves some breaking changes, but they should not affect you.
+with it. This involves some breaking changes, but they should not affect you. If
+you think any of these new rules are wrong or affect you in a critical way, just
+let me know by creating a GitHub issue.
 
-* The `items` and `buttons` properties are now `internal(set)`, which means that
-they can only be set from within the library. Without this constraint, you could
-add buttons to the item section and vice versa.
+* The `ActionSheet` `presenter` and `selectAction` properties have been modified
+and are now `let` instead of `var`. This means that you can not change them when
+an action sheet instance has been created...which should be the correct behavior.
+
+* The `ActionSheet` `items` and `buttons` properties are now `internal(set)`. It
+means that they can only be set from within the library. Without this constraint,
+you could add buttons to the item section and vice versa, which is incorrect.
+
 
 
 ## 1.0.3
