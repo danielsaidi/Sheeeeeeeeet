@@ -1,6 +1,16 @@
 # Release Notes
 
 
+## 1.1.0
+
+This version increases the action sheet integrity by restricting what you can do
+with it. This involves some breaking changes, but they should not affect you.
+
+* The `items` and `buttons` properties are now `internal(set)`, which means that
+they can only be set from within the library. Without this constraint, you could
+add buttons to the item section and vice versa.
+
+
 ## 1.0.3
 
 This version removes a debug print that I used to ensure that action sheets were

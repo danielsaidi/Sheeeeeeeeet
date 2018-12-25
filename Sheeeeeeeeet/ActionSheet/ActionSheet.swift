@@ -168,7 +168,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Item Properties
     
-    public var items = [ActionSheetItem]()
+    public internal(set) var items = [ActionSheetItem]()
     
     public var itemsHeight: CGFloat { return totalHeight(for: items) }
     
@@ -183,7 +183,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Button Properties
     
-    public var buttons = [ActionSheetButton]()
+    public internal(set) var buttons = [ActionSheetButton]()
     
     public var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
     
