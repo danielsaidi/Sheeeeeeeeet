@@ -10,8 +10,8 @@ you think any new rule is bad, or affect you in a critical way, just let me know
 ### ActionSheet:
 
 * The `items` and `buttons` properties are now `internal(set)`, which means that
-they can only be set with `init(...)` or with `setup(items: ...)`. This protects
-the integrity of the item and button separation logic.
+they can only be set with `init(...)` or with `setup(items:)`. This protects the
+integrity of the item and button separation logic.
 
 * The code no longer contains any `didSet` events, since these events called the
 same functionality many times. Call `refresh` if you change any outlets manually

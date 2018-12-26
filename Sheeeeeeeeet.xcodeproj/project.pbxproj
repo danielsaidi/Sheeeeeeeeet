@@ -486,7 +486,6 @@
 				453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */,
 				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
 				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
-				8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -666,11 +665,12 @@
 		459DA1B820568E4500644490 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
 				1D428925204039B4005D4369 /* ActionSheetCollectionItemCell.swift */,
 				1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */,
 				459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */,
 				849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */,
+				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+				8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
