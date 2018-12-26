@@ -5,16 +5,14 @@
 
 This version increases the action sheet integrity by restricting what you can do
 with it. This involves some breaking changes, but they should not affect you. If
-you think any of these new rules are wrong or affect you in a critical way, just
-let me know by creating a GitHub issue.
+you think any new rule is bad, or affect you in a critical way, just let me know.
 
-* The `ActionSheet` `presenter` and `selectAction` properties have been modified
-and are now `let` instead of `var`. This means that you can not change them when
-an action sheet instance has been created...which should be the correct behavior.
+* The ActionSheet `items` and `buttons` properties are now `internal(set)`. This
+means that they can only be set with `init(...)` or with `setup(items: ...)`.
 
-* The `ActionSheet` `items` and `buttons` properties are now `internal(set)`. It
-means that they can only be set from within the library. Without this constraint,
-you could add buttons to the item section and vice versa, which is incorrect.
+This version also cleans up a lot of implicit actions, for instance many `didSet`
+events that made the same code be called twice. If you change an outlet manually,
+just make sure to call `refresh` if your view isn't properly updated.
 
 
 

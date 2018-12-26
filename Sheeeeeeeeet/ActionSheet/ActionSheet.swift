@@ -90,14 +90,12 @@ open class ActionSheet: UIViewController {
         selectAction = action
         super.init(nibName: ActionSheet.className, bundle: ActionSheet.bundle)
         setup(items: items)
-        setup()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         presenter = ActionSheet.defaultPresenter
         selectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
-        setup()
     }
     
     
@@ -114,6 +112,13 @@ open class ActionSheet: UIViewController {
     
     // MARK: - View Controller Lifecycle
     
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+        setup(itemsTableView, with: itemHandler)
+        setup(buttonsTableView, with: buttonHandler)
+    }
+    
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         refresh()
@@ -125,24 +130,21 @@ open class ActionSheet: UIViewController {
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
     
     
-    // MARK: - Dependencies
+    // MARK: - Init properties
     
-    public let presenter: ActionSheetPresenter
-    public let selectAction: SelectAction
+    public var presenter: ActionSheetPresenter
+    public var selectAction: SelectAction
     
     
-    // MARK: - Properties
+    // MARK: - Appearance
     
     public var appearance = ActionSheetAppearance(copy: .standard)
     
     
-    // MARK: - View Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var backgroundView: UIView?
     @IBOutlet weak var stackView: UIStackView?
-    
-    
-    // MARK: - Margin Outlets
     
     @IBOutlet weak var topMargin: NSLayoutConstraint?
     @IBOutlet weak var leftMargin: NSLayoutConstraint?
@@ -152,20 +154,11 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Header Properties
     
-    open var headerView: UIView? {
-        didSet { refresh() }
-    }
+    open var headerView: UIView?
     
-    @IBOutlet weak var headerViewContainer: UIView? {
-        didSet {
-            headerViewContainer?.backgroundColor = .clear
-            refreshHeaderVisibility()
-        }
-    }
+    @IBOutlet weak var headerViewContainer: UIView?
     
-    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint! {
-        didSet { refreshHeaderVisibility() }
-    }
+    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
     
     
     // MARK: - Item Properties
@@ -176,9 +169,7 @@ open class ActionSheet: UIViewController {
     
     public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
-    @IBOutlet weak var itemsTableView: ActionSheetTableView? {
-        didSet { setup(itemsTableView, with: itemHandler) }
-    }
+    @IBOutlet weak var itemsTableView: ActionSheetTableView?
     
     @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
     
@@ -191,16 +182,9 @@ open class ActionSheet: UIViewController {
     
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
     
-    @IBOutlet weak var buttonsTableView: ActionSheetTableView? {
-        didSet {
-            setup(buttonsTableView, with: buttonHandler)
-            refreshButtonsVisibility()
-        }
-    }
+    @IBOutlet weak var buttonsTableView: ActionSheetTableView?
     
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint? {
-        didSet { refreshButtonsVisibility() }
-    }
+    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     
     // MARK: - Presentation Functions
@@ -305,10 +289,6 @@ private extension ActionSheet {
         tableView?.delegate = handler
         tableView?.dataSource = handler
         tableView?.alwaysBounceVertical = false
-        setupAppearance(for: tableView)
-    }
-    
-    func setupAppearance(for tableView: UITableView?) {
         tableView?.estimatedRowHeight = 44
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.cellLayoutMarginsFollowReadableWidth = false
