@@ -61,8 +61,8 @@
  ## Handling item taps
  
  Action sheets receive a call to `handleTap(on:)` every time
- an item is tapped. You can override it when you create your
- own subclasses, but you probably should not.
+ an item is tapped. You can override it if you, for instance,
+ want to perform any animations before calling `super`.
  
  */
 
@@ -216,15 +216,11 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshHeader() {
-        refreshHeaderVisibility()
         let height = headerView?.frame.height ?? 0
         headerViewContainerHeight?.constant = height
+        headerViewContainer?.isHidden = headerView == nil
         guard let view = headerView else { return }
         headerViewContainer?.addSubviewToFill(view)
-    }
-    
-    open func refreshHeaderVisibility() {
-        headerViewContainer?.isHidden = headerView == nil
     }
     
     open func refreshItems() {
@@ -235,15 +231,11 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshButtons() {
-        refreshButtonsVisibility()
+        buttonsTableView?.isHidden = buttons.count == 0
         buttons.forEach { $0.applyAppearance(appearance) }
         buttonsTableView?.backgroundColor = appearance.buttonsBackgroundColor
         buttonsTableView?.separatorColor = appearance.buttonsSeparatorColor
         buttonsTableViewHeight?.constant = buttonsHeight
-    }
-    
-    open func refreshButtonsVisibility() {
-        buttonsTableView?.isHidden = buttons.count == 0
     }
     
     
@@ -251,10 +243,8 @@ open class ActionSheet: UIViewController {
     
     open func handleTap(on item: ActionSheetItem) {
         reloadData()
-        guard item.tapBehavior == .dismiss else { return selectAction(self, item) }
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
-            self.dismiss { self.selectAction(self, item) }
-        }
+        if item.tapBehavior != .dismiss { return selectAction(self, item) }
+        self.dismiss { self.selectAction(self, item) }
     }
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {

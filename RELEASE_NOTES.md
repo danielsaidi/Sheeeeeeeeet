@@ -7,12 +7,24 @@ This version increases the action sheet integrity by restricting what you can do
 with it. This involves some breaking changes, but they should not affect you. If
 you think any new rule is bad, or affect you in a critical way, just let me know.
 
-* The ActionSheet `items` and `buttons` properties are now `internal(set)`. This
-means that they can only be set with `init(...)` or with `setup(items: ...)`.
+### ActionSheet:
 
-This version also cleans up a lot of implicit actions, for instance many `didSet`
-events that made the same code be called twice. If you change an outlet manually,
-just make sure to call `refresh` if your view isn't properly updated.
+* The `items` and `buttons` properties are now `internal(set)`, which means that
+they can only be set with `init(...)` or with `setup(items: ...)`. This protects
+the integrity of the item and button separation logic.
+
+* The code no longer contains any `didSet` events, since these events called the
+same functionality many times. Call `refresh` if you change any outlets manually
+from now on.
+
+* Since the `didSet` events have been removed, `refreshHeaderVisibility` is only
+called once and has therefore been moved into `refreshHeader`.
+
+* Since the `didSet` events have been removed, `refreshButtonsVisibility` is now
+only called once and has therefore been moved into `refreshButtons`.
+
+* A small delay in `handleTap(on:)`, that should not be needed, has been removed.
+Let me know if it causes any side-effects.
 
 
 
