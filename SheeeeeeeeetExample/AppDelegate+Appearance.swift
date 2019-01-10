@@ -46,27 +46,27 @@ extension AppDelegate {
         
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.unselectedIcon = UIImage(named: "ic_empty")
-        appearance.selectItem.selectedTintColor = exampleBlue
-        appearance.selectItem.selectedTextColor = exampleGreen
-        appearance.selectItem.selectedIconTintColor = examplePurple
+        appearance.selectItem.selectedTintColor = .exampleBlue
+        appearance.selectItem.selectedTextColor = .exampleGreen
+        appearance.selectItem.selectedIconTintColor = .examplePurple
         
-        appearance.singleSelectItem.selectedTintColor = exampleGreen
-        appearance.singleSelectItem.selectedTextColor = examplePurple
-        appearance.singleSelectItem.selectedIconTintColor = exampleBlue
+        appearance.singleSelectItem.selectedTintColor = .exampleGreen
+        appearance.singleSelectItem.selectedTextColor = .examplePurple
+        appearance.singleSelectItem.selectedIconTintColor = .exampleBlue
         
-        appearance.multiSelectItem.selectedTintColor = examplePurple
-        appearance.multiSelectItem.selectedTextColor = exampleBlue
-        appearance.multiSelectItem.selectedIconTintColor = exampleGreen
+        appearance.multiSelectItem.selectedTintColor = .examplePurple
+        appearance.multiSelectItem.selectedTextColor = .exampleBlue
+        appearance.multiSelectItem.selectedIconTintColor = .exampleGreen
         
         appearance.multiSelectToggleItem.hideSeparator()
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
-        appearance.multiSelectToggleItem.deselectAllTextColor = exampleRed
+        appearance.multiSelectToggleItem.deselectAllTextColor = .exampleRed
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         
         appearance.okButton.textColor = .darkGray
         
-        appearance.dangerButton.textColor = examplePink
+        appearance.dangerButton.textColor = .examplePink
         
         appearance.cancelButton.textColor = .lightGray
         
@@ -88,11 +88,11 @@ private extension AppDelegate {
     }
     
     func applyItemSubtitleColors() {
-        ActionSheetItemCell.appearance().subtitleColor = exampleBlue
+        ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
     }
     
     func applyItemSubtitleFonts() {
-        ActionSheetItemCell.appearance().subtitleFont = robotoRegular(size: 14)
+        ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
     }
     
     func applyItemTitleColors() {
@@ -100,45 +100,15 @@ private extension AppDelegate {
     }
     
     func applyItemTitleFonts() {
-        ActionSheetItemCell.appearance().titleFont = robotoRegular(size: 17)
-        ActionSheetLinkItemCell.appearance().titleFont = robotoRegular(size: 17)
-        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = robotoMedium(size: 13)
-        ActionSheetSectionTitleCell.appearance().titleFont = robotoMedium(size: 13)
-        ActionSheetTitleCell.appearance().titleFont = robotoMedium(size: 15)
-        ActionSheetOkButtonCell.appearance().titleFont = robotoBlack(size: 17)
-        ActionSheetDangerButtonCell.appearance().titleFont = robotoMedium(size: 17)
-        ActionSheetCancelButtonCell.appearance().titleFont = robotoRegular(size: 17)
+        ActionSheetItemCell.appearance().titleFont = .robotoRegular(size: 17)
+        ActionSheetLinkItemCell.appearance().titleFont = .robotoRegular(size: 17)
+        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = .robotoMedium(size: 13)
+        ActionSheetSectionTitleCell.appearance().titleFont = .robotoMedium(size: 13)
+        ActionSheetTitleCell.appearance().titleFont = .robotoMedium(size: 15)
+        ActionSheetOkButtonCell.appearance().titleFont = .robotoBlack(size: 17)
+        ActionSheetDangerButtonCell.appearance().titleFont = .robotoMedium(size: 17)
+        ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
     }
-}
-
-
-// MARK: - Fonts
-
-private extension AppDelegate {
-    
-    func robotoBlack(size: CGFloat) -> UIFont? {
-        return UIFont(name: "Roboto-Black", size: size)
-    }
-    
-    func robotoMedium(size: CGFloat) -> UIFont? {
-        return UIFont(name: "Roboto-Medium", size: size)
-    }
-    
-    func robotoRegular(size: CGFloat) -> UIFont? {
-        return UIFont(name: "Roboto-Regular", size: size)
-    }
-}
-
-
-// MARK: - Colors
-
-private extension AppDelegate {
-    
-    var exampleBlue: UIColor { return UIColor(hex: 0x0FA2F5) }
-    var exampleGreen: UIColor { return UIColor(hex: 0x81c03f) }
-    var examplePink: UIColor { return UIColor(hex: 0xec5f72) }
-    var examplePurple: UIColor { return UIColor(hex: 0xd9007b) }
-    var exampleRed: UIColor { return UIColor(hex: 0xff3333) }
 }
 
 
@@ -155,7 +125,7 @@ private extension AppDelegate {
     }
     
     func applyLegacyItemBackgroundColors(with appearance: ActionSheetAppearance) {
-//        appearance.item.backgroundColor = exampleRed
+//        appearance.item.backgroundColor = .exampleRed
     }
     
     func applyLegacyItemFonts(with appearance: ActionSheetAppearance) {

@@ -146,6 +146,8 @@
 		8493967321E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */; };
 		8493967521E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967421E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift */; };
 		8493967721E7E22500DC0AEF /* ActionSheetMultiSelectToggleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967621E7E22500DC0AEF /* ActionSheetMultiSelectToggleItemCell.swift */; };
+		8493967C21E7F9B200DC0AEF /* UIFont+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */; };
+		8493967F21E7F9C000DC0AEF /* UIColor+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -346,6 +348,8 @@
 		8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButtonCell.swift; sourceTree = "<group>"; };
 		8493967421E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemCell.swift; sourceTree = "<group>"; };
 		8493967621E7E22500DC0AEF /* ActionSheetMultiSelectToggleItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMultiSelectToggleItemCell.swift; sourceTree = "<group>"; };
+		8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Example.swift"; sourceTree = "<group>"; };
+		8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Example.swift"; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 		453C045E1FC065AE0028FA02 /* SheeeeeeeeetExample */ = {
 			isa = PBXGroup;
 			children = (
+				8493967A21E7F9A200DC0AEF /* Style */,
 				453C045F1FC065AE0028FA02 /* AppDelegate.swift */,
 				849935A5216BFB9F000A0670 /* AppDelegate+Appearance.swift */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
@@ -828,6 +833,15 @@
 			path = _Legacy;
 			sourceTree = "<group>";
 		};
+		8493967A21E7F9A200DC0AEF /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */,
+				8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		8499359C216BE13C000A0670 /* Items */ = {
 			isa = PBXGroup;
 			children = (
@@ -1124,6 +1138,7 @@
 			files = (
 				456EAA441FCCA03700A719ED /* UIColor+Hex.swift in Sources */,
 				456203C1205BD00100A3E141 /* DestructiveActionSheet.swift in Sources */,
+				8493967C21E7F9B200DC0AEF /* UIFont+Example.swift in Sources */,
 				453C04621FC065AE0028FA02 /* ViewController.swift in Sources */,
 				453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */,
 				454EDC5E205BBC5F008E4311 /* SingleSelectActionSheet.swift in Sources */,
@@ -1141,6 +1156,7 @@
 				456EAA3A1FCC6A7700A719ED /* FoodOption.swift in Sources */,
 				45CF8FAF205BB55800F01A3F /* FoodOption+ActionSheetItems.swift in Sources */,
 				8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */,
+				8493967F21E7F9C000DC0AEF /* UIColor+Example.swift in Sources */,
 				4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */,
 				849935A6216BFB9F000A0670 /* AppDelegate+Appearance.swift in Sources */,
 				456EAA341FCC665800A719ED /* ViewController+Alerts.swift in Sources */,
