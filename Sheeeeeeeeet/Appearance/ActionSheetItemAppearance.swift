@@ -30,9 +30,10 @@ open class ActionSheetItemAppearance {
     
     // MARK: - Properties
     
+    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use appearance().backgroundColor instead.")
     public var backgroundColor: UIColor?
     
-    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use the cell's appearance().titleFont properties instead.")
+    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use appearance().titleFont instead.")
     public var font: UIFont?
     
     public var height: CGFloat = 50

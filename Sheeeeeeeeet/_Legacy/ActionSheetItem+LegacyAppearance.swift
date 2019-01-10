@@ -12,15 +12,22 @@ extension ActionSheetItem {
     
     @available(*, deprecated, message: "applyLegacyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     func applyLegacyAppearance(to cell: UITableViewCell) {
-        guard let itemCell = cell as? ActionSheetItemCell else { return }
-        applyLegacyFont(to: itemCell)
+        applyLegacyBackgroundColor(to: cell)
+        applyLegacyFont(to: cell)
     }
 }
 
 private extension ActionSheetItem {
     
-    func applyLegacyFont(to cell: ActionSheetItemCell) {
+    func applyLegacyBackgroundColor(to cell: UITableViewCell) {
+        guard let color = appearance.backgroundColor else { return }
+        let cell = cell as? ActionSheetItemCell
+        cell?.backgroundColor = color
+    }
+    
+    func applyLegacyFont(to cell: UITableViewCell) {
         guard let font = appearance.font else { return }
-        cell.titleFont = font
+        let cell = cell as? ActionSheetItemCell
+        cell?.titleFont = font
     }
 }

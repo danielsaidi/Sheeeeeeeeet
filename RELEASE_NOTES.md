@@ -19,6 +19,7 @@ Test:
 * ActionSheetHeaderView
 * ActionSheetTableView
 * ActionSheetItemHandler -> item.applyAppearance(to: cell)
+* ActionSheetXXXCell -> Setup
 
 
 ## 1.1.0

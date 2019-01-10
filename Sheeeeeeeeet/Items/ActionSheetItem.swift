@@ -78,9 +78,6 @@ open class ActionSheetItem: NSObject {
     }
     
     open func applyAppearance(to cell: UITableViewCell) {
-        if let color = appearance.backgroundColor {
-            cell.backgroundColor = color
-        }
         let noTap = tapBehavior == .none
         cell.imageView?.image = image
         cell.selectionStyle = noTap ? .none : .default
@@ -89,7 +86,6 @@ open class ActionSheetItem: NSObject {
         cell.textLabel?.text = title
         cell.textLabel?.textAlignment = .left
         cell.textLabel?.textColor = appearance.textColor
-        cell.textLabel?.font = appearance.font
         cell.detailTextLabel?.text = subtitle
         cell.detailTextLabel?.font = appearance.subtitleFont
         cell.detailTextLabel?.textColor = appearance.subtitleTextColor

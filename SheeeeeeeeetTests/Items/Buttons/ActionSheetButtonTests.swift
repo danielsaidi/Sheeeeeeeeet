@@ -68,16 +68,5 @@ class ActionSheetButtonTests: ActionSheetItemTests {
                 expect(item.appearance).to(be(custom.okButton))
             }
         }
-        
-        describe("applying appearance to cell") {
-            
-            it("applies correct style") {
-                let appearance = ActionSheetAppearance.standard
-                let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-                item.applyAppearance(appearance)
-                item.applyAppearance(to: cell)
-                expect(self.compare(cell, item: item, appearance: appearance.okButton, textAlignment: .center)).to(beTrue())
-            }
-        }
     }
 }

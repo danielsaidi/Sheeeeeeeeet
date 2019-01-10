@@ -23,15 +23,15 @@ extension AppDelegate {
         let appearance = ActionSheetAppearance.standard
         
         applyCornerRadius()
-        applyTitleFonts()
+        applyItemBackgroundColors()
+        applyItemTitleFonts()
         
 //        appearance.popover.width = 500
-        
         
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
         appearance.item.subtitleFont = robotoRegular(size: 14)
-        appearance.item.subtitleTextColor = blue
+        appearance.item.subtitleTextColor = exampleBlue
         
 //        appearance.separatorColor = .red
 //        appearance.itemsSeparatorColor = .blue
@@ -46,27 +46,27 @@ extension AppDelegate {
         
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.selectItem.unselectedIcon = UIImage(named: "ic_empty")
-        appearance.selectItem.selectedTintColor = blue
-        appearance.selectItem.selectedTextColor = green
-        appearance.selectItem.selectedIconTintColor = purple
+        appearance.selectItem.selectedTintColor = exampleBlue
+        appearance.selectItem.selectedTextColor = exampleGreen
+        appearance.selectItem.selectedIconTintColor = examplePurple
         
-        appearance.singleSelectItem.selectedTintColor = green
-        appearance.singleSelectItem.selectedTextColor = purple
-        appearance.singleSelectItem.selectedIconTintColor = blue
+        appearance.singleSelectItem.selectedTintColor = exampleGreen
+        appearance.singleSelectItem.selectedTextColor = examplePurple
+        appearance.singleSelectItem.selectedIconTintColor = exampleBlue
         
-        appearance.multiSelectItem.selectedTintColor = purple
-        appearance.multiSelectItem.selectedTextColor = blue
-        appearance.multiSelectItem.selectedIconTintColor = green
+        appearance.multiSelectItem.selectedTintColor = examplePurple
+        appearance.multiSelectItem.selectedTextColor = exampleBlue
+        appearance.multiSelectItem.selectedIconTintColor = exampleGreen
         
         appearance.multiSelectToggleItem.hideSeparator()
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
-        appearance.multiSelectToggleItem.deselectAllTextColor = red
+        appearance.multiSelectToggleItem.deselectAllTextColor = exampleRed
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         
         appearance.okButton.textColor = .darkGray
         
-        appearance.dangerButton.textColor = pink
+        appearance.dangerButton.textColor = examplePink
         
         appearance.cancelButton.textColor = .lightGray
         
@@ -83,7 +83,11 @@ private extension AppDelegate {
         //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
     }
     
-    func applyTitleFonts() {
+    func applyItemBackgroundColors() {
+        //ActionSheetItemCell.appearance().backgroundColor = red
+    }
+    
+    func applyItemTitleFonts() {
         ActionSheetItemCell.appearance().titleFont = robotoRegular(size: 17)
         ActionSheetLinkItemCell.appearance().titleFont = robotoRegular(size: 17)
         ActionSheetMultiSelectToggleItemCell.appearance().titleFont = robotoMedium(size: 13)
@@ -118,11 +122,11 @@ private extension AppDelegate {
 
 private extension AppDelegate {
     
-    var blue: UIColor { return UIColor(hex: 0x0FA2F5) }
-    var green: UIColor { return UIColor(hex: 0x81c03f) }
-    var pink: UIColor { return UIColor(hex: 0xec5f72) }
-    var purple: UIColor { return UIColor(hex: 0xd9007b) }
-    var red: UIColor { return UIColor(hex: 0xff3333) }
+    var exampleBlue: UIColor { return UIColor(hex: 0x0FA2F5) }
+    var exampleGreen: UIColor { return UIColor(hex: 0x81c03f) }
+    var examplePink: UIColor { return UIColor(hex: 0xec5f72) }
+    var examplePurple: UIColor { return UIColor(hex: 0xd9007b) }
+    var exampleRed: UIColor { return UIColor(hex: 0xff3333) }
 }
 
 
@@ -131,11 +135,16 @@ private extension AppDelegate {
 private extension AppDelegate {
     
     func applyLegacyAppearance(_ appearance: ActionSheetAppearance) {
-        applyLegacyFonts(with: appearance)
+        applyLegacyItemBackgroundColors(with: appearance)
+        applyLegacyItemFonts(with: appearance)
     }
     
-    func applyLegacyFonts(with appearance: ActionSheetAppearance) {
-//        appearance.item.font = robotoRegular(size: 17)
+    func applyLegacyItemBackgroundColors(with appearance: ActionSheetAppearance) {
+//        appearance.item.backgroundColor = exampleRed
+    }
+    
+    func applyLegacyItemFonts(with appearance: ActionSheetAppearance) {
+//        appearance.item.font = robotoRegular(size: 170)
 //        appearance.linkItem.font = robotoRegular(size: 170)
 //        appearance.title.font = robotoMedium(size: 15)
 //        appearance.sectionTitle.font = robotoMedium(size: 13)

@@ -163,18 +163,6 @@ class ActionSheetItemTests: QuickSpec {
             }
         }
         
-        describe("applying appearance to cell") {
-            
-            it("applies correct style") {
-                let item = createItem()
-                let appearance = ActionSheetAppearance.standard
-                let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-                item.applyAppearance(appearance)
-                item.applyAppearance(to: cell)
-                expect(self.compare(cell, item: item, appearance: appearance.item)).to(beTrue())
-            }
-        }
-        
         
         
         describe("resolving cell") {
