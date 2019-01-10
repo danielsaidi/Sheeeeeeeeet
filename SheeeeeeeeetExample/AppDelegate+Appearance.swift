@@ -54,16 +54,15 @@ extension AppDelegate {
         appearance.sectionMargin.height = 20
         
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        appearance.selectItem.unselectedIcon = UIImage(named: "ic_empty")
         appearance.selectItem.selectedTintColor = blue
         appearance.selectItem.selectedTextColor = green
         appearance.selectItem.selectedIconTintColor = purple
         
-        appearance.singleSelectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.singleSelectItem.selectedTintColor = green
         appearance.singleSelectItem.selectedTextColor = purple
         appearance.singleSelectItem.selectedIconTintColor = blue
         
-        appearance.multiSelectItem.selectedIcon = UIImage(named: "ic_checkmark")
         appearance.multiSelectItem.selectedTintColor = purple
         appearance.multiSelectItem.selectedTextColor = blue
         appearance.multiSelectItem.selectedIconTintColor = green
