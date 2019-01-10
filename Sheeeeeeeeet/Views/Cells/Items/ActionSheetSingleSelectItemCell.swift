@@ -1,5 +1,5 @@
 //
-//  ActionSheetSectionMarginCell.swift
+//  ActionSheetSingleSelectItemCell.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2019-01-10.
@@ -8,4 +8,4 @@
 
 import UIKit
 
-open class ActionSheetSectionMarginCell: ActionSheetItemCell {}
+open class ActionSheetSingleSelectItemCell: ActionSheetSelectItemCell {}

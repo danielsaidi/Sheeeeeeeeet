@@ -8,4 +8,4 @@
 
 import UIKit
 
-public class ActionSheetSectionTitleCell: ActionSheetItemCell {}
+open class ActionSheetSectionTitleCell: ActionSheetItemCell {}

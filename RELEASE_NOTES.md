@@ -3,6 +3,7 @@
 
 ## 1.2.0
 
+* Tap behavior none -> no selection
 * Reimplemented appearance handling
 * Appearance proxies
 * Easier to configure, subclass etc.

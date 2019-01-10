@@ -30,6 +30,10 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
         self.appearance = ActionSheetSingleSelectItemAppearance(copy: appearance.singleSelectItem)
     }
     
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetSingleSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
+    
     open override func handleTap(in actionSheet: ActionSheet) {
         super.handleTap(in: actionSheet)
         let items = actionSheet.items.compactMap { $0 as? ActionSheetSingleSelectItem }
