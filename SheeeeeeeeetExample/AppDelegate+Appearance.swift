@@ -18,17 +18,7 @@ import Sheeeeeeeeet
 
 extension AppDelegate {
     
-    private var robotoBlack: String { return "Roboto-Black" }
-    private var robotoMedium: String { return "Roboto-Medium" }
-    private var robotoRegular: String { return "Roboto-Regular" }
-    
     func applyAppearance() {
-        
-        let blue = UIColor(hex: 0x0FA2F5)
-        let green = UIColor(hex: 0x81c03f)
-        let pink = UIColor(hex: 0xec5f72)
-        let purple = UIColor(hex: 0xd9007b)
-        let red = UIColor(hex: 0xff3333)
         
         let appearance = ActionSheetAppearance.standard
         
@@ -40,7 +30,7 @@ extension AppDelegate {
         
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
-        appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
+        appearance.item.subtitleFont = robotoRegular(size: 14)
         appearance.item.subtitleTextColor = blue
         
 //        appearance.separatorColor = .red
@@ -94,17 +84,49 @@ private extension AppDelegate {
     }
     
     func applyTitleFonts() {
-        ActionSheetItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 17)
-        ActionSheetLinkItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 17)
-        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = UIFont(name: robotoMedium, size: 13)
-        ActionSheetSectionTitleCell.appearance().titleFont = UIFont(name: robotoMedium, size: 13)
-        ActionSheetTitleCell.appearance().titleFont = UIFont(name: robotoMedium, size: 15)
-        ActionSheetOkButtonCell.appearance().titleFont = UIFont(name: robotoBlack, size: 17)
-        ActionSheetDangerButtonCell.appearance().titleFont = UIFont(name: robotoMedium, size: 17)
-        ActionSheetCancelButtonCell.appearance().titleFont = UIFont(name: robotoRegular, size: 17)
+        ActionSheetItemCell.appearance().titleFont = robotoRegular(size: 17)
+        ActionSheetLinkItemCell.appearance().titleFont = robotoRegular(size: 17)
+        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = robotoMedium(size: 13)
+        ActionSheetSectionTitleCell.appearance().titleFont = robotoMedium(size: 13)
+        ActionSheetTitleCell.appearance().titleFont = robotoMedium(size: 15)
+        ActionSheetOkButtonCell.appearance().titleFont = robotoBlack(size: 17)
+        ActionSheetDangerButtonCell.appearance().titleFont = robotoMedium(size: 17)
+        ActionSheetCancelButtonCell.appearance().titleFont = robotoRegular(size: 17)
     }
 }
 
+
+// MARK: - Fonts
+
+private extension AppDelegate {
+    
+    func robotoBlack(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Roboto-Black", size: size)
+    }
+    
+    func robotoMedium(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Roboto-Medium", size: size)
+    }
+    
+    func robotoRegular(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Roboto-Regular", size: size)
+    }
+}
+
+
+// MARK: - Colors
+
+private extension AppDelegate {
+    
+    var blue: UIColor { return UIColor(hex: 0x0FA2F5) }
+    var green: UIColor { return UIColor(hex: 0x81c03f) }
+    var pink: UIColor { return UIColor(hex: 0xec5f72) }
+    var purple: UIColor { return UIColor(hex: 0xd9007b) }
+    var red: UIColor { return UIColor(hex: 0xff3333) }
+}
+
+
+// MARK: - Legacy
 
 private extension AppDelegate {
     
@@ -113,13 +135,13 @@ private extension AppDelegate {
     }
     
     func applyLegacyFonts(with appearance: ActionSheetAppearance) {
-//        appearance.item.font = UIFont(name: robotoRegular, size: 17)
-//        appearance.linkItem.font = UIFont(name: robotoRegular, size: 170)
-//        appearance.title.font = UIFont(name: robotoMedium, size: 15)
-//        appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
-//        appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
-//        appearance.okButton.font = UIFont(name: robotoBlack, size: 17)
-//        appearance.dangerButton.font = UIFont(name: robotoMedium, size: 17)
-//        appearance.cancelButton.font = UIFont(name: robotoMedium, size: 17)
+//        appearance.item.font = robotoRegular(size: 17)
+//        appearance.linkItem.font = robotoRegular(size: 170)
+//        appearance.title.font = robotoMedium(size: 15)
+//        appearance.sectionTitle.font = robotoMedium(size: 13)
+//        appearance.multiSelectToggleItem.font = robotoMedium(size: 13)
+//        appearance.okButton.font = robotoBlack(size: 17)
+//        appearance.dangerButton.font = robotoMedium(size: 17)
+//        appearance.cancelButton.font = robotoMedium(size: 17)
     }
 }
