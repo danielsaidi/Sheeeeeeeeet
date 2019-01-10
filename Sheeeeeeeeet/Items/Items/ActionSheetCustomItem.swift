@@ -56,7 +56,6 @@ public class ActionSheetCustomItem<T>: ActionSheetItem where T: ActionSheetCusto
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         tableView.register(T.nib, forCellReuseIdentifier: cellReuseIdentifier)
         let cell = super.cell(for: tableView)
-        cell.selectionStyle = .none
         guard let typedCell = cell as? T else { fatalError("Invalid cell type created by superclass") }
         setupAction(typedCell)
         return typedCell

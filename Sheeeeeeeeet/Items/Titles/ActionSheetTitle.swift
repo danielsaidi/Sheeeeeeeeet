@@ -34,7 +34,6 @@ open class ActionSheetTitle: ActionSheetItem {
     
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
-        cell.selectionStyle = .none
         cell.textLabel?.textAlignment = .center
     }
     

@@ -135,6 +135,8 @@
 		8493965921E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */; };
 		8493965B21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */; };
 		8493965E21E7D3A600DC0AEF /* ActionSheetTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965D21E7D3A600DC0AEF /* ActionSheetTitleCell.swift */; };
+		8493966321E7D67B00DC0AEF /* ActionSheetSectionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966221E7D67B00DC0AEF /* ActionSheetSectionTitleCell.swift */; };
+		8493966521E7D74100DC0AEF /* ActionSheetSectionMarginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966421E7D74100DC0AEF /* ActionSheetSectionMarginCell.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -324,6 +326,8 @@
 		8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+LegacyAppearance.swift"; sourceTree = "<group>"; };
 		8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheetItem+LegacyAppearance.swift"; sourceTree = "<group>"; };
 		8493965D21E7D3A600DC0AEF /* ActionSheetTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleCell.swift; sourceTree = "<group>"; };
+		8493966221E7D67B00DC0AEF /* ActionSheetSectionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleCell.swift; sourceTree = "<group>"; };
+		8493966421E7D74100DC0AEF /* ActionSheetSectionMarginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionMarginCell.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -804,6 +808,8 @@
 		8493965F21E7D3B000DC0AEF /* Titles */ = {
 			isa = PBXGroup;
 			children = (
+				8493966421E7D74100DC0AEF /* ActionSheetSectionMarginCell.swift */,
+				8493966221E7D67B00DC0AEF /* ActionSheetSectionTitleCell.swift */,
 				8493965D21E7D3A600DC0AEF /* ActionSheetTitleCell.swift */,
 			);
 			path = Titles;
@@ -1076,10 +1082,12 @@
 				45EB3FDA1FC8521700EF555E /* ActionSheetItemCell.swift in Sources */,
 				45EB3FC61FC8420900EF555E /* ActionSheetItemAppearance.swift in Sources */,
 				456EAA071FCBF47E00A719ED /* ActionSheetButtonAppearance.swift in Sources */,
+				8493966521E7D74100DC0AEF /* ActionSheetSectionMarginCell.swift in Sources */,
 				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverAppearance.swift in Sources */,
 				8493965B21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift in Sources */,
 				8493965E21E7D3A600DC0AEF /* ActionSheetTitleCell.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
+				8493966321E7D67B00DC0AEF /* ActionSheetSectionTitleCell.swift in Sources */,
 				455DEE3E206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift in Sources */,
 				84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */,
 				456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */,

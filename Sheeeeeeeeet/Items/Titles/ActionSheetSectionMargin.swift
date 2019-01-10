@@ -34,6 +34,9 @@ open class ActionSheetSectionMargin: ActionSheetItem {
     
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
-        cell.selectionStyle = .none
+    }
+    
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetSectionMarginCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
 }

@@ -81,8 +81,9 @@ open class ActionSheetItem: NSObject {
         if let color = appearance.backgroundColor {
             cell.backgroundColor = color
         }
+        let noTap = tapBehavior == .none
         cell.imageView?.image = image
-        cell.selectionStyle = .default
+        cell.selectionStyle = noTap ? .none : .default
         cell.separatorInset = appearance.separatorInsets
         cell.tintColor = appearance.tintColor
         cell.textLabel?.text = title
