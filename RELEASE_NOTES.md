@@ -11,6 +11,7 @@
 * ActionSheetItem - override cell
 * ActionSheetItem - no reuse identifier
 * ActionSheetItem - override cell(for) to return custom cells
+* Each item has its own cell type
 
 * The outlets are no longer optional, but implicitly unwrapped optionals.
 

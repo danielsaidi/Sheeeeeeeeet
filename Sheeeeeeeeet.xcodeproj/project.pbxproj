@@ -144,6 +144,7 @@
 		8493966F21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966E21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift */; };
 		8493967121E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967021E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift */; };
 		8493967321E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */; };
+		8493967521E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967421E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -342,6 +343,7 @@
 		8493966E21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButtonCell.swift; sourceTree = "<group>"; };
 		8493967021E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCancelButtonCell.swift; sourceTree = "<group>"; };
 		8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButtonCell.swift; sourceTree = "<group>"; };
+		8493967421E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemCell.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -836,6 +838,7 @@
 				1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */,
 				459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */,
 				849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */,
+				8493967421E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift */,
 				8493966A21E7D8FB00DC0AEF /* ActionSheetMultiSelectItemCell.swift */,
 				8493966621E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift */,
 				8493966821E7D8E300DC0AEF /* ActionSheetSingleSelectItemCell.swift */,
@@ -1081,6 +1084,7 @@
 				8493966721E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift in Sources */,
 				8493966F21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift in Sources */,
 				1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */,
+				8493967521E7DEDF00DC0AEF /* ActionSheetLinkItemCell.swift in Sources */,
 				8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */,
 				45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */,
 				45EB3FD41FC84FD200EF555E /* NSObject+ClassName.swift in Sources */,

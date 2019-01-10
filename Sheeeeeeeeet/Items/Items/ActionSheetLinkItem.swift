@@ -37,4 +37,8 @@ open class ActionSheetLinkItem: ActionSheetItem {
         guard let appearance = linkAppearance else { return }
         cell.accessoryView = UIImageView(image: appearance.linkIcon)
     }
+    
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetLinkItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
 }
