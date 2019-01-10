@@ -20,6 +20,7 @@ extension FoodOption {
     func item() -> ActionSheetItem {
         return ActionSheetItem(
             title: displayName,
+            subtitle: "oueha",
             value: self,
             image: image)
     }

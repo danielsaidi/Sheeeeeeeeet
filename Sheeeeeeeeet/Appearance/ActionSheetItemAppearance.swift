@@ -30,17 +30,21 @@ open class ActionSheetItemAppearance {
     
     // MARK: - Properties
     
-    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use appearance().backgroundColor instead.")
+    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use the cells' appearance().backgroundColor instead.")
     public var backgroundColor: UIColor?
     
-    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use appearance().titleFont instead.")
+    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use the cells' appearance().titleFont instead.")
     public var font: UIFont?
     
+    @available(*, deprecated, message: "subtitleFont is will be removed in 1.4.0. Use the cells' appearance().subtitleFont instead.")
+    public var subtitleFont: UIFont?
+    
+    
+    // TODO
     public var height: CGFloat = 50
     public var separatorInsets: UIEdgeInsets = .zero
     public var textColor: UIColor?
     public var tintColor: UIColor?
-    public var subtitleFont: UIFont?
     public var subtitleTextColor: UIColor?
 }
 

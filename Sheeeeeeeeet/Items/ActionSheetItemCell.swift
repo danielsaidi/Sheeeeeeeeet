@@ -24,10 +24,12 @@ open class ActionSheetItemCell: UITableViewCell {
     open override func layoutSubviews() {
         super.layoutSubviews()
         textLabel?.font = titleFont
+        detailTextLabel?.font = subtitleFont
     }
     
     
     // MARK: - Appearance Properties
     
     @objc public dynamic var titleFont: UIFont?
+    @objc public dynamic var subtitleFont: UIFont?
 }
