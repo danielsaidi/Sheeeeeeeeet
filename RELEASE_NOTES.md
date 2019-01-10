@@ -5,9 +5,18 @@
 
 This version increases the action sheet integrity by restricting what you can do
 with it. This involves some breaking changes, but they should not affect you. If
-you think any new rule is bad, or affect you in a critical way, just let me know.
+you think any new rule is bad or affect you, please let me know.
 
-### ActionSheet:
+
+### New Features
+
+@sebbo176 has added support for subtitles in the various select items, which now
+also changes the cell style of an item if the subtitle is set. He has also added
+an unselected icon to the select items, which means that you can now have images
+for unselected items as well (e.g. an unchecked checkbox).
+
+
+### Breaking Changes - ActionSheet:
 
 * The `items` and `buttons` properties are now `internal(set)`, which means that
 they can only be set with `init(...)` or with `setup(items:)`. This protects the
