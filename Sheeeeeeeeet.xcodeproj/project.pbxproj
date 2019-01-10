@@ -140,6 +140,10 @@
 		8493966721E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966621E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift */; };
 		8493966921E7D8E300DC0AEF /* ActionSheetSingleSelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966821E7D8E300DC0AEF /* ActionSheetSingleSelectItemCell.swift */; };
 		8493966B21E7D8FB00DC0AEF /* ActionSheetMultiSelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966A21E7D8FB00DC0AEF /* ActionSheetMultiSelectItemCell.swift */; };
+		8493966D21E7DA6C00DC0AEF /* ActionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966C21E7DA6C00DC0AEF /* ActionSheetButtonCell.swift */; };
+		8493966F21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493966E21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift */; };
+		8493967121E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967021E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift */; };
+		8493967321E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -334,6 +338,10 @@
 		8493966621E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemCell.swift; sourceTree = "<group>"; };
 		8493966821E7D8E300DC0AEF /* ActionSheetSingleSelectItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItemCell.swift; sourceTree = "<group>"; };
 		8493966A21E7D8FB00DC0AEF /* ActionSheetMultiSelectItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMultiSelectItemCell.swift; sourceTree = "<group>"; };
+		8493966C21E7DA6C00DC0AEF /* ActionSheetButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonCell.swift; sourceTree = "<group>"; };
+		8493966E21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButtonCell.swift; sourceTree = "<group>"; };
+		8493967021E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCancelButtonCell.swift; sourceTree = "<group>"; };
+		8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButtonCell.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -838,6 +846,10 @@
 		8493966121E7D3C500DC0AEF /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				8493966C21E7DA6C00DC0AEF /* ActionSheetButtonCell.swift */,
+				8493967021E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift */,
+				8493967221E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift */,
+				8493966E21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1063,9 +1075,11 @@
 			files = (
 				456EA9FD1FCB109500A719ED /* ActionSheetCancelButton.swift in Sources */,
 				8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */,
+				8493967321E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift in Sources */,
 				456EAA4A1FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift in Sources */,
 				455DEE3C206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift in Sources */,
 				8493966721E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift in Sources */,
+				8493966F21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift in Sources */,
 				1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */,
 				8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */,
 				45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */,
@@ -1111,6 +1125,7 @@
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,
 				453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */,
+				8493966D21E7DA6C00DC0AEF /* ActionSheetButtonCell.swift in Sources */,
 				1D428919204002F2005D4369 /* (null) in Sources */,
 				45EB3FDC1FC856D200EF555E /* ActionSheetPopoverPresenter.swift in Sources */,
 				1D428927204039B4005D4369 /* ActionSheetCollectionItemCell.swift in Sources */,
@@ -1118,6 +1133,7 @@
 				455DEE38206F70C400173E67 /* ActionSheetMultiSelectItem.swift in Sources */,
 				456EAA0E1FCC13A400A719ED /* ActionSheetStandardPresenter.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
+				8493967121E7DAA700DC0AEF /* ActionSheetCancelButtonCell.swift in Sources */,
 				8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */,
 				849F062921D26EDE0074C6E4 /* NSObject+Bundle.swift in Sources */,
 				4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */,

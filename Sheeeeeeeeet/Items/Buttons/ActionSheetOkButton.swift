@@ -32,4 +32,8 @@ open class ActionSheetOkButton: ActionSheetButton {
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = customAppearance ?? ActionSheetOkButtonAppearance(copy: appearance.okButton)
     }
+    
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetOkButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
 }

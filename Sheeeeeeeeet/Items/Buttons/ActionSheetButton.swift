@@ -47,6 +47,10 @@ open class ActionSheetButton: ActionSheetItem {
         super.applyAppearance(to: cell)
         cell.textLabel?.textAlignment = .center
     }
+    
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
 }
 
 

@@ -68,7 +68,9 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: cellReuseIdentifier)
-        return super.cell(for: tableView)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
+        guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type created by superclass") }
+        return typedCell
     }
     
     open func extendSelectionAction(toReload actionSheet: ActionSheet) {

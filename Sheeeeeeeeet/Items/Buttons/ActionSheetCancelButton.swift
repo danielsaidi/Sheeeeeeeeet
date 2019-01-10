@@ -32,4 +32,8 @@ open class ActionSheetCancelButton: ActionSheetButton {
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = customAppearance ?? ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
     }
+    
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetCancelButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
 }

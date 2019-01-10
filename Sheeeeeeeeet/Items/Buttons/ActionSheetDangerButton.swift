@@ -26,4 +26,8 @@ open class ActionSheetDangerButton: ActionSheetOkButton {
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = customAppearance ?? ActionSheetDangerButtonAppearance(copy: appearance.dangerButton)
     }
+    
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetDangerButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
 }
