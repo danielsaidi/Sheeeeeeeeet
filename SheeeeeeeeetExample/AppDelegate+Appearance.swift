@@ -18,6 +18,10 @@ import Sheeeeeeeeet
 
 extension AppDelegate {
     
+    private var robotoBlack: String { return "Roboto-Black" }
+    private var robotoMedium: String { return "Roboto-Medium" }
+    private var robotoRegular: String { return "Roboto-Regular" }
+    
     func applyAppearance() {
         
         let blue = UIColor(hex: 0x0FA2F5)
@@ -26,20 +30,14 @@ extension AppDelegate {
         let purple = UIColor(hex: 0xd9007b)
         let red = UIColor(hex: 0xff3333)
         
-        let robotoBlack = "Roboto-Black"
-        let robotoMedium = "Roboto-Medium"
-        let robotoRegular = "Roboto-Regular"
-        
         let appearance = ActionSheetAppearance.standard
         
-        ActionSheetHeaderView.appearance().cornerRadius = 10
-
-        ActionSheetTableView.appearance().cornerRadius = 10
-        //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
+        applyCornerRadius()
+        applyTitleFonts()
         
 //        appearance.popover.width = 500
         
-        appearance.item.font = UIFont(name: robotoRegular, size: 17)
+        
         appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
         appearance.item.subtitleFont = UIFont(name: robotoRegular, size: 14)
@@ -50,10 +48,8 @@ extension AppDelegate {
 //        appearance.buttonsSeparatorColor = .green
         
         appearance.title.hideSeparator()
-        appearance.title.font = UIFont(name: robotoMedium, size: 15)
         
         appearance.sectionTitle.hideSeparator()
-        appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
         appearance.sectionTitle.height = 20
         
         appearance.sectionMargin.height = 20
@@ -73,19 +69,49 @@ extension AppDelegate {
         appearance.multiSelectItem.selectedIconTintColor = green
         
         appearance.multiSelectToggleItem.hideSeparator()
-        appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
         appearance.multiSelectToggleItem.deselectAllTextColor = red
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         
         appearance.okButton.textColor = .darkGray
-        appearance.okButton.font = UIFont(name: robotoBlack, size: 17)
         
         appearance.dangerButton.textColor = pink
-        appearance.dangerButton.font = UIFont(name: robotoMedium, size: 17)
         
         appearance.cancelButton.textColor = .lightGray
+        
+        applyLegacyAppearance(appearance)
+    }
+}
+
+
+private extension AppDelegate {
+    
+    func applyCornerRadius() {
+        ActionSheetHeaderView.appearance().cornerRadius = 10
+        ActionSheetTableView.appearance().cornerRadius = 10
+        //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
+    }
+    
+    func applyTitleFonts() {
+        ActionSheetItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 27)
+    }
+}
+
+
+private extension AppDelegate {
+    
+    func applyLegacyAppearance(_ appearance: ActionSheetAppearance) {
+        applyLegacyFonts(with: appearance)
+    }
+    
+    func applyLegacyFonts(with appearance: ActionSheetAppearance) {
+        //appearance.item.font = UIFont(name: robotoRegular, size: 17)
+        appearance.title.font = UIFont(name: robotoMedium, size: 15)
+        appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
+        appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
+        appearance.okButton.font = UIFont(name: robotoBlack, size: 17)
+        appearance.dangerButton.font = UIFont(name: robotoMedium, size: 17)
         appearance.cancelButton.font = UIFont(name: robotoMedium, size: 17)
     }
 }

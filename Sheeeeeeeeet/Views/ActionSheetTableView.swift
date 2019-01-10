@@ -30,5 +30,5 @@ open class ActionSheetTableView: UITableView {
     
     // MARK: - Appearance Properties
     
-    @objc dynamic public var cornerRadius: CGFloat = 10
+    @objc public dynamic var cornerRadius: CGFloat = 10
 }

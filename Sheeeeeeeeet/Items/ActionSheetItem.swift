@@ -92,14 +92,13 @@ open class ActionSheetItem: NSObject {
         cell.detailTextLabel?.text = subtitle
         cell.detailTextLabel?.font = appearance.subtitleFont
         cell.detailTextLabel?.textColor = appearance.subtitleTextColor
+
+        applyLegacyAppearance(to: cell)
     }
     
     open func cell(for tableView: UITableView) -> UITableViewCell {
         let id = cellReuseIdentifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: id) as? ActionSheetItemCell
-            ?? ActionSheetItemCell(style: cellStyle, reuseIdentifier: id)
-        applyAppearance(to: cell)
-        return cell
+        return ActionSheetItemCell(style: cellStyle, reuseIdentifier: id)
     }
     
     open func handleTap(in actionSheet: ActionSheet) {}

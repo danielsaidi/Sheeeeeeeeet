@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(*, deprecated, message: "ActionSheetItemAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetItemAppearance {
     
     
@@ -30,7 +31,10 @@ open class ActionSheetItemAppearance {
     // MARK: - Properties
     
     public var backgroundColor: UIColor?
+    
+    @available(*, deprecated, message: "font is will be removed in 1.4.0. Use ActionSheetItemCell.appearance().titleFont instead.")
     public var font: UIFont?
+    
     public var height: CGFloat = 50
     public var separatorInsets: UIEdgeInsets = .zero
     public var textColor: UIColor?

@@ -210,8 +210,6 @@ open class ActionSheet: UIViewController {
         refreshButtons()
         stackView?.spacing = appearance.groupMargins
         presenter.refreshActionSheet()
-        
-        // TODO: Remove this after 1.3.0
         applyLegacyAppearance()
     }
     
@@ -255,21 +253,6 @@ open class ActionSheet: UIViewController {
     open func reloadData() {
         itemsTableView?.reloadData()
         buttonsTableView?.reloadData()
-    }
-}
-
-
-private extension ActionSheet {
-    
-    func applyLegacyAppearance() {
-        applyLegacyAppearanceCornerRadius()
-    }
-    
-    func applyLegacyAppearanceCornerRadius() {
-        guard let radius = appearance.cornerRadius else { return }
-        headerViewContainer?.cornerRadius = radius
-        itemsTableView?.cornerRadius = radius
-        buttonsTableView?.cornerRadius = radius
     }
 }
 

@@ -21,7 +21,7 @@
 
 import UIKit
 
-@available(*, deprecated, message: "ActionSheetAppearance is deprecated and will be removed. Use the new appearance model instead.")
+@available(*, deprecated, message: "ActionSheetAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetAppearance {
     
     
@@ -64,7 +64,7 @@ open class ActionSheetAppearance {
     
     // MARK: - Properties
     
-    @available(*, deprecated, message: "cornerRadius is deprecated and will be removed. Use ActionSheetTableView.appearance().cornerRadius and ActionSheetHeaderView.appearance().cornerRadius instead.")
+    @available(*, deprecated, message: "cornerRadius will be removed in 1.4.0. Use ActionSheetTableView.appearance().cornerRadius and ActionSheetHeaderView.appearance().cornerRadius instead.")
     public var cornerRadius: CGFloat?
     
     public var contentInset: CGFloat = 15

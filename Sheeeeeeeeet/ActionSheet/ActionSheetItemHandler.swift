@@ -68,7 +68,9 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let item = self.item(at: indexPath) else { return UITableViewCell(frame: .zero) }
-        return item.cell(for: tableView)
+        let cell = item.cell(for: tableView)
+        item.applyAppearance(to: cell)
+        return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

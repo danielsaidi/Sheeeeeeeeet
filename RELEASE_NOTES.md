@@ -7,12 +7,16 @@
 * Appearance proxies
 * Easier to configure, subclass etc.
 * No brittle copying
+* ActionSheetItem - override cell
+* ActionSheetItem - no reuse identifier
+* ActionSheetItem - override cell(for) to return custom cells
 
 * The outlets are no longer optional, but implicitly unwrapped optionals.
 
 Test:
 * ActionSheetHeaderView
 * ActionSheetTableView
+* ActionSheetItemHandler -> item.applyAppearance(to: cell)
 
 
 ## 1.1.0

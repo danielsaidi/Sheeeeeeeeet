@@ -183,18 +183,10 @@ class ActionSheetItemTests: QuickSpec {
                 return UITableView(frame: .zero)
             }
             
-            it("always returns a cell even if table view fails to dequeue") {
+            it("returns action sheet item cell") {
                 let item = createItem()
                 let cell = item.cell(for: tableView())
-                expect(cell).toNot(beNil())
-            }
-            
-            it("applies appearance to cell") {
-                let item = createItem()
-                let cell = item.cell(for: tableView())
-                expect(item.applyAppearanceInvokeCount).to(equal(1))
-                expect(item.applyAppearanceInvokeCells.count).to(equal(1))
-                expect(item.applyAppearanceInvokeCells[0]).to(be(cell))
+                expect(cell is ActionSheetItemCell).to(beTrue())
             }
         }
     }
