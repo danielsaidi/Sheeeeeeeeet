@@ -97,8 +97,7 @@ open class ActionSheetItem: NSObject {
     }
     
     open func cell(for tableView: UITableView) -> UITableViewCell {
-        let id = cellReuseIdentifier
-        return ActionSheetItemCell(style: cellStyle, reuseIdentifier: id)
+        return ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     
     open func handleTap(in actionSheet: ActionSheet) {}

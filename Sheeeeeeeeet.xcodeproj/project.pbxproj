@@ -134,6 +134,7 @@
 		8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */; };
 		8493965921E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */; };
 		8493965B21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */; };
+		8493965E21E7D3A600DC0AEF /* ActionSheetTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965D21E7D3A600DC0AEF /* ActionSheetTitleCell.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -322,6 +323,7 @@
 		8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderView.swift; sourceTree = "<group>"; };
 		8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+LegacyAppearance.swift"; sourceTree = "<group>"; };
 		8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheetItem+LegacyAppearance.swift"; sourceTree = "<group>"; };
+		8493965D21E7D3A600DC0AEF /* ActionSheetTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleCell.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -672,11 +674,7 @@
 		459DA1B820568E4500644490 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1D428925204039B4005D4369 /* ActionSheetCollectionItemCell.swift */,
-				1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */,
-				459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */,
-				849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */,
-				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+				8493965C21E7D22200DC0AEF /* Cells */,
 				8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */,
 				8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */,
 			);
@@ -790,6 +788,43 @@
 				8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */,
 			);
 			path = _Legacy;
+			sourceTree = "<group>";
+		};
+		8493965C21E7D22200DC0AEF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
+				8493966121E7D3C500DC0AEF /* Buttons */,
+				8493966021E7D3BA00DC0AEF /* Items */,
+				8493965F21E7D3B000DC0AEF /* Titles */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8493965F21E7D3B000DC0AEF /* Titles */ = {
+			isa = PBXGroup;
+			children = (
+				8493965D21E7D3A600DC0AEF /* ActionSheetTitleCell.swift */,
+			);
+			path = Titles;
+			sourceTree = "<group>";
+		};
+		8493966021E7D3BA00DC0AEF /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				1D428925204039B4005D4369 /* ActionSheetCollectionItemCell.swift */,
+				1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */,
+				459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */,
+				849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		8493966121E7D3C500DC0AEF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		8499359C216BE13C000A0670 /* Items */ = {
@@ -1043,6 +1078,7 @@
 				456EAA071FCBF47E00A719ED /* ActionSheetButtonAppearance.swift in Sources */,
 				45EB3FDE1FC8575500EF555E /* ActionSheetPopoverAppearance.swift in Sources */,
 				8493965B21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift in Sources */,
+				8493965E21E7D3A600DC0AEF /* ActionSheetTitleCell.swift in Sources */,
 				45EB3FC81FC8423400EF555E /* ActionSheetSelectItemAppearance.swift in Sources */,
 				455DEE3E206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift in Sources */,
 				84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */,

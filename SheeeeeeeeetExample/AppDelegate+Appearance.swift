@@ -94,7 +94,8 @@ private extension AppDelegate {
     }
     
     func applyTitleFonts() {
-        ActionSheetItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 27)
+        ActionSheetItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 17)
+        ActionSheetTitleCell.appearance().titleFont = UIFont(name: robotoMedium, size: 15)
     }
 }
 
@@ -107,7 +108,7 @@ private extension AppDelegate {
     
     func applyLegacyFonts(with appearance: ActionSheetAppearance) {
         //appearance.item.font = UIFont(name: robotoRegular, size: 17)
-        appearance.title.font = UIFont(name: robotoMedium, size: 15)
+        //appearance.title.font = UIFont(name: robotoMedium, size: 15)
         appearance.sectionTitle.font = UIFont(name: robotoMedium, size: 13)
         appearance.multiSelectToggleItem.font = UIFont(name: robotoMedium, size: 13)
         appearance.okButton.font = UIFont(name: robotoBlack, size: 17)
