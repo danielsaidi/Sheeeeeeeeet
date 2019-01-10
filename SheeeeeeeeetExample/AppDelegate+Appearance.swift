@@ -25,11 +25,11 @@ extension AppDelegate {
         applyCornerRadius()
         applyItemBackgroundColors()
         applyItemSubtitleFonts()
+        applyItemTitleColors()
         applyItemTitleFonts()
         
 //        appearance.popover.width = 500
         
-        appearance.item.textColor = .darkText
         appearance.item.tintColor = .darkGray
         appearance.item.subtitleTextColor = exampleBlue
         
@@ -91,6 +91,10 @@ private extension AppDelegate {
         ActionSheetItemCell.appearance().subtitleFont = robotoRegular(size: 14)
     }
     
+    func applyItemTitleColors() {
+        ActionSheetItemCell.appearance().titleColor = .darkText
+    }
+    
     func applyItemTitleFonts() {
         ActionSheetItemCell.appearance().titleFont = robotoRegular(size: 17)
         ActionSheetLinkItemCell.appearance().titleFont = robotoRegular(size: 17)
@@ -142,6 +146,7 @@ private extension AppDelegate {
         applyLegacyItemBackgroundColors(with: appearance)
         applyLegacyItemFonts(with: appearance)
         applyLegacyItemSubtitleFonts(with: appearance)
+        applyLegacyItemTextColors(with: appearance)
     }
     
     func applyLegacyItemBackgroundColors(with appearance: ActionSheetAppearance) {
@@ -161,5 +166,9 @@ private extension AppDelegate {
     
     func applyLegacyItemSubtitleFonts(with appearance: ActionSheetAppearance) {
 //        appearance.item.subtitleFont = robotoRegular(size: 170)
+    }
+    
+    func applyLegacyItemTextColors(with appearance: ActionSheetAppearance) {
+//        appearance.item.textColor = .purple
     }
 }

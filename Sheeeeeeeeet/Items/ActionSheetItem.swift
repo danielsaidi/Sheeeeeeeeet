@@ -85,7 +85,6 @@ open class ActionSheetItem: NSObject {
         cell.tintColor = appearance.tintColor
         cell.textLabel?.text = title
         cell.textLabel?.textAlignment = .left
-        cell.textLabel?.textColor = appearance.textColor
         cell.detailTextLabel?.text = subtitle
         cell.detailTextLabel?.textColor = appearance.subtitleTextColor
         applyLegacyAppearance(to: cell)

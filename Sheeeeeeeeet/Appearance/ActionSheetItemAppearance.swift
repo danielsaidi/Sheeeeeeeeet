@@ -39,11 +39,13 @@ open class ActionSheetItemAppearance {
     @available(*, deprecated, message: "subtitleFont is will be removed in 1.4.0. Use the cells' appearance().subtitleFont instead.")
     public var subtitleFont: UIFont?
     
+    @available(*, deprecated, message: "textColor is will be removed in 1.4.0. Use the cells' appearance().titleColor instead.")
+    public var textColor: UIColor?
+    
     
     // TODO
     public var height: CGFloat = 50
     public var separatorInsets: UIEdgeInsets = .zero
-    public var textColor: UIColor?
     public var tintColor: UIColor?
     public var subtitleTextColor: UIColor?
 }
