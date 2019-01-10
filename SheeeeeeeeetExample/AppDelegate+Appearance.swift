@@ -24,6 +24,7 @@ extension AppDelegate {
         
         applyCornerRadius()
         applyItemBackgroundColors()
+        applyItemSubtitleColors()
         applyItemSubtitleFonts()
         applyItemTitleColors()
         applyItemTitleFonts()
@@ -31,7 +32,6 @@ extension AppDelegate {
 //        appearance.popover.width = 500
         
         appearance.item.tintColor = .darkGray
-        appearance.item.subtitleTextColor = exampleBlue
         
 //        appearance.separatorColor = .red
 //        appearance.itemsSeparatorColor = .blue
@@ -85,6 +85,10 @@ private extension AppDelegate {
     
     func applyItemBackgroundColors() {
         //ActionSheetItemCell.appearance().backgroundColor = red
+    }
+    
+    func applyItemSubtitleColors() {
+        ActionSheetItemCell.appearance().subtitleColor = exampleBlue
     }
     
     func applyItemSubtitleFonts() {
@@ -146,6 +150,7 @@ private extension AppDelegate {
         applyLegacyItemBackgroundColors(with: appearance)
         applyLegacyItemFonts(with: appearance)
         applyLegacyItemSubtitleFonts(with: appearance)
+        applyLegacyItemSubtitleTextColor(with: appearance)
         applyLegacyItemTextColors(with: appearance)
     }
     
@@ -166,6 +171,10 @@ private extension AppDelegate {
     
     func applyLegacyItemSubtitleFonts(with appearance: ActionSheetAppearance) {
 //        appearance.item.subtitleFont = robotoRegular(size: 170)
+    }
+    
+    func applyLegacyItemSubtitleTextColor(with appearance: ActionSheetAppearance) {
+//        appearance.item.subtitleTextColor = .purple
     }
     
     func applyLegacyItemTextColors(with appearance: ActionSheetAppearance) {
