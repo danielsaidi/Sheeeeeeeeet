@@ -96,6 +96,7 @@ private extension AppDelegate {
     func applyTitleFonts() {
         ActionSheetItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 17)
         ActionSheetLinkItemCell.appearance().titleFont = UIFont(name: robotoRegular, size: 17)
+        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = UIFont(name: robotoMedium, size: 13)
         ActionSheetSectionTitleCell.appearance().titleFont = UIFont(name: robotoMedium, size: 13)
         ActionSheetTitleCell.appearance().titleFont = UIFont(name: robotoMedium, size: 15)
         ActionSheetOkButtonCell.appearance().titleFont = UIFont(name: robotoBlack, size: 17)
