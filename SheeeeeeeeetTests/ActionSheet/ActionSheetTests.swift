@@ -290,7 +290,7 @@ class ActionSheetTests: QuickSpec {
         describe("when refreshing") {
             
             var sheet: MockActionSheet!
-            var headerViewContainer: UIView!
+            var headerViewContainer: ActionSheetHeaderView!
             var itemsView: ActionSheetTableView!
             var buttonsView: ActionSheetTableView!
             var stackView: UIStackView!
@@ -298,8 +298,7 @@ class ActionSheetTests: QuickSpec {
             beforeEach {
                 sheet = createSheet()
                 sheet.appearance.groupMargins = 123
-                sheet.appearance.cornerRadius = 90
-                headerViewContainer = UIView(frame: .zero)
+                headerViewContainer = ActionSheetHeaderView(frame: .zero)
                 itemsView = createTableView()
                 buttonsView = createTableView()
                 stackView = UIStackView(frame: .zero)
@@ -311,17 +310,8 @@ class ActionSheetTests: QuickSpec {
             
             context("sheet") {
                 
-                it("applies round corners") {
-                    sheet.refresh()
-                    
-                    expect(headerViewContainer.layer.cornerRadius).to(equal(90))
-                    expect(itemsView.layer.cornerRadius).to(equal(90))
-                    expect(buttonsView.layer.cornerRadius).to(equal(90))
-                }
-                
                 it("applies stack view spacing") {
                     sheet.refresh()
-                    
                     expect(sheet.stackView?.spacing).to(equal(123))
                 }
                 
@@ -329,7 +319,6 @@ class ActionSheetTests: QuickSpec {
                     let presenter = MockActionSheetPresenter()
                     let sheet = MockActionSheet(items: [], presenter: presenter) { (_, _) in }
                     sheet.refresh()
-                    
                     expect(presenter.refreshActionSheetInvokeCount).to(equal(1))
                 }
             }

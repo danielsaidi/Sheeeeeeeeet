@@ -32,6 +32,11 @@ extension AppDelegate {
         
         let appearance = ActionSheetAppearance.standard
         
+        ActionSheetHeaderView.appearance().cornerRadius = 10
+
+        ActionSheetTableView.appearance().cornerRadius = 10
+        //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
+        
 //        appearance.popover.width = 500
         
         appearance.item.font = UIFont(name: robotoRegular, size: 17)

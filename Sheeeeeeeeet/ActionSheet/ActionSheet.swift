@@ -151,14 +151,20 @@ open class ActionSheet: UIViewController {
     @IBOutlet weak var rightMargin: NSLayoutConstraint?
     @IBOutlet weak var bottomMargin: NSLayoutConstraint?
     
+    @IBOutlet weak var headerViewContainer: ActionSheetHeaderView? {
+        didSet { headerViewContainer?.clipsToBounds = true }
+    }
+    
+    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
+    @IBOutlet weak var itemsTableView: ActionSheetTableView?
+    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
+    @IBOutlet weak var buttonsTableView: ActionSheetTableView?
+    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
+    
     
     // MARK: - Header Properties
     
     open var headerView: UIView?
-    
-    @IBOutlet weak var headerViewContainer: UIView?
-    
-    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
     
     
     // MARK: - Item Properties
@@ -169,10 +175,6 @@ open class ActionSheet: UIViewController {
     
     public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
-    @IBOutlet weak var itemsTableView: ActionSheetTableView?
-    
-    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
-    
     
     // MARK: - Button Properties
     
@@ -181,10 +183,6 @@ open class ActionSheet: UIViewController {
     public var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
     
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
-    
-    @IBOutlet weak var buttonsTableView: ActionSheetTableView?
-    
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     
     // MARK: - Presentation Functions
@@ -207,12 +205,14 @@ open class ActionSheet: UIViewController {
     // MARK: - Refresh Functions
     
     open func refresh() {
-        applyRoundCorners()
         refreshHeader()
         refreshItems()
         refreshButtons()
         stackView?.spacing = appearance.groupMargins
         presenter.refreshActionSheet()
+        
+        // TODO: Remove this after 1.3.0
+        applyLegacyAppearance()
     }
     
     open func refreshHeader() {
@@ -259,21 +259,24 @@ open class ActionSheet: UIViewController {
 }
 
 
+private extension ActionSheet {
+    
+    func applyLegacyAppearance() {
+        applyLegacyAppearanceCornerRadius()
+    }
+    
+    func applyLegacyAppearanceCornerRadius() {
+        guard let radius = appearance.cornerRadius else { return }
+        headerViewContainer?.cornerRadius = radius
+        itemsTableView?.cornerRadius = radius
+        buttonsTableView?.cornerRadius = radius
+    }
+}
+
+
 // MARK: - Private Functions
 
 private extension ActionSheet {
-    
-    func applyRoundCorners() {
-        applyRoundCorners(to: headerView)
-        applyRoundCorners(to: headerViewContainer)
-        applyRoundCorners(to: itemsTableView)
-        applyRoundCorners(to: buttonsTableView)
-    }
-
-    func applyRoundCorners(to view: UIView?) {
-        view?.clipsToBounds = true
-        view?.layer.cornerRadius = appearance.cornerRadius
-    }
     
     func setup(_ tableView: UITableView?, with handler: ActionSheetItemHandler) {
         tableView?.delegate = handler

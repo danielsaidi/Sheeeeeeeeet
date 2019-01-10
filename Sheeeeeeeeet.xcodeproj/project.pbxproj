@@ -131,6 +131,7 @@
 		84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */; };
 		8453C22321A9EF2600C2FD16 /* ActionSheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */; };
 		8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */; };
+		8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
@@ -316,6 +317,7 @@
 		84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubviewsTests.swift"; sourceTree = "<group>"; };
 		8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTableView.swift; sourceTree = "<group>"; };
 		8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Fullscreen.swift"; sourceTree = "<group>"; };
+		8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderView.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemAppearance.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		453C04231FC0655C0028FA02 /* Sheeeeeeeeet */ = {
 			isa = PBXGroup;
 			children = (
+				8493965721E7A47C00DC0AEF /* _Legacy */,
 				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C797220931BFB00DE42B5 /* ActionSheet */,
@@ -671,6 +674,7 @@
 				849935A1216BEAD8000A0670 /* ActionSheetCustomItemCell.swift */,
 				45EB3FD91FC8521700EF555E /* ActionSheetItemCell.swift */,
 				8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */,
+				8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -773,6 +777,13 @@
 				459DA1C52056C6B400644490 /* ActionSheetSingleSelectItemTests.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		8493965721E7A47C00DC0AEF /* _Legacy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = _Legacy;
 			sourceTree = "<group>";
 		};
 		8499359C216BE13C000A0670 /* Items */ = {
@@ -1043,6 +1054,7 @@
 				455DEE38206F70C400173E67 /* ActionSheetMultiSelectItem.swift in Sources */,
 				456EAA0E1FCC13A400A719ED /* ActionSheetStandardPresenter.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
+				8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */,
 				849F062921D26EDE0074C6E4 /* NSObject+Bundle.swift in Sources */,
 				4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */,
 				84539DA821775C030097039F /* UIView+Nib.swift in Sources */,
@@ -1196,6 +1208,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1252,6 +1265,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
