@@ -45,11 +45,13 @@ open class ActionSheetItemAppearance {
     @available(*, deprecated, message: "textColor will be removed in 1.4.0. Use the cells' appearance().titleColor instead.")
     public var textColor: UIColor?
     
+    @available(*, deprecated, message: "tintColor will be removed in 1.4.0. Use the cells' appearance().tintColor instead.")
+    public var tintColor: UIColor?
+    
     
     // TODO
     public var height: CGFloat = 50
     public var separatorInsets: UIEdgeInsets = .zero
-    public var tintColor: UIColor?
 }
 
 

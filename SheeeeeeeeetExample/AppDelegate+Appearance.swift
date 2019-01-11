@@ -28,10 +28,9 @@ extension AppDelegate {
         applyItemSubtitleFonts()
         applyItemTitleColors()
         applyItemTitleFonts()
+        applyItemTintColors()
         
 //        appearance.popover.width = 500
-        
-        appearance.item.tintColor = .darkGray
         
 //        appearance.separatorColor = .red
 //        appearance.itemsSeparatorColor = .blue
@@ -64,12 +63,6 @@ extension AppDelegate {
         
         appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         
-        appearance.okButton.textColor = .darkGray
-        
-        appearance.dangerButton.textColor = .examplePink
-        
-        appearance.cancelButton.textColor = .lightGray
-        
         applyLegacyAppearance(appearance)
     }
 }
@@ -95,8 +88,15 @@ private extension AppDelegate {
         ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
     }
     
+    func applyItemTintColors() {
+        ActionSheetItemCell.appearance().tintColor = .darkText
+    }
+    
     func applyItemTitleColors() {
         ActionSheetItemCell.appearance().titleColor = .darkText
+        ActionSheetOkButtonCell.appearance().titleColor = .darkGray
+        ActionSheetCancelButtonCell.appearance().titleColor = .lightGray
+        ActionSheetDangerButtonCell.appearance().titleColor = .examplePink
     }
     
     func applyItemTitleFonts() {
@@ -122,6 +122,7 @@ private extension AppDelegate {
         applyLegacyItemSubtitleFonts(with: appearance)
         applyLegacyItemSubtitleTextColor(with: appearance)
         applyLegacyItemTextColors(with: appearance)
+        applyLegacyItemTintColors(with: appearance)
     }
     
     func applyLegacyItemBackgroundColors(with appearance: ActionSheetAppearance) {
@@ -149,5 +150,12 @@ private extension AppDelegate {
     
     func applyLegacyItemTextColors(with appearance: ActionSheetAppearance) {
 //        appearance.item.textColor = .purple
+//        appearance.okButton.textColor = .darkGray
+//        appearance.dangerButton.textColor = .examplePink
+//        appearance.cancelButton.textColor = .lightGray
+    }
+    
+    func applyLegacyItemTintColors(with appearance: ActionSheetAppearance) {
+//        appearance.item.tintColor = .purple
     }
 }

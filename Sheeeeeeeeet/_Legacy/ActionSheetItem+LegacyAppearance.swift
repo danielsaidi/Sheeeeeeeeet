@@ -17,6 +17,7 @@ extension ActionSheetItem {
         applyLegacySubtitleFont(to: cell)
         applyLegacySubtitleTextColor(to: cell)
         applyLegacyTextColor(to: cell)
+        applyLegacyTintColor(to: cell)
     }
 }
 
@@ -50,5 +51,11 @@ private extension ActionSheetItem {
         guard let color = appearance.textColor else { return }
         let cell = cell as? ActionSheetItemCell
         cell?.titleColor = color
+    }
+    
+    func applyLegacyTintColor(to cell: UITableViewCell) {
+        guard let color = appearance.tintColor else { return }
+        let cell = cell as? ActionSheetItemCell
+        cell?.tintColor = color
     }
 }

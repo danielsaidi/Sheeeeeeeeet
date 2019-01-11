@@ -82,7 +82,6 @@ open class ActionSheetItem: NSObject {
         cell.imageView?.image = image
         cell.selectionStyle = noTap ? .none : .default
         cell.separatorInset = appearance.separatorInsets
-        cell.tintColor = appearance.tintColor
         cell.textLabel?.text = title
         cell.textLabel?.textAlignment = .left
         cell.detailTextLabel?.text = subtitle
