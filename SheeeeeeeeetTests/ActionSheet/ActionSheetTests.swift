@@ -478,15 +478,33 @@ class ActionSheetTests: QuickSpec {
         
         describe("margin at position") {
             
-            it("uses apperance if no superview value exists") {
-                let sheet = createSheet()
-                sheet.appearance.contentInset = 80
-                
-                expect(sheet.margin(at: .top)).to(equal(80))
-                expect(sheet.margin(at: .left)).to(equal(80))
-                expect(sheet.margin(at: .right)).to(equal(80))
-                expect(sheet.margin(at: .bottom)).to(equal(80))
-            }
+//            it("uses default edge margins if it has not been manually set") {
+//                let sheet = createSheet()
+//                expect(sheet.margin(at: .top)).to(equal(sheet.view.safeAreaInsets.left))
+//                expect(sheet.margin(at: .left)).to(equal(80))
+//                expect(sheet.margin(at: .right)).to(equal(80))
+//                expect(sheet.margin(at: .bottom)).to(equal(80))
+//            }
+//            
+//            it("ignores custom edge margins with smaller value than the default ones") {
+//                let sheet = createSheet()
+//                sheet.edgeMargins = 80
+//                
+//                expect(sheet.margin(at: .top)).to(equal(80))
+//                expect(sheet.margin(at: .left)).to(equal(80))
+//                expect(sheet.margin(at: .right)).to(equal(80))
+//                expect(sheet.margin(at: .bottom)).to(equal(80))
+//            }
+//            
+//            it("uses custom edge margins with greated value than the default ones") {
+//                let sheet = createSheet()
+//                sheet.edgeMargins = 80
+//                
+//                expect(sheet.margin(at: .top)).to(equal(80))
+//                expect(sheet.margin(at: .left)).to(equal(80))
+//                expect(sheet.margin(at: .right)).to(equal(80))
+//                expect(sheet.margin(at: .bottom)).to(equal(80))
+//            }
         }
         
         describe("reloading data") {

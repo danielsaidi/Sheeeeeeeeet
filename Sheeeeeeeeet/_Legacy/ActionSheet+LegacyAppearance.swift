@@ -12,13 +12,22 @@ extension ActionSheet {
 
     @available(*, deprecated, message: "applyLegacyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     func applyLegacyAppearance() {
-        applyLegacyAppearanceCornerRadius()
+        applyLegacyContentInsets()
+        applyLegacyCornerRadius()
     }
 }
 
 private extension ActionSheet {
     
-    func applyLegacyAppearanceCornerRadius() {
+    func applyLegacyContentInsets() {
+        guard let inset = appearance.contentInset else { return }
+        minimumContentInsets.top = inset
+        minimumContentInsets.left = inset
+        minimumContentInsets.right = inset
+        minimumContentInsets.bottom = inset
+    }
+    
+    func applyLegacyCornerRadius() {
         guard let radius = appearance.cornerRadius else { return }
         headerViewContainer?.cornerRadius = radius
         itemsTableView?.cornerRadius = radius

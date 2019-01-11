@@ -140,6 +140,9 @@ open class ActionSheet: UIViewController {
     
     public var appearance = ActionSheetAppearance(copy: .standard)
     
+    public static var minimumContentInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+    public lazy var minimumContentInsets = ActionSheet.minimumContentInsets
+    
     
     // MARK: - Outlets
     
@@ -246,8 +249,13 @@ open class ActionSheet: UIViewController {
     }
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
-        let minimum = appearance.contentInset
-        return margin.value(in: view.superview, minimum: minimum)
+        let superview = view.superview
+        switch margin {
+        case .top: return margin.value(in: superview, minimum: minimumContentInsets.top)
+        case .left: return margin.value(in: superview, minimum: minimumContentInsets.left)
+        case .right: return margin.value(in: superview, minimum: minimumContentInsets.right)
+        case .bottom: return margin.value(in: superview, minimum: minimumContentInsets.bottom)
+        }
     }
 
     open func reloadData() {

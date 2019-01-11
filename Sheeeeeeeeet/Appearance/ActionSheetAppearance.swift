@@ -67,9 +67,12 @@ open class ActionSheetAppearance {
     @available(*, deprecated, message: "cornerRadius will be removed in 1.4.0. Use ActionSheetTableView.appearance().cornerRadius and ActionSheetHeaderView.appearance().cornerRadius instead.")
     public var cornerRadius: CGFloat?
     
-    public var contentInset: CGFloat = 15
-    public var groupMargins: CGFloat = 15
+    @available(*, deprecated, message: "contentInset will be removed in 1.4.0. Use ActionSheet.minimumContentInsets instead.")
+    public var contentInset: CGFloat?
     
+    
+    // TODO:
+    public var groupMargins: CGFloat = 15
     public var backgroundColor: UIColor?
     public var separatorColor: UIColor?
     public var itemsBackgroundColor: UIColor?

@@ -13,6 +13,8 @@
 * ActionSheetItem - override cell(for) to return custom cells
 * Each item has its own cell type
 
+* ActionSheet.minimumContentInsets - static/instance variable.
+
 * The outlets are no longer optional, but implicitly unwrapped optionals.
 
 Test:
@@ -20,6 +22,9 @@ Test:
 * ActionSheetTableView
 * ActionSheetItemHandler -> item.applyAppearance(to: cell)
 * ActionSheetXXXCell -> Setup
+* ActionSheetTests describe("margin at position")
+* ActionSheet.marginAt
+* ActionSheet.minimumContentInsets
 
 
 ## 1.1.0
