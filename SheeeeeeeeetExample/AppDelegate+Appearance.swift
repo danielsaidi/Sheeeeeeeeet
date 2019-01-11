@@ -22,7 +22,7 @@ extension AppDelegate {
         
         let appearance = ActionSheetAppearance.standard
         
-        applyCornerRadius()
+        applyViewAppearances()
         applyItemBackgroundColors()
         applyItemSubtitleColors()
         applyItemSubtitleFonts()
@@ -70,9 +70,11 @@ extension AppDelegate {
 
 private extension AppDelegate {
     
-    func applyCornerRadius() {
+    func applyViewAppearances() {
+        ActionSheetBackgroundView.appearance().backgroundColor = .purple
         ActionSheetHeaderView.appearance().cornerRadius = 10
         ActionSheetTableView.appearance().cornerRadius = 10
+        ActionSheetItemTableView.appearance().cornerRadius = 20
         //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
     }
     

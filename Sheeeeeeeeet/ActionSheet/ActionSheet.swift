@@ -146,23 +146,19 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var backgroundView: UIView?
+    @IBOutlet weak var backgroundView: ActionSheetBackgroundView?
     @IBOutlet weak var stackView: UIStackView?
+    @IBOutlet weak var headerViewContainer: ActionSheetHeaderView?
+    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
+    @IBOutlet weak var itemsTableView: ActionSheetItemTableView?
+    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
+    @IBOutlet weak var buttonsTableView: ActionSheetButtonTableView?
+    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     @IBOutlet weak var topMargin: NSLayoutConstraint?
     @IBOutlet weak var leftMargin: NSLayoutConstraint?
     @IBOutlet weak var rightMargin: NSLayoutConstraint?
     @IBOutlet weak var bottomMargin: NSLayoutConstraint?
-    
-    @IBOutlet weak var headerViewContainer: ActionSheetHeaderView? {
-        didSet { headerViewContainer?.clipsToBounds = true }
-    }
-    
-    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
-    @IBOutlet weak var itemsTableView: ActionSheetTableView?
-    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
-    @IBOutlet weak var buttonsTableView: ActionSheetTableView?
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     
     // MARK: - Header Properties

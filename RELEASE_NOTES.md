@@ -13,9 +13,14 @@
 * ActionSheetItem - override cell(for) to return custom cells
 * Each item has its own cell type
 
-* ActionSheet.minimumContentInsets - static/instance variable.
+* New views
+  * ActionSheetTableView
+  * ActionSheetItemTableView
+  * ActionSheetButtonTableView
+  * ActionSheetBackgroundView
+  * ActionSheetStackView
 
-* The outlets are no longer optional, but implicitly unwrapped optionals.
+* ActionSheet.minimumContentInsets - static/instance variable.
 
 Test:
 * ActionSheetHeaderView
