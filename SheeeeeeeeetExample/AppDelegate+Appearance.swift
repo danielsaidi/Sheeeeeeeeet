@@ -71,15 +71,16 @@ extension AppDelegate {
 private extension AppDelegate {
     
     func applyViewAppearances() {
-        ActionSheetBackgroundView.appearance().backgroundColor = .purple
+        //ActionSheetBackgroundView.appearance().backgroundColor = .purple
         ActionSheetHeaderView.appearance().cornerRadius = 10
         ActionSheetTableView.appearance().cornerRadius = 10
-        ActionSheetItemTableView.appearance().cornerRadius = 20
+        //ActionSheetItemTableView.appearance().cornerRadius = 20
         //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
     }
     
     func applyItemBackgroundColors() {
         //ActionSheetItemCell.appearance().backgroundColor = red
+        //ActionSheetItemCell.appearance(whenContainedInInstancesOf: [ActionSheetItemTableView.self]).backgroundColor = .purple
     }
     
     func applyItemSubtitleColors() {

@@ -64,20 +64,26 @@ open class ActionSheetAppearance {
     
     // MARK: - Properties
     
+    @available(*, deprecated, message: "backgroundColor will be removed in 1.4.0. Use ActionSheetTableView.appearance().backgroundColor instead.")
+    public var backgroundColor: UIColor?
+    
+    @available(*, deprecated, message: "buttonsBackgroundColor will be removed in 1.4.0. Use ActionSheetButtonTableView.appearance().backgroundColor instead.")
+    public var buttonsBackgroundColor: UIColor?
+    
     @available(*, deprecated, message: "cornerRadius will be removed in 1.4.0. Use ActionSheetTableView.appearance().cornerRadius and ActionSheetHeaderView.appearance().cornerRadius instead.")
     public var cornerRadius: CGFloat?
     
     @available(*, deprecated, message: "contentInset will be removed in 1.4.0. Use ActionSheet.minimumContentInsets instead.")
     public var contentInset: CGFloat?
     
+    @available(*, deprecated, message: "itemsBackgroundColor will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().backgroundColor instead.")
+    public var itemsBackgroundColor: UIColor?
+    
     
     // TODO:
     public var groupMargins: CGFloat = 15
-    public var backgroundColor: UIColor?
     public var separatorColor: UIColor?
-    public var itemsBackgroundColor: UIColor?
     public var itemsSeparatorColor: UIColor?
-    public var buttonsBackgroundColor: UIColor?
     public var buttonsSeparatorColor: UIColor?
     
     

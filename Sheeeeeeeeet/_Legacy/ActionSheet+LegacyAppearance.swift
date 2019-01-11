@@ -12,12 +12,20 @@ extension ActionSheet {
 
     @available(*, deprecated, message: "applyLegacyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     func applyLegacyAppearance() {
+        applyLegacyBackgroundColors()
         applyLegacyContentInsets()
         applyLegacyCornerRadius()
     }
 }
 
 private extension ActionSheet {
+    
+    func applyLegacyBackgroundColors() {
+        if let color = appearance.backgroundColor { itemsTableView?.backgroundColor = color }
+        if let color = appearance.backgroundColor { buttonsTableView?.backgroundColor = color }
+        if let color = appearance.itemsBackgroundColor { itemsTableView?.backgroundColor = color }
+        if let color = appearance.buttonsBackgroundColor { buttonsTableView?.backgroundColor = color }
+    }
     
     func applyLegacyContentInsets() {
         guard let inset = appearance.contentInset else { return }
