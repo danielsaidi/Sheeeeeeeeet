@@ -79,9 +79,12 @@ open class ActionSheetAppearance {
     @available(*, deprecated, message: "itemsBackgroundColor will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().backgroundColor instead.")
     public var itemsBackgroundColor: UIColor?
     
+    @available(*, deprecated, message: "groupMargins will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().sectionMargins instead.")
+    public var groupMargins: CGFloat?
+    
     
     // TODO:
-    public var groupMargins: CGFloat = 15
+    
     public var separatorColor: UIColor?
     public var itemsSeparatorColor: UIColor?
     public var buttonsSeparatorColor: UIColor?

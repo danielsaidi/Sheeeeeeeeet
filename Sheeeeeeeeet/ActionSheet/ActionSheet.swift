@@ -41,15 +41,6 @@
  iPad devices most often get an `ActionSheetPopoverPresenter`.
  
  
- ## Appearance
- 
- To change the global appearance for all action sheets, just
- modify the `ActionSheetAppearance.standard` to look the way
- you want. To change the appearance of a single action sheet,
- modify its `appearance` property. To change the appearances
- of single items, modify their `customAppearance` property.
- 
- 
  ## Handling item selections
  
  The `selectAction` is triggered when a user taps an item in
@@ -73,10 +64,13 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Deprecated Members
     
-    @available(*, deprecated, message: "setupItemsAndButtons(with:) is deprecated and will be removed shortly. Use `setup(items:)` instead")
+    @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead")
+    public var appearance = ActionSheetAppearance(copy: .standard)
+    
+    @available(*, deprecated, message: "setupItemsAndButtons(with:) will be removed in 1.4.0. Use `setup(items:)` instead")
     open func setupItemsAndButtons(with items: [ActionSheetItem]) { setup(items: items) }
     
-    @available(*, deprecated, message: "itemSelectAction is deprecated and will be removed in shortly. Use `selectAction` instead")
+    @available(*, deprecated, message: "itemSelectAction will be removed in 1.4.0. Use `selectAction` instead")
     open var itemSelectAction: SelectAction { return selectAction }
     
     
@@ -138,10 +132,10 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Appearance
     
-    public var appearance = ActionSheetAppearance(copy: .standard)
-    
     public static var minimumContentInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     public lazy var minimumContentInsets = ActionSheet.minimumContentInsets
+    public static var sectionMargins: CGFloat = 15
+    public lazy var sectionMargins = ActionSheet.sectionMargins
     
     
     // MARK: - Outlets
@@ -207,7 +201,7 @@ open class ActionSheet: UIViewController {
         refreshHeader()
         refreshItems()
         refreshButtons()
-        stackView?.spacing = appearance.groupMargins
+        stackView?.spacing = sectionMargins
         presenter.refreshActionSheet()
         applyLegacyAppearance()
     }

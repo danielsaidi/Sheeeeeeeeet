@@ -23,12 +23,8 @@ extension AppDelegate {
         let appearance = ActionSheetAppearance.standard
         
         applyViewAppearances()
-        applyItemBackgroundColors()
-        applyItemSubtitleColors()
-        applyItemSubtitleFonts()
-        applyItemTitleColors()
-        applyItemTitleFonts()
-        applyItemTintColors()
+        applyItemColors()
+        applyItemFonts()
         
 //        appearance.popover.width = 500
         
@@ -74,36 +70,26 @@ private extension AppDelegate {
         //ActionSheetBackgroundView.appearance().backgroundColor = .purple
         ActionSheetHeaderView.appearance().cornerRadius = 10
         ActionSheetTableView.appearance().cornerRadius = 10
+        ActionSheetTableView.appearance().separatorColor = .red
         //ActionSheetItemTableView.appearance().cornerRadius = 20
         //ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
     }
     
-    func applyItemBackgroundColors() {
-        //ActionSheetItemCell.appearance().backgroundColor = red
-        //ActionSheetItemCell.appearance(whenContainedInInstancesOf: [ActionSheetItemTableView.self]).backgroundColor = .purple
-    }
-    
-    func applyItemSubtitleColors() {
-        ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
-    }
-    
-    func applyItemSubtitleFonts() {
-        ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
-    }
-    
-    func applyItemTintColors() {
-        ActionSheetItemCell.appearance().tintColor = .darkText
-    }
-    
-    func applyItemTitleColors() {
+    func applyItemColors() {
         ActionSheetItemCell.appearance().titleColor = .darkText
+        ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
+        ActionSheetItemCell.appearance().tintColor = .darkText
+        //ActionSheetItemCell.appearance().separatorColor = .red
+//        ActionSheetItemCell.appearance().backgroundColor = red
+//        ActionSheetItemCell.appearance(whenContainedInInstancesOf: [ActionSheetItemTableView.self]).backgroundColor = .purple
         ActionSheetOkButtonCell.appearance().titleColor = .darkGray
         ActionSheetCancelButtonCell.appearance().titleColor = .lightGray
         ActionSheetDangerButtonCell.appearance().titleColor = .examplePink
     }
     
-    func applyItemTitleFonts() {
+    func applyItemFonts() {
         ActionSheetItemCell.appearance().titleFont = .robotoRegular(size: 17)
+        ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
         ActionSheetLinkItemCell.appearance().titleFont = .robotoRegular(size: 17)
         ActionSheetMultiSelectToggleItemCell.appearance().titleFont = .robotoMedium(size: 13)
         ActionSheetSectionTitleCell.appearance().titleFont = .robotoMedium(size: 13)

@@ -15,6 +15,7 @@ extension ActionSheet {
         applyLegacyBackgroundColors()
         applyLegacyContentInsets()
         applyLegacyCornerRadius()
+        applyLegacyGroupMargins()
     }
 }
 
@@ -40,5 +41,10 @@ private extension ActionSheet {
         headerViewContainer?.cornerRadius = radius
         itemsTableView?.cornerRadius = radius
         buttonsTableView?.cornerRadius = radius
+    }
+    
+    func applyLegacyGroupMargins() {
+        guard let margins = appearance.groupMargins else { return }
+        sectionMargins = margins
     }
 }
