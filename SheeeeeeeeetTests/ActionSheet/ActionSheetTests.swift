@@ -28,10 +28,6 @@ class ActionSheetTests: QuickSpec {
             return MockActionSheet(items: items, action: { _, _ in })
         }
         
-        func createTableView() -> ActionSheetTableView {
-            return ActionSheetTableView(frame: .zero)
-        }
-        
         
         // MARK: - Initialization
         
@@ -142,7 +138,7 @@ class ActionSheetTests: QuickSpec {
             
             it("is correctly setup when view is loaded") {
                 let sheet = createSheet()
-                let view = createTableView()
+                let view = ActionSheetItemTableView(frame: .zero)
                 sheet.itemsTableView = view
                 sheet.viewDidLoad()
                 
@@ -195,7 +191,7 @@ class ActionSheetTests: QuickSpec {
             
             it("is correctly setup when view is loaded") {
                 let sheet = createSheet()
-                let view = createTableView()
+                let view = ActionSheetButtonTableView(frame: .zero)
                 sheet.buttonsTableView = view
                 sheet.viewDidLoad()
                 
@@ -291,16 +287,16 @@ class ActionSheetTests: QuickSpec {
             
             var sheet: MockActionSheet!
             var headerViewContainer: ActionSheetHeaderView!
-            var itemsView: ActionSheetTableView!
-            var buttonsView: ActionSheetTableView!
+            var itemsView: ActionSheetItemTableView!
+            var buttonsView: ActionSheetButtonTableView!
             var stackView: UIStackView!
             
             beforeEach {
                 sheet = createSheet()
                 sheet.appearance.groupMargins = 123
                 headerViewContainer = ActionSheetHeaderView(frame: .zero)
-                itemsView = createTableView()
-                buttonsView = createTableView()
+                itemsView = ActionSheetItemTableView(frame: .zero)
+                buttonsView = ActionSheetButtonTableView(frame: .zero)
                 stackView = UIStackView(frame: .zero)
                 sheet.headerViewContainer = headerViewContainer
                 sheet.itemsTableView = itemsView
@@ -352,77 +348,6 @@ class ActionSheetTests: QuickSpec {
                     sheet.headerView = UIView(frame: .zero)
                     sheet.refreshHeader()
                     expect(headerViewContainer.isHidden).to(beFalse())
-                }
-            }
-            
-            context("items") {
-                
-                it("applies appearances to all items") {
-                    let item1 = MockActionSheetItem(title: "foo")
-                    let item2 = MockActionSheetItem(title: "foo")
-                    sheet.setup(items: [item1, item2])
-                    sheet.refresh()
-                    
-                    expect(item1.applyAppearanceInvokeCount).to(equal(1))
-                    expect(item2.applyAppearanceInvokeCount).to(equal(1))
-                    expect(item1.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
-                    expect(item2.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
-                }
-                
-                it("applies background color") {
-                    sheet.appearance.itemsBackgroundColor = .yellow
-                    let view = createTableView()
-                    sheet.itemsTableView = view
-                    sheet.refresh()
-                    
-                    expect(view.backgroundColor).to(equal(.yellow))
-                }
-                
-                it("applies separator color") {
-                    sheet.appearance.itemsSeparatorColor = .yellow
-                    let view = createTableView()
-                    sheet.itemsTableView = view
-                    sheet.refresh()
-
-                    expect(view.separatorColor).to(equal(.yellow))
-                }
-            }
-            
-            context("buttons") {
-                
-                it("refreshes buttons visibility") {
-                    sheet.refresh()
-                    expect(sheet.refreshButtonsInvokeCount).to(equal(1))
-                }
-                
-                it("applies appearances to all buttons") {
-                    let item1 = MockActionSheetButton(title: "foo", value: true)
-                    let item2 = MockActionSheetButton(title: "foo", value: true)
-                    sheet.setup(items: [item1, item2])
-                    sheet.refresh()
-                    
-                    expect(item1.applyAppearanceInvokeCount).to(equal(1))
-                    expect(item2.applyAppearanceInvokeCount).to(equal(1))
-                    expect(item1.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
-                    expect(item2.applyAppearanceInvokeAppearances[0]).to(be(sheet.appearance))
-                }
-                
-                it("applies background color") {
-                    sheet.appearance.buttonsBackgroundColor = .yellow
-                    let view = createTableView()
-                    sheet.buttonsTableView = view
-                    sheet.refresh()
-                    
-                    expect(view.backgroundColor).to(equal(.yellow))
-                }
-                
-                it("applies separator color") {
-                    sheet.appearance.buttonsSeparatorColor = .yellow
-                    let view = createTableView()
-                    sheet.buttonsTableView = view
-                    sheet.refresh()
-                    
-                    expect(view.separatorColor).to(equal(.yellow))
                 }
             }
             
@@ -510,8 +435,8 @@ class ActionSheetTests: QuickSpec {
         describe("reloading data") {
             
             it("reloads both table views") {
-                let view1 = MockTableView(frame: .zero)
-                let view2 = MockTableView(frame: .zero)
+                let view1 = MockItemTableView(frame: .zero)
+                let view2 = MockButtonTableView(frame: .zero)
                 let sheet = createSheet()
                 sheet.itemsTableView = view1
                 sheet.buttonsTableView = view2

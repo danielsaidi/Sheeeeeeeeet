@@ -16,6 +16,7 @@ extension ActionSheet {
         applyLegacyContentInsets()
         applyLegacyCornerRadius()
         applyLegacyGroupMargins()
+        applyLegacySeparatorColors()
     }
 }
 
@@ -46,5 +47,12 @@ private extension ActionSheet {
     func applyLegacyGroupMargins() {
         guard let margins = appearance.groupMargins else { return }
         sectionMargins = margins
+    }
+    
+    func applyLegacySeparatorColors() {
+        if let color = appearance.separatorColor { itemsTableView?.separatorLineColor = color }
+        if let color = appearance.separatorColor { buttonsTableView?.separatorLineColor = color }
+        if let color = appearance.itemsSeparatorColor { itemsTableView?.separatorLineColor = color }
+        if let color = appearance.buttonsSeparatorColor { buttonsTableView?.separatorLineColor = color }
     }
 }

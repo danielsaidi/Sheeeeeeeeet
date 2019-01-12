@@ -25,10 +25,12 @@ open class ActionSheetTableView: UITableView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = cornerRadius
+        if let color = separatorLineColor { separatorColor = color }
     }
     
     
     // MARK: - Appearance Properties
     
     @objc public dynamic var cornerRadius: CGFloat = 10
+    @objc public dynamic var separatorLineColor: UIColor?
 }

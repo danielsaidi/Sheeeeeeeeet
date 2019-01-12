@@ -198,12 +198,12 @@ open class ActionSheet: UIViewController {
     // MARK: - Refresh Functions
     
     open func refresh() {
+        applyLegacyAppearance()
         refreshHeader()
         refreshItems()
         refreshButtons()
         stackView?.spacing = sectionMargins
         presenter.refreshActionSheet()
-        applyLegacyAppearance()
     }
     
     open func refreshHeader() {

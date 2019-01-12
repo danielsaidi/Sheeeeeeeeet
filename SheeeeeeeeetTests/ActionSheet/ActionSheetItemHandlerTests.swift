@@ -14,8 +14,8 @@ class ActionSheetItemHandlerTests: QuickSpec {
     
     override func spec() {
         
-        func tableView() -> MockTableView {
-            return MockTableView(frame: .zero)
+        func tableView() -> MockItemTableView {
+            return MockItemTableView(frame: .zero)
         }
         
         var sheet: MockActionSheet!

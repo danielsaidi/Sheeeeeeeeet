@@ -67,8 +67,14 @@ open class ActionSheetAppearance {
     @available(*, deprecated, message: "backgroundColor will be removed in 1.4.0. Use ActionSheetTableView.appearance().backgroundColor instead.")
     public var backgroundColor: UIColor?
     
+    @available(*, deprecated, message: "standard will be removed in 1.4.0. Use the new appearance model instead.")
+    public static var standard = ActionSheetAppearance()
+    
     @available(*, deprecated, message: "buttonsBackgroundColor will be removed in 1.4.0. Use ActionSheetButtonTableView.appearance().backgroundColor instead.")
     public var buttonsBackgroundColor: UIColor?
+    
+    @available(*, deprecated, message: "buttonsSeparatorColor will be removed in 1.4.0. Use ActionSheetButtonTableView.appearance().separatorLineColor instead.")
+    public var buttonsSeparatorColor: UIColor?
     
     @available(*, deprecated, message: "cornerRadius will be removed in 1.4.0. Use ActionSheetTableView.appearance().cornerRadius and ActionSheetHeaderView.appearance().cornerRadius instead.")
     public var cornerRadius: CGFloat?
@@ -79,20 +85,15 @@ open class ActionSheetAppearance {
     @available(*, deprecated, message: "itemsBackgroundColor will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().backgroundColor instead.")
     public var itemsBackgroundColor: UIColor?
     
+    @available(*, deprecated, message: "itemsSeparatorColor will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().separatorLineColor instead.")
+    public var itemsSeparatorColor: UIColor?
+    
     @available(*, deprecated, message: "groupMargins will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().sectionMargins instead.")
     public var groupMargins: CGFloat?
     
-    
-    // TODO:
-    
+    @available(*, deprecated, message: "separatorColor will be removed in 1.4.0. Use ActionSheetTableView.appearance().separatorLineColor instead.")
     public var separatorColor: UIColor?
-    public var itemsSeparatorColor: UIColor?
-    public var buttonsSeparatorColor: UIColor?
     
-    
-    // MARK: - Appearance Properties
-    
-    public static var standard = ActionSheetAppearance()
     
     public lazy var popover = ActionSheetPopoverAppearance(width: 300)
     
