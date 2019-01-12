@@ -25,8 +25,8 @@ extension AppDelegate {
         applyViewAppearances()
         applyItemColors()
         applyItemFonts()
-        
-//        appearance.popover.width = 500
+        applyPopoverWidth()
+    
         
 //        appearance.separatorColor = .red
 //        appearance.itemsSeparatorColor = .blue
@@ -98,6 +98,10 @@ private extension AppDelegate {
         ActionSheetDangerButtonCell.appearance().titleFont = .robotoMedium(size: 17)
         ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
     }
+    
+    func applyPopoverWidth() {
+//        ActionSheet.preferredPopoverWidth = 700
+    }
 }
 
 
@@ -106,19 +110,20 @@ private extension AppDelegate {
 private extension AppDelegate {
     
     func applyLegacyAppearance(_ appearance: ActionSheetAppearance) {
-        applyLegacyItemBackgroundColors(with: appearance)
-        applyLegacyItemFonts(with: appearance)
-        applyLegacyItemSubtitleFonts(with: appearance)
-        applyLegacyItemSubtitleTextColor(with: appearance)
-        applyLegacyItemTextColors(with: appearance)
-        applyLegacyItemTintColors(with: appearance)
+        applyLegacyItemBackgroundColors(to: appearance)
+        applyLegacyItemFonts(to: appearance)
+        applyLegacyItemSubtitleFonts(to: appearance)
+        applyLegacyItemSubtitleTextColor(to: appearance)
+        applyLegacyItemTextColors(to: appearance)
+        applyLegacyItemTintColors(to: appearance)
+        applyLegacyPopoverWidth(to: appearance)
     }
     
-    func applyLegacyItemBackgroundColors(with appearance: ActionSheetAppearance) {
+    func applyLegacyItemBackgroundColors(to appearance: ActionSheetAppearance) {
 //        appearance.item.backgroundColor = .exampleRed
     }
     
-    func applyLegacyItemFonts(with appearance: ActionSheetAppearance) {
+    func applyLegacyItemFonts(to appearance: ActionSheetAppearance) {
 //        appearance.item.font = robotoRegular(size: 170)
 //        appearance.linkItem.font = robotoRegular(size: 170)
 //        appearance.title.font = robotoMedium(size: 15)
@@ -129,22 +134,26 @@ private extension AppDelegate {
 //        appearance.cancelButton.font = robotoMedium(size: 17)
     }
     
-    func applyLegacyItemSubtitleFonts(with appearance: ActionSheetAppearance) {
+    func applyLegacyItemSubtitleFonts(to appearance: ActionSheetAppearance) {
 //        appearance.item.subtitleFont = robotoRegular(size: 170)
     }
     
-    func applyLegacyItemSubtitleTextColor(with appearance: ActionSheetAppearance) {
+    func applyLegacyItemSubtitleTextColor(to appearance: ActionSheetAppearance) {
 //        appearance.item.subtitleTextColor = .purple
     }
     
-    func applyLegacyItemTextColors(with appearance: ActionSheetAppearance) {
+    func applyLegacyItemTextColors(to appearance: ActionSheetAppearance) {
 //        appearance.item.textColor = .purple
 //        appearance.okButton.textColor = .darkGray
 //        appearance.dangerButton.textColor = .examplePink
 //        appearance.cancelButton.textColor = .lightGray
     }
     
-    func applyLegacyItemTintColors(with appearance: ActionSheetAppearance) {
+    func applyLegacyItemTintColors(to appearance: ActionSheetAppearance) {
 //        appearance.item.tintColor = .purple
+    }
+    
+    func applyLegacyPopoverWidth(to appearance: ActionSheetAppearance) {
+//        appearance.popover.width = 800
     }
 }

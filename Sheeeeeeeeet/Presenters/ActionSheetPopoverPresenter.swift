@@ -66,9 +66,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     // MARK: - Protected Functions
     
     open func refreshPopoverAppearance(for sheet: ActionSheet) {
-        let width = sheet.appearance.popover.width
-        let height = sheet.itemsHeight
-        sheet.preferredContentSize = CGSize(width: width, height: height)
+        sheet.preferredContentSize.height = sheet.itemsHeight
         popover?.backgroundColor = sheet.itemsTableView?.backgroundColor
     }
 }

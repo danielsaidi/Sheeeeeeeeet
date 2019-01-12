@@ -16,6 +16,7 @@ extension ActionSheet {
         applyLegacyContentInsets()
         applyLegacyCornerRadius()
         applyLegacyGroupMargins()
+        applyLegacyPopoverWidth()
         applyLegacySeparatorColors()
     }
 }
@@ -47,6 +48,11 @@ private extension ActionSheet {
     func applyLegacyGroupMargins() {
         guard let margins = appearance.groupMargins else { return }
         sectionMargins = margins
+    }
+    
+    func applyLegacyPopoverWidth() {
+        guard let width = appearance.popover.width else { return }
+        preferredContentSize.width = width
     }
     
     func applyLegacySeparatorColors() {

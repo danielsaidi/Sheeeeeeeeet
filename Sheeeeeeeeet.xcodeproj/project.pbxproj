@@ -513,7 +513,6 @@
 			children = (
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
-				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,
 				455DEE31206F682A00173E67 /* Buttons */,
 				8499359C216BE13C000A0670 /* Items */,
 				455DEE32206F682F00173E67 /* Titles */,
@@ -838,6 +837,7 @@
 			children = (
 				8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */,
 				8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */,
+				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,
 			);
 			path = _Legacy;
 			sourceTree = "<group>";

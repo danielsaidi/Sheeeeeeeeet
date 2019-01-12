@@ -20,6 +20,7 @@
   * ActionSheetBackgroundView
   * ActionSheetStackView
 
+* ActionSheet.preferredContentWidth
 * ActionSheet.minimumContentInsets - static/instance variable.
 
 Test:
@@ -30,6 +31,7 @@ Test:
 * ActionSheetTests describe("margin at position")
 * ActionSheet.marginAt
 * ActionSheet.minimumContentInsets
+* ActionSheetPopoverPresenter.popoverWidth - propery and appliance
 
 
 ## 1.1.0

@@ -6,19 +6,6 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This class is used to specify the appearance for all action
- sheets and action sheet items provided by Sheeeeeeeeet. Use
- `ActionSheetAppearance.standard` to style all action sheets
- in an entire app. You can then apply individual appearances
- to individual action sheets and item types.
- 
- The `item` appearance property is used as the base template
- for all other item appearances.
- 
- */
-
 import UIKit
 
 @available(*, deprecated, message: "ActionSheetAppearance will be removed in 1.4.0. Use the new appearance model instead.")
@@ -82,20 +69,20 @@ open class ActionSheetAppearance {
     @available(*, deprecated, message: "contentInset will be removed in 1.4.0. Use ActionSheet.minimumContentInsets instead.")
     public var contentInset: CGFloat?
     
+    @available(*, deprecated, message: "groupMargins will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().sectionMargins instead.")
+    public var groupMargins: CGFloat?
+    
     @available(*, deprecated, message: "itemsBackgroundColor will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().backgroundColor instead.")
     public var itemsBackgroundColor: UIColor?
     
     @available(*, deprecated, message: "itemsSeparatorColor will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().separatorLineColor instead.")
     public var itemsSeparatorColor: UIColor?
     
-    @available(*, deprecated, message: "groupMargins will be removed in 1.4.0. Use ActionSheetItemTableView.appearance().sectionMargins instead.")
-    public var groupMargins: CGFloat?
-    
     @available(*, deprecated, message: "separatorColor will be removed in 1.4.0. Use ActionSheetTableView.appearance().separatorLineColor instead.")
     public var separatorColor: UIColor?
     
-    
-    public lazy var popover = ActionSheetPopoverAppearance(width: 300)
+    @available(*, deprecated, message: "popover will be removed in 1.4.0. Use ActionSheet.preferredContentSizeWidth instead.")
+    public lazy var popover = ActionSheetPopoverAppearance()
     
     
     // MARK: - Items

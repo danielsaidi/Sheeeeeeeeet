@@ -95,7 +95,9 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Setup
     
-    open func setup() {}
+    open func setup() {
+        preferredContentSize.width = ActionSheet.preferredPopoverWidth
+    }
     
     open func setup(items: [ActionSheetItem]) {
         self.items = items.filter { !($0 is ActionSheetButton) }
@@ -134,6 +136,7 @@ open class ActionSheet: UIViewController {
     
     public static var minimumContentInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     public lazy var minimumContentInsets = ActionSheet.minimumContentInsets
+    public static var preferredPopoverWidth: CGFloat = 300
     public static var sectionMargins: CGFloat = 15
     public lazy var sectionMargins = ActionSheet.sectionMargins
     
