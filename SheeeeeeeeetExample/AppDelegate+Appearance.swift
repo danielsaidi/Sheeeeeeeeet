@@ -26,11 +26,6 @@ extension AppDelegate {
         applyItemColors()
         applyItemFonts()
         applyPopoverWidth()
-    
-        
-//        appearance.separatorColor = .red
-//        appearance.itemsSeparatorColor = .blue
-//        appearance.buttonsSeparatorColor = .green
         
         appearance.title.hideSeparator()
         

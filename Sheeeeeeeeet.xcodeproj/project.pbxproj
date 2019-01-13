@@ -443,7 +443,7 @@
 		453C04231FC0655C0028FA02 /* Sheeeeeeeeet */ = {
 			isa = PBXGroup;
 			children = (
-				8493965721E7A47C00DC0AEF /* _Legacy */,
+				8493965721E7A47C00DC0AEF /* _Deprecated__remove__1_4_0 */,
 				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C797220931BFB00DE42B5 /* ActionSheet */,
@@ -511,7 +511,6 @@
 		453C04801FC16A220028FA02 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
-				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 				455DEE31206F682A00173E67 /* Buttons */,
 				8499359C216BE13C000A0670 /* Items */,
@@ -832,14 +831,15 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		8493965721E7A47C00DC0AEF /* _Legacy */ = {
+		8493965721E7A47C00DC0AEF /* _Deprecated__remove__1_4_0 */ = {
 			isa = PBXGroup;
 			children = (
 				8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */,
+				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
 				8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */,
 				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,
 			);
-			path = _Legacy;
+			path = _Deprecated__remove__1_4_0;
 			sourceTree = "<group>";
 		};
 		8493967A21E7F9A200DC0AEF /* Style */ = {

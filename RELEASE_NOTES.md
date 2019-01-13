@@ -3,6 +3,9 @@
 
 ## 1.2.0
 
+Deprecations removed in 1.4.0:
+Also mention that 1.4.0 will move some temp placed props elsewhere.
+
 * Tap behavior none -> no selection
 * Reimplemented appearance handling
 * Appearance proxies
