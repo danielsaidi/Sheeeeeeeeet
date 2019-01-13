@@ -14,6 +14,7 @@ extension ActionSheetItem {
     func applyLegacyAppearance(to cell: UITableViewCell) {
         applyLegacyBackgroundColor(to: cell)
         applyLegacyFont(to: cell)
+        applyLegacySeparatorInsets(to: cell)
         applyLegacySubtitleFont(to: cell)
         applyLegacySubtitleTextColor(to: cell)
         applyLegacyTextColor(to: cell)
@@ -33,6 +34,11 @@ private extension ActionSheetItem {
         guard let font = appearance.font else { return }
         let cell = cell as? ActionSheetItemCell
         cell?.titleFont = font
+    }
+    
+    func applyLegacySeparatorInsets(to cell: UITableViewCell) {
+        guard let insets = appearance.separatorInsets else { return }
+        cell.separatorInset = insets
     }
     
     func applyLegacySubtitleFont(to cell: UITableViewCell) {

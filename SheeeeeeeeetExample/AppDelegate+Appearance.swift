@@ -23,15 +23,12 @@ extension AppDelegate {
         let appearance = ActionSheetAppearance.standard
         
         applyViewAppearances()
-        applyItemColors()
-        applyItemFonts()
+        applyColors()
+        applyFonts()
+        applySeparatorInsets()
         applyPopoverWidth()
         
-        appearance.title.hideSeparator()
-        
-        appearance.sectionTitle.hideSeparator()
         appearance.sectionTitle.height = 20
-        
         appearance.sectionMargin.height = 20
         
         appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
@@ -48,7 +45,6 @@ extension AppDelegate {
         appearance.multiSelectItem.selectedTextColor = .exampleBlue
         appearance.multiSelectItem.selectedIconTintColor = .exampleGreen
         
-        appearance.multiSelectToggleItem.hideSeparator()
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
         appearance.multiSelectToggleItem.deselectAllTextColor = .exampleRed
         
@@ -70,7 +66,7 @@ private extension AppDelegate {
 //        ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
     }
     
-    func applyItemColors() {
+    func applyColors() {
         ActionSheetItemCell.appearance().titleColor = .darkText
         ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
         ActionSheetItemCell.appearance().tintColor = .darkText
@@ -82,7 +78,7 @@ private extension AppDelegate {
         ActionSheetDangerButtonCell.appearance().titleColor = .examplePink
     }
     
-    func applyItemFonts() {
+    func applyFonts() {
         ActionSheetItemCell.appearance().titleFont = .robotoRegular(size: 17)
         ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
         ActionSheetLinkItemCell.appearance().titleFont = .robotoRegular(size: 17)
@@ -92,6 +88,14 @@ private extension AppDelegate {
         ActionSheetOkButtonCell.appearance().titleFont = .robotoBlack(size: 17)
         ActionSheetDangerButtonCell.appearance().titleFont = .robotoMedium(size: 17)
         ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
+    }
+    
+    func applySeparatorInsets() {
+        ActionSheetItemCell.appearance().separatorInset = .zero
+        ActionSheetTitleCell.appearance().separatorInset = .hiddenSeparator
+        ActionSheetSectionTitleCell.appearance().separatorInset = .hiddenSeparator
+        ActionSheetSectionMarginCell.appearance().separatorInset = .hiddenSeparator
+        ActionSheetMultiSelectToggleItemCell.appearance().separatorInset = .hiddenSeparator
     }
     
     func applyPopoverWidth() {
@@ -105,20 +109,21 @@ private extension AppDelegate {
 private extension AppDelegate {
     
     func applyLegacyAppearance(_ appearance: ActionSheetAppearance) {
-        applyLegacyItemBackgroundColors(to: appearance)
-        applyLegacyItemFonts(to: appearance)
-        applyLegacyItemSubtitleFonts(to: appearance)
-        applyLegacyItemSubtitleTextColor(to: appearance)
-        applyLegacyItemTextColors(to: appearance)
-        applyLegacyItemTintColors(to: appearance)
+        applyLegacyBackgroundColors(to: appearance)
+        applyLegacyFonts(to: appearance)
         applyLegacyPopoverWidth(to: appearance)
+        applyLegacySeparatorInsets(to: appearance)
+        applyLegacySubtitleFonts(to: appearance)
+        applyLegacySubtitleTextColor(to: appearance)
+        applyLegacyTextColors(to: appearance)
+        applyLegacyTintColors(to: appearance)
     }
     
-    func applyLegacyItemBackgroundColors(to appearance: ActionSheetAppearance) {
+    func applyLegacyBackgroundColors(to appearance: ActionSheetAppearance) {
 //        appearance.item.backgroundColor = .exampleRed
     }
     
-    func applyLegacyItemFonts(to appearance: ActionSheetAppearance) {
+    func applyLegacyFonts(to appearance: ActionSheetAppearance) {
 //        appearance.item.font = robotoRegular(size: 170)
 //        appearance.linkItem.font = robotoRegular(size: 170)
 //        appearance.title.font = robotoMedium(size: 15)
@@ -128,27 +133,34 @@ private extension AppDelegate {
 //        appearance.dangerButton.font = robotoMedium(size: 17)
 //        appearance.cancelButton.font = robotoMedium(size: 17)
     }
+        
+    func applyLegacyPopoverWidth(to appearance: ActionSheetAppearance) {
+//        appearance.popover.width = 800
+    }
     
-    func applyLegacyItemSubtitleFonts(to appearance: ActionSheetAppearance) {
+    func applyLegacySeparatorInsets(to appearance: ActionSheetAppearance) {
+//        appearance.item.separatorInsets = .zero
+//        appearance.title.hideSeparator()
+//        appearance.sectionTitle.hideSeparator()
+//        appearance.multiSelectToggleItem.hideSeparator()
+    }
+    
+    func applyLegacySubtitleFonts(to appearance: ActionSheetAppearance) {
 //        appearance.item.subtitleFont = robotoRegular(size: 170)
     }
     
-    func applyLegacyItemSubtitleTextColor(to appearance: ActionSheetAppearance) {
+    func applyLegacySubtitleTextColor(to appearance: ActionSheetAppearance) {
 //        appearance.item.subtitleTextColor = .purple
     }
     
-    func applyLegacyItemTextColors(to appearance: ActionSheetAppearance) {
+    func applyLegacyTextColors(to appearance: ActionSheetAppearance) {
 //        appearance.item.textColor = .purple
 //        appearance.okButton.textColor = .darkGray
 //        appearance.dangerButton.textColor = .examplePink
 //        appearance.cancelButton.textColor = .lightGray
     }
     
-    func applyLegacyItemTintColors(to appearance: ActionSheetAppearance) {
+    func applyLegacyTintColors(to appearance: ActionSheetAppearance) {
 //        appearance.item.tintColor = .purple
-    }
-    
-    func applyLegacyPopoverWidth(to appearance: ActionSheetAppearance) {
-//        appearance.popover.width = 800
     }
 }

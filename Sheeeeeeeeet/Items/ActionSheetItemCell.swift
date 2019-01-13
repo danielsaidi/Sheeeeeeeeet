@@ -27,7 +27,6 @@ open class ActionSheetItemCell: UITableViewCell {
         textLabel?.textColor = titleColor
         detailTextLabel?.font = subtitleFont
         detailTextLabel?.textColor = subtitleColor
-        //separatorColor = separatorLineColor
     }
     
     
@@ -35,7 +34,6 @@ open class ActionSheetItemCell: UITableViewCell {
     
     @objc public dynamic var titleColor: UIColor?
     @objc public dynamic var titleFont: UIFont?
-    //@objc public dynamic var separatorLineColor: UIColor?
     @objc public dynamic var subtitleColor: UIColor?
     @objc public dynamic var subtitleFont: UIFont?
 }

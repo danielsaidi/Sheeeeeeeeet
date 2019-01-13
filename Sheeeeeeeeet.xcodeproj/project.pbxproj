@@ -120,6 +120,7 @@
 		842385A821E8910D0045F121 /* ActionSheetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */; };
 		842385AA21E8926F0045F121 /* ActionSheetItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */; };
 		842385AC21E892910045F121 /* ActionSheetButtonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */; };
+		8423863121EB42D60045F121 /* UIEdgeInsets+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA821775C030097039F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA721775C030097039F /* UIView+Nib.swift */; };
 		84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA9217765A30097039F /* UIView+Subviews.swift */; };
@@ -324,6 +325,7 @@
 		842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetBackgroundView.swift; sourceTree = "<group>"; };
 		842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTableView.swift; sourceTree = "<group>"; };
 		842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTableView.swift; sourceTree = "<group>"; };
+		8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Hidden.swift"; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */,
 				45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */,
 				8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */,
+				8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */,
 				84539DA721775C030097039F /* UIView+Nib.swift */,
 				84539DA9217765A30097039F /* UIView+Subviews.swift */,
 				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
@@ -1074,6 +1077,7 @@
 				8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */,
 				8493967321E7DAB200DC0AEF /* ActionSheetDangerButtonCell.swift in Sources */,
 				456EAA4A1FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift in Sources */,
+				8423863121EB42D60045F121 /* UIEdgeInsets+Hidden.swift in Sources */,
 				455DEE3C206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift in Sources */,
 				8493966721E7D8CD00DC0AEF /* ActionSheetSelectItemCell.swift in Sources */,
 				8493966F21E7DA9D00DC0AEF /* ActionSheetOkButtonCell.swift in Sources */,

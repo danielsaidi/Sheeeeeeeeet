@@ -27,6 +27,8 @@ Also mention that 1.4.0 will move some temp placed props elsewhere.
 * ActionSheet.minimumContentInsets - static/instance variable.
 
 Test:
+* ActionSheet -> setting standard appearance proxy values
+* UIEdgeInsets+Hidden
 * ActionSheetHeaderView
 * ActionSheetTableView
 * ActionSheetItemHandler -> item.applyAppearance(to: cell)

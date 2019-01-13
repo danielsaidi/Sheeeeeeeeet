@@ -81,7 +81,6 @@ open class ActionSheetItem: NSObject {
         let noTap = tapBehavior == .none
         cell.imageView?.image = image
         cell.selectionStyle = noTap ? .none : .default
-        cell.separatorInset = appearance.separatorInsets
         cell.textLabel?.text = title
         cell.textLabel?.textAlignment = .left
         cell.detailTextLabel?.text = subtitle
