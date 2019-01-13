@@ -8,4 +8,5 @@
 
 import Foundation
 
+@available(*, deprecated, message: "ActionSheetSingleSelectItemAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetSingleSelectItemAppearance: ActionSheetSelectItemAppearance {}

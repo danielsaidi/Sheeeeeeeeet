@@ -8,4 +8,5 @@
 
 import UIKit
 
+@available(*, deprecated, message: "ActionSheetOkButtonAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetOkButtonAppearance: ActionSheetButtonAppearance {}

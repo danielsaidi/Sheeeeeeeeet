@@ -515,9 +515,10 @@
 			isa = PBXGroup;
 			children = (
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
-				455DEE31206F682A00173E67 /* Buttons */,
-				8499359C216BE13C000A0670 /* Items */,
-				455DEE32206F682F00173E67 /* Titles */,
+				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
+				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
+				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
+				453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -601,27 +602,6 @@
 				45352D5D2030BC0E00A0F890 /* ActionSheetSectionMarginTests.swift */,
 				45352D592030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift */,
 				45352D632030BC0E00A0F890 /* ActionSheetTitleTests.swift */,
-			);
-			path = Titles;
-			sourceTree = "<group>";
-		};
-		455DEE31206F682A00173E67 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */,
-				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
-				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
-				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
-		455DEE32206F682F00173E67 /* Titles */ = {
-			isa = PBXGroup;
-			children = (
-				456EAA491FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift */,
-				453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */,
-				453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */,
 			);
 			path = Titles;
 			sourceTree = "<group>";
@@ -839,8 +819,18 @@
 			children = (
 				8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */,
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
+				456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */,
+				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
+				1D428928204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift */,
+				8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */,
+				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
 				8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */,
+				455DEE35206F705000173E67 /* ActionSheetMultiSelectItemAppearance.swift */,
+				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
 				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,
+				456EAA491FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift */,
+				454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */,
+				453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */,
 			);
 			path = _Deprecated__remove__1_4_0;
 			sourceTree = "<group>";
@@ -852,20 +842,6 @@
 				8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */,
 			);
 			path = Style;
-			sourceTree = "<group>";
-		};
-		8499359C216BE13C000A0670 /* Items */ = {
-			isa = PBXGroup;
-			children = (
-				1D428928204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift */,
-				8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */,
-				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
-				455DEE35206F705000173E67 /* ActionSheetMultiSelectItemAppearance.swift */,
-				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
-				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
-				454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */,
-			);
-			path = Items;
 			sourceTree = "<group>";
 		};
 		849935A9216BFE25000A0670 /* ViewController */ = {
