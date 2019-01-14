@@ -6,6 +6,9 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
+//  This file contains internal util functions for resolving
+//  the bundle of classes and class instances.
+
 import UIKit
 
 extension NSObject {

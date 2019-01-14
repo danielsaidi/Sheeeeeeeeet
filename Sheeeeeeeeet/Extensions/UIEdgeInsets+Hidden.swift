@@ -6,6 +6,10 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
+//  This insets extension can be used to hide separators for
+//  a certain item type or specific item. Just apply it to a
+//  certain appearance proxy or item cell instance.
+
 import UIKit
 
 public extension UIEdgeInsets {
