@@ -93,3 +93,8 @@ open class ActionSheetSelectItem: ActionSheetItem {
         isSelected = !isSelected
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetSelectItemCell: ActionSheetItemCell {}

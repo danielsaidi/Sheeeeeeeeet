@@ -41,3 +41,8 @@ open class ActionSheetOkButton: ActionSheetButton {
         self.appearance = customAppearance ?? ActionSheetOkButtonAppearance(copy: appearance.okButton)
     }
 }
+
+
+// MARK: - 
+
+open class ActionSheetOkButtonCell: ActionSheetButtonCell {}

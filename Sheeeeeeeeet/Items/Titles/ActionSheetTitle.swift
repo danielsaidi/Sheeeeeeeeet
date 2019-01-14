@@ -40,3 +40,14 @@ open class ActionSheetTitle: ActionSheetItem {
         self.appearance = ActionSheetTitleAppearance(copy: appearance.title)
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetTitleCell: ActionSheetItemCell {
+    
+    open override func refresh() {
+        super.refresh()
+        textLabel?.textAlignment = .center
+    }
+}

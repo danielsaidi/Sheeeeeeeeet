@@ -44,3 +44,8 @@ open class ActionSheetSectionTitle: ActionSheetItem {
         self.appearance = ActionSheetSectionTitleAppearance(copy: appearance.sectionTitle)
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetSectionTitleCell: ActionSheetItemCell {}

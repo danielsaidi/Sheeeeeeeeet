@@ -70,3 +70,6 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
         items.forEach { $0.updateState(for: actionSheet) }
     }
 }
+
+
+open class ActionSheetMultiSelectItemCell: ActionSheetSelectItemCell {}

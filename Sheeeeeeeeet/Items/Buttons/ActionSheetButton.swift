@@ -53,7 +53,18 @@ open class ActionSheetButton: ActionSheetItem {
 }
 
 
-// MARK: - ActionSheetItem Extensions
+// MARK: -
+
+open class ActionSheetButtonCell: ActionSheetItemCell {
+    
+    open override func refresh() {
+        super.refresh()
+        textLabel?.textAlignment = .center
+    }
+}
+
+
+// MARK: - Button Extensions
 
 public extension ActionSheetItem {
     

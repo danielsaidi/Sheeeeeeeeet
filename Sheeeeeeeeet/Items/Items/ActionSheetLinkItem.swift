@@ -38,3 +38,20 @@ open class ActionSheetLinkItem: ActionSheetItem {
         return ActionSheetLinkItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
 }
+
+
+open class ActionSheetLinkItemCell: ActionSheetItemCell {
+    
+    
+    // MARK: - Appearance Properties
+    
+    @objc public dynamic var linkIcon: UIImage?
+    
+    
+    // MARK: - Functions
+    
+    open override func refresh() {
+        super.refresh()
+        accessoryView = UIImageView(image: linkIcon)
+    }
+}

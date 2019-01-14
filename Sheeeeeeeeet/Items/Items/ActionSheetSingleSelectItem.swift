@@ -46,3 +46,8 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
         isSelected = true
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetSingleSelectItemCell: ActionSheetSelectItemCell {}

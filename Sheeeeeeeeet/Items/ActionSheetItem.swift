@@ -94,3 +94,52 @@ open class ActionSheetItem: NSObject {
         applyLegacyAppearance(to: cell)
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetItemCell: UITableViewCell {
+    
+    
+    // MARK: - Layout
+    
+    open override func didMoveToWindow() {
+        super.didMoveToWindow()
+        refresh()
+    }
+    
+    
+    // MARK: - Appearance Properties
+    
+    @objc public dynamic var titleColor: UIColor?
+    @objc public dynamic var titleFont: UIFont?
+    @objc public dynamic var subtitleColor: UIColor?
+    @objc public dynamic var subtitleFont: UIFont?
+    
+    
+    // MARK: - Private Properties
+    
+    public private(set) weak var item: ActionSheetItem?
+    
+    
+    // MARK: - Functions
+    
+    open func refresh() {
+        guard let item = item else { return }
+        let noTap = item.tapBehavior == .none
+        imageView?.image = item.image
+        selectionStyle = noTap ? .none : .default
+        textLabel?.font = titleFont
+        textLabel?.text = item.title
+        textLabel?.textAlignment = .left
+        textLabel?.textColor = titleColor
+        detailTextLabel?.font = subtitleFont
+        detailTextLabel?.text = item.subtitle
+        detailTextLabel?.textColor = subtitleColor
+    }
+    
+    open func refresh(with item: ActionSheetItem) {
+        self.item = item
+        refresh()
+    }
+}

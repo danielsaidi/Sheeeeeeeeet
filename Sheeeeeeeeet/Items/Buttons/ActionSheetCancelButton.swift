@@ -41,3 +41,8 @@ open class ActionSheetCancelButton: ActionSheetButton {
         self.appearance = customAppearance ?? ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
     }
 }
+
+
+// MARK: - 
+
+open class ActionSheetCancelButtonCell: ActionSheetButtonCell {}

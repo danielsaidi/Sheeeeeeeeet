@@ -23,7 +23,7 @@ open class ActionSheetDangerButton: ActionSheetOkButton {
     
     // MARK: - Functions
     
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetDangerButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
     
@@ -35,3 +35,8 @@ open class ActionSheetDangerButton: ActionSheetOkButton {
         self.appearance = customAppearance ?? ActionSheetDangerButtonAppearance(copy: appearance.dangerButton)
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetDangerButtonCell: ActionSheetButtonCell {}

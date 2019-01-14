@@ -93,3 +93,8 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
         state = items.contains { !$0.isSelected } ? .selectAll : .deselectAll
     }
 }
+
+
+// MARK: - 
+
+open class ActionSheetMultiSelectToggleItemCell: ActionSheetItemCell {}

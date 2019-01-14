@@ -40,3 +40,8 @@ open class ActionSheetSectionMargin: ActionSheetItem {
         self.appearance = ActionSheetSectionMarginAppearance(copy: appearance.sectionMargin)
     }
 }
+
+
+// MARK: -
+
+open class ActionSheetSectionMarginCell: ActionSheetItemCell {}
