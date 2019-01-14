@@ -515,7 +515,6 @@
 			isa = PBXGroup;
 			children = (
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
-				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
 				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
 				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
 				453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */,
@@ -825,6 +824,7 @@
 				8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */,
 				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
 				8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */,
+				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,
 				455DEE35206F705000173E67 /* ActionSheetMultiSelectItemAppearance.swift */,
 				45EB3FCD1FC84B1500EF555E /* ActionSheetOkButtonAppearance.swift */,
 				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,

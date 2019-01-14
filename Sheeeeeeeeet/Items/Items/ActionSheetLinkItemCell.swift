@@ -8,4 +8,19 @@
 
 import UIKit
 
-open class ActionSheetLinkItemCell: ActionSheetItemCell {}
+open class ActionSheetLinkItemCell: ActionSheetItemCell {
+    
+    
+    // MARK: - Layout
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if accessoryView != nil { return }                  // TODO: Fix this in another way
+        accessoryView = UIImageView(image: linkIcon)
+    }
+    
+    
+    // MARK: - Appearance Properties
+    
+    @objc public dynamic var linkIcon: UIImage?
+}

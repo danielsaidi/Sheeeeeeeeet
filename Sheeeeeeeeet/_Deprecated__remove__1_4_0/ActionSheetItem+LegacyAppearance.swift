@@ -13,6 +13,7 @@ extension ActionSheetItem {
     func applyLegacyAppearance(to cell: UITableViewCell) {
         applyLegacyBackgroundColor(to: cell)
         applyLegacyFont(to: cell)
+        applyLegacyLinkIcon(to: cell)
         applyLegacySeparatorInsets(to: cell)
         applyLegacySubtitleFont(to: cell)
         applyLegacySubtitleTextColor(to: cell)
@@ -33,6 +34,13 @@ private extension ActionSheetItem {
         guard let font = appearance.font else { return }
         let cell = cell as? ActionSheetItemCell
         cell?.titleFont = font
+    }
+    
+    func applyLegacyLinkIcon(to cell: UITableViewCell) {
+        guard let cell = cell as? ActionSheetLinkItemCell else { return }
+        guard let appearance = appearance as? ActionSheetLinkItemAppearance else { return }
+        guard let icon = appearance.linkIcon else { return }
+        cell.linkIcon = appearance.linkIcon
     }
     
     func applyLegacySeparatorInsets(to cell: UITableViewCell) {

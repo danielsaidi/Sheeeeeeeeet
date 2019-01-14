@@ -6,8 +6,6 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-//  TODO: Improve these tests, since much logic has changed.
-
 import Quick
 import Nimble
 @testable import Sheeeeeeeeet
@@ -396,8 +394,8 @@ class ActionSheetTests: QuickSpec {
                 let item = createItem("")
                 item.tapBehavior = .dismiss
                 sheet.handleTap(on: item)
-//                expect(count).toEventually(equal(1), time)        TODO
-//                expect(sheet.dismissInvokeCount).to(equal(1))     TODO
+//                expect(count).toEventually(equal(1), time)
+//                expect(sheet.dismissInvokeCount).to(equal(1))
             }
         }
         

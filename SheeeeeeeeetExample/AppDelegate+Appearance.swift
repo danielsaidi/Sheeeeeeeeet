@@ -25,6 +25,7 @@ extension AppDelegate {
         applyViewAppearances()
         applyColors()
         applyFonts()
+        applyIcons()
         applySeparatorInsets()
         applyPopoverWidth()
         
@@ -44,8 +45,6 @@ extension AppDelegate {
         
         appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
         appearance.multiSelectToggleItem.deselectAllTextColor = .exampleRed
-        
-        appearance.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
         
         applyLegacyAppearance()
     }
@@ -87,6 +86,10 @@ private extension AppDelegate {
         ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
     }
     
+    func applyIcons() {
+        ActionSheetLinkItemCell.appearance().linkIcon = UIImage(named: "ic_arrow_right")
+    }
+    
     func applySeparatorInsets() {
         ActionSheetItemCell.appearance().separatorInset = .zero
         ActionSheetTitleCell.appearance().separatorInset = .hiddenSeparator
@@ -109,6 +112,7 @@ private extension AppDelegate {
         applyLegacyBackgroundColors()
         applyLegacyFonts()
         applyLegacyHeights()
+        applyLegacyLinkIcon()
         applyLegacyPopoverWidth()
         applyLegacySeparatorInsets()
         applyLegacySubtitleFonts()
@@ -135,6 +139,10 @@ private extension AppDelegate {
     func applyLegacyHeights() {
         ActionSheetAppearance.standard.sectionTitle.height = 20
         ActionSheetAppearance.standard.sectionMargin.height = 20
+    }
+    
+    func applyLegacyLinkIcon() {
+//        ActionSheetAppearance.standard.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
     }
     
     func applyLegacyPopoverWidth() {
