@@ -8,4 +8,5 @@
 
 import Foundation
 
+@available(*, deprecated, message: "ActionSheetSectionTitleAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetSectionTitleAppearance: ActionSheetItemAppearance {}
