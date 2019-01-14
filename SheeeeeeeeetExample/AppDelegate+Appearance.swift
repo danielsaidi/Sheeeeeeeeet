@@ -27,7 +27,6 @@ extension AppDelegate {
         applySelectItemAppearances()
         applySeparatorInsets()
         applyPopoverWidth()
-        applyLegacyAppearance()
     }
 }
 
@@ -105,101 +104,5 @@ private extension AppDelegate {
     
     func applyPopoverWidth() {
 //        ActionSheet.preferredPopoverWidth = 700
-    }
-}
-
-
-// MARK: - Legacy
-
-private extension AppDelegate {
-    
-    func applyLegacyAppearance() {
-        applyLegacyColors()
-        applyLegacyFonts()
-        applyLegacyHeights()
-        applyLegacyLinkIcon()
-        applyLegacyMultiSelectItemToggleAppearances()
-        applyLegacyPopoverWidth()
-        applyLegacySelectItemAppearances()
-        applyLegacySeparatorInsets()
-        applyLegacySubtitleFonts()
-        applyLegacySubtitleTextColor()
-        applyLegacyTextColors()
-        applyLegacyTintColors()
-    }
-    
-    func applyLegacyColors() {
-//        ActionSheetAppearance.standard.item.backgroundColor = .exampleRed
-//        ActionSheetAppearance.standard.separatorColor = .exampleRed
-    }
-    
-    func applyLegacyFonts() {
-//        ActionSheetAppearance.standard.item.font = robotoRegular(size: 170)
-//        ActionSheetAppearance.standard.linkItem.font = robotoRegular(size: 170)
-//        ActionSheetAppearance.standard.title.font = robotoMedium(size: 15)
-//        ActionSheetAppearance.standard.sectionTitle.font = robotoMedium(size: 13)
-//        ActionSheetAppearance.standard.multiSelectToggleItem.font = robotoMedium(size: 13)
-//        ActionSheetAppearance.standard.okButton.font = robotoBlack(size: 17)
-//        ActionSheetAppearance.standard.dangerButton.font = robotoMedium(size: 17)
-//        ActionSheetAppearance.standard.cancelButton.font = robotoMedium(size: 17)
-    }
-    
-    func applyLegacyHeights() {
-//        ActionSheetAppearance.standard.sectionTitle.height = 20
-//        ActionSheetAppearance.standard.sectionMargin.height = 20
-    }
-    
-    func applyLegacyLinkIcon() {
-//        ActionSheetAppearance.standard.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
-    }
-    
-    func applyLegacyMultiSelectItemToggleAppearances() {
-//        ActionSheetAppearance.standard.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
-    }
-    
-    func applyLegacyPopoverWidth() {
-//        ActionSheetAppearance.standard.popover.width = 800
-    }
-    
-    func applyLegacySelectItemAppearances() {
-//        ActionSheetAppearance.standard.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
-//        ActionSheetAppearance.standard.selectItem.unselectedIcon = UIImage(named: "ic_empty")
-//        ActionSheetAppearance.standard.selectItem.selectedTintColor = .exampleBlue
-//        ActionSheetAppearance.standard.selectItem.selectedTextColor = .exampleGreen
-//        ActionSheetAppearance.standard.selectItem.selectedIconTintColor = .examplePurple
-//
-//        ActionSheetAppearance.standard.singleSelectItem.selectedTintColor = .exampleGreen
-//        ActionSheetAppearance.standard.singleSelectItem.selectedTextColor = .examplePurple
-//        ActionSheetAppearance.standard.singleSelectItem.selectedIconTintColor = .exampleBlue
-//
-//        ActionSheetAppearance.standard.multiSelectItem.selectedTintColor = .examplePurple
-//        ActionSheetAppearance.standard.multiSelectItem.selectedTextColor = .exampleBlue
-//        ActionSheetAppearance.standard.multiSelectItem.selectedIconTintColor = .exampleGreen
-    }
-    
-    func applyLegacySeparatorInsets() {
-//        ActionSheetAppearance.standard.item.separatorInsets = .zero
-//        ActionSheetAppearance.standard.title.hideSeparator()
-//        ActionSheetAppearance.standard.sectionTitle.hideSeparator()
-//        ActionSheetAppearance.standard.multiSelectToggleItem.hideSeparator()
-    }
-    
-    func applyLegacySubtitleFonts() {
-//        ActionSheetAppearance.standard.item.subtitleFont = robotoRegular(size: 170)
-    }
-    
-    func applyLegacySubtitleTextColor() {
-//        ActionSheetAppearance.standard.item.subtitleTextColor = .purple
-    }
-    
-    func applyLegacyTextColors() {
-//        ActionSheetAppearance.standard.item.textColor = .purple
-//        ActionSheetAppearance.standard.okButton.textColor = .darkGray
-//        ActionSheetAppearance.standard.dangerButton.textColor = .examplePink
-//        ActionSheetAppearance.standard.cancelButton.textColor = .lightGray
-    }
-    
-    func applyLegacyTintColors() {
-//        ActionSheetAppearance.standard.item.tintColor = .purple
     }
 }
