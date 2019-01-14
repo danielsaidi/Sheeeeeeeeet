@@ -22,6 +22,7 @@ extension AppDelegate {
         applyViewAppearances()
         applyColors()
         applyFonts()
+        applyHeights()
         applyIcons()
         applySelectItemAppearances()
         applySeparatorInsets()
@@ -64,6 +65,11 @@ private extension AppDelegate {
         ActionSheetOkButtonCell.appearance().titleFont = .robotoBlack(size: 17)
         ActionSheetDangerButtonCell.appearance().titleFont = .robotoMedium(size: 17)
         ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
+    }
+    
+    func applyHeights() {
+        ActionSheetSectionTitle.height = 20
+        ActionSheetSectionMargin.height = 20
     }
     
     func applyIcons() {
@@ -139,8 +145,8 @@ private extension AppDelegate {
     }
     
     func applyLegacyHeights() {
-        ActionSheetAppearance.standard.sectionTitle.height = 20
-        ActionSheetAppearance.standard.sectionMargin.height = 20
+//        ActionSheetAppearance.standard.sectionTitle.height = 20
+//        ActionSheetAppearance.standard.sectionMargin.height = 20
     }
     
     func applyLegacyLinkIcon() {

@@ -21,7 +21,7 @@
 
 import Foundation
 
-open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout where T: ActionSheetCollectionItemContentCell {
+open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     // MARK: - Initialization
@@ -46,6 +46,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     
     // MARK: - Properties
     
+    public override var height: CGFloat { return T.defaultSize.height }
     public let itemCellType: T.Type
     public let itemCount: Int
     public private(set) var selectionAction: CellAction

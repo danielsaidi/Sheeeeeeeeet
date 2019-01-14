@@ -12,6 +12,7 @@ extension ActionSheet {
 
     @available(*, deprecated, message: "applyLegacyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     func applyLegacyAppearance() {
+        applyLegacyHeights()
         applyLegacyBackgroundColors()
         applyLegacyContentInsets()
         applyLegacyCornerRadius()
@@ -48,6 +49,21 @@ private extension ActionSheet {
     func applyLegacyGroupMargins() {
         guard let margins = appearance.groupMargins else { return }
         sectionMargins = margins
+    }
+    
+    func applyLegacyHeights() {
+        let appearance = ActionSheetAppearance.standard
+        if let height = appearance.item.height { ActionSheetItem.height = height }
+        if let height = appearance.cancelButton.height { ActionSheetCancelButton.height = height }
+        if let height = appearance.dangerButton.height { ActionSheetDangerButton.height = height }
+        if let height = appearance.okButton.height { ActionSheetOkButton.height = height }
+        if let height = appearance.linkItem.height { ActionSheetLinkItem.height = height }
+        if let height = appearance.multiSelectItem.height { ActionSheetMultiSelectItem.height = height }
+        if let height = appearance.multiSelectToggleItem.height { ActionSheetMultiSelectToggleItem.height = height }
+        if let height = appearance.selectItem.height { ActionSheetSelectItem.height = height }
+        if let height = appearance.sectionTitle.height { ActionSheetSectionTitle.height = height }
+        if let height = appearance.sectionMargin.height { ActionSheetSectionMargin.height = height }
+        if let height = appearance.title.height { ActionSheetTitle.height = height }
     }
     
     func applyLegacyPopoverWidth() {

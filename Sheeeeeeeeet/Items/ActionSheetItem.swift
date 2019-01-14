@@ -67,6 +67,24 @@ open class ActionSheetItem: NSObject {
     public var cellStyle: UITableViewCell.CellStyle = .default
     
     
+    // MARK: - Height Logic
+    
+    static var registeredHeights = [ActionSheetItem.className: CGFloat(50)]
+    
+    public static var defaultHeight: CGFloat {
+        return registeredHeights[ActionSheetItem.className] ?? 0
+    }
+    
+    public static var height: CGFloat {
+        get { return registeredHeights[className] ?? defaultHeight }
+        set { registeredHeights[className] = newValue }
+    }
+    
+    public var height: CGFloat {
+        return type(of: self).height
+    }
+    
+    
     // MARK: - Functions
     
     open func cell(for tableView: UITableView) -> ActionSheetItemCell {

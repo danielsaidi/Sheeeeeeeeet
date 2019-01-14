@@ -483,7 +483,6 @@
 		453C04801FC16A220028FA02 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
-				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -771,6 +770,7 @@
 				8493965821E7CA7300DC0AEF /* ActionSheet+LegacyAppearance.swift */,
 				8493965A21E7CAFE00DC0AEF /* ActionSheetItem+LegacyAppearance.swift */,
 				453C04771FC0E8940028FA02 /* ActionSheetAppearance.swift */,
+				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 				456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */,
 				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
 				1D428928204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift */,

@@ -28,6 +28,7 @@ open class ActionSheetItemAppearance {
     
     public var backgroundColor: UIColor?
     public var font: UIFont?
+    public var height: CGFloat?
     public var subtitleFont: UIFont?
     public var subtitleTextColor: UIColor?
     public var textColor: UIColor?
@@ -41,8 +42,4 @@ open class ActionSheetItemAppearance {
     public func hideSeparator() {
         separatorInsets = ActionSheetItemAppearance.noSeparator
     }
-    
-    
-    // TODO
-    public var height: CGFloat = 50
 }

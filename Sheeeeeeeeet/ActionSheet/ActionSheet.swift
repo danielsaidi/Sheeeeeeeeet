@@ -266,6 +266,7 @@ private extension ActionSheet {
     }
     
     func totalHeight(for items: [ActionSheetItem]) -> CGFloat {
-        return items.reduce(0) { $0 + $1.appearance.height }
+        let height = items.reduce(0) { $0 + $1.height }
+        return height
     }
 }

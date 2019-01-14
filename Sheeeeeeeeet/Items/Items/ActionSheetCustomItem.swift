@@ -16,7 +16,7 @@
 
 import UIKit
 
-public class ActionSheetCustomItem<T>: ActionSheetItem where T: ActionSheetCustomItemCell {
+public class ActionSheetCustomItem<T: ActionSheetCustomItemCell>: ActionSheetItem {
     
     
     // MARK: - Initialization
@@ -40,6 +40,7 @@ public class ActionSheetCustomItem<T>: ActionSheetItem where T: ActionSheetCusto
     
     // MARK: - Properties
     
+    public override var height: CGFloat { return T.defaultSize.height }
     public let cellType: T.Type
     public let setupAction: SetupAction
     
