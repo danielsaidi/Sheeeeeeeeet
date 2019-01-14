@@ -24,7 +24,7 @@ open class ActionSheetDangerButton: ActionSheetOkButton {
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
-        return ActionSheetDangerButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        return ActionSheetDangerButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
     
     

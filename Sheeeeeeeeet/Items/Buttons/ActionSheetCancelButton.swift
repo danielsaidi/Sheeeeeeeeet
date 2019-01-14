@@ -30,7 +30,7 @@ open class ActionSheetCancelButton: ActionSheetButton {
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
-        return ActionSheetCancelButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        return ActionSheetCancelButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
     
     

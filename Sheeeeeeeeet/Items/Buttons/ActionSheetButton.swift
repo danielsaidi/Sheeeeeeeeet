@@ -40,7 +40,7 @@ open class ActionSheetButton: ActionSheetItem {
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
-        return ActionSheetButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        return ActionSheetButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
     
     
