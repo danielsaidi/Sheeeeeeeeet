@@ -6,21 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This appearance inherits the base appearance and applies to
- select items. The additional properties are applied when an
- item is selected:
- 
- * `selectedIcon` is displayed rightmost, e.g. a checkmark
- * `selectedTextColor` is applied to the text (duh)
- * `selectedTintColor` is applied to both icons if they are rendered as template images
- * `selectedIconTintColor` can override `selectedTintColor` for the selected icon
- 
- */
-
 import UIKit
 
+@available(*, deprecated, message: "ActionSheetSelectItemAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetSelectItemAppearance: ActionSheetItemAppearance {
     
     

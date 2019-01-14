@@ -485,7 +485,6 @@
 			children = (
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
 				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
-				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -784,6 +783,7 @@
 				45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */,
 				456EAA491FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift */,
 				453C04851FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift */,
+				45EB3FC71FC8423400EF555E /* ActionSheetSelectItemAppearance.swift */,
 				454093C52060168F0079F29D /* ActionSheetSingleSelectItemAppearance.swift */,
 				453C04811FC16A370028FA02 /* ActionSheetTitleAppearance.swift */,
 			);

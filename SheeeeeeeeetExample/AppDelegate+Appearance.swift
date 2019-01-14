@@ -26,6 +26,7 @@ extension AppDelegate {
         applyColors()
         applyFonts()
         applyIcons()
+        applySelectItemAppearances()
         applySeparatorInsets()
         applyPopoverWidth()
         
@@ -90,6 +91,22 @@ private extension AppDelegate {
         ActionSheetLinkItemCell.appearance().linkIcon = UIImage(named: "ic_arrow_right")
     }
     
+    func applySelectItemAppearances() {
+        ActionSheetSelectItemCell.appearance().selectedIcon = UIImage(named: "ic_checkmark")
+        ActionSheetSelectItemCell.appearance().unselectedIcon = UIImage(named: "ic_empty")
+        ActionSheetSelectItemCell.appearance().selectedTintColor = .exampleBlue
+        ActionSheetSelectItemCell.appearance().selectedTitleColor = .exampleGreen
+        ActionSheetSelectItemCell.appearance().selectedIconColor = .examplePurple
+        
+        ActionSheetSingleSelectItemCell.appearance().selectedTintColor = .exampleGreen
+        ActionSheetSingleSelectItemCell.appearance().selectedTitleColor = .examplePurple
+        ActionSheetSingleSelectItemCell.appearance().selectedIconColor = .exampleBlue
+        
+        ActionSheetMultiSelectItemCell.appearance().selectedTintColor = .examplePurple
+        ActionSheetMultiSelectItemCell.appearance().selectedTitleColor = .exampleBlue
+        ActionSheetMultiSelectItemCell.appearance().selectedIconColor = .exampleGreen
+    }
+    
     func applySeparatorInsets() {
         ActionSheetItemCell.appearance().separatorInset = .zero
         ActionSheetTitleCell.appearance().separatorInset = .hiddenSeparator
@@ -114,6 +131,7 @@ private extension AppDelegate {
         applyLegacyHeights()
         applyLegacyLinkIcon()
         applyLegacyPopoverWidth()
+        applyLegacySelectItemAppearances()
         applyLegacySeparatorInsets()
         applyLegacySubtitleFonts()
         applyLegacySubtitleTextColor()
@@ -148,6 +166,22 @@ private extension AppDelegate {
     
     func applyLegacyPopoverWidth() {
 //        ActionSheetAppearance.standard.popover.width = 800
+    }
+    
+    func applyLegacySelectItemAppearances() {
+//        ActionSheetAppearance.standard.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
+//        ActionSheetAppearance.standard.selectItem.unselectedIcon = UIImage(named: "ic_empty")
+//        ActionSheetAppearance.standard.selectItem.selectedTintColor = .exampleBlue
+//        ActionSheetAppearance.standard.selectItem.selectedTextColor = .exampleGreen
+//        ActionSheetAppearance.standard.selectItem.selectedIconTintColor = .examplePurple
+//
+//        ActionSheetAppearance.standard.singleSelectItem.selectedTintColor = .exampleGreen
+//        ActionSheetAppearance.standard.singleSelectItem.selectedTextColor = .examplePurple
+//        ActionSheetAppearance.standard.singleSelectItem.selectedIconTintColor = .exampleBlue
+//
+//        ActionSheetAppearance.standard.multiSelectItem.selectedTintColor = .examplePurple
+//        ActionSheetAppearance.standard.multiSelectItem.selectedTextColor = .exampleBlue
+//        ActionSheetAppearance.standard.multiSelectItem.selectedIconTintColor = .exampleGreen
     }
     
     func applyLegacySeparatorInsets() {

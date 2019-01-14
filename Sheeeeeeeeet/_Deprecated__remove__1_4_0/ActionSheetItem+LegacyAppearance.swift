@@ -40,14 +40,17 @@ private extension ActionSheetItem {
     func applyLegacyLinkItemAppearance(to cell: UITableViewCell) {
         guard let cell = cell as? ActionSheetLinkItemCell else { return }
         guard let appearance = appearance as? ActionSheetLinkItemAppearance else { return }
-        guard let icon = appearance.linkIcon else { return }
-        cell.linkIcon = appearance.linkIcon
+        if let icon = appearance.linkIcon { cell.linkIcon = icon }
     }
     
     func applyLegacySelectItemAppearance(to cell: UITableViewCell) {
         guard let cell = cell as? ActionSheetSelectItemCell else { return }
         guard let appearance = appearance as? ActionSheetSelectItemAppearance else { return }
-        ///
+        if let icon = appearance.selectedIcon { cell.selectedIcon = icon }
+        if let color = appearance.selectedIconTintColor { cell.selectedIconColor = color }
+        if let color = appearance.selectedTextColor { cell.selectedTitleColor = color }
+        if let color = appearance.selectedTintColor { cell.selectedTintColor = color }
+        if let icon = appearance.unselectedIcon { cell.unselectedIcon = icon }
     }
     
     func applyLegacySeparatorInsets(to cell: UITableViewCell) {

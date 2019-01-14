@@ -53,32 +53,15 @@ open class ActionSheetSelectItem: ActionSheetItem {
     // MARK: - Properties
     
     open var group: String
-    
     open var isSelected: Bool
     
     
     // MARK: - Deprecated
     
-    @available(*, deprecated, message: "selectAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open var selectAppearance: ActionSheetSelectItemAppearance? {
-        return appearance as? ActionSheetSelectItemAppearance
-    }
-    
     @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         super.applyAppearance(appearance)
         self.appearance = ActionSheetSelectItemAppearance(copy: appearance.selectItem)
-    }
-    
-    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(to cell: UITableViewCell) {
-        super.applyAppearance(to: cell)
-        guard let appearance = selectAppearance else { return }
-        let accessoryImage = isSelected ? appearance.selectedIcon : appearance.unselectedIcon
-        cell.accessoryView = UIImageView(image: accessoryImage)
-        cell.accessoryView?.tintColor = isSelected ? appearance.selectedIconTintColor : appearance.tintColor
-        cell.tintColor = isSelected ? appearance.selectedTintColor : appearance.tintColor
-        cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
     
     
@@ -97,4 +80,28 @@ open class ActionSheetSelectItem: ActionSheetItem {
 
 // MARK: -
 
-open class ActionSheetSelectItemCell: ActionSheetItemCell {}
+open class ActionSheetSelectItemCell: ActionSheetItemCell {
+    
+    
+    // MARK: - Appearance Properties
+    
+    @objc public dynamic var selectedIcon: UIImage?
+    @objc public dynamic var selectedIconColor: UIColor?
+    @objc public dynamic var selectedSubtitleColor: UIColor?
+    @objc public dynamic var selectedTitleColor: UIColor?
+    @objc public dynamic var selectedTintColor: UIColor?
+    @objc public dynamic var unselectedIcon: UIImage?
+    @objc public dynamic var unselectedIconColor: UIColor?
+    
+    
+    // MARK: - Functions
+    
+    open override func refresh() {
+        super.refresh()
+        guard let item = item as? ActionSheetSelectItem else { return }
+        accessoryView = UIImageView(image: item.isSelected ? selectedIcon : unselectedIcon)
+        accessoryView?.tintColor = item.isSelected ? selectedIconColor : unselectedIconColor
+        tintColor = item.isSelected ? selectedTintColor : tintColor
+        textLabel?.textColor = item.isSelected ? selectedTitleColor : titleColor
+    }
+}

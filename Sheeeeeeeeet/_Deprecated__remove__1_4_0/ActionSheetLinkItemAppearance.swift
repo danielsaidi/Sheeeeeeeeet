@@ -8,10 +8,8 @@
 
 import UIKit
 
+@available(*, deprecated, message: "ActionSheetLinkItemAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
-    
-    
-    // MARK: - Initialization
     
     public override init() {
         super.init()
@@ -22,9 +20,6 @@ open class ActionSheetLinkItemAppearance: ActionSheetItemAppearance {
         let copy = copy as? ActionSheetLinkItemAppearance
         linkIcon = copy?.linkIcon
     }
-    
-    
-    // MARK: - Properties
     
     public var linkIcon: UIImage?
 }
