@@ -50,12 +50,6 @@ open class ActionSheetButton: ActionSheetItem {
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = customAppearance ?? ActionSheetButtonAppearance(copy: appearance.okButton)
     }
-    
-    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(to cell: UITableViewCell) {
-        super.applyAppearance(to: cell)
-        cell.textLabel?.textAlignment = .center
-    }
 }
 
 

@@ -70,6 +70,7 @@ extension ActionSheetItemHandler: UITableViewDataSource {
         guard let item = self.item(at: indexPath) else { return UITableViewCell(frame: .zero) }
         let cell = item.cell(for: tableView)
         item.applyAppearance(to: cell)
+        (cell as? ActionSheetItemCell)?.item = item
         return cell
     }
     

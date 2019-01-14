@@ -67,6 +67,15 @@ open class ActionSheetItem: NSObject {
     public var cellStyle: UITableViewCell.CellStyle = .default
     
     
+    // MARK: - Functions
+    
+    open func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
+    
+    open func handleTap(in actionSheet: ActionSheet) {}
+    
+    
     // MARK: - Deprecated
     
     @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead.")
@@ -83,25 +92,5 @@ open class ActionSheetItem: NSObject {
     @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open func applyAppearance(to cell: UITableViewCell) {
         applyLegacyAppearance(to: cell)
-        guard let cell = cell as? ActionSheetItemCell else { return }
-        refresh(cell: cell)
-    }
-    
-    
-    // MARK: - Functions
-    
-    open func cell(for tableView: UITableView) -> UITableViewCell {
-        return ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
-    }
-    
-    open func handleTap(in actionSheet: ActionSheet) {}
-    
-    open func refresh(cell: ActionSheetItemCell) {
-        let noTap = tapBehavior == .none
-        cell.imageView?.image = image
-        cell.selectionStyle = noTap ? .none : .default
-        cell.textLabel?.text = title
-        cell.textLabel?.textAlignment = .left
-        cell.detailTextLabel?.text = subtitle
     }
 }

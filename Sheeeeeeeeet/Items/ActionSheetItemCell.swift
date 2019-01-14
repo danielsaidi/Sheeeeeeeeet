@@ -21,12 +21,9 @@ open class ActionSheetItemCell: UITableViewCell {
     
     // MARK: - Layout
     
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        textLabel?.font = titleFont
-        textLabel?.textColor = titleColor
-        detailTextLabel?.font = subtitleFont
-        detailTextLabel?.textColor = subtitleColor
+    open override func didMoveToWindow() {
+        super.didMoveToWindow()
+        refresh()
     }
     
     
@@ -38,10 +35,26 @@ open class ActionSheetItemCell: UITableViewCell {
     @objc public dynamic var subtitleFont: UIFont?
     
     
+    // MARK: - Private Properties
+    
+    public internal(set) weak var item: ActionSheetItem? {
+        didSet { refresh() }
+    }
+    
+    
     // MARK: - Functions
     
-    open func refresh(with item: ActionSheetItem) {
-        
-        
+    open func refresh() {
+        guard let item = item else { return }
+        let noTap = item.tapBehavior == .none
+        imageView?.image = item.image
+        selectionStyle = noTap ? .none : .default
+        textLabel?.font = titleFont
+        textLabel?.text = item.title
+        textLabel?.textAlignment = .left
+        textLabel?.textColor = titleColor
+        detailTextLabel?.font = subtitleFont
+        detailTextLabel?.text = item.subtitle
+        detailTextLabel?.textColor = subtitleColor
     }
 }

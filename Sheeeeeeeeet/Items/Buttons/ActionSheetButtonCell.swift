@@ -8,4 +8,10 @@
 
 import UIKit
 
-open class ActionSheetButtonCell: ActionSheetItemCell {}
+open class ActionSheetButtonCell: ActionSheetItemCell {
+    
+    open override func refresh() {
+        super.refresh()
+        textLabel?.textAlignment = .center
+    }
+}
