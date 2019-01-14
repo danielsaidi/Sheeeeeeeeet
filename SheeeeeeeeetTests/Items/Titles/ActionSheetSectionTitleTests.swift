@@ -30,14 +30,5 @@ class ActionSheetSectionTitleTests: QuickSpec {
                 expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
             }
         }
-        
-        describe("applying appearance to cell") {
-            
-            it("is correctly configures cell") {
-                let cell = UITableViewCell()
-                item.applyAppearance(to: cell)
-                expect(cell.selectionStyle).to(equal(UITableViewCell.SelectionStyle.none))
-            }
-        }
     }
 }

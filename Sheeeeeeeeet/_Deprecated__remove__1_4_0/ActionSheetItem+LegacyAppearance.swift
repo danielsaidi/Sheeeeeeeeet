@@ -14,6 +14,7 @@ extension ActionSheetItem {
         applyLegacyBackgroundColor(to: cell)
         applyLegacyFont(to: cell)
         applyLegacyLinkItemAppearance(to: cell)
+        applyLegacyMultiSelectToggleItemAppearance(to: cell)
         applyLegacySelectItemAppearance(to: cell)
         applyLegacySeparatorInsets(to: cell)
         applyLegacySubtitleFont(to: cell)
@@ -41,6 +42,13 @@ private extension ActionSheetItem {
         guard let cell = cell as? ActionSheetLinkItemCell else { return }
         guard let appearance = appearance as? ActionSheetLinkItemAppearance else { return }
         if let icon = appearance.linkIcon { cell.linkIcon = icon }
+    }
+    
+    func applyLegacyMultiSelectToggleItemAppearance(to cell: UITableViewCell) {
+        guard let cell = cell as? ActionSheetMultiSelectToggleItemCell else { return }
+        guard let appearance = appearance as? ActionSheetMultiSelectToggleItemAppearance else { return }
+        if let color = appearance.deselectAllTextColor { cell.deselectAllSubtitleColor = color }
+        if let color = appearance.selectAllTextColor { cell.selectAllSubtitleColor = color }
     }
     
     func applyLegacySelectItemAppearance(to cell: UITableViewCell) {

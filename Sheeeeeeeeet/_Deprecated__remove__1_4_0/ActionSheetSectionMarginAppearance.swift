@@ -13,11 +13,11 @@ open class ActionSheetSectionMarginAppearance: ActionSheetItemAppearance {
     
     public override init() {
         super.init()
-        hideSeparator()
+        separatorInsets = ActionSheetItemAppearance.noSeparator
     }
     
     public override init(copy: ActionSheetItemAppearance) {
         super.init(copy: copy)
-        hideSeparator()
+        separatorInsets = ActionSheetItemAppearance.noSeparator
     }
 }

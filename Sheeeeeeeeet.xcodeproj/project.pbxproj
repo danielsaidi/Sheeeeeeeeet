@@ -484,7 +484,6 @@
 			isa = PBXGroup;
 			children = (
 				45EB3FC51FC8420900EF555E /* ActionSheetItemAppearance.swift */,
-				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -775,6 +774,7 @@
 				456EAA061FCBF47E00A719ED /* ActionSheetButtonAppearance.swift */,
 				45EB3FCF1FC84B4400EF555E /* ActionSheetCancelButtonAppearance.swift */,
 				1D428928204039C0005D4369 /* ActionSheetCollectionItemAppearance.swift */,
+				455DEE3D206F735300173E67 /* ActionSheetMultiSelectToggleItemAppearance.swift */,
 				8499359A216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift */,
 				456EAA451FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift */,
 				45EB3FC91FC842C400EF555E /* ActionSheetLinkItemAppearance.swift */,

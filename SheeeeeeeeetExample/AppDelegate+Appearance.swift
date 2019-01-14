@@ -19,9 +19,6 @@ import Sheeeeeeeeet
 extension AppDelegate {
     
     func applyAppearance() {
-        
-        let appearance = ActionSheetAppearance.standard
-        
         applyViewAppearances()
         applyColors()
         applyFonts()
@@ -29,24 +26,6 @@ extension AppDelegate {
         applySelectItemAppearances()
         applySeparatorInsets()
         applyPopoverWidth()
-        
-        appearance.selectItem.selectedIcon = UIImage(named: "ic_checkmark")
-        appearance.selectItem.unselectedIcon = UIImage(named: "ic_empty")
-        appearance.selectItem.selectedTintColor = .exampleBlue
-        appearance.selectItem.selectedTextColor = .exampleGreen
-        appearance.selectItem.selectedIconTintColor = .examplePurple
-        
-        appearance.singleSelectItem.selectedTintColor = .exampleGreen
-        appearance.singleSelectItem.selectedTextColor = .examplePurple
-        appearance.singleSelectItem.selectedIconTintColor = .exampleBlue
-        
-        appearance.multiSelectItem.selectedTintColor = .examplePurple
-        appearance.multiSelectItem.selectedTextColor = .exampleBlue
-        appearance.multiSelectItem.selectedIconTintColor = .exampleGreen
-        
-        appearance.multiSelectToggleItem.selectAllTextColor = .lightGray
-        appearance.multiSelectToggleItem.deselectAllTextColor = .exampleRed
-        
         applyLegacyAppearance()
     }
 }
@@ -105,6 +84,9 @@ private extension AppDelegate {
         ActionSheetMultiSelectItemCell.appearance().selectedTintColor = .examplePurple
         ActionSheetMultiSelectItemCell.appearance().selectedTitleColor = .exampleBlue
         ActionSheetMultiSelectItemCell.appearance().selectedIconColor = .exampleGreen
+        
+        ActionSheetMultiSelectToggleItemCell.appearance().selectAllSubtitleColor = .lightGray
+        ActionSheetMultiSelectToggleItemCell.appearance().deselectAllSubtitleColor = .exampleRed
     }
     
     func applySeparatorInsets() {
@@ -130,6 +112,7 @@ private extension AppDelegate {
         applyLegacyFonts()
         applyLegacyHeights()
         applyLegacyLinkIcon()
+        applyLegacyMultiSelectItemToggleAppearances()
         applyLegacyPopoverWidth()
         applyLegacySelectItemAppearances()
         applyLegacySeparatorInsets()
@@ -161,6 +144,10 @@ private extension AppDelegate {
     }
     
     func applyLegacyLinkIcon() {
+//        ActionSheetAppearance.standard.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
+    }
+    
+    func applyLegacyMultiSelectItemToggleAppearances() {
 //        ActionSheetAppearance.standard.linkItem.linkIcon = UIImage(named: "ic_arrow_right")
     }
     

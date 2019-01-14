@@ -8,10 +8,8 @@
 
 import UIKit
 
+@available(*, deprecated, message: "ActionSheetMultiSelectToggleItemAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetMultiSelectToggleItemAppearance: ActionSheetItemAppearance {
-    
-    
-    // MARK: - Initialization
     
     public override init() {
         super.init()
@@ -23,9 +21,6 @@ open class ActionSheetMultiSelectToggleItemAppearance: ActionSheetItemAppearance
         deselectAllTextColor = copy?.deselectAllTextColor
         selectAllTextColor = copy?.selectAllTextColor
     }
-    
-    
-    // MARK: - Properties
     
     public var deselectAllTextColor: UIColor?
     public var selectAllTextColor: UIColor?

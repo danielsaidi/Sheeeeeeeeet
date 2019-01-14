@@ -80,7 +80,7 @@ class ActionSheetItemHandlerTests: QuickSpec {
             
             it("returns correct cell for existing item") {
                 let path = IndexPath(row: 0, section: 0)
-                item1.cell = UITableViewCell(frame: .zero)
+                item1.cell = ActionSheetItemCell(frame: .zero)
                 let result = handler.tableView(tableView(), cellForRowAt: path)
                 expect(result).to(be(item1.cell))
             }
