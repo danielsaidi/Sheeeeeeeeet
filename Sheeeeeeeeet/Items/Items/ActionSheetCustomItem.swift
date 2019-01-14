@@ -8,10 +8,9 @@
 
 /*
  
- Custom items can be used to present any view in your sheets.
- Just specify the view type you want to use and make sure it
- inherits `ActionSheetItemCell`, and that it also implements
- `ActionSheetCustomItemCell`.
+ Custom items can be used to present any views in your sheet.
+ It can use any view that inherits `ActionSheetItemCell` and
+ implements `ActionSheetCustomItemCell`.
  
  */
 
@@ -64,4 +63,13 @@ public class ActionSheetCustomItem<T>: ActionSheetItem where T: ActionSheetCusto
         setupAction(typedCell)
         return typedCell
     }
+}
+
+
+// MARK: -
+
+public protocol ActionSheetCustomItemCell where Self: ActionSheetItemCell {
+    
+    static var nib: UINib { get }
+    static var defaultSize: CGSize { get }
 }

@@ -170,4 +170,3 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
         collectionView.reloadData()
     }
 }
-
