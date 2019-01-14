@@ -23,11 +23,15 @@ open class ActionSheetDangerButton: ActionSheetOkButton {
     
     // MARK: - Functions
     
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = customAppearance ?? ActionSheetDangerButtonAppearance(copy: appearance.dangerButton)
-    }
-    
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         return ActionSheetDangerButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
+    
+    
+    // MARK: - Deprecated
+    
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        self.appearance = customAppearance ?? ActionSheetDangerButtonAppearance(copy: appearance.dangerButton)
     }
 }

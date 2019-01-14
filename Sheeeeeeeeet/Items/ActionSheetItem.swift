@@ -38,13 +38,11 @@ open class ActionSheetItem: NSObject {
         value: Any? = nil,
         image: UIImage? = nil,
         tapBehavior: TapBehavior = .dismiss) {
-        let appearance = ActionSheetAppearance.standard.item
         self.title = title
         self.subtitle = subtitle
         self.value = value
         self.image = image
         self.tapBehavior = tapBehavior
-        self.appearance = ActionSheetItemAppearance(copy: appearance)
         super.init()
         if subtitle != nil { self.cellStyle = .value1}
     }
@@ -72,7 +70,7 @@ open class ActionSheetItem: NSObject {
     // MARK: - Deprecated
     
     @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead.")
-    public internal(set) var appearance: ActionSheetItemAppearance
+    public lazy internal(set) var appearance = ActionSheetItemAppearance(copy: ActionSheetAppearance.standard.item)
     
     @available(*, deprecated, message: "customAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     public var customAppearance: ActionSheetItemAppearance?
@@ -84,13 +82,9 @@ open class ActionSheetItem: NSObject {
     
     @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open func applyAppearance(to cell: UITableViewCell) {
-        let noTap = tapBehavior == .none
-        cell.imageView?.image = image
-        cell.selectionStyle = noTap ? .none : .default
-        cell.textLabel?.text = title
-        cell.textLabel?.textAlignment = .left
-        cell.detailTextLabel?.text = subtitle
         applyLegacyAppearance(to: cell)
+        guard let cell = cell as? ActionSheetItemCell else { return }
+        refresh(cell: cell)
     }
     
     
@@ -101,4 +95,13 @@ open class ActionSheetItem: NSObject {
     }
     
     open func handleTap(in actionSheet: ActionSheet) {}
+    
+    open func refresh(cell: ActionSheetItemCell) {
+        let noTap = tapBehavior == .none
+        cell.imageView?.image = image
+        cell.selectionStyle = noTap ? .none : .default
+        cell.textLabel?.text = title
+        cell.textLabel?.textAlignment = .left
+        cell.detailTextLabel?.text = subtitle
+    }
 }

@@ -29,11 +29,15 @@ open class ActionSheetCancelButton: ActionSheetButton {
     
     // MARK: - Functions
     
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = customAppearance ?? ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
-    }
-    
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         return ActionSheetCancelButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
+    
+    
+    // MARK: - Deprecated
+    
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        self.appearance = customAppearance ?? ActionSheetCancelButtonAppearance(copy: appearance.cancelButton)
     }
 }

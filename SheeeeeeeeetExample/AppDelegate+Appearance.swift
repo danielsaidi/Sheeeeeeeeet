@@ -109,7 +109,7 @@ private extension AppDelegate {
 private extension AppDelegate {
     
     func applyLegacyAppearance() {
-        applyLegacyBackgroundColors()
+        applyLegacyColors()
         applyLegacyFonts()
         applyLegacyHeights()
         applyLegacyLinkIcon()
@@ -121,8 +121,9 @@ private extension AppDelegate {
         applyLegacyTintColors()
     }
     
-    func applyLegacyBackgroundColors() {
+    func applyLegacyColors() {
 //        ActionSheetAppearance.standard.item.backgroundColor = .exampleRed
+//        ActionSheetAppearance.standard.separatorColor = .exampleRed
     }
     
     func applyLegacyFonts() {

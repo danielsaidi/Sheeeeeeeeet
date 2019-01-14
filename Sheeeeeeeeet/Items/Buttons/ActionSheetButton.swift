@@ -39,17 +39,22 @@ open class ActionSheetButton: ActionSheetItem {
     
     // MARK: - Functions
     
+    open override func cell(for tableView: UITableView) -> UITableViewCell {
+        return ActionSheetButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+    }
+    
+    
+    // MARK: - Deprecated
+    
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = customAppearance ?? ActionSheetButtonAppearance(copy: appearance.okButton)
     }
     
+    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         cell.textLabel?.textAlignment = .center
-    }
-    
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
-        return ActionSheetButtonCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
 }
 
