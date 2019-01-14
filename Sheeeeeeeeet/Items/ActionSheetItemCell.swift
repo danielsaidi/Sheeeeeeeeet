@@ -37,9 +37,7 @@ open class ActionSheetItemCell: UITableViewCell {
     
     // MARK: - Private Properties
     
-    public internal(set) weak var item: ActionSheetItem? {
-        didSet { refresh() }
-    }
+    public private(set) weak var item: ActionSheetItem?
     
     
     // MARK: - Functions
@@ -56,5 +54,10 @@ open class ActionSheetItemCell: UITableViewCell {
         detailTextLabel?.font = subtitleFont
         detailTextLabel?.text = item.subtitle
         detailTextLabel?.textColor = subtitleColor
+    }
+    
+    open func refresh(with item: ActionSheetItem) {
+        self.item = item
+        refresh()
     }
 }

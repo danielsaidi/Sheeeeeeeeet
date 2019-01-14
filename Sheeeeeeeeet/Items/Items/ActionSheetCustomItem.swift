@@ -57,7 +57,7 @@ public class ActionSheetCustomItem<T>: ActionSheetItem where T: ActionSheetCusto
     
     // MARK: - Functions
     
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         tableView.register(T.nib, forCellReuseIdentifier: cellReuseIdentifier)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
         guard let typedCell = cell as? T else { fatalError("Invalid cell type created by superclass") }

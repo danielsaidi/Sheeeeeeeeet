@@ -74,7 +74,7 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     
     // MARK: - Functions
     
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetMultiSelectToggleItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     

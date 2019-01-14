@@ -71,7 +71,7 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     
     // MARK: - Functions
     
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: cellReuseIdentifier)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
         guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type created by superclass") }

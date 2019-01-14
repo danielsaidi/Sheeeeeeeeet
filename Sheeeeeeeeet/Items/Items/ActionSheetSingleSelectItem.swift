@@ -34,7 +34,7 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
     // MARK: - Functions
     
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetSingleSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     

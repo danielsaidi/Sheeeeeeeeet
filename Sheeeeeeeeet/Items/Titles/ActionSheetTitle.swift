@@ -28,7 +28,7 @@ open class ActionSheetTitle: ActionSheetItem {
     
     // MARK: - Functions
     
-    open override func cell(for tableView: UITableView) -> UITableViewCell {
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetTitleCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     

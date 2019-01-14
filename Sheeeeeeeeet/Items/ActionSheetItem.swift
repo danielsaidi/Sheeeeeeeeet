@@ -69,7 +69,7 @@ open class ActionSheetItem: NSObject {
     
     // MARK: - Functions
     
-    open func cell(for tableView: UITableView) -> UITableViewCell {
+    open func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     
