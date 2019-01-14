@@ -18,19 +18,21 @@ import UIKit
 open class ActionSheetLinkItem: ActionSheetItem {
     
     
-    // MARK: - Properties
+    // MARK: - Deprecated
     
+    @available(*, deprecated, message: "linkAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open var linkAppearance: ActionSheetLinkItemAppearance? {
         return appearance as? ActionSheetLinkItemAppearance
     }
     
-    
-    // MARK: - Functions
-    
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         super.applyAppearance(appearance)
         self.appearance = ActionSheetLinkItemAppearance(copy: appearance.linkItem)
     }
+    
+    
+    // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         return ActionSheetLinkItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)

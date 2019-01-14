@@ -59,7 +59,6 @@ open class ActionSheetItem: NSObject {
 
     // MARK: - Properties
     
-    public internal(set) var appearance: ActionSheetItemAppearance
     public var image: UIImage?
     public var subtitle: String?
     public var tapBehavior: TapBehavior
@@ -68,15 +67,22 @@ open class ActionSheetItem: NSObject {
     
     public var cellReuseIdentifier: String { return className }
     public var cellStyle: UITableViewCell.CellStyle = .default
+    
+    
+    // MARK: - Deprecated
+    
+    @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead.")
+    public internal(set) var appearance: ActionSheetItemAppearance
+    
+    @available(*, deprecated, message: "customAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     public var customAppearance: ActionSheetItemAppearance?
     
-    
-    // MARK: - Functions
-    
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open func applyAppearance(_ appearance: ActionSheetAppearance) {
         self.appearance = customAppearance ?? ActionSheetItemAppearance(copy: appearance.item)
     }
     
+    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open func applyAppearance(to cell: UITableViewCell) {
         let noTap = tapBehavior == .none
         cell.imageView?.image = image
@@ -86,6 +92,9 @@ open class ActionSheetItem: NSObject {
         cell.detailTextLabel?.text = subtitle
         applyLegacyAppearance(to: cell)
     }
+    
+    
+    // MARK: - Functions
     
     open func cell(for tableView: UITableView) -> UITableViewCell {
         return ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)

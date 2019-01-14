@@ -53,13 +53,15 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     open var state: State
     
     
-    // MARK: - Functions
+    // MARK: - Deprecated
     
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         super.applyAppearance(appearance)
         self.appearance = ActionSheetMultiSelectToggleItemAppearance(copy: appearance.multiSelectToggleItem)
     }
     
+    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         guard let appearance = appearance as? ActionSheetMultiSelectToggleItemAppearance else { return }
@@ -68,6 +70,9 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
         appearance.subtitleTextColor = isSelectAll ? appearance.selectAllTextColor : appearance.deselectAllTextColor
         super.applyAppearance(to: cell)
     }
+    
+    
+    // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         return ActionSheetMultiSelectToggleItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)

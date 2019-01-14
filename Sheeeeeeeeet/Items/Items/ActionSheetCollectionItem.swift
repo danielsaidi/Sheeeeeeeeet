@@ -52,19 +52,24 @@ open class ActionSheetCollectionItem<T>: ActionSheetItem, UICollectionViewDataSo
     public let setupAction: CellAction
     
     
-    // MARK: - Functions
+    // MARK: - Deprecated
     
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         super.applyAppearance(appearance)
         self.appearance = ActionSheetCollectionItemAppearance(copy: appearance.collectionItem)
         self.appearance.height = T.defaultSize.height + T.topInset + T.bottomInset + 0.5
     }
     
+    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         guard let itemCell = cell as? ActionSheetCollectionItemCell else { return }
         itemCell.setup(withNib: T.nib, owner: self)
     }
+    
+    
+    // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: cellReuseIdentifier)

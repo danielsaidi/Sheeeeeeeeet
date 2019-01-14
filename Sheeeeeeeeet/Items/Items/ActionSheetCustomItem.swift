@@ -45,13 +45,17 @@ public class ActionSheetCustomItem<T>: ActionSheetItem where T: ActionSheetCusto
     public let setupAction: SetupAction
     
     
-    // MARK: - Functions
+    // MARK: - Deprecated
     
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     public override func applyAppearance(_ appearance: ActionSheetAppearance) {
         super.applyAppearance(appearance)
         self.appearance = ActionSheetCustomItemAppearance(copy: appearance.customItem)
         self.appearance.height = T.defaultSize.height
     }
+    
+    
+    // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         tableView.register(T.nib, forCellReuseIdentifier: cellReuseIdentifier)

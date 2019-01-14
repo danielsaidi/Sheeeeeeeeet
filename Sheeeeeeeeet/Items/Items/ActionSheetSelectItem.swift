@@ -56,18 +56,21 @@ open class ActionSheetSelectItem: ActionSheetItem {
     
     open var isSelected: Bool
     
+    
+    // MARK: - Deprecated
+    
+    @available(*, deprecated, message: "selectAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open var selectAppearance: ActionSheetSelectItemAppearance? {
         return appearance as? ActionSheetSelectItemAppearance
     }
     
-    
-    // MARK: - Functions
-    
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(_ appearance: ActionSheetAppearance) {
         super.applyAppearance(appearance)
         self.appearance = ActionSheetSelectItemAppearance(copy: appearance.selectItem)
     }
     
+    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
     open override func applyAppearance(to cell: UITableViewCell) {
         super.applyAppearance(to: cell)
         guard let appearance = selectAppearance else { return }
@@ -77,6 +80,9 @@ open class ActionSheetSelectItem: ActionSheetItem {
         cell.tintColor = isSelected ? appearance.selectedTintColor : appearance.tintColor
         cell.textLabel?.textColor = isSelected ? appearance.selectedTextColor : appearance.textColor
     }
+    
+    
+    // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> UITableViewCell {
         return ActionSheetSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
