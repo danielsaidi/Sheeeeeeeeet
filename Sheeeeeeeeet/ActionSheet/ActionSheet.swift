@@ -34,7 +34,30 @@
  
  ## Appearance
  
- TODO
+ Customizing the appearance of the various action sheet item
+ types in Sheeeeeeeeet (as well as of your own custom items),
+ is mainly done using the iOS appearance proxy for each item
+ cell type. For instance, to change the title text color for
+ all `ActionSheetSelectItem` instances (including subclasses),
+ type `ActionSheetSelectItem.appearance().titleColor`. It is
+ also possible to set these properties for each item as well.
+ 
+ While most appearance is modified on a cell level, some are
+ not. For instance, some views in `Views` have apperances of
+ their own (e.g. `ActionSheetHeaderView.cornerRadius`). This
+ means that you can change more than cell appearance. Have a
+ look at the readme for more info on what you can customize.
+ 
+ Action sheet insets, margins and widths are not part of the
+ appearance model, but have to be changed for each sheet. If
+ you want to change these values for each sheet in youer app,
+ I recommend subclassing `ActionSheet` and set these values.
+ 
+ Neither item heights are part of the appearance model. Item
+ heights are instead changed by setting the static height of
+ each item type, e.g. `ActionSheetTitleItem.height = 20`. It
+ is not part of the cell appearance model since an item must
+ know about the height before it creates any cells.
  
  
  ## Presentation
