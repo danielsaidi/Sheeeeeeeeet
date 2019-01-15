@@ -213,13 +213,13 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshItems() {
-        items.forEach { $0.applyAppearance(appearance) }
+        items.forEach { $0.applyAppearance(appearance) }    // TODO: Deprecated - Remove in 1.4.0
         itemsTableViewHeight?.constant = itemsHeight
     }
     
     open func refreshButtons() {
         buttonsTableView?.isHidden = buttons.count == 0
-        buttons.forEach { $0.applyAppearance(appearance) }
+        buttons.forEach { $0.applyAppearance(appearance) }  // TODO: Deprecated - Remove in 1.4.0
         buttonsTableViewHeight?.constant = buttonsHeight
     }
     
@@ -233,7 +233,7 @@ open class ActionSheet: UIViewController {
     }
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
-        let view = self.view.superview ?? self.view
+        let view: UIView! = self.view.superview ?? self.view
         switch margin {
         case .top: return margin.value(in: view, minimum: minimumContentInsets.top)
         case .left: return margin.value(in: view, minimum: minimumContentInsets.left)
