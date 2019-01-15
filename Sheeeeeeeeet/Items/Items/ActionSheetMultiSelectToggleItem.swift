@@ -78,6 +78,7 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     open func updateState(for actionSheet: ActionSheet) {
         let selectItems = actionSheet.items.compactMap { $0 as? ActionSheetMultiSelectItem }
         let items = selectItems.filter { $0.group == group }
+        guard items.count > 0 else { return state = .selectAll }
         state = items.contains { !$0.isSelected } ? .selectAll : .deselectAll
     }
 }

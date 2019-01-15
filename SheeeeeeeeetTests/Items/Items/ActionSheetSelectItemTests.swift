@@ -14,65 +14,99 @@ class ActionSheetSelectItemTests: QuickSpec {
     
     override func spec() {
         
-        func getItem(isSelected: Bool = false) -> ActionSheetSelectItem {
-            return ActionSheetSelectItem(title: "foo", isSelected: isSelected, value: true, image: UIImage())
-        }
         
-        describe("when created") {
+        describe("instance") {
             
-            it("applies provided values") {
-                let item = ActionSheetSelectItem(title: "foo", isSelected: true, group: "my group", value: true, image: UIImage(), tapBehavior: .none)
+            it("can be created with default values") {
+                let item = ActionSheetSelectItem(title: "foo", isSelected: false)
+                expect(item.title).to(equal("foo"))
+                expect(item.isSelected).to(beFalse())
+                expect(item.group).to(equal(""))
+                expect(item.value).to(beNil())
+                expect(item.image).to(beNil())
+                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
+            }
+            
+            it("can be created with custom values") {
+                let item = ActionSheetSelectItem(title: "foo", isSelected: true, group: "group", value: true, image: UIImage())
                 expect(item.title).to(equal("foo"))
                 expect(item.isSelected).to(beTrue())
-                expect(item.group).to(equal("my group"))
+                expect(item.group).to(equal("group"))
                 expect(item.value as? Bool).to(equal(true))
                 expect(item.image).toNot(beNil())
-                expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.none))
-            }
-            
-            it("applies provided selection state") {
-                expect(getItem(isSelected: true).isSelected).to(beTrue())
-                expect(getItem(isSelected: false).isSelected).to(beFalse())
-            }
-        }
-        
-        describe("tap behavior") {
-            
-            it("is dismiss by default") {
-                let item = getItem()
                 expect(item.tapBehavior).to(equal(ActionSheetItem.TapBehavior.dismiss))
             }
         }
         
-        describe("when tapped") {
+        
+        describe("cell") {
             
-            var sheet: ActionSheet!
-            
-            beforeEach {
-                sheet = ActionSheet(items: [
-                    getItem(isSelected: true),
-                    getItem(isSelected: false)
-                    ], action: { _, _ in })
+            it("is of correct type") {
+                let item = ActionSheetSelectItem(title: "foo", isSelected: false)
+                let cell = item.cell(for: UITableView())
+                
+                expect(cell is ActionSheetSelectItemCell).to(beTrue())
+                expect(cell.reuseIdentifier).to(equal(item.cellReuseIdentifier))
             }
+        }
+        
+        
+        describe("handling tap") {
             
-            it("selects unselected item") {
-                let item = getItem(isSelected: false)
+            it("toggles selected state") {
+                let item = ActionSheetSelectItem(title: "foo", isSelected: false)
+                let sheet = ActionSheet() { _, _ in }
                 item.handleTap(in: sheet)
                 expect(item.isSelected).to(beTrue())
-            }
-            
-            it("deselects selected item") {
-                let item = getItem(isSelected: true)
                 item.handleTap(in: sheet)
                 expect(item.isSelected).to(beFalse())
             }
+        }
+    }
+}
+
+
+class ActionSheetSelectItemCellTests: QuickSpec {
+    
+    override func spec() {
+        
+        describe("refreshing") {
             
-            it("does not affect other sheet items") {
-                let item = getItem(isSelected: true)
-                item.handleTap(in: sheet)
-                let items = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
-                expect(items.first!.isSelected).to(beTrue())
-                expect(items.last!.isSelected).to(beFalse())
+            var item: ActionSheetSelectItem!
+            var cell: ActionSheetSelectItemCell!
+            
+            beforeEach {
+                item = ActionSheetSelectItem(title: "foo", isSelected: false)
+                cell = item.cell(for: UITableView()) as? ActionSheetSelectItemCell
+                cell.tintColor = UIColor.purple.withAlphaComponent(0.1)
+                cell.titleColor = UIColor.yellow.withAlphaComponent(0.1)
+                cell.subtitleColor = UIColor.red.withAlphaComponent(0.1)
+                cell.selectedIcon = UIImage()
+                cell.selectedIconColor = .green
+                cell.selectedTintColor = .purple
+                cell.selectedTitleColor = .yellow
+                cell.selectedSubtitleColor = .red
+                cell.unselectedIcon = UIImage()
+                cell.unselectedIconColor = UIColor.green.withAlphaComponent(0.1)
+                cell.refresh(with: item)
+            }
+            
+            it("refreshes correctly for selected item") {
+                item.isSelected = true
+                cell.refresh()
+                expect((cell.accessoryView as? UIImageView)?.image).to(be(cell.selectedIcon))
+                expect(cell.accessoryView?.tintColor).to(be(cell.selectedIconColor))
+                expect(cell.tintColor).to(be(cell.selectedTintColor))
+                expect(cell.textLabel?.textColor).to(be(cell.selectedTitleColor))
+            }
+            
+            it("refreshes correctly for unselected item") {
+                item.isSelected = false
+                cell.refresh()
+                expect((cell.accessoryView as? UIImageView)?.image).to(be(cell.unselectedIcon))
+                expect(cell.accessoryView?.tintColor).to(be(cell.unselectedIconColor))
+                expect(cell.tintColor).to(be(cell.tintColor))
+                expect(cell.textLabel?.textColor).to(be(cell.titleColor))
             }
         }
     }
