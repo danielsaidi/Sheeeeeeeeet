@@ -3,40 +3,44 @@
 
 ## 1.2.0
 
-Deprecations removed in 1.4.0:
-Also mention that 1.4.0 will move some temp placed props elsewhere.
+This is a huge update, that completely rewrites how action sheet appearances are
+handled. Instead of the old appearance model, Sheeeeeeeeet now relies on the iOS
+appearance proxy model as much as possible.
 
-* Tap behavior none -> no selection
-* Reimplemented appearance handling
-* Appearance proxies
-* Easier to configure, subclass etc.
-* No brittle copying
-* ActionSheetItem - override cell
-* ActionSheetItem - no reuse identifier
-* ActionSheetItem - override cell(for) to return custom cells
-* Each item has its own cell type
+The old appearance model is still around, but has been marked as deprecated, and
+will be removed in `1.4.0`. Make sure that you switch over to the new appearance
+model as soon as possible. Have a look at the example app and the main readme to
+see how you should customize the action sheet appearance from now on.
 
-* New views
-  * ActionSheetTableView
-  * ActionSheetItemTableView
-  * ActionSheetButtonTableView
-  * ActionSheetBackgroundView
-  * ActionSheetStackView
+In short, item appearance customizations are handled in three different ways now:
 
-* ActionSheet.preferredContentWidth
-* ActionSheet.minimumContentInsets - static/instance variable.
+* Item appearances such as colors and fonts, are customized with cell properties,
+for instance: `ActionSheetSelectItem.appearance().titleColor = .green`.
+* Item heights are now customized by setting the `height` property of every item
+type you want to customize, for instance: `ActionSheetTitle.height = 22`. If you
+have a custom height for a single item, you must inherit another item type, them
+change the height of the subclass, for instance `FoodItem.height = 22`.
+* Action sheet margins, insets etc. are now customized by setting the properties
+of each action sheet instance.
 
-Test:
-* ActionSheet -> setting standard appearance proxy values
-* UIEdgeInsets+Hidden
-* ActionSheetHeaderView
-* ActionSheetTableView
-* ActionSheetItemHandler -> item.applyAppearance(to: cell)
-* ActionSheetXXXCell -> Setup
-* ActionSheetTests describe("margin at position")
-* ActionSheet.marginAt
-* ActionSheet.minimumContentInsets
-* ActionSheetPopoverPresenter.popoverWidth - propery and appliance
+All built-in action sheet items now have their own cells. Your subclasses do not
+have to use custom cell types, but you now have that option if you need to. This
+makes it a lot easier to create custom items.
+
+Sheeeeeeeeet now contains several new views, which are used by the action sheets:
+
+  * `ActionSheetTableView`
+  * `ActionSheetItemTableView`
+  * `ActionSheetButtonTableView`
+  * `ActionSheetBackgroundView`
+  * `ActionSheetStackView`
+
+The new classes make it easy to modify the appearance of these views, since they
+have appearance properties as well. For instance, to change the corner radius of
+the table views, just type: `ActionSheetTableView.appearance().cornerRadius = 8`.
+
+This new version has also rebuilt all unit tests from scratch. They are now more
+robust and easier to maintain.
 
 
 ## 1.1.0
