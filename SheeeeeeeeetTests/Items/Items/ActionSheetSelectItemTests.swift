@@ -55,7 +55,7 @@ class ActionSheetSelectItemTests: QuickSpec {
             
             it("toggles selected state") {
                 let item = ActionSheetSelectItem(title: "foo", isSelected: false)
-                let sheet = ActionSheet() { _, _ in }
+                let sheet = ActionSheet { _, _ in }
                 item.handleTap(in: sheet)
                 expect(item.isSelected).to(beTrue())
                 item.handleTap(in: sheet)
