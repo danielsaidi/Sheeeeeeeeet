@@ -119,6 +119,7 @@
 		842385AA21E8926F0045F121 /* ActionSheetItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */; };
 		842385AC21E892910045F121 /* ActionSheetButtonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */; };
 		8423863121EB42D60045F121 /* UIEdgeInsets+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */; };
+		8423863621EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863521EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA821775C030097039F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA721775C030097039F /* UIView+Nib.swift */; };
 		84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA9217765A30097039F /* UIView+Subviews.swift */; };
@@ -309,6 +310,7 @@
 		842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTableView.swift; sourceTree = "<group>"; };
 		842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTableView.swift; sourceTree = "<group>"; };
 		8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Hidden.swift"; sourceTree = "<group>"; };
+		8423863521EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+HiddenTests.swift"; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -633,7 +635,6 @@
 			children = (
 				8423863421EDEFAF0045F121 /* Mocks */,
 				453C797320931C1300DE42B5 /* ActionSheet */,
-				84D266A92170664A004502CC /* Appearance */,
 				84539DB72177D1F80097039F /* Extensions */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				45352D572030BBC900A0F890 /* Items */,
@@ -745,6 +746,7 @@
 			children = (
 				849F062A21D26F270074C6E4 /* NSObject+Bundle.swift */,
 				84539DB82177D20E0097039F /* NSObject+ClassNameTests.swift */,
+				8423863521EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift */,
 				84539DBC2177DEAC0097039F /* UIView+NibTests.swift */,
 				84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */,
 				84539DBA2177DD6B0097039F /* UIViewController+RootViewControllerTests.swift */,
@@ -807,13 +809,6 @@
 				4537E8661FD2A55F0007501C /* ViewController+TableView.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		84D266A92170664A004502CC /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Appearance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1123,6 +1118,7 @@
 				84539DB62177CF470097039F /* ActionSheetMarginTests.swift in Sources */,
 				453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */,
 				84539DB221778D0B0097039F /* MockTableView.swift in Sources */,
+				8423863621EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift in Sources */,
 				45D008D520936AFC00F1C099 /* MockActionSheetPresenter.swift in Sources */,
 				45352D652030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift in Sources */,
 				455DEE3A206F71B500173E67 /* ActionSheetMultiSelectItemTests.swift in Sources */,

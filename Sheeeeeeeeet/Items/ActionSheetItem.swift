@@ -9,19 +9,31 @@
 /*
  
  This class represents a regular action sheet item, like the
- ones used in UIAlertController. It has a title, an optional
- value and an optional image. All other items builds on this.
+ one used in UIAlertController. It has a title as well as an
+ optional subtitle, value and image. All other items inherit
+ this class, even if they don't make use of these properties.
+ 
+ 
+ ## Subclassing
+ 
+ You can subclass any item class and customize it in any way
+ you need. If you need your subclass to use a different cell,
+ just override `cell(for:)` to return the cell you need.
+ 
+ 
+ ## Appearance
+ 
+ TODO
+ EXPLAIN HEIGHT
+ 
+ 
+ ## Tap behavior
  
  The default tap behavior of action sheet items is "dismiss",
  which means that the action sheet will dismiss itself after
  handling the item tap. Set `tapBehavior` to `.none`, if you
  don't want the action sheet to be dismissed when an item is
  tapped. Some item types uses `.none` by default.
- 
- The item appearance is set by the sheet. It either uses the
- global appearance or an individual instance. To use a fully
- custom appearances for a single action sheet item, just set
- the `customAppearance` property.
  
  */
 
@@ -55,8 +67,8 @@ open class ActionSheetItem: NSObject {
         self.value = value
         self.image = image
         self.tapBehavior = tapBehavior
+        self.cellStyle = subtitle == nil ? .default : .value1
         super.init()
-        if subtitle != nil { self.cellStyle = .value1}
     }
     
     
@@ -76,20 +88,16 @@ open class ActionSheetItem: NSObject {
     public var value: Any?
     
     public var cellReuseIdentifier: String { return className }
-    public var cellStyle: UITableViewCell.CellStyle = .default
+    public var cellStyle: UITableViewCell.CellStyle
     
     
     // MARK: - Height Logic
     
-    static var registeredHeights = [ActionSheetItem.className: CGFloat(50)]
-    
-    public static var defaultHeight: CGFloat {
-        return registeredHeights[ActionSheetItem.className] ?? 0
-    }
+    private static var heights = [String: CGFloat]()
     
     public static var height: CGFloat {
-        get { return registeredHeights[className] ?? defaultHeight }
-        set { registeredHeights[className] = newValue }
+        get { return heights[className] ?? 50 }
+        set { heights[className] = newValue }
     }
     
     public var height: CGFloat {
@@ -137,9 +145,8 @@ open class ActionSheetItemCell: UITableViewCell {
     
     open func refresh() {
         guard let item = item else { return }
-        let noTap = item.tapBehavior == .none
         imageView?.image = item.image
-        selectionStyle = noTap ? .none : .default
+        selectionStyle = item.tapBehavior == .none ? .none : .default
         textLabel?.font = titleFont
         textLabel?.text = item.title
         textLabel?.textAlignment = .left

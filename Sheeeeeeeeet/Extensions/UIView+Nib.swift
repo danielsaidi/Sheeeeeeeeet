@@ -14,6 +14,6 @@ import UIKit
 extension UIView {
     
     static var defaultNib: UINib {
-        return UINib(nibName: className, bundle: self.bundle)
+        return UINib(nibName: className, bundle: bundle)
     }
 }

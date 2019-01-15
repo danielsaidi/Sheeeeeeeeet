@@ -32,6 +32,11 @@
  streamlines how you work with a sleep timer.
  
  
+ ## Appearance
+ 
+ TODO
+ 
+ 
  ## Presentation
  
  You can inject a custom presenter if you want to change how

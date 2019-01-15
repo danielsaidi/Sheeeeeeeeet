@@ -27,21 +27,5 @@ class ActionSheetOkButtonTests: ActionSheetItemTests {
                 expect(item.isOkButton).to(beTrue())
             }
         }
-        
-        describe("applying appearance") {
-            
-            it("applies standard copy if no custom appearance is set") {
-                item.applyAppearance(ActionSheetAppearance.standard)
-                expect(self.compare(item.appearance, ActionSheetAppearance.standard.okButton)).to(beTrue())
-            }
-            
-            it("applies custom appearance if set") {
-                let standard = ActionSheetAppearance.standard
-                let custom = ActionSheetAppearance(copy: standard)
-                item.customAppearance = custom.okButton
-                item.applyAppearance(standard)
-                expect(item.appearance).to(be(custom.okButton))
-            }
-        }
     }
 }
