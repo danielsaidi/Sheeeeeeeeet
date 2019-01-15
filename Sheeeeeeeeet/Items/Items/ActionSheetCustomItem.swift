@@ -12,6 +12,8 @@
  It can use any view that inherits `ActionSheetItemCell` and
  implements `ActionSheetCustomItemCell`.
  
+ TODO: Unit test
+ 
  */
 
 import UIKit
