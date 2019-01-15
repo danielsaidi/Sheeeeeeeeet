@@ -8,8 +8,9 @@
 
 /*
  
- This presenter will present action sheets as regular iPhone
- action sheets, from the bottom of the screen.
+ This presenter presents action sheets as regular iOS action
+ sheets, which are presented with a slide-in from the bottom
+ of the screen.
  
  */
 

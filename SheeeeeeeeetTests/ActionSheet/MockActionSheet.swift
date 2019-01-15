@@ -16,6 +16,13 @@ class MockActionSheet: ActionSheet {
     var setupItemsInvokeItems = [[ActionSheetItem]]()
     
     
+    private var _presentingViewController: UIViewController?
+    override var presentingViewController: UIViewController? {
+        get { return _presentingViewController }
+        set { _presentingViewController = newValue }
+    }
+    
+    
     override func dismiss(completion: @escaping () -> ()) {
         super.dismiss { completion() }
         dismissInvokeCount += 1

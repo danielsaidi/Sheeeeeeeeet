@@ -120,6 +120,7 @@
 		842385AC21E892910045F121 /* ActionSheetButtonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */; };
 		8423863121EB42D60045F121 /* UIEdgeInsets+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */; };
 		8423863621EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863521EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift */; };
+		8423863B21EE7AED0045F121 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863A21EE7AED0045F121 /* MockViewController.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA821775C030097039F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA721775C030097039F /* UIView+Nib.swift */; };
 		84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA9217765A30097039F /* UIView+Subviews.swift */; };
@@ -311,6 +312,7 @@
 		842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTableView.swift; sourceTree = "<group>"; };
 		8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Hidden.swift"; sourceTree = "<group>"; };
 		8423863521EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+HiddenTests.swift"; sourceTree = "<group>"; };
+		8423863A21EE7AED0045F121 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -461,8 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
-				456EAA0D1FCC13A400A719ED /* ActionSheetStandardPresenter.swift */,
 				45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */,
+				456EAA0D1FCC13A400A719ED /* ActionSheetStandardPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -633,7 +635,7 @@
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
-				8423863421EDEFAF0045F121 /* Mocks */,
+				8423863921EE7AE40045F121 /* Mocks */,
 				453C797320931C1300DE42B5 /* ActionSheet */,
 				84539DB72177D1F80097039F /* Extensions */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
@@ -717,9 +719,10 @@
 			path = Sheets;
 			sourceTree = "<group>";
 		};
-		8423863421EDEFAF0045F121 /* Mocks */ = {
+		8423863921EE7AE40045F121 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				8423863A21EE7AED0045F121 /* MockViewController.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				84539DAD217786E50097039F /* MockActionSheetItem.swift in Sources */,
 				45352D6B2030BC0E00A0F890 /* ActionSheetCancelButtonTests.swift in Sources */,
 				457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */,
+				8423863B21EE7AED0045F121 /* MockViewController.swift in Sources */,
 				45352D6F2030BC0E00A0F890 /* ActionSheetTitleTests.swift in Sources */,
 				455DEE2C206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift in Sources */,
 				459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */,
