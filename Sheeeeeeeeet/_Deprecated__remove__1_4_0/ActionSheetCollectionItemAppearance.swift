@@ -8,5 +8,4 @@
 
 import Foundation
 
-@available(*, deprecated, message: "ActionSheetCollectionItemAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetCollectionItemAppearance: ActionSheetItemAppearance {}

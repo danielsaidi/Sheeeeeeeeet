@@ -28,6 +28,15 @@ import UIKit
 open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
     
     
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        super.applyAppearance(appearance)
+        self.appearance = ActionSheetMultiSelectItemAppearance(copy: appearance.multiSelectItem)
+    }
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    
+    
     // MARK: - Initialization
     
     public init(
@@ -45,15 +54,6 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
             value: value,
             image: image,
             tapBehavior: .none)
-    }
-    
-    
-    // MARK: - Deprecated
-    
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        super.applyAppearance(appearance)
-        self.appearance = ActionSheetMultiSelectItemAppearance(copy: appearance.multiSelectItem)
     }
     
     

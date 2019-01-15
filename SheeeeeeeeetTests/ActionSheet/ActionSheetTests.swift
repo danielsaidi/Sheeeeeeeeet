@@ -29,7 +29,21 @@ class ActionSheetTests: QuickSpec {
         
         // MARK: - Initialization
         
-        describe("when initialized with parameters") {
+        describe("created instance") {
+            
+            it("applies default presenter if none is provided") {
+                let sheet = createSheet()
+                let isStandard = sheet.presenter is ActionSheetStandardPresenter
+                let isPopover = sheet.presenter is ActionSheetPopoverPresenter
+                let isValid = isStandard || isPopover
+                expect(isValid).to(beTrue())
+            }
+            
+            it("applies provided presenter") {
+                let presenter = ActionSheetPopoverPresenter()
+                let sheet = ActionSheet(items: [], presenter: presenter, action: { _, _ in })
+                expect(sheet.presenter).to(be(presenter))
+            }
             
             it("applies provided items") {
                 let item1 = createItem("foo")
@@ -40,76 +54,26 @@ class ActionSheetTests: QuickSpec {
                 expect(sheet.items[0]).to(be(item1))
                 expect(sheet.items[1]).to(be(item2))
             }
-
+            
             it("separates provided items and buttons") {
                 let button = createButton("Sheeeeeeeeet")
                 let item1 = createItem("foo")
                 let item2 = createItem("bar")
                 let sheet = createSheet([button, item1, item2])
-
+                
                 expect(sheet.items.count).to(equal(2))
                 expect(sheet.items[0]).to(be(item1))
                 expect(sheet.items[1]).to(be(item2))
                 expect(sheet.buttons.count).to(equal(1))
                 expect(sheet.buttons[0]).to(be(button))
             }
-
-            it("applies default presenter if none is provided") {
-                let sheet = createSheet()
-                let isStandard = sheet.presenter is ActionSheetStandardPresenter
-                let isPopover = sheet.presenter is ActionSheetPopoverPresenter
-                let isValid = isStandard || isPopover
-                
-                expect(isValid).to(beTrue())
-            }
-
-            it("applies provided presenter") {
-                let presenter = ActionSheetPopoverPresenter()
-                let sheet = MockActionSheet(items: [], presenter: presenter, action: { _, _ in })
-                
-                expect(sheet.presenter).to(be(presenter))
-            }
-
+            
             it("applies provided action") {
                 var counter = 0
                 let sheet = MockActionSheet(items: []) { _, _  in counter += 1 }
                 sheet.selectAction(sheet, createItem("foo"))
                 
                 expect(counter).to(equal(1))
-            }
-        }
-        
-        
-        // MARK: - Properties
-
-        describe("appearance") {
-            
-            it("is initially a copy of standard appearance") {
-                let original = ActionSheetAppearance.standard.popover.width
-                ActionSheetAppearance.standard.popover.width = -1
-                let sheet = createSheet()
-                let appearance = sheet.appearance
-                ActionSheetAppearance.standard.popover.width = original
-                
-                expect(appearance.popover.width).to(equal(-1))
-            }
-        }
-        
-        
-        // MARK: - Item Properties
-        
-        describe("items height") {
-            
-            it("is sum of all item appearances") {
-                let item1 = createItem("foo")
-                let item2 = createItem("bar")
-                let item3 = createButton("baz")
-                item1.appearance.height = 100
-                item2.appearance.height = 110
-                item3.appearance.height = 120
-                let sheet = createSheet([item1, item2, item3])
-                
-                expect(sheet.itemsHeight).to(equal(210))
             }
         }
         

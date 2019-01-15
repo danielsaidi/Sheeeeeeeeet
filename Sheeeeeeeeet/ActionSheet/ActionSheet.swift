@@ -29,8 +29,7 @@
  you want to use your own models in a controlled way. If you
  have a podcast app, you could have a `SleepTimerActionSheet`
  that automatically sets up its `SleepTimerTime` options and
- streamlines how you work with a sleep timer. This is a good
- way to setup the base action sheet for specific use cases.
+ streamlines how you work with a sleep timer.
  
  
  ## Presentation
@@ -38,7 +37,7 @@
  You can inject a custom presenter if you want to change how
  the sheet is presented and dismissed. The default presenter
  for iPhone devices is `ActionSheetStandardPresenter`, while
- iPad devices most often get an `ActionSheetPopoverPresenter`.
+ iPad devices (most often) use `ActionSheetPopoverPresenter`.
  
  
  ## Handling item selections
@@ -46,7 +45,7 @@
  The `selectAction` is triggered when a user taps an item in
  the action sheet. It provides you with the action sheet and
  the selected item. It is very important to use `[weak self]`
- in this block, to avoid memory leaks.
+ in these action closures, to avoid memory leaks.
  
  
  ## Handling item taps
@@ -62,16 +61,14 @@ import UIKit
 open class ActionSheet: UIViewController {
     
     
-    // MARK: - Deprecated Members
-    
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
     @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead")
     public var appearance = ActionSheetAppearance(copy: .standard)
-    
     @available(*, deprecated, message: "setupItemsAndButtons(with:) will be removed in 1.4.0. Use `setup(items:)` instead")
     open func setupItemsAndButtons(with items: [ActionSheetItem]) { setup(items: items) }
-    
     @available(*, deprecated, message: "itemSelectAction will be removed in 1.4.0. Use `selectAction` instead")
     open var itemSelectAction: SelectAction { return selectAction }
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
     
     
     // MARK: - Initialization

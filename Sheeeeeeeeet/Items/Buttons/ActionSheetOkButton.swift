@@ -20,6 +20,14 @@ import UIKit
 open class ActionSheetOkButton: ActionSheetButton {
     
     
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        self.appearance = customAppearance ?? ActionSheetOkButtonAppearance(copy: appearance.okButton)
+    }
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    
+    
     // MARK: - Initialization
     
     public init(title: String) {
@@ -31,14 +39,6 @@ open class ActionSheetOkButton: ActionSheetButton {
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetOkButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
-    }
-    
-    
-    // MARK: - Deprecated
-    
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = customAppearance ?? ActionSheetOkButtonAppearance(copy: appearance.okButton)
     }
 }
 

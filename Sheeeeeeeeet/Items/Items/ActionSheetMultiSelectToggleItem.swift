@@ -24,6 +24,15 @@ import UIKit
 open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     
     
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        super.applyAppearance(appearance)
+        self.appearance = ActionSheetMultiSelectToggleItemAppearance(copy: appearance.multiSelectToggleItem)
+    }
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    
+    
     // MARK: - Initialization
     
     public init(title: String, state: State, group: String, selectAllTitle: String, deselectAllTitle: String) {
@@ -49,15 +58,6 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     open var group: String
     open var selectAllTitle: String
     open var state: State
-    
-    
-    // MARK: - Deprecated
-    
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        super.applyAppearance(appearance)
-        self.appearance = ActionSheetMultiSelectToggleItemAppearance(copy: appearance.multiSelectToggleItem)
-    }
     
     
     // MARK: - Functions

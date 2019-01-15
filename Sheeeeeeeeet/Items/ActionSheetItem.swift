@@ -28,6 +28,18 @@
 import UIKit
 
 open class ActionSheetItem: NSObject {
+
+    
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead.")
+    public lazy internal(set) var appearance = ActionSheetItemAppearance(copy: ActionSheetAppearance.standard.item)
+    @available(*, deprecated, message: "customAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    public var customAppearance: ActionSheetItemAppearance?
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open func applyAppearance(_ appearance: ActionSheetAppearance) { self.appearance = customAppearance ?? ActionSheetItemAppearance(copy: appearance.item) }
+    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
+    open func applyAppearance(to cell: UITableViewCell) { applyLegacyAppearance(to: cell) }
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
     
     
     // MARK: - Initialization
@@ -92,25 +104,6 @@ open class ActionSheetItem: NSObject {
     }
     
     open func handleTap(in actionSheet: ActionSheet) {}
-    
-    
-    // MARK: - Deprecated
-    
-    @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead.")
-    public lazy internal(set) var appearance = ActionSheetItemAppearance(copy: ActionSheetAppearance.standard.item)
-    
-    @available(*, deprecated, message: "customAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    public var customAppearance: ActionSheetItemAppearance?
-    
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = customAppearance ?? ActionSheetItemAppearance(copy: appearance.item)
-    }
-    
-    @available(*, deprecated, message: "applyAppearance(to:) will be removed in 1.4.0. Use the new appearance model instead.")
-    open func applyAppearance(to cell: UITableViewCell) {
-        applyLegacyAppearance(to: cell)
-    }
 }
 
 

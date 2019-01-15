@@ -10,7 +10,6 @@ import UIKit
 
 extension ActionSheet {
 
-    @available(*, deprecated, message: "applyLegacyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
     func applyLegacyAppearance() {
         applyLegacyHeights()
         applyLegacyBackgroundColors()

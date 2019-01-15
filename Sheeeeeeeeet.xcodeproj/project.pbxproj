@@ -419,7 +419,6 @@
 				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
 				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C797220931BFB00DE42B5 /* ActionSheet */,
-				453C04801FC16A220028FA02 /* Appearance */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
 				453C04731FC069940028FA02 /* Items */,
 				453C04741FC0699D0028FA02 /* Presenters */,
@@ -478,13 +477,6 @@
 				4537E8601FD1A6BE0007501C /* UIViewController+RootViewController.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		453C04801FC16A220028FA02 /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Appearance;
 			sourceTree = "<group>";
 		};
 		453C797220931BFB00DE42B5 /* ActionSheet */ = {

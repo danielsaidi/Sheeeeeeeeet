@@ -23,6 +23,14 @@ import UIKit
 open class ActionSheetSectionTitle: ActionSheetItem {
     
     
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
+    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
+        self.appearance = ActionSheetSectionTitleAppearance(copy: appearance.sectionTitle)
+    }
+    // MARK: - Deprecated - Remove in 1.4.0 ****************
+    
+    
     // MARK: - Initialization
     
     public init(title: String, subtitle: String? = nil) {
@@ -34,14 +42,6 @@ open class ActionSheetSectionTitle: ActionSheetItem {
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetSectionTitleCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
-    }
-    
-    
-    // MARK: - Deprecated
-    
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        self.appearance = ActionSheetSectionTitleAppearance(copy: appearance.sectionTitle)
     }
 }
 

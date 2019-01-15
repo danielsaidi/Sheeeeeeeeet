@@ -8,7 +8,6 @@
 
 import UIKit
 
-@available(*, deprecated, message: "ActionSheetPopoverAppearance will be removed in 1.4.0. Use the new appearance model instead.")
 open class ActionSheetPopoverAppearance {
     
     public init(width: CGFloat? = nil) {
