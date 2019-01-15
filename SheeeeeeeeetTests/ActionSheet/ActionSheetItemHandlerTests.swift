@@ -93,7 +93,7 @@ class ActionSheetItemHandlerTests: QuickSpec {
             
             it("returns correct height for existing item") {
                 let path = IndexPath(row: 0, section: 0)
-                item1.appearance.height = 123
+                MockActionSheetItem.height = 123
                 let result = handler.tableView(tableView(), heightForRowAt: path)
                 expect(result).to(equal(123))
             }

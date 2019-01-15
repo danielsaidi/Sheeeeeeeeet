@@ -233,12 +233,12 @@ open class ActionSheet: UIViewController {
     }
     
     open func margin(at margin: ActionSheetMargin) -> CGFloat {
-        let superview = view.superview
+        let view = self.view.superview ?? self.view
         switch margin {
-        case .top: return margin.value(in: superview, minimum: minimumContentInsets.top)
-        case .left: return margin.value(in: superview, minimum: minimumContentInsets.left)
-        case .right: return margin.value(in: superview, minimum: minimumContentInsets.right)
-        case .bottom: return margin.value(in: superview, minimum: minimumContentInsets.bottom)
+        case .top: return margin.value(in: view, minimum: minimumContentInsets.top)
+        case .left: return margin.value(in: view, minimum: minimumContentInsets.left)
+        case .right: return margin.value(in: view, minimum: minimumContentInsets.right)
+        case .bottom: return margin.value(in: view, minimum: minimumContentInsets.bottom)
         }
     }
 
