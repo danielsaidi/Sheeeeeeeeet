@@ -10,7 +10,7 @@
  
  This class is a base class for all action sheet buttons. It
  is not intended to be used directly. Instead, use the built
- in buttons or subclass it to create your own button type.
+ in buttons or subclass it to create your own buttons.
  
  */
 

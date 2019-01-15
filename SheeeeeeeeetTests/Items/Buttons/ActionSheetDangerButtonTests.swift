@@ -10,21 +10,33 @@ import Quick
 import Nimble
 import Sheeeeeeeeet
 
-class ActionSheetDangerButtonTests: ActionSheetItemTests {
+class ActionSheetDangerButtonTests: QuickSpec {
     
     override func spec() {
         
-        let item = ActionSheetDangerButton(title: "foo")
+        var item: ActionSheetDangerButton!
         
-        describe("when created") {
-            
-            it("applies provided values") {
-                expect(item.title).to(equal("foo"))
-            }
+        beforeEach {
+            item = ActionSheetDangerButton(title: "danger")
+        }
+        
+        
+        describe("created instance") {
             
             it("is correctly setup") {
+                expect(item.title).to(equal("danger"))
                 expect(item.value as? ActionSheetButton.ButtonType).to(equal(.ok))
-                expect(item.isOkButton).to(beTrue())
+            }
+        }
+        
+        
+        describe("cell") {
+            
+            it("is of correct type") {
+                let cell = item.cell(for: UITableView())
+                
+                expect(cell is ActionSheetDangerButtonCell).to(beTrue())
+                expect(cell.reuseIdentifier).to(equal(item.cellReuseIdentifier))
             }
         }
     }

@@ -9,9 +9,9 @@
 /*
  
  OK buttons have no special behavior, but can be used when a
- user should apply action sheet changes by tapping an button.
+ user should apply action sheet changes by tapping a button.
  
- The value of an OK button is `ButtonType.ok`.
+ The value of an OK button is `.ok`.
  
  */
 

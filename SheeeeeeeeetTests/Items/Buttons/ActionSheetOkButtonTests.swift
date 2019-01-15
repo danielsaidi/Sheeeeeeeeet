@@ -10,21 +10,33 @@ import Quick
 import Nimble
 import Sheeeeeeeeet
 
-class ActionSheetOkButtonTests: ActionSheetItemTests {
+class ActionSheetOkButtonTests: QuickSpec {
     
     override func spec() {
         
-        let item = ActionSheetOkButton(title: "foo")
+        var item: ActionSheetOkButton!
         
-        describe("when created") {
-            
-            it("applies provided values") {
-                expect(item.title).to(equal("foo"))
-            }
+        beforeEach {
+            item = ActionSheetOkButton(title: "ok")
+        }
+        
+        
+        describe("created instance") {
             
             it("is correctly setup") {
+                expect(item.title).to(equal("ok"))
                 expect(item.value as? ActionSheetButton.ButtonType).to(equal(.ok))
-                expect(item.isOkButton).to(beTrue())
+            }
+        }
+        
+        
+        describe("cell") {
+            
+            it("is of correct type") {
+                let cell = item.cell(for: UITableView())
+                
+                expect(cell is ActionSheetOkButtonCell).to(beTrue())
+                expect(cell.reuseIdentifier).to(equal(item.cellReuseIdentifier))
             }
         }
     }

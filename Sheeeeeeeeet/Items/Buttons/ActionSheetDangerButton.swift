@@ -10,9 +10,10 @@
  
  Danger buttons have no special behavior, but can be used to
  indicate that the effect of the action sheet is destructive.
- They are basically just OK buttons with a "red alert" style.
+ They should be styled as "dangerous" (e.g. red text), using
+ the appearance proxy.
  
- The value of a danger button is `ButtonType.ok`.
+ The value of a danger button is `.ok`.
  
  */
 
