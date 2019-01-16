@@ -22,178 +22,110 @@
 </p>
 
 
-## About Sheeeeeeeeet
+## <a name="about"></a>About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for creating custom action sheets. It comes with
-many different item types and can be extended with your own custom items as well.
+many built-in components and can be extended with your own custom components.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-These action sheets can be styled to look like a normal `UIAlertController` or a
-lot different. 
+Sheeeeeeeeet's action sheets can be styled to look like a `UIAlertController` or
+a lot different. You can also customize how they are presented and dismissed.
 
 
-## Installation
+## <a name="installation"></a>Installation
 
-### [CocoaPods](CocoaPods)
+### <a name="cocoapods"></a>CocoaPods
 
-Add this to your `Podfile` then run `pod install`:
+To install Sheeeeeeeeet with [CocoaPods][CocoaPods], add this to your `Podfile`:
 
 ```ruby
 pod 'Sheeeeeeeeet'
 ```
 
-Once the installation is finished, remember to use the workspace that is created
-during the installation, instead of the old project file.
+### <a name="carthage"></a>Carthage
 
-### [Carthage](Carthage)
+To install Sheeeeeeeeet with [Carthage][Carthage], add this to your `Cartfile`:
 
-Add this to your `Cartfile` then run `carthage update --platform iOS`:
-
-```
+```ruby
 github "danielsaidi/Sheeeeeeeeet"
 ```
 
-Once the installation is finished, you must manually link `Sheeeeeeeeet` in your
-app project.
-
-
-### Manual installation
+### <a name="manual-installation"></a>Manual installation
 
 To add `Sheeeeeeeeet` to your app without Carthage or CocoaPods, clone this repo
-and place it somewhere in your project folder. Then, add `Sheeeeeeeeet.xcodeproj`
-to the project and add `Sheeeeeeeeet.framework` as an embedded app binary and as
-a target dependency under `Build Phases`.
+and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to the project
+and add `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
-## Creating and presenting an action sheet
+## <a name="basic-example"></a>Basic example
 
-To create an action sheet, just specify its items and callback action, like this:
+The most basic way to create an action sheet, is to specify items and the select
+action, like this:
 
 ```swift
-func createStandardActionSheet() -> ActionSheet {
-    let title = ActionSheetTitle(title: "Select an option")
-    let item1 = ActionSheetItem(title: "Option 1", value: 1, image: image1)
-    let item2 = ActionSheetItem(title: "Option 2", value: Car(), image: image2)
-    let button = ActionSheetOkButton(title: "OK")
-    return ActionSheet(items: items) { sheet, item in
-        if let value = item.value as? Int { print("You selected the number 1") }
-        if let value = item.value as? Car { print("You selected a car") }
-        if item is ActionSheetOkButton { print("OK buttons has the value `true`") }
-    }
+let title = ActionSheetTitle(title: "Select a value type")
+let item1 = ActionSheetItem(title: "Int", value: 1)
+let item2 = ActionSheetItem(title: "String", value: "Hi!")
+let item3 = ActionSheetItem(title: "Car", value: Car())
+let button = ActionSheetOkButton(title: "OK")
+let items = [title, item1, item2, item3, button]
+let sheet = ActionSheet(items: items) { sheet, item in
+    if let value = item.value as? Int { print("You selected an int: \(value)") }
+    if let value = item.value as? String { print("You selected a string: \(value)") }
+    if let value = item.value as? Car { print("You selected a car") }
+    if item.isOkButton { print("You tapped the OK button") }
 }
 ```
 
 To present the action sheet, just call any of its `present` functions, like this:
 
 ```swift
-actionSheet.present(in: self, from: view, completion: ...)   // or
-actionSheet.present(in: self, from: barButtonItem, completion: ...)
+sheet.present(in: self, from: view, completion: ...)   // or
+sheet.present(in: self, from: barButtonItem, completion: ...)
 ```
 
-The `from` view will only be used if the action sheet it presented in a popover.
+The `from` view is optional and is only used if the action sheet it presented in
+a popover.
 
-### Domain-specific action sheets
 
-When you use `Sheeeeeeeeet` in your apps, you may want the items to represent an
-app domain-specific type, e.g. a `Movie`, or an app-specific list options. Since
-the item value is of `Any` type, you can use any type or enum as value.
+## <a name="advanced-example"></a>Advanced example
 
-### Specifying items after initialization
+You can use Sheeeeeeeeet to create really basic action sheets like the one above,
+as well as very competent and self-contained ones. The one above is just a start.
+When you have the basics under control, check out [this example][AdvancedExample]
+to see how you can take things one step further.
+
+
+## Specifying items after initialization
 
 If you require a created action sheet instance to resolve which items to present
 (very common when you subclass `ActionSheet`), just create a sheet with no items
 then call `setup(with:)` once its created.
 
-If you create a domain-specific action sheet, like a `CarPickerActionSheet`, you
-may have to use an injected dependency to load some data before you can populate
-your sheet with items. If the dependency is initializer injected, you first have
-to create the sheet with an empty item collection, then load the data using your
-injected dependency, then map the data to items, then finally inject these items
-into the sheet, using the `setup(with:)` approach described above.
-
 
 ## Example App
 
-This repository contains an example app. Before you can run it, you must install 
-[Carthage](Carthage) and run `carthage update --platform iOS`. You can then open
-the project and try out the different sheets and item types.
+This project contains an example app that demonstrates basic and advanced action
+sheet, as well as how to handle subclassing, appearances etc. Before you can run
+it you must install [Carthage][Carthage] and run `carthage update --platform iOS`.
+You can then open the project and try out the different sheets and item types.
 
 
-## Action Sheet Components
+## Item Types
 
-Sheeeeeeeeet contains many different item types, that can be used to create very
-flexible sheets. To create custom items, just subclass any of the built-in types.
-
-### Items
-
-Items are used to present options. Sheeeeeeeeet has the following built-in types:
-
-* [Item][ActionSheetItem] - A standard item that dismisses the sheet when tapped.
-* [Single-select Item][ActionSheetSingleSelectItem] - Deselects all other single-
-select items in the same group and by default dismisses the sheet.
-* [Multi-Select Item][ActionSheetMultiSelectItem] - Doesn't deselect other items
-and does not dismiss the sheet.
-* [Multi-Select Toggle][ActionSheetMultiSelectToggleItem] - Toggles the selected
-state of all multi-select items in the same group.
-* [Link Item][ActionSheetLinkItem] - Renders as a link, but behaves like regular
-action sheet items.
-* [Collection Item][ActionSheetCollectionItem] - A general item with an embedded
-collection view that can contain any type of cells.
-* [Custom Item][ActionSheetCustomItem] - A super-flexible item, that can use any
-custom view.
-
-The base [item][ActionSheetItem] corresponds to standard iOS `UIAlertController`
-action items. It has a title, an optional subtitle and an image. All other items
-are based on this item.
-
-Each item has a `tapBehavior`, which determines how it behaves when it is tapped.
-Some item types use `.dismiss` as default, while others use `.none`. You can set
-this property to any value on any item.
-
-### Buttons
-
-Buttons are used to apply or discard the effect of an action sheet. Sheeeeeeeeet
-has the following built-in types:
-
-* [OK button][ActionSheetOkButton] - A standard ok/apply button
-* [Cancel button][ActionSheetCancelButton] - A standard cancel button
-* [Danger button][ActionSheetDangerButton] - A dangerous ok/apply button
-
-OK buttons have `ActionSheetButton.ButtonType.ok` as value, while cancel buttons
-have `ActionSheetButton.ButtonType.cancel`. You can also always check the tapped
-item's value for `isOkButton` and `isCancelButton` if you need to determine what
-the action should do.
-
-Buttons are automatically separated from other items and presented in a separate
-list item. On popovers, however, they are added back to the end of the item list.
-
-### Titles
-
-Titles are non-interactive text or space items. Sheeeeeeeeet has these following
-built-in types:
-
-* [Title][ActionSheetTitle] - Shown topmost for an entire sheet
-* [Section Title][ActionSheetSectionTitle] - Shown topmost for a section
-* [Section Margin][ActionSheetSectionMargin] - Can embed a section title
-
-You can add title items anywhere in your sheets, although a title probably looks
-best topmost, a section title before an item section etc.
-
-### Header Views
-
-If you set the `headerView` property of an action sheet, it will be displayed as
-a floating header above the action sheet. You can use any view as a header view.
-
-Header views are completely removed in popovers, since popovers are solid bodies
-with no transparent background.
+Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and
+multi-select items, links, collection-based items, custom items, buttons, titles
+etc. For a complete list of item types, [click here][Item-Types].
 
 
 ## Appearance
 
-TODO
+Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
+views and items. You can change fonts, colors and images as well as item heights
+and even more stuff. For a complete guide, [click here][Appearance].
 
 
 ## Contact me
@@ -213,23 +145,11 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
 [Carthage]: https://github.com/Carthage
 [CocoaPods]: http://cocoapods.org
-[GitHub]: https://github.com/danielsaidi/Vandelay
-[Pod]: http://cocoapods.org/pods/Vandelay
+[GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet
+[Pod]: http://cocoapods.org/pods/Sheeeeeeeeet
 [SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
 
-[ActionSheetItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/ActionSheetItem.swift
-[ActionSheetCollectionItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetCollectionItem.swift
-[ActionSheetCustomItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetCustomItem.swift
-[ActionSheetMultiSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetMultiSelectItem.swift
-[ActionSheetMultiSelectToggleItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetMultiSelectToggleItem.swift
-[ActionSheetSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetSelectItem.swift
-[ActionSheetSingleSelectItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetSingleSelectItem.swift
-[ActionSheetLinkItem]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Items/ActionSheetLinkItem.swift
-
-[ActionSheetOkButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetOkButton.swift
-[ActionSheetCancelButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetCancelButton.swift
-[ActionSheetDangerButton]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Buttons/ActionSheetDangerButton.swift
-
-[ActionSheetTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetTitle.swift
-[ActionSheetSectionTitle]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionTitle.swift
-[ActionSheetSectionMargin]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Sheeeeeeeeet/Items/Titles/ActionSheetSectionMargin.swift
+[License]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/LICENSE
+[Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
+[Item-Types]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Item-Types.md
+[AdvancedExample]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md

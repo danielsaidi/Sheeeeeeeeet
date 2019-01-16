@@ -317,6 +317,9 @@
 		8423863A21EE7AED0045F121 /* MockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockViewController.swift; sourceTree = "<group>"; };
 		8423863E21EE918F0045F121 /* ActionSheetHeaderViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderViewTests.swift; sourceTree = "<group>"; };
 		8423864021EE91FF0045F121 /* ActionSheetTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTableViewTests.swift; sourceTree = "<group>"; };
+		8423864721EF7ED10045F121 /* Appearance.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Appearance.md; sourceTree = "<group>"; };
+		8423864821EF7ED10045F121 /* Advanced-Example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Advanced-Example.md"; sourceTree = "<group>"; };
+		8423864921EF7ED10045F121 /* Items-Types.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Items-Types.md"; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -683,6 +686,7 @@
 				459DA1C22056C15600644490 /* Fastfile */,
 				459DA1BB2056C14900644490 /* LICENSE */,
 				459DA1BE2056C14A00644490 /* README.md */,
+				8423864621EF7ED10045F121 /* Readmes */,
 				843658B3219074F000B4D996 /* RELEASE_NOTES.md */,
 				4512AA0020BD4DB000AD1D66 /* Sheeeeeeeeet.podspec */,
 			);
@@ -720,6 +724,16 @@
 				45CF8FA6205BAE9800F01A3F /* StandardActionSheet.swift */,
 			);
 			path = Sheets;
+			sourceTree = "<group>";
+		};
+		8423864621EF7ED10045F121 /* Readmes */ = {
+			isa = PBXGroup;
+			children = (
+				8423864721EF7ED10045F121 /* Appearance.md */,
+				8423864821EF7ED10045F121 /* Advanced-Example.md */,
+				8423864921EF7ED10045F121 /* Items-Types.md */,
+			);
+			path = Readmes;
 			sourceTree = "<group>";
 		};
 		84539DAB217786D80097039F /* Mocks */ = {
