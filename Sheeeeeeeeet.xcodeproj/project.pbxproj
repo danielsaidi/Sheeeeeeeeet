@@ -123,6 +123,7 @@
 		8423863B21EE7AED0045F121 /* MockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863A21EE7AED0045F121 /* MockViewController.swift */; };
 		8423863F21EE918F0045F121 /* ActionSheetHeaderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863E21EE918F0045F121 /* ActionSheetHeaderViewTests.swift */; };
 		8423864121EE91FF0045F121 /* ActionSheetTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864021EE91FF0045F121 /* ActionSheetTableViewTests.swift */; };
+		8423864B21EF82180045F121 /* ActionSheet+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA821775C030097039F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA721775C030097039F /* UIView+Nib.swift */; };
 		84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA9217765A30097039F /* UIView+Subviews.swift */; };
@@ -320,6 +321,7 @@
 		8423864721EF7ED10045F121 /* Appearance.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Appearance.md; sourceTree = "<group>"; };
 		8423864821EF7ED10045F121 /* Advanced-Example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Advanced-Example.md"; sourceTree = "<group>"; };
 		8423864921EF7ED10045F121 /* Items-Types.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Items-Types.md"; sourceTree = "<group>"; };
+		8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Scroll.swift"; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */,
 				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
 				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
+				8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -1058,6 +1061,7 @@
 				456EAA461FCCA7F100A719ED /* ActionSheetDangerButtonAppearance.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,
+				8423864B21EF82180045F121 /* ActionSheet+Scroll.swift in Sources */,
 				453C04861FC2241C0028FA02 /* ActionSheetSectionTitleAppearance.swift in Sources */,
 				1D428919204002F2005D4369 /* (null) in Sources */,
 				45EB3FDC1FC856D200EF555E /* ActionSheetPopoverPresenter.swift in Sources */,
