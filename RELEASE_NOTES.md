@@ -9,23 +9,21 @@ appearance proxy model as much as possible.
 
 The old appearance model is still around, but has been marked as deprecated, and
 will be removed in `1.4.0`. Make sure that you switch over to the new appearance
-model as soon as possible. Have a look at the example app and the main readme to
-see how you should customize the action sheet appearance from now on.
+model as soon as possible. Have a look at the example app and [here][Appearance]
+to see how you should customize the action sheet appearance from now on.
 
 In short, item appearance customizations are handled in three different ways now:
 
 * Item appearances such as colors and fonts, are customized with cell properties,
-for instance: `ActionSheetSelectItem.appearance().titleColor = .green`.
+for instance: `ActionSheetSelectItemCell.appearance().titleColor = .green`.
 * Item heights are now customized by setting the `height` property of every item
-type you want to customize, for instance: `ActionSheetTitle.height = 22`. If you
-have a custom height for a single item, you must inherit another item type, them
-change the height of the subclass, for instance `FoodItem.height = 22`.
+type you want to customize, for instance: `ActionSheetTitle.height = 22`.
 * Action sheet margins, insets etc. are now customized by setting the properties
-of each action sheet instance.
+of each `ActionSheet` instance. If you want to change the default values for all
+action sheets in your app, you have to subclass `ActionSheet`.
 
-All built-in action sheet items now have their own cells. Your subclasses do not
-have to use custom cell types, but you now have that option if you need to. This
-makes it a lot easier to create custom items.
+All built-in action sheet items now have their own cells. Your custom items only
+have to use custom cells if you want to apply custom item appearances to them.
 
 Sheeeeeeeeet now contains several new views, which are used by the action sheets:
 
@@ -38,6 +36,10 @@ Sheeeeeeeeet now contains several new views, which are used by the action sheets
 The new classes make it easy to modify the appearance of these views, since they
 have appearance properties as well. For instance, to change the corner radius of
 the table views, just type: `ActionSheetTableView.appearance().cornerRadius = 8`.
+
+`ActionSheet` has two new extensions: 
+  * `items<T>(ofType:)`
+  * `scrollToFirstSelectedItem(at:)`
 
 This new version has also rebuilt all unit tests from scratch. They are now more
 robust and easier to maintain.
@@ -419,3 +421,6 @@ Select items can now have a separate select tint color for the left icon.
 
 We have added a subtitle to the section title item and clarified the examples by
 moving action sheets into their own separate classes.
+
+
+[Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
