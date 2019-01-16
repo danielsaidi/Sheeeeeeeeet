@@ -124,6 +124,8 @@
 		8423863F21EE918F0045F121 /* ActionSheetHeaderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423863E21EE918F0045F121 /* ActionSheetHeaderViewTests.swift */; };
 		8423864121EE91FF0045F121 /* ActionSheetTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864021EE91FF0045F121 /* ActionSheetTableViewTests.swift */; };
 		8423864B21EF82180045F121 /* ActionSheet+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */; };
+		8423864D21EF834F0045F121 /* ActionSheet+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864C21EF834F0045F121 /* ActionSheet+Items.swift */; };
+		8423864F21EF83D70045F121 /* ActionSheet+ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864E21EF83D70045F121 /* ActionSheet+ItemTests.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA821775C030097039F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA721775C030097039F /* UIView+Nib.swift */; };
 		84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA9217765A30097039F /* UIView+Subviews.swift */; };
@@ -322,6 +324,8 @@
 		8423864821EF7ED10045F121 /* Advanced-Example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Advanced-Example.md"; sourceTree = "<group>"; };
 		8423864921EF7ED10045F121 /* Items-Types.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Items-Types.md"; sourceTree = "<group>"; };
 		8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Scroll.swift"; sourceTree = "<group>"; };
+		8423864C21EF834F0045F121 /* ActionSheet+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Items.swift"; sourceTree = "<group>"; };
+		8423864E21EF83D70045F121 /* ActionSheet+ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+ItemTests.swift"; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
@@ -497,10 +501,11 @@
 			children = (
 				453C046F1FC0666F0028FA02 /* ActionSheet.swift */,
 				84539DA32175F9AC0097039F /* ActionSheet.xib */,
+				8423864C21EF834F0045F121 /* ActionSheet+Items.swift */,
 				453C797020931BAC00DE42B5 /* ActionSheet+Presenter.swift */,
+				8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */,
 				45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */,
 				4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */,
-				8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -508,11 +513,12 @@
 		453C797320931C1300DE42B5 /* ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
+				8423864E21EF83D70045F121 /* ActionSheet+ItemTests.swift */,
 				453C796E2093189700DE42B5 /* ActionSheet+PresenterTests.swift */,
-				45D008D220934E3300F1C099 /* MockActionSheet.swift */,
 				84539DB32177BAB10097039F /* ActionSheetItemHandlerTests.swift */,
 				84539DB52177CF470097039F /* ActionSheetMarginTests.swift */,
+				457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */,
+				45D008D220934E3300F1C099 /* MockActionSheet.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				456EA9FD1FCB109500A719ED /* ActionSheetCancelButton.swift in Sources */,
 				8499359B216BE0FE000A0670 /* ActionSheetCustomItemAppearance.swift in Sources */,
 				456EAA4A1FCCB10200A719ED /* ActionSheetSectionMarginAppearance.swift in Sources */,
+				8423864D21EF834F0045F121 /* ActionSheet+Items.swift in Sources */,
 				8423863121EB42D60045F121 /* UIEdgeInsets+Hidden.swift in Sources */,
 				455DEE3C206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift in Sources */,
 				1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */,
@@ -1121,6 +1128,7 @@
 				84F87EBB217892FE0090D3A7 /* ActionSheetStandardPresenterTests.swift in Sources */,
 				45352D662030BC0E00A0F890 /* ActionSheetDangerButtonTests.swift in Sources */,
 				84539DBD2177DEAC0097039F /* UIView+NibTests.swift in Sources */,
+				8423864F21EF83D70045F121 /* ActionSheet+ItemTests.swift in Sources */,
 				84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */,
 				84539DAD217786E50097039F /* MockActionSheetItem.swift in Sources */,
 				45352D6B2030BC0E00A0F890 /* ActionSheetCancelButtonTests.swift in Sources */,
