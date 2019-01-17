@@ -176,7 +176,6 @@ open class ActionSheetItemCell: UITableViewCell {
         detailTextLabel?.font = subtitleFont
         detailTextLabel?.text = item.subtitle
         detailTextLabel?.textColor = subtitleColor
-        ActionSheetTitleCell.appearance().titleFont = UIFont.systemFont(ofSize: 15)
     }
     
     open func refresh(with item: ActionSheetItem) {
