@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
+@testable import Sheeeeeeeeet
 
 class ActionSheetSelectItemTests: QuickSpec {
     
@@ -76,16 +76,21 @@ class ActionSheetSelectItemCellTests: QuickSpec {
             var cell: ActionSheetSelectItemCell!
             
             beforeEach {
+                let label = UILabel()
                 item = ActionSheetSelectItem(title: "foo", isSelected: false)
                 cell = item.cell(for: UITableView()) as? ActionSheetSelectItemCell
                 cell.tintColor = UIColor.purple.withAlphaComponent(0.1)
                 cell.titleColor = UIColor.yellow.withAlphaComponent(0.1)
+                cell.titleFont = .systemFont(ofSize: 11)
                 cell.subtitleColor = UIColor.red.withAlphaComponent(0.1)
+                cell.subtitleFont = .systemFont(ofSize: 12)
                 cell.selectedIcon = UIImage()
                 cell.selectedIconColor = .green
                 cell.selectedTintColor = .purple
                 cell.selectedTitleColor = .yellow
+                cell.selectedTitleFont = .systemFont(ofSize: 13)
                 cell.selectedSubtitleColor = .red
+                cell.selectedSubtitleFont = .systemFont(ofSize: 14)
                 cell.unselectedIcon = UIImage()
                 cell.unselectedIconColor = UIColor.green.withAlphaComponent(0.1)
                 cell.refresh(with: item)
@@ -98,6 +103,9 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 expect(cell.accessoryView?.tintColor).to(be(cell.selectedIconColor))
                 expect(cell.tintColor).to(be(cell.selectedTintColor))
                 expect(cell.textLabel?.textColor).to(be(cell.selectedTitleColor))
+                expect(cell.textLabel?.font).to(be(cell.selectedTitleFont))
+//                expect(cell.detailTextLabel?.textColor).to(be(cell.selectedSubtitleColor))
+//                expect(cell.detailTextLabel?.font).to(be(cell.selectedSubtitleFont))
             }
             
             it("refreshes correctly for unselected item") {
@@ -107,6 +115,9 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 expect(cell.accessoryView?.tintColor).to(be(cell.unselectedIconColor))
                 expect(cell.tintColor).to(be(cell.tintColor))
                 expect(cell.textLabel?.textColor).to(be(cell.titleColor))
+                expect(cell.textLabel?.font).to(be(cell.titleFont))
+//                expect(cell.detailTextLabel?.textColor).to(be(cell.subtitleColor))
+//                expect(cell.detailTextLabel?.font).to(be(cell.subtitleFont))
             }
         }
     }

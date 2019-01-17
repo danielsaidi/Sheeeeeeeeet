@@ -88,7 +88,9 @@ open class ActionSheetSelectItemCell: ActionSheetItemCell {
     @objc public dynamic var selectedIcon: UIImage?
     @objc public dynamic var selectedIconColor: UIColor?
     @objc public dynamic var selectedSubtitleColor: UIColor?
+    @objc public dynamic var selectedSubtitleFont: UIFont?
     @objc public dynamic var selectedTitleColor: UIColor?
+    @objc public dynamic var selectedTitleFont: UIFont?
     @objc public dynamic var selectedTintColor: UIColor?
     @objc public dynamic var unselectedIcon: UIImage?
     @objc public dynamic var unselectedIconColor: UIColor?
@@ -102,8 +104,10 @@ open class ActionSheetSelectItemCell: ActionSheetItemCell {
         applyAccessoryView(for: item)
         applyAccessoryViewColor(for: item)
         applySubtitleColor(for: item)
+        applySubtitleFont(for: item)
         applyTintColor(for: item)
         applyTitleColor(for: item)
+        applyTitleFont(for: item)
     }
 }
 
@@ -125,6 +129,11 @@ private extension ActionSheetSelectItemCell {
         detailTextLabel?.textColor = color
     }
     
+    func applySubtitleFont(for item: ActionSheetSelectItem) {
+        guard let font = item.isSelected ? selectedSubtitleFont : subtitleFont else { return }
+        detailTextLabel?.font = font
+    }
+    
     func applyTintColor(for item: ActionSheetSelectItem) {
         let defaultTint = type(of: self).appearance().tintColor
         guard let color = item.isSelected ? selectedTintColor : defaultTint else { return }
@@ -134,5 +143,10 @@ private extension ActionSheetSelectItemCell {
     func applyTitleColor(for item: ActionSheetSelectItem) {
         guard let color = item.isSelected ? selectedTitleColor : titleColor else { return }
         textLabel?.textColor = color
+    }
+    
+    func applyTitleFont(for item: ActionSheetSelectItem) {
+        guard let font = item.isSelected ? selectedTitleFont : titleFont else { return }
+        textLabel?.font = font
     }
 }

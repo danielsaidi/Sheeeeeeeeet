@@ -33,7 +33,8 @@ a different default value, just subclass `ActionSheet` and set a custom value.
 
 ## Action sheet subview appearances
 
-The `ActionSheet` class has many different subviews:
+The `ActionSheet` class has various subviews, that can be styled with appearance
+proxy properties.
 
 * `ActionSheetBackgroundView`
 * `ActionSheetTableView`
@@ -47,6 +48,7 @@ To modify the appearance of these views, just use their appearance proxies, e.g.
 ActionSheetBackgroundView.appearance().backgroundColor = .purple
 ActionSheetTableView.appearance().cornerRadius = 15
 ActionSheetButtonTableView.appearance().cornerRadius = 20 // Otherwise 15
+ActionSheetHeaderView.appearance().cornerRadius = 15
 ```
 
 To modify the appearance of these views in a specific action sheet, just do this:
@@ -82,7 +84,9 @@ The various items have the following available appearance properties:
     * `selectedIcon`
     * `selectedIconColor`
     * `selectedSubtitleColor`
+    * `selectedSubtitleFont`
     * `selectedTitleColor`
+    * `selectedTitleFont`
     * `selectedTintColor`
     * `unselectedIcon`
     * `unselectedIconColor`

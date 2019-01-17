@@ -1,6 +1,12 @@
 # Release Notes
 
 
+## 1.2.2
+
+This hotfix adds two new properties to `ActionSheetSelectItem`, that can be used
+to style the selected fonts: `selectedTitleFont` and `selectedSubtitleFont`.
+
+
 ## 1.2.1
 
 This hotfix fixes a font bug in the title item and color bugs in the select item. 

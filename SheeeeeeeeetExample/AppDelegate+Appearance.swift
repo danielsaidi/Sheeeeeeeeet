@@ -83,6 +83,8 @@ private extension AppDelegate {
         ActionSheetSelectItemCell.appearance().selectedIconColor = .examplePurple
         
         ActionSheetSingleSelectItemCell.appearance().selectedTintColor = .exampleGreen
+        ActionSheetSingleSelectItemCell.appearance().selectedTitleFont = .robotoMedium(size: 35)
+        ActionSheetSingleSelectItemCell.appearance().selectedSubtitleFont = .robotoMedium(size: 25)
         ActionSheetSingleSelectItemCell.appearance().selectedTitleColor = .examplePurple
         ActionSheetSingleSelectItemCell.appearance().selectedIconColor = .exampleBlue
         

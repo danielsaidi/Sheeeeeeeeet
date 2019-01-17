@@ -178,7 +178,7 @@ open class ActionSheetItemCell: UITableViewCell {
         detailTextLabel?.textColor = subtitleColor
     }
     
-    open func refresh(with item: ActionSheetItem) {
+    func refresh(with item: ActionSheetItem) {
         self.item = item
         refresh()
     }

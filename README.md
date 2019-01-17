@@ -99,6 +99,20 @@ When you have the basics under control, check out [this example][AdvancedExample
 to see how you can take things one step further.
 
 
+## <a name="item-types"></a>Item Types
+
+Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and
+multi-select items, links, collection-based items, custom items, buttons, titles
+etc. For a complete list of item types, [click here][Item-Types].
+
+
+## <a name="appearance"></a>Appearance
+
+Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
+views and items. You can change fonts, colors and images as well as item heights
+and even more stuff. For a complete guide, [click here][Appearance].
+
+
 ## Specifying items after initialization
 
 If you require a created action sheet instance to resolve which items to present
@@ -112,20 +126,6 @@ This project contains an example app that demonstrates basic and advanced action
 sheet, as well as how to handle subclassing, appearances etc. Before you can run
 it you must install [Carthage][Carthage] and run `carthage update --platform iOS`.
 You can then open the project and try out the different sheets and item types.
-
-
-## Item Types
-
-Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and
-multi-select items, links, collection-based items, custom items, buttons, titles
-etc. For a complete list of item types, [click here][Item-Types].
-
-
-## Appearance
-
-Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
-views and items. You can change fonts, colors and images as well as item heights
-and even more stuff. For a complete guide, [click here][Appearance].
 
 
 ## Contact me
