@@ -86,6 +86,8 @@ private extension AppDelegate {
         ActionSheetSingleSelectItemCell.appearance().selectedTitleColor = .examplePurple
         ActionSheetSingleSelectItemCell.appearance().selectedIconColor = .exampleBlue
         
+        ActionSheetMultiSelectItemCell.appearance().tintColor = UIColor.darkText.withAlphaComponent(0.4)
+        ActionSheetMultiSelectItemCell.appearance().titleColor = UIColor.darkText.withAlphaComponent(0.4)
         ActionSheetMultiSelectItemCell.appearance().selectedTintColor = .examplePurple
         ActionSheetMultiSelectItemCell.appearance().selectedTitleColor = .exampleBlue
         ActionSheetMultiSelectItemCell.appearance().selectedIconColor = .exampleGreen

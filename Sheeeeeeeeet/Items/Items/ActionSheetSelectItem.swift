@@ -99,9 +99,40 @@ open class ActionSheetSelectItemCell: ActionSheetItemCell {
     open override func refresh() {
         super.refresh()
         guard let item = item as? ActionSheetSelectItem else { return }
-        accessoryView = UIImageView(image: item.isSelected ? selectedIcon : unselectedIcon)
-        accessoryView?.tintColor = item.isSelected ? selectedIconColor : unselectedIconColor
-        tintColor = item.isSelected ? selectedTintColor : tintColor
-        textLabel?.textColor = item.isSelected ? selectedTitleColor : titleColor
+        applyAccessoryView(for: item)
+        applyAccessoryViewColor(for: item)
+        applySubtitleColor(for: item)
+        applyTintColor(for: item)
+        applyTitleColor(for: item)
+    }
+}
+
+
+private extension ActionSheetSelectItemCell {
+    
+    func applyAccessoryView(for item: ActionSheetSelectItem) {
+        guard let image = item.isSelected ? selectedIcon : unselectedIcon else { return }
+        accessoryView = UIImageView(image: image)
+    }
+    
+    func applyAccessoryViewColor(for item: ActionSheetSelectItem) {
+        guard let color = item.isSelected ? selectedIconColor : unselectedIconColor else { return }
+        accessoryView?.tintColor = color
+    }
+    
+    func applySubtitleColor(for item: ActionSheetSelectItem) {
+        guard let color = item.isSelected ? selectedSubtitleColor : subtitleColor else { return }
+        detailTextLabel?.textColor = color
+    }
+    
+    func applyTintColor(for item: ActionSheetSelectItem) {
+        let defaultTint = type(of: self).appearance().tintColor
+        guard let color = item.isSelected ? selectedTintColor : defaultTint else { return }
+        tintColor = color
+    }
+    
+    func applyTitleColor(for item: ActionSheetSelectItem) {
+        guard let color = item.isSelected ? selectedTitleColor : titleColor else { return }
+        textLabel?.textColor = color
     }
 }
