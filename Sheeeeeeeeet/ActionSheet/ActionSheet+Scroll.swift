@@ -24,6 +24,7 @@ public extension ActionSheet {
                 let index = (items.index { $0.isSelected == true })
                 else { return }
             let path = IndexPath(row: index, section: 0)
+            self?.itemsTableView?.reloadData()
             self?.itemsTableView?.scrollToRow(at: path, at: position, animated: animated)
         }
     }
