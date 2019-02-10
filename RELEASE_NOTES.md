@@ -1,6 +1,20 @@
 # Release Notes
 
 
+## 1.2.4
+
+This version fixes the https://github.com/danielsaidi/Sheeeeeeeeet/issues/64 bug,
+which caused an iPad popover to become a bottom action sheet on black background,
+if the idiom changes from pad to phone while the action sheet is open. I now let
+the popover remain as long as the action sheet is open.
+
+
+## 1.2.3
+
+This version reloads data when scrolling to row to solve a bug that could happen
+on some iPad devices.
+
+
 ## 1.2.2
 
 This hotfix adds two new properties to `ActionSheetSelectItem`, that can be used
