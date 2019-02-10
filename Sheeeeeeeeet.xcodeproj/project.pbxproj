@@ -81,7 +81,7 @@
 		456EAA301FCC615A00A719ED /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA231FCC615A00A719ED /* Roboto-Regular.ttf */; };
 		456EAA311FCC615A00A719ED /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA241FCC615A00A719ED /* Roboto-Thin.ttf */; };
 		456EAA321FCC615A00A719ED /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA251FCC615A00A719ED /* Roboto-ThinItalic.ttf */; };
-		456EAA341FCC665800A719ED /* ViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA331FCC665800A719ED /* ViewController+Alerts.swift */; };
+		456EAA341FCC665800A719ED /* ViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA331FCC665800A719ED /* ViewController+Alert.swift */; };
 		456EAA3A1FCC6A7700A719ED /* FoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA391FCC6A7700A719ED /* FoodOption.swift */; };
 		456EAA3D1FCC8FF200A719ED /* title-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA3C1FCC8FF200A719ED /* title-image.png */; };
 		456EAA401FCC922100A719ED /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA3F1FCC922100A719ED /* TableViewOption.swift */; };
@@ -115,6 +115,7 @@
 		45EB3FDC1FC856D200EF555E /* ActionSheetPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */; };
 		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
+		840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */; };
 		842385A821E8910D0045F121 /* ActionSheetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */; };
 		842385AA21E8926F0045F121 /* ActionSheetItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */; };
 		842385AC21E892910045F121 /* ActionSheetButtonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */; };
@@ -271,7 +272,7 @@
 		456EAA231FCC615A00A719ED /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		456EAA241FCC615A00A719ED /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		456EAA251FCC615A00A719ED /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
-		456EAA331FCC665800A719ED /* ViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alerts.swift"; sourceTree = "<group>"; };
+		456EAA331FCC665800A719ED /* ViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alert.swift"; sourceTree = "<group>"; };
 		456EAA391FCC6A7700A719ED /* FoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodOption.swift; sourceTree = "<group>"; };
 		456EAA3C1FCC8FF200A719ED /* title-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title-image.png"; sourceTree = "<group>"; };
 		456EAA3F1FCC922100A719ED /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
@@ -312,6 +313,7 @@
 		45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenter.swift; sourceTree = "<group>"; };
 		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverAppearance.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
+		840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
 		842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetBackgroundView.swift; sourceTree = "<group>"; };
 		842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTableView.swift; sourceTree = "<group>"; };
 		842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTableView.swift; sourceTree = "<group>"; };
@@ -451,7 +453,6 @@
 				8493967A21E7F9A200DC0AEF /* Appearance */,
 				456EAA3B1FCC8FF200A719ED /* Assets */,
 				459DA1B92056A0AD00644490 /* Cells */,
-				456EAA421FCCA02E00A719ED /* Extensions */,
 				456EAA3E1FCC920700A719ED /* Options */,
 				45CF8FA5205BAE3800F01A3F /* Sheets */,
 				45352D802030D95500A0F890 /* Supporting Files */,
@@ -629,14 +630,6 @@
 				456EAA3F1FCC922100A719ED /* TableViewOption.swift */,
 			);
 			path = Options;
-			sourceTree = "<group>";
-		};
-		456EAA421FCCA02E00A719ED /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				456EAA431FCCA03700A719ED /* UIColor+Hex.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		456EAA501FCCC79800A719ED /* Images */ = {
@@ -820,6 +813,7 @@
 			children = (
 				849935A5216BFB9F000A0670 /* DemoAppearance.swift */,
 				8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */,
+				456EAA431FCCA03700A719ED /* UIColor+Hex.swift */,
 				8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */,
 			);
 			path = Appearance;
@@ -829,7 +823,8 @@
 			isa = PBXGroup;
 			children = (
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
-				456EAA331FCC665800A719ED /* ViewController+Alerts.swift */,
+				840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */,
+				456EAA331FCC665800A719ED /* ViewController+Alert.swift */,
 				4537E8661FD2A55F0007501C /* ViewController+TableView.swift */,
 			);
 			path = ViewController;
@@ -1102,6 +1097,7 @@
 				45CF8FA7205BAE9800F01A3F /* StandardActionSheet.swift in Sources */,
 				1D42892D20403A18005D4369 /* MyCollectionViewCell.swift in Sources */,
 				454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */,
+				840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */,
 				454EDC64205BCF14008E4311 /* SectionActionSheet.swift in Sources */,
 				456203C5205BD24000A3E141 /* CollectionActionSheet.swift in Sources */,
 				456203C3205BD0DE00A3E141 /* HeaderActionSheet.swift in Sources */,
@@ -1112,7 +1108,7 @@
 				8493967F21E7F9C000DC0AEF /* UIColor+Example.swift in Sources */,
 				4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */,
 				849935A6216BFB9F000A0670 /* DemoAppearance.swift in Sources */,
-				456EAA341FCC665800A719ED /* ViewController+Alerts.swift in Sources */,
+				456EAA341FCC665800A719ED /* ViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

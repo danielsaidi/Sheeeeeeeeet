@@ -8,8 +8,8 @@
 
 /*
  
- These extensions are only used by the example app, to alert
- which options a user selects in the example action sheets.
+ This extension is used to provide the main view controller
+ with alert functionality.
  
  */
 

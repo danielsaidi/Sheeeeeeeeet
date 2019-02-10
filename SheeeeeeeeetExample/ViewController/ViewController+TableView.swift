@@ -8,18 +8,15 @@
 
 /*
  
- These extensions are only used by the example app, to setup
- the main view controller's table view handling.
+ This extension is used to provide the main view controller
+ with table view delegate and data source functionality.
  
  */
 
 import UIKit
 import Sheeeeeeeeet
 
-
-// MARK: - UITableViewDataSource
-
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -42,12 +39,6 @@ extension ViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = option.description
         return cell
     }
-}
-
-
-// MARK: - UITableViewDelegate
-
-extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70

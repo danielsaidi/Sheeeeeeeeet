@@ -8,12 +8,10 @@
 
 /*
  
- To make the example easier to overview, the view controller
- has been split up into multiple files.
- 
- The action sheet appearance is setup by `AppDelegate`, with
- the `AppDelegate+Appearance` extension. You can play around
- with it to see how it affects the example sheets and items.
+ This is the main view controller in the example app. It has
+ a table view that lets you open different action sheets. To
+ make the example app easier to overview, this class defines
+ its logic in multiple files, using extensions.
  
  */
 
@@ -58,27 +56,5 @@ class ViewController: UIViewController {
         guard let sheet = actionSheet(at: path) else { return }
         sheet.presenter.events.didDismissWithBackgroundTap = { print("Background tap!") }
         sheet.present(in: self, from: sender)
-    }
-    
-    
-    // MARK: - Functions
-    
-    func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
-        let options = foodOptions
-        switch tableViewOptions[indexPath.row] {
-        case .collections: return CollectionActionSheet(options: options, action: alert)
-        case .customView: return CustomActionSheet(options: options, buttonTapAction: alert)
-        case .danger: return DestructiveActionSheet(options: options, action: alert)
-        case .headerView: return HeaderActionSheet(options: options, action: alert)
-        case .links: return LinkActionSheet(options: options, action: alert)
-        case .multiSelect: return MultiSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
-        case .sections: return SectionActionSheet(options: options, action: alert)
-        case .singleSelect: return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
-        case .standard: return StandardActionSheet(options: options, action: alert)
-        case .nonDismissable:
-            let sheet = StandardActionSheet(options: options, action: alert)
-            sheet.presenter.isDismissableWithTapOnBackground = false
-            return sheet
-        }
     }
 }
