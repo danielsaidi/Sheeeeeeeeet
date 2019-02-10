@@ -16,9 +16,9 @@
 import UIKit
 import Sheeeeeeeeet
 
-extension AppDelegate {
+class DemoAppearance {
     
-    func applyAppearance() {
+    static func apply() {
         applyViewAppearances()
         applyColors()
         applyFonts()
@@ -31,9 +31,9 @@ extension AppDelegate {
 }
 
 
-private extension AppDelegate {
+private extension DemoAppearance {
     
-    func applyViewAppearances() {
+    static func applyViewAppearances() {
 //        ActionSheetBackgroundView.appearance().backgroundColor = .purple
         ActionSheetHeaderView.appearance().cornerRadius = 10
         ActionSheetTableView.appearance().cornerRadius = 10
@@ -42,7 +42,7 @@ private extension AppDelegate {
 //        ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
     }
     
-    func applyColors() {
+    static func applyColors() {
         ActionSheetItemCell.appearance().titleColor = .darkText
         ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
         ActionSheetItemCell.appearance().tintColor = .darkText
@@ -54,7 +54,7 @@ private extension AppDelegate {
         ActionSheetDangerButtonCell.appearance().titleColor = .examplePink
     }
     
-    func applyFonts() {
+    static func applyFonts() {
         ActionSheetItemCell.appearance().titleFont = .robotoRegular(size: 17)
         ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
         ActionSheetLinkItemCell.appearance().titleFont = .robotoRegular(size: 17)
@@ -66,16 +66,16 @@ private extension AppDelegate {
         ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
     }
     
-    func applyHeights() {
+    static func applyHeights() {
         ActionSheetSectionTitle.height = 20
         ActionSheetSectionMargin.height = 20
     }
     
-    func applyIcons() {
+    static func applyIcons() {
         ActionSheetLinkItemCell.appearance().linkIcon = UIImage(named: "ic_arrow_right")
     }
     
-    func applySelectItemAppearances() {
+    static func applySelectItemAppearances() {
         ActionSheetSelectItemCell.appearance().selectedIcon = UIImage(named: "ic_checkmark")
         ActionSheetSelectItemCell.appearance().unselectedIcon = UIImage(named: "ic_empty")
         ActionSheetSelectItemCell.appearance().selectedTintColor = .exampleBlue
@@ -83,8 +83,8 @@ private extension AppDelegate {
         ActionSheetSelectItemCell.appearance().selectedIconColor = .examplePurple
         
         ActionSheetSingleSelectItemCell.appearance().selectedTintColor = .exampleGreen
-        ActionSheetSingleSelectItemCell.appearance().selectedTitleFont = .robotoMedium(size: 35)
-        ActionSheetSingleSelectItemCell.appearance().selectedSubtitleFont = .robotoMedium(size: 25)
+//        ActionSheetSingleSelectItemCell.appearance().selectedTitleFont = .robotoMedium(size: 35)
+//        ActionSheetSingleSelectItemCell.appearance().selectedSubtitleFont = .robotoMedium(size: 25)
         ActionSheetSingleSelectItemCell.appearance().selectedTitleColor = .examplePurple
         ActionSheetSingleSelectItemCell.appearance().selectedIconColor = .exampleBlue
         
@@ -98,7 +98,7 @@ private extension AppDelegate {
         ActionSheetMultiSelectToggleItemCell.appearance().deselectAllSubtitleColor = .exampleRed
     }
     
-    func applySeparatorInsets() {
+    static func applySeparatorInsets() {
         ActionSheetItemCell.appearance().separatorInset = .zero
         ActionSheetTitleCell.appearance().separatorInset = .hiddenSeparator
         ActionSheetSectionTitleCell.appearance().separatorInset = .hiddenSeparator
@@ -106,7 +106,7 @@ private extension AppDelegate {
         ActionSheetMultiSelectToggleItemCell.appearance().separatorInset = .hiddenSeparator
     }
     
-    func applyPopoverWidth() {
+    static func applyPopoverWidth() {
 //        ActionSheet.preferredPopoverWidth = 700
     }
 }
