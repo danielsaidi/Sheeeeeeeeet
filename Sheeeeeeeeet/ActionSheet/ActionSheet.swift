@@ -242,12 +242,14 @@ open class ActionSheet: UIViewController {
     
     open func refreshItems() {
         items.forEach { $0.applyAppearance(appearance) }    // TODO: Deprecated - Remove in 1.4.0
+        itemsTableView?.tableFooterView = createFooter()
         itemsTableViewHeight?.constant = itemsHeight
     }
     
     open func refreshButtons() {
         buttonsTableView?.isHidden = buttons.count == 0
         buttons.forEach { $0.applyAppearance(appearance) }  // TODO: Deprecated - Remove in 1.4.0
+        buttonsTableView?.tableFooterView = createFooter()
         buttonsTableViewHeight?.constant = buttonsHeight
     }
     
@@ -281,6 +283,12 @@ open class ActionSheet: UIViewController {
 
 private extension ActionSheet {
     
+    func createFooter() -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+        view.backgroundColor = .clear
+        return view
+    }
+    
     func setup(_ tableView: UITableView?, with handler: ActionSheetItemHandler) {
         tableView?.delegate = handler
         tableView?.dataSource = handler
@@ -291,7 +299,6 @@ private extension ActionSheet {
     }
     
     func totalHeight(for items: [ActionSheetItem]) -> CGFloat {
-        let height = items.reduce(0) { $0 + $1.height }
-        return height
+        return items.reduce(0) { $0 + $1.height }
     }
 }

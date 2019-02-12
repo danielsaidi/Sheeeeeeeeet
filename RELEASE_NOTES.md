@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 1.2.5
+
+This version removes the last separator line from the item and button table view.
+
+
 ## 1.2.4
 
 This version fixes the https://github.com/danielsaidi/Sheeeeeeeeet/issues/64 bug,
