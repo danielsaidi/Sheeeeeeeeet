@@ -3,10 +3,15 @@
 
 ## 1.3.1
 
-This version fixes an iOS 9.0 bug, that caused the popover to become square with
-no arrow. This bug was caused by the popover presenter, which set the background
-color for the popover after it had been presented. The presenter now sets the bg
-color before presentation and only refreshes it later on iOS 10.0 and above.
+This version fixes an iOS 9 bug that caused the popover to become square with no
+arrow. It was caused by the popover presenter, that set the background color for
+the popover after it had been presented, which is not supported in iOS 9. It now
+sets the bg color for all iOS versions before it presents the popover, then only
+refreshes it for iOS 10 and later.
+
+This version fixes another iOS 9 bug that caused the item cell separator line to
+behave strangely and not honor the insets set using the appearance proxy. I have
+added a fix to the item cell class, that only runs for iOS 9.
 
 
 ## 1.3.0
