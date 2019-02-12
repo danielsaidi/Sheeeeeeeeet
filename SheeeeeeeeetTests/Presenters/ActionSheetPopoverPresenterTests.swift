@@ -83,66 +83,48 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         }
         
         
-        describe("presenting action sheet from view") {
+        describe("presenting action sheet") {
             
             var vc: MockViewController!
+            var item: UIBarButtonItem!
             var view: UIView!
             var completion: (() -> ())!
             
             beforeEach {
                 vc = MockViewController()
+                item = UIBarButtonItem(customView: UIView(frame: .zero))
                 view = UIView(frame: CGRect(x: 1, y: 2, width: 3, height: 4))
                 completion = {}
-                presenter.present(sheet: sheet, in: vc, from: view, completion: completion)
             }
             
-            it("sets up sheet for popover presentation") {
-                expect(sheet.items.count).to(equal(3))
-                expect(sheet.buttons.count).to(equal(0))
+            it("sets up sheet") {
+                presenter.present(sheet, in: vc, completion: completion)
                 expect(sheet.modalPresentationStyle).to(equal(.popover))
             }
             
-            it("sets up popover presentation controller") {
+            it("sets up popover") {
+                presenter.present(sheet, in: vc, completion: completion)
                 expect(presenter.popover?.delegate).to(be(presenter))
+            }
+            
+            it("sets up popover from view") {
+                presenter.present(sheet: sheet, in: vc, from: view, completion: completion)
+                expect(presenter.popover?.delegate).to(be(presenter))
+                expect(presenter.popover?.barButtonItem).to(beNil())
                 expect(presenter.popover?.sourceView).to(be(view))
                 expect(presenter.popover?.sourceRect).to(equal(view.bounds))
             }
             
-            it("performs presentation") {
-                expect(vc.presentInvokeCount).to(equal(1))
-                expect(vc.presentInvokeVcs).to(equal([sheet]))
-                expect(vc.presentInvokeAnimateds).to(equal([true]))
-                expect(vc.presentInvokeCompletions.count).to(equal(1))
-            }
-        }
-        
-        
-        describe("presenting action sheet from bar button item") {
-            
-            var vc: MockViewController!
-            var item: UIBarButtonItem!
-            var completion: (() -> ())!
-            
-            beforeEach {
-                vc = MockViewController()
-                item = UIBarButtonItem(customView: UIView(frame: .zero))
-                completion = {}
+            it("sets up popover from bar button item") {
                 presenter.present(sheet: sheet, in: vc, from: item, completion: completion)
-            }
-            
-            it("sets up sheet for popover presentation") {
-                expect(sheet.items.count).to(equal(3))
-                expect(sheet.buttons.count).to(equal(0))
-                expect(sheet.modalPresentationStyle).to(equal(.popover))
-            }
-            
-            it("sets up popover presentation controller") {
                 expect(presenter.popover?.delegate).to(be(presenter))
                 expect(presenter.popover?.barButtonItem).to(be(item))
+                expect(presenter.popover?.sourceView).to(beNil())
                 expect(presenter.popover?.sourceRect).to(equal(.zero))
             }
             
             it("performs presentation") {
+                presenter.present(sheet, in: vc, completion: completion)
                 expect(vc.presentInvokeCount).to(equal(1))
                 expect(vc.presentInvokeVcs).to(equal([sheet]))
                 expect(vc.presentInvokeAnimateds).to(equal([true]))
@@ -157,6 +139,14 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 sheet.itemsTableView?.backgroundColor = .red
                 presenter.present(sheet: sheet, in: UIViewController(), from: UIView()) {}
                 presenter.refreshActionSheet()
+            }
+            
+            it("adjusts items and buttons for popover") {
+                expect(sheet.items.count).to(equal(3))
+                expect(sheet.buttons.count).to(equal(0))
+                expect(sheet.items[0] is ActionSheetSingleSelectItem).to(beTrue())
+                expect(sheet.items[1] is ActionSheetMultiSelectItem).to(beTrue())
+                expect(sheet.items[2] is ActionSheetOkButton).to(beTrue())
             }
             
             it("hides unused views") {
@@ -204,27 +194,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 expect(result).to(beFalse())
                 expect(dismissEventCount).to(equal(1))
                 expect(presenting.dismissInvokeCount).to(equal(1))
-            }
-            
-        }
-        
-        
-        describe("setting up sheet for popover presentation") {
-            
-            beforeEach {
-                presenter.setupSheetForPresentation(sheet)
-            }
-            
-            it("sets popover style") {
-                expect(sheet.modalPresentationStyle).to(equal(.popover))
-            }
-            
-            it("moves non-cancel buttons last into items group") {
-                expect(sheet.items.count).to(equal(3))
-                expect(sheet.buttons.count).to(equal(0))
-                expect(sheet.items[0] is ActionSheetSingleSelectItem).to(beTrue())
-                expect(sheet.items[1] is ActionSheetMultiSelectItem).to(beTrue())
-                expect(sheet.items[2] is ActionSheetOkButton).to(beTrue())
             }
         }
     }

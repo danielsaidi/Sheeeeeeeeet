@@ -36,27 +36,32 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     public func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
-        let vc = actionSheet?.presentingViewController
-        vc?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
+        let presenter = actionSheet?.presentingViewController
+        presenter?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
-        setupSheetForPresentation(sheet)
-        popover = self.popover(for: sheet, in: vc)
-        popover?.sourceView = view
-        popover?.sourceRect = view?.bounds ?? CGRect()
-        vc.present(sheet, animated: true, completion: completion)
+        present(sheet, in: vc, view: view, completion: completion)
     }
     
     open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
-        setupSheetForPresentation(sheet)
+        present(sheet, in: vc, item: item, completion: completion)
+    }
+    
+    open func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
+        self.actionSheet = sheet
+        sheet.modalPresentationStyle = .popover
         popover = self.popover(for: sheet, in: vc)
+        popover?.sourceView = view
+        popover?.sourceRect = view?.bounds ?? CGRect()
         popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: completion)
     }
     
     open func refreshActionSheet() {
         guard let sheet = actionSheet else { return }
+        sheet.items = popoverItems(for: sheet)
+        sheet.buttons = []
         sheet.headerViewContainer?.isHidden = true
         sheet.buttonsTableView?.isHidden = true
         sheet.preferredContentSize.height = sheet.itemsHeight
@@ -90,13 +95,6 @@ extension ActionSheetPopoverPresenter {
         let popover = sheet.popoverPresentationController
         popover?.delegate = self
         return popover
-    }
-    
-    func setupSheetForPresentation(_ sheet: ActionSheet) {
-        self.actionSheet = sheet
-        sheet.items = popoverItems(for: sheet)
-        sheet.buttons = []
-        sheet.modalPresentationStyle = .popover
     }
 }
 
