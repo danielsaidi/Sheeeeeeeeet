@@ -1,6 +1,14 @@
 # Release Notes
 
 
+## 1.3.1
+
+This version fixes an iOS 9.0 bug, that caused the popover to become square with
+no arrow. This bug was caused by the popover presenter, which set the background
+color for the popover after it had been presented. The presenter now sets the bg
+color before presentation and only refreshes it later on iOS 10.0 and above.
+
+
 ## 1.3.0
 
 This version removes the last separator line from the item and button table view.
