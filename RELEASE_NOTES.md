@@ -1,9 +1,30 @@
 # Release Notes
 
 
-## 1.2.5
+## 1.3.0
 
 This version removes the last separator line from the item and button table view.
+
+This version also changes the default behavior of the popover presenter. It used
+to keep the popover presented as the device orientation changed, but this can be
+wrong in many cases. For instance, in collection or table views, the orientation
+change may cause cells to shuffle around as they are reused. If a reused cell is
+used as the popover source view, and the popover is still presented, the popover
+will point to the cell, but the cell model will have changed. In this case, your
+action sheet will appear to point to a specific object, but will be contextually
+bound to another one. 
+
+Another way that orientation changes may mess with popovers are if a source view
+is removed from the view hierarchy when the orientation changes. If your popover
+is still presented, but the source view is removed, the popover arrow will point
+to a random point, e.g. the top-left part of the screen.
+
+To solve these bugs, I have added new orientation change handling in the popover
+presenter. It has a new `isListeningToOrientationChanges` property, as well as a
+`handleOrientationChange` and `setupOrientationChangeDetection` function. If you
+want to, you can override these functions to customize their behavior, otherwise
+just set `isListeningToOrientationChanges` to `false` to make the popover behave
+like before.
 
 
 ## 1.2.4

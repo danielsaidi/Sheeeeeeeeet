@@ -14,7 +14,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
     
     override func spec() {
         
-        var presenter: ActionSheetPopoverPresenter!
+        var presenter: TestPresenter!
         var sheet: MockActionSheet!
         var headerView: UIView!
         var headerViewContainer: ActionSheetHeaderView!
@@ -40,12 +40,20 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             sheet.itemsTableView = itemView
             sheet.buttonsTableView = buttonView
             
-            presenter = ActionSheetPopoverPresenter()
+            presenter = TestPresenter()
             presenter.actionSheet = sheet
         }
         
         
         describe("background tap dismissal") {
+            
+            it("is enabled by default") {
+                expect(presenter.isDismissableWithTapOnBackground).to(beTrue())
+            }
+        }
+        
+        
+        describe("orientation change detection") {
             
             it("is enabled by default") {
                 expect(presenter.isDismissableWithTapOnBackground).to(beTrue())
@@ -130,6 +138,13 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 expect(vc.presentInvokeAnimateds).to(equal([true]))
                 expect(vc.presentInvokeCompletions.count).to(equal(1))
             }
+            
+            it("sets up orientation change detection with default center") {
+                presenter.present(sheet, in: vc, completion: completion)
+                let expected = NotificationCenter.default
+                expect(presenter.setupOrientationChangeDetectionInvokeCount).to(equal(1))
+                expect(presenter.setupOrientationChangeDetectionInvokeCenters[0]).to(be(expected))
+            }
         }
         
         
@@ -160,6 +175,38 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             
             it("applies color to popover arrow") {
                 expect(presenter.popover?.backgroundColor).to(equal(.red))
+            }
+        }
+        
+        
+        describe("setting up orientation change detection") {
+            
+            var center: MockNotificationCenter!
+            let expectedName = UIApplication.willChangeStatusBarOrientationNotification
+            
+            beforeEach {
+                center = MockNotificationCenter()
+            }
+            
+            it("removes observer") {
+                presenter.setupOrientationChangeDetection(with: center)
+                expect(center.removeObserverInvokeCount).to(equal(1))
+                expect(center.removeObserverInvokeNames[0]).to(equal(expectedName))
+                expect(center.removeObserverInvokeObjects[0]).to(beNil())
+            }
+            
+            it("does not add observer if presenter is not listening for changes") {
+                presenter.isListeningToOrientationChanges = false
+                presenter.setupOrientationChangeDetection(with: center)
+                expect(center.addObserverInvokeCount).to(equal(0))
+            }
+            
+            it("adds observer if presenter is listening for changes") {
+                presenter.isListeningToOrientationChanges = true
+                presenter.setupOrientationChangeDetection(with: center)
+                expect(center.addObserverInvokeCount).to(equal(1))
+                expect(center.addObserverInvokeNames[0]).to(equal(expectedName))
+                expect(center.addObserverInvokeObjects[0]).to(beNil())
             }
         }
         
@@ -196,5 +243,17 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 expect(presenting.dismissInvokeCount).to(equal(1))
             }
         }
+    }
+}
+
+
+private class TestPresenter: ActionSheetPopoverPresenter {
+    
+    var setupOrientationChangeDetectionInvokeCount = 0
+    var setupOrientationChangeDetectionInvokeCenters = [NotificationCenter]()
+    override func setupOrientationChangeDetection(with center: NotificationCenter = .default) {
+        super.setupOrientationChangeDetection(with: center)
+        setupOrientationChangeDetectionInvokeCount += 1
+        setupOrientationChangeDetectionInvokeCenters.append(center)
     }
 }

@@ -23,16 +23,24 @@ import UIKit
 open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     
-    // MARK: - Properties
-    
-    open var events = ActionSheetPresenterEvents()
-    open var isDismissableWithTapOnBackground = true
+    // MARK: - Dependencies
     
     var actionSheet: ActionSheet?
     weak var popover: UIPopoverPresentationController?
     
     
+    // MARK: - Properties
+    
+    open var events = ActionSheetPresenterEvents()
+    open var isDismissableWithTapOnBackground = true
+    open var isListeningToOrientationChanges = true
+    
+    
     // MARK: - ActionSheetPresenter
+    
+    @objc public func handleOrientationChange() {
+        dismiss {}
+    }
     
     public func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
@@ -56,6 +64,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         popover?.sourceRect = view?.bounds ?? CGRect()
         popover?.barButtonItem = item
         vc.present(sheet, animated: true, completion: completion)
+        setupOrientationChangeDetection()
     }
     
     open func refreshActionSheet() {
@@ -66,6 +75,14 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         sheet.buttonsTableView?.isHidden = true
         sheet.preferredContentSize.height = sheet.itemsHeight
         popover?.backgroundColor = sheet.itemsTableView?.backgroundColor
+    }
+    
+    open func setupOrientationChangeDetection(with center: NotificationCenter = .default) {
+        let action = #selector(handleOrientationChange)
+        let name = UIApplication.willChangeStatusBarOrientationNotification
+        center.removeObserver(self, name: name, object: nil)
+        guard isListeningToOrientationChanges else { return }
+        center.addObserver(self, selector: action, name: name, object: nil)
     }
 }
 
@@ -84,6 +101,8 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
         dismiss {}
         return false
     }
+    
+    
 }
 
 

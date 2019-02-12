@@ -61,7 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sheeeeeeeeet" id="hUy-QT-oGw">
-                        <barButtonItem key="rightBarButtonItem" title="Test" id="dkC-bE-rGe">
+                        <barButtonItem key="rightBarButtonItem" title="Open" id="dkC-bE-rGe">
                             <connections>
                                 <action selector="testBarButtonTapped:" destination="BYZ-38-t0r" id="SEQ-ML-g0b"/>
                             </connections>

@@ -116,6 +116,7 @@
 		45EB3FDE1FC8575500EF555E /* ActionSheetPopoverAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
 		840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */; };
+		840B667F2212C67600F282F2 /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B667E2212C67600F282F2 /* MockNotificationCenter.swift */; };
 		842385A821E8910D0045F121 /* ActionSheetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */; };
 		842385AA21E8926F0045F121 /* ActionSheetItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */; };
 		842385AC21E892910045F121 /* ActionSheetButtonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */; };
@@ -314,6 +315,7 @@
 		45EB3FDD1FC8575500EF555E /* ActionSheetPopoverAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverAppearance.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
 		840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
+		840B667E2212C67600F282F2 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
 		842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetBackgroundView.swift; sourceTree = "<group>"; };
 		842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTableView.swift; sourceTree = "<group>"; };
 		842385AB21E892910045F121 /* ActionSheetButtonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTableView.swift; sourceTree = "<group>"; };
@@ -475,8 +477,8 @@
 		453C04741FC0699D0028FA02 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
 				45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */,
+				453C04751FC069B50028FA02 /* ActionSheetPresenter.swift */,
 				456EAA0D1FCC13A400A719ED /* ActionSheetStandardPresenter.swift */,
 			);
 			path = Presenters;
@@ -643,6 +645,7 @@
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
+				840B667D2212C66200F282F2 /* Mocks */,
 				453C797320931C1300DE42B5 /* ActionSheet */,
 				84539DB72177D1F80097039F /* Extensions */,
 				456EAA601FCE0E1C00A719ED /* Info.plist */,
@@ -727,6 +730,16 @@
 			path = Sheets;
 			sourceTree = "<group>";
 		};
+		840B667D2212C66200F282F2 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				840B667E2212C67600F282F2 /* MockNotificationCenter.swift */,
+				84539DB121778D0B0097039F /* MockTableView.swift */,
+				8423863A21EE7AED0045F121 /* MockViewController.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		8423864621EF7ED10045F121 /* Readmes */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,8 +762,6 @@
 		84539DB021778D000097039F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8423863A21EE7AED0045F121 /* MockViewController.swift */,
-				84539DB121778D0B0097039F /* MockTableView.swift */,
 				8423863E21EE918F0045F121 /* ActionSheetHeaderViewTests.swift */,
 				8423864021EE91FF0045F121 /* ActionSheetTableViewTests.swift */,
 			);
@@ -1144,6 +1155,7 @@
 				453C796F2093189700DE42B5 /* ActionSheet+PresenterTests.swift in Sources */,
 				8423864121EE91FF0045F121 /* ActionSheetTableViewTests.swift in Sources */,
 				84539DB221778D0B0097039F /* MockTableView.swift in Sources */,
+				840B667F2212C67600F282F2 /* MockNotificationCenter.swift in Sources */,
 				8423863621EE0B1E0045F121 /* UIEdgeInsets+HiddenTests.swift in Sources */,
 				45D008D520936AFC00F1C099 /* MockActionSheetPresenter.swift in Sources */,
 				45352D652030BC0E00A0F890 /* ActionSheetSectionTitleTests.swift in Sources */,
