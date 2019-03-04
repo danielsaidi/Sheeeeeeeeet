@@ -6,6 +6,14 @@
 This version makes the `ActionSheet` `backgroundView` outlet public, so that you
 can add your own custom effects to it. The other outlets are still internal.
 
+The version also fixes a bug that caused action sheets to be misplaced when they
+were presented from a custom presentation controller. This fix also adds a brand
+new `presentationStyle` property to `StandardActionSheetPresenter`, which can be
+either `keyWindow` (default) or `currentContext`. Setting it to `keyWindow` will
+present the action sheet in the app's key window (full screen), while setting it
+to `currentContext` will present it in the presenting view controller's view (it
+looks straaange, but perhaps you can find a nice use case for it).
+
 
 ## 1.3.1
 

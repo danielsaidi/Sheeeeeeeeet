@@ -65,14 +65,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="a3t-st-aTv" secondAttribute="bottom" id="0Ng-wM-pDU"/>
-                <constraint firstItem="a3t-st-aTv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="HAP-aL-Tfx"/>
+                <constraint firstAttribute="bottom" secondItem="a3t-st-aTv" secondAttribute="bottom" id="0Ng-wM-pDU"/>
+                <constraint firstItem="a3t-st-aTv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="HAP-aL-Tfx"/>
                 <constraint firstItem="SY3-WL-g9a" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="QPw-j7-ds4"/>
                 <constraint firstItem="SY3-WL-g9a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qkx-K8-ysN"/>
-                <constraint firstItem="a3t-st-aTv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="am1-ek-BBj"/>
+                <constraint firstItem="a3t-st-aTv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="am1-ek-BBj"/>
                 <constraint firstItem="SY3-WL-g9a" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="it1-TY-fQG"/>
                 <constraint firstItem="SY3-WL-g9a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="txK-fC-hst"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="a3t-st-aTv" secondAttribute="trailing" id="yS1-hl-lMK"/>
+                <constraint firstAttribute="trailing" secondItem="a3t-st-aTv" secondAttribute="trailing" id="yS1-hl-lMK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="55.200000000000003" y="48.125937031484263"/>

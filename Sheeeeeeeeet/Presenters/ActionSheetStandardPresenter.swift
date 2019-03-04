@@ -12,6 +12,12 @@
  sheets, which are presented with a slide-in from the bottom
  of the screen.
  
+ The `presentationStyle` property will affect how the action
+ sheet is presented. The default `keyWindow` option uses the
+ entire application window and will present the action sheet
+ in full screen. The `currentContext` option uses the source
+ view controller's view bounds instead.
+ 
  */
 
 import UIKit
@@ -28,10 +34,18 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     public var events = ActionSheetPresenterEvents()
     public var isDismissableWithTapOnBackground = true
+    public var presentationStyle = PresentationStyle.keyWindow
     
     var actionSheet: ActionSheet?
     var animationDelay: TimeInterval = 0
     var animationDuration: TimeInterval = 0.3
+    
+    
+    // MARK: - Types
+    
+    public enum PresentationStyle {
+        case keyWindow, currentContext
+    }
     
     
     // MARK: - ActionSheetPresenter
@@ -55,7 +69,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     open func present(sheet: ActionSheet, in vc: UIViewController, completion: @escaping () -> ()) {
         actionSheet = sheet
-        addActionSheetView(from: sheet, to: vc.view)
+        addActionSheet(sheet, to: vc)
         addBackgroundViewTapAction(to: sheet.backgroundView)
         presentBackgroundView()
         presentActionSheet(completion: completion)
@@ -71,11 +85,6 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     
     // MARK: - Protected Functions
-    
-    open func addActionSheetView(from sheet: ActionSheet, to view: UIView) {
-        sheet.view.frame = view.frame
-        view.addSubview(sheet.view)
-    }
 
     open func addBackgroundViewTapAction(to view: UIView?) {
         view?.isUserInteractionEnabled = true
@@ -122,6 +131,25 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
         guard let view = actionSheet?.backgroundView else { return }
         let animation = { view.alpha = 0 }
         animate(animation)
+    }
+}
+
+
+// MARK: - Internal Functions
+
+extension ActionSheetStandardPresenter {
+    
+    func addActionSheetToKeyWindow(_ sheet: ActionSheet) {
+        let window = UIApplication.shared.keyWindow
+        sheet.view.frame = window?.bounds ?? .zero
+        window?.addSubview(sheet.view)
+    }
+    
+    func addActionSheet(_ sheet: ActionSheet, to vc: UIViewController) {
+        if presentationStyle == .keyWindow { return addActionSheetToKeyWindow(sheet) }
+        let view = vc.view
+        sheet.view.frame = view?.bounds ?? .zero
+        view?.addSubview(sheet.view)
     }
 }
 
