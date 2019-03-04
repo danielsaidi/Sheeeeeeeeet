@@ -148,21 +148,23 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("sets up items table view") {
-                expect(itemsTableView.delegate).to(be(sheet.itemHandler))
-                expect(itemsTableView.dataSource).to(be(sheet.itemHandler))
-                expect(itemsTableView.alwaysBounceVertical).to(beFalse())
-                expect(itemsTableView.estimatedRowHeight).to(equal(44))
-                expect(itemsTableView.rowHeight).to(equal(UITableView.automaticDimension))
-                expect(itemsTableView.cellLayoutMarginsFollowReadableWidth).to(beFalse())
+                let view = sheet.itemsTableView!
+                expect(view.delegate).to(be(sheet.itemHandler))
+                expect(view.dataSource).to(be(sheet.itemHandler))
+                expect(view.alwaysBounceVertical).to(beFalse())
+                expect(view.estimatedRowHeight).to(equal(44))
+                expect(view.rowHeight).to(equal(UITableView.automaticDimension))
+                expect(view.cellLayoutMarginsFollowReadableWidth).to(beFalse())
             }
             
             it("sets up buttons table view") {
-                expect(buttonsTableView.delegate).to(be(sheet.buttonHandler))
-                expect(buttonsTableView.dataSource).to(be(sheet.buttonHandler))
-                expect(itemsTableView.alwaysBounceVertical).to(beFalse())
-                expect(buttonsTableView.estimatedRowHeight).to(equal(44))
-                expect(buttonsTableView.rowHeight).to(equal(UITableView.automaticDimension))
-                expect(buttonsTableView.cellLayoutMarginsFollowReadableWidth).to(beFalse())
+                let view = sheet.buttonsTableView!
+                expect(view.delegate).to(be(sheet.buttonHandler))
+                expect(view.dataSource).to(be(sheet.buttonHandler))
+                expect(view.alwaysBounceVertical).to(beFalse())
+                expect(view.estimatedRowHeight).to(equal(44))
+                expect(view.rowHeight).to(equal(UITableView.automaticDimension))
+                expect(view.cellLayoutMarginsFollowReadableWidth).to(beFalse())
             }
         }
         
@@ -369,34 +371,20 @@ class ActionSheetTests: QuickSpec {
         describe("refreshing") {
             
             var presenter: MockActionSheetPresenter!
-            var stackView: UIStackView!
             
             beforeEach {
                 presenter = MockActionSheetPresenter()
-                stackView = UIStackView()
                 sheet = createSheet()
-                sheet.stackView = stackView
                 sheet.presenter = presenter
                 sheet.refresh()
             }
             
-            it("refreshes header") {
+            it("refreshes all components") {
                 expect(sheet.refreshHeaderInvokeCount).to(equal(1))
-            }
-            
-            it("refreshes items") {
+                expect(sheet.refreshHeaderVisibilityInvokeCount).to(equal(1))
                 expect(sheet.refreshItemsInvokeCount).to(equal(1))
-            }
-            
-            it("refreshes buttons") {
                 expect(sheet.refreshButtonsInvokeCount).to(equal(1))
-            }
-            
-            it("applies stack view spacing") {
-                expect(stackView.spacing).to(equal(15))
-            }
-            
-            it("calls presenter to refresh itself") {
+                expect(sheet.stackView!.spacing).to(equal(15))
                 expect(presenter.refreshActionSheetInvokeCount).to(equal(1))
             }
         }
@@ -417,8 +405,6 @@ class ActionSheetTests: QuickSpec {
             
             it("refreshes correctly if header view is nil") {
                 sheet.refreshHeader()
-                
-                expect(container.isHidden).to(beTrue())
                 expect(container.subviews.count).to(equal(0))
                 expect(height.constant).to(equal(0))
             }
@@ -428,10 +414,68 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerView = view
                 sheet.refreshHeader()
                 
-                expect(container.isHidden).to(beFalse())
                 expect(container.subviews.count).to(equal(1))
                 expect(container.subviews[0]).to(be(view))
                 expect(height.constant).to(equal(200))
+            }
+        }
+        
+        
+        describe("refreshing header visibility") {
+            
+            beforeEach {
+                sheet = createSheet()
+                let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
+                sheet.headerView = view
+            }
+            
+            func setLandscapeOrientation() {
+                let view = sheet.view!
+                view.frame.size.width = 2 * view.frame.size.height
+            }
+            
+            func setPortraitOrientation() {
+                let view = sheet.view!
+                view.frame.size.height = 2 * view.frame.size.width
+            }
+            
+            it("hides header container if header view is nil") {
+                sheet.headerView = nil
+                sheet.refreshHeaderVisibility()
+                
+                expect(sheet.headerViewContainer!.isHidden).to(beTrue())
+            }
+            
+            it("hides header container in landscape orientation if set to hide header in landscape") {
+                setLandscapeOrientation()
+                sheet.headerViewLandscapeMode = .hidden
+                sheet.refreshHeaderVisibility()
+                
+                expect(sheet.headerViewContainer!.isHidden).to(beTrue())
+            }
+            
+            it("shows header container in landscape orientation if set to show header in landscape") {
+                setLandscapeOrientation()
+                sheet.headerViewLandscapeMode = .visible
+                sheet.refreshHeaderVisibility()
+                
+                expect(sheet.headerViewContainer!.isHidden).to(beFalse())
+            }
+            
+            it("shows header container in portrait orientation if set to hide header in landscape") {
+                setPortraitOrientation()
+                sheet.headerViewLandscapeMode = .hidden
+                sheet.refreshHeaderVisibility()
+                
+                expect(sheet.headerViewContainer!.isHidden).to(beFalse())
+            }
+            
+            it("shows header container in portrait orientation if set to show header in landscape") {
+                setPortraitOrientation()
+                sheet.headerViewLandscapeMode = .visible
+                sheet.refreshHeaderVisibility()
+                
+                expect(sheet.headerViewContainer!.isHidden).to(beFalse())
             }
         }
         

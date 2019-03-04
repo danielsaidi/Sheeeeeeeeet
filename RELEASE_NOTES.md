@@ -1,6 +1,13 @@
 # Release Notes
 
 
+## 1.3.3
+
+This version adds a new `headerViewLandscapeMode` property to `ActionSheet`. You
+can set it to `.hidden` to let action sheets hide their header view in landscape
+orientation. This will free up more screen estate for the action sheet's options.
+
+
 ## 1.3.2
 
 This version makes the `ActionSheet` `backgroundView` outlet public, so that you

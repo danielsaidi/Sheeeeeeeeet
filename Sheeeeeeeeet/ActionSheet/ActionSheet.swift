@@ -146,6 +146,13 @@ open class ActionSheet: UIViewController {
     }
     
     
+    // MARK: - Types
+    
+    public enum HeaderViewLandscapeMode {
+        case visible, hidden
+    }
+    
+    
     // MARK: - Typealiases
     
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
@@ -186,6 +193,8 @@ open class ActionSheet: UIViewController {
     // MARK: - Header Properties
     
     open var headerView: UIView?
+    
+    public var headerViewLandscapeMode = HeaderViewLandscapeMode.visible
     
     
     // MARK: - Item Properties
@@ -228,6 +237,7 @@ open class ActionSheet: UIViewController {
     open func refresh() {
         applyLegacyAppearance()
         refreshHeader()
+        refreshHeaderVisibility()
         refreshItems()
         refreshButtons()
         stackView?.spacing = sectionMargins
@@ -237,9 +247,16 @@ open class ActionSheet: UIViewController {
     open func refreshHeader() {
         let height = headerView?.frame.height ?? 0
         headerViewContainerHeight?.constant = height
-        headerViewContainer?.isHidden = headerView == nil
         guard let view = headerView else { return }
         headerViewContainer?.addSubviewToFill(view)
+    }
+    
+    open func refreshHeaderVisibility() {
+        let size = view.frame.size
+        let hasHeader = headerView != nil
+        let isPortrait = size.height > size.width
+        let isVisible = hasHeader && (isPortrait || headerViewLandscapeMode == .visible)
+        headerViewContainer?.isHidden = !isVisible
     }
     
     open func refreshItems() {

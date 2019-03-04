@@ -10,6 +10,7 @@ class MockActionSheet: ActionSheet {
     var refreshButtonsInvokeCount = 0
     var refreshItemsInvokeCount = 0
     var refreshHeaderInvokeCount = 0
+    var refreshHeaderVisibilityInvokeCount = 0
     var reloadDataInvokeCount = 0
     var setupInvokeCount = 0
     var setupItemsInvokeCount = 0
@@ -52,6 +53,11 @@ class MockActionSheet: ActionSheet {
     override func refreshHeader() {
         super.refreshHeader()
         refreshHeaderInvokeCount += 1
+    }
+    
+    override func refreshHeaderVisibility() {
+        super.refreshHeaderVisibility()
+        refreshHeaderVisibilityInvokeCount += 1
     }
     
     override func reloadData() {
