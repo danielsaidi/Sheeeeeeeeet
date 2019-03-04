@@ -166,13 +166,15 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var backgroundView: ActionSheetBackgroundView?
+    @IBOutlet public weak var backgroundView: ActionSheetBackgroundView?
+    
     @IBOutlet weak var stackView: UIStackView?
     @IBOutlet weak var headerViewContainer: ActionSheetHeaderView?
-    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
     @IBOutlet weak var itemsTableView: ActionSheetItemTableView?
-    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
     @IBOutlet weak var buttonsTableView: ActionSheetButtonTableView?
+    
+    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
+    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
     @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
     
     @IBOutlet weak var topMargin: NSLayoutConstraint?

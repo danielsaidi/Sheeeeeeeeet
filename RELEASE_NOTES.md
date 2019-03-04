@@ -1,6 +1,12 @@
 # Release Notes
 
 
+## 1.3.2
+
+This version makes the `ActionSheet` `backgroundView` outlet public, so that you
+can add your own custom effects to it. The other outlets are still internal.
+
+
 ## 1.3.1
 
 This version fixes an iOS 9 bug that caused the popover to become square with no
