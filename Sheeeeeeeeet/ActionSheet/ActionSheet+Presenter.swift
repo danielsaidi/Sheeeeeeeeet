@@ -9,28 +9,22 @@
 public extension ActionSheet {
     
     static var defaultPresenter: ActionSheetPresenter {
-        return UIDevice.current.userInterfaceIdiom.defaultPresenter
+        let traits = UIApplication.shared.keyWindow?.traitCollection
+        return defaultPresenter(forTraits: traits)
     }
 }
 
-
-// MARK: - Internal Extensions
-
-extension UIUserInterfaceIdiom {
+extension ActionSheet {
     
-    var defaultPresenter: ActionSheetPresenter {
-        switch self {
-        case .pad: return ipadPresenter
-        default: return iphonePresenter
-        }
+    static func defaultPresenter(forTraits traits: UITraitCollection?) -> ActionSheetPresenter {
+        let idiom = UIDevice.current.userInterfaceIdiom
+        return defaultPresenter(forIdiom: idiom, traits: traits)
     }
     
-    var ipadPresenter: ActionSheetPresenter {
-        let isFullscreen = UIApplication.shared.isFullScreen
-        return isFullscreen ? ActionSheetPopoverPresenter() : ActionSheetStandardPresenter()
-    }
-    
-    var iphonePresenter: ActionSheetPresenter {
-        return ActionSheetStandardPresenter()
+    static func defaultPresenter(forIdiom idiom: UIUserInterfaceIdiom, traits: UITraitCollection?) -> ActionSheetPresenter {
+        if idiom == .phone { return ActionSheetStandardPresenter() }
+        let sizeClass = traits?.horizontalSizeClass ?? .compact
+        let isCompact = sizeClass == .compact
+        return isCompact ? ActionSheetStandardPresenter() : ActionSheetPopoverPresenter()
     }
 }
