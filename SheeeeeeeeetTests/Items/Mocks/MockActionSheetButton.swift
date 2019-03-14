@@ -8,13 +8,4 @@
 
 import Sheeeeeeeeet
 
-class MockActionSheetButton: ActionSheetButton {
-    
-    var applyAppearanceInvokeCount = 0
-    var applyAppearanceInvokeAppearances = [ActionSheetAppearance]()
-    
-    override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        applyAppearanceInvokeCount += 1
-        applyAppearanceInvokeAppearances.append(appearance)
-    }
-}
+class MockActionSheetButton: ActionSheetButton {}

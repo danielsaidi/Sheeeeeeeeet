@@ -23,15 +23,6 @@ import UIKit
 open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
     
-    // MARK: - Deprecated - Remove in 1.4.0 ****************
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        super.applyAppearance(appearance)
-        self.appearance = ActionSheetSingleSelectItemAppearance(copy: appearance.singleSelectItem)
-    }
-    // MARK: - Deprecated - Remove in 1.4.0 ****************
-    
-    
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
