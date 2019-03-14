@@ -29,15 +29,6 @@ import UIKit
 open class ActionSheetSelectItem: ActionSheetItem {
     
     
-    // MARK: - Deprecated - Remove in 1.4.0 ****************
-    @available(*, deprecated, message: "applyAppearance will be removed in 1.4.0. Use the new appearance model instead.")
-    open override func applyAppearance(_ appearance: ActionSheetAppearance) {
-        super.applyAppearance(appearance)
-        self.appearance = ActionSheetSelectItemAppearance(copy: appearance.selectItem)
-    }
-    // MARK: - Deprecated - Remove in 1.4.0 ****************
-    
-    
     // MARK: - Initialization
     
     public init(

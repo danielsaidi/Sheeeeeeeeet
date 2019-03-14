@@ -69,7 +69,6 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let item = self.item(at: indexPath) else { return UITableViewCell(frame: .zero) }
         let cell = item.cell(for: tableView)
-        item.applyAppearance(to: cell)                      // TODO: Deprecated - Remove in 1.4.0
         cell.refresh(with: item)
         return cell
     }

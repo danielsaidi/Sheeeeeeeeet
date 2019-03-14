@@ -89,16 +89,6 @@ import UIKit
 open class ActionSheet: UIViewController {
     
     
-    // MARK: - Deprecated - Remove in 1.4.0 ****************
-    @available(*, deprecated, message: "appearance will be removed in 1.4.0. Use the new appearance model instead")
-    public var appearance = ActionSheetAppearance(copy: .standard)
-    @available(*, deprecated, message: "setupItemsAndButtons(with:) will be removed in 1.4.0. Use `setup(items:)` instead")
-    open func setupItemsAndButtons(with items: [ActionSheetItem]) { setup(items: items) }
-    @available(*, deprecated, message: "itemSelectAction will be removed in 1.4.0. Use `selectAction` instead")
-    open var itemSelectAction: SelectAction { return selectAction }
-    // MARK: - Deprecated - Remove in 1.4.0 ****************
-    
-    
     // MARK: - Initialization
     
     public init(
@@ -235,7 +225,6 @@ open class ActionSheet: UIViewController {
     // MARK: - Refresh Functions
     
     open func refresh() {
-        applyLegacyAppearance()
         refreshHeader()
         refreshHeaderVisibility()
         refreshItems()
@@ -260,14 +249,12 @@ open class ActionSheet: UIViewController {
     }
     
     open func refreshItems() {
-        items.forEach { $0.applyAppearance(appearance) }    // TODO: Deprecated - Remove in 1.4.0
         itemsTableView?.tableFooterView = createFooter()
         itemsTableViewHeight?.constant = itemsHeight
     }
     
     open func refreshButtons() {
         buttonsTableView?.isHidden = buttons.count == 0
-        buttons.forEach { $0.applyAppearance(appearance) }  // TODO: Deprecated - Remove in 1.4.0
         buttonsTableView?.tableFooterView = createFooter()
         buttonsTableViewHeight?.constant = buttonsHeight
     }

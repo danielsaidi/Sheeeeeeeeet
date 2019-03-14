@@ -23,4 +23,3 @@ class ActionSheetHeaderViewTests: QuickSpec {
         }
     }
 }
-

@@ -76,7 +76,6 @@ class ActionSheetSelectItemCellTests: QuickSpec {
             var cell: ActionSheetSelectItemCell!
             
             beforeEach {
-                let label = UILabel()
                 item = ActionSheetSelectItem(title: "foo", isSelected: false)
                 cell = item.cell(for: UITableView()) as? ActionSheetSelectItemCell
                 cell.tintColor = UIColor.purple.withAlphaComponent(0.1)
