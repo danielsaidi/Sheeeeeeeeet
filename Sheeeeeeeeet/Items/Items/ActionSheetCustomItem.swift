@@ -12,8 +12,6 @@
  It can use any view that inherits `ActionSheetItemCell` and
  implements `ActionSheetCustomItemCell`.
  
- TODO: Unit test
- 
  */
 
 import UIKit
@@ -43,7 +41,9 @@ public class ActionSheetCustomItem<T: ActionSheetCustomItemCell>: ActionSheetIte
     // MARK: - Properties
     
     public override var height: CGFloat { return T.defaultSize.height }
+    
     public let cellType: T.Type
+    
     public let setupAction: SetupAction
     
     
