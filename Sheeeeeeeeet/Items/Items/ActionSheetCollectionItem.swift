@@ -61,6 +61,7 @@ open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: A
         tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: cellReuseIdentifier)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
         guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type created by superclass") }
+        typedCell.setup(withNib: T.nib, owner: self)
         return typedCell
     }
     
