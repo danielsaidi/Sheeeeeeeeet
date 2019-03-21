@@ -34,7 +34,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     public var events = ActionSheetPresenterEvents()
     public var isDismissableWithTapOnBackground = true
-    public var presentationStyle = PresentationStyle.keyWindow
+    public var presentationStyle = PresentationStyle.currentContext
     
     var actionSheet: ActionSheet?
     var animationDelay: TimeInterval = 0
