@@ -1,6 +1,33 @@
 # Release Notes
 
 
+## 1.4.1
+
+This version makes `currentContext` the default presentation mode for the default
+presenter. This is due to accessibility issues with using `keyWindow` while being
+ina modal presentation. I will change how the default presenteras presents action
+sheets, but that is a future improvement.
+
+
+## 1.4.0
+
+This version removes the old deprecated appearance model, so if your app uses it,
+it's time to start using the appearance proxy model. Just follow the readme, and
+you'll be done in no time.
+
+This version also change which presenter to use, so that apps behaves correct on
+iPads in split screen. We still have to come up with a way to switch between the
+default and popover presenters when the split screen size changes, but that is a
+future improvement.
+
+
+## 1.3.3
+
+This version adds a new `headerViewLandscapeMode` property to `ActionSheet`. You
+can set it to `.hidden` to let action sheets hide their header view in landscape
+orientation. This will free up more screen estate for the action sheet's options.
+
+
 ## 1.3.3
 
 This version adds a new `headerViewLandscapeMode` property to `ActionSheet`. You
