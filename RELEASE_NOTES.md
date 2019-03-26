@@ -1,6 +1,12 @@
 # Release Notes
 
 
+## 2.0.0
+
+This version upgrades Sheeeeeeeeet and its unit test dependencies to Swift 5. The
+version contains no breaking changes.
+
+
 ## 1.4.1
 
 This version makes `currentContext` the default presentation mode for the default
