@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Sheeeeeeeeet'
-  s.version          = '1.4.1'
+  s.version          = '2.0.0'
   s.summary          = 'Sheeeeeeeeet is a Swift library for custom iOS action sheets.'
 
   s.description      = <<-DESC
