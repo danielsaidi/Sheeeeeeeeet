@@ -19,11 +19,11 @@ import UIKit
 
 public extension UIColor {
     
-    public convenience init(hex: Int) {
+    convenience init(hex: Int) {
         self.init(hex: hex, alpha: 1)
     }
     
-    public convenience init(hex: Int, alpha: CGFloat) {
+    convenience init(hex: Int, alpha: CGFloat) {
         let components = (
             R: CGFloat((hex >> 16) & 0xff) / 255,
             G: CGFloat((hex >> 08) & 0xff) / 255,
@@ -38,7 +38,7 @@ public extension UIColor {
 
 public extension UIColor {
     
-    public var hexString: String {
+    var hexString: String {
         return hexString(withAlpha: false)
     }
 }
@@ -48,7 +48,7 @@ public extension UIColor {
 
 public extension UIColor {
     
-    public func hexString(withAlpha: Bool) -> String {
+    func hexString(withAlpha: Bool) -> String {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0

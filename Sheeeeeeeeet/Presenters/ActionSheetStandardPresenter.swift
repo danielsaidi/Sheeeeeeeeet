@@ -158,7 +158,7 @@ extension ActionSheetStandardPresenter {
 
 @objc public extension ActionSheetStandardPresenter {
     
-    public func backgroundViewTapAction() {
+    func backgroundViewTapAction() {
         guard isDismissableWithTapOnBackground else { return }
         events.didDismissWithBackgroundTap?()
         dismiss {}
