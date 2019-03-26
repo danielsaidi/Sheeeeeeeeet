@@ -21,7 +21,7 @@ public extension ActionSheet {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
             guard
                 let items = self?.items(ofType: ActionSheetSelectItem.self),
-                let index = (items.index { $0.isSelected == true })
+                let index = (items.firstIndex { $0.isSelected == true })
                 else { return }
             let path = IndexPath(row: index, section: 0)
             self?.itemsTableView?.reloadData()
