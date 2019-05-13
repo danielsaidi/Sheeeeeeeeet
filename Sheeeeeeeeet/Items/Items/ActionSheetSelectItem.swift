@@ -92,6 +92,7 @@ open class ActionSheetSelectItemCell: ActionSheetItemCell {
     open override func refresh() {
         super.refresh()
         guard let item = item as? ActionSheetSelectItem else { return }
+        applyAccessibility(for: item)
         applyAccessoryView(for: item)
         applyAccessoryViewColor(for: item)
         applySubtitleColor(for: item)
@@ -105,6 +106,14 @@ open class ActionSheetSelectItemCell: ActionSheetItemCell {
 
 private extension ActionSheetSelectItemCell {
     
+    func applyAccessibility(for item: ActionSheetSelectItem) {
+        if item.isSelected {
+            accessibilityTraits.insert(.selected)
+        } else {
+            accessibilityTraits.remove(.selected)
+        }
+    }
+
     func applyAccessoryView(for item: ActionSheetSelectItem) {
         guard let image = item.isSelected ? selectedIcon : unselectedIcon else { return }
         accessoryView = UIImageView(image: image)
