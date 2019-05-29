@@ -290,7 +290,7 @@ open class ActionSheet: UIViewController {
 private extension ActionSheet {
     
     func createFooter() -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 0.1))
         view.backgroundColor = .clear
         return view
     }
