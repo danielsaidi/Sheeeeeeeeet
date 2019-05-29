@@ -1,6 +1,19 @@
 # Release Notes
 
 
+## 2.0.2
+
+This version makes table view footer view sizes smaller to avoid a scroll offset
+issue that could occur when rotating devices that displayed sheets with a single
+custom item.
+
+
+## 2.0.1
+
+This version adjusts accessibility traits for selected select items and improves
+the overall accessibility experience when working with selectable items.
+
+
 ## 2.0.0
 
 This version upgrades Sheeeeeeeeet and its unit test dependencies to Swift 5. The
