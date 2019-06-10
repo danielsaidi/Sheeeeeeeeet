@@ -72,7 +72,8 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         guard let sheet = actionSheet else { return }
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []
-        sheet.headerViewContainer?.isHidden = true
+        let hasHeader = sheet.headerView != nil
+        sheet.headerViewContainer?.isHidden = !hasHeader
         sheet.buttonsTableView?.isHidden = true
         sheet.preferredContentSize.height = sheet.itemsHeight
         if #available(iOS 10.0, *) {
