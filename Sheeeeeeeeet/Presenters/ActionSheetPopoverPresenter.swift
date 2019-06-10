@@ -75,7 +75,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         let hasHeader = sheet.headerView != nil
         sheet.headerViewContainer?.isHidden = !hasHeader
         sheet.buttonsTableView?.isHidden = true
-        sheet.preferredContentSize.height = sheet.itemsHeight
+        sheet.preferredContentSize.height = sheet.itemsHeight + (hasHeader ? sheet.headerViewContainerHeight!.constant + 15 : 0)
         if #available(iOS 10.0, *) {
             refreshPopoverBackgroundColor()
         }
