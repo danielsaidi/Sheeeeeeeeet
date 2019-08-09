@@ -112,6 +112,11 @@
 		8423864B21EF82180045F121 /* ActionSheet+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864A21EF82180045F121 /* ActionSheet+Scroll.swift */; };
 		8423864D21EF834F0045F121 /* ActionSheet+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864C21EF834F0045F121 /* ActionSheet+Items.swift */; };
 		8423864F21EF83D70045F121 /* ActionSheet+ItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423864E21EF83D70045F121 /* ActionSheet+ItemTests.swift */; };
+		8441FA1E230002D700FFF1C2 /* ActionSheetColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */; };
+		8441FA20230006BB00FFF1C2 /* ActionSheet+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */; };
+		8441FA222300079500FFF1C2 /* UIColor+ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA212300079500FFF1C2 /* UIColor+ActionSheetColor.swift */; };
+		8441FA24230007D500FFF1C2 /* UIColor+ActionSheetColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA23230007D500FFF1C2 /* UIColor+ActionSheetColorTests.swift */; };
+		8441FA262300107600FFF1C2 /* ActionSheet+AppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA252300107600FFF1C2 /* ActionSheet+AppearanceTests.swift */; };
 		84539DA42175F9AC0097039F /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84539DA32175F9AC0097039F /* ActionSheet.xib */; };
 		84539DA821775C030097039F /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA721775C030097039F /* UIView+Nib.swift */; };
 		84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DA9217765A30097039F /* UIView+Subviews.swift */; };
@@ -126,12 +131,14 @@
 		84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */; };
 		8453C22321A9EF2600C2FD16 /* ActionSheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */; };
 		8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */; };
+		847EB0ED22FDA1B100E300E9 /* DemoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EB0EC22FDA1B100E300E9 /* DemoColor.swift */; };
+		847EB0F222FF1BB000E300E9 /* ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */; };
 		84875F84223B130C0074A518 /* ActionSheetCustomItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84875F83223B130C0074A518 /* ActionSheetCustomItemTests.swift */; };
 		84875F87223B13810074A518 /* ActionSheetCustomItemTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84875F85223B13810074A518 /* ActionSheetCustomItemTestCell.swift */; };
 		84875F88223B13810074A518 /* ActionSheetCustomItemTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84875F86223B13810074A518 /* ActionSheetCustomItemTestCell.xib */; };
 		8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */; };
 		8493967C21E7F9B200DC0AEF /* UIFont+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */; };
-		8493967F21E7F9C000DC0AEF /* UIColor+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */; };
+		8493967F21E7F9C000DC0AEF /* UIColor+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967E21E7F9C000DC0AEF /* UIColor+Demo.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
 		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
 		849935A0216BE408000A0670 /* MyCustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8499359E216BE408000A0670 /* MyCustomViewCell.xib */; };
@@ -299,6 +306,11 @@
 		8423864C21EF834F0045F121 /* ActionSheet+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Items.swift"; sourceTree = "<group>"; };
 		8423864E21EF83D70045F121 /* ActionSheet+ItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+ItemTests.swift"; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
+		8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetColorTests.swift; sourceTree = "<group>"; };
+		8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Appearance.swift"; sourceTree = "<group>"; };
+		8441FA212300079500FFF1C2 /* UIColor+ActionSheetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ActionSheetColor.swift"; sourceTree = "<group>"; };
+		8441FA23230007D500FFF1C2 /* UIColor+ActionSheetColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ActionSheetColorTests.swift"; sourceTree = "<group>"; };
+		8441FA252300107600FFF1C2 /* ActionSheet+AppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+AppearanceTests.swift"; sourceTree = "<group>"; };
 		84539DA32175F9AC0097039F /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		84539DA721775C030097039F /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		84539DA9217765A30097039F /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
@@ -313,12 +325,14 @@
 		84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubviewsTests.swift"; sourceTree = "<group>"; };
 		8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTableView.swift; sourceTree = "<group>"; };
 		8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Fullscreen.swift"; sourceTree = "<group>"; };
+		847EB0EC22FDA1B100E300E9 /* DemoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoColor.swift; sourceTree = "<group>"; };
+		847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetColor.swift; sourceTree = "<group>"; };
 		84875F83223B130C0074A518 /* ActionSheetCustomItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemTests.swift; sourceTree = "<group>"; };
 		84875F85223B13810074A518 /* ActionSheetCustomItemTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemTestCell.swift; sourceTree = "<group>"; };
 		84875F86223B13810074A518 /* ActionSheetCustomItemTestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheetCustomItemTestCell.xib; sourceTree = "<group>"; };
 		8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderView.swift; sourceTree = "<group>"; };
 		8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Example.swift"; sourceTree = "<group>"; };
-		8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Example.swift"; sourceTree = "<group>"; };
+		8493967E21E7F9C000DC0AEF /* UIColor+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Demo.swift"; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
 		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
 		8499359E216BE408000A0670 /* MyCustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomViewCell.xib; sourceTree = "<group>"; };
@@ -404,12 +418,12 @@
 		453C04231FC0655C0028FA02 /* Sheeeeeeeeet */ = {
 			isa = PBXGroup;
 			children = (
-				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
-				453C04251FC0655C0028FA02 /* Info.plist */,
 				453C797220931BFB00DE42B5 /* ActionSheet */,
+				847EB0F022FF1B9100E300E9 /* Appearance */,
 				453C047B1FC161AA0028FA02 /* Extensions */,
 				453C04731FC069940028FA02 /* Items */,
 				453C04741FC0699D0028FA02 /* Presenters */,
+				8441FA272300175100FFF1C2 /* Supporting Files */,
 				459DA1B820568E4500644490 /* Views */,
 			);
 			path = Sheeeeeeeeet;
@@ -612,12 +626,13 @@
 		456EAA5D1FCE0E1C00A719ED /* SheeeeeeeeetTests */ = {
 			isa = PBXGroup;
 			children = (
-				840B667D2212C66200F282F2 /* Mocks */,
 				453C797320931C1300DE42B5 /* ActionSheet */,
+				8441FA1C230002C700FFF1C2 /* Appearance */,
 				84539DB72177D1F80097039F /* Extensions */,
-				456EAA601FCE0E1C00A719ED /* Info.plist */,
 				45352D572030BBC900A0F890 /* Items */,
+				840B667D2212C66200F282F2 /* Mocks */,
 				455DEE2A206E115900173E67 /* Presenters */,
+				8441FA282300176300FFF1C2 /* Supporting Files */,
 				84539DB021778D000097039F /* Views */,
 			);
 			path = SheeeeeeeeetTests;
@@ -717,6 +732,33 @@
 			path = Readmes;
 			sourceTree = "<group>";
 		};
+		8441FA1C230002C700FFF1C2 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				8441FA252300107600FFF1C2 /* ActionSheet+AppearanceTests.swift */,
+				8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */,
+				8441FA23230007D500FFF1C2 /* UIColor+ActionSheetColorTests.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		8441FA272300175100FFF1C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				453C04251FC0655C0028FA02 /* Info.plist */,
+				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8441FA282300176300FFF1C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				456EAA601FCE0E1C00A719ED /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		84539DAB217786D80097039F /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,11 +805,22 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		847EB0F022FF1B9100E300E9 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */,
+				847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */,
+				8441FA212300079500FFF1C2 /* UIColor+ActionSheetColor.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		8493967A21E7F9A200DC0AEF /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
 				849935A5216BFB9F000A0670 /* DemoAppearance.swift */,
-				8493967E21E7F9C000DC0AEF /* UIColor+Example.swift */,
+				847EB0EC22FDA1B100E300E9 /* DemoColor.swift */,
+				8493967E21E7F9C000DC0AEF /* UIColor+Demo.swift */,
 				456EAA431FCCA03700A719ED /* UIColor+Hex.swift */,
 				8493967B21E7F9B200DC0AEF /* UIFont+Example.swift */,
 			);
@@ -979,6 +1032,7 @@
 				8423863121EB42D60045F121 /* UIEdgeInsets+Hidden.swift in Sources */,
 				455DEE3C206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift in Sources */,
 				1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */,
+				8441FA20230006BB00FFF1C2 /* ActionSheet+Appearance.swift in Sources */,
 				8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */,
 				45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */,
 				45EB3FD41FC84FD200EF555E /* NSObject+ClassName.swift in Sources */,
@@ -1001,6 +1055,7 @@
 				459DA1C42056C4F900644490 /* ActionSheetSingleSelectItem.swift in Sources */,
 				456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,
+				8441FA222300079500FFF1C2 /* UIColor+ActionSheetColor.swift in Sources */,
 				456EAA051FCB110B00A719ED /* ActionSheetTitle.swift in Sources */,
 				8423864B21EF82180045F121 /* ActionSheet+Scroll.swift in Sources */,
 				1D428919204002F2005D4369 /* (null) in Sources */,
@@ -1010,6 +1065,7 @@
 				456EAA0E1FCC13A400A719ED /* ActionSheetStandardPresenter.swift in Sources */,
 				842385AC21E892910045F121 /* ActionSheetButtonTableView.swift in Sources */,
 				456EA9FB1FCAC9CC00A719ED /* ActionSheetSelectItem.swift in Sources */,
+				847EB0F222FF1BB000E300E9 /* ActionSheetColor.swift in Sources */,
 				8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */,
 				849F062921D26EDE0074C6E4 /* NSObject+Bundle.swift in Sources */,
 				4537E8611FD1A6BE0007501C /* UIViewController+RootViewController.swift in Sources */,
@@ -1035,6 +1091,7 @@
 				1D42892D20403A18005D4369 /* MyCollectionViewCell.swift in Sources */,
 				454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */,
 				840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */,
+				847EB0ED22FDA1B100E300E9 /* DemoColor.swift in Sources */,
 				454EDC64205BCF14008E4311 /* SectionActionSheet.swift in Sources */,
 				456203C5205BD24000A3E141 /* CollectionActionSheet.swift in Sources */,
 				456203C3205BD0DE00A3E141 /* HeaderActionSheet.swift in Sources */,
@@ -1042,7 +1099,7 @@
 				456EAA3A1FCC6A7700A719ED /* FoodOption.swift in Sources */,
 				45CF8FAF205BB55800F01A3F /* FoodOption+ActionSheetItems.swift in Sources */,
 				8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */,
-				8493967F21E7F9C000DC0AEF /* UIColor+Example.swift in Sources */,
+				8493967F21E7F9C000DC0AEF /* UIColor+Demo.swift in Sources */,
 				4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */,
 				849935A6216BFB9F000A0670 /* DemoAppearance.swift in Sources */,
 				456EAA341FCC665800A719ED /* ViewController+Alert.swift in Sources */,
@@ -1066,10 +1123,13 @@
 				84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */,
 				84539DAD217786E50097039F /* MockActionSheetItem.swift in Sources */,
 				45352D6B2030BC0E00A0F890 /* ActionSheetCancelButtonTests.swift in Sources */,
+				8441FA24230007D500FFF1C2 /* UIColor+ActionSheetColorTests.swift in Sources */,
+				8441FA1E230002D700FFF1C2 /* ActionSheetColorTests.swift in Sources */,
 				457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */,
 				8423863B21EE7AED0045F121 /* MockViewController.swift in Sources */,
 				45352D6F2030BC0E00A0F890 /* ActionSheetTitleTests.swift in Sources */,
 				455DEE2C206E116F00173E67 /* ActionSheetPopoverPresenterTests.swift in Sources */,
+				8441FA262300107600FFF1C2 /* ActionSheet+AppearanceTests.swift in Sources */,
 				459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */,
 				45D008D320934E3300F1C099 /* MockActionSheet.swift in Sources */,
 				84875F84223B130C0074A518 /* ActionSheetCustomItemTests.swift in Sources */,

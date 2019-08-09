@@ -99,8 +99,8 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 item.isSelected = true
                 cell.refresh()
                 expect((cell.accessoryView as? UIImageView)?.image).to(be(cell.selectedIcon))
-                expect(cell.accessoryView?.tintColor).to(be(cell.selectedIconColor))
-                expect(cell.tintColor).to(be(cell.selectedTintColor))
+                expect(cell.accessoryView?.tintColor).to(equal(cell.selectedIconColor))
+                expect(cell.tintColor).to(equal(cell.selectedTintColor))
                 expect(cell.textLabel?.textColor).to(be(cell.selectedTitleColor))
                 expect(cell.textLabel?.font).to(be(cell.selectedTitleFont))
 //                expect(cell.detailTextLabel?.textColor).to(be(cell.selectedSubtitleColor))
@@ -111,7 +111,7 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 item.isSelected = false
                 cell.refresh()
                 expect((cell.accessoryView as? UIImageView)?.image).to(be(cell.unselectedIcon))
-                expect(cell.accessoryView?.tintColor).to(be(cell.unselectedIconColor))
+                expect(cell.accessoryView?.tintColor).to(equal(cell.unselectedIconColor))
                 expect(cell.tintColor).to(be(cell.tintColor))
                 expect(cell.textLabel?.textColor).to(be(cell.titleColor))
                 expect(cell.textLabel?.font).to(be(cell.titleFont))

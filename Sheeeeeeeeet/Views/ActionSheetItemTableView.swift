@@ -8,4 +8,9 @@
 
 import UIKit
 
-open class ActionSheetItemTableView: ActionSheetTableView {}
+open class ActionSheetItemTableView: ActionSheetTableView {
+    
+    open override func fixXcodeAppearanceBug() {
+        backgroundColor = ActionSheetItemTableView.appearance().backgroundColor
+    }
+}

@@ -18,92 +18,77 @@ import Sheeeeeeeeet
 
 class DemoAppearance {
     
-    static func apply() {
-        applyViewAppearances()
-        applyColors()
-        applyFonts()
-        applyHeights()
+    static func applyStandardAppearance() {
+        ActionSheet.applyStandardAppearance()
+//        applyFonts()
+//        applyHeights()
         applyIcons()
-        applySelectItemAppearances()
-        applySeparatorInsets()
         applyPopoverWidth()
     }
-}
-
-
-private extension DemoAppearance {
     
-    static func applyViewAppearances() {
-//        ActionSheetBackgroundView.appearance().backgroundColor = .purple
-        ActionSheetHeaderView.appearance().cornerRadius = 10
-        ActionSheetTableView.appearance().cornerRadius = 10
-//        ActionSheetTableView.appearance().separatorLineColor = .purple
-//        ActionSheetItemTableView.appearance().cornerRadius = 20
-//        ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
+    static func applyCrazyAppearance() {
+        applyStandardAppearance()
+        applyCrazyColors()
+        applyCrazyFonts()
+        applyCrazyHeights()
     }
     
-    static func applyColors() {
-        ActionSheetItemCell.appearance().titleColor = .darkText
-        ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
-        ActionSheetItemCell.appearance().tintColor = .darkText
-//        ActionSheetItemCell.appearance().separatorColor = .red
-//        ActionSheetItemCell.appearance().backgroundColor = red
-//        ActionSheetItemCell.appearance(whenContainedInInstancesOf: [ActionSheetItemTableView.self]).backgroundColor = .purple
-        ActionSheetOkButtonCell.appearance().titleColor = .darkGray
-        ActionSheetCancelButtonCell.appearance().titleColor = .lightGray
-        ActionSheetDangerButtonCell.appearance().titleColor = .examplePink
+    static func applyCrazyColors() {
+        background.backgroundColor = .purple
+        item.subtitleColor = .exampleBlue
+        selectItem.selectedTintColor = .exampleBlue
+        selectItem.selectedTitleColor = .exampleGreen
+        selectItem.selectedIconColor = .examplePurple
+        singleSelectItem.selectedTintColor = .exampleGreen
+        singleSelectItem.selectedTitleColor = .examplePurple
+        singleSelectItem.selectedIconColor = .exampleBlue
+        table.separatorColor = .purple
+        ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 30
     }
     
-    static func applyFonts() {
-        ActionSheetItemCell.appearance().titleFont = .robotoRegular(size: 17)
-        ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
-        ActionSheetLinkItemCell.appearance().titleFont = .robotoRegular(size: 17)
-        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = .robotoMedium(size: 13)
-        ActionSheetSectionTitleCell.appearance().titleFont = .robotoMedium(size: 13)
-        ActionSheetTitleCell.appearance().titleFont = .robotoMedium(size: 15)
-        ActionSheetOkButtonCell.appearance().titleFont = .robotoBlack(size: 17)
-        ActionSheetDangerButtonCell.appearance().titleFont = .robotoMedium(size: 17)
-        ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
+    static func applyCrazyFonts() {
+        item.titleFont = .robotoRegular(size: 17)
+        item.subtitleFont = .robotoRegular(size: 14)
+        link.titleFont = .robotoRegular(size: 17)
+        multiSelectToggle.titleFont = .robotoMedium(size: 13)
+        sectionTitle.titleFont = .robotoMedium(size: 14)
+        title.titleFont = .robotoMedium(size: 15)
+        okButton.titleFont = .robotoMedium(size: 17)
+        dangerButton.titleFont = .robotoMedium(size: 17)
+        cancelButton.titleFont = .robotoRegular(size: 17)
     }
     
-    static func applyHeights() {
+    static func applyCrazyHeights() {
         ActionSheetSectionTitle.height = 20
         ActionSheetSectionMargin.height = 20
     }
+}
+
+private extension DemoAppearance {
+    
+    static var background: ActionSheetBackgroundView { ActionSheetBackgroundView.appearance() }
+    static var buttonsTable: ActionSheetButtonTableView { ActionSheetButtonTableView.appearance() }
+    static var cancelButton: ActionSheetCancelButtonCell { ActionSheetCancelButtonCell.appearance() }
+    static var dangerButton: ActionSheetDangerButtonCell { ActionSheetDangerButtonCell.appearance() }
+    static var header: ActionSheetHeaderView { ActionSheetHeaderView.appearance() }
+    static var link: ActionSheetLinkItemCell { ActionSheetLinkItemCell.appearance() }
+    static var item: ActionSheetItemCell { ActionSheetItemCell.appearance() }
+    static var itemsTable: ActionSheetItemTableView { ActionSheetItemTableView.appearance() }
+    static var multiSelectItem: ActionSheetMultiSelectItemCell { ActionSheetMultiSelectItemCell.appearance() }
+    static var multiSelectToggle: ActionSheetMultiSelectToggleItemCell { ActionSheetMultiSelectToggleItemCell.appearance() }
+    static var okButton: ActionSheetOkButtonCell { ActionSheetOkButtonCell.appearance() }
+    static var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
+    static var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
+    static var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }
+    static var singleSelectItem: ActionSheetSingleSelectItemCell { ActionSheetSingleSelectItemCell.appearance() }
+    static var table: ActionSheetTableView { ActionSheetTableView.appearance() }
+    static var title: ActionSheetTitleCell { ActionSheetTitleCell.appearance() }
     
     static func applyIcons() {
-        ActionSheetLinkItemCell.appearance().linkIcon = UIImage(named: "ic_arrow_right")
-    }
-    
-    static func applySelectItemAppearances() {
-        ActionSheetSelectItemCell.appearance().selectedIcon = UIImage(named: "ic_checkmark")
-        ActionSheetSelectItemCell.appearance().unselectedIcon = UIImage(named: "ic_empty")
-        ActionSheetSelectItemCell.appearance().selectedTintColor = .exampleBlue
-        ActionSheetSelectItemCell.appearance().selectedTitleColor = .exampleGreen
-        ActionSheetSelectItemCell.appearance().selectedIconColor = .examplePurple
-        
-        ActionSheetSingleSelectItemCell.appearance().selectedTintColor = .exampleGreen
-//        ActionSheetSingleSelectItemCell.appearance().selectedTitleFont = .robotoMedium(size: 35)
-//        ActionSheetSingleSelectItemCell.appearance().selectedSubtitleFont = .robotoMedium(size: 25)
-        ActionSheetSingleSelectItemCell.appearance().selectedTitleColor = .examplePurple
-        ActionSheetSingleSelectItemCell.appearance().selectedIconColor = .exampleBlue
-        
-        ActionSheetMultiSelectItemCell.appearance().tintColor = UIColor.darkText.withAlphaComponent(0.4)
-        ActionSheetMultiSelectItemCell.appearance().titleColor = UIColor.darkText.withAlphaComponent(0.4)
-        ActionSheetMultiSelectItemCell.appearance().selectedTintColor = .examplePurple
-        ActionSheetMultiSelectItemCell.appearance().selectedTitleColor = .exampleBlue
-        ActionSheetMultiSelectItemCell.appearance().selectedIconColor = .exampleGreen
-        
-        ActionSheetMultiSelectToggleItemCell.appearance().selectAllSubtitleColor = .lightGray
-        ActionSheetMultiSelectToggleItemCell.appearance().deselectAllSubtitleColor = .exampleRed
-    }
-    
-    static func applySeparatorInsets() {
-        ActionSheetItemCell.appearance().separatorInset = .zero
-        ActionSheetTitleCell.appearance().separatorInset = .hiddenSeparator
-        ActionSheetSectionTitleCell.appearance().separatorInset = .hiddenSeparator
-        ActionSheetSectionMarginCell.appearance().separatorInset = .hiddenSeparator
-        ActionSheetMultiSelectToggleItemCell.appearance().separatorInset = .hiddenSeparator
+        if #available(iOS 13.0, *) { return }
+        link.linkIcon = UIImage(named: "ic_arrow_right")
+        selectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        selectItem.unselectedIcon = UIImage(named: "ic_empty")
     }
     
     static func applyPopoverWidth() {
