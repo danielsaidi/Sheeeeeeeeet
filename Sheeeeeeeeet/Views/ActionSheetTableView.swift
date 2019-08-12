@@ -52,7 +52,7 @@ open class ActionSheetTableView: UITableView {
     
     // MARK: - Legacy
     
-    @available(*, deprecated, message: "separatorLineColor is deprecated. Use separatorColor instead.")
+    @available(*, deprecated, message: "Use separatorColor instead.")
     @objc public dynamic var separatorLineColor: UIColor?
     
     /**
