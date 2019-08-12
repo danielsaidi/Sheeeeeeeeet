@@ -20,7 +20,7 @@ import UIKit
 import Sheeeeeeeeet
 
 class ViewController: UIViewController {
-
+    
     
     // MARK: - Properties
     
@@ -28,21 +28,20 @@ class ViewController: UIViewController {
         return [.fast, .light, .homeMade, .fancy, .none]
     }
     
-    var menuOptions: [MenuOption] = [
-        .openSheet(.standard),
-        .openSheet(.singleSelect),
-        .openSheet(.multiSelect),
-        .openSheet(.links),
-        .openSheet(.headerView),
-        .openSheet(.sections),
-        .openSheet(.collections),
-        .openSheet(.customView),
-        .openSheet(.danger),
-        .openSheet(.nonDismissable),
-        .separator,
-        .applyAppearance(.demo),
-        .applyAppearance(.demoColorful)
-    ]
+    var menuOptions: [MenuOption] {
+        [
+            .openSheet(.standard),
+            .openSheet(.singleSelect),
+            .openSheet(.multiSelect),
+            .openSheet(.links),
+            .openSheet(.headerView),
+            .openSheet(.sections),
+            .openSheet(.collections),
+            .openSheet(.customView),
+            .openSheet(.danger),
+            .openSheet(.nonDismissable)
+        ]
+    }
     
     
     // MARK: - Outlets
