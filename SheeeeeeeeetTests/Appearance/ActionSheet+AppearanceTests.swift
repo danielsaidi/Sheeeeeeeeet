@@ -14,29 +14,24 @@ class ActionSheet_AppearanceTests: QuickSpec {
     
     override func spec() {
         
-        describe("applying standard sheet appearance") {
+        var appearance: MockActionSheetAppearance!
+        
+        beforeEach {
+            appearance = MockActionSheetAppearance()
+        }
+        
+        describe("applying an appearance") {
             
-            beforeEach {
-                ActionSheet.applyStandardAppearance()
+            it("applies provided appearance") {
+                ActionSheet.applyAppearance(appearance)
+                let exec = appearance.recorder.executions(of: appearance.apply)
+                expect(exec.count).to(equal(1))
             }
             
-            it("applies standard header appearance") {
-                let header = ActionSheetHeaderView.appearance()
-                expect(header.backgroundColor).to(equal(.clear))
-                expect(header.cornerRadius).to(equal(10))
-            }
-            
-            it("applies item appearance") {
-                let item = ActionSheetItemCell.appearance()
-                expect(item.backgroundColor).to(equal(.color(for: .background)))
-                expect(item.titleColor).to(equal(.color(for: .text)))
-                expect(item.titleColor).to(equal(.color(for: .text)))
-            }
-            
-            it("applies standard table appearances") {
-                let table = ActionSheetTableView.appearance()
-                expect(table.backgroundColor).to(equal(.color(for: .background)))
-                expect(table.cornerRadius).to(equal(10))
+            it("applies standard appearance by default") {
+                ActionSheet.applyAppearance()
+                let cancelButton = ActionSheetCancelButtonCell.appearance()
+                expect(cancelButton.titleColor).to(equal(.color(for: .discreteText)))
             }
         }
     }
