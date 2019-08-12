@@ -22,7 +22,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
-    func option(at indexPath: IndexPath) -> TableViewOption {
+    func option(at indexPath: IndexPath) -> MenuOption {
         return tableViewOptions[indexPath.row]
     }
     

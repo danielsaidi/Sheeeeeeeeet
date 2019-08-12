@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         return [.fast, .light, .homeMade, .fancy, .none]
     }
     
-    var tableViewOptions: [TableViewOption] = [
+    var tableViewOptions: [MenuOption] = [
         .standard,
         .singleSelect,
         .multiSelect,

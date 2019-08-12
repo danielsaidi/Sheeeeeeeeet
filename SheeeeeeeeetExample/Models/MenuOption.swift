@@ -1,21 +1,17 @@
 //
-//  TableViewOption.swift
+//  MenuOption.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2017-11-27.
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This enum is used by the example app, to populate the table
- view in the main example view controller.
- 
- */
-
 import UIKit
 
-enum TableViewOption {
+/**
+This enum specifies menu options that are listed in the demo.
+*/
+enum MenuOption {
     
     case
     danger,

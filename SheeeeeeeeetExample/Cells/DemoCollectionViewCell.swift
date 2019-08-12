@@ -6,16 +6,13 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This cell is used by the demo app, to populate the cells in
- the `CollectionActionSheet` demo sheet.
- 
- */
-
 import UIKit
 import Sheeeeeeeeet
 
+/**
+ This cell is used by the demo app, to populate the cells in
+ the `CollectionActionSheet` demo sheet.
+ */
 class DemoCollectionViewCell: UICollectionViewCell {
     
     

@@ -6,15 +6,12 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This cell is used by the demo app, to provide a custom view
- in the `CustomActionSheet` demo sheet.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This cell is used by the demo app, to provide a custom view
+ in the `CustomActionSheet` demo sheet.
+ */
 class DemoCustomViewCell: ActionSheetItemCell, ActionSheetCustomItemCell {
     
     

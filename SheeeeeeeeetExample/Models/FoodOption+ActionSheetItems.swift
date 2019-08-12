@@ -8,8 +8,8 @@
 
 /*
  
- This file contains food option extensions, that can be used
- to create action sheet items in the example app.
+ This file extends the food option enum with item extensions,
+ that can be used to create action sheet items for an option.
  
  */
 

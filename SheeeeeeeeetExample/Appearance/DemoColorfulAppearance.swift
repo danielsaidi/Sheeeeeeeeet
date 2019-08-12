@@ -19,6 +19,11 @@ extension ActionSheetAppearance {
     }
 }
 
+
+/**
+ This is a demo-specific action sheet appearance. It applies
+ a bunch of colors to the demo sheets.
+ */
 class DemoColorfulAppearance: DemoAppearance {
 
     override func applyColors() {
