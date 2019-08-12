@@ -1,5 +1,5 @@
 //
-//  MyCustomViewCell.swift
+//  DemoCustomViewCell.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2018-10-08.
@@ -8,14 +8,14 @@
 
 /*
  
- This cell is used by the example app, as the custom view in
- the `CustomActionSheet` example action sheet.
+ This cell is used by the demo app, to provide a custom view
+ in the `CustomActionSheet` demo sheet.
  
  */
 
 import Sheeeeeeeeet
 
-class MyCustomViewCell: ActionSheetItemCell, ActionSheetCustomItemCell {
+class DemoCustomViewCell: ActionSheetItemCell, ActionSheetCustomItemCell {
     
     
     // MARK: - ActionSheetCustomItemCell

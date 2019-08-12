@@ -14,8 +14,7 @@
 		1D42892120400673005D4369 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		1D42892320400685005D4369 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		1D428926204039B4005D4369 /* ActionSheetCollectionItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */; };
-		1D42892C20403A18005D4369 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D42892A20403A18005D4369 /* MyCollectionViewCell.xib */; };
-		1D42892D20403A18005D4369 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D42892B20403A18005D4369 /* MyCollectionViewCell.swift */; };
+		1D42892C20403A18005D4369 /* DemoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D42892A20403A18005D4369 /* DemoCollectionViewCell.xib */; };
 		1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D42892E20403A48005D4369 /* ActionSheetCollectionItem.swift */; };
 		4531B7EA203E3373001CE86B /* ActionSheetMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */; };
 		45352D642030BC0E00A0F890 /* ActionSheetButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45352D582030BC0E00A0F890 /* ActionSheetButtonTests.swift */; };
@@ -119,6 +118,7 @@
 		84243E432301A60600FC5AAF /* MockNRoll.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84243E412301A5FB00FC5AAF /* MockNRoll.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84243E452301A74A00FC5AAF /* ActionSheetAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E442301A74A00FC5AAF /* ActionSheetAppearanceTests.swift */; };
 		84243E472301A90D00FC5AAF /* DemoColorfulAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E462301A90D00FC5AAF /* DemoColorfulAppearance.swift */; };
+		84243E4B230218CB00FC5AAF /* DemoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E4A230218CB00FC5AAF /* DemoCollectionViewCell.swift */; };
 		8441FA1E230002D700FFF1C2 /* ActionSheetColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */; };
 		8441FA20230006BB00FFF1C2 /* ActionSheet+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */; };
 		8441FA222300079500FFF1C2 /* UIColor+ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA212300079500FFF1C2 /* UIColor+ActionSheetColor.swift */; };
@@ -145,8 +145,8 @@
 		8493965621E797EB00DC0AEF /* ActionSheetHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */; };
 		8493967C21E7F9B200DC0AEF /* DemoFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967B21E7F9B200DC0AEF /* DemoFonts.swift */; };
 		84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */; };
-		8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* MyCustomViewCell.swift */; };
-		849935A0216BE408000A0670 /* MyCustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8499359E216BE408000A0670 /* MyCustomViewCell.xib */; };
+		8499359F216BE408000A0670 /* DemoCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499359D216BE408000A0670 /* DemoCustomViewCell.swift */; };
+		849935A0216BE408000A0670 /* DemoCustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8499359E216BE408000A0670 /* DemoCustomViewCell.xib */; };
 		849935A4216BF35C000A0670 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A3216BF35C000A0670 /* CustomActionSheet.swift */; };
 		849935A6216BFB9F000A0670 /* DemoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A5216BFB9F000A0670 /* DemoAppearance.swift */; };
 		849F062921D26EDE0074C6E4 /* NSObject+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */; };
@@ -199,8 +199,7 @@
 
 /* Begin PBXFileReference section */
 		1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionSheetCollectionItemCell.xib; sourceTree = "<group>"; };
-		1D42892A20403A18005D4369 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
-		1D42892B20403A18005D4369 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D42892A20403A18005D4369 /* DemoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoCollectionViewCell.xib; sourceTree = "<group>"; };
 		1D42892E20403A48005D4369 /* ActionSheetCollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCollectionItem.swift; sourceTree = "<group>"; };
 		4512AA0020BD4DB000AD1D66 /* Sheeeeeeeeet.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sheeeeeeeeet.podspec; sourceTree = "<group>"; };
 		4531B7E9203E3373001CE86B /* ActionSheetMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMargin.swift; sourceTree = "<group>"; };
@@ -317,6 +316,7 @@
 		84243E412301A5FB00FC5AAF /* MockNRoll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MockNRoll.framework; path = Carthage/Build/iOS/MockNRoll.framework; sourceTree = "<group>"; };
 		84243E442301A74A00FC5AAF /* ActionSheetAppearanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAppearanceTests.swift; sourceTree = "<group>"; };
 		84243E462301A90D00FC5AAF /* DemoColorfulAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoColorfulAppearance.swift; sourceTree = "<group>"; };
+		84243E4A230218CB00FC5AAF /* DemoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewCell.swift; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetColorTests.swift; sourceTree = "<group>"; };
 		8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Appearance.swift"; sourceTree = "<group>"; };
@@ -344,8 +344,8 @@
 		8493965521E797EB00DC0AEF /* ActionSheetHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetHeaderView.swift; sourceTree = "<group>"; };
 		8493967B21E7F9B200DC0AEF /* DemoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
 		84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
-		8499359D216BE408000A0670 /* MyCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomViewCell.swift; sourceTree = "<group>"; };
-		8499359E216BE408000A0670 /* MyCustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomViewCell.xib; sourceTree = "<group>"; };
+		8499359D216BE408000A0670 /* DemoCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCustomViewCell.swift; sourceTree = "<group>"; };
+		8499359E216BE408000A0670 /* DemoCustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoCustomViewCell.xib; sourceTree = "<group>"; };
 		849935A3216BF35C000A0670 /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Bundle.swift"; sourceTree = "<group>"; };
@@ -663,10 +663,10 @@
 		459DA1B92056A0AD00644490 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1D42892B20403A18005D4369 /* MyCollectionViewCell.swift */,
-				1D42892A20403A18005D4369 /* MyCollectionViewCell.xib */,
-				8499359D216BE408000A0670 /* MyCustomViewCell.swift */,
-				8499359E216BE408000A0670 /* MyCustomViewCell.xib */,
+				84243E4A230218CB00FC5AAF /* DemoCollectionViewCell.swift */,
+				1D42892A20403A18005D4369 /* DemoCollectionViewCell.xib */,
+				8499359D216BE408000A0670 /* DemoCustomViewCell.swift */,
+				8499359E216BE408000A0670 /* DemoCustomViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -996,9 +996,9 @@
 				456EAA261FCC615A00A719ED /* LICENSE.txt in Resources */,
 				1D42892120400673005D4369 /* (null) in Resources */,
 				456EAA2A1FCC615A00A719ED /* Roboto-BoldItalic.ttf in Resources */,
-				849935A0216BE408000A0670 /* MyCustomViewCell.xib in Resources */,
+				849935A0216BE408000A0670 /* DemoCustomViewCell.xib in Resources */,
 				456EAA281FCC615A00A719ED /* Roboto-BlackItalic.ttf in Resources */,
-				1D42892C20403A18005D4369 /* MyCollectionViewCell.xib in Resources */,
+				1D42892C20403A18005D4369 /* DemoCollectionViewCell.xib in Resources */,
 				456EAA311FCC615A00A719ED /* Roboto-Thin.ttf in Resources */,
 				456EAA301FCC615A00A719ED /* Roboto-Regular.ttf in Resources */,
 				453C046A1FC065AE0028FA02 /* LaunchScreen.storyboard in Resources */,
@@ -1104,7 +1104,6 @@
 				456EAA401FCC922100A719ED /* TableViewOption.swift in Sources */,
 				45CF8FAD205BB42900F01A3F /* MultiSelectActionSheet.swift in Sources */,
 				45CF8FA7205BAE9800F01A3F /* StandardActionSheet.swift in Sources */,
-				1D42892D20403A18005D4369 /* MyCollectionViewCell.swift in Sources */,
 				454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */,
 				840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */,
 				84243E472301A90D00FC5AAF /* DemoColorfulAppearance.swift in Sources */,
@@ -1114,7 +1113,8 @@
 				849935A4216BF35C000A0670 /* CustomActionSheet.swift in Sources */,
 				456EAA3A1FCC6A7700A719ED /* FoodOption.swift in Sources */,
 				45CF8FAF205BB55800F01A3F /* FoodOption+ActionSheetItems.swift in Sources */,
-				8499359F216BE408000A0670 /* MyCustomViewCell.swift in Sources */,
+				84243E4B230218CB00FC5AAF /* DemoCollectionViewCell.swift in Sources */,
+				8499359F216BE408000A0670 /* DemoCustomViewCell.swift in Sources */,
 				4537E8671FD2A5600007501C /* ViewController+TableView.swift in Sources */,
 				849935A6216BFB9F000A0670 /* DemoAppearance.swift in Sources */,
 				456EAA341FCC665800A719ED /* ViewController+Alert.swift in Sources */,

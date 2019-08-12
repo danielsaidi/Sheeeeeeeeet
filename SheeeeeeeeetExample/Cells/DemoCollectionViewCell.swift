@@ -1,5 +1,5 @@
 //
-//  MyCollectionViewCell.swift
+//  DemoCollectionViewCell.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Jonas Ullström (ullstrm) on 2018-02-23.
@@ -8,15 +8,15 @@
 
 /*
  
- This cell is used by the example app, to populate the cells
- of the `CollectionActionSheet` example action sheet.
+ This cell is used by the demo app, to populate the cells in
+ the `CollectionActionSheet` demo sheet.
  
  */
 
 import UIKit
 import Sheeeeeeeeet
 
-class MyCollectionViewCell: UICollectionViewCell {
+class DemoCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Overrides
@@ -72,7 +72,7 @@ class MyCollectionViewCell: UICollectionViewCell {
 
 // MARK: - ActionSheetCollectionItemContentCell
 
-extension MyCollectionViewCell: ActionSheetCollectionItemContentCell {
+extension DemoCollectionViewCell: ActionSheetCollectionItemContentCell {
     
     static let nib: UINib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
     static let defaultSize = CGSize(width: 100, height: 100)

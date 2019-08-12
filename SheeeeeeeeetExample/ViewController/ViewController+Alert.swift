@@ -32,7 +32,7 @@ extension ViewController {
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     
-    func alert(items: [MyCollectionViewCell.Item]) {
+    func alert(items: [DemoCollectionViewCell.Item]) {
         guard items.count > 0 else { return }
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
