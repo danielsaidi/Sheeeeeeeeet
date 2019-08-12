@@ -6,19 +6,16 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets that use the `ActionSheetCollectionItem` item type.
- 
- This class calls `setup(items: ...)` after it's initialized,
- since taps in the collection view must reload to the action
- sheet in order to update the selection information.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetCollectionItem` item type.
+ 
+ `setup(items: ...)` is called after init, since taps in the
+ collection view must reload to the sheet in order to update
+ the selection information.
+ */
 class CollectionActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([DemoCollectionViewCell.Item]) -> ()) {

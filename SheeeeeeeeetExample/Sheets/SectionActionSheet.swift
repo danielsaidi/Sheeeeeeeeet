@@ -6,15 +6,12 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets with sections.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ sections.
+ */
 class SectionActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {

@@ -6,16 +6,12 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets that use `ActionSheetLinkItem` items, that use arrow
- icons to indicate navigation.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetLinkItem` item type.
+ */
 class LinkActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {

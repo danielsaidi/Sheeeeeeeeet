@@ -6,22 +6,19 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets that use a set of `ActionSheetMultiSelectItem` items,
- which can be used to select one or many items in a section.
- 
- The action sheet has two different item sections. Selecting
- an item has no effect on other items in any of the sections,
- since they are multiselect items. The action sheet also has
- an `ActionSheetMultiSelectToggleItem`, which can be used to
- select and deselect all items in both sections.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetMultiSelectItem` item type.
+ 
+ This sheet has two different item sections. Selecting items
+ in one section has no effect on the other. This is standard
+ behavior for multi-select items with different group names.
+ 
+ This sheet also has two `ActionSheetMultiSelectToggleItem`s,
+ which can be used to select and deselect items in a section.
+ */
 class MultiSelectActionSheet: ActionSheet {
     
     init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {

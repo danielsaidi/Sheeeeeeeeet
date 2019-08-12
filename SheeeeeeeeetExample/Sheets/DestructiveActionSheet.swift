@@ -6,15 +6,12 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets that use the `ActionSheetDangerButton` button type.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetDangerButton` button type.
+ */
 class DestructiveActionSheet: ActionSheet {
     
     init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
