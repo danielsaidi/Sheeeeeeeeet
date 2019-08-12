@@ -17,8 +17,6 @@
  action sheet items. If you look at `cell(for: ...)`, you'll
  see that it uses `ActionSheetCollectionItemCell` for its id.
  
- TODO: Unit test
- 
  */
 
 import Foundation
