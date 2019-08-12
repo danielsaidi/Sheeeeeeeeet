@@ -96,7 +96,7 @@
 		45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */; };
 		45EB3FDC1FC856D200EF555E /* ActionSheetPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */; };
 		45EB3FE51FC87B1500EF555E /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */; };
-		840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */; };
+		840B66702210B92600F282F2 /* ViewController+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B666F2210B92600F282F2 /* ViewController+Options.swift */; };
 		840B667F2212C67600F282F2 /* MockNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B667E2212C67600F282F2 /* MockNotificationCenter.swift */; };
 		842385A821E8910D0045F121 /* ActionSheetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */; };
 		842385AA21E8926F0045F121 /* ActionSheetItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */; };
@@ -120,6 +120,7 @@
 		84243E4B230218CB00FC5AAF /* DemoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E4A230218CB00FC5AAF /* DemoCollectionViewCell.swift */; };
 		84243E4F23021B1D00FC5AAF /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E4E23021B1D00FC5AAF /* MenuOption.swift */; };
 		84243E512302211300FC5AAF /* ActionSheetMenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E502302211300FC5AAF /* ActionSheetMenuOption.swift */; };
+		84243E53230221E200FC5AAF /* AppearanceMenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E52230221E200FC5AAF /* AppearanceMenuOption.swift */; };
 		8441FA1E230002D700FFF1C2 /* ActionSheetColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */; };
 		8441FA20230006BB00FFF1C2 /* ActionSheet+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */; };
 		8441FA222300079500FFF1C2 /* UIColor+ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441FA212300079500FFF1C2 /* UIColor+ActionSheetColor.swift */; };
@@ -293,7 +294,7 @@
 		45EB3FD71FC8509A00EF555E /* ActionSheetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItem.swift; sourceTree = "<group>"; };
 		45EB3FDB1FC856D200EF555E /* ActionSheetPopoverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenter.swift; sourceTree = "<group>"; };
 		45EB3FE41FC87B1500EF555E /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
-		840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
+		840B666F2210B92600F282F2 /* ViewController+Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Options.swift"; sourceTree = "<group>"; };
 		840B667E2212C67600F282F2 /* MockNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationCenter.swift; sourceTree = "<group>"; };
 		842385A721E8910D0045F121 /* ActionSheetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetBackgroundView.swift; sourceTree = "<group>"; };
 		842385A921E8926F0045F121 /* ActionSheetItemTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTableView.swift; sourceTree = "<group>"; };
@@ -319,6 +320,7 @@
 		84243E4A230218CB00FC5AAF /* DemoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCollectionViewCell.swift; sourceTree = "<group>"; };
 		84243E4E23021B1D00FC5AAF /* MenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		84243E502302211300FC5AAF /* ActionSheetMenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetMenuOption.swift; sourceTree = "<group>"; };
+		84243E52230221E200FC5AAF /* AppearanceMenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceMenuOption.swift; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		8441FA1D230002D700FFF1C2 /* ActionSheetColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetColorTests.swift; sourceTree = "<group>"; };
 		8441FA1F230006BB00FFF1C2 /* ActionSheet+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Appearance.swift"; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				84243E502302211300FC5AAF /* ActionSheetMenuOption.swift */,
+				84243E52230221E200FC5AAF /* AppearanceMenuOption.swift */,
 				456EAA391FCC6A7700A719ED /* FoodOption.swift */,
 				45CF8FAE205BB55800F01A3F /* FoodOption+ActionSheetItems.swift */,
 				84243E4E23021B1D00FC5AAF /* MenuOption.swift */,
@@ -849,7 +852,7 @@
 			isa = PBXGroup;
 			children = (
 				453C04611FC065AE0028FA02 /* ViewController.swift */,
-				840B666F2210B92600F282F2 /* ViewController+ActionSheets.swift */,
+				840B666F2210B92600F282F2 /* ViewController+Options.swift */,
 				456EAA331FCC665800A719ED /* ViewController+Alert.swift */,
 				4537E8661FD2A55F0007501C /* ViewController+TableView.swift */,
 			);
@@ -1102,6 +1105,7 @@
 				84243E4F23021B1D00FC5AAF /* MenuOption.swift in Sources */,
 				8493967C21E7F9B200DC0AEF /* DemoFonts.swift in Sources */,
 				453C04621FC065AE0028FA02 /* ViewController.swift in Sources */,
+				84243E53230221E200FC5AAF /* AppearanceMenuOption.swift in Sources */,
 				453C04601FC065AE0028FA02 /* AppDelegate.swift in Sources */,
 				454EDC5E205BBC5F008E4311 /* SingleSelectActionSheet.swift in Sources */,
 				1D42892320400685005D4369 /* (null) in Sources */,
@@ -1109,7 +1113,7 @@
 				45CF8FAD205BB42900F01A3F /* MultiSelectActionSheet.swift in Sources */,
 				45CF8FA7205BAE9800F01A3F /* StandardActionSheet.swift in Sources */,
 				454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */,
-				840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */,
+				840B66702210B92600F282F2 /* ViewController+Options.swift in Sources */,
 				84243E472301A90D00FC5AAF /* DemoColorfulAppearance.swift in Sources */,
 				454EDC64205BCF14008E4311 /* SectionActionSheet.swift in Sources */,
 				456203C5205BD24000A3E141 /* CollectionActionSheet.swift in Sources */,

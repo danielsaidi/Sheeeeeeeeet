@@ -1,25 +1,22 @@
 //
-//  ViewController+ActionSheets.swift
+//  ViewController+Options.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2019-02-10.
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This extension is used to provide the main view controller
- with action sheet creation logic.
- 
- */
-
 import Sheeeeeeeeet
 
 extension ViewController {
     
+    /**
+     Get the action sheet option at a certain index, if any.
+     */
     func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
         let options = foodOptions
-        switch tableViewOptions[indexPath.row] {
+        switch menuOption(at: indexPath) {
+        case .applyAppearance, .separator: return nil
         case .openSheet(.collections): return CollectionActionSheet(options: options, action: alert)
         case .openSheet(.customView): return CustomActionSheet(options: options, buttonTapAction: alert)
         case .openSheet(.danger): return DestructiveActionSheet(options: options, action: alert)
@@ -33,6 +30,17 @@ extension ViewController {
             let sheet = StandardActionSheet(options: options, action: alert)
             sheet.presenter.isDismissableWithTapOnBackground = false
             return sheet
+        }
+    }
+    
+    /**
+     Get the appearance option at a certain index, if any.
+     */
+    func appearance(at indexPath: IndexPath) -> ActionSheetAppearance? {
+        switch menuOption(at: indexPath) {
+        case .openSheet, .separator: return nil
+        case .applyAppearance(.demo): return DemoAppearance()
+        case .applyAppearance(.demoColorful): return DemoColorfulAppearance()
         }
     }
 }

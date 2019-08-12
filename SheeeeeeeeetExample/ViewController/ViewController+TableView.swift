@@ -22,16 +22,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
-    func option(at indexPath: IndexPath) -> MenuOption {
-        return tableViewOptions[indexPath.row]
+    func menuOption(at indexPath: IndexPath) -> MenuOption {
+        return menuOptions[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewOptions.count
+        return menuOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let option = self.option(at: indexPath)
+        let option = menuOption(at: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.tintColor = .darkGray
         cell.imageView?.image = option.image
@@ -47,6 +47,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        tryApplyingAppearance(at: indexPath)
+        tryOpeningActionSheet(at: indexPath, from: cell)
+    }
+    
+    func tryApplyingAppearance(at indexPath: IndexPath) {
+        guard let appearance = self.appearance(at: indexPath) else { return }
+        ActionSheet.applyAppearance(appearance)
+        alert(title: "Appearance Change", message: "You have applied a new appearance")
+    }
+    
+    func tryOpeningActionSheet(at indexPath: IndexPath, from cell: UITableViewCell) {
         guard let sheet = actionSheet(at: indexPath) else { return }
         sheet.presenter.events.didDismissWithBackgroundTap = { print("Background tap!") }
         sheet.present(in: self, from: cell.textLabel)

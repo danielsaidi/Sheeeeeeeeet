@@ -8,8 +8,8 @@
 
 /*
  
- This extension is used to provide the main view controller
- with alert functionality.
+ This extension provides the main view controller with alert
+ shorthands.
  
  */
 
@@ -45,6 +45,6 @@ extension ViewController {
     }
     
     func alertSelection(_ value: String) {
-        self.alert(title: "You selected:", message: value)
+        alert(title: "You selected:", message: value)
     }
 }

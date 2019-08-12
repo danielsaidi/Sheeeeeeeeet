@@ -10,7 +10,7 @@ import UIKit
 
 /**
 This enum specifies the different kind of demo action sheets
-that are available.
+that can be opened from the main menu.
 */
 enum ActionSheetMenuOption {
     
@@ -28,31 +28,31 @@ enum ActionSheetMenuOption {
     
     var title: String {
         switch self {
-        case .collections: return "Collection items"
-        case .customView: return "Custom view"
-        case .danger: return "Destructive Action"
-        case .headerView: return "Header View"
-        case .links: return "Link items"
-        case .multiSelect: return "Multi-select items"
-        case .nonDismissable: return "Non-dismissable sheets"
-        case .sections: return "Section items"
-        case .singleSelect: return "Single-select items"
-        case .standard: return "Standard items"
+        case .collections: return "Collection Sheet"
+        case .customView: return "Custom View Sheet"
+        case .danger: return "Destructive Sheet"
+        case .headerView: return "Header Sheet"
+        case .links: return "Link Sheet"
+        case .multiSelect: return "Multi-Select Sheet"
+        case .nonDismissable: return "Non-Dismissable Sheet"
+        case .sections: return "Section Sheet"
+        case .singleSelect: return "Single-Select Sheet"
+        case .standard: return "Standard Sheet"
         }
     }
     
     var description: String {
         switch self {
-        case .collections: return "Show a sheet with horizontal collections items."
-        case .customView: return "Custom view items can embed any view."
-        case .danger: return "Show a sheet with a destructive action."
-        case .headerView: return "Show a sheet with a custom header view."
-        case .links: return "Show a sheet with tappable links."
-        case .multiSelect: return "Show a sheet where you can select multiple values."
-        case .nonDismissable: return "Show a sheet that cannot be dismissed by tapping outside the sheet."
-        case .sections: return "Show a sheet where items are divided in sections."
-        case .singleSelect: return "Show a sheet where you can select a single value."
-        case .standard: return "Show a sheet where you can pick a single option."
+        case .collections: return "Open an action sheet with a collections view."
+        case .customView: return "Open an action sheet with a custom view."
+        case .danger: return "Open an action sheet with a destructive action."
+        case .headerView: return "Open an action sheet with a custom header view."
+        case .links: return "Open an action sheet with links."
+        case .multiSelect: return "Open a multi-select action sheet."
+        case .nonDismissable: return "Open an action sheet that can't be dismissed by tapping outside the sheet."
+        case .sections: return "Open an action sheet with multiple sections."
+        case .singleSelect: return "Open a single-select action sheet."
+        case .standard: return "Open a standard action sheet."
         }
     }
     

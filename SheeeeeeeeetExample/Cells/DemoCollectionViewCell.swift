@@ -71,7 +71,7 @@ class DemoCollectionViewCell: UICollectionViewCell {
 
 extension DemoCollectionViewCell: ActionSheetCollectionItemContentCell {
     
-    static let nib: UINib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+    static let nib: UINib = UINib(nibName: "DemoCollectionViewCell", bundle: nil)
     static let defaultSize = CGSize(width: 100, height: 100)
     static let leftInset: CGFloat = 10
     static let rightInset: CGFloat = 20

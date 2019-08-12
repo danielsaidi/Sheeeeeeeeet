@@ -14,28 +14,31 @@ This enum specifies menu options that are listed in the demo.
 enum MenuOption {
     
     case
-    openSheet(_ type: ActionSheetMenuOption)
-    
+    applyAppearance(_ type: AppearanceMenuOption),
+    openSheet(_ type: ActionSheetMenuOption),
+    separator
     
     var title: String {
         switch self {
+        case .applyAppearance(let type): return type.title
         case .openSheet(let type): return type.title
+        case .separator: return ""
         }
     }
     
     var description: String {
         switch self {
+        case .applyAppearance(let type): return type.description
         case .openSheet(let type): return type.description
+        case .separator: return ""
         }
     }
     
     var image: UIImage? {
-        return UIImage(named: imageName)
-    }
-    
-    var imageName: String {
         switch self {
-        case .openSheet(let type): return type.imageName
+        case .applyAppearance(let type): return type.image
+        case .openSheet(let type): return type.image
+        case .separator: return nil
         }
     }
 }

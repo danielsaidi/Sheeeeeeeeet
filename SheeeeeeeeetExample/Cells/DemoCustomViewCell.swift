@@ -17,7 +17,7 @@ class DemoCustomViewCell: ActionSheetItemCell, ActionSheetCustomItemCell {
     
     // MARK: - ActionSheetCustomItemCell
     
-    static let nib: UINib = UINib(nibName: "MyCustomViewCell", bundle: nil)
+    static let nib: UINib = UINib(nibName: "DemoCustomViewCell", bundle: nil)
     static let defaultSize = CGSize(width: 100, height: 400)
     
     

@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         return [.fast, .light, .homeMade, .fancy, .none]
     }
     
-    var tableViewOptions: [MenuOption] = [
+    var menuOptions: [MenuOption] = [
         .openSheet(.standard),
         .openSheet(.singleSelect),
         .openSheet(.multiSelect),
@@ -38,7 +38,10 @@ class ViewController: UIViewController {
         .openSheet(.collections),
         .openSheet(.customView),
         .openSheet(.danger),
-        .openSheet(.nonDismissable)
+        .openSheet(.nonDismissable),
+        .separator,
+        .applyAppearance(.demo),
+        .applyAppearance(.demoColorful)
     ]
     
     

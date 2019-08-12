@@ -34,6 +34,7 @@ class StandardActionSheetApperanceTests: QuickSpec {
         var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
         var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
         var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }
+        var singleSelectItem: ActionSheetSingleSelectItemCell { ActionSheetSingleSelectItemCell.appearance() }
         var table: ActionSheetTableView { ActionSheetTableView.appearance() }
         var title: ActionSheetTitleCell { ActionSheetTitleCell.appearance() }
         
@@ -55,6 +56,15 @@ class StandardActionSheetApperanceTests: QuickSpec {
                 expect(selectItem.selectedIconColor).to(equal(.color(for: .text)))
                 expect(selectItem.selectedTintColor).to(equal(.color(for: .text)))
                 expect(selectItem.selectedTitleColor).to(equal(.color(for: .text)))
+                expect(multiSelectItem.selectedIconColor).to(equal(.color(for: .text)))
+                expect(singleSelectItem.selectedTintColor).to(equal(.color(for: .text)))
+                expect(singleSelectItem.selectedTitleColor).to(equal(.color(for: .text)))
+                expect(singleSelectItem.tintColor).to(equal(.color(for: .discreteText)))
+                expect(singleSelectItem.titleColor).to(equal(.color(for: .discreteText)))
+                expect(singleSelectItem.unselectedIconColor).to(equal(.color(for: .discreteText)))
+                expect(multiSelectItem.selectedIconColor).to(equal(.color(for: .text)))
+                expect(multiSelectItem.selectedTintColor).to(equal(.color(for: .text)))
+                expect(multiSelectItem.selectedTitleColor).to(equal(.color(for: .text)))
                 expect(multiSelectItem.tintColor).to(equal(.color(for: .discreteText)))
                 expect(multiSelectItem.titleColor).to(equal(.color(for: .discreteText)))
                 expect(multiSelectItem.unselectedIconColor).to(equal(.color(for: .discreteText)))
