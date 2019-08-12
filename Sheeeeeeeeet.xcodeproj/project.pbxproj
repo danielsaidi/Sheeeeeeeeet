@@ -77,7 +77,6 @@
 		456EAA3A1FCC6A7700A719ED /* FoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA391FCC6A7700A719ED /* FoodOption.swift */; };
 		456EAA3D1FCC8FF200A719ED /* title-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 456EAA3C1FCC8FF200A719ED /* title-image.png */; };
 		456EAA401FCC922100A719ED /* TableViewOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA3F1FCC922100A719ED /* TableViewOption.swift */; };
-		456EAA441FCCA03700A719ED /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA431FCCA03700A719ED /* UIColor+Hex.swift */; };
 		456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */; };
 		456EAA4C1FCCB13000A719ED /* ActionSheetSectionMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456EAA4B1FCCB13000A719ED /* ActionSheetSectionMargin.swift */; };
 		456EAA611FCE0E1C00A719ED /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */; };
@@ -139,7 +138,6 @@
 		84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */; };
 		8453C22321A9EF2600C2FD16 /* ActionSheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */; };
 		8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */; };
-		847EB0ED22FDA1B100E300E9 /* DemoColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EB0EC22FDA1B100E300E9 /* DemoColors.swift */; };
 		847EB0F222FF1BB000E300E9 /* ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */; };
 		84875F84223B130C0074A518 /* ActionSheetCustomItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84875F83223B130C0074A518 /* ActionSheetCustomItemTests.swift */; };
 		84875F87223B13810074A518 /* ActionSheetCustomItemTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84875F85223B13810074A518 /* ActionSheetCustomItemTestCell.swift */; };
@@ -268,7 +266,6 @@
 		456EAA391FCC6A7700A719ED /* FoodOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodOption.swift; sourceTree = "<group>"; };
 		456EAA3C1FCC8FF200A719ED /* title-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title-image.png"; sourceTree = "<group>"; };
 		456EAA3F1FCC922100A719ED /* TableViewOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewOption.swift; sourceTree = "<group>"; };
-		456EAA431FCCA03700A719ED /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		456EAA471FCCA84F00A719ED /* ActionSheetDangerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButton.swift; sourceTree = "<group>"; };
 		456EAA4B1FCCB13000A719ED /* ActionSheetSectionMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionMargin.swift; sourceTree = "<group>"; };
 		456EAA5C1FCE0E1C00A719ED /* SheeeeeeeeetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheeeeeeeeetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,7 +337,6 @@
 		84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubviewsTests.swift"; sourceTree = "<group>"; };
 		8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTableView.swift; sourceTree = "<group>"; };
 		8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Fullscreen.swift"; sourceTree = "<group>"; };
-		847EB0EC22FDA1B100E300E9 /* DemoColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoColors.swift; sourceTree = "<group>"; };
 		847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetColor.swift; sourceTree = "<group>"; };
 		84875F83223B130C0074A518 /* ActionSheetCustomItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemTests.swift; sourceTree = "<group>"; };
 		84875F85223B13810074A518 /* ActionSheetCustomItemTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemTestCell.swift; sourceTree = "<group>"; };
@@ -841,9 +837,7 @@
 			children = (
 				849935A5216BFB9F000A0670 /* DemoAppearance.swift */,
 				84243E462301A90D00FC5AAF /* DemoColorfulAppearance.swift */,
-				847EB0EC22FDA1B100E300E9 /* DemoColors.swift */,
 				8493967B21E7F9B200DC0AEF /* DemoFonts.swift */,
-				456EAA431FCCA03700A719ED /* UIColor+Hex.swift */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -1100,7 +1094,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456EAA441FCCA03700A719ED /* UIColor+Hex.swift in Sources */,
 				456203C1205BD00100A3E141 /* DestructiveActionSheet.swift in Sources */,
 				8493967C21E7F9B200DC0AEF /* DemoFonts.swift in Sources */,
 				453C04621FC065AE0028FA02 /* ViewController.swift in Sources */,
@@ -1114,7 +1107,6 @@
 				1D42892D20403A18005D4369 /* MyCollectionViewCell.swift in Sources */,
 				454EDC62205BBE75008E4311 /* LinkActionSheet.swift in Sources */,
 				840B66702210B92600F282F2 /* ViewController+ActionSheets.swift in Sources */,
-				847EB0ED22FDA1B100E300E9 /* DemoColors.swift in Sources */,
 				84243E472301A90D00FC5AAF /* DemoColorfulAppearance.swift in Sources */,
 				454EDC64205BCF14008E4311 /* SectionActionSheet.swift in Sources */,
 				456203C5205BD24000A3E141 /* CollectionActionSheet.swift in Sources */,

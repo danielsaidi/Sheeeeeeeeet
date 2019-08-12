@@ -30,8 +30,8 @@ class ActionSheet_AppearanceTests: QuickSpec {
             
             it("applies standard appearance by default") {
                 ActionSheet.applyAppearance()
-                let cancelButton = ActionSheetCancelButtonCell.appearance()
-                expect(cancelButton.titleColor).to(equal(.color(for: .discreteText)))
+                let cancel = ActionSheetCancelButtonCell.appearance()
+                expect(cancel.titleColor).to(equal(.color(for: .discreteText)))
             }
         }
     }

@@ -63,10 +63,9 @@ class MyCollectionViewCell: UICollectionViewCell {
     // MARK: - Public Functions
     
     func configureWith(item: Item) {
-        let green = UIColor(hex: 0x4EA32A, alpha: 1)
         titleLabel?.text = item.title
         titleLabel?.textColor = item.isSelected ? .white : .black
-        badge?.backgroundColor = item.isSelected ? green : .lightGray
+        badge?.backgroundColor = item.isSelected ? .green : .lightGray
     }
 }
 

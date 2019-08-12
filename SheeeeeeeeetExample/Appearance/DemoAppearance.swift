@@ -18,11 +18,23 @@ import Sheeeeeeeeet
 
 extension ActionSheetAppearance {
     
+    /**
+     Get an instance of the demo appearance.
+    */
     static var demo: ActionSheetAppearance {
         DemoAppearance()
     }
 }
 
+/**
+ This is a demo-specific action sheet appearance. It applies
+ app-specific icons for pre-iOS 13 devices.
+ 
+ If you use Sheeeeeeeeet in apps with a deployment target of
+ iOS 12 and below, you must provide Sheeeeeeeeet with custom
+ icon, like below. In iOS 13 and above, Sheeeeeeeeet applies
+ standard SF Symbols icons (which you also can override).
+ */
 class DemoAppearance: StandardActionSheetAppearance {
     
     override func apply() {

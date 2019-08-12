@@ -11,6 +11,9 @@ import Sheeeeeeeeet
 
 extension ActionSheetAppearance {
     
+    /**
+     Get an instance of the colorful demo appearance.
+    */
     static var demoColorful: ActionSheetAppearance {
         DemoColorfulAppearance()
     }
@@ -20,14 +23,18 @@ class DemoColorfulAppearance: DemoAppearance {
 
     override func applyColors() {
         background.backgroundColor = .purple
-        item.subtitleColor = .demoBlue
-        selectItem.selectedTintColor = .demoBlue
-        selectItem.selectedTitleColor = .demoGreen
-        selectItem.selectedIconColor = .demoPurple
-//        singleSelectItem.selectedTintColor = .demoGreen
-//        singleSelectItem.selectedTitleColor = .demoPurple
-//        singleSelectItem.selectedIconColor = .demoBlue
-        table.separatorColor = .purple
+        item.subtitleColor = .blue
+        selectItem.selectedTintColor = .blue
+        selectItem.selectedTitleColor = .green
+        selectItem.selectedIconColor = .purple
+        singleSelectItem.selectedTintColor = .green
+        singleSelectItem.selectedTitleColor = .purple
+        singleSelectItem.selectedIconColor = .blue
+        multiSelectItem.selectedTintColor = .blue
+        multiSelectItem.selectedTitleColor = .green
+        multiSelectItem.selectedIconColor = .purple
+        itemsTable.separatorColor = .purple
+        buttonsTable.separatorColor = .red
         ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 30
     }
     

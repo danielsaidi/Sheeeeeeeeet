@@ -59,6 +59,7 @@ public extension ActionSheetAppearance {
     var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
     var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
     var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }
+    var singleSelectItem: ActionSheetSingleSelectItemCell { ActionSheetSingleSelectItemCell.appearance() }
     var table: ActionSheetTableView { ActionSheetTableView.appearance() }
     var title: ActionSheetTitleCell { ActionSheetTitleCell.appearance() }
 }
