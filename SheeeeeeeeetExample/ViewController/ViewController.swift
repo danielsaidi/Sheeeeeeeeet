@@ -29,16 +29,16 @@ class ViewController: UIViewController {
     }
     
     var tableViewOptions: [MenuOption] = [
-        .standard,
-        .singleSelect,
-        .multiSelect,
-        .links,
-        .headerView,
-        .sections,
-        .collections,
-        .customView,
-        .danger,
-        .nonDismissable
+        .openSheet(.standard),
+        .openSheet(.singleSelect),
+        .openSheet(.multiSelect),
+        .openSheet(.links),
+        .openSheet(.headerView),
+        .openSheet(.sections),
+        .openSheet(.collections),
+        .openSheet(.customView),
+        .openSheet(.danger),
+        .openSheet(.nonDismissable)
     ]
     
     

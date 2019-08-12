@@ -14,45 +14,18 @@ This enum specifies menu options that are listed in the demo.
 enum MenuOption {
     
     case
-    danger,
-    collections,
-    customView,
-    headerView,
-    links,
-    multiSelect,
-    nonDismissable,
-    sections,
-    singleSelect,
-    standard
+    openSheet(_ type: ActionSheetMenuOption)
     
     
     var title: String {
         switch self {
-        case .collections: return "Collection items"
-        case .customView: return "Custom view"
-        case .danger: return "Destructive Action"
-        case .headerView: return "Header View"
-        case .links: return "Link items"
-        case .multiSelect: return "Multi-select items"
-        case .nonDismissable: return "Non-dismissable sheets"
-        case .sections: return "Section items"
-        case .singleSelect: return "Single-select items"
-        case .standard: return "Standard items"
+        case .openSheet(let type): return type.title
         }
     }
     
     var description: String {
         switch self {
-        case .collections: return "Show a sheet with horizontal collections items."
-        case .customView: return "Custom view items can embed any view."
-        case .danger: return "Show a sheet with a destructive action."
-        case .headerView: return "Show a sheet with a custom header view."
-        case .links: return "Show a sheet with tappable links."
-        case .multiSelect: return "Show a sheet where you can select multiple values."
-        case .nonDismissable: return "Show a sheet that cannot be dismissed by tapping outside the sheet."
-        case .sections: return "Show a sheet where items are divided in sections."
-        case .singleSelect: return "Show a sheet where you can select a single value."
-        case .standard: return "Show a sheet where you can pick a single option."
+        case .openSheet(let type): return type.description
         }
     }
     
@@ -62,16 +35,7 @@ enum MenuOption {
     
     var imageName: String {
         switch self {
-        case .collections: return "ic_view_module"
-        case .customView: return "ic_custom"
-        case .danger: return "ic_warning"
-        case .headerView: return "ic_header_view"
-        case .links: return "ic_arrow_right"
-        case .multiSelect: return "ic_checkmarks"
-        case .sections: return "ic_sections"
-        case .singleSelect: return "ic_checkmark"
-        case .standard: return "ic_list"
-        case .nonDismissable: return "ic_list"
+        case .openSheet(let type): return type.imageName
         }
     }
 }
