@@ -8,8 +8,8 @@
 
 /*
  
- This extension is used to provide the main view controller
- with alert functionality.
+ This extension provides the main view controller with alert
+ shorthands.
  
  */
 
@@ -32,7 +32,7 @@ extension ViewController {
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
     
-    func alert(items: [MyCollectionViewCell.Item]) {
+    func alert(items: [DemoCollectionViewCell.Item]) {
         guard items.count > 0 else { return }
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }
@@ -45,6 +45,6 @@ extension ViewController {
     }
     
     func alertSelection(_ value: String) {
-        self.alert(title: "You selected:", message: value)
+        alert(title: "You selected:", message: value)
     }
 }

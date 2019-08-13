@@ -6,7 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
+import UIKit
+
+/**
  
  This is the main class in the Sheeeeeeeeet library. You can
  use it to create action sheets and present them in any view
@@ -83,9 +85,6 @@
  want to perform any animations before calling `super`.
  
  */
-
-import UIKit
-
 open class ActionSheet: UIViewController {
     
     
@@ -141,9 +140,6 @@ open class ActionSheet: UIViewController {
     public enum HeaderViewLandscapeMode {
         case visible, hidden
     }
-    
-    
-    // MARK: - Typealiases
     
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
     

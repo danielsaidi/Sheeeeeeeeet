@@ -6,19 +6,16 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets with several `ActionSheetSingleSelectItem` items.
- 
- The action sheet has two different item sections. Selecting
- items in one section will deselect another selected item in
- the same section, but will not affect the other section.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetSingleSelectItem` item type.
+ 
+ This sheet has two different item sections. Selecting items
+ in one section has no effect on the other. This is standard
+ behavior for multi-select items with different group names.
+ */
 class SingleSelectActionSheet: ActionSheet {
     
     init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {

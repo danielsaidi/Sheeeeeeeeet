@@ -6,22 +6,20 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This presenter presents action sheets as regular iOS action
- sheets, which are presented with a slide-in from the bottom
- of the screen.
+import UIKit
+
+/**
+ This presenter presents action sheets as regular iOS sheets,
+ presented with a slide-in from the bottom of the screen. It
+ is the default presenter on iPhone devices and on iPads, if
+ the app has a compact horizontal size class.
  
  The `presentationStyle` property will affect how the action
  sheet is presented. The default `keyWindow` option uses the
  entire application window and will present the action sheet
  in full screen. The `currentContext` option uses the source
  view controller's view bounds instead.
- 
  */
-
-import UIKit
-
 open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     

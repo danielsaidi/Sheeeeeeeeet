@@ -6,107 +6,44 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This extension isolates how the example app applies colors,
- fonts etc to the example action sheets.
- 
- */
-
 import UIKit
 import Sheeeeeeeeet
 
-class DemoAppearance {
+extension ActionSheetAppearance {
     
-    static func apply() {
-        applyViewAppearances()
-        applyColors()
-        applyFonts()
-        applyHeights()
-        applyIcons()
-        applySelectItemAppearances()
-        applySeparatorInsets()
-        applyPopoverWidth()
+    /**
+     Get an instance of the demo appearance.
+    */
+    static var demo: ActionSheetAppearance {
+        DemoAppearance()
     }
 }
 
-
-private extension DemoAppearance {
+/**
+ This is a demo-specific action sheet appearance. It applies
+ app-specific icons for pre-iOS 13 devices.
+ 
+ If you use Sheeeeeeeeet in apps with a deployment target of
+ iOS 12 and below, you must provide Sheeeeeeeeet with custom
+ icon, like below. In iOS 13 and above, Sheeeeeeeeet applies
+ standard SF Symbols icons (which you also can override).
+ */
+class DemoAppearance: StandardActionSheetAppearance {
     
-    static func applyViewAppearances() {
-//        ActionSheetBackgroundView.appearance().backgroundColor = .purple
-        ActionSheetHeaderView.appearance().cornerRadius = 10
-        ActionSheetTableView.appearance().cornerRadius = 10
-//        ActionSheetTableView.appearance().separatorLineColor = .purple
-//        ActionSheetItemTableView.appearance().cornerRadius = 20
-//        ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 20
+    override func apply() {
+        super.apply()
+        applyPopoverWidth()
     }
     
-    static func applyColors() {
-        ActionSheetItemCell.appearance().titleColor = .darkText
-        ActionSheetItemCell.appearance().subtitleColor = .exampleBlue
-        ActionSheetItemCell.appearance().tintColor = .darkText
-//        ActionSheetItemCell.appearance().separatorColor = .red
-//        ActionSheetItemCell.appearance().backgroundColor = red
-//        ActionSheetItemCell.appearance(whenContainedInInstancesOf: [ActionSheetItemTableView.self]).backgroundColor = .purple
-        ActionSheetOkButtonCell.appearance().titleColor = .darkGray
-        ActionSheetCancelButtonCell.appearance().titleColor = .lightGray
-        ActionSheetDangerButtonCell.appearance().titleColor = .examplePink
+    override func applyIcons() {
+        super.applyIcons()
+        if #available(iOS 13.0, *) { return }
+        link.linkIcon = UIImage(named: "ic_arrow_right")
+        selectItem.selectedIcon = UIImage(named: "ic_checkmark")
+        selectItem.unselectedIcon = UIImage(named: "ic_empty")
     }
     
-    static func applyFonts() {
-        ActionSheetItemCell.appearance().titleFont = .robotoRegular(size: 17)
-        ActionSheetItemCell.appearance().subtitleFont = .robotoRegular(size: 14)
-        ActionSheetLinkItemCell.appearance().titleFont = .robotoRegular(size: 17)
-        ActionSheetMultiSelectToggleItemCell.appearance().titleFont = .robotoMedium(size: 13)
-        ActionSheetSectionTitleCell.appearance().titleFont = .robotoMedium(size: 13)
-        ActionSheetTitleCell.appearance().titleFont = .robotoMedium(size: 15)
-        ActionSheetOkButtonCell.appearance().titleFont = .robotoBlack(size: 17)
-        ActionSheetDangerButtonCell.appearance().titleFont = .robotoMedium(size: 17)
-        ActionSheetCancelButtonCell.appearance().titleFont = .robotoRegular(size: 17)
-    }
-    
-    static func applyHeights() {
-        ActionSheetSectionTitle.height = 20
-        ActionSheetSectionMargin.height = 20
-    }
-    
-    static func applyIcons() {
-        ActionSheetLinkItemCell.appearance().linkIcon = UIImage(named: "ic_arrow_right")
-    }
-    
-    static func applySelectItemAppearances() {
-        ActionSheetSelectItemCell.appearance().selectedIcon = UIImage(named: "ic_checkmark")
-        ActionSheetSelectItemCell.appearance().unselectedIcon = UIImage(named: "ic_empty")
-        ActionSheetSelectItemCell.appearance().selectedTintColor = .exampleBlue
-        ActionSheetSelectItemCell.appearance().selectedTitleColor = .exampleGreen
-        ActionSheetSelectItemCell.appearance().selectedIconColor = .examplePurple
-        
-        ActionSheetSingleSelectItemCell.appearance().selectedTintColor = .exampleGreen
-//        ActionSheetSingleSelectItemCell.appearance().selectedTitleFont = .robotoMedium(size: 35)
-//        ActionSheetSingleSelectItemCell.appearance().selectedSubtitleFont = .robotoMedium(size: 25)
-        ActionSheetSingleSelectItemCell.appearance().selectedTitleColor = .examplePurple
-        ActionSheetSingleSelectItemCell.appearance().selectedIconColor = .exampleBlue
-        
-        ActionSheetMultiSelectItemCell.appearance().tintColor = UIColor.darkText.withAlphaComponent(0.4)
-        ActionSheetMultiSelectItemCell.appearance().titleColor = UIColor.darkText.withAlphaComponent(0.4)
-        ActionSheetMultiSelectItemCell.appearance().selectedTintColor = .examplePurple
-        ActionSheetMultiSelectItemCell.appearance().selectedTitleColor = .exampleBlue
-        ActionSheetMultiSelectItemCell.appearance().selectedIconColor = .exampleGreen
-        
-        ActionSheetMultiSelectToggleItemCell.appearance().selectAllSubtitleColor = .lightGray
-        ActionSheetMultiSelectToggleItemCell.appearance().deselectAllSubtitleColor = .exampleRed
-    }
-    
-    static func applySeparatorInsets() {
-        ActionSheetItemCell.appearance().separatorInset = .zero
-        ActionSheetTitleCell.appearance().separatorInset = .hiddenSeparator
-        ActionSheetSectionTitleCell.appearance().separatorInset = .hiddenSeparator
-        ActionSheetSectionMarginCell.appearance().separatorInset = .hiddenSeparator
-        ActionSheetMultiSelectToggleItemCell.appearance().separatorInset = .hiddenSeparator
-    }
-    
-    static func applyPopoverWidth() {
-//        ActionSheet.preferredPopoverWidth = 700
+    func applyPopoverWidth() {
+        //ActionSheet.preferredPopoverWidth = 700
     }
 }

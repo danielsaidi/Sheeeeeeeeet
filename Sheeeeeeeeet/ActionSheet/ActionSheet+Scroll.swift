@@ -6,17 +6,13 @@
 //  Copyright © 2019 Sebastian Bolling. All rights reserved.
 //
 
-/*
- 
- This extension can be used to scroll to the first selected
- item in scrollable action sheets that have many items.
- 
- */
-
 import UIKit
 
 public extension ActionSheet {
 
+    /**
+     Scroll to the first selected select item, if any.
+     */
     func scrollToFirstSelectedItem(at position: UITableView.ScrollPosition = .middle, animated: Bool = false) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
             guard

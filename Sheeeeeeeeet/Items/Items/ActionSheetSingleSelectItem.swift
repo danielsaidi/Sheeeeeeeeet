@@ -22,9 +22,6 @@ import UIKit
 
 open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
-    
-    // MARK: - Functions
-    
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetSingleSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
@@ -37,8 +34,5 @@ open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
         isSelected = true
     }
 }
-
-
-// MARK: -
 
 open class ActionSheetSingleSelectItemCell: ActionSheetSelectItemCell {}

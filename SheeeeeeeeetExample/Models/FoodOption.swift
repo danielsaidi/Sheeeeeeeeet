@@ -6,15 +6,11 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This enum is used to create food action sheet options, that
- are presented in the example action sheets.
- 
- */
+import UIKit
 
-import Sheeeeeeeeet
-
+/**
+This enum specifies food options that are listed in the demo.
+*/
 enum FoodOption: String {
     
     case
@@ -23,7 +19,6 @@ enum FoodOption: String {
     homeMade,
     light,
     none
-    
     
     var displayName: String {
         switch self {

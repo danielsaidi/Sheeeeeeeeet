@@ -8,4 +8,12 @@
 
 import UIKit
 
-open class ActionSheetItemTableView: ActionSheetTableView {}
+/**
+This table view is used to present items within a sheet.
+*/
+open class ActionSheetItemTableView: ActionSheetTableView {
+    
+    open override func fixXcodeAppearanceBug() {
+        backgroundColor = ActionSheetItemTableView.appearance().backgroundColor
+    }
+}

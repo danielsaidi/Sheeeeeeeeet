@@ -8,6 +8,10 @@
 
 public extension ActionSheet {
     
+    /**
+     Get the default presenter. It will be used if you don't
+     specify a specific presenter when presenting the sheet.
+     */
     static var defaultPresenter: ActionSheetPresenter {
         let traits = UIApplication.shared.keyWindow?.traitCollection
         return defaultPresenter(forTraits: traits)
@@ -17,7 +21,7 @@ public extension ActionSheet {
 extension ActionSheet {
     
     static func defaultPresenter(forTraits traits: UITraitCollection?) -> ActionSheetPresenter {
-        let idiom = UIDevice.current.userInterfaceIdiom
+        let idiom = traits?.userInterfaceIdiom ?? UIDevice.current.userInterfaceIdiom
         return defaultPresenter(forIdiom: idiom, traits: traits)
     }
     

@@ -1,22 +1,19 @@
 //
-//  MyCollectionViewCell.swift
+//  DemoCollectionViewCell.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Jonas Ullström (ullstrm) on 2018-02-23.
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This cell is used by the example app, to populate the cells
- of the `CollectionActionSheet` example action sheet.
- 
- */
-
 import UIKit
 import Sheeeeeeeeet
 
-class MyCollectionViewCell: UICollectionViewCell {
+/**
+ This cell is used by the demo app, to populate the cells in
+ the `CollectionActionSheet` demo sheet.
+ */
+class DemoCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Overrides
@@ -63,19 +60,18 @@ class MyCollectionViewCell: UICollectionViewCell {
     // MARK: - Public Functions
     
     func configureWith(item: Item) {
-        let green = UIColor(hex: 0x4EA32A, alpha: 1)
         titleLabel?.text = item.title
         titleLabel?.textColor = item.isSelected ? .white : .black
-        badge?.backgroundColor = item.isSelected ? green : .lightGray
+        badge?.backgroundColor = item.isSelected ? .green : .lightGray
     }
 }
 
 
 // MARK: - ActionSheetCollectionItemContentCell
 
-extension MyCollectionViewCell: ActionSheetCollectionItemContentCell {
+extension DemoCollectionViewCell: ActionSheetCollectionItemContentCell {
     
-    static let nib: UINib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+    static let nib: UINib = UINib(nibName: "DemoCollectionViewCell", bundle: nil)
     static let defaultSize = CGSize(width: 100, height: 100)
     static let leftInset: CGFloat = 10
     static let rightInset: CGFloat = 20

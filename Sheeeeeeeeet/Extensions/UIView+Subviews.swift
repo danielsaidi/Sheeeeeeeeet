@@ -6,13 +6,13 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-//  This file contains an internal function that can be used
-//  to add subviews in a way that lets them fill the parent.
-
 import UIKit
 
 extension UIView {
     
+    /**
+     Add a subview that fills the frame of its parent.
+     */
     func addSubviewToFill(_ subview: UIView) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)

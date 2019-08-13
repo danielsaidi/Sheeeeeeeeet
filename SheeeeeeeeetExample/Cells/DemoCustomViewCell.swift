@@ -1,26 +1,23 @@
 //
-//  MyCustomViewCell.swift
+//  DemoCustomViewCell.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2018-10-08.
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This cell is used by the example app, as the custom view in
- the `CustomActionSheet` example action sheet.
- 
- */
-
 import Sheeeeeeeeet
 
-class MyCustomViewCell: ActionSheetItemCell, ActionSheetCustomItemCell {
+/**
+ This cell is used by the demo app, to provide a custom view
+ in the `CustomActionSheet` demo sheet.
+ */
+class DemoCustomViewCell: ActionSheetItemCell, ActionSheetCustomItemCell {
     
     
     // MARK: - ActionSheetCustomItemCell
     
-    static let nib: UINib = UINib(nibName: "MyCustomViewCell", bundle: nil)
+    static let nib: UINib = UINib(nibName: "DemoCustomViewCell", bundle: nil)
     static let defaultSize = CGSize(width: 100, height: 400)
     
     

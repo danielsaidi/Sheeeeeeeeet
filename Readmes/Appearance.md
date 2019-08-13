@@ -3,22 +3,25 @@
 # Appearance
 
 Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
-views and items. You can change fonts, colors and images as well as item heights
-and even more stuff.
+embedded views and items. You can change their fonts, colors and images, as well
+as the height of various item types, corner radii and more.
 
-This guide will show you which customization alternatives that are available. If
-you want to see them used in action, checkout the example app and have a look at
-the [advanced example][AdvancedExample].
+This guide will show you which customization alternatives that are available. To
+learn more, check out the demo app and this [advanced example][AdvancedExample].
 
 
 ## Important
 
-Make sure that you setup the global appearance in a structured way, e.g. as your
-app starts. If you change the global appearance many times, e.g. every time your
-app presents an action sheet, your sheets may look and behave inconsistenly.
+You must apply a global action sheet appearance in order for your sheets to look
+good. Do this when your app starts, by calling `ActionSheet.applyAppearance(...)`.
+To apply the standard appearance, call `ActionSheet.applyAppearance(.standard)`.
+
+You can inherit `ActionSheetAppearance` to create your own custom appearances. A
+custom appearance can also inherit `StandardActionSheetAppearance` to build upon
+the standard appearance.
 
 
-## Action sheet apperance
+## ActionSheet apperances
 
 The `ActionSheet` class has three instance properties that you can modify:
 
@@ -28,21 +31,14 @@ The `ActionSheet` class has three instance properties that you can modify:
 
 Since these properties apply to each action sheet instance, you can't change the
 default values for all action sheets in your app. If you want all sheets to have
-a different default value, just subclass `ActionSheet` and set a custom value.
+a different value, subclass `ActionSheet` and set a custom override value.
 
 
-## Action sheet subview appearances
+## ActionSheet subview appearances
 
-The `ActionSheet` class has various subviews, that can be styled with appearance
-proxy properties.
-
-* `ActionSheetBackgroundView`
-* `ActionSheetTableView`
-    * `ActionSheetButtonTableView`
-    * `ActionSheetItemTableView` 
-* `ActionSheetHeaderView`
-
-To modify the appearance of these views, just use their appearance proxies, e.g.:
+The `ActionSheet` class has several subviews that can be styled using appearance
+proxy properties, e.g. `ActionSheetBackgroundView`. To modify the appearances of
+these views, just use their appearance proxies, e.g.:
 
 ```swift
 ActionSheetBackgroundView.appearance().backgroundColor = .purple
@@ -58,7 +54,7 @@ ActionSheetHeaderView.appearance(whenContainedInInstancesOf: [MyCustomActionShee
 ```
 
 
-## Action sheet item appearances
+## ActionSheetItem appearances
 
 To modify the appearance of a specific item, just modify the appearance proxy of
 it's cell(!), e.g.:
@@ -67,39 +63,12 @@ it's cell(!), e.g.:
 ActionSheetItemCell.appearance().titleColor = .red
 ```
 
-The appearance properties are inherited down the inheritance chain, much like in
-css, so changing `ActionSheetItemCell.appearance().titleColor` affects the title
-color of all action sheet items and their subclasses.
-
-The various items have the following available appearance properties:
-
-* `ActionSheetItem`
-    * `titleColor`
-    * `titleFont`
-    * `subtitleColor`
-    * `subtitleFont`
-* `ActionSheetLinkItemCell`
-    * `linkIcon`
-* `ActionSheetSelectItemCell`
-    * `selectedIcon`
-    * `selectedIconColor`
-    * `selectedSubtitleColor`
-    * `selectedSubtitleFont`
-    * `selectedTitleColor`
-    * `selectedTitleFont`
-    * `selectedTintColor`
-    * `unselectedIcon`
-    * `unselectedIconColor`
-* `ActionSheetMultiSelectToggleItem`
-    * `deselectAllImage`
-    * `deselectAllSubtitleColor`
-    * `deselectAllTitleColor`
-    * `selectAllImage`
-    * `selectAllSubtitleColor`
-    * `selectAllTitleColor`
+Appearance properties are inherited down the inheritance chain, so if you change
+the `ActionSheetItemCell.appearance().titleColor`, all item cell subclasses will
+get the same title color.
 
 If you inherit an item type, you get access to all appearance properties and the
-default styling.
+default styling. You can extend subclasses with additional appearance properties.
 
 
 ## Action sheet item heights

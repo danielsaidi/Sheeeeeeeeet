@@ -6,16 +6,11 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This class is a base class for all action sheet buttons. It
- is not intended to be used directly. Instead, use the built
- in buttons or subclass it to create your own buttons.
- 
- */
-
 import UIKit
 
+/**
+ This class is a base class for all action sheet buttons.
+ */
 open class ActionSheetButton: ActionSheetItem {
     
     
@@ -33,7 +28,7 @@ open class ActionSheetButton: ActionSheetItem {
     // MARK: - Values
     
     public enum ButtonType {
-        case ok, cancel
+        case ok, cancel, other
     }
     
     

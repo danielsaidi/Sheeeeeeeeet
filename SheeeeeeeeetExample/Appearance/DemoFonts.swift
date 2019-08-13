@@ -1,5 +1,5 @@
 //
-//  UIFont+Example.swift
+//  DemoFonts.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2019-01-10.

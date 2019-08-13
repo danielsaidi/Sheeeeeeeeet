@@ -6,22 +6,19 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets that use the `ActionSheetCollectionItem` item type.
- 
- This class calls `setup(items: ...)` after it's initialized,
- since taps in the collection view must reload to the action
- sheet in order to update the selection information.
- 
- */
-
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetCollectionItem` item type.
+ 
+ `setup(items: ...)` is called after init, since taps in the
+ collection view must reload to the sheet in order to update
+ the selection information.
+ */
 class CollectionActionSheet: ActionSheet {
     
-    init(options: [FoodOption], action: @escaping ([MyCollectionViewCell.Item]) -> ()) {
+    init(options: [FoodOption], action: @escaping ([DemoCollectionViewCell.Item]) -> ()) {
         let collectionItems = CollectionActionSheet.collectionItems
         super.init(items: []) { _, item in
             guard item.isOkButton else { return }
@@ -38,23 +35,23 @@ class CollectionActionSheet: ActionSheet {
 
 private extension CollectionActionSheet {
     
-    static var collectionItems: [MyCollectionViewCell.Item] {
-        var items: [MyCollectionViewCell.Item] = []
+    static var collectionItems: [DemoCollectionViewCell.Item] {
+        var items: [DemoCollectionViewCell.Item] = []
         for i in 0...20 {
-            items.append(MyCollectionViewCell.Item(title: "\(i)", subtitle: "\(i)"))
+            items.append(DemoCollectionViewCell.Item(title: "\(i)", subtitle: "\(i)"))
         }
         return items
     }
     
-    func items(for options: [FoodOption], collectionItems: [MyCollectionViewCell.Item]) -> [ActionSheetItem] {
+    func items(for options: [FoodOption], collectionItems: [DemoCollectionViewCell.Item]) -> [ActionSheetItem] {
         let title = ActionSheetSectionTitle(title: ActionSheet.standardTitle, subtitle: selectionSubtitle(for: collectionItems))
         
-        let setupAction = { (cell: MyCollectionViewCell, index: Int) in
+        let setupAction = { (cell: DemoCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             cell.configureWith(item: item)
         }
         
-        let selectionAction = { [weak self] (cell: MyCollectionViewCell, index: Int) in
+        let selectionAction = { [weak self] (cell: DemoCollectionViewCell, index: Int) in
             let item = collectionItems[index]
             item.isSelected = !item.isSelected
             title.subtitle = self?.selectionSubtitle(for: collectionItems)
@@ -63,7 +60,7 @@ private extension CollectionActionSheet {
         }
         
         let collectionItem = ActionSheetCollectionItem(
-            itemCellType: MyCollectionViewCell.self,
+            itemCellType: DemoCollectionViewCell.self,
             itemCount: collectionItems.count,
             setupAction: setupAction,
             selectionAction: selectionAction
@@ -78,7 +75,7 @@ private extension CollectionActionSheet {
             ActionSheet.cancelButton]
     }
     
-    func selectionSubtitle(for collectionItems: [MyCollectionViewCell.Item]) -> String {
+    func selectionSubtitle(for collectionItems: [DemoCollectionViewCell.Item]) -> String {
         return "Selected items: \(collectionItems.filter { $0.isSelected }.count)"
     }
 }

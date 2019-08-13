@@ -6,19 +6,13 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This example action sheet demonstrates how to create action
- sheets that use the `ActionSheetCustomItem` item type.
- 
- As you can see, the button tap action is sent in as a param
- when creating the sheet. This action block can do anything.
- 
- */
-
 import UIKit
 import Sheeeeeeeeet
 
+/**
+ This action sheet shows you how to create a sheet that uses
+ the `ActionSheetCustomItem` item type.
+ */
 class CustomActionSheet: ActionSheet {
     
     init(options: [FoodOption], buttonTapAction: @escaping (UIButton) -> ()) {
@@ -37,7 +31,7 @@ class CustomActionSheet: ActionSheet {
 private extension CustomActionSheet {
     
     static func items(for options: [FoodOption], buttonTapAction: @escaping (UIButton) -> ()) -> [ActionSheetItem] {
-        let type = MyCustomViewCell.self
+        let type = DemoCustomViewCell.self
         let item = ActionSheetCustomItem(cellType: type) { cell in
             cell.buttonTapAction = buttonTapAction
         }
