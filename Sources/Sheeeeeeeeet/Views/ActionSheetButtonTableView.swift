@@ -14,6 +14,8 @@ import UIKit
 open class ActionSheetButtonTableView: ActionSheetTableView {
     
     open override func fixXcodeAppearanceBug() {
-        backgroundColor = ActionSheetButtonTableView.appearance().backgroundColor
+        super.fixXcodeAppearanceBug()
+        guard let color = ActionSheetButtonTableView.appearance().backgroundColor else { return }
+        backgroundColor = color
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ActionSheetHeaderView.swift
+//  ActionSheetHeaderContainerView.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2019-01-10.
@@ -11,8 +11,18 @@ import UIKit
 /**
  This view is used as a container for a sheet's header view.
  */
-open class ActionSheetHeaderView: UIView {
+open class ActionSheetHeaderContainerView: UIView {
     
+    
+    // MARK: - Setup
+    
+    open func setup(in sheet: ActionSheet) {
+        clipsToBounds = true
+        sheet.headerViewContainerHeight = heightAnchor.constraint(equalToConstant: 150)
+        sheet.headerViewContainerHeight?.isActive = true
+        sheet.stackView.addArrangedSubview(self)
+    }
+
     
     // MARK: - Layout
     

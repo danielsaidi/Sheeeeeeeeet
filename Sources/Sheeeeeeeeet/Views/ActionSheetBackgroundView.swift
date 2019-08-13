@@ -12,4 +12,10 @@ import UIKit
  This view is used as an overlay behind the action sheet. It
  provides a bit of additional contrast.
  */
-open class ActionSheetBackgroundView: UIView {}
+open class ActionSheetBackgroundView: UIView {
+    
+    open func setup(in sheet: ActionSheet) {
+        clipsToBounds = true
+        sheet.view.addSubview(self, fill: true)
+    }
+}

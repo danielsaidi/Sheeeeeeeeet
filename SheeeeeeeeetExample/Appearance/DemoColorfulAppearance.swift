@@ -38,6 +38,8 @@ class DemoColorfulAppearance: DemoAppearance {
         multiSelectItem.selectedTintColor = .blue
         multiSelectItem.selectedTitleColor = .green
         multiSelectItem.selectedIconColor = .purple
+        table.backgroundColor = .yellow
+        itemsTable.backgroundColor = .brown
         itemsTable.separatorColor = .purple
         buttonsTable.separatorColor = .red
         ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 30

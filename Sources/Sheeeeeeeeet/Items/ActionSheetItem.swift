@@ -34,7 +34,7 @@ import UIKit
  
  While most appearance is modified on a cell level, some are
  not. For instance, some views in `Views` have apperances of
- their own (e.g. `ActionSheetHeaderView.cornerRadius`). This
+ their own (e.g. `ActionSheetHeaderContainerView.cornerRadius`). This
  means that you can change more than cell appearance. Have a
  look at the readme for more info on what you can customize.
  

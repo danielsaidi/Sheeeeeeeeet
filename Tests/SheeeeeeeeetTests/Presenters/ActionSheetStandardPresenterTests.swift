@@ -17,17 +17,10 @@ class ActionSheetStandardPresenterTests: QuickSpec {
         
         var presenter: ActionSheetStandardPresenter!
         var sheet: MockActionSheet!
-        var backgroundView: ActionSheetBackgroundView!
-        var stackView: UIStackView!
         
         beforeEach {
-            backgroundView = ActionSheetBackgroundView(frame: .zero)
-            stackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-            
             sheet = MockActionSheet(items: []) { _, _ in }
-            sheet.backgroundView = backgroundView
-            sheet.stackView = stackView
-            
+            sheet.viewDidLoad()
             presenter = ActionSheetStandardPresenter()
             presenter.animationDuration = 0
             presenter.actionSheet = sheet
@@ -56,11 +49,10 @@ class ActionSheetStandardPresenterTests: QuickSpec {
             }
             
             it("removes background view") {
-                expect(backgroundView.alpha).to(equal(0))
+                expect(sheet.backgroundView.alpha).to(equal(0))
             }
             
             it("removes action sheet") {
-                expect(stackView.frame.origin.y).to(equal(200))
                 expect(sheet.view.superview).to(beNil())
                 expect(presenter.actionSheet).toEventually(beNil())
             }
@@ -83,29 +75,25 @@ class ActionSheetStandardPresenterTests: QuickSpec {
                 expect(presenter.actionSheet).to(be(sheet))
             }
             
-            it("adds actio sheet to key window") {
-//                let window = UIApplication.shared.keyWindow
-//                expect(sheet.view.frame).to(equal(window?.bounds))
-//                expect(window?.subviews).to(contain(sheet.view))
-            }
-            
             it("adds tap gesture to background view") {
-                expect(sheet.backgroundView?.isUserInteractionEnabled).to(beTrue())
-                //expect(backgroundView.gestureRecognizers?.count).to(equal(1))
+                expect(sheet.backgroundView.isUserInteractionEnabled).to(beTrue())
+                expect(sheet.backgroundView.gestureRecognizers?.count).to(equal(1))
             }
             
             it("presents background view") {
                 presenter.animationDuration = -1
                 presenter.present(sheet: sheet, in: vc) {}
-                expect(sheet.backgroundView?.alpha).to(equal(0))
+                expect(sheet.backgroundView.alpha).to(equal(0))
                 presenter.animationDuration = 0
                 presenter.present(sheet: sheet, in: vc) {}
-                expect(sheet.backgroundView?.alpha).to(equal(1))
+                expect(sheet.backgroundView.alpha).to(equal(1))
             }
             
             it("presents stack view") {
+                sheet.viewDidLoad()
+                presenter.animationDuration = -1
                 presenter.present(sheet: sheet, in: vc) {}
-                expect(sheet.stackView?.frame.origin.y).to(equal(277))
+                expect(sheet.stackView.frame.origin.y).toEventually(equal(100))
             }
         }
     }

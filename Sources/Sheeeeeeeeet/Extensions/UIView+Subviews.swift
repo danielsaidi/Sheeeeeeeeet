@@ -2,23 +2,21 @@
 //  UIView+Subviews.swift
 //  Sheeeeeeeeet
 //
-//  Created by Daniel Saidi on 2018-10-17.
-//  Copyright © 2018 Daniel Saidi. All rights reserved.
+//  Created by Daniel Saidi on 2017-02-08.
+//  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
-    /**
-     Add a subview that fills the frame of its parent.
-     */
-    func addSubviewToFill(_ subview: UIView) {
-        subview.translatesAutoresizingMaskIntoConstraints = false
+    func addSubview(_ subview: UIView, fill: Bool) {
         addSubview(subview)
+        guard fill else { return }
+        subview.translatesAutoresizingMaskIntoConstraints = false
         subview.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        subview.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        subview.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        subview.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        subview.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         subview.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
