@@ -6,8 +6,9 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  Multi-select toggle items can be used together with a group
  of `ActionSheetMultiSelectItem`s. When tapped, it will make
  all multi-select items in the same group select/deselect.
@@ -16,11 +17,7 @@
  setting its select/deselect title text, you must provide it
  with an initial `State` when creating it. After that, it is
  able to update itself whenever it is tapped.
- 
  */
-
-import UIKit
-
 open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     
     

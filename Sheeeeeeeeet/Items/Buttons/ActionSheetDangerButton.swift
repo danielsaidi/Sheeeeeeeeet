@@ -6,19 +6,15 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- Danger buttons have no special behavior, but can be used to
- indicate that the effect of the action sheet is destructive.
- They should be styled as "dangerous" (e.g. red text), using
- the appearance proxy.
- 
- The value of a danger button is `.ok`.
- 
- */
-
 import UIKit
 
+/**
+ Danger buttons have no special behavior, but can be used to
+ indicate that the effect of the action sheet is destructive.
+ They should be styled as "dangerous" (e.g. red text).
+ 
+ The value of a danger button is `.ok`.
+ */
 open class ActionSheetDangerButton: ActionSheetOkButton {
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {

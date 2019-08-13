@@ -13,10 +13,16 @@ import UIKit
 
 extension NSObject {
     
+    /**
+     Get the type's bundle.
+     */
     static var bundle: Bundle {
         return Bundle(for: self)
     }
     
+    /**
+     Get the class' bundle.
+     */
     var bundle: Bundle {
         return type(of: self).bundle
     }

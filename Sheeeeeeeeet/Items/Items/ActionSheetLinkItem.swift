@@ -6,19 +6,13 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- Link items can be used when tapping them will take the user
- somewhere, e.g. to another view controller or a web site.
- 
- */
-
 import UIKit
 
+/**
+ Link items can be used when tapping them will take the user
+ somewhere, e.g. to another view controller or a web site.
+*/
 open class ActionSheetLinkItem: ActionSheetItem {
-    
-    
-    // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetLinkItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)

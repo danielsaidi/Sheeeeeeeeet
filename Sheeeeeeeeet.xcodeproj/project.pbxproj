@@ -83,7 +83,6 @@
 		457EC2C21FCE1ADF000EF1AD /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C31FCE1ADF000EF1AD /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457EC2BD1FCE1ACD000EF1AD /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		457EC2C51FCE1AFE000EF1AD /* ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */; };
-		459DA1B720568D9B00644490 /* ActionSheetCollectionItemContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */; };
 		459DA1C42056C4F900644490 /* ActionSheetSingleSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459DA1C32056C4F900644490 /* ActionSheetSingleSelectItem.swift */; };
 		459DA1C62056C6B400644490 /* ActionSheetSingleSelectItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459DA1C52056C6B400644490 /* ActionSheetSingleSelectItemTests.swift */; };
 		45CF8FA7205BAE9800F01A3F /* StandardActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF8FA6205BAE9800F01A3F /* StandardActionSheet.swift */; };
@@ -140,7 +139,6 @@
 		84539DBD2177DEAC0097039F /* UIView+NibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBC2177DEAC0097039F /* UIView+NibTests.swift */; };
 		84539DBF2177E2160097039F /* UIView+SubviewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */; };
 		8453C22321A9EF2600C2FD16 /* ActionSheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */; };
-		8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */; };
 		847EB0F222FF1BB000E300E9 /* ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */; };
 		84875F84223B130C0074A518 /* ActionSheetCustomItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84875F83223B130C0074A518 /* ActionSheetCustomItemTests.swift */; };
 		84875F87223B13810074A518 /* ActionSheetCustomItemTestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84875F85223B13810074A518 /* ActionSheetCustomItemTestCell.swift */; };
@@ -274,7 +272,6 @@
 		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		457EC2C41FCE1AFE000EF1AD /* ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTests.swift; sourceTree = "<group>"; };
-		459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCollectionItemContentCell.swift; sourceTree = "<group>"; };
 		459DA1BB2056C14900644490 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		459DA1BC2056C14A00644490 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		459DA1BD2056C14A00644490 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
@@ -342,7 +339,6 @@
 		84539DBC2177DEAC0097039F /* UIView+NibTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibTests.swift"; sourceTree = "<group>"; };
 		84539DBE2177E2160097039F /* UIView+SubviewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SubviewsTests.swift"; sourceTree = "<group>"; };
 		8453C22221A9EF2600C2FD16 /* ActionSheetTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetTableView.swift; sourceTree = "<group>"; };
-		8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Fullscreen.swift"; sourceTree = "<group>"; };
 		847EB0F122FF1BB000E300E9 /* ActionSheetColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetColor.swift; sourceTree = "<group>"; };
 		84875F83223B130C0074A518 /* ActionSheetCustomItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemTests.swift; sourceTree = "<group>"; };
 		84875F85223B13810074A518 /* ActionSheetCustomItemTestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItemTestCell.swift; sourceTree = "<group>"; };
@@ -487,7 +483,6 @@
 			children = (
 				849F062821D26EDE0074C6E4 /* NSObject+Bundle.swift */,
 				45EB3FD31FC84FD200EF555E /* NSObject+ClassName.swift */,
-				8453C22421A9F96C00C2FD16 /* UIApplication+Fullscreen.swift */,
 				8423863021EB42D60045F121 /* UIEdgeInsets+Hidden.swift */,
 				84539DA721775C030097039F /* UIView+Nib.swift */,
 				84539DA9217765A30097039F /* UIView+Subviews.swift */,
@@ -702,7 +697,6 @@
 			children = (
 				1D42892E20403A48005D4369 /* ActionSheetCollectionItem.swift */,
 				1D428924204039B4005D4369 /* ActionSheetCollectionItemCell.xib */,
-				459DA1B620568D9B00644490 /* ActionSheetCollectionItemContentCell.swift */,
 				84993598216BE0C3000A0670 /* ActionSheetCustomItem.swift */,
 				456EA9FE1FCB10A900A719ED /* ActionSheetLinkItem.swift */,
 				455DEE37206F70C400173E67 /* ActionSheetMultiSelectItem.swift */,
@@ -1057,7 +1051,6 @@
 				455DEE3C206F733700173E67 /* ActionSheetMultiSelectToggleItem.swift in Sources */,
 				1D42892F20403A48005D4369 /* ActionSheetCollectionItem.swift in Sources */,
 				8441FA20230006BB00FFF1C2 /* ActionSheet+Appearance.swift in Sources */,
-				8453C22521A9F96C00C2FD16 /* UIApplication+Fullscreen.swift in Sources */,
 				45EB3FD81FC8509A00EF555E /* ActionSheetItem.swift in Sources */,
 				45EB3FD41FC84FD200EF555E /* NSObject+ClassName.swift in Sources */,
 				84539DAA217765A30097039F /* UIView+Subviews.swift in Sources */,
@@ -1076,7 +1069,6 @@
 				842385AA21E8926F0045F121 /* ActionSheetItemTableView.swift in Sources */,
 				84993599216BE0C3000A0670 /* ActionSheetCustomItem.swift in Sources */,
 				456EAA031FCB10F000A719ED /* ActionSheetSectionTitle.swift in Sources */,
-				459DA1B720568D9B00644490 /* ActionSheetCollectionItemContentCell.swift in Sources */,
 				459DA1C42056C4F900644490 /* ActionSheetSingleSelectItem.swift in Sources */,
 				456EAA481FCCA84F00A719ED /* ActionSheetDangerButton.swift in Sources */,
 				453C04701FC0666F0028FA02 /* ActionSheet.swift in Sources */,

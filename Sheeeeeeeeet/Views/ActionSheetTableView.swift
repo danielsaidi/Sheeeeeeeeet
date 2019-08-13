@@ -6,17 +6,13 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This class can be used to apply a custom appearance to your
- action sheets, e.g. with `ActionSheetTableView.appearance()`
- which is the normal iOS way of styling components. However,
- you should probably use `ActionSheetAppearance` if possible.
- 
- */
-
 import UIKit
 
+/**
+ This table view is the base class for all table views in an
+ action sheet. You can apply custom appearances to this view
+ and its subclasses, using their appearance proxies.
+ */
 open class ActionSheetTableView: UITableView {
     
     

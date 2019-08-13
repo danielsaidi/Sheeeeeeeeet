@@ -6,20 +6,18 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This presenter presents action sheets in a popover, just as
- regular UIAlertControllers are displayed on an iPad.
+import UIKit
+
+/**
+ This presenter presents action sheets in popovers. It's the
+ default presenter on iPad devices, if the app has a regular
+ horizontal size class.
  
  Since popovers have an arrow that should use the same color
  as the rest of the popover view, this presenter will remove
  any header view and combine items and buttons into a single
  item section.
- 
  */
-
-import UIKit
-
 open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     
@@ -75,12 +73,11 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         sheet.headerViewContainer?.isHidden = true
         sheet.buttonsTableView?.isHidden = true
         sheet.preferredContentSize.height = sheet.itemsHeight
-        if #available(iOS 10.0, *) {
-            refreshPopoverBackgroundColor()
-        }
+        refreshPopoverBackgroundColor()
     }
     
     open func refreshPopoverBackgroundColor() {
+        guard #available(iOS 10.0, *) else { return }
         popover?.backgroundColor = actionSheet?.itemsTableView?.backgroundColor ?? .white
     }
     
@@ -108,8 +105,6 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
         dismiss {}
         return false
     }
-    
-    
 }
 
 

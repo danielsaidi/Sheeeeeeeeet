@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ This table view is used to present buttons within a sheet.
+ */
 open class ActionSheetButtonTableView: ActionSheetTableView {
     
     open override func fixXcodeAppearanceBug() {

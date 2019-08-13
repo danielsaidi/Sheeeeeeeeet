@@ -6,26 +6,17 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  Select items are used to let the user select one or several
  items in an action sheet. Unlike the `ActionSheetItem` type,
  this type has an `isSelected` state, a selected icon and an
  extended appearance.
  
- This item type is not meant to be used directly. However, a
- `selectItem` appearance property is still available, so you
- can style single and multiselect items in a single way.
- 
- Instead of this type, you should use any of its subclasses:
- 
- * `ActionSheetSingleSelectItem`
- * `ActionSheetMultiSelectItem`
- 
+ This item type is not meant to be used directly. You should
+ instead use the single and multi select subclasses.
  */
-
-import UIKit
-
 open class ActionSheetSelectItem: ActionSheetItem {
     
     

@@ -6,8 +6,9 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  `ActionSheetMultiSelectItem` should be used whenever a user
  should be able to select one or several items in a sheet. A
  multi select item will not affect other items, and will not
@@ -19,16 +20,9 @@
  
  A multi-select item does not dismiss the sheet, since users
  will most probably be in a context where a change should be
- applied with an OK button.
- 
+ applied with an OK button. 
  */
-
-import UIKit
-
 open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
-    
-    
-    // MARK: - Initialization
     
     public init(
         title: String,
@@ -47,9 +41,6 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
             tapBehavior: .none)
     }
     
-    
-    // MARK: - Functions
-    
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         return ActionSheetMultiSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
@@ -61,6 +52,5 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
         items.forEach { $0.updateState(for: actionSheet) }
     }
 }
-
 
 open class ActionSheetMultiSelectItemCell: ActionSheetSelectItemCell {}

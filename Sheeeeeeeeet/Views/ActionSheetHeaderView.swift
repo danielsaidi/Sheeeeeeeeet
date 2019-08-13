@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ This view is used as a container for a sheet's header view.
+ */
 open class ActionSheetHeaderView: UIView {
     
     
@@ -17,7 +20,7 @@ open class ActionSheetHeaderView: UIView {
         super.layoutSubviews()
         layer.cornerRadius = cornerRadius
     }
-
+    
     
     // MARK: - Appearance Properties
     

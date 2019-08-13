@@ -6,8 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import UIKit
+
+/**
  This class represents a regular action sheet item, like the
  one used in UIAlertController. It has a title as well as an
  optional subtitle, value and image. All other items inherit
@@ -56,11 +57,7 @@
  handling the item tap. Set `tapBehavior` to `.none`, if you
  don't want the action sheet to be dismissed when an item is
  tapped. Some item types uses `.none` by default.
- 
  */
-
-import UIKit
-
 open class ActionSheetItem: NSObject {
     
     
@@ -87,8 +84,8 @@ open class ActionSheetItem: NSObject {
     public enum TapBehavior {
         case dismiss, none
     }
-
-
+    
+    
     // MARK: - Properties
     
     public var image: UIImage?

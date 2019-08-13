@@ -6,21 +6,20 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
+import Foundation
+
+/**
  Collection items can be used to present item collections in
- a collection view, using cell types that you define in your
- project and implement `ActionSheetCollectionItemContentCell`.
- The cell `.xib` should have the same name as the cell class.
+ a collection view.
+ 
+ A cell must implement `ActionSheetCollectionItemContentCell`
+ to be used with this item. The .xib must have the same name
+ as the cell's class name.
  
  This class will dequeue a different cell type than standard
  action sheet items. If you look at `cell(for: ...)`, you'll
  see that it uses `ActionSheetCollectionItemCell` for its id.
- 
  */
-
-import Foundation
-
 open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
@@ -154,4 +153,22 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
         collectionView.delegate = owner
         collectionView.reloadData()
     }
+}
+
+
+// MARK: - Cell
+
+/**
+ This protocol must be implemented by any cell that is to be
+ used together with an `ActionSheetCollectionItem`.
+ */
+public protocol ActionSheetCollectionItemContentCell where Self: UICollectionViewCell {
+    
+    static var nib: UINib { get }
+    static var defaultSize: CGSize { get }
+    static var leftInset: CGFloat { get }
+    static var rightInset: CGFloat { get }
+    static var topInset: CGFloat { get }
+    static var bottomInset: CGFloat { get }
+    static var itemSpacing: CGFloat { get }
 }

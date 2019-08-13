@@ -6,16 +6,14 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- Custom items can be used to present any views in your sheet.
- It can use any view that inherits `ActionSheetItemCell` and
- implements `ActionSheetCustomItemCell`.
- 
- */
-
 import UIKit
 
+/**
+ Custom items can be used to present any views in your sheet.
+ 
+ It can use any view that inherits `ActionSheetItemCell` and
+ implements `ActionSheetCustomItemCell`.
+ */
 public class ActionSheetCustomItem<T: ActionSheetCustomItemCell>: ActionSheetItem {
     
     
@@ -61,6 +59,10 @@ public class ActionSheetCustomItem<T: ActionSheetCustomItemCell>: ActionSheetIte
 
 // MARK: -
 
+/**
+ This protocol must be implemented by any cell that is to be
+ used together with an `ActionSheetCustomItem`.
+ */
 public protocol ActionSheetCustomItemCell where Self: ActionSheetItemCell {
     
     static var nib: UINib { get }

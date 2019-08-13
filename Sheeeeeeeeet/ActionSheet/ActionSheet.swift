@@ -141,9 +141,6 @@ open class ActionSheet: UIViewController {
         case visible, hidden
     }
     
-    
-    // MARK: - Typealiases
-    
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
     
     

@@ -8,4 +8,8 @@
 
 import UIKit
 
+/**
+ This view is used as an overlay behind the action sheet. It
+ provides a bit of additional contrast.
+ */
 open class ActionSheetBackgroundView: UIView {}

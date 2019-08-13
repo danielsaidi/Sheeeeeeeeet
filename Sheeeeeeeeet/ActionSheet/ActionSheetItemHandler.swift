@@ -6,15 +6,12 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
- This class is used as data source and delegate for the item
- and button table views of the action sheet class.
- 
- */
-
 import UIKit
 
+/**
+This class is used as the data source and delegate for the a
+sheet's item and button table views.
+*/
 open class ActionSheetItemHandler: NSObject {
     
     
@@ -26,7 +23,7 @@ open class ActionSheetItemHandler: NSObject {
     }
     
     
-    // MARK: - Enum
+    // MARK: - Types
     
     public enum ItemType {
         case items, buttons
