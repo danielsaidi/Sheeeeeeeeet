@@ -23,7 +23,7 @@ class ActionSheetColorTests: QuickSpec {
             it("has correct adaptive color") {
                 if #available(iOS 13.0, *) {
                     assert(.actionText, is: .systemBlue)
-                    assert(.background, is: .systemBackground)
+                    assert(.background, is: .secondarySystemBackground)
                     assert(.danger, is: .systemRed)
                     assert(.disabledText, is: .secondaryLabel)
                     assert(.discreteText, is: .secondaryLabel)

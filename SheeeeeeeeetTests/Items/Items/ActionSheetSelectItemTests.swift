@@ -76,7 +76,7 @@ class ActionSheetSelectItemCellTests: QuickSpec {
             var cell: ActionSheetSelectItemCell!
             
             beforeEach {
-                item = ActionSheetSelectItem(title: "foo", isSelected: false)
+                item = ActionSheetSelectItem(title: "title", subtitle: "subtitle", isSelected: false)
                 cell = item.cell(for: UITableView()) as? ActionSheetSelectItemCell
                 cell.tintColor = UIColor.purple.withAlphaComponent(0.1)
                 cell.titleColor = UIColor.yellow.withAlphaComponent(0.1)
@@ -101,10 +101,10 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 expect((cell.accessoryView as? UIImageView)?.image).to(be(cell.selectedIcon))
                 expect(cell.accessoryView?.tintColor).to(equal(cell.selectedIconColor))
                 expect(cell.tintColor).to(equal(cell.selectedTintColor))
-                expect(cell.textLabel?.textColor).to(be(cell.selectedTitleColor))
-                expect(cell.textLabel?.font).to(be(cell.selectedTitleFont))
-//                expect(cell.detailTextLabel?.textColor).to(be(cell.selectedSubtitleColor))
-//                expect(cell.detailTextLabel?.font).to(be(cell.selectedSubtitleFont))
+                expect(cell.textLabel?.textColor).to(equal(cell.selectedTitleColor))
+                expect(cell.textLabel?.font).to(equal(cell.selectedTitleFont))
+                expect(cell.detailTextLabel?.textColor).to(equal(cell.selectedSubtitleColor))
+                expect(cell.detailTextLabel?.font).to(equal(cell.selectedSubtitleFont))
             }
             
             it("refreshes correctly for unselected item") {
@@ -115,8 +115,8 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 expect(cell.tintColor).to(be(cell.tintColor))
                 expect(cell.textLabel?.textColor).to(be(cell.titleColor))
                 expect(cell.textLabel?.font).to(be(cell.titleFont))
-//                expect(cell.detailTextLabel?.textColor).to(be(cell.subtitleColor))
-//                expect(cell.detailTextLabel?.font).to(be(cell.subtitleFont))
+                expect(cell.detailTextLabel?.textColor).to(equal(cell.subtitleColor))
+                expect(cell.detailTextLabel?.font).to(equal(cell.subtitleFont))
             }
         }
     }
