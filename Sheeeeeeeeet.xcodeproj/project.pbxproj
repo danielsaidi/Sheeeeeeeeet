@@ -472,13 +472,13 @@
 		84BD8A502302BC8C0020610B /* ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A512302BC8C0020610B /* ActionSheetMargin.swift */,
+				84BD8A552302BC8C0020610B /* ActionSheet.swift */,
 				84BD8A522302BC8C0020610B /* ActionSheet.xib */,
 				84BD8A532302BC8C0020610B /* ActionSheet+Items.swift */,
-				84BD8A542302BC8C0020610B /* ActionSheetItemHandler.swift */,
-				84BD8A552302BC8C0020610B /* ActionSheet.swift */,
-				84BD8A562302BC8C0020610B /* ActionSheet+Scroll.swift */,
 				84BD8A572302BC8C0020610B /* ActionSheet+Presenter.swift */,
+				84BD8A562302BC8C0020610B /* ActionSheet+Scroll.swift */,
+				84BD8A542302BC8C0020610B /* ActionSheetItemHandler.swift */,
+				84BD8A512302BC8C0020610B /* ActionSheetMargin.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -486,10 +486,10 @@
 		84BD8A582302BC8C0020610B /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A592302BC8C0020610B /* StandardActionSheetAppearance.swift */,
 				84BD8A5A2302BC8C0020610B /* ActionSheet+Appearance.swift */,
 				84BD8A5B2302BC8C0020610B /* ActionSheetAppearance.swift */,
 				84BD8A5C2302BC8C0020610B /* ActionSheetColor.swift */,
+				84BD8A592302BC8C0020610B /* StandardActionSheetAppearance.swift */,
 				84BD8A5D2302BC8C0020610B /* UIColor+ActionSheetColor.swift */,
 			);
 			path = Appearance;
@@ -498,9 +498,9 @@
 		84BD8A5E2302BC8C0020610B /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				84BD8A612302BC8C0020610B /* ActionSheetPopoverPresenter.swift */,
 				84BD8A5F2302BC8C0020610B /* ActionSheetPresenter.swift */,
 				84BD8A602302BC8C0020610B /* ActionSheetStandardPresenter.swift */,
-				84BD8A612302BC8C0020610B /* ActionSheetPopoverPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -508,12 +508,12 @@
 		84BD8A622302BC8C0020610B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */,
-				84BD8A642302BC8C0020610B /* NSObject+ClassName.swift */,
 				84BD8A652302BC8C0020610B /* NSObject+Bundle.swift */,
-				84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */,
+				84BD8A642302BC8C0020610B /* NSObject+ClassName.swift */,
+				84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */,
 				84BD8A672302BC8C0020610B /* UIView+Nib.swift */,
 				84BD8A682302BC8C0020610B /* UIView+Subviews.swift */,
+				84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,10 +521,10 @@
 		84BD8A692302BC8C0020610B /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A6A2302BC8C0020610B /* Buttons */,
-				84BD8A6F2302BC8C0020610B /* Titles */,
-				84BD8A732302BC8C0020610B /* Items */,
 				84BD8A7C2302BC8C0020610B /* ActionSheetItem.swift */,
+				84BD8A6A2302BC8C0020610B /* Buttons */,
+				84BD8A732302BC8C0020610B /* Items */,
+				84BD8A6F2302BC8C0020610B /* Titles */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -532,10 +532,10 @@
 		84BD8A6A2302BC8C0020610B /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */,
 				84BD8A6C2302BC8C0020610B /* ActionSheetButton.swift */,
 				84BD8A6D2302BC8C0020610B /* ActionSheetCancelButton.swift */,
 				84BD8A6E2302BC8C0020610B /* ActionSheetDangerButton.swift */,
+				84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -553,14 +553,14 @@
 		84BD8A732302BC8C0020610B /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift */,
-				84BD8A752302BC8C0020610B /* ActionSheetCustomItem.swift */,
-				84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItem.swift */,
-				84BD8A772302BC8C0020610B /* ActionSheetSelectItem.swift */,
-				84BD8A782302BC8C0020610B /* ActionSheetLinkItem.swift */,
-				84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItem.swift */,
 				84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItem.swift */,
 				84BD8A7B2302BC8C0020610B /* ActionSheetCollectionItemCell.xib */,
+				84BD8A752302BC8C0020610B /* ActionSheetCustomItem.swift */,
+				84BD8A782302BC8C0020610B /* ActionSheetLinkItem.swift */,
+				84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItem.swift */,
+				84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift */,
+				84BD8A772302BC8C0020610B /* ActionSheetSelectItem.swift */,
+				84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItem.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -568,11 +568,11 @@
 		84BD8A7D2302BC8C0020610B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A7E2302BC8C0020610B /* ActionSheetTableView.swift */,
-				84BD8A7F2302BC8C0020610B /* ActionSheetButtonTableView.swift */,
-				84BD8A802302BC8C0020610B /* ActionSheetItemTableView.swift */,
-				84BD8A812302BC8C0020610B /* ActionSheetHeaderView.swift */,
 				84BD8A822302BC8C0020610B /* ActionSheetBackgroundView.swift */,
+				84BD8A7F2302BC8C0020610B /* ActionSheetButtonTableView.swift */,
+				84BD8A812302BC8C0020610B /* ActionSheetHeaderView.swift */,
+				84BD8A802302BC8C0020610B /* ActionSheetItemTableView.swift */,
+				84BD8A7E2302BC8C0020610B /* ActionSheetTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
