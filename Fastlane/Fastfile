@@ -5,6 +5,14 @@ default_platform :ios
 platform :ios do
 
 
+  # Test =======================
+  
+  desc "Run unit tests"
+  lane :test do
+    spm(command: "test")
+  end
+
+
   # Version ================
 
   desc "Create a new version"
@@ -18,8 +26,6 @@ platform :ios do
     git_commit(
       path: [
         "Sheeeeeeeeet.podspec",
-        "*/Info.plist",
-        "*/*.pbxproj",
         "Fastlane/"],
       message: "Bump to #{version}"
     )
@@ -28,16 +34,5 @@ platform :ios do
     push_git_tags()
     push_to_git_remote()
     pod_push()
-  end
-
-  
-  # Test =======================
-
-  desc "Run unit tests"
-  lane :test do
-    scan(
-      project: "Sheeeeeeeeet.xcodeproj",
-      scheme: "Sheeeeeeeeet"
-    )    
   end
 end
