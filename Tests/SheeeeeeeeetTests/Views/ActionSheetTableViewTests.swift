@@ -58,15 +58,5 @@ class ActionSheetTableViewTests: QuickSpec {
                 expect(view.layer.cornerRadius).to(equal(123))
             }
         }
-        
-        describe("fixing xcode apperance bug") {
-            
-            it("applies background color") {
-                ActionSheetTableView.appearance().backgroundColor = .purple
-                let view = ActionSheetTableView(frame: .zero)
-                view.layoutSubviews()
-                expect(view.backgroundColor).to(equal(.purple))
-            }
-        }
     }
 }

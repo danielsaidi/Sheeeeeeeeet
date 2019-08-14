@@ -58,10 +58,8 @@ class StandardActionSheetApperanceTests: QuickSpec {
             it("applies colors") {
                 expect(background.backgroundColor).to(equal(.color(for: .overlay)))
                 expect(header.backgroundColor).to(equal(.clear))
-                expect(table.backgroundColor).to(equal(.color(for: .background)))
                 expect(table.separatorColor).to(equal(.color(for: .separator)))
                 
-                expect(item.backgroundColor).to(equal(.color(for: .background)))
                 expect(item.tintColor).to(equal(.color(for: .text)))
                 expect(item.titleColor).to(equal(.color(for: .text)))
                 expect(item.subtitleColor).to(equal(.color(for: .text)))
