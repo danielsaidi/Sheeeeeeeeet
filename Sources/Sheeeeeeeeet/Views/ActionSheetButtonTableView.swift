@@ -11,11 +11,4 @@ import UIKit
 /**
  This table view is used to present buttons within a sheet.
  */
-open class ActionSheetButtonTableView: ActionSheetTableView {
-    
-    open override func fixXcodeAppearanceBug() {
-        super.fixXcodeAppearanceBug()
-        guard let color = ActionSheetButtonTableView.appearance().backgroundColor else { return }
-        backgroundColor = color
-    }
-}
+open class ActionSheetButtonTableView: ActionSheetTableView {}
