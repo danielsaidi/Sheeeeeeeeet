@@ -8,11 +8,46 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
+@testable import Sheeeeeeeeet
+import UIKit
 
 class ActionSheetTableViewTests: QuickSpec {
     
     override func spec() {
+        
+        describe("setting up in action sheet") {
+            
+            var view: ActionSheetTableView!
+            var sheet: ActionSheet!
+            var handler: ActionSheetItemHandler!
+            var constraint: NSLayoutConstraint!
+            
+            beforeEach {
+                view = ActionSheetTableView()
+                sheet = ActionSheet { _, _ in }
+                handler = sheet.buttonHandler
+                constraint = view.setup(in: sheet, itemHandler: handler, heightPriority: 123)
+            }
+            
+            it("sets up view") {
+                expect(view.delegate).to(be(handler))
+                expect(view.dataSource).to(be(handler))
+                expect(view.alwaysBounceVertical).to(beFalse())
+                expect(view.estimatedRowHeight).to(equal(44))
+                expect(view.rowHeight).to(equal(UITableView.automaticDimension))
+                expect(view.cellLayoutMarginsFollowReadableWidth).to(beFalse())
+            }
+            
+            it("adds view as subview") {
+                expect(sheet.stackView.arrangedSubviews.contains(view)).to(beTrue())
+            }
+            
+            it("sets up constraint") {
+                expect(constraint.constant).to(equal(150))
+                expect(constraint.priority).to(equal(UILayoutPriority(123)))
+                
+            }
+        }
         
         describe("laying out subviews") {
             
@@ -21,6 +56,16 @@ class ActionSheetTableViewTests: QuickSpec {
                 view.cornerRadius = 123
                 view.layoutSubviews()
                 expect(view.layer.cornerRadius).to(equal(123))
+            }
+        }
+        
+        describe("fixing xcode apperance bug") {
+            
+            it("applies background color") {
+                ActionSheetTableView.appearance().backgroundColor = .purple
+                let view = ActionSheetTableView(frame: .zero)
+                view.layoutSubviews()
+                expect(view.backgroundColor).to(equal(.purple))
             }
         }
     }

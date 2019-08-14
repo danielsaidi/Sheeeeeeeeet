@@ -40,7 +40,7 @@ public extension ActionSheetAppearance {
     var buttonsTable: ActionSheetButtonTableView { ActionSheetButtonTableView.appearance() }
     var cancelButton: ActionSheetCancelButtonCell { ActionSheetCancelButtonCell.appearance() }
     var dangerButton: ActionSheetDangerButtonCell { ActionSheetDangerButtonCell.appearance() }
-    var header: ActionSheetHeaderView { ActionSheetHeaderView.appearance() }
+    var header: ActionSheetHeaderContainerView { ActionSheetHeaderContainerView.appearance() }
     var link: ActionSheetLinkItemCell { ActionSheetLinkItemCell.appearance() }
     var item: ActionSheetItemCell { ActionSheetItemCell.appearance() }
     var itemsTable: ActionSheetItemTableView { ActionSheetItemTableView.appearance() }

@@ -44,13 +44,13 @@ these views, just use their appearance proxies, e.g.:
 ActionSheetBackgroundView.appearance().backgroundColor = .purple
 ActionSheetTableView.appearance().cornerRadius = 15
 ActionSheetButtonTableView.appearance().cornerRadius = 20 // Otherwise 15
-ActionSheetHeaderView.appearance().cornerRadius = 15
+ActionSheetHeaderContainerView.appearance().cornerRadius = 15
 ```
 
 To modify the appearance of these views in a specific action sheet, just do this:
 
 ```swift
-ActionSheetHeaderView.appearance(whenContainedInInstancesOf: [MyCustomActionSheet.self]).backgroundColor = .blue
+ActionSheetHeaderContainerView.appearance(whenContainedInInstancesOf: [MyCustomActionSheet.self]).backgroundColor = .blue
 ```
 
 

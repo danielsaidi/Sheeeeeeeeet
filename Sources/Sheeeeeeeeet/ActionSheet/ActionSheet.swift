@@ -46,9 +46,8 @@ import UIKit
  
  While most appearance is modified on a cell level, some are
  not. For instance, some views in `Views` have apperances of
- their own (e.g. `ActionSheetHeaderView.cornerRadius`). This
- means that you can change more than cell appearance. Have a
- look at the readme for more info on what you can customize.
+ their own. `ActionSheetHeaderContainerView.cornerRadius` is
+ one example. This means that you can change more than cells.
  
  Action sheet insets, margins and widths are not part of the
  appearance model, but have to be changed for each sheet. If
@@ -96,7 +95,7 @@ open class ActionSheet: UIViewController {
         action: @escaping SelectAction) {
         self.presenter = presenter
         selectAction = action
-        super.init(nibName: ActionSheet.className, bundle: ActionSheet.bundle)
+        super.init(nibName: nil, bundle: nil)
         setup(items: items)
     }
     
@@ -113,6 +112,14 @@ open class ActionSheet: UIViewController {
         preferredContentSize.width = preferredPopoverWidth
     }
     
+    open func setupViews() {
+        backgroundView.setup(in: self)
+        stackView.setup(in: self)
+        headerViewContainer.setup(in: self)
+        itemsTableViewHeight = itemsTableView.setup(in: self, itemHandler: itemHandler, heightPriority: 900)
+        buttonsTableViewHeight = buttonsTableView.setup(in: self, itemHandler: buttonHandler)
+    }
+    
     open func setup(items: [ActionSheetItem]) {
         self.items = items.filter { !($0 is ActionSheetButton) }
         buttons = items.compactMap { $0 as? ActionSheetButton }
@@ -125,8 +132,7 @@ open class ActionSheet: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setup(itemsTableView, with: itemHandler)
-        setup(buttonsTableView, with: buttonHandler)
+        setupViews()
     }
     
     open override func viewDidLayoutSubviews() {
@@ -157,23 +163,23 @@ open class ActionSheet: UIViewController {
     public var sectionMargins: CGFloat = 15
     
     
-    // MARK: - Outlets
+    // MARK: - View Properties
     
-    @IBOutlet public weak var backgroundView: ActionSheetBackgroundView?
+    let backgroundView = ActionSheetBackgroundView()
+    let stackView = ActionSheetStackView()
     
-    @IBOutlet weak var stackView: UIStackView?
-    @IBOutlet weak var headerViewContainer: ActionSheetHeaderView?
-    @IBOutlet weak var itemsTableView: ActionSheetItemTableView?
-    @IBOutlet weak var buttonsTableView: ActionSheetButtonTableView?
+    let headerViewContainer = ActionSheetHeaderContainerView()
+    var itemsTableView = ActionSheetItemTableView()
+    var buttonsTableView = ActionSheetButtonTableView()
     
-    @IBOutlet weak var headerViewContainerHeight: NSLayoutConstraint?
-    @IBOutlet weak var itemsTableViewHeight: NSLayoutConstraint?
-    @IBOutlet weak var buttonsTableViewHeight: NSLayoutConstraint?
+    var topMargin: NSLayoutConstraint!
+    var leftMargin: NSLayoutConstraint!
+    var rightMargin: NSLayoutConstraint!
+    var bottomMargin: NSLayoutConstraint!
     
-    @IBOutlet weak var topMargin: NSLayoutConstraint?
-    @IBOutlet weak var leftMargin: NSLayoutConstraint?
-    @IBOutlet weak var rightMargin: NSLayoutConstraint?
-    @IBOutlet weak var bottomMargin: NSLayoutConstraint?
+    var headerViewContainerHeight: NSLayoutConstraint!
+    var itemsTableViewHeight: NSLayoutConstraint!
+    var buttonsTableViewHeight: NSLayoutConstraint!
     
     
     // MARK: - Header Properties
@@ -187,7 +193,7 @@ open class ActionSheet: UIViewController {
     
     public internal(set) var items = [ActionSheetItem]()
     
-    public var itemsHeight: CGFloat { return totalHeight(for: items) }
+    public var itemsHeight: CGFloat { totalHeight(for: items) }
     
     public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
@@ -196,7 +202,7 @@ open class ActionSheet: UIViewController {
     
     public internal(set) var buttons = [ActionSheetButton]()
     
-    public var buttonsHeight: CGFloat { return totalHeight(for: buttons) }
+    public var buttonsHeight: CGFloat { totalHeight(for: buttons) }
     
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
     
@@ -225,7 +231,7 @@ open class ActionSheet: UIViewController {
         refreshHeaderVisibility()
         refreshItems()
         refreshButtons()
-        stackView?.spacing = sectionMargins
+        stackView.spacing = sectionMargins
         presenter.refreshActionSheet()
     }
     
@@ -233,7 +239,7 @@ open class ActionSheet: UIViewController {
         let height = headerView?.frame.height ?? 0
         headerViewContainerHeight?.constant = height
         guard let view = headerView else { return }
-        headerViewContainer?.addSubviewToFill(view)
+        headerViewContainer.addSubview(view, fill: true)
     }
     
     open func refreshHeaderVisibility() {
@@ -241,18 +247,18 @@ open class ActionSheet: UIViewController {
         let hasHeader = headerView != nil
         let isPortrait = size.height > size.width
         let isVisible = hasHeader && (isPortrait || headerViewLandscapeMode == .visible)
-        headerViewContainer?.isHidden = !isVisible
+        headerViewContainer.isHidden = !isVisible
     }
     
     open func refreshItems() {
-        itemsTableView?.tableFooterView = createFooter()
-        itemsTableViewHeight?.constant = itemsHeight
+        itemsTableView.tableFooterView = createFooter()
+        itemsTableViewHeight.constant = itemsHeight
     }
     
     open func refreshButtons() {
-        buttonsTableView?.isHidden = buttons.count == 0
-        buttonsTableView?.tableFooterView = createFooter()
-        buttonsTableViewHeight?.constant = buttonsHeight
+        buttonsTableView.isHidden = buttons.count == 0
+        buttonsTableView.tableFooterView = createFooter()
+        buttonsTableViewHeight.constant = buttonsHeight
     }
     
     
@@ -275,8 +281,8 @@ open class ActionSheet: UIViewController {
     }
 
     open func reloadData() {
-        itemsTableView?.reloadData()
-        buttonsTableView?.reloadData()
+        itemsTableView.reloadData()
+        buttonsTableView.reloadData()
     }
 }
 
@@ -289,15 +295,6 @@ private extension ActionSheet {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 0.1))
         view.backgroundColor = .clear
         return view
-    }
-    
-    func setup(_ tableView: UITableView?, with handler: ActionSheetItemHandler) {
-        tableView?.delegate = handler
-        tableView?.dataSource = handler
-        tableView?.alwaysBounceVertical = false
-        tableView?.estimatedRowHeight = 44
-        tableView?.rowHeight = UITableView.automaticDimension
-        tableView?.cellLayoutMarginsFollowReadableWidth = false
     }
     
     func totalHeight(for items: [ActionSheetItem]) -> CGFloat {

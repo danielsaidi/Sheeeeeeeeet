@@ -11,9 +11,4 @@ import UIKit
 /**
 This table view is used to present items within a sheet.
 */
-open class ActionSheetItemTableView: ActionSheetTableView {
-    
-    open override func fixXcodeAppearanceBug() {
-        backgroundColor = ActionSheetItemTableView.appearance().backgroundColor
-    }
-}
+open class ActionSheetItemTableView: ActionSheetTableView {}

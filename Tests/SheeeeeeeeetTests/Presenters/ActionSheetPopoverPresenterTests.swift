@@ -18,10 +18,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         
         var presenter: TestPresenter!
         var sheet: MockActionSheet!
-        var headerView: UIView!
-        var headerViewContainer: ActionSheetHeaderView!
-        var itemView: ActionSheetItemTableView!
-        var buttonView: ActionSheetButtonTableView!
         
         beforeEach {
             let items: [ActionSheetItem] = [
@@ -31,17 +27,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 ActionSheetMultiSelectItem(title: "item 2", isSelected: true)
             ]
             
-            headerView = UIView(frame: .zero)
-            headerViewContainer = ActionSheetHeaderView(frame: .zero)
-            itemView = ActionSheetItemTableView(frame: .zero)
-            buttonView = ActionSheetButtonTableView(frame: .zero)
-            
             sheet = MockActionSheet(items: items) { (_, _) in }
-            sheet.headerViewContainer = headerViewContainer
-            sheet.headerView = headerView
-            sheet.itemsTableView = itemView
-            sheet.buttonsTableView = buttonView
-            
             presenter = TestPresenter()
             presenter.actionSheet = sheet
         }
@@ -153,7 +139,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         describe("refreshing action sheet") {
             
             beforeEach {
-                sheet.itemsTableView?.backgroundColor = .red
+                sheet.itemsTableView.backgroundColor = .red
                 presenter.present(sheet: sheet, in: UIViewController(), from: UIView()) {}
                 presenter.refreshActionSheet()
             }
@@ -167,8 +153,8 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
             
             it("hides unused views") {
-                expect(sheet.buttonsTableView?.isHidden).to(beTrue())
-                expect(sheet.headerViewContainer?.isHidden).to(beTrue())
+                expect(sheet.buttonsTableView.isHidden).to(beTrue())
+                expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
             
             it("resizes popover") {

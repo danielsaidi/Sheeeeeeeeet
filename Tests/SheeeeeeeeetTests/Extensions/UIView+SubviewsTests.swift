@@ -20,7 +20,7 @@ class UIView_SubviewsTests: QuickSpec {
             it("adds subview with filling configuration") {
                 let parent = UIView(frame: CGRect(x: 10, y: 20, width: 30, height: 40))
                 let view = UIView(frame: .zero)
-                parent.addSubviewToFill(view)
+                parent.addSubview(view, fill: true)
                 
                 expect(parent.subviews.count).to(equal(1))
                 expect(parent.subviews[0]).to(be(view))

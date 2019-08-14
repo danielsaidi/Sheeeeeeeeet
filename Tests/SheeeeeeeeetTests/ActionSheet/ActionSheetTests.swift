@@ -132,24 +132,17 @@ class ActionSheetTests: QuickSpec {
         
         describe("loading view") {
             
-            var itemsTableView: ActionSheetItemTableView!
-            var buttonsTableView: ActionSheetButtonTableView!
-            
             beforeEach {
                 sheet = createSheet()
-                itemsTableView = ActionSheetItemTableView(frame: .zero)
-                buttonsTableView = ActionSheetButtonTableView(frame: .zero)
-                sheet.itemsTableView = itemsTableView
-                sheet.buttonsTableView = buttonsTableView
                 sheet.viewDidLoad()
             }
             
             it("sets up action sheet") {
-                expect(sheet.setupInvokeCount).to(equal(1))
+                expect(sheet.setupInvokeCount).to(beGreaterThanOrEqualTo(1))
             }
             
             it("sets up items table view") {
-                let view = sheet.itemsTableView!
+                let view = sheet.itemsTableView
                 expect(view.delegate).to(be(sheet.itemHandler))
                 expect(view.dataSource).to(be(sheet.itemHandler))
                 expect(view.alwaysBounceVertical).to(beFalse())
@@ -159,7 +152,7 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("sets up buttons table view") {
-                let view = sheet.buttonsTableView!
+                let view = sheet.buttonsTableView
                 expect(view.delegate).to(be(sheet.buttonHandler))
                 expect(view.dataSource).to(be(sheet.buttonHandler))
                 expect(view.alwaysBounceVertical).to(beFalse())
@@ -385,7 +378,7 @@ class ActionSheetTests: QuickSpec {
                 expect(sheet.refreshHeaderVisibilityInvokeCount).to(equal(1))
                 expect(sheet.refreshItemsInvokeCount).to(equal(1))
                 expect(sheet.refreshButtonsInvokeCount).to(equal(1))
-                expect(sheet.stackView!.spacing).to(equal(15))
+                expect(sheet.stackView.spacing).to(equal(15))
                 expect(presenter.refreshActionSheetInvokeCount).to(equal(1))
             }
         }
@@ -393,20 +386,17 @@ class ActionSheetTests: QuickSpec {
         
         describe("refreshing header") {
             
-            var container: ActionSheetHeaderView!
             var height: NSLayoutConstraint!
             
             beforeEach {
-                container = ActionSheetHeaderView()
                 height = NSLayoutConstraint()
                 sheet = createSheet()
-                sheet.headerViewContainer = container
                 sheet.headerViewContainerHeight = height
             }
             
             it("refreshes correctly if header view is nil") {
                 sheet.refreshHeader()
-                expect(container.subviews.count).to(equal(0))
+                expect(sheet.headerViewContainer.subviews.count).to(equal(0))
                 expect(height.constant).to(equal(0))
             }
             
@@ -415,8 +405,9 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerView = view
                 sheet.refreshHeader()
                 
-                expect(container.subviews.count).to(equal(1))
-                expect(container.subviews[0]).to(be(view))
+                let subviews = sheet.headerViewContainer.subviews
+                expect(subviews.count).to(equal(1))
+                expect(subviews[0]).to(be(view))
                 expect(height.constant).to(equal(200))
             }
         }
@@ -444,7 +435,7 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerView = nil
                 sheet.refreshHeaderVisibility()
                 
-                expect(sheet.headerViewContainer!.isHidden).to(beTrue())
+                expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
             
             it("hides header container in landscape orientation if set to hide header in landscape") {
@@ -452,7 +443,7 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerViewLandscapeMode = .hidden
                 sheet.refreshHeaderVisibility()
                 
-                expect(sheet.headerViewContainer!.isHidden).to(beTrue())
+                expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
             
             it("shows header container in landscape orientation if set to show header in landscape") {
@@ -460,7 +451,7 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerViewLandscapeMode = .visible
                 sheet.refreshHeaderVisibility()
                 
-                expect(sheet.headerViewContainer!.isHidden).to(beFalse())
+                expect(sheet.headerViewContainer.isHidden).to(beFalse())
             }
             
             it("shows header container in portrait orientation if set to hide header in landscape") {
@@ -468,7 +459,7 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerViewLandscapeMode = .hidden
                 sheet.refreshHeaderVisibility()
                 
-                expect(sheet.headerViewContainer!.isHidden).to(beFalse())
+                expect(sheet.headerViewContainer.isHidden).to(beFalse())
             }
             
             it("shows header container in portrait orientation if set to show header in landscape") {
@@ -476,7 +467,7 @@ class ActionSheetTests: QuickSpec {
                 sheet.headerViewLandscapeMode = .visible
                 sheet.refreshHeaderVisibility()
                 
-                expect(sheet.headerViewContainer!.isHidden).to(beFalse())
+                expect(sheet.headerViewContainer.isHidden).to(beFalse())
             }
         }
         
@@ -612,7 +603,6 @@ class ActionSheetTests: QuickSpec {
                 sheet.itemsTableView = view1
                 sheet.buttonsTableView = view2
                 sheet.reloadData()
-                
                 expect(view1.reloadDataInvokeCount).to(equal(1))
                 expect(view2.reloadDataInvokeCount).to(equal(1))
             }

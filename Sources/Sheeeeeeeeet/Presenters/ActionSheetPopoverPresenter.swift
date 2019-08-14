@@ -70,15 +70,15 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         guard let sheet = actionSheet else { return }
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []
-        sheet.headerViewContainer?.isHidden = true
-        sheet.buttonsTableView?.isHidden = true
+        sheet.headerViewContainer.isHidden = true
+        sheet.buttonsTableView.isHidden = true
         sheet.preferredContentSize.height = sheet.itemsHeight
         refreshPopoverBackgroundColor()
     }
     
     open func refreshPopoverBackgroundColor() {
         guard #available(iOS 10.0, *) else { return }
-        popover?.backgroundColor = actionSheet?.itemsTableView?.backgroundColor ?? .white
+        popover?.backgroundColor = actionSheet?.itemsTableView.backgroundColor ?? .white
     }
     
     open func setupOrientationChangeDetection(with center: NotificationCenter = .default) {
