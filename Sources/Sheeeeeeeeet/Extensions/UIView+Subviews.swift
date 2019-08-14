@@ -8,8 +8,12 @@
 
 import UIKit
 
-public extension UIView {
-    
+extension UIView {
+
+    /**
+     This internal helper function helps adding a subview to
+     fill its parents entire frame.
+     */
     func addSubview(_ subview: UIView, fill: Bool) {
         addSubview(subview)
         guard fill else { return }

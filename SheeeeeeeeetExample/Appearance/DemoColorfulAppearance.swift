@@ -29,6 +29,7 @@ class DemoColorfulAppearance: DemoAppearance {
     override func applyColors() {
         background.backgroundColor = .purple
         item.subtitleColor = .blue
+        item.backgroundColor = .orange
         selectItem.selectedTintColor = .blue
         selectItem.selectedTitleColor = .green
         selectItem.selectedIconColor = .purple

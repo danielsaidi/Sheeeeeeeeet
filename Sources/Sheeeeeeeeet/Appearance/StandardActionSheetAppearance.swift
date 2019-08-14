@@ -47,10 +47,8 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
     open func applyColors() {
         background.backgroundColor = .color(for: .overlay)
         header.backgroundColor = .clear
-        table.backgroundColor = .color(for: .background)
         table.separatorColor = .color(for: .separator)
         
-        item.backgroundColor = .color(for: .background)
         item.tintColor = .color(for: .text)
         item.titleColor = .color(for: .text)
         item.subtitleColor = .color(for: .text)
