@@ -45,24 +45,24 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
     }
     
     open func applyColors() {
-        background.backgroundColor = .color(for: .overlay)
+        background.backgroundColor = .sheetColor(.overlay)
         header.backgroundColor = .clear
-        table.separatorColor = .color(for: .separator)
+        table.separatorColor = .sheetColor(.separator)
         
-        item.tintColor = .color(for: .text)
-        item.titleColor = .color(for: .text)
-        item.subtitleColor = .color(for: .text)
-        selectItem.selectedIconColor = .color(for: .text)
-        selectItem.selectedTintColor = .color(for: .text)
-        selectItem.selectedTitleColor = .color(for: .text)
-        selectItem.tintColor = .color(for: .discreteText)
-        selectItem.titleColor = .color(for: .discreteText)
-        selectItem.unselectedIconColor = .color(for: .discreteText)
-        multiSelectToggle.selectAllSubtitleColor = .color(for: .actionText)
-        multiSelectToggle.deselectAllSubtitleColor = .color(for: .actionText)
+        item.tintColor = .sheetColor(.text)
+        item.titleColor = .sheetColor(.text)
+        item.subtitleColor = .sheetColor(.text)
+        selectItem.selectedIconColor = .sheetColor(.text)
+        selectItem.selectedTintColor = .sheetColor(.text)
+        selectItem.selectedTitleColor = .sheetColor(.text)
+        selectItem.tintColor = .sheetColor(.discreteText)
+        selectItem.titleColor = .sheetColor(.discreteText)
+        selectItem.unselectedIconColor = .sheetColor(.discreteText)
+        multiSelectToggle.selectAllSubtitleColor = .sheetColor(.actionText)
+        multiSelectToggle.deselectAllSubtitleColor = .sheetColor(.actionText)
 
-        cancelButton.titleColor = .color(for: .discreteText)
-        dangerButton.titleColor = .color(for: .danger)
+        cancelButton.titleColor = .sheetColor(.discreteText)
+        dangerButton.titleColor = .sheetColor(.danger)
     }
     
     open func applyCornerRadii() {

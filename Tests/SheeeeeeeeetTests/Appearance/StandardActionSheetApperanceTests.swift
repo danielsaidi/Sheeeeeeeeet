@@ -56,24 +56,24 @@ class StandardActionSheetApperanceTests: QuickSpec {
             }
             
             it("applies colors") {
-                expect(background.backgroundColor).to(equal(.color(for: .overlay)))
+                expect(background.backgroundColor).to(equal(.sheetColor(.overlay)))
                 expect(header.backgroundColor).to(equal(.clear))
-                expect(table.separatorColor).to(equal(.color(for: .separator)))
+                expect(table.separatorColor).to(equal(.sheetColor(.separator)))
                 
-                expect(item.tintColor).to(equal(.color(for: .text)))
-                expect(item.titleColor).to(equal(.color(for: .text)))
-                expect(item.subtitleColor).to(equal(.color(for: .text)))
-                expect(selectItem.selectedIconColor).to(equal(.color(for: .text)))
-                expect(selectItem.selectedTintColor).to(equal(.color(for: .text)))
-                expect(selectItem.selectedTitleColor).to(equal(.color(for: .text)))
-                expect(selectItem.tintColor).to(equal(.color(for: .discreteText)))
-                expect(selectItem.titleColor).to(equal(.color(for: .discreteText)))
-                expect(selectItem.unselectedIconColor).to(equal(.color(for: .discreteText)))
-                expect(multiSelectToggle.selectAllSubtitleColor).to(equal(.color(for: .actionText)))
-                expect(multiSelectToggle.deselectAllSubtitleColor).to(equal(.color(for: .actionText)))
+                expect(item.tintColor).to(equal(.sheetColor(.text)))
+                expect(item.titleColor).to(equal(.sheetColor(.text)))
+                expect(item.subtitleColor).to(equal(.sheetColor(.text)))
+                expect(selectItem.selectedIconColor).to(equal(.sheetColor(.text)))
+                expect(selectItem.selectedTintColor).to(equal(.sheetColor(.text)))
+                expect(selectItem.selectedTitleColor).to(equal(.sheetColor(.text)))
+                expect(selectItem.tintColor).to(equal(.sheetColor(.discreteText)))
+                expect(selectItem.titleColor).to(equal(.sheetColor(.discreteText)))
+                expect(selectItem.unselectedIconColor).to(equal(.sheetColor(.discreteText)))
+                expect(multiSelectToggle.selectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
+                expect(multiSelectToggle.deselectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
                 
-                expect(cancelButton.titleColor).to(equal(.color(for: .discreteText)))
-                expect(dangerButton.titleColor).to(equal(.color(for: .danger)))
+                expect(cancelButton.titleColor).to(equal(.sheetColor(.discreteText)))
+                expect(dangerButton.titleColor).to(equal(.sheetColor(.danger)))
             }
             
             it("applies corner radii") {

@@ -13,7 +13,7 @@ public extension UIColor {
     /**
      Get the UIColor value of a semantic ActionSheet color.
      */
-    static func color(for color: ActionSheetColor) -> UIColor {
+    static func sheetColor(_ color: ActionSheetColor) -> UIColor {
         return color.color
     }
 }

@@ -23,7 +23,7 @@ class UIColor_ActionSheetColorTests: QuickSpec {
             
             it("can resolve action sheet color") {
                 ActionSheetColor.allCases.forEach {
-                    expect(UIColor.color(for: $0)).to(equal($0.color))
+                    expect(UIColor.sheetColor($0)).to(equal($0.color))
                 }
             }
         }
