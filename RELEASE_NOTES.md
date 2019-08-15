@@ -5,12 +5,9 @@
 
 This version adds Xcode 11 and iOS 13 support, including support for dark mode and high contrast color variants.
 
-There is a new `ActionSheetColor` enum with sheet-specific semantic colors. It uses the new, adaptive system colors in iOS 13 and falls back to older, non-adaptive colors in iOS 12 and below.
+There is a new `ActionSheetColor` enum with sheet-specific semantic colors. It uses the new, adaptive system colors in iOS 13 and falls back to older, non-adaptive colors in iOS 12 and below. You can either use the enum directly or use the static `UIColor` extension `.sheetColor(...)`.
 
-The appearance model has been extended with a new appearance types, which you can use to apply a certain appearance to your action sheets. There is an `ActionSheetAppearance` base class as well as a standard `StandardActionSheetAppearance` appearance. The standard appearance applies a standard look, including dark mode support, high contrast color variants and SFSymbol icons on iOS 13.
-
-New deprecations:
-* `ActionSheetTableView.appearance().separatorLineColor` is deprecated. Use `separatorColor` instead.
+The appearance model has been extended with new a appearance type, which you can use to style your sheets. There is an `ActionSheetAppearance` base class as well as a standard `StandardActionSheetAppearance` appearance which applies a standard look, including dark mode support, high contrast color variants and SFSymbol icons on iOS 13.
 
 
 ## 2.0.2

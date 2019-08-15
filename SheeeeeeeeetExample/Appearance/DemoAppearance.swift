@@ -33,6 +33,8 @@ class DemoAppearance: StandardActionSheetAppearance {
     override func apply() {
         super.apply()
         applyPopoverWidth()
+        UITabBar.appearance().tintColor = .sheetColor(.text)
+        UINavigationBar.appearance().tintColor = .sheetColor(.text)
     }
     
     override func applyIcons() {
