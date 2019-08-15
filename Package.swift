@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(url: "git@github.com:Quick/Quick.git", from: "2.1.0"),
         .package(url: "git@github.com:Quick/Nimble.git", from: "8.0.2"),
-        .package(url: "git@github.com:danielsaidi/MockNRoll.git", .branch("xcode11"))
+        .package(url: "git@github.com:danielsaidi/MockNRoll.git", .branch("0.1.0-beta"))
     ],
     targets: [
         .target(
