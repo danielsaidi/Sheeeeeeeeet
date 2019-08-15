@@ -160,7 +160,6 @@
 		459DA1BC2056C14A00644490 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		459DA1BE2056C14A00644490 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		459DA1BF2056C14A00644490 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		459DA1C02056C14A00644490 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
 		45CF8FA6205BAE9800F01A3F /* StandardActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardActionSheet.swift; sourceTree = "<group>"; };
 		45CF8FAA205BAF3100F01A3F /* ActionSheet+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Items.swift"; sourceTree = "<group>"; };
@@ -386,7 +385,6 @@
 			children = (
 				459DA1BC2056C14A00644490 /* .swift-version */,
 				459DA1BF2056C14A00644490 /* .swiftlint.yml */,
-				459DA1C02056C14A00644490 /* .travis.yml */,
 				459DA1C22056C15600644490 /* Fastfile */,
 				459DA1BB2056C14900644490 /* LICENSE */,
 				84BD8AAE2302CF380020610B /* Package.resolved */,
