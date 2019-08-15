@@ -78,7 +78,10 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     open func refreshPopoverBackgroundColor() {
         guard #available(iOS 10.0, *) else { return }
-        popover?.backgroundColor = actionSheet?.itemsTableView.backgroundColor ?? .white
+        let color = actionSheet?.itemsTableView.backgroundColor ?? .white
+        actionSheet?.backgroundView.isHidden = true
+        actionSheet?.view.backgroundColor = color
+        popover?.backgroundColor = color
     }
     
     open func setupOrientationChangeDetection(with center: NotificationCenter = .default) {
