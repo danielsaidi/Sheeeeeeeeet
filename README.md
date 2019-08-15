@@ -24,17 +24,22 @@
 ## <a name="about"></a>About Sheeeeeeeeet
 
 Sheeeeeeeeet is a Swift library for creating custom action sheets. It comes with
-many built-in components and can be extended with your own custom components.
+many built-in components and can be extended with custom ones.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Sheeeeeeeeet's action sheets can be styled to look like a `UIAlertController` or
-a lot different. You can also customize how they are presented and dismissed.
+A Sheeeeeeeeet action sheet can be styled to look just like a `UIAlertController`
+or completely different. You can also customize how it's presented and dismissed.
 
 
 ## <a name="installation"></a>Installation
+
+### <a name="spm"></a>Swift Package Manager
+
+In Xcode 11 and later, the easiest way to add Sheeeeeeeeet to your project is to
+use Swif Package Manager.
 
 ### <a name="cocoapods"></a>CocoaPods
 
@@ -44,6 +49,9 @@ To install Sheeeeeeeeet with [CocoaPods][CocoaPods], add this to your `Podfile`:
 pod 'Sheeeeeeeeet'
 ```
 
+For more information about how to work with the project after this, please check
+out the CocoaPods documentation.
+
 ### <a name="carthage"></a>Carthage
 
 To install Sheeeeeeeeet with [Carthage][Carthage], add this to your `Cartfile`:
@@ -51,6 +59,9 @@ To install Sheeeeeeeeet with [Carthage][Carthage], add this to your `Cartfile`:
 ```ruby
 github "danielsaidi/Sheeeeeeeeet"
 ```
+
+For more information about how to work with the project after this, please check
+out the Carthage documentation.
 
 ### <a name="manual-installation"></a>Manual installation
 
@@ -61,8 +72,8 @@ and add `Sheeeeeeeeet.framework` as an embedded app binary and target dependency
 
 ## <a name="basic-example"></a>Basic example
 
-The most basic way to create an action sheet, is to specify items and the select
-action, like this:
+The easiest way to create an action sheet is to specify the items and the select
+action like this:
 
 ```swift
 let title = ActionSheetTitle(title: "Select a value type")
@@ -86,8 +97,7 @@ sheet.present(in: self, from: view, completion: ...)   // or
 sheet.present(in: self, from: barButtonItem, completion: ...)
 ```
 
-The `from` view is optional and is only used if the action sheet it presented in
-a popover.
+The `from` view is optional and only used if the sheet it presented in a popover.
 
 
 ## <a name="advanced-example"></a>Advanced example
@@ -102,29 +112,28 @@ to see how you can take things one step further.
 
 Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and
 multi-select items, links, collection-based items, custom items, buttons, titles
-etc. For a complete list of item types, [click here][Item-Types].
+etc. For a complete list of built-in item types, [click here][Item-Types].
 
 
 ## <a name="appearance"></a>Appearance
 
 Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
-views and items. You can change fonts, colors and images as well as item heights
-and even more stuff. For a complete guide, [click here][Appearance].
+views and items. You can change fonts, colors and images as well as item heights,
+corner radius and even more. For a complete guide, [click here][Appearance].
 
 
 ## Specifying items after initialization
 
 If you require a created action sheet instance to resolve which items to present
 (very common when you subclass `ActionSheet`), just create a sheet with no items
-then call `setup(with:)` once its created.
+then call `setup(with: items)` once its created.
 
 
-## Example App
+## Demo App
 
-This project contains an example app that demonstrates basic and advanced action
-sheet, as well as how to handle subclassing, appearances etc. Before you can run
-it you must install [Carthage][Carthage] and run `carthage update --platform iOS`.
-You can then open the project and try out the different sheets and item types.
+This project contains a demo app that demonstrates basic and advanced sheets, as
+well as how to handle subclassing, appearances etc. It doesn't require any setup,
+but you may have to adjust its code signing if you want to run it on a device.
 
 
 ## Contact me

@@ -2,28 +2,29 @@
 
 # Appearance
 
-Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
-embedded views and items. You can change their fonts, colors and images, as well
-as the height of various item types, corner radii and more.
+Sheeeeeeeeet lets you customize the appearances of action sheets and their views
+and items. You can change fonts, colors and images, item heights, rounded corner
+radius and much more.
 
-This guide will show you which customization alternatives that are available. To
-learn more, check out the demo app and this [advanced example][AdvancedExample].
+This guide will show you the available customization alternatives. To learn more,
+check out the demo app and this [advanced example][AdvancedExample].
 
 
-## Important
+## Global appearances
 
 You must apply a global action sheet appearance in order for your sheets to look
-good. Do this when your app starts, by calling `ActionSheet.applyAppearance(...)`.
-To apply the standard appearance, call `ActionSheet.applyAppearance(.standard)`.
+good. You can do this at app launch by calling `ActionSheet.applyAppearance(...)`.
+Apply the standard appearance by calling `ActionSheet.applyAppearance(.standard)`.
+You can apply new appearances at any time.
 
 You can inherit `ActionSheetAppearance` to create your own custom appearances. A
 custom appearance can also inherit `StandardActionSheetAppearance` to build upon
-the standard appearance.
+the standard appearance. Have a look at the demo app for examples.
 
 
 ## ActionSheet apperances
 
-The `ActionSheet` class has three instance properties that you can modify:
+The `ActionSheet` class has three appearance properties that you can modify:
 
 * `minimumContentInsets: UIEdgeInsets` (the minimum screen edge margins)
 * `preferredPopoverWidth: CGFloat` (the popover width, when presented on iPads)
