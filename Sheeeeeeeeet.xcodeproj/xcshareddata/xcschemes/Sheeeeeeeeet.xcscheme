@@ -21,16 +21,16 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "YES"
+            buildForTesting = "NO"
             buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "453C045C1FC065AE0028FA02"
-               BuildableName = "SheeeeeeeeetExample.app"
-               BlueprintName = "SheeeeeeeeetExample"
+               BlueprintIdentifier = "84C19991230AB014000FFB05"
+               BuildableName = "SheeeeeeeeetDemo.app"
+               BlueprintName = "SheeeeeeeeetDemo"
                ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -67,9 +67,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "453C045C1FC065AE0028FA02"
-            BuildableName = "SheeeeeeeeetExample.app"
-            BlueprintName = "SheeeeeeeeetExample"
+            BlueprintIdentifier = "84C19991230AB014000FFB05"
+            BuildableName = "SheeeeeeeeetDemo.app"
+            BlueprintName = "SheeeeeeeeetDemo"
             ReferencedContainer = "container:Sheeeeeeeeet.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
