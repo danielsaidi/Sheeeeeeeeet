@@ -39,35 +39,32 @@ or completely different. You can also customize how it's presented and dismissed
 ### <a name="spm"></a>Swift Package Manager
 
 In Xcode 11 and later, the easiest way to add Sheeeeeeeeet to your project is to
-use Swif Package Manager.
+use Swift Package Manager:
+```
+.package(url: "git@github.com:danielsaidi/Sheeeeeeeeet.git" ...)
+```
 
 ### <a name="cocoapods"></a>CocoaPods
 
-To install Sheeeeeeeeet with [CocoaPods][CocoaPods], add this to your `Podfile`:
+### CocoaPods
 
-```ruby
+Add this to your `Podfile` and run `pod install`:
+```
 pod 'Sheeeeeeeeet'
 ```
-
-For more information about how to work with the project after this, please check
-out the CocoaPods documentation.
+After that, remember to use the generated workspace instead of the project file.
 
 ### <a name="carthage"></a>Carthage
 
-To install Sheeeeeeeeet with [Carthage][Carthage], add this to your `Cartfile`:
-
-```ruby
+Add this to your `Cartfile` and run `carthage update`:
+```
 github "danielsaidi/Sheeeeeeeeet"
 ```
-
-For more information about how to work with the project after this, please check
-out the Carthage documentation.
+After that, check the Carthage docs for info on how to add the library to your app.
 
 ### <a name="manual-installation"></a>Manual installation
 
-To add `Sheeeeeeeeet` to your app without Carthage or CocoaPods, clone this repo
-and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to the project
-and add `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
+To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to the project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
 ## <a name="basic-example"></a>Basic example

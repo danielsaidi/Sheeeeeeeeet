@@ -133,8 +133,6 @@
 		453C04211FC0655C0028FA02 /* Sheeeeeeeeet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sheeeeeeeeet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		457EC2BD1FCE1ACD000EF1AD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		459DA1BB2056C14900644490 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		459DA1BC2056C14A00644490 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		459DA1BE2056C14A00644490 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 		8423864721EF7ED10045F121 /* Appearance.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Appearance.md; sourceTree = "<group>"; };
 		8423864821EF7ED10045F121 /* Advanced-Example.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Advanced-Example.md"; sourceTree = "<group>"; };
 		8423864921EF7ED10045F121 /* Items-Types.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Items-Types.md"; sourceTree = "<group>"; };
-		84243E412301A5FB00FC5AAF /* MockNRoll.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MockNRoll.framework; path = Carthage/Build/iOS/MockNRoll.framework; sourceTree = "<group>"; };
 		84243E462301A90D00FC5AAF /* DemoColorfulAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoColorfulAppearance.swift; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		8493967B21E7F9B200DC0AEF /* DemoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
@@ -263,7 +260,6 @@
 			children = (
 				453C04231FC0655C0028FA02 /* Sheeeeeeeeet */,
 				84C19993230AB014000FFB05 /* SheeeeeeeeetDemo */,
-				456EAA0F1FCC203100A719ED /* Frameworks */,
 				459DA1BA2056C10800644490 /* Project Files */,
 				453C04221FC0655C0028FA02 /* Products */,
 			);
@@ -286,16 +282,6 @@
 				453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */,
 			);
 			path = Sheeeeeeeeet;
-			sourceTree = "<group>";
-		};
-		456EAA0F1FCC203100A719ED /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				84243E412301A5FB00FC5AAF /* MockNRoll.framework */,
-				457EC2BE1FCE1ACD000EF1AD /* Nimble.framework */,
-				457EC2BD1FCE1ACD000EF1AD /* Quick.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		459DA1BA2056C10800644490 /* Project Files */ = {
@@ -981,6 +967,7 @@
 				INFOPLIST_FILE = Sheeeeeeeeet/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.Sheeeeeeeeet;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1003,6 +990,7 @@
 				INFOPLIST_FILE = Sheeeeeeeeet/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielsaidi.Sheeeeeeeeet;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

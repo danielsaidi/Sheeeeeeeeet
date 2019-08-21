@@ -1,4 +1,4 @@
-fastlane_version "2.30.2"
+fastlane_version "2.129.0"
 
 default_platform :ios
 
@@ -26,7 +26,8 @@ platform :ios do
     git_commit(
       path: [
         "Sheeeeeeeeet.podspec",
-        "Fastlane/"],
+        "Fastlane/"
+      ],
       message: "Bump to #{version}"
     )
 
@@ -35,4 +36,5 @@ platform :ios do
     push_to_git_remote()
     pod_push()
   end
+  
 end

@@ -1,7 +1,3 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
-
 # SPM defaults
 .DS_Store
 /.build
