@@ -16,23 +16,20 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet is a Swift library for creating custom action sheets. It comes with
-many built-in components and can be extended with custom ones.
+Sheeeeeeeeet is a Swift library that helps you create custom, fully stylable action sheets. It comes with many built-in components and can be extended with custom ones.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-A Sheeeeeeeeet action sheet can be styled to look just like a `UIAlertController`
-or completely different. You can also customize how it's presented and dismissed.
+A Sheeeeeeeeet action sheet can be styled to look just like a `UIAlertController` or completely different. You can also customize how it's presented and dismissed.
 
 
 ## <a name="installation"></a>Installation
 
 ### <a name="spm"></a>Swift Package Manager
 
-In Xcode 11 and later, the easiest way to add Sheeeeeeeeet to your project is to
-use Swift Package Manager:
+In Xcode 11 and later, the easiest way to add Sheeeeeeeeet to your project is to use Swift Package Manager:
 ```
 .package(url: "git@github.com:danielsaidi/Sheeeeeeeeet.git" ...)
 ```
@@ -42,7 +39,7 @@ use Swift Package Manager:
 ### CocoaPods
 
 Add this to your `Podfile` and run `pod install`:
-```
+```ruby
 pod 'Sheeeeeeeeet'
 ```
 After that, remember to use the generated workspace instead of the project file.

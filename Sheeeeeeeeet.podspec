@@ -17,8 +17,7 @@ custom types are more specific to your app or domain.
   s.source           = { :git => 'https://github.com/danielsaidi/Sheeeeeeeeet.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/danielsaidi'
 
+  s.swift_version = '5.1'
   s.ios.deployment_target = '9.0'
-
   s.source_files = 'Sources/Sheeeeeeeeet/**/*.swift'
-  s.resources    = 'Sources/Sheeeeeeeeet/**/*.xib'
 end
