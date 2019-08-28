@@ -27,7 +27,7 @@ extension ActionSheetAppearance {
 class DemoColorfulAppearance: DemoAppearance {
 
     override func applyColors() {
-        background.backgroundColor = .purple
+        background.backgroundColor = UIColor.purple.withAlphaComponent(0.4)
         item.subtitleColor = .blue
         item.backgroundColor = .orange
         selectItem.selectedTintColor = .blue

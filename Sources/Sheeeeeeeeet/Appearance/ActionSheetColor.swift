@@ -53,7 +53,7 @@ public extension ActionSheetColor {
 private extension ActionSheetColor {
     
     var overlay: UIColor {
-        UIColor.black.withAlphaComponent(0.4)
+        UIColor.black.withAlphaComponent(0.6)
     }
     
     @available(iOS 13.0, *)
