@@ -56,7 +56,7 @@ open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: A
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        tableView.register(ActionSheetCollectionItemCell.nib, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(ActionSheetCollectionItemCell.self, forCellReuseIdentifier: className)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
         guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type created by superclass") }
         typedCell.setup(withNib: T.nib, owner: self)
@@ -135,13 +135,14 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var collectionView: UICollectionView! {
-        didSet {
-            let flow = UICollectionViewFlowLayout()
-            flow.scrollDirection = .horizontal
-            collectionView.collectionViewLayout = flow
-        }
-    }
+    private lazy var collectionView: UICollectionView = {
+        let flow = UICollectionViewFlowLayout()
+        flow.scrollDirection = .horizontal
+        let view = UICollectionView(frame: .zero, collectionViewLayout: flow)
+        view.backgroundColor = .clear
+        contentView.addSubview(view, fill: true)
+        return view
+    }()
     
     
     // MARK: - Functions

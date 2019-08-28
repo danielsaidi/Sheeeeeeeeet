@@ -52,6 +52,7 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
         item.tintColor = .sheetColor(.text)
         item.titleColor = .sheetColor(.text)
         item.subtitleColor = .sheetColor(.text)
+        
         selectItem.selectedIconColor = .sheetColor(.text)
         selectItem.selectedTintColor = .sheetColor(.text)
         selectItem.selectedTitleColor = .sheetColor(.text)
