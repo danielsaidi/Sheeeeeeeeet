@@ -48,7 +48,9 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
         background.backgroundColor = .sheetColor(.overlay)
         header.backgroundColor = .clear
         table.separatorColor = .sheetColor(.separator)
+        table.backgroundColor = .sheetColor(.background)
         
+        //item.backgroundColor = .clear
         item.tintColor = .sheetColor(.text)
         item.titleColor = .sheetColor(.text)
         item.subtitleColor = .sheetColor(.text)
