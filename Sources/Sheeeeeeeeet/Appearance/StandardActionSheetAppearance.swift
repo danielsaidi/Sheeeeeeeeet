@@ -34,6 +34,10 @@ public extension ActionSheetAppearance {
  item type that is affected by this appearance.
  */
 open class StandardActionSheetAppearance: ActionSheetAppearance {
+    
+    var itemInPopover: ActionSheetItemCell {
+        ActionSheetItemCell.appearance(whenContainedInInstancesOf: [UIPopoverBackgroundView.self])
+    }
 
     open override func apply() {
         applyColors()
@@ -50,7 +54,8 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
         table.separatorColor = .sheetColor(.separator)
         table.backgroundColor = .sheetColor(.background)
         
-        //item.backgroundColor = .clear
+        item.backgroundColor = .clear
+        itemInPopover.backgroundColor = UITableViewCell.appearance().backgroundColor
         item.tintColor = .sheetColor(.text)
         item.titleColor = .sheetColor(.text)
         item.subtitleColor = .sheetColor(.text)
