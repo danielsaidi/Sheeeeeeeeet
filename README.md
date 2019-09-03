@@ -6,6 +6,7 @@
     <a href="https://github.com/danielsaidi/Sheeeeeeeeet">
         <img src="https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg?style=flat" alt="Version" />
     </a>
+    <img src="https://img.shields.io/cocoapods/p/Vandelay.svg?style=flat" alt="Platform" />
     <img src="https://img.shields.io/badge/Swift-5.1-orange.svg" alt="Swift 5.1" />
     <img src="https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102" alt="License" />
     <a href="https://twitter.com/danielsaidi">
@@ -25,39 +26,35 @@ Sheeeeeeeeet is a Swift library that helps you create custom, fully stylable act
 A Sheeeeeeeeet action sheet can be styled to look just like a `UIAlertController` or completely different. You can also customize how it's presented and dismissed.
 
 
-## <a name="installation"></a>Installation
+## Installation
 
-### <a name="spm"></a>Swift Package Manager
+### Swift Package Manager
 
 In Xcode 11 and later, the easiest way to add Sheeeeeeeeet to your project is to use Swift Package Manager:
 ```
 .package(url: "git@github.com:danielsaidi/Sheeeeeeeeet.git" ...)
 ```
 
-### <a name="cocoapods"></a>CocoaPods
-
 ### CocoaPods
 
-Add this to your `Podfile` and run `pod install`:
+If you use [CocoaPods](CocoaPods), add this line to your `Podfile` and run `pod install`:
 ```ruby
-pod 'Sheeeeeeeeet'
+pod "Sheeeeeeeeet"
 ```
-After that, remember to use the generated workspace instead of the project file.
 
 ### <a name="carthage"></a>Carthage
 
-Add this to your `Cartfile` and run `carthage update`:
+If you use [Carthage](Carthage), add this line to your `Cartfile` then run `carthage update --platform iOS`:
 ```
 github "danielsaidi/Sheeeeeeeeet"
 ```
-After that, check the Carthage docs for info on how to add the library to your app.
 
-### <a name="manual-installation"></a>Manual installation
+### Manual installation
 
 To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to the project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
-## <a name="basic-example"></a>Basic example
+## Basic example
 
 The easiest way to create an action sheet is to specify the items and the select
 action like this:

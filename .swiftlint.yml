@@ -13,7 +13,6 @@ disabled_rules:
 
 excluded:
   - Pods
-  - Carthage
   - Packages
 
 # This is a strange one, since it also includes init functions

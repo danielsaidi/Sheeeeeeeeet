@@ -133,7 +133,6 @@
 		453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sheeeeeeeeet.h; sourceTree = "<group>"; };
 		453C04251FC0655C0028FA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459DA1BB2056C14900644490 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		459DA1BC2056C14A00644490 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		459DA1BE2056C14A00644490 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		459DA1BF2056C14A00644490 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
@@ -285,7 +284,6 @@
 		459DA1BA2056C10800644490 /* Project Files */ = {
 			isa = PBXGroup;
 			children = (
-				459DA1BC2056C14A00644490 /* .swift-version */,
 				459DA1BF2056C14A00644490 /* .swiftlint.yml */,
 				459DA1C22056C15600644490 /* Fastfile */,
 				459DA1BB2056C14900644490 /* LICENSE */,
