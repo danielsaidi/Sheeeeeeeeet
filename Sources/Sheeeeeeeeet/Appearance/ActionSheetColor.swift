@@ -60,7 +60,7 @@ private extension ActionSheetColor {
     var adaptiveColor: UIColor {
         switch self {
         case .actionText: return .systemBlue
-        case .background: return .secondarySystemBackground
+        case .background: return .tertiarySystemBackground
         case .danger: return .systemRed
         case .disabledText: return .secondaryLabel
         case .discreteText: return .secondaryLabel

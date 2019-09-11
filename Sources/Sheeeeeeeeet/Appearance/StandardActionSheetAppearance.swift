@@ -35,10 +35,6 @@ public extension ActionSheetAppearance {
  */
 open class StandardActionSheetAppearance: ActionSheetAppearance {
     
-    var itemInPopover: ActionSheetItemCell {
-        ActionSheetItemCell.appearance(whenContainedInInstancesOf: [UIPopoverBackgroundView.self])
-    }
-
     open override func apply() {
         applyColors()
         applyCornerRadii()
@@ -54,8 +50,7 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
         table.separatorColor = .sheetColor(.separator)
         table.backgroundColor = .sheetColor(.background)
         
-        item.backgroundColor = .clear
-        itemInPopover.backgroundColor = UITableViewCell.appearance().backgroundColor
+        item.backgroundColor = .sheetColor(.background)
         item.tintColor = .sheetColor(.text)
         item.titleColor = .sheetColor(.text)
         item.subtitleColor = .sheetColor(.text)

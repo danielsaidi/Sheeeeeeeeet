@@ -139,7 +139,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         describe("refreshing action sheet") {
             
             beforeEach {
-                sheet.itemsTableView.backgroundColor = .red
+                ActionSheetTableView.appearance().backgroundColor = .red
                 presenter.present(sheet: sheet, in: UIViewController(), from: UIView()) {}
                 presenter.refreshActionSheet()
             }
@@ -153,6 +153,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
             
             it("hides unused views") {
+                expect(sheet.backgroundView.isHidden).to(beTrue())
                 expect(sheet.buttonsTableView.isHidden).to(beTrue())
                 expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
