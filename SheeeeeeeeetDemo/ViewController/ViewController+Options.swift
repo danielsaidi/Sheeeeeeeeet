@@ -28,7 +28,7 @@ extension ViewController {
         case .openSheet(.standard): return StandardActionSheet(options: options, action: alert)
         case .openSheet(.nonDismissable):
             let sheet = StandardActionSheet(options: options, action: alert)
-            sheet.presenter.isDismissableWithTapOnBackground = false
+            sheet.presenter.isDismissable = false
             return sheet
         }
     }

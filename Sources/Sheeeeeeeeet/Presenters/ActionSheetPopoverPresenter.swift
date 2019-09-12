@@ -30,8 +30,17 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     // MARK: - Properties
     
     open var events = ActionSheetPresenterEvents()
-    open var isDismissableWithTapOnBackground = true
-    open var isListeningToOrientationChanges = true
+    open var isDismissable = true
+    open var isDismissableWithOrientationChange = true
+    
+    
+    // MARK: - Deprecated
+    
+    @available(*, deprecated, renamed: "isDismissableWithOrientationChange")
+    open var isListeningToOrientationChanges: Bool {
+        get { isDismissableWithOrientationChange }
+        set { isDismissableWithOrientationChange = newValue }
+    }
     
     
     // MARK: - ActionSheetPresenter
@@ -86,7 +95,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         let action = #selector(handleOrientationChange)
         let name = UIApplication.willChangeStatusBarOrientationNotification
         center.removeObserver(self, name: name, object: nil)
-        guard isListeningToOrientationChanges else { return }
+        guard isDismissable && isDismissableWithOrientationChange else { return }
         center.addObserver(self, selector: action, name: name, object: nil)
     }
 }
@@ -101,7 +110,7 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     }
     
     public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
-        guard isDismissableWithTapOnBackground else { return false }
+        guard isDismissable else { return false }
         events.didDismissWithBackgroundTap?()
         dismiss {}
         return false

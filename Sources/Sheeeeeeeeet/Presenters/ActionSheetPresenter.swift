@@ -19,13 +19,23 @@ import UIKit
 public protocol ActionSheetPresenter: AnyObject {
     
     var events: ActionSheetPresenterEvents { get set }
-    var isDismissableWithTapOnBackground: Bool { get set }
+    var isDismissable: Bool { get set }
     
     func dismiss(completion: @escaping () -> ())
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ())
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ())
     func refreshActionSheet()
 }
+
+public extension ActionSheetPresenter {
+    
+    @available(*, deprecated, renamed: "isDismissable")
+    var isDismissableWithTapOnBackground: Bool {
+        get { isDismissable }
+        set { isDismissable = newValue }
+    }
+}
+
 
 /**
  This struct represents various events that can be triggered

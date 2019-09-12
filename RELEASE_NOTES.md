@@ -9,6 +9,8 @@ There is a new `ActionSheetColor` enum with sheet-specific semantic colors. It u
 
 The appearance model has been extended with new a appearance type, which you can use to style your sheets. There is an `ActionSheetAppearance` base class as well as a standard `StandardActionSheetAppearance` appearance which applies a standard look, including dark mode support, high contrast color variants and SFSymbol icons on iOS 13.
 
+There are adjustments to how sheets can be dismissed. The `isDismissableWithTapOnBackground` has been renamed to `isDismissable`, since it also affects if the system can dismiss the action sheet.
+
 
 ## 2.0.2
 

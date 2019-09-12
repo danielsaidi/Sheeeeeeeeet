@@ -31,7 +31,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     // MARK: - Properties
     
     public var events = ActionSheetPresenterEvents()
-    public var isDismissableWithTapOnBackground = true
+    public var isDismissable = true
     public var presentationStyle = PresentationStyle.currentContext
     
     var actionSheet: ActionSheet?
@@ -157,7 +157,7 @@ extension ActionSheetStandardPresenter {
 @objc public extension ActionSheetStandardPresenter {
     
     func backgroundViewTapAction() {
-        guard isDismissableWithTapOnBackground else { return }
+        guard isDismissable else { return }
         events.didDismissWithBackgroundTap?()
         dismiss {}
     }
