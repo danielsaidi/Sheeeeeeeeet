@@ -50,7 +50,7 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
         table.separatorColor = .sheetColor(.separator)
         table.backgroundColor = .sheetColor(.background)
         
-        item.backgroundColor = .sheetColor(.background)
+        item.backgroundColor = .clear
         item.tintColor = .sheetColor(.text)
         item.titleColor = .sheetColor(.text)
         item.subtitleColor = .sheetColor(.text)

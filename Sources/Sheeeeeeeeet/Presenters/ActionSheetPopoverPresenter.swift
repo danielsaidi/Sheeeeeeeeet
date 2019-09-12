@@ -78,6 +78,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     open func refreshPopoverBackgroundColor() {
         actionSheet?.backgroundView.isHidden = true
+        actionSheet?.view.backgroundColor = ActionSheetTableView.appearance().backgroundColor
         popover?.backgroundColor = ActionSheetTableView.appearance().backgroundColor
     }
     
