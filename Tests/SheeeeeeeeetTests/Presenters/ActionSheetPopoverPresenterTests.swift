@@ -36,7 +36,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         describe("background tap dismissal") {
             
             it("is enabled by default") {
-                expect(presenter.isDismissableWithTapOnBackground).to(beTrue())
+                expect(presenter.isDismissable).to(beTrue())
             }
         }
         
@@ -44,7 +44,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         describe("orientation change detection") {
             
             it("is enabled by default") {
-                expect(presenter.isDismissableWithTapOnBackground).to(beTrue())
+                expect(presenter.isDismissable).to(beTrue())
             }
         }
         
@@ -185,13 +185,13 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
             
             it("does not add observer if presenter is not listening for changes") {
-                presenter.isListeningToOrientationChanges = false
+                presenter.isDismissableWithOrientationChange = false
                 presenter.setupOrientationChangeDetection(with: center)
                 expect(center.addObserverInvokeCount).to(equal(0))
             }
             
             it("adds observer if presenter is listening for changes") {
-                presenter.isListeningToOrientationChanges = true
+                presenter.isDismissableWithOrientationChange = true
                 presenter.setupOrientationChangeDetection(with: center)
                 expect(center.addObserverInvokeCount).to(equal(1))
                 expect(center.addObserverInvokeNames[0]).to(equal(expectedName))
@@ -215,7 +215,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
             
             it("aborts and returns false if background tap is disabled") {
-                presenter.isDismissableWithTapOnBackground = false
+                presenter.isDismissable = false
                 let result = presenter.popoverPresentationControllerShouldDismissPopover(popover)
                 
                 expect(result).to(beFalse())
@@ -224,7 +224,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
             
             it("completes and returns false if background tap is enabled") {
-                presenter.isDismissableWithTapOnBackground = true
+                presenter.isDismissable = true
                 let result = presenter.popoverPresentationControllerShouldDismissPopover(popover)
                 
                 expect(result).to(beFalse())

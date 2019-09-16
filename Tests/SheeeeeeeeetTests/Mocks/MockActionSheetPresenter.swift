@@ -12,7 +12,7 @@ import UIKit
 class MockActionSheetPresenter: ActionSheetPresenter {
     
     var events = ActionSheetPresenterEvents()
-    var isDismissableWithTapOnBackground = false
+    var isDismissable = false
     
     var dismissInvokeCount = 0
     var dismissInvokeCompletions = [() -> ()]()

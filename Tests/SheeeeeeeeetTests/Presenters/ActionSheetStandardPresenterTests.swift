@@ -30,7 +30,7 @@ class ActionSheetStandardPresenterTests: QuickSpec {
         describe("background tap dismissal") {
             
             it("is enabled by default") {
-                expect(presenter.isDismissableWithTapOnBackground).to(beTrue())
+                expect(presenter.isDismissable).to(beTrue())
             }
         }
         
