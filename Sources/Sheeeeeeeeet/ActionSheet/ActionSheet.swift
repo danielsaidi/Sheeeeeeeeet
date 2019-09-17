@@ -9,7 +9,6 @@
 import UIKit
 
 /**
- 
  This is the main class in the Sheeeeeeeeet library. You can
  use it to create action sheets and present them in any view
  controller, from any source view or bar button item.
@@ -82,7 +81,6 @@ import UIKit
  Action sheets receive a call to `handleTap(on:)` every time
  an item is tapped. You can override it if you, for instance,
  want to perform any animations before calling `super`.
- 
  */
 open class ActionSheet: UIViewController {
     

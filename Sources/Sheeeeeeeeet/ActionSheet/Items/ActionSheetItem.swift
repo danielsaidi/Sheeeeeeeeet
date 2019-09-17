@@ -94,7 +94,7 @@ open class ActionSheetItem: NSObject {
     public var title: String
     public var value: Any?
     
-    public var cellReuseIdentifier: String { return className }
+    public var cellReuseIdentifier: String { className }
     public var cellStyle: UITableViewCell.CellStyle
     
     
@@ -103,7 +103,7 @@ open class ActionSheetItem: NSObject {
     private static var heights = [String: CGFloat]()
     
     public static var height: CGFloat {
-        get { return heights[className] ?? 50 }
+        get { heights[className] ?? 50 }
         set { heights[className] = newValue }
     }
     
