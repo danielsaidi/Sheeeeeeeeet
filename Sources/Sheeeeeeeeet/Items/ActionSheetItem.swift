@@ -108,14 +108,14 @@ open class ActionSheetItem: NSObject {
     }
     
     public var height: CGFloat {
-        return type(of: self).height
+        type(of: self).height
     }
     
     
     // MARK: - Functions
     
     open func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     
     open func handleTap(in actionSheet: ActionSheet) {}

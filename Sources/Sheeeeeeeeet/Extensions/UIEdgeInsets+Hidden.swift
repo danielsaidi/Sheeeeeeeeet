@@ -15,6 +15,6 @@ public extension UIEdgeInsets {
      separator.
      */
     static var hiddenSeparator: UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 100_000)
+        UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 100_000)
     }
 }

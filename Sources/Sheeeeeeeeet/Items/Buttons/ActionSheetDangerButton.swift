@@ -18,7 +18,7 @@ import UIKit
 open class ActionSheetDangerButton: ActionSheetOkButton {
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetDangerButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetDangerButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
 }
 

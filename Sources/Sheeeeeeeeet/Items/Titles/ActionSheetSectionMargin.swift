@@ -23,7 +23,7 @@ open class ActionSheetSectionMargin: ActionSheetItem {
     }
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetSectionMarginCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetSectionMarginCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
 }
 

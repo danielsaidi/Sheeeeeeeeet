@@ -14,6 +14,6 @@ public extension UIColor {
      Get the UIColor value of a semantic ActionSheet color.
      */
     static func sheetColor(_ color: ActionSheetColor) -> UIColor {
-        return color.color
+        color.color
     }
 }

@@ -19,8 +19,7 @@ class ActionSheetMarginTests: QuickSpec {
         describe("value in view") {
             
             func value(for margin: ActionSheetMargin) -> CGFloat? {
-                let view = UIView(frame: .zero)
-                return margin.value(in: view)
+                margin.value(in: UIView(frame: .zero))
             }
             
             it("returns safe area inset value") {
@@ -34,8 +33,7 @@ class ActionSheetMarginTests: QuickSpec {
         describe("value with minimum fallback in view") {
             
             func value(for margin: ActionSheetMargin, minimum: CGFloat) -> CGFloat {
-                let view = UIView(frame: .zero)
-                return margin.value(in: view, minimum: minimum)
+                margin.value(in: UIView(frame: .zero), minimum: minimum)
             }
             
             it("returns safe area inset if it is greater than minimum value") {

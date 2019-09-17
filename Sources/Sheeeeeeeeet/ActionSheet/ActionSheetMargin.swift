@@ -27,6 +27,6 @@ public enum ActionSheetMargin {
     }
     
     func value(in view: UIView, minimum: CGFloat) -> CGFloat {
-        return max(value(in: view), minimum)
+        max(value(in: view), minimum)
     }
 }

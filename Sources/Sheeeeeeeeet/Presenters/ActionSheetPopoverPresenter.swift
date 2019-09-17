@@ -106,7 +106,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
 extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     
     public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
+        .none
     }
     
     public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {

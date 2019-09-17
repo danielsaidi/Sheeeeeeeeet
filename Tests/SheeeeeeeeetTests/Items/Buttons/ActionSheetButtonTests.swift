@@ -56,7 +56,7 @@ class ActionSheetButtonTests: QuickSpec {
         describe("button type") {
             
             func createItem(type: ActionSheetButton.ButtonType) -> ActionSheetButton {
-                return ActionSheetButton(title: "foo", type: type)
+                ActionSheetButton(title: "foo", type: type)
             }
             
             it("is correct for each button type") {

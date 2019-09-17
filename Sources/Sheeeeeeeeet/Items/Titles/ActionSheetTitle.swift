@@ -20,7 +20,7 @@ open class ActionSheetTitle: ActionSheetItem {
     }
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetTitleCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetTitleCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
 }
 

@@ -14,6 +14,6 @@ public extension ActionSheet {
      Get all action sheet items of a specific type.
      */
     func items<T: ActionSheetItem>(ofType type: T.Type) -> [T] {
-        return items.compactMap { $0 as? T }
+        items.compactMap { $0 as? T }
     }
 }

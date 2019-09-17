@@ -20,7 +20,7 @@ class MockActionSheet: ActionSheet {
     
     private var _presentingViewController: UIViewController?
     override var presentingViewController: UIViewController? {
-        get { return _presentingViewController }
+        get { _presentingViewController }
         set { _presentingViewController = newValue }
     }
     

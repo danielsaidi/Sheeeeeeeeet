@@ -35,7 +35,7 @@ open class ActionSheetButton: ActionSheetItem {
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
 }
 
@@ -56,10 +56,10 @@ open class ActionSheetButtonCell: ActionSheetItemCell {
 public extension ActionSheetItem {
     
     var isOkButton: Bool {
-        return value as? ActionSheetButton.ButtonType == .ok
+        value as? ActionSheetButton.ButtonType == .ok
     }
     
     var isCancelButton: Bool {
-        return value as? ActionSheetButton.ButtonType == .cancel
+        value as? ActionSheetButton.ButtonType == .cancel
     }
 }

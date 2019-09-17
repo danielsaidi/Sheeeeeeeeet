@@ -15,7 +15,7 @@ import UIKit
 open class ActionSheetLinkItem: ActionSheetItem {
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetLinkItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetLinkItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
 }
 

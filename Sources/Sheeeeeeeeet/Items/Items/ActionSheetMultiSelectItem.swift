@@ -42,7 +42,7 @@ open class ActionSheetMultiSelectItem: ActionSheetSelectItem {
     }
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetMultiSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetMultiSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     
     open override func handleTap(in actionSheet: ActionSheet) {

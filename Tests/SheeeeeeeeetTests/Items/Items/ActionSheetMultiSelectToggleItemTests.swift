@@ -16,7 +16,7 @@ class ActionSheetMultiSelectToggleItemTests: QuickSpec {
     override func spec() {
         
         func createItem(group: String) -> ActionSheetMultiSelectToggleItem {
-            return ActionSheetMultiSelectToggleItem(title: "foo", state: .selectAll, group: group, selectAllTitle: "select all", deselectAllTitle: "deselect all")
+            ActionSheetMultiSelectToggleItem(title: "foo", state: .selectAll, group: group, selectAllTitle: "select all", deselectAllTitle: "deselect all")
         }
         
         describe("instance") {

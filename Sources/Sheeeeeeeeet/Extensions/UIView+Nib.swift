@@ -14,6 +14,6 @@ extension UIView {
      Get the view's default nib.
      */
     static var defaultNib: UINib {
-        return UINib(nibName: className, bundle: bundle)
+        UINib(nibName: className, bundle: bundle)
     }
 }

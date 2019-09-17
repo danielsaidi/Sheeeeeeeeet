@@ -14,6 +14,6 @@ extension UIViewController {
      Resolve the root view controller of the current app.
      */
     var rootViewController: UIViewController {
-        return parent?.rootViewController ?? self
+        parent?.rootViewController ?? self
     }
 }

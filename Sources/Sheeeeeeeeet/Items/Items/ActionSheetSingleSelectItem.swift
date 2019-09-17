@@ -23,7 +23,7 @@ import UIKit
 open class ActionSheetSingleSelectItem: ActionSheetSelectItem {
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetSingleSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetSingleSelectItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
     }
     
     open override func handleTap(in actionSheet: ActionSheet) {

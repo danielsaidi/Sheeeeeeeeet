@@ -15,7 +15,6 @@ class ActionSheetSelectItemTests: QuickSpec {
     
     override func spec() {
         
-        
         describe("instance") {
             
             it("can be created with default values") {

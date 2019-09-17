@@ -17,13 +17,13 @@ extension NSObject {
      Get the type's class name.
      */
     static var className: String {
-        return String(describing: self)
+        String(describing: self)
     }
     
     /**
     Get the instance's class name.
     */
     var className: String {
-        return type(of: self).className
+        type(of: self).className
     }
 }

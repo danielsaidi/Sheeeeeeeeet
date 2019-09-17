@@ -18,7 +18,7 @@ class ActionSheetTests: QuickSpec {
         var sheet: MockActionSheet!
         
         func createSheet(_ items: [ActionSheetItem] = []) -> MockActionSheet {
-            return MockActionSheet(items: items, action: { _, _ in })
+            MockActionSheet(items: items, action: { _, _ in })
         }
         
         

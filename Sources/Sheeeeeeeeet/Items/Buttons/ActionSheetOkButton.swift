@@ -21,7 +21,7 @@ open class ActionSheetOkButton: ActionSheetButton {
     }
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetOkButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetOkButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
 }
 

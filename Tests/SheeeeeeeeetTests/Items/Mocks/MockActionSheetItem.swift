@@ -23,6 +23,6 @@ class MockActionSheetItem: ActionSheetItem {
     }
     
     override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return cell ?? super.cell(for: tableView)
+        cell ?? super.cell(for: tableView)
     }
 }

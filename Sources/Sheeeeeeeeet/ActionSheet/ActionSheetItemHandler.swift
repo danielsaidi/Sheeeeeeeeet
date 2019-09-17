@@ -56,11 +56,11 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     }
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        items.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

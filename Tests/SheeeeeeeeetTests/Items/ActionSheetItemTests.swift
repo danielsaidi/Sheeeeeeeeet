@@ -16,11 +16,11 @@ class ActionSheetItemTests: QuickSpec {
     override func spec() {
         
         func createItem(subtitle: String? = nil) -> MockActionSheetItem {
-            return MockActionSheetItem(title: "foo", subtitle: subtitle, value: true, image: UIImage())
+            MockActionSheetItem(title: "foo", subtitle: subtitle, value: true, image: UIImage())
         }
         
         func createItem(_ tapBehavior: ActionSheetItem.TapBehavior) -> MockActionSheetItem {
-            return MockActionSheetItem(title: "foo", subtitle: "bar", value: true, image: UIImage(), tapBehavior: tapBehavior)
+            MockActionSheetItem(title: "foo", subtitle: "bar", value: true, image: UIImage(), tapBehavior: tapBehavior)
         }
         
         describe("created instance") {

@@ -21,7 +21,7 @@ open class ActionSheetCancelButton: ActionSheetButton {
     }
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return ActionSheetCancelButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
+        ActionSheetCancelButtonCell(style: .default, reuseIdentifier: cellReuseIdentifier)
     }
 }
 
