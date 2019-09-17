@@ -34,9 +34,9 @@ import UIKit
  
  While most appearance is modified on a cell level, some are
  not. For instance, some views in `Views` have apperances of
- their own (e.g. `ActionSheetHeaderContainerView.cornerRadius`). This
- means that you can change more than cell appearance. Have a
- look at the readme for more info on what you can customize.
+ as well (e.g. `ActionSheetHeaderContainerView.cornerRadius`).
+ This means that you can change the appearance for more view
+ types than cells. Have a look at the readmes for more info.
  
  Action sheet insets, margins and widths are not part of the
  appearance model, but have to be changed for each sheet. If
