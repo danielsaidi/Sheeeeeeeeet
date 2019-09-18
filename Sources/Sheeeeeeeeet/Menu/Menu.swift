@@ -16,11 +16,13 @@ import Foundation
  can be used in many ways, e.g. mapped to an action sheet or
  a context menu, presented in a popover etc.
  */
-public struct Menu {
+public struct Menu: MenuRepresentable {
     
     public init(items: [MenuItem]) {
         self.items = items
     }
+    
+    public typealias ItemType = MenuItem
 
     public let items: [MenuItem]
 }

@@ -82,7 +82,7 @@ import UIKit
  an item is tapped. You can override it if you, for instance,
  want to perform any animations before calling `super`.
  */
-open class ActionSheet: UIViewController {
+open class ActionSheet: UIViewController, MenuRepresentable {
     
     
     // MARK: - Initialization
@@ -140,6 +140,8 @@ open class ActionSheet: UIViewController {
     
     
     // MARK: - Types
+    
+    public typealias ItemType = ActionSheetItem
     
     public enum HeaderViewLandscapeMode {
         case visible, hidden

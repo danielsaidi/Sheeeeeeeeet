@@ -17,7 +17,7 @@ import UIKit
  user taps an item. `.dismiss` means that the menu should be
  dismissed while `.none` means that it shouldn't.
  */
-open class MenuItem {
+open class MenuItem: MenuItemRepresentable {
     
     
     // MARK: - Initialization
