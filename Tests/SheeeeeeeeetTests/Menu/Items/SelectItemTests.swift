@@ -8,8 +8,8 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
 import UIKit
+@testable import Sheeeeeeeeet
 
 class SelectItemTests: QuickSpec {
     
@@ -25,7 +25,7 @@ class SelectItemTests: QuickSpec {
                 expect(item.isSelected).to(beTrue())
                 expect(item.value).to(beNil())
                 expect(item.image).to(beNil())
-                expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.dismiss))
+                expect(item.tapBehavior).to(equal(.dismiss))
             }
             
             it("sets up provided properties") {
@@ -44,6 +44,22 @@ class SelectItemTests: QuickSpec {
                 expect(item.value as? Bool).to(beTrue())
                 expect(item.image).to(be(image))
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+            }
+        }
+        
+        describe("action sheet conversion") {
+            
+            it("can be converted to an action sheet item") {
+                let image = UIImage()
+                let source = SelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: image)
+                let item = source.toActionSheetItem() as? ActionSheetSelectItem
+                
+                expect(item?.title).to(equal("title"))
+                expect(item?.subtitle).to(equal("subtitle"))
+                expect(item?.isSelected).to(beTrue())
+                expect(item?.value as? Bool).to(beTrue())
+                expect(item?.image).to(be(image))
+                expect(item?.tapBehavior).to(equal(.dismiss))
             }
         }
     }

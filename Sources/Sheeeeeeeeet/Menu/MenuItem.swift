@@ -17,7 +17,7 @@ import UIKit
  user taps an item. `.dismiss` means that the menu should be
  dismissed while `.none` means that it shouldn't.
  */
-open class MenuItem: MenuItemRepresentable {
+open class MenuItem: MenuItemRepresentable, ActionSheetItemConvertible {
     
     
     // MARK: - Initialization
@@ -50,4 +50,17 @@ open class MenuItem: MenuItemRepresentable {
     public let tapBehavior: TapBehavior
     public let title: String
     public let value: Any?
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetItem(
+            title: title,
+            subtitle: subtitle,
+            value: value,
+            image: image,
+            tapBehavior: tapBehavior
+        )
+    }
 }

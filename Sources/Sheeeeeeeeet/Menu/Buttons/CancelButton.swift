@@ -11,11 +11,21 @@ import Foundation
 /**
  A cancel button can be used to cancel the effect of a menu,
  
- The `value` of the button is `MenuButton.ButtonType.cancel`.
+ The `value` of the button is `.cancel`.
  */
 open class CancelButton: MenuButton {
     
+    
+    // MARK: - Initialization
+    
     public init(title: String) {
         super.init(title: title, type: .cancel)
+    }
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetCancelButton(title: title)
     }
 }

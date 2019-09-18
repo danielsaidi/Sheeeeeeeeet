@@ -35,9 +35,7 @@ open class ActionSheetMultiSelectToggleItem: ActionSheetItem {
     
     // MARK: - State
     
-    public enum State {
-        case selectAll, deselectAll
-    }
+    public typealias State = MultiSelectToggleItem.State
     
     
     // MARK: - Properties

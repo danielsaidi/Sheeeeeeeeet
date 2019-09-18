@@ -27,9 +27,7 @@ open class ActionSheetButton: ActionSheetItem {
     
     // MARK: - Values
     
-    public enum ButtonType {
-        case ok, cancel, other
-    }
+    public typealias ButtonType = MenuButton.ButtonType
     
     
     // MARK: - Functions

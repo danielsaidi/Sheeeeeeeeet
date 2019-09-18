@@ -81,9 +81,7 @@ open class ActionSheetItem: NSObject, MenuItemRepresentable {
     
     // MARK: - Enums
     
-    public enum TapBehavior {
-        case dismiss, none
-    }
+    public typealias TapBehavior = MenuItem.TapBehavior
     
     
     // MARK: - Properties

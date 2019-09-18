@@ -11,11 +11,21 @@ import Foundation
 /**
  An ok button can be used to "submit" the effects of a menu.
  
- The `value` of the button is `MenuButton.ButtonType.ok`.
+ The `value` of the button is `.ok`.
  */
 open class OkButton: MenuButton {
     
+    
+    // MARK: - Initialization
+    
     public init(title: String) {
         super.init(title: title, type: .ok)
+    }
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetOkButton(title: title)
     }
 }

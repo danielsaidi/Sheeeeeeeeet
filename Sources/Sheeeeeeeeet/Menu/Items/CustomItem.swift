@@ -12,6 +12,9 @@ import Foundation
  Custom items can be used to present any custom content in a
  menu. `itemType` can be the model itself, the cell type for
  `UIKit`-based collection views etc.
+ 
+ TODO: Implement `ActionSheetItemConvertible`, by decoupling
+ the item type from the cell concept.
  */
 open class CustomItem<T>: MenuItem {
     
@@ -34,4 +37,12 @@ open class CustomItem<T>: MenuItem {
     
     public let itemType: T.Type
     public let itemSetupAction: ItemAction
+    
+
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        assertionFailure("This is not yet supported.")
+        return super.toActionSheetItem()
+    }
 }

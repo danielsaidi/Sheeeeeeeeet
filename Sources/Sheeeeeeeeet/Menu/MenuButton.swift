@@ -34,6 +34,13 @@ open class MenuButton: MenuItem {
     // MARK: - Types
     
     public enum ButtonType: Equatable {
-        case ok, cancel, custom(id: String)
+        case ok, cancel, other
+    }
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetButton(title: title, value: value)
     }
 }

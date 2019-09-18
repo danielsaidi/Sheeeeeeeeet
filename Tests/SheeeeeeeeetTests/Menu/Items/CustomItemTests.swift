@@ -8,7 +8,8 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
+import UIKit
+@testable import Sheeeeeeeeet
 
 class CustomItemTests: QuickSpec {
     
@@ -41,4 +42,8 @@ class CustomItemTests: QuickSpec {
     }
 }
 
-private class TestType {}
+private class TestType: ActionSheetItemCell, ActionSheetCustomItemCell {
+    
+    static var nib: UINib { fatalError() }
+    static var defaultSize: CGSize { fatalError() }
+}

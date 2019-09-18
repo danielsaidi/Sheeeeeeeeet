@@ -45,4 +45,17 @@ open class MultiSelectToggleItem: MenuItem {
     public let group: String
     public let selectAllTitle: String
     public var state: State
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetMultiSelectToggleItem(
+            title: title,
+            state: state,
+            group: group,
+            selectAllTitle: selectAllTitle,
+            deselectAllTitle: deselectAllTitle
+        )
+    }
 }

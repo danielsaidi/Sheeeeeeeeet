@@ -8,7 +8,7 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
+@testable import Sheeeeeeeeet
 
 class CancelButtonTests: QuickSpec {
     
@@ -24,6 +24,20 @@ class CancelButtonTests: QuickSpec {
                 expect(item.value as? MenuButton.ButtonType).to(equal(.cancel))
                 expect(item.image).to(beNil())
                 expect(item.tapBehavior).to(equal(.dismiss))
+            }
+        }
+        
+        describe("action sheet conversion") {
+            
+            it("can be converted to an action sheet item") {
+                let source = CancelButton(title: "title")
+                let item = source.toActionSheetItem() as? ActionSheetCancelButton
+                
+                expect(item?.title).to(equal("title"))
+                expect(item?.subtitle).to(beNil())
+                expect(item?.value as? MenuButton.ButtonType).to(equal(.cancel))
+                expect(item?.image).to(beNil())
+                expect(item?.tapBehavior).to(equal(.dismiss))
             }
         }
     }

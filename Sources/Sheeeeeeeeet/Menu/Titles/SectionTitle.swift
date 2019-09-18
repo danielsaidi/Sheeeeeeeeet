@@ -1,5 +1,5 @@
 //
-//  MenuSectionTitle.swift
+//  SectionTitle.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2019-09-17.
@@ -16,9 +16,19 @@ import UIKit
  To add additional space above a section title, make sure to
  add a `MenuSectionTitleMargin` before the title.
  */
-open class MenuSectionTitle: MenuItem {
+open class SectionTitle: MenuTitle {
+    
+    
+    // MARK - Initialization
     
     public init(title: String, subtitle: String) {
-        super.init(title: title, subtitle: subtitle, tapBehavior: .none)
+        super.init(title: title, subtitle: subtitle)
+    }
+
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetSectionTitle(title: title, subtitle: subtitle)
     }
 }

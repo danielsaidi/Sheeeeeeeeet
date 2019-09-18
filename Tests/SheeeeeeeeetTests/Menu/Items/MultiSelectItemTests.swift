@@ -8,8 +8,8 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
 import UIKit
+@testable import Sheeeeeeeeet
 
 class MultiSelectItemTests: QuickSpec {
     
@@ -30,12 +30,7 @@ class MultiSelectItemTests: QuickSpec {
             
             it("sets up provided properties") {
                 let image = UIImage()
-                let item = MultiSelectItem(
-                    title: "title",
-                    subtitle: "subtitle",
-                    isSelected: true,
-                    value: true,
-                    image: image)
+                let item = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: image)
                 
                 expect(item.title).to(equal("title"))
                 expect(item.subtitle).to(equal("subtitle"))
@@ -43,6 +38,22 @@ class MultiSelectItemTests: QuickSpec {
                 expect(item.value as? Bool).to(beTrue())
                 expect(item.image).to(be(image))
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+            }
+        }
+        
+        describe("action sheet conversion") {
+            
+            it("can be converted to an action sheet item") {
+                let image = UIImage()
+                let source = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: image)
+                let item = source.toActionSheetItem() as? ActionSheetMultiSelectItem
+                
+                expect(item?.title).to(equal("title"))
+                expect(item?.subtitle).to(equal("subtitle"))
+                expect(item?.isSelected).to(beTrue())
+                expect(item?.value as? Bool).to(beTrue())
+                expect(item?.image).to(be(image))
+                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
             }
         }
     }

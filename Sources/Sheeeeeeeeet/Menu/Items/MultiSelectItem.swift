@@ -21,6 +21,9 @@ import UIKit
 */
 open class MultiSelectItem: SelectItem {
 
+    
+    // MARK: - Initialization
+    
     public init(
         title: String,
         subtitle: String? = nil,
@@ -36,6 +39,20 @@ open class MultiSelectItem: SelectItem {
             value: value,
             image: image,
             tapBehavior: .none
+        )
+    }
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetMultiSelectItem(
+            title: title,
+            subtitle: subtitle,
+            isSelected: isSelected,
+            group: group,
+            value: value,
+            image: image
         )
     }
 }

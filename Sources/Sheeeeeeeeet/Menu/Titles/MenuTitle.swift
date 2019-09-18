@@ -13,7 +13,17 @@ import UIKit
  */
 open class MenuTitle: MenuItem {
     
-    public init(title: String) {
-        super.init(title: title, tapBehavior: .none)
+    
+    // MARK: - Initialization
+    
+    public init(title: String, subtitle: String? = nil) {
+        super.init(title: title, subtitle: subtitle, tapBehavior: .none)
+    }
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetTitle(title: title)
     }
 }

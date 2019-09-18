@@ -8,8 +8,8 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
 import UIKit
+@testable import Sheeeeeeeeet
 
 class MultiSelectToggleItemTests: QuickSpec {
     

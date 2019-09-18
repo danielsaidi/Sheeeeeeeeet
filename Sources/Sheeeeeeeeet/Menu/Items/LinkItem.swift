@@ -12,4 +12,18 @@ import Foundation
  A link items can be used when tapping it will take the user
  somewhere, e.g. to another view controller or a web site.
  */
-open class LinkItem: MenuItem {}
+open class LinkItem: MenuItem {
+    
+
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetLinkItem(
+            title: title,
+            subtitle: subtitle,
+            value: value,
+            image: image,
+            tapBehavior: tapBehavior
+        )
+    }
+}

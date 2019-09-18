@@ -8,8 +8,8 @@
 
 import Quick
 import Nimble
-import Sheeeeeeeeet
 import UIKit
+@testable import Sheeeeeeeeet
 
 class LinkItemTests: QuickSpec {
     
@@ -41,6 +41,21 @@ class LinkItemTests: QuickSpec {
                 expect(item.value as? Bool).to(beTrue())
                 expect(item.image).to(be(image))
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+            }
+        }
+        
+        describe("action sheet conversion") {
+            
+            it("can be converted to an action sheet item") {
+                let image = UIImage()
+                let source = LinkItem(title: "title", subtitle: "subtitle", value: true, image: image, tapBehavior: .none)
+                let item = source.toActionSheetItem() as? ActionSheetLinkItem
+                
+                expect(item?.title).to(equal("title"))
+                expect(item?.subtitle).to(equal("subtitle"))
+                expect(item?.value as? Bool).to(beTrue())
+                expect(item?.image).to(be(image))
+                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
             }
         }
     }

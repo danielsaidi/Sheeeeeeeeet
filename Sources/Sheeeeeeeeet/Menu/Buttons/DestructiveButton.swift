@@ -12,6 +12,14 @@ import Foundation
  A destributive button is just an OK button that can be used
  to indicate that tapping it has a destructive effect.
  
- The `value` of the button is `MenuButton.ButtonType.ok`.
+ The `value` of the button is `.ok`.
  */
-open class DestructiveButton: OkButton {}
+open class DestructiveButton: OkButton {
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetDangerButton(title: title)
+    }
+}

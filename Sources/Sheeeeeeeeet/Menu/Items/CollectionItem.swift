@@ -11,6 +11,9 @@ import Foundation
 /**
  Collection items can be used to present item collections of
  a certain item type, e.g. in a collection view.
+ 
+ TODO: Implement `ActionSheetItemConvertible`, by decoupling
+ the item type from the cell concept.
  */
 open class CollectionItem<T>: MenuItem {
     
@@ -41,4 +44,12 @@ open class CollectionItem<T>: MenuItem {
     public let itemCount: Int
     public let itemSelectionAction: ItemAction
     public let itemSetupAction: ItemAction
+    
+
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        assertionFailure("This is not yet supported.")
+        return super.toActionSheetItem()
+    }
 }

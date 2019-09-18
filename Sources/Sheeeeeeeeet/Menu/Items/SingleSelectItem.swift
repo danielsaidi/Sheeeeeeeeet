@@ -19,4 +19,20 @@ import Foundation
  A single select item will by default dismiss the sheet when
  it's tapped. To change this, set `tapBehavior` to `.none`.
  */
-open class SingleSelectItem: SelectItem {}
+open class SingleSelectItem: SelectItem {
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetSingleSelectItem(
+            title: title,
+            subtitle: subtitle,
+            isSelected: isSelected,
+            group: group,
+            value: value,
+            image: image,
+            tapBehavior: tapBehavior
+        )
+    }
+}

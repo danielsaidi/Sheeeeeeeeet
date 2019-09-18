@@ -1,5 +1,5 @@
 //
-//  MenuTitleTests.swift
+//  SectionTitleMarginTests.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2019-09-17.
@@ -11,16 +11,16 @@ import Nimble
 import UIKit
 @testable import Sheeeeeeeeet
 
-class MenuTitleTests: QuickSpec {
+class SectionTitleMarginTests: QuickSpec {
     
     override func spec() {
         
         describe("creating menu item") {
             
             it("fills in omitted properties") {
-                let item = MenuTitle(title: "title")
+                let item = SectionTitleMargin()
                 
-                expect(item.title).to(equal("title"))
+                expect(item.title).to(equal(""))
                 expect(item.subtitle).to(beNil())
                 expect(item.value).to(beNil())
                 expect(item.image).to(beNil())
@@ -31,10 +31,10 @@ class MenuTitleTests: QuickSpec {
         describe("action sheet conversion") {
             
             it("can be converted to an action sheet item") {
-                let source = MenuTitle(title: "title")
-                let item = source.toActionSheetItem() as? ActionSheetTitle
+                let source = SectionTitleMargin()
+                let item = source.toActionSheetItem() as? ActionSheetSectionMargin
                 
-                expect(item?.title).to(equal("title"))
+                expect(item?.title).to(equal(""))
                 expect(item?.subtitle).to(beNil())
                 expect(item?.value).to(beNil())
                 expect(item?.image).to(beNil())

@@ -45,4 +45,19 @@ open class SelectItem: MenuItem {
     
     public let group: String
     public let isSelected: Bool
+    
+    
+    // MARK: - ActionSheetItemConvertible
+    
+    override func toActionSheetItem() -> ActionSheetItem {
+        ActionSheetSelectItem(
+            title: title,
+            subtitle: subtitle,
+            isSelected: isSelected,
+            group: group,
+            value: value,
+            image: image,
+            tapBehavior: tapBehavior
+        )
+    }
 }
