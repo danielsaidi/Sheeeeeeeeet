@@ -30,9 +30,7 @@
 		84BD8A912302BC8C0020610B /* ActionSheetPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A612302BC8C0020610B /* ActionSheetPopoverPresenter.swift */; };
 		84BD8A922302BC8C0020610B /* UIEdgeInsets+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */; };
 		84BD8A932302BC8C0020610B /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A642302BC8C0020610B /* NSObject+ClassName.swift */; };
-		84BD8A942302BC8C0020610B /* NSObject+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A652302BC8C0020610B /* NSObject+Bundle.swift */; };
 		84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */; };
-		84BD8A962302BC8C0020610B /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A672302BC8C0020610B /* UIView+Nib.swift */; };
 		84BD8A982302BC8C0020610B /* ActionSheetOkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */; };
 		84BD8A992302BC8C0020610B /* ActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6C2302BC8C0020610B /* ActionSheetButton.swift */; };
 		84BD8A9A2302BC8C0020610B /* ActionSheetCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6D2302BC8C0020610B /* ActionSheetCancelButton.swift */; };
@@ -174,9 +172,7 @@
 		84BD8A612302BC8C0020610B /* ActionSheetPopoverPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenter.swift; sourceTree = "<group>"; };
 		84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Hidden.swift"; sourceTree = "<group>"; };
 		84BD8A642302BC8C0020610B /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
-		84BD8A652302BC8C0020610B /* NSObject+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Bundle.swift"; sourceTree = "<group>"; };
 		84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewController.swift"; sourceTree = "<group>"; };
-		84BD8A672302BC8C0020610B /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButton.swift; sourceTree = "<group>"; };
 		84BD8A6C2302BC8C0020610B /* ActionSheetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButton.swift; sourceTree = "<group>"; };
 		84BD8A6D2302BC8C0020610B /* ActionSheetCancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCancelButton.swift; sourceTree = "<group>"; };
@@ -403,10 +399,8 @@
 		84BD8A622302BC8C0020610B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A652302BC8C0020610B /* NSObject+Bundle.swift */,
 				84BD8A642302BC8C0020610B /* NSObject+ClassName.swift */,
 				84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */,
-				84BD8A672302BC8C0020610B /* UIView+Nib.swift */,
 				8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */,
 				84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */,
 			);
@@ -823,7 +817,6 @@
 				84BD8A832302BC8C0020610B /* ActionSheetMargin.swift in Sources */,
 				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButton.swift in Sources */,
 				84BD8A8F2302BC8C0020610B /* ActionSheetPresenter.swift in Sources */,
-				84BD8A942302BC8C0020610B /* NSObject+Bundle.swift in Sources */,
 				84BD8A8A2302BC8C0020610B /* StandardActionSheetAppearance.swift in Sources */,
 				84BD8AA02302BC8C0020610B /* ActionSheetCustomItem.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
@@ -833,7 +826,6 @@
 				84BD8AA92302BC8C0020610B /* ActionSheetButtonTableView.swift in Sources */,
 				84BE53D923314D57009DDFC6 /* MultiSelectToggleItem.swift in Sources */,
 				84BD8A8B2302BC8C0020610B /* ActionSheet+Appearance.swift in Sources */,
-				84BD8A962302BC8C0020610B /* UIView+Nib.swift in Sources */,
 				84BD8A852302BC8C0020610B /* ActionSheet+Items.swift in Sources */,
 				84BE53C7233145E6009DDFC6 /* MenuButton.swift in Sources */,
 				84BE53DD23316232009DDFC6 /* CollectionItem.swift in Sources */,

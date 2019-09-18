@@ -130,8 +130,6 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
     
     static let itemCellIdentifier = ActionSheetCollectionItemCell.className
     
-    static let nib = ActionSheetCollectionItemCell.defaultNib
-    
     
     // MARK: - Outlets
     

@@ -7,10 +7,14 @@
 //
 
 import CoreGraphics
+import UIKit
 @testable import Sheeeeeeeeet
 
 class ActionSheetCustomItemTestCell: ActionSheetItemCell, ActionSheetCustomItemCell {
     
-    static let nib = defaultNib
+    static var nib: UINib {
+        UINib(nibName: className, bundle: Bundle(for: self))
+    }
+
     static let defaultSize = CGSize(width: 100, height: 400)
 }
