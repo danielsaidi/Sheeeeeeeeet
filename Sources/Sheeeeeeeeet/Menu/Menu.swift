@@ -18,11 +18,13 @@ import Foundation
  */
 open class Menu {
     
-    public init(items: [MenuItem]) {
+    public init(title: String? = nil, items: [MenuItem]) {
+        self.title = title
         self.items = items
     }
     
     public typealias ItemType = MenuItem
 
     public let items: [MenuItem]
+    public let title: String?
 }

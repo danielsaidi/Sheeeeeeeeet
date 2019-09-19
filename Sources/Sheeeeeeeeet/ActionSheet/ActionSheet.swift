@@ -101,7 +101,10 @@ open class ActionSheet: UIViewController {
         menu: Menu,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
-        let items = menu.items.map { $0.toActionSheetItem() }
+        var items = menu.items.map { $0.toActionSheetItem() }
+        if let title = menu.title {
+            items.insert(ActionSheetTitle(title: title), at: 0)
+        }
         self.presenter = presenter
         selectAction = action
         super.init(nibName: nil, bundle: nil)

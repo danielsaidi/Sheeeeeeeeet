@@ -1,5 +1,5 @@
 //
-//  DemoMenu.swift
+//  FoodMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -9,6 +9,10 @@
 import Sheeeeeeeeet
 
 class FoodMenu: Menu {
+    
+    init(items: [MenuItem]) {
+        super.init(title: FoodMenu.title, items: items)
+    }
     
     static var cancelButton: MenuItem {
         CancelButton(title: "Cancel")

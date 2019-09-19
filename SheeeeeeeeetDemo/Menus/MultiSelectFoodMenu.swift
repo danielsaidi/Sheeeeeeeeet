@@ -20,9 +20,8 @@ private extension MultiSelectFoodMenu {
     
     static func items(for options: [FoodOption]) -> [MenuItem] {
         var items = [MenuItem]()
-        items.append(MenuTitle(title: FoodMenu.title))
         items.append(contentsOf: itemsGroup(for: options, preselected: .fast, group: "Appetizer"))
-        items.append(SectionTitleMargin())
+        items.append(SectionMargin())
         items.append(contentsOf: itemsGroup(for: options, preselected: .fancy, group: "Main Dish"))
         items.append(okButton)
         items.append(cancelButton)

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /**
  Section titles can be used to add titles to sections within
@@ -16,7 +16,7 @@ import UIKit
  To add additional space above a section title, make sure to
  add a `MenuSectionTitleMargin` before the title.
  */
-open class SectionTitle: MenuTitle {
+open class SectionTitle: SectionItem {
     
     
     // MARK - Initialization

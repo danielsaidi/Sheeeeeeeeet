@@ -61,13 +61,17 @@ class ActionSheetTests: QuickSpec {
             context("with menu") {
                 
                 it("applies provided properties and maps menu to items") {
-                    let menuItems = [MenuItem(title: "foo"), OkButton(title: "foo")]
-                    let menu = Menu(items: menuItems)
+                    let menuItems = [MenuItem(title: "item title"), OkButton(title: "button title")]
+                    let menu = Menu(title: "title", items: menuItems)
                     let presenter = ActionSheetPopoverPresenter()
                     let sheet = ActionSheet(menu: menu, presenter: presenter) { _, _ in counter += 1 }
                     expect(sheet.presenter).to(be(presenter))
-                    expect(sheet.items.count).to(equal(1))
+                    expect(sheet.items.count).to(equal(2))
+                    expect(sheet.items[0] is ActionSheetTitle).to(beTrue())
+                    expect(sheet.items[0].title).to(equal("title"))
+                    expect(sheet.items[1].title).to(equal("item title"))
                     expect(sheet.buttons.count).to(equal(1))
+                    expect(sheet.buttons[0] as? ActionSheetOkButton).toNot(beNil())
                     sheet.selectAction(sheet, sheet.items[0])
                     expect(counter).to(equal(1))
                 }
