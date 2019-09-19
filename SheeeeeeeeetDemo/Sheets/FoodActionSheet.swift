@@ -19,7 +19,7 @@ class FoodActionSheet: ActionSheet {
             if item.isCancelButton { return }
             if sheet.shouldAlert(item) { return action([item]) }
             guard item.isOkButton else { return }
-            let selected = sheet.getSelectedFoodItems()
+            let selected = sheet.getSelectedItems()
             guard selected.count > 0 else { return }
             action(selected)
         }
@@ -28,7 +28,7 @@ class FoodActionSheet: ActionSheet {
 
 private extension ActionSheet {
     
-    func getSelectedFoodItems() -> [ActionSheetItem] {
+    func getSelectedItems() -> [ActionSheetItem] {
         let items = self.items.compactMap { $0 as? ActionSheetSelectItem }
         let selectedItems = items.filter { $0.isSelected }
         return selectedItems

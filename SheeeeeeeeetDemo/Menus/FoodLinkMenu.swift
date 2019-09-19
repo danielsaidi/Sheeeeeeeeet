@@ -1,5 +1,5 @@
 //
-//  StandardFoodMenu.swift
+//  FoodLinkMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -9,13 +9,13 @@
 import Sheeeeeeeeet
 
 /**
- This menu creates a standard `MenuItem` for each food, then
- adds a cancel button to the end of the item list.
+ This menu creates `LinkItem`s for the provided food options,
+ then appends a cancel button at the end of the list.
 */
-class StandardFoodMenu: FoodMenu {
+class FoodLinkMenu: FoodMenu {
 
     init(food: [FoodOption]) {
-        var items = food.map { $0.toMenuItem() }
+        var items: [MenuItem] = food.map { $0.toLinkItem() }
         items.append(FoodMenu.cancelButton)
         super.init(items: items)
     }

@@ -1,5 +1,5 @@
 //
-//  SingleSelectFoodMenu.swift
+//  FoodSingleSelectMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -17,15 +17,15 @@ import Sheeeeeeeeet
  item will deselect all other items in the same section, but
  not affect the other section.
 */
-class SingleSelectFoodMenu: FoodMenu {
+class FoodSingleSelectMenu: FoodMenu {
     
     init(food: [FoodOption]) {
-        let items = SingleSelectFoodMenu.items(for: food)
+        let items = FoodSingleSelectMenu.items(for: food)
         super.init(items: items)
     }
 }
 
-private extension SingleSelectFoodMenu {
+private extension FoodSingleSelectMenu {
     
     static func items(for food: [FoodOption]) -> [MenuItem] {
         var items = [MenuItem]()

@@ -14,21 +14,41 @@ extension ViewController {
      Get the action sheet option at a certain index, if any.
      */
     func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
+        if let menu = foodMenu(at: indexPath) {
+            return FoodActionSheet(menu: menu, action: alert)
+        }
+        
         switch menuOption(at: indexPath) {
         case .applyAppearance, .separator: return nil
         case .openSheet(.collections): return CollectionActionSheet(options: foodOptions, action: alert)
         case .openSheet(.customView): return CustomActionSheet(options: foodOptions, buttonTapAction: alert)
         case .openSheet(.danger): return DestructiveActionSheet(options: foodOptions, action: alert)
         case .openSheet(.headerView): return HeaderActionSheet(options: foodOptions, action: alert)
-        case .openSheet(.links): return LinkActionSheet(options: foodOptions, action: alert)
-        case .openSheet(.multiSelect): return FoodActionSheet(menu: MultiSelectFoodMenu(food: foodOptions), action: alert)
-        case .openSheet(.sections): return SectionActionSheet(options: foodOptions, action: alert)
-        case .openSheet(.singleSelect): return FoodActionSheet(menu: SingleSelectFoodMenu(food: foodOptions), action: alert)
-        case .openSheet(.standard): return FoodActionSheet(menu: StandardFoodMenu(food: foodOptions), action: alert)
+        case .openSheet(.links): return nil
+        case .openSheet(.multiSelect): return nil
+        case .openSheet(.sections): return nil
+        case .openSheet(.singleSelect): return nil
+        case .openSheet(.standard): return nil
         case .openSheet(.nonDismissable):
-            let sheet = FoodActionSheet(menu: StandardFoodMenu(food: foodOptions), action: alert)
+            let sheet = FoodActionSheet(menu: FoodItemMenu(food: foodOptions), action: alert)
             sheet.presenter.isDismissable = false
             return sheet
+        }
+    }
+    
+    func foodMenu(at indexPath: IndexPath) -> FoodMenu? {
+        switch menuOption(at: indexPath) {
+        case .applyAppearance, .separator: return nil
+        case .openSheet(.collections): return nil
+        case .openSheet(.customView): return nil
+        case .openSheet(.danger): return nil
+        case .openSheet(.headerView): return nil
+        case .openSheet(.links): return FoodLinkMenu(food: foodOptions)
+        case .openSheet(.multiSelect): return FoodMultiSelectMenu(food: foodOptions)
+        case .openSheet(.sections): return FoodSectionMenu(food: foodOptions)
+        case .openSheet(.singleSelect): return FoodSingleSelectMenu(food: foodOptions)
+        case .openSheet(.standard): return FoodItemMenu(food: foodOptions)
+        case .openSheet(.nonDismissable): return nil
         }
     }
 }

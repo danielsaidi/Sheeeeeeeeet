@@ -8,6 +8,9 @@
 
 import Sheeeeeeeeet
 
+/**
+ This is the base class for all food menus in this demo app.
+ */
 class FoodMenu: Menu {
     
     init(items: [MenuItem]) {

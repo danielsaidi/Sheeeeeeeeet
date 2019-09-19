@@ -1,5 +1,5 @@
 //
-//  MultiSelectFoodMenu.swift
+//  FoodMultiSelectMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -19,15 +19,15 @@ import Sheeeeeeeeet
  This sheet also uses two `MultiSelectToggleItem` items that
  can be used to select and deselect all items in a section.
 */
-class MultiSelectFoodMenu: FoodMenu {
+class FoodMultiSelectMenu: FoodMenu {
 
     init(food: [FoodOption]) {
-        let items = MultiSelectFoodMenu.items(for: food)
+        let items = FoodMultiSelectMenu.items(for: food)
         super.init(items: items)
     }
 }
 
-private extension MultiSelectFoodMenu {
+private extension FoodMultiSelectMenu {
     
     static func items(for food: [FoodOption]) -> [MenuItem] {
         var items = [MenuItem]()
