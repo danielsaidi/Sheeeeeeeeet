@@ -66,6 +66,7 @@ class ActionSheetTests: QuickSpec {
                     let presenter = ActionSheetPopoverPresenter()
                     let sheet = ActionSheet(menu: menu, presenter: presenter) { _, _ in counter += 1 }
                     expect(sheet.presenter).to(be(presenter))
+                    expect(sheet.presenter.isDismissable).to(beTrue())
                     expect(sheet.items.count).to(equal(2))
                     expect(sheet.items[0] is ActionSheetTitle).to(beTrue())
                     expect(sheet.items[0].title).to(equal("title"))
@@ -74,6 +75,12 @@ class ActionSheetTests: QuickSpec {
                     expect(sheet.buttons[0] as? ActionSheetOkButton).toNot(beNil())
                     sheet.selectAction(sheet, sheet.items[0])
                     expect(counter).to(equal(1))
+                }
+                
+                it("can disable presenter dismissal with menu configuration") {
+                    let menu = Menu(title: "title", items: [], configuration: .nonDismissable)
+                    let sheet = ActionSheet(menu: menu) { _, _ in }
+                    expect(sheet.presenter.isDismissable).to(beFalse())
                 }
             }
         }

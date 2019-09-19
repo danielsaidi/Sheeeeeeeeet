@@ -14,6 +14,7 @@
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84123FF22334049A00283044 /* FoodLinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* FoodLinkMenu.swift */; };
 		84123FF423340A6000283044 /* FoodDestructiveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF323340A6000283044 /* FoodDestructiveMenu.swift */; };
+		84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF523340F0A00283044 /* MenuConfiguration.swift */; };
 		8415BC3623036548002D5C78 /* ActionSheetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3523036548002D5C78 /* ActionSheetStackView.swift */; };
 		8415BC3823036FDC002D5C78 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */; };
 		846385292333D135005E3A2E /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385282333D135005E3A2E /* ViewController+ActionSheets.swift */; };
@@ -105,7 +106,6 @@
 		84C199F4230ADBD8000FFB05 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199DF230ADBD7000FFB05 /* CustomActionSheet.swift */; };
 		84C199F6230ADBD8000FFB05 /* ActionSheet+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199E1230ADBD7000FFB05 /* ActionSheet+Items.swift */; };
 		84C199FA230ADBD8000FFB05 /* CollectionActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199E5230ADBD7000FFB05 /* CollectionActionSheet.swift */; };
-		84C199FB230ADBD8000FFB05 /* HeaderActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199E6230ADBD7000FFB05 /* HeaderActionSheet.swift */; };
 		84C199FC230ADBD8000FFB05 /* DemoCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199E8230ADBD8000FFB05 /* DemoCustomViewCell.swift */; };
 		84C199FD230ADBD8000FFB05 /* DemoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C199E9230ADBD8000FFB05 /* DemoCollectionViewCell.xib */; };
 		84C199FE230ADBD8000FFB05 /* DemoCustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C199EA230ADBD8000FFB05 /* DemoCustomViewCell.xib */; };
@@ -155,6 +155,7 @@
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
 		84123FF12334049A00283044 /* FoodLinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLinkMenu.swift; sourceTree = "<group>"; };
 		84123FF323340A6000283044 /* FoodDestructiveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDestructiveMenu.swift; sourceTree = "<group>"; };
+		84123FF523340F0A00283044 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
 		8415BC3523036548002D5C78 /* ActionSheetStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetStackView.swift; sourceTree = "<group>"; };
 		8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		8423864721EF7ED10045F121 /* Appearance.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Appearance.md; sourceTree = "<group>"; };
@@ -255,7 +256,6 @@
 		84C199DF230ADBD7000FFB05 /* CustomActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		84C199E1230ADBD7000FFB05 /* ActionSheet+Items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Items.swift"; sourceTree = "<group>"; };
 		84C199E5230ADBD7000FFB05 /* CollectionActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionActionSheet.swift; sourceTree = "<group>"; };
-		84C199E6230ADBD7000FFB05 /* HeaderActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderActionSheet.swift; sourceTree = "<group>"; };
 		84C199E8230ADBD8000FFB05 /* DemoCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCustomViewCell.swift; sourceTree = "<group>"; };
 		84C199E9230ADBD8000FFB05 /* DemoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoCollectionViewCell.xib; sourceTree = "<group>"; };
 		84C199EA230ADBD8000FFB05 /* DemoCustomViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoCustomViewCell.xib; sourceTree = "<group>"; };
@@ -518,6 +518,7 @@
 				84A8788C2332084B00045F0A /* Sections */,
 				84BE53C223314345009DDFC6 /* Menu.swift */,
 				84BE53C6233145E6009DDFC6 /* MenuButton.swift */,
+				84123FF523340F0A00283044 /* MenuConfiguration.swift */,
 				84BE53C423314472009DDFC6 /* MenuItem.swift */,
 			);
 			path = Menu;
@@ -640,7 +641,6 @@
 				84C199DF230ADBD7000FFB05 /* CustomActionSheet.swift */,
 				84C199E1230ADBD7000FFB05 /* ActionSheet+Items.swift */,
 				84C199E5230ADBD7000FFB05 /* CollectionActionSheet.swift */,
-				84C199E6230ADBD7000FFB05 /* HeaderActionSheet.swift */,
 			);
 			path = Sheets;
 			sourceTree = "<group>";
@@ -862,6 +862,7 @@
 				84BD8A832302BC8C0020610B /* ActionSheetMargin.swift in Sources */,
 				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButton.swift in Sources */,
 				84BD8A8F2302BC8C0020610B /* ActionSheetPresenter.swift in Sources */,
+				84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */,
 				84BD8A8A2302BC8C0020610B /* StandardActionSheetAppearance.swift in Sources */,
 				84BD8AA02302BC8C0020610B /* ActionSheetCustomItem.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
@@ -894,7 +895,6 @@
 				84C199D9230ADB7B000FFB05 /* ViewController+TableView.swift in Sources */,
 				84C199D7230ADB7B000FFB05 /* ViewController+Appearance.swift in Sources */,
 				846385362333FF93005E3A2E /* FoodSectionMenu.swift in Sources */,
-				84C199FB230ADBD8000FFB05 /* HeaderActionSheet.swift in Sources */,
 				846385302333D638005E3A2E /* FoodMultiSelectMenu.swift in Sources */,
 				84123FF423340A6000283044 /* FoodDestructiveMenu.swift in Sources */,
 				84C19A02230ADBD8000FFB05 /* MenuOption.swift in Sources */,

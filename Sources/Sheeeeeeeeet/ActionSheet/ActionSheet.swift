@@ -105,6 +105,7 @@ open class ActionSheet: UIViewController {
         if let title = menu.title {
             items.insert(ActionSheetTitle(title: title), at: 0)
         }
+        presenter.isDismissable = menu.configuration.isDismissable
         self.presenter = presenter
         selectAction = action
         super.init(nibName: nil, bundle: nil)
