@@ -13,15 +13,12 @@ import UIKit
  Collection items can be used to present item collections in
  a collection view.
  
- A cell must implement `ActionSheetCollectionItemContentCell`
- to be used with this item. The .xib must have the same name
- as the cell's class name.
- 
- This class will dequeue a different cell type than standard
- action sheet items. If you look at `cell(for: ...)`, you'll
- see that it uses `ActionSheetCollectionItemCell` for its id.
+ In this implementation, `T` must be a `UICollectionViewCell`
+ and implement `CollectionItemType`. These cells must have a
+ `.xib` file with the same name as the class name, placed in
+ the same bundle as the class.
  */
-open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     // MARK: - Initialization
@@ -58,8 +55,10 @@ open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: A
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         tableView.register(ActionSheetCollectionItemCell.self, forCellReuseIdentifier: className)
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
-        guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type created by superclass") }
-        typedCell.setup(withNib: T.nib, owner: self)
+        guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type resolved for `ActionSheetCollectionItemCell`") }
+        let className = String(describing: T.self)
+        let nib = UINib(nibName: className, bundle: nil)
+        typedCell.setup(withNib: nib, owner: self)
         return typedCell
     }
     
@@ -87,8 +86,9 @@ open class ActionSheetCollectionItem<T: ActionSheetCollectionItemContentCell>: A
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let id = ActionSheetCollectionItemCell.itemCellIdentifier
         let dequeued = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
-        guard let cell = dequeued as? T else { return UICollectionViewCell() }
-        setupAction(cell, indexPath.row)
+        guard let item = dequeued as? T else { fatalError("Invalid item resolved for ActionSheetCollectionItem.T") }
+        guard let cell = item as? UICollectionViewCell else { fatalError("ActionSheetCollectionItem.T must inherit `UICollectionViewCell`") }
+        setupAction(item, indexPath.row)
         return cell
     }
     
@@ -153,22 +153,4 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
         collectionView.delegate = owner
         collectionView.reloadData()
     }
-}
-
-
-// MARK: - Cell
-
-/**
- This protocol must be implemented by any cell that is to be
- used together with an `ActionSheetCollectionItem`.
- */
-public protocol ActionSheetCollectionItemContentCell where Self: UICollectionViewCell {
-    
-    static var nib: UINib { get }
-    static var defaultSize: CGSize { get }
-    static var leftInset: CGFloat { get }
-    static var rightInset: CGFloat { get }
-    static var topInset: CGFloat { get }
-    static var bottomInset: CGFloat { get }
-    static var itemSpacing: CGFloat { get }
 }

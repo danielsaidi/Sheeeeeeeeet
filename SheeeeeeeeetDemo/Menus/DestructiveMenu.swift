@@ -1,5 +1,5 @@
 //
-//  FoodDestructiveMenu.swift
+//  DestructiveMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -10,12 +10,11 @@ import Sheeeeeeeeet
 
 /**
  This menu creates a `MultiSelectItem` for every food option
- and appends a destructive button a cancel button to the end
- of the list.
+ and appends a destructive button a cancel button to the end.
 */
-class FoodDestructiveMenu: FoodMenu {
+class DestructiveMenu: FoodMenu {
 
-    init(food: [FoodOption]) {
+    init() {
         let image = UIImage(named: "ic_credit_card")
         let visaTitle = "Visa **** **** **** 4321"
         let visa = MultiSelectItem(title: visaTitle, isSelected: false, value: "visa", image: image)

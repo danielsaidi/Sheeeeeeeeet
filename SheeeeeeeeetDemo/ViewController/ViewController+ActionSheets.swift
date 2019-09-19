@@ -15,7 +15,8 @@ extension ViewController {
      */
     func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
         switch menuOption(at: indexPath) {
-        case .openSheet(.collections): return CollectionActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.collections):
+            return CollectionActionSheet(action: alert)
         case .openSheet(.customView): return CustomActionSheet(options: foodOptions, buttonTapAction: alert)
         default:
             guard let menu = foodMenu(at: indexPath) else { return nil }
@@ -36,7 +37,7 @@ extension ViewController {
         case .applyAppearance, .separator: return nil
         case .openSheet(.collections): return nil
         case .openSheet(.customView): return nil
-        case .openSheet(.danger): return FoodDestructiveMenu(food: foodOptions)
+        case .openSheet(.danger): return DestructiveMenu()
         case .openSheet(.headerView): return FoodItemMenu(food: foodOptions)
         case .openSheet(.links): return FoodLinkMenu(food: foodOptions)
         case .openSheet(.multiSelect): return FoodMultiSelectMenu(food: foodOptions)

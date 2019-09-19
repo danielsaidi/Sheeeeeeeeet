@@ -39,7 +39,7 @@ private extension CustomActionSheet {
         return [
             ActionSheetTitle(title: "Tap a button"),
             item,
-            cancelButton
+            ActionSheetCancelButton(title: "Cancel")
         ]
     }
 }

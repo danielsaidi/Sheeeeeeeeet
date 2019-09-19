@@ -18,33 +18,24 @@ import Sheeeeeeeeet
  */
 class CollectionActionSheet: ActionSheet {
     
-    init(options: [FoodOption], action: @escaping ([DemoCollectionViewCell.Item]) -> ()) {
-        let collectionItems = CollectionActionSheet.collectionItems
-        super.init(items: []) { _, item in
+    convenience init(action: @escaping ([DemoCollectionViewCell.Item]) -> ()) {
+        let items = CollectionActionSheet.collectionItems
+        self.init(items: []) { _, item in
             guard item.isOkButton else { return }
-            action(collectionItems.filter { $0.isSelected })
+            action(items.filter { $0.isSelected })
         }
-        let items = self.items(for: options, collectionItems: collectionItems)
-        setup(items: items)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        setup(items: self.items(with: items))
     }
 }
 
 private extension CollectionActionSheet {
     
     static var collectionItems: [DemoCollectionViewCell.Item] {
-        var items: [DemoCollectionViewCell.Item] = []
-        for i in 0...20 {
-            items.append(DemoCollectionViewCell.Item(title: "\(i)", subtitle: "\(i)"))
-        }
-        return items
+        (0...20).map { DemoCollectionViewCell.Item(title: "\($0)") }
     }
     
-    func items(for options: [FoodOption], collectionItems: [DemoCollectionViewCell.Item]) -> [ActionSheetItem] {
-        let title = ActionSheetSectionTitle(title: ActionSheet.standardTitle, subtitle: selectionSubtitle(for: collectionItems))
+    func items(with collectionItems: [DemoCollectionViewCell.Item]) -> [ActionSheetItem] {
+        let title = ActionSheetSectionTitle(title: "Select items", subtitle: selectionSubtitle(for: collectionItems))
         
         let setupAction = { (cell: DemoCollectionViewCell, index: Int) in
             let item = collectionItems[index]
@@ -71,8 +62,8 @@ private extension CollectionActionSheet {
             title,
             ActionSheetSectionMargin(),
             collectionItem,
-            ActionSheet.okButton,
-            ActionSheet.cancelButton]
+            ActionSheetOkButton(title: "OK"),
+            ActionSheetCancelButton(title: "Cancel")]
     }
     
     func selectionSubtitle(for collectionItems: [DemoCollectionViewCell.Item]) -> String {

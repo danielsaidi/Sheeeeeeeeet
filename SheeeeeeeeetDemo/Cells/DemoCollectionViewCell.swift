@@ -28,24 +28,21 @@ class DemoCollectionViewCell: UICollectionViewCell {
     
     class Item: Equatable {
         
-        init(title: String, subtitle: String) {
+        init(title: String) {
             self.title = title
-            self.subtitle = subtitle
             self.isSelected = false
         }
         
         init(copy: Item) {
             self.title = copy.title
-            self.subtitle = copy.subtitle
             self.isSelected = copy.isSelected
         }
         
         var title: String
-        var subtitle: String
         var isSelected: Bool
 
         static func == (lhs: Item, rhs: Item) -> Bool {
-            return lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+            return lhs.title == rhs.title
         }
     }
     
@@ -69,9 +66,8 @@ class DemoCollectionViewCell: UICollectionViewCell {
 
 // MARK: - ActionSheetCollectionItemContentCell
 
-extension DemoCollectionViewCell: ActionSheetCollectionItemContentCell {
+extension DemoCollectionViewCell: CollectionItemType {
     
-    static let nib: UINib = UINib(nibName: "DemoCollectionViewCell", bundle: nil)
     static let defaultSize = CGSize(width: 100, height: 100)
     static let leftInset: CGFloat = 10
     static let rightInset: CGFloat = 20

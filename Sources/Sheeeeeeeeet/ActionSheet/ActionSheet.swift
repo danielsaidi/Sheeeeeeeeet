@@ -101,15 +101,10 @@ open class ActionSheet: UIViewController {
         menu: Menu,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
-        var items = menu.items.map { $0.toActionSheetItem() }
-        if let title = menu.title {
-            items.insert(ActionSheetTitle(title: title), at: 0)
-        }
-        presenter.isDismissable = menu.configuration.isDismissable
         self.presenter = presenter
         selectAction = action
         super.init(nibName: nil, bundle: nil)
-        setup(items: items)
+        setup(with: menu)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -137,6 +132,15 @@ open class ActionSheet: UIViewController {
         self.items = items.filter { !($0 is ActionSheetButton) }
         buttons = items.compactMap { $0 as? ActionSheetButton }
         reloadData()
+    }
+    
+    open func setup(with menu: Menu) {
+        var items = menu.items.map { $0.toActionSheetItem() }
+        if let title = menu.title {
+            items.insert(ActionSheetTitle(title: title), at: 0)
+        }
+        setup(items: items)
+        presenter.isDismissable = menu.configuration.isDismissable
     }
     
     

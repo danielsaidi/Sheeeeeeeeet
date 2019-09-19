@@ -19,6 +19,8 @@ Due to these changes, this version are many breaking (but easily fixed) changes:
 * Most menu items have the same name as the old action sheet items, without the `ActionSheet` prefix.
 * `ActionSheetDangerButton` now correspond to a `DestructiveButton`.
 * `ActionSheet.height` is now an appearance property in `ActionSheetItemCell` instead. This makes it a lot easier to maintain.
+* `ActionSheetCollectionItemContentCell` has been moved and renamed to `CollectionItemType`.
+
 
 
 ## 2.1.0
