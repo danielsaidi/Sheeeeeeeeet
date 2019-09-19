@@ -58,6 +58,25 @@ import UIKit
  don't want the action sheet to be dismissed when an item is
  tapped. Some item types uses `.none` by default.
  */
+
+
+class Type1 {}
+class Type2: Type1 {}
+
+class B: A<Type2> {}
+
+class A<T: Type1> {
+    
+    init(val: T) {
+        self.value = val
+    }
+    
+    let value: T
+}
+
+var a = A(val: Type2())
+
+
 open class ActionSheetItem: NSObject {
     
     

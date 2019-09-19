@@ -1,6 +1,26 @@
 # Release Notes
 
 
+## 3.0.0
+
+This version separates the action sheet and its cells from the menu model.
+
+This is meant to simplify creating and talking about your menus, without involving how they are to be presented.
+
+It's also easier to subclass a `Menu` than an `ActionSheet`, since it's not a `UIView` that requires coding support.
+
+The new `Menu` can be used in any way you like. It can be used in an `ActionSheet` but also be used to create iOS 13 context menus.
+
+As such, there are many breaking (but easily fixed) changes:
+
+* There are no more action sheet items - the items are now found in the `Menu` namespace instead. 
+* Instead of create an action sheet with action sheet items, you instead create it with menu items.
+* The action sheet cells are now first-class citizens. The action sheet will map its items to these cells.
+* Most menu items have the same name as the old action sheet items, without the `ActionSheet` prefix.
+* `ActionSheetDangerButton` now correspond to a `DestructiveButton`.
+* `ActionSheet.height` is now an appearance property in `ActionSheetItemCell` instead. This makes it a lot easier to maintain.
+
+
 ## 2.1.0
 
 This version adds Xcode 11 and iOS 13 support, including support for dark mode and high contrast color variants.

@@ -14,20 +14,19 @@ extension ViewController {
      Get the action sheet option at a certain index, if any.
      */
     func actionSheet(at indexPath: IndexPath) -> ActionSheet? {
-        let options = foodOptions
         switch menuOption(at: indexPath) {
         case .applyAppearance, .separator: return nil
-        case .openSheet(.collections): return CollectionActionSheet(options: options, action: alert)
-        case .openSheet(.customView): return CustomActionSheet(options: options, buttonTapAction: alert)
-        case .openSheet(.danger): return DestructiveActionSheet(options: options, action: alert)
-        case .openSheet(.headerView): return HeaderActionSheet(options: options, action: alert)
-        case .openSheet(.links): return LinkActionSheet(options: options, action: alert)
-        case .openSheet(.multiSelect): return MultiSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
-        case .openSheet(.sections): return SectionActionSheet(options: options, action: alert)
-        case .openSheet(.singleSelect): return SingleSelectActionSheet(options: options, preselected: [.fancy, .fast], action: alert)
-        case .openSheet(.standard): return StandardActionSheet(options: options, action: alert)
+        case .openSheet(.collections): return CollectionActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.customView): return CustomActionSheet(options: foodOptions, buttonTapAction: alert)
+        case .openSheet(.danger): return DestructiveActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.headerView): return HeaderActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.links): return LinkActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.multiSelect): return MultiSelectActionSheet(options: foodOptions, preselected: [.fancy, .fast], action: alert)
+        case .openSheet(.sections): return SectionActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.singleSelect): return SingleSelectActionSheet(options: foodOptions, preselected: [.fancy, .fast], action: alert)
+        case .openSheet(.standard): return StandardActionSheet(options: foodOptions, action: alert)
         case .openSheet(.nonDismissable):
-            let sheet = StandardActionSheet(options: options, action: alert)
+            let sheet = StandardActionSheet(options: foodOptions, action: alert)
             sheet.presenter.isDismissable = false
             return sheet
         }

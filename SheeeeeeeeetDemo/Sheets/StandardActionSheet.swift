@@ -28,8 +28,7 @@ extension Menu {
 class StandardActionSheet: ActionSheet {
     
     convenience init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
-        let menu = Menu.standard(with: options)
-        self.init(menu: menu) { _, item in
+        self.init(menu: .standard(with: options)) { _, item in
             if item.value == nil { return }
             action([item])
         }
