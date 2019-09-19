@@ -58,7 +58,7 @@ import UIKit
  don't want the action sheet to be dismissed when an item is
  tapped. Some item types uses `.none` by default.
  */
-open class ActionSheetItem: NSObject, MenuItemRepresentable {
+open class ActionSheetItem: NSObject {
     
     
     // MARK: - Initialization

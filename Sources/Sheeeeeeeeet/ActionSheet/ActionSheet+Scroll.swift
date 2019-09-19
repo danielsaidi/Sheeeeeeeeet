@@ -16,7 +16,7 @@ public extension ActionSheet {
     func scrollToFirstSelectedItem(at position: UITableView.ScrollPosition = .middle, animated: Bool = false) {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) { [weak self] in
             guard
-                let items = self?.items(ofType: ActionSheetSelectItem.self),
+                let items = self?.items.compactMap({ $0 as? ActionSheetSelectItem }),
                 let index = (items.firstIndex { $0.isSelected == true })
                 else { return }
             let path = IndexPath(row: index, section: 0)

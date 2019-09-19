@@ -16,7 +16,7 @@ import Foundation
  can be used in many ways, e.g. mapped to an action sheet or
  a context menu, presented in a popover etc.
  */
-public struct Menu: MenuRepresentable {
+public struct Menu {
     
     public init(items: [MenuItem]) {
         self.items = items

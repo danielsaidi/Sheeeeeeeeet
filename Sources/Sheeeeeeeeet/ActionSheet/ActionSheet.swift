@@ -82,7 +82,7 @@ import UIKit
  an item is tapped. You can override it if you, for instance,
  want to perform any animations before calling `super`.
  */
-open class ActionSheet: UIViewController, MenuRepresentable {
+open class ActionSheet: UIViewController {
     
     
     // MARK: - Initialization

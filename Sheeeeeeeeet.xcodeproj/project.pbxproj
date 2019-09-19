@@ -15,8 +15,6 @@
 		8415BC3623036548002D5C78 /* ActionSheetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3523036548002D5C78 /* ActionSheetStackView.swift */; };
 		8415BC3823036FDC002D5C78 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */; };
 		84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878832331FB8F00045F0A /* NSObject+ClassName.swift */; };
-		84A878862331FC7300045F0A /* MenuRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878852331FC7300045F0A /* MenuRepresentable.swift */; };
-		84A878882331FE2C00045F0A /* MenuItemRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878872331FE2C00045F0A /* MenuItemRepresentable.swift */; };
 		84A8788B233202C000045F0A /* ActionSheetItemConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */; };
 		84A878902332084B00045F0A /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788D2332084B00045F0A /* SectionTitle.swift */; };
 		84A878912332084B00045F0A /* MenuTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788E2332084B00045F0A /* MenuTitle.swift */; };
@@ -162,8 +160,6 @@
 		8493967B21E7F9B200DC0AEF /* DemoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		84A878832331FB8F00045F0A /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
-		84A878852331FC7300045F0A /* MenuRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepresentable.swift; sourceTree = "<group>"; };
-		84A878872331FE2C00045F0A /* MenuItemRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemRepresentable.swift; sourceTree = "<group>"; };
 		84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemConvertible.swift; sourceTree = "<group>"; };
 		84A8788D2332084B00045F0A /* SectionTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		84A8788E2332084B00045F0A /* MenuTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTitle.swift; sourceTree = "<group>"; };
@@ -503,8 +499,6 @@
 				84BE53C223314345009DDFC6 /* Menu.swift */,
 				84BE53C6233145E6009DDFC6 /* MenuButton.swift */,
 				84BE53C423314472009DDFC6 /* MenuItem.swift */,
-				84A878872331FE2C00045F0A /* MenuItemRepresentable.swift */,
-				84A878852331FC7300045F0A /* MenuRepresentable.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -809,7 +803,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84BD8AA22302BC8C0020610B /* ActionSheetSelectItem.swift in Sources */,
-				84A878882331FE2C00045F0A /* MenuItemRepresentable.swift in Sources */,
 				1D42891F20400580005D4369 /* (null) in Sources */,
 				84BD8AA32302BC8C0020610B /* ActionSheetLinkItem.swift in Sources */,
 				84BD8A982302BC8C0020610B /* ActionSheetOkButton.swift in Sources */,
@@ -855,7 +848,6 @@
 				84BD8A8A2302BC8C0020610B /* StandardActionSheetAppearance.swift in Sources */,
 				84BD8AA02302BC8C0020610B /* ActionSheetCustomItem.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
-				84A878862331FC7300045F0A /* MenuRepresentable.swift in Sources */,
 				84BD8A9E2302BC8C0020610B /* ActionSheetTitle.swift in Sources */,
 				84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */,
 				84BD8A892302BC8C0020610B /* ActionSheet+Presenter.swift in Sources */,
