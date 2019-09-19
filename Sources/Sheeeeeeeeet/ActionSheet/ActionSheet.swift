@@ -97,12 +97,15 @@ open class ActionSheet: UIViewController {
         setup(items: items)
     }
     
-    public convenience init(
+    public init(
         menu: Menu,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
         let items = menu.items.map { $0.toActionSheetItem() }
-        self.init(items: items, presenter: presenter, action: action)
+        self.presenter = presenter
+        selectAction = action
+        super.init(nibName: nil, bundle: nil)
+        setup(items: items)
     }
     
     public required init?(coder aDecoder: NSCoder) {

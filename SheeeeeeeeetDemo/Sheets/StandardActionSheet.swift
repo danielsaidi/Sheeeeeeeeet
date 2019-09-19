@@ -8,31 +8,30 @@
 
 import Sheeeeeeeeet
 
-/**
- This action sheet shows you how to create a sheet that uses
- the standard `ActionSheetItem` item type.
- */
-class StandardActionSheet: ActionSheet {
-    
-    init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
-        let items = StandardActionSheet.items(for: options)
-        super.init(items: items) { _, item in
-            if item.value == nil { return }
-            action([item])
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+extension Menu {
+
+    /**
+     This function creates a standard food picker menu, with
+     only standard menu items.
+     */
+    static func standard(with options: [FoodOption]) -> Menu {
+        var items = options.map { $0.toMenuItem() }
+        items.insert(MenuTitle(title: "What do you want to eat?"), at: 0)   // TODO: The menu should have a title prop
+        items.append(CancelButton(title: "Cancel"))
+        return Menu(items: items)
     }
 }
 
-private extension StandardActionSheet {
+/**
+ This is a standard food picker action sheet, with only standard action sheet items.
+ */
+class StandardActionSheet: ActionSheet {
     
-    static func items(for options: [FoodOption]) -> [ActionSheetItem] {
-        var items = options.map { $0.item() }
-        items.insert(titleItem(title: standardTitle), at: 0)
-        items.append(cancelButton)
-        return items
+    convenience init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
+        let menu = Menu.standard(with: options)
+        self.init(menu: menu) { _, item in
+            if item.value == nil { return }
+            action([item])
+        }
     }
 }

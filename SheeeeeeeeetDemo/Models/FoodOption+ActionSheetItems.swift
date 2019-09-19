@@ -17,6 +17,10 @@ import Sheeeeeeeeet
 
 extension FoodOption {
     
+    func toMenuItem() -> MenuItem {
+        MenuItem(title: displayName, value: self, image: image)
+    }
+    
     func item() -> ActionSheetItem {
         return ActionSheetItem(
             title: displayName,

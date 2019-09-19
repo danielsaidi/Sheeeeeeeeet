@@ -29,6 +29,10 @@ extension ActionSheet {
         return "What do you want to eat?"
     }
     
+    static var standardCancel: String {
+        return "What do you want to eat?"
+    }
+    
     static func titleItem(title: String) -> ActionSheetTitle {
         return ActionSheetTitle(title: title)
     }

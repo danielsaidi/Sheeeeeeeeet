@@ -8,6 +8,10 @@
 
 import Foundation
 
+/**
+ This internal protocol can be implemented by types that can
+ be converted to action sheet items.
+ */
 protocol ActionSheetItemConvertible {
     
     func toActionSheetItem() -> ActionSheetItem
