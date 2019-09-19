@@ -97,6 +97,14 @@ open class ActionSheet: UIViewController, MenuRepresentable {
         setup(items: items)
     }
     
+    public convenience init(
+        menu: Menu,
+        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        action: @escaping SelectAction) {
+        let items = menu.items.map { $0.toActionSheetItem() }
+        self.init(items: items, presenter: presenter, action: action)
+    }
+    
     public required init?(coder aDecoder: NSCoder) {
         presenter = ActionSheet.defaultPresenter
         selectAction = { _, _ in print("itemSelectAction is not set") }
