@@ -9,8 +9,9 @@
 import Sheeeeeeeeet
 
 /**
- This action sheet lists food and either alerts all selected
- select items or a single item if one is tapped.
+ This action sheet lists food options, and either alerts all
+ selected items if an OK button is tapped, or a menu item if
+ one is tapped.
  */
 class FoodActionSheet: ActionSheet {
     

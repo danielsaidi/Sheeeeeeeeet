@@ -22,7 +22,7 @@ extension ViewController {
         case .applyAppearance, .separator: return nil
         case .openSheet(.collections): return CollectionActionSheet(options: foodOptions, action: alert)
         case .openSheet(.customView): return CustomActionSheet(options: foodOptions, buttonTapAction: alert)
-        case .openSheet(.danger): return DestructiveActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.danger): return nil
         case .openSheet(.headerView): return HeaderActionSheet(options: foodOptions, action: alert)
         case .openSheet(.links): return nil
         case .openSheet(.multiSelect): return nil
@@ -41,7 +41,7 @@ extension ViewController {
         case .applyAppearance, .separator: return nil
         case .openSheet(.collections): return nil
         case .openSheet(.customView): return nil
-        case .openSheet(.danger): return nil
+        case .openSheet(.danger): return FoodDestructiveMenu(food: foodOptions)
         case .openSheet(.headerView): return nil
         case .openSheet(.links): return FoodLinkMenu(food: foodOptions)
         case .openSheet(.multiSelect): return FoodMultiSelectMenu(food: foodOptions)

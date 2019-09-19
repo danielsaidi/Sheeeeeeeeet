@@ -25,7 +25,7 @@ extension FoodOption {
         LinkItem(title: displayName, value: self, image: image)
     }
     
-    func toMultiSelectItem(isSelected: Bool, group: String) -> MultiSelectItem {
+    func toMultiSelectItem(isSelected: Bool, group: String = "") -> MultiSelectItem {
         MultiSelectItem(
             title: displayName,
             isSelected: isSelected,
@@ -35,7 +35,7 @@ extension FoodOption {
         )
     }
     
-    func toSingleSelectItem(isSelected: Bool, group: String) -> SingleSelectItem {
+    func toSingleSelectItem(isSelected: Bool, group: String = "") -> SingleSelectItem {
         SingleSelectItem(
             title: displayName,
             isSelected: isSelected,
