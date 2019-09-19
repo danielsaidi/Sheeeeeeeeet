@@ -21,11 +21,11 @@ import Sheeeeeeeeet
  */
 class MultiSelectActionSheet: ActionSheet {
     
-    convenience init(options: [FoodOption], preselected: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
+    convenience init(options: [FoodOption], action: @escaping ([ActionSheetItem]) -> ()) {
         self.init(menu: MultiSelectFoodMenu(food: options)) { sheet, item in
             guard item.isOkButton else { return }
-            let selectItems = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
-            let selectedItems = selectItems.filter { $0.isSelected }
+            let items = sheet.items.compactMap { $0 as? ActionSheetSelectItem }
+            let selectedItems = items.filter { $0.isSelected }
             action(selectedItems)
         }
     }

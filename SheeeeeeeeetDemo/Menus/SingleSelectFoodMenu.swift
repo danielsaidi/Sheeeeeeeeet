@@ -1,5 +1,5 @@
 //
-//  MultiSelectFoodMenu.swift
+//  SingleSelectFoodMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -8,15 +8,15 @@
 
 import Sheeeeeeeeet
 
-class MultiSelectFoodMenu: FoodMenu {
-
+class SingleSelectFoodMenu: FoodMenu {
+    
     init(food: [FoodOption]) {
-        let items = MultiSelectFoodMenu.items(for: food)
+        let items = SingleSelectFoodMenu.items(for: food)
         super.init(items: items)
     }
 }
 
-private extension MultiSelectFoodMenu {
+private extension SingleSelectFoodMenu {
     
     static func items(for food: [FoodOption]) -> [MenuItem] {
         var items = [MenuItem]()
@@ -30,8 +30,8 @@ private extension MultiSelectFoodMenu {
     
     static func itemsGroup(for food: [FoodOption], preselected: FoodOption?, group: String) -> [MenuItem] {
         let food = food.filter { $0 != .none && $0 != .homeMade }
-        let items = food.map { $0.toMultiSelectItem(isSelected: $0 == preselected, group: group) }
-        let toggle = MultiSelectToggleItem(title: group, state: .selectAll, group: group, selectAllTitle: "Select all", deselectAllTitle: "Deselect all")
-        return CollectionOfOne(toggle) + items
+        let items = food.map { $0.toSingleSelectItem(isSelected: $0 == preselected, group: group) }
+        let title = SectionTitle(title: group)
+        return CollectionOfOne(title) + items
     }
 }

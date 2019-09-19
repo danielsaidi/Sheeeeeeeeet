@@ -14,17 +14,10 @@ import Foundation
  items belong together.
  
  To add additional space above a section title, make sure to
- add a `MenuSectionTitleMargin` before the title.
+ add a `SectionMargin` before the title.
  */
 open class SectionTitle: SectionItem {
     
-    
-    // MARK - Initialization
-    
-    public init(title: String, subtitle: String) {
-        super.init(title: title, subtitle: subtitle)
-    }
-
     
     // MARK: - ActionSheetItemConvertible
     
