@@ -21,6 +21,15 @@ extension FoodOption {
         MenuItem(title: displayName, value: self, image: image)
     }
     
+    func toMultiSelectItem(isSelected: Bool, group: String) -> MultiSelectItem {
+        MultiSelectItem(
+            title: displayName,
+            isSelected: isSelected,
+            group: group,
+            value: self,
+            image: image)
+    }
+    
     func item() -> ActionSheetItem {
         return ActionSheetItem(
             title: displayName,

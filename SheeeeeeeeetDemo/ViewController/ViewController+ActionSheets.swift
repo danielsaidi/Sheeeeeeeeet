@@ -1,8 +1,8 @@
 //
-//  ViewController+Options.swift
-//  SheeeeeeeeetExample
+//  ViewController+ActionSheets.swift
+//  SheeeeeeeeetDemo
 //
-//  Created by Daniel Saidi on 2019-02-10.
+//  Created by Daniel Saidi on 2019-09-19.
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
@@ -29,17 +29,6 @@ extension ViewController {
             let sheet = StandardActionSheet(options: foodOptions, action: alert)
             sheet.presenter.isDismissable = false
             return sheet
-        }
-    }
-    
-    /**
-     Get the appearance option at a certain index, if any.
-     */
-    func appearance(at indexPath: IndexPath) -> ActionSheetAppearance? {
-        switch menuOption(at: indexPath) {
-        case .openSheet, .separator: return nil
-        case .applyAppearance(.demo): return DemoAppearance()
-        case .applyAppearance(.demoColorful): return DemoColorfulAppearance()
         }
     }
 }

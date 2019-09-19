@@ -16,7 +16,7 @@ import Foundation
  can be used in many ways, e.g. mapped to an action sheet or
  a context menu, presented in a popover etc.
  */
-public class Menu {
+open class Menu {
     
     public init(items: [MenuItem]) {
         self.items = items

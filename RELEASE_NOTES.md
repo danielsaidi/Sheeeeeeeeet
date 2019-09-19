@@ -5,13 +5,13 @@
 
 This version separates the action sheet and its cells from the menu model.
 
-This is meant to simplify creating and talking about your menus, without involving how they are to be presented.
+This is meant to simplify create and model your menus, without involving how they are to be presented.
 
-It's also easier to subclass a `Menu` than an `ActionSheet`, since it's not a `UIView` that requires coding support.
+It's also easier to subclass a `Menu` than an `ActionSheet`, since it's not a `UIView` with coding requirements.
 
-The new `Menu` can be used in any way you like. It can be used in an `ActionSheet` but also be used to create iOS 13 context menus.
+The new `Menu` can be used in any way you like, e.g. in an `ActionSheet` or as an iOS 13 context menu.
 
-As such, there are many breaking (but easily fixed) changes:
+Due to these changes, this version are many breaking (but easily fixed) changes:
 
 * There are no more action sheet items - the items are now found in the `Menu` namespace instead. 
 * Instead of create an action sheet with action sheet items, you instead create it with menu items.
