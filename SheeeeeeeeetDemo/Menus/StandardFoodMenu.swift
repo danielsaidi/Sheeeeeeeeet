@@ -8,6 +8,10 @@
 
 import Sheeeeeeeeet
 
+/**
+ This menu creates a standard `MenuItem` for each food, then
+ adds a cancel button to the end of the item list.
+*/
 class StandardFoodMenu: FoodMenu {
 
     init(food: [FoodOption]) {

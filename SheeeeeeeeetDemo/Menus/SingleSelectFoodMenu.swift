@@ -8,6 +8,15 @@
 
 import Sheeeeeeeeet
 
+/**
+ This menu creates a `SingleSelectItem` for each food option.
+ It then creates two sections with these items, then appends
+ an ok and a cancel button to the end of the item list.
+ 
+ You can select a single item in each section. Selecting one
+ item will deselect all other items in the same section, but
+ not affect the other section.
+*/
 class SingleSelectFoodMenu: FoodMenu {
     
     init(food: [FoodOption]) {

@@ -8,6 +8,17 @@
 
 import Sheeeeeeeeet
 
+/**
+ This menu creates a `MultiSelectItem` for every food option.
+ It then creates two sections with these items, then appends
+ an ok and a cancel button to the end of the item list.
+ 
+ You can select one or many items in each section. Selecting
+ items in one section doesn't affect the other section.
+
+ This sheet also uses two `MultiSelectToggleItem` items that
+ can be used to select and deselect all items in a section.
+*/
 class MultiSelectFoodMenu: FoodMenu {
 
     init(food: [FoodOption]) {

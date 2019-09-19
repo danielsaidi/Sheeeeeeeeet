@@ -21,12 +21,12 @@ extension ViewController {
         case .openSheet(.danger): return DestructiveActionSheet(options: foodOptions, action: alert)
         case .openSheet(.headerView): return HeaderActionSheet(options: foodOptions, action: alert)
         case .openSheet(.links): return LinkActionSheet(options: foodOptions, action: alert)
-        case .openSheet(.multiSelect): return MultiSelectActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.multiSelect): return FoodActionSheet(menu: MultiSelectFoodMenu(food: foodOptions), action: alert)
         case .openSheet(.sections): return SectionActionSheet(options: foodOptions, action: alert)
-        case .openSheet(.singleSelect): return SingleSelectActionSheet(options: foodOptions, action: alert)
-        case .openSheet(.standard): return StandardActionSheet(options: foodOptions, action: alert)
+        case .openSheet(.singleSelect): return FoodActionSheet(menu: SingleSelectFoodMenu(food: foodOptions), action: alert)
+        case .openSheet(.standard): return FoodActionSheet(menu: StandardFoodMenu(food: foodOptions), action: alert)
         case .openSheet(.nonDismissable):
-            let sheet = StandardActionSheet(options: foodOptions, action: alert)
+            let sheet = FoodActionSheet(menu: StandardFoodMenu(food: foodOptions), action: alert)
             sheet.presenter.isDismissable = false
             return sheet
         }

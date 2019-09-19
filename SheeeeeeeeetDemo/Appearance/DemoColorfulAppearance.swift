@@ -42,7 +42,6 @@ class DemoColorfulAppearance: DemoAppearance {
         itemsTable.backgroundColor = .brown
         itemsTable.separatorColor = .purple
         buttonsTable.separatorColor = .red
-        ActionSheetTableView.appearance(whenContainedInInstancesOf: [MultiSelectActionSheet.self]).cornerRadius = 30
     }
     
     override func applyFonts() {
