@@ -162,8 +162,26 @@ open class ActionSheet: UIViewController {
     
     public typealias ItemType = ActionSheetItem
     
-    public enum HeaderViewLandscapeMode {
-        case visible, hidden
+    /**
+     This configuration is used to setup how an action sheet
+     header view behaves in various contexts.
+     */
+    public struct HeaderViewConfiguration {
+        
+        public init(isVisibleInLandscape: Bool, isVisibleInPopover: Bool) {
+            self.isVisibleInLandscape = isVisibleInLandscape
+            self.isVisibleInPopover = isVisibleInPopover
+        }
+        
+        public let isVisibleInLandscape: Bool
+        public let isVisibleInPopover: Bool
+        
+        public static var standard: HeaderViewConfiguration {
+            HeaderViewConfiguration(
+                isVisibleInLandscape: true,
+                isVisibleInPopover: true
+            )
+        }
     }
     
     public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
@@ -205,7 +223,7 @@ open class ActionSheet: UIViewController {
     
     open var headerView: UIView?
     
-    public var headerViewLandscapeMode = HeaderViewLandscapeMode.visible
+    public var headerViewConfiguration = HeaderViewConfiguration.standard
     
     
     // MARK: - Item Properties
@@ -265,7 +283,7 @@ open class ActionSheet: UIViewController {
         let size = view.frame.size
         let hasHeader = headerView != nil
         let isPortrait = size.height > size.width
-        let isVisible = hasHeader && (isPortrait || headerViewLandscapeMode == .visible)
+        let isVisible = hasHeader && (isPortrait || headerViewConfiguration.isVisibleInLandscape)
         headerViewContainer.isHidden = !isVisible
     }
     

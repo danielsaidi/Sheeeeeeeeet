@@ -152,9 +152,22 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 expect(sheet.items[2] is ActionSheetOkButton).to(beTrue())
             }
             
+            it("removes header corner radius") {
+                expect(sheet.headerViewContainer.cornerRadius).to(equal(0))
+            }
+            
             it("hides unused views") {
                 expect(sheet.backgroundView.isHidden).to(beTrue())
                 expect(sheet.buttonsTableView.isHidden).to(beTrue())
+            }
+            
+            it("does not hide header by default") {
+                expect(sheet.headerViewContainer.isHidden).to(beFalse())
+            }
+            
+            it("hides header if configuration says so") {
+                sheet.headerViewConfiguration = ActionSheet.HeaderViewConfiguration(isVisibleInLandscape: true, isVisibleInPopover: false)
+                presenter.refreshActionSheet()
                 expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
             

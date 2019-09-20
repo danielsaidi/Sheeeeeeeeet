@@ -3,11 +3,7 @@
 
 ## 3.0.0
 
-This version separates the action sheet and its cells from the menu model.
-
-This is meant to simplify create and model your menus, without involving how they are to be presented.
-
-It's also easier to subclass a `Menu` than an `ActionSheet`, since it's not a `UIView` with coding requirements.
+This version separates the action sheet and its cells from the menu model. This simplifies creating menus, since you don't have to involve how they are to be presented. It's also easier to subclass a `Menu` than an `ActionSheet`, since it's not a `UIView` with coding requirements.
 
 The new `Menu` can be used in any way you like, e.g. in an `ActionSheet` or as an iOS 13 context menu.
 
@@ -20,6 +16,8 @@ Due to these changes, this version are many breaking (but easily fixed) changes:
 * `ActionSheetDangerButton` now correspond to a `DestructiveButton`.
 * `ActionSheet.height` is now an appearance property in `ActionSheetItemCell` instead. This makes it a lot easier to maintain.
 * `ActionSheetCollectionItemContentCell` has been moved and renamed to `CollectionItemType`.
+
+The popover presenter will no longer hide your header view unless you specifically tell it to. To handle this, the `ActionSheet` `headerViewLandscapeMode` property has been replaced with a configuration that contains more options. 
 
 
 
