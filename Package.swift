@@ -15,7 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "git@github.com:Quick/Quick.git", from: "2.1.0"),
-        .package(url: "git@github.com:Quick/Nimble.git", from: "8.0.2"),
+        .package(url: "git@github.com:Quick/Nimble.git", .exact("8.0.2")),
         .package(url: "git@github.com:danielsaidi/Mockery.git", from: "0.1.0"),
     ],
     targets: [
