@@ -12,61 +12,32 @@ import Sheeeeeeeeet
  This action sheet shows you how to create a sheet that uses
  the `ActionSheetCollectionItem` item type.
  
- `setup(items: ...)` is called after init, since taps in the
- collection view must reload to the sheet in order to update
- the selection information.
+ `IMPORTANT` Action sheets with `ActionSheetCollectionItem`s
+ that are mapped from `CollectionItem`s must adjust the item
+ select action, if it wants to be able to listen for taps in
+ the collection view. You don't have to do it in this way if
+ you create an `ActionSheetCollectionItem` directly from the
+ action sheet, since the sheet can then refer to itself when
+ setting up the select action.
  */
 class CollectionActionSheet: ActionSheet {
     
-    convenience init(action: @escaping ([DemoCollectionViewCell.Item]) -> ()) {
-        let items = CollectionActionSheet.collectionItems
-        self.init(items: []) { _, item in
+    typealias Menu = CollectionMenu
+    
+    convenience init(menu: Menu, action: @escaping ([Menu.Cell.Item]) -> ()) {
+        self.init(menu: menu) { _, item in
             guard item.isOkButton else { return }
-            action(items.filter { $0.isSelected })
-        }
-        setup(items: self.items(with: items))
-    }
-}
-
-private extension CollectionActionSheet {
-    
-    static var collectionItems: [DemoCollectionViewCell.Item] {
-        (0...20).map { DemoCollectionViewCell.Item(title: "\($0)") }
-    }
-    
-    func items(with collectionItems: [DemoCollectionViewCell.Item]) -> [ActionSheetItem] {
-        let title = ActionSheetSectionTitle(title: "Select items", subtitle: selectionSubtitle(for: collectionItems))
-        
-        let setupAction = { (cell: DemoCollectionViewCell, index: Int) in
-            let item = collectionItems[index]
-            cell.configureWith(item: item)
+            action(menu.selectedItems)
         }
         
-        let selectionAction = { [weak self] (cell: DemoCollectionViewCell, index: Int) in
-            let item = collectionItems[index]
-            item.isSelected = !item.isSelected
-            title.subtitle = self?.selectionSubtitle(for: collectionItems)
-            cell.configureWith(item: item)
+        let sectionTitle = self.items.compactMap { $0 as? ActionSheetSectionTitle }.first
+        let sheetCollectionItem = self.items.compactMap { $0 as? ActionSheetCollectionItem<Menu.Cell> }.first
+        let selectionAction = sheetCollectionItem?.selectionAction
+        sheetCollectionItem?.selectionAction = { [weak self] cell, index in
+            selectionAction?(cell, index)
+            let selectedCount = menu.collectionItems.filter { $0.isSelected }.count
+            sectionTitle?.subtitle = "Selected items: \(selectedCount)"
             self?.reloadData()
         }
-        
-        let collectionItem = ActionSheetCollectionItem(
-            itemCellType: DemoCollectionViewCell.self,
-            itemCount: collectionItems.count,
-            setupAction: setupAction,
-            selectionAction: selectionAction
-        )
-        
-        return [
-            ActionSheetSectionMargin(),
-            title,
-            ActionSheetSectionMargin(),
-            collectionItem,
-            ActionSheetOkButton(title: "OK"),
-            ActionSheetCancelButton(title: "Cancel")]
-    }
-    
-    func selectionSubtitle(for collectionItems: [DemoCollectionViewCell.Item]) -> String {
-        return "Selected items: \(collectionItems.filter { $0.isSelected }.count)"
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 /**
  Collection items can be used to present item collections of
@@ -17,11 +18,15 @@ import Foundation
  were always collection view cells. This will be solved in a
  future version.
  
- TODO: For now, creating an `ActionSheet` with a `Menu` that
- contains a `CollectionItem` provides no way of updating the
- action sheet from within the `itemSelectionAction`. You can
- thus only use this if you do not need to update your action
- sheet when items are selected.
+ `IMPORTANT` Note that action sheets that contain items that
+ are based on `CollectionItem` must do some tweaks to listen
+ for tap events within its `ActionSheetCollectionItem`. This
+ is because a `CollectionItem` has no reference to the sheet.
+ This means that its selection action can't modify the sheet.
+ This problem doesn't exist when you create an `ActionSheet`
+ with an `ActionSheetCollectionItem` directly, without using
+ a `Menu` with a `CollectionItem`, since the action sheet is
+ aware of itself and can setup the collection item correctly.
  
  */
 open class CollectionItem<T: CollectionItemType>: MenuItem {

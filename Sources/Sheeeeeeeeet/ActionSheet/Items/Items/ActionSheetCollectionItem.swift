@@ -32,7 +32,7 @@ open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UI
         self.itemCount = itemCount
         self.setupAction = setupAction
         self.selectionAction = selectionAction
-        super.init(title: "")
+        super.init(title: "", tapBehavior: .none)
     }
     
     
@@ -46,7 +46,7 @@ open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UI
     public override var height: CGFloat { return T.defaultSize.height }
     public let itemCellType: T.Type
     public let itemCount: Int
-    public private(set) var selectionAction: CellAction
+    public var selectionAction: CellAction
     public let setupAction: CellAction
     
     
@@ -86,8 +86,8 @@ open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UI
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let id = ActionSheetCollectionItemCell.itemCellIdentifier
         let dequeued = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
-        guard let item = dequeued as? T else { fatalError("Invalid item resolved for ActionSheetCollectionItem.T") }
-        guard let cell = item as? UICollectionViewCell else { fatalError("ActionSheetCollectionItem.T must inherit `UICollectionViewCell`") }
+        guard let item = dequeued as? T else { fatalError("Invalid item resolved for CollectionItemType") }
+        guard let cell = item as? UICollectionViewCell else { fatalError("CollectionItemType must inherit `UICollectionViewCell`") }
         setupAction(item, indexPath.row)
         return cell
     }

@@ -23,6 +23,7 @@
 		846385302333D638005E3A2E /* MultiSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852F2333D638005E3A2E /* MultiSelectMenu.swift */; };
 		846385342333E662005E3A2E /* SingleSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385332333E662005E3A2E /* SingleSelectMenu.swift */; };
 		846385362333FF93005E3A2E /* SectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385352333FF93005E3A2E /* SectionMenu.swift */; };
+		849DCEB22334F90D006DABE6 /* CollectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DCEB12334F90D006DABE6 /* CollectionMenu.swift */; };
 		84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878832331FB8F00045F0A /* NSObject+ClassName.swift */; };
 		84A8788B233202C000045F0A /* ActionSheetItemConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */; };
 		84A878902332084B00045F0A /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788D2332084B00045F0A /* SectionTitle.swift */; };
@@ -170,6 +171,7 @@
 		846385352333FF93005E3A2E /* SectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionMenu.swift; sourceTree = "<group>"; };
 		8493967B21E7F9B200DC0AEF /* DemoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
+		849DCEB12334F90D006DABE6 /* CollectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMenu.swift; sourceTree = "<group>"; };
 		84A878832331FB8F00045F0A /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemConvertible.swift; sourceTree = "<group>"; };
 		84A8788D2332084B00045F0A /* SectionTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
@@ -342,10 +344,11 @@
 		8463852A2333D3F5005E3A2E /* Menus */ = {
 			isa = PBXGroup;
 			children = (
+				849DCEB12334F90D006DABE6 /* CollectionMenu.swift */,
 				84123FF323340A6000283044 /* DestructiveMenu.swift */,
+				8463852B2333D47E005E3A2E /* FoodMenu.swift */,
 				8463852D2333D55D005E3A2E /* ItemMenu.swift */,
 				84123FF12334049A00283044 /* LinkMenu.swift */,
-				8463852B2333D47E005E3A2E /* FoodMenu.swift */,
 				8463852F2333D638005E3A2E /* MultiSelectMenu.swift */,
 				846385352333FF93005E3A2E /* SectionMenu.swift */,
 				846385332333E662005E3A2E /* SingleSelectMenu.swift */,
@@ -905,6 +908,7 @@
 				84C199DA230ADB7B000FFB05 /* AppearanceViewController.swift in Sources */,
 				84C19A01230ADBD8000FFB05 /* FoodOption.swift in Sources */,
 				84C19995230AB014000FFB05 /* AppDelegate.swift in Sources */,
+				849DCEB22334F90D006DABE6 /* CollectionMenu.swift in Sources */,
 				84C199FF230ADBD8000FFB05 /* DemoCollectionViewCell.swift in Sources */,
 				84C19997230AB014000FFB05 /* SceneDelegate.swift in Sources */,
 				846385292333D135005E3A2E /* ViewController+ActionSheets.swift in Sources */,
