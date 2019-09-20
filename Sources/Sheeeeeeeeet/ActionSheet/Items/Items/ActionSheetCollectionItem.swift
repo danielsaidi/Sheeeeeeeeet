@@ -17,6 +17,8 @@ import UIKit
  and implement `CollectionItemType`. These cells must have a
  `.xib` file with the same name as the class within the same
  bundle as the class.
+ 
+ `TODO` Unit test
  */
 open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
