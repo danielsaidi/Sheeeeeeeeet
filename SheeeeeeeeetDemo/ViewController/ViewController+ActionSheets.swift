@@ -38,13 +38,13 @@ extension ViewController {
         case .openSheet(.collections): return nil
         case .openSheet(.customView): return nil
         case .openSheet(.danger): return DestructiveMenu()
-        case .openSheet(.headerView): return FoodItemMenu(food: foodOptions)
-        case .openSheet(.links): return FoodLinkMenu(food: foodOptions)
-        case .openSheet(.multiSelect): return FoodMultiSelectMenu(food: foodOptions)
-        case .openSheet(.sections): return FoodSectionMenu(food: foodOptions)
-        case .openSheet(.singleSelect): return FoodSingleSelectMenu(food: foodOptions)
-        case .openSheet(.standard): return FoodItemMenu(food: foodOptions)
-        case .openSheet(.nonDismissable): return FoodItemMenu(food: foodOptions, configuration: .nonDismissable)
+        case .openSheet(.headerView): return ItemMenu(food: foodOptions)
+        case .openSheet(.links): return LinkMenu(food: foodOptions)
+        case .openSheet(.multiSelect): return MultiSelectMenu(food: foodOptions)
+        case .openSheet(.sections): return SectionMenu(food: foodOptions)
+        case .openSheet(.singleSelect): return SingleSelectMenu(food: foodOptions)
+        case .openSheet(.standard): return ItemMenu(food: foodOptions)
+        case .openSheet(.nonDismissable): return ItemMenu(food: foodOptions, configuration: .nonDismissable)
         }
     }
 }

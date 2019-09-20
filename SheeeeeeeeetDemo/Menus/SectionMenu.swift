@@ -1,5 +1,5 @@
 //
-//  FoodSectionMenu.swift
+//  SectionMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -13,15 +13,15 @@ import Sheeeeeeeeet
  option, then adds them to one of two sections. It also adds
  a cancel button at the end of the item list.
 */
-class FoodSectionMenu: FoodMenu {
+class SectionMenu: FoodMenu {
     
     init(food: [FoodOption]) {
-        let items = FoodSectionMenu.items(for: food)
+        let items = SectionMenu.items(for: food)
         super.init(items: items)
     }
 }
 
-private extension FoodSectionMenu {
+private extension SectionMenu {
     
     static func items(for food: [FoodOption]) -> [MenuItem] {
         var items = [MenuItem]()

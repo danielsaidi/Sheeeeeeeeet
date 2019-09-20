@@ -12,17 +12,17 @@
 		1D42891D20400474005D4369 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		1D42891F20400580005D4369 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84123FF22334049A00283044 /* FoodLinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* FoodLinkMenu.swift */; };
+		84123FF22334049A00283044 /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* LinkMenu.swift */; };
 		84123FF423340A6000283044 /* DestructiveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF323340A6000283044 /* DestructiveMenu.swift */; };
 		84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF523340F0A00283044 /* MenuConfiguration.swift */; };
 		8415BC3623036548002D5C78 /* ActionSheetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3523036548002D5C78 /* ActionSheetStackView.swift */; };
 		8415BC3823036FDC002D5C78 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */; };
 		846385292333D135005E3A2E /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385282333D135005E3A2E /* ViewController+ActionSheets.swift */; };
 		8463852C2333D47E005E3A2E /* FoodMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852B2333D47E005E3A2E /* FoodMenu.swift */; };
-		8463852E2333D55D005E3A2E /* FoodItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852D2333D55D005E3A2E /* FoodItemMenu.swift */; };
-		846385302333D638005E3A2E /* FoodMultiSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852F2333D638005E3A2E /* FoodMultiSelectMenu.swift */; };
-		846385342333E662005E3A2E /* FoodSingleSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385332333E662005E3A2E /* FoodSingleSelectMenu.swift */; };
-		846385362333FF93005E3A2E /* FoodSectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385352333FF93005E3A2E /* FoodSectionMenu.swift */; };
+		8463852E2333D55D005E3A2E /* ItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852D2333D55D005E3A2E /* ItemMenu.swift */; };
+		846385302333D638005E3A2E /* MultiSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852F2333D638005E3A2E /* MultiSelectMenu.swift */; };
+		846385342333E662005E3A2E /* SingleSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385332333E662005E3A2E /* SingleSelectMenu.swift */; };
+		846385362333FF93005E3A2E /* SectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385352333FF93005E3A2E /* SectionMenu.swift */; };
 		84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878832331FB8F00045F0A /* NSObject+ClassName.swift */; };
 		84A8788B233202C000045F0A /* ActionSheetItemConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */; };
 		84A878902332084B00045F0A /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788D2332084B00045F0A /* SectionTitle.swift */; };
@@ -152,7 +152,7 @@
 		459DA1BE2056C14A00644490 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		459DA1BF2056C14A00644490 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
-		84123FF12334049A00283044 /* FoodLinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLinkMenu.swift; sourceTree = "<group>"; };
+		84123FF12334049A00283044 /* LinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMenu.swift; sourceTree = "<group>"; };
 		84123FF323340A6000283044 /* DestructiveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveMenu.swift; sourceTree = "<group>"; };
 		84123FF523340F0A00283044 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
 		8415BC3523036548002D5C78 /* ActionSheetStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetStackView.swift; sourceTree = "<group>"; };
@@ -164,10 +164,10 @@
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
 		846385282333D135005E3A2E /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
 		8463852B2333D47E005E3A2E /* FoodMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMenu.swift; sourceTree = "<group>"; };
-		8463852D2333D55D005E3A2E /* FoodItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemMenu.swift; sourceTree = "<group>"; };
-		8463852F2333D638005E3A2E /* FoodMultiSelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMultiSelectMenu.swift; sourceTree = "<group>"; };
-		846385332333E662005E3A2E /* FoodSingleSelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSingleSelectMenu.swift; sourceTree = "<group>"; };
-		846385352333FF93005E3A2E /* FoodSectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSectionMenu.swift; sourceTree = "<group>"; };
+		8463852D2333D55D005E3A2E /* ItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenu.swift; sourceTree = "<group>"; };
+		8463852F2333D638005E3A2E /* MultiSelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectMenu.swift; sourceTree = "<group>"; };
+		846385332333E662005E3A2E /* SingleSelectMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectMenu.swift; sourceTree = "<group>"; };
+		846385352333FF93005E3A2E /* SectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionMenu.swift; sourceTree = "<group>"; };
 		8493967B21E7F9B200DC0AEF /* DemoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		84A878832331FB8F00045F0A /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
@@ -343,12 +343,12 @@
 			isa = PBXGroup;
 			children = (
 				84123FF323340A6000283044 /* DestructiveMenu.swift */,
-				8463852D2333D55D005E3A2E /* FoodItemMenu.swift */,
-				84123FF12334049A00283044 /* FoodLinkMenu.swift */,
+				8463852D2333D55D005E3A2E /* ItemMenu.swift */,
+				84123FF12334049A00283044 /* LinkMenu.swift */,
 				8463852B2333D47E005E3A2E /* FoodMenu.swift */,
-				8463852F2333D638005E3A2E /* FoodMultiSelectMenu.swift */,
-				846385352333FF93005E3A2E /* FoodSectionMenu.swift */,
-				846385332333E662005E3A2E /* FoodSingleSelectMenu.swift */,
+				8463852F2333D638005E3A2E /* MultiSelectMenu.swift */,
+				846385352333FF93005E3A2E /* SectionMenu.swift */,
+				846385332333E662005E3A2E /* SingleSelectMenu.swift */,
 			);
 			path = Menus;
 			sourceTree = "<group>";
@@ -888,20 +888,20 @@
 				84C19A03230ADBD8000FFB05 /* AppearanceMenuOption.swift in Sources */,
 				84C199D8230ADB7B000FFB05 /* ViewController+Alert.swift in Sources */,
 				84C199F4230ADBD8000FFB05 /* CustomActionSheet.swift in Sources */,
-				8463852E2333D55D005E3A2E /* FoodItemMenu.swift in Sources */,
+				8463852E2333D55D005E3A2E /* ItemMenu.swift in Sources */,
 				84C199D9230ADB7B000FFB05 /* ViewController+TableView.swift in Sources */,
 				84C199D7230ADB7B000FFB05 /* ViewController+Appearance.swift in Sources */,
-				846385362333FF93005E3A2E /* FoodSectionMenu.swift in Sources */,
-				846385302333D638005E3A2E /* FoodMultiSelectMenu.swift in Sources */,
+				846385362333FF93005E3A2E /* SectionMenu.swift in Sources */,
+				846385302333D638005E3A2E /* MultiSelectMenu.swift in Sources */,
 				84123FF423340A6000283044 /* DestructiveMenu.swift in Sources */,
 				84C19A02230ADBD8000FFB05 /* MenuOption.swift in Sources */,
 				84C199F2230ADBD8000FFB05 /* FoodActionSheet.swift in Sources */,
 				84C19A04230ADBD8000FFB05 /* ActionSheetMenuOption.swift in Sources */,
-				84123FF22334049A00283044 /* FoodLinkMenu.swift in Sources */,
+				84123FF22334049A00283044 /* LinkMenu.swift in Sources */,
 				84C19A06230ADC05000FFB05 /* DemoColorfulAppearance.swift in Sources */,
 				84C199FA230ADBD8000FFB05 /* CollectionActionSheet.swift in Sources */,
 				84C19A00230ADBD8000FFB05 /* FoodOption+ActionSheetItems.swift in Sources */,
-				846385342333E662005E3A2E /* FoodSingleSelectMenu.swift in Sources */,
+				846385342333E662005E3A2E /* SingleSelectMenu.swift in Sources */,
 				84C199DA230ADB7B000FFB05 /* AppearanceViewController.swift in Sources */,
 				84C19A01230ADBD8000FFB05 /* FoodOption.swift in Sources */,
 				84C19995230AB014000FFB05 /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  FoodMultiSelectMenu.swift
+//  SingleSelectMenu.swift
 //  SheeeeeeeeetDemo
 //
 //  Created by Daniel Saidi on 2019-09-19.
@@ -9,25 +9,23 @@
 import Sheeeeeeeeet
 
 /**
- This menu creates a `MultiSelectItem` for every food option.
+ This menu creates a `SingleSelectItem` for each food option.
  It then creates two sections with these items, then appends
  an ok and a cancel button to the end of the item list.
  
- You can select one or many items in each section. Selecting
- items in one section doesn't affect the other section.
-
- This sheet also uses two `MultiSelectToggleItem` items that
- can be used to select and deselect all items in a section.
+ You can select a single item in each section. Selecting one
+ item will deselect all other items in the same section, but
+ not affect the other section.
 */
-class FoodMultiSelectMenu: FoodMenu {
-
+class SingleSelectMenu: FoodMenu {
+    
     init(food: [FoodOption]) {
-        let items = FoodMultiSelectMenu.items(for: food)
+        let items = SingleSelectMenu.items(for: food)
         super.init(items: items)
     }
 }
 
-private extension FoodMultiSelectMenu {
+private extension SingleSelectMenu {
     
     static func items(for food: [FoodOption]) -> [MenuItem] {
         var items = [MenuItem]()
@@ -41,8 +39,8 @@ private extension FoodMultiSelectMenu {
     
     static func itemsGroup(for food: [FoodOption], preselected: FoodOption?, group: String) -> [MenuItem] {
         let food = food.filter { $0 != .none && $0 != .homeMade }
-        let items = food.map { $0.toMultiSelectItem(isSelected: $0 == preselected, group: group) }
-        let toggle = MultiSelectToggleItem(title: group, state: .selectAll, group: group, selectAllTitle: "Select all", deselectAllTitle: "Deselect all")
-        return CollectionOfOne(toggle) + items
+        let items = food.map { $0.toSingleSelectItem(isSelected: $0 == preselected, group: group) }
+        let title = SectionTitle(title: group)
+        return CollectionOfOne(title) + items
     }
 }
