@@ -13,21 +13,14 @@ import CoreGraphics
  Collection items can be used to present item collections of
  a certain item type, e.g. in a collection view.
  
- For now `CollectionItemType` has many presentation-specific
- properties, which is legacy reasons, where collection items
- were always collection view cells. This will be solved in a
- future version.
- 
  `IMPORTANT` Note that action sheets that contain items that
  are based on `CollectionItem` must do some tweaks to listen
  for tap events within its `ActionSheetCollectionItem`. This
  is because a `CollectionItem` has no reference to the sheet.
- This means that its selection action can't modify the sheet.
- This problem doesn't exist when you create an `ActionSheet`
- with an `ActionSheetCollectionItem` directly, without using
- a `Menu` with a `CollectionItem`, since the action sheet is
- aware of itself and can setup the collection item correctly.
  
+ This problem does not exist when you create an `ActionSheet`
+ with an `ActionSheetCollectionItem` directly, without using
+ the `Menu` approach, since the sheet can refer to itself.
  */
 open class CollectionItem<T: CollectionItemType>: MenuItem {
     

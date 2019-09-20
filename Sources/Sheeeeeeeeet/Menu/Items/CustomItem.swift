@@ -7,16 +7,25 @@
 //
 
 import Foundation
+import CoreGraphics
 
 /**
- Custom items can be used to present any custom content in a
- menu. `itemType` can be the model itself, the cell type for
- `UIKit`-based collection views etc.
+ Custom items can be used to present "custom items" (duh) in
+ a way that depends on how the item is used. For instance, a
+ custom item that is mapped to an `ActionSheetCustomItem` is
+ going to use `UIKit` and `nib` files, while a `SwiftUI` app
+ may handle it completely different.
  
- TODO: Implement `ActionSheetItemConvertible`, by decoupling
- the item type from the cell concept.
+ `IMPORTANT` Note that action sheets that contain items that
+ are based on `CustomItem` must do some tweaks to listen for
+ taps within its `ActionSheetCustomItem`s. This is because a
+ `CustomItem` has no reference to the sheet.
+ 
+ This problem does not exist when you create an `ActionSheet`
+ with an `ActionSheetCustomItem` directly, without using the
+ `Menu` approach, since the action sheet can refer to itself.
  */
-open class CustomItem<T>: MenuItem {
+open class CustomItem<T: CustomItemType>: MenuItem {
     
     
     // MARK: - Initialization
@@ -42,7 +51,20 @@ open class CustomItem<T>: MenuItem {
     // MARK: - ActionSheetItemConvertible
     
     override func toActionSheetItem() -> ActionSheetItem {
-        assertionFailure("This is not yet supported.")
-        return super.toActionSheetItem()
+        ActionSheetCustomItem(
+            cellType: itemType,
+            setupAction: itemSetupAction
+        )
     }
+}
+
+
+/**
+ This protocol must be implemented by any item that is to be
+ used together with an `CustomItem`, regardless of what that
+ item will later be used for.
+ */
+public protocol CustomItemType {
+    
+    static var defaultSize: CGSize { get }
 }

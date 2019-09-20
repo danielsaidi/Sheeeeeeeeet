@@ -24,6 +24,7 @@
 		846385342333E662005E3A2E /* SingleSelectMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385332333E662005E3A2E /* SingleSelectMenu.swift */; };
 		846385362333FF93005E3A2E /* SectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385352333FF93005E3A2E /* SectionMenu.swift */; };
 		849DCEB22334F90D006DABE6 /* CollectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DCEB12334F90D006DABE6 /* CollectionMenu.swift */; };
+		849DCEB42335257A006DABE6 /* CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DCEB32335257A006DABE6 /* CustomMenu.swift */; };
 		84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878832331FB8F00045F0A /* NSObject+ClassName.swift */; };
 		84A8788B233202C000045F0A /* ActionSheetItemConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */; };
 		84A878902332084B00045F0A /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788D2332084B00045F0A /* SectionTitle.swift */; };
@@ -104,7 +105,6 @@
 		84C199D9230ADB7B000FFB05 /* ViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199D4230ADB7B000FFB05 /* ViewController+TableView.swift */; };
 		84C199DA230ADB7B000FFB05 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199D5230ADB7B000FFB05 /* AppearanceViewController.swift */; };
 		84C199F2230ADBD8000FFB05 /* FoodActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199DD230ADBD7000FFB05 /* FoodActionSheet.swift */; };
-		84C199F4230ADBD8000FFB05 /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199DF230ADBD7000FFB05 /* CustomActionSheet.swift */; };
 		84C199FA230ADBD8000FFB05 /* CollectionActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199E5230ADBD7000FFB05 /* CollectionActionSheet.swift */; };
 		84C199FC230ADBD8000FFB05 /* DemoCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C199E8230ADBD8000FFB05 /* DemoCustomViewCell.swift */; };
 		84C199FD230ADBD8000FFB05 /* DemoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C199E9230ADBD8000FFB05 /* DemoCollectionViewCell.xib */; };
@@ -172,6 +172,7 @@
 		8493967B21E7F9B200DC0AEF /* DemoFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
 		849935A5216BFB9F000A0670 /* DemoAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
 		849DCEB12334F90D006DABE6 /* CollectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMenu.swift; sourceTree = "<group>"; };
+		849DCEB32335257A006DABE6 /* CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenu.swift; sourceTree = "<group>"; };
 		84A878832331FB8F00045F0A /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemConvertible.swift; sourceTree = "<group>"; };
 		84A8788D2332084B00045F0A /* SectionTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
@@ -254,7 +255,6 @@
 		84C199D4230ADB7B000FFB05 /* ViewController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+TableView.swift"; sourceTree = "<group>"; };
 		84C199D5230ADB7B000FFB05 /* AppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
 		84C199DD230ADBD7000FFB05 /* FoodActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodActionSheet.swift; sourceTree = "<group>"; };
-		84C199DF230ADBD7000FFB05 /* CustomActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		84C199E5230ADBD7000FFB05 /* CollectionActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionActionSheet.swift; sourceTree = "<group>"; };
 		84C199E8230ADBD8000FFB05 /* DemoCustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCustomViewCell.swift; sourceTree = "<group>"; };
 		84C199E9230ADBD8000FFB05 /* DemoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -345,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				849DCEB12334F90D006DABE6 /* CollectionMenu.swift */,
+				849DCEB32335257A006DABE6 /* CustomMenu.swift */,
 				84123FF323340A6000283044 /* DestructiveMenu.swift */,
 				8463852B2333D47E005E3A2E /* FoodMenu.swift */,
 				8463852D2333D55D005E3A2E /* ItemMenu.swift */,
@@ -552,13 +553,13 @@
 		84C19993230AB014000FFB05 /* SheeeeeeeeetDemo */ = {
 			isa = PBXGroup;
 			children = (
+				84C199DC230ADBD7000FFB05 /* ActionSheets */,
 				8493967A21E7F9A200DC0AEF /* Appearance */,
 				84C199AE230ADADD000FFB05 /* Assets */,
-				84C199E7230ADBD8000FFB05 /* Cells */,
 				8463852A2333D3F5005E3A2E /* Menus */,
 				84C199EC230ADBD8000FFB05 /* Models */,
-				84C199DC230ADBD7000FFB05 /* Sheets */,
 				84C199AD230AC035000FFB05 /* Supporting Files */,
+				84C199E7230ADBD8000FFB05 /* Views */,
 				84C199D0230ADB7B000FFB05 /* ViewController */,
 			);
 			path = SheeeeeeeeetDemo;
@@ -635,17 +636,16 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		84C199DC230ADBD7000FFB05 /* Sheets */ = {
+		84C199DC230ADBD7000FFB05 /* ActionSheets */ = {
 			isa = PBXGroup;
 			children = (
 				84C199E5230ADBD7000FFB05 /* CollectionActionSheet.swift */,
-				84C199DF230ADBD7000FFB05 /* CustomActionSheet.swift */,
 				84C199DD230ADBD7000FFB05 /* FoodActionSheet.swift */,
 			);
-			path = Sheets;
+			path = ActionSheets;
 			sourceTree = "<group>";
 		};
-		84C199E7230ADBD8000FFB05 /* Cells */ = {
+		84C199E7230ADBD8000FFB05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				84C199EB230ADBD8000FFB05 /* DemoCollectionViewCell.swift */,
@@ -653,7 +653,7 @@
 				84C199E8230ADBD8000FFB05 /* DemoCustomViewCell.swift */,
 				84C199EA230ADBD8000FFB05 /* DemoCustomViewCell.xib */,
 			);
-			path = Cells;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84C199EC230ADBD8000FFB05 /* Models */ = {
@@ -888,9 +888,9 @@
 				8463852C2333D47E005E3A2E /* FoodMenu.swift in Sources */,
 				84C19A05230ADC01000FFB05 /* DemoAppearance.swift in Sources */,
 				84C199D6230ADB7B000FFB05 /* ViewController.swift in Sources */,
+				849DCEB42335257A006DABE6 /* CustomMenu.swift in Sources */,
 				84C19A03230ADBD8000FFB05 /* AppearanceMenuOption.swift in Sources */,
 				84C199D8230ADB7B000FFB05 /* ViewController+Alert.swift in Sources */,
-				84C199F4230ADBD8000FFB05 /* CustomActionSheet.swift in Sources */,
 				8463852E2333D55D005E3A2E /* ItemMenu.swift in Sources */,
 				84C199D9230ADB7B000FFB05 /* ViewController+TableView.swift in Sources */,
 				84C199D7230ADB7B000FFB05 /* ViewController+Appearance.swift in Sources */,

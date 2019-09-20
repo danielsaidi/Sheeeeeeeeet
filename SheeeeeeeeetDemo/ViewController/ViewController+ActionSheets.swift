@@ -18,7 +18,6 @@ extension ViewController {
         case .openSheet(.collections):
             let menu = CollectionMenu()
             return CollectionActionSheet(menu: menu, action: alert)
-        case .openSheet(.customView): return CustomActionSheet(options: foodOptions, buttonTapAction: alert)
         default:
             guard let menu = foodMenu(at: indexPath) else { return nil }
             let headerImage = headerImageName(at: indexPath)
@@ -37,7 +36,7 @@ extension ViewController {
         switch menuOption(at: indexPath) {
         case .applyAppearance, .separator: return nil
         case .openSheet(.collections): return nil
-        case .openSheet(.customView): return nil
+        case .openSheet(.customView): return CustomMenu(buttonTapAction: alert)
         case .openSheet(.danger): return DestructiveMenu()
         case .openSheet(.headerView): return ItemMenu(food: foodOptions)
         case .openSheet(.links): return LinkMenu(food: foodOptions)

@@ -63,7 +63,7 @@ private extension CollectionMenu {
             title,
             SectionMargin(),
             collectionItem,
-            OkButton(title: "OK"),
-            CancelButton(title: "Cancel")]
+            FoodMenu.okButton,
+            FoodMenu.cancelButton]
     }
 }

@@ -20,10 +20,7 @@ class CustomItemTests: QuickSpec {
             var didSetup = false
             
             it("sets up provided properties") {
-                let item = CustomItem(
-                    itemType: TestType.self,
-                    itemSetupAction: { _ in didSetup = true }
-                )
+                let item = CustomItem(itemType: TestType.self, itemSetupAction: { _ in didSetup = true })
                     
                 expect(item.title).to(equal(""))
                 expect(item.subtitle).to(beNil())
@@ -39,11 +36,27 @@ class CustomItemTests: QuickSpec {
                 expect(didSetup).to(beTrue())
             }
         }
+        
+        describe("action sheet conversion") {
+            
+            it("can be converted to an action sheet item") {
+                let source = CustomItem(itemType: TestType.self, itemSetupAction: { _ in })
+                let item = source.toActionSheetItem() as? ActionSheetCustomItem<TestType>
+                
+                expect(item?.title).to(equal(""))
+                expect(item?.subtitle).to(beNil())
+                expect(item?.value).to(beNil())
+                expect(item?.image).to(beNil())
+                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+                
+                expect(item?.cellType).to(be(TestType.self))
+                expect(item?.setupAction).toNot(beNil())
+            }
+        }
     }
 }
 
-private class TestType: ActionSheetItemCell, ActionSheetCustomItemCell {
+private class TestType: ActionSheetItemCell, CustomItemType {
     
-    static var nib: UINib { fatalError() }
-    static var defaultSize: CGSize { fatalError() }
+    static var defaultSize: CGSize { .zero }
 }

@@ -9,8 +9,9 @@
 import Sheeeeeeeeet
 
 /**
- This action sheet shows you how to create a sheet that uses
- the `ActionSheetCollectionItem` item type.
+ This action sheet takes a `Menu` and adjusts any collection
+ items it may have, so that the generated action sheet items
+ correctly update the action sheet.
  
  `IMPORTANT` Action sheets with `ActionSheetCollectionItem`s
  that are mapped from `CollectionItem`s must adjust the item

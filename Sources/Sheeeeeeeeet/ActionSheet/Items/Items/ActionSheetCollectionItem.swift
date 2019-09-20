@@ -15,8 +15,8 @@ import UIKit
  
  In this implementation, `T` must be a `UICollectionViewCell`
  and implement `CollectionItemType`. These cells must have a
- `.xib` file with the same name as the class name, placed in
- the same bundle as the class.
+ `.xib` file with the same name as the class within the same
+ bundle as the class.
  */
 open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -44,6 +44,7 @@ open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UI
     // MARK: - Properties
     
     public override var height: CGFloat { return T.defaultSize.height }
+    
     public let itemCellType: T.Type
     public let itemCount: Int
     public var selectionAction: CellAction
@@ -87,7 +88,7 @@ open class ActionSheetCollectionItem<T: CollectionItemType>: ActionSheetItem, UI
         let id = ActionSheetCollectionItemCell.itemCellIdentifier
         let dequeued = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
         guard let item = dequeued as? T else { fatalError("Invalid item resolved for CollectionItemType") }
-        guard let cell = item as? UICollectionViewCell else { fatalError("CollectionItemType must inherit `UICollectionViewCell`") }
+        guard let cell = item as? UICollectionViewCell else { fatalError("ActionSheetCollectionItem only supports CollectionItemType's that inherit UICollectionViewCell") }
         setupAction(item, indexPath.row)
         return cell
     }

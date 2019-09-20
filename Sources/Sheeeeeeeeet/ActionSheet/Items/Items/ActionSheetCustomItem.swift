@@ -9,12 +9,14 @@
 import UIKit
 
 /**
- Custom items can be used to present any views in your sheet.
+ A custom item can be used to present any views in an action
+ sheet, using custom views that are injected into the cells.
  
- It can use any view that inherits `ActionSheetItemCell` and
- implements `ActionSheetCustomItemCell`.
+ In this implementation `T` must be a `UIView` and implement
+ `CustomItemType`. The class must have a `xib` file with the
+ same name as the class, in the same bundle as the class.
  */
-public class ActionSheetCustomItem<T: ActionSheetCustomItemCell>: ActionSheetItem {
+public class ActionSheetCustomItem<T: CustomItemType>: ActionSheetItem {
     
     
     // MARK: - Initialization
@@ -41,30 +43,19 @@ public class ActionSheetCustomItem<T: ActionSheetCustomItemCell>: ActionSheetIte
     public override var height: CGFloat { T.defaultSize.height }
     
     public let cellType: T.Type
-    
     public let setupAction: SetupAction
     
     
     // MARK: - Functions
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        tableView.register(T.nib, forCellReuseIdentifier: cellReuseIdentifier)
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
-        guard let typedCell = cell as? T else { fatalError("Invalid cell type created by superclass") }
-        setupAction(typedCell)
-        return typedCell
+        let className = String(describing: T.self)
+        let nib = UINib(nibName: className, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
+        let dequeued = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
+        guard let item = dequeued as? T else { fatalError("Invalid item resolved for CustomItemType") }
+        guard let cell = item as? ActionSheetItemCell else { fatalError("ActionSheetCustomItem only supports CustomItemType's that inherit ActionSheetItemCell") }
+        setupAction(item)
+        return cell
     }
-}
-
-
-// MARK: -
-
-/**
- This protocol must be implemented by any cell that is to be
- used together with an `ActionSheetCustomItem`.
- */
-public protocol ActionSheetCustomItemCell where Self: ActionSheetItemCell {
-    
-    static var nib: UINib { get }
-    static var defaultSize: CGSize { get }
 }

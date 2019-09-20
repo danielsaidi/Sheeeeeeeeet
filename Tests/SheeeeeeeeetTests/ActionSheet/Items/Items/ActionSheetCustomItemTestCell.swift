@@ -10,11 +10,7 @@ import CoreGraphics
 import UIKit
 @testable import Sheeeeeeeeet
 
-class ActionSheetCustomItemTestCell: ActionSheetItemCell, ActionSheetCustomItemCell {
+class ActionSheetCustomItemTestCell: ActionSheetItemCell, CustomItemType {
     
-    static var nib: UINib {
-        UINib(nibName: className, bundle: Bundle(for: self))
-    }
-
     static let defaultSize = CGSize(width: 100, height: 400)
 }
