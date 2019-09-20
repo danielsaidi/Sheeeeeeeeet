@@ -24,52 +24,64 @@ class ActionSheetTests: QuickSpec {
         
         // MARK: - Initialization
         
-        describe("created instance") {
+        describe("creating instance") {
             
-            context("default behavior") {
+            var counter: Int!
+            
+            beforeEach {
+                counter = 0
+            }
+            
+            context("with default configuration") {
                 
-                it("use default presenter") {
-                    sheet = createSheet()
+                it("applies default values and no items") {
+                    let sheet = ActionSheet() { _, _ in }
                     let isStandard = sheet.presenter is ActionSheetStandardPresenter
                     let isPopover = sheet.presenter is ActionSheetPopoverPresenter
-                    let isValid = isStandard || isPopover
-                    
-                    expect(isValid).to(beTrue())
-                }
-                
-                it("applies no items and buttons") {
-                    sheet = createSheet()
-                    
+                    expect(isStandard || isPopover).to(beTrue())
                     expect(sheet.items.count).to(equal(0))
                     expect(sheet.buttons.count).to(equal(0))
                 }
-                
             }
             
-            context("custom properties") {
+            context("with custom properties") {
                 
-                it("uses provided presenter") {
+                it("applies provided properties") {
+                    let items = [ActionSheetItem(title: "foo"), ActionSheetOkButton(title: "foo")]
                     let presenter = ActionSheetPopoverPresenter()
-                    sheet = MockActionSheet(items: [], presenter: presenter, action: { _, _ in })
-                    
+                    let sheet = ActionSheet(items: items, presenter: presenter) { _, _ in counter += 1 }
                     expect(sheet.presenter).to(be(presenter))
-                }
-                
-                it("sets up provided items and buttons") {
-                    let items = [ActionSheetItem(title: "foo")]
-                    sheet = createSheet(items)
-                    
-                    expect(sheet.setupItemsInvokeCount).to(equal(1))
-                    expect(sheet.setupItemsInvokeItems[0]).to(be(items))
+                    expect(sheet.items.count).to(equal(1))
+                    expect(sheet.buttons.count).to(equal(1))
+                    sheet.selectAction(sheet, items[0])
+                    expect(counter).to(equal(1))
                 }
             }
             
-            it("uses provided action") {
-                var counter = 0
-                sheet = MockActionSheet(items: []) { _, _  in counter += 1 }
-                sheet.selectAction(sheet, ActionSheetItem(title: "foo"))
+            context("with menu") {
                 
-                expect(counter).to(equal(1))
+                it("applies provided properties and maps menu to items") {
+                    let menuItems = [MenuItem(title: "item title"), OkButton(title: "button title")]
+                    let menu = Menu(title: "title", items: menuItems)
+                    let presenter = ActionSheetPopoverPresenter()
+                    let sheet = ActionSheet(menu: menu, presenter: presenter) { _, _ in counter += 1 }
+                    expect(sheet.presenter).to(be(presenter))
+                    expect(sheet.presenter.isDismissable).to(beTrue())
+                    expect(sheet.items.count).to(equal(2))
+                    expect(sheet.items[0] is ActionSheetTitle).to(beTrue())
+                    expect(sheet.items[0].title).to(equal("title"))
+                    expect(sheet.items[1].title).to(equal("item title"))
+                    expect(sheet.buttons.count).to(equal(1))
+                    expect(sheet.buttons[0] as? ActionSheetOkButton).toNot(beNil())
+                    sheet.selectAction(sheet, sheet.items[0])
+                    expect(counter).to(equal(1))
+                }
+                
+                it("can disable presenter dismissal with menu configuration") {
+                    let menu = Menu(title: "title", items: [], configuration: .nonDismissable)
+                    let sheet = ActionSheet(menu: menu) { _, _ in }
+                    expect(sheet.presenter.isDismissable).to(beFalse())
+                }
             }
         }
         

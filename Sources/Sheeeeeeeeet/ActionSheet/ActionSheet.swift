@@ -9,7 +9,6 @@
 import UIKit
 
 /**
- 
  This is the main class in the Sheeeeeeeeet library. You can
  use it to create action sheets and present them in any view
  controller, from any source view or bar button item.
@@ -82,7 +81,6 @@ import UIKit
  Action sheets receive a call to `handleTap(on:)` every time
  an item is tapped. You can override it if you, for instance,
  want to perform any animations before calling `super`.
- 
  */
 open class ActionSheet: UIViewController {
     
@@ -97,6 +95,16 @@ open class ActionSheet: UIViewController {
         selectAction = action
         super.init(nibName: nil, bundle: nil)
         setup(items: items)
+    }
+    
+    public init(
+        menu: Menu,
+        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        action: @escaping SelectAction) {
+        self.presenter = presenter
+        selectAction = action
+        super.init(nibName: nil, bundle: nil)
+        setup(with: menu)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -126,6 +134,15 @@ open class ActionSheet: UIViewController {
         reloadData()
     }
     
+    open func setup(with menu: Menu) {
+        var items = menu.items.map { $0.toActionSheetItem() }
+        if let title = menu.title {
+            items.insert(ActionSheetTitle(title: title), at: 0)
+        }
+        setup(items: items)
+        presenter.isDismissable = menu.configuration.isDismissable
+    }
+    
     
     // MARK: - View Controller Lifecycle
     
@@ -142,6 +159,8 @@ open class ActionSheet: UIViewController {
     
     
     // MARK: - Types
+    
+    public typealias ItemType = ActionSheetItem
     
     public enum HeaderViewLandscapeMode {
         case visible, hidden

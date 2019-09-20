@@ -17,37 +17,39 @@ import Sheeeeeeeeet
 
 extension FoodOption {
     
+    func toMenuItem() -> MenuItem {
+        MenuItem(title: displayName, value: self, image: image)
+    }
+    
+    func toLinkItem() -> LinkItem {
+        LinkItem(title: displayName, value: self, image: image)
+    }
+    
+    func toMultiSelectItem(isSelected: Bool, group: String = "") -> MultiSelectItem {
+        MultiSelectItem(
+            title: displayName,
+            isSelected: isSelected,
+            group: group,
+            value: self,
+            image: image
+        )
+    }
+    
+    func toSingleSelectItem(isSelected: Bool, group: String = "") -> SingleSelectItem {
+        SingleSelectItem(
+            title: displayName,
+            isSelected: isSelected,
+            group: group,
+            value: self,
+            image: image,
+            tapBehavior: .none
+        )
+    }
+    
     func item() -> ActionSheetItem {
         return ActionSheetItem(
             title: displayName,
             value: self,
             image: image)
-    }
-    
-    func linkItem() -> ActionSheetItem {
-        return ActionSheetLinkItem(
-            title: displayName,
-            value: self,
-            image: image)
-    }
-    
-    func multiSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {
-        return ActionSheetMultiSelectItem(
-            title: displayName,
-            isSelected: isSelected,
-            group: group,
-            value: self,
-            image: image)
-    }
-    
-    func singleSelectItem(isSelected: Bool, group: String) -> ActionSheetItem {
-        let item = ActionSheetSingleSelectItem(
-            title: displayName,
-            isSelected: isSelected,
-            group: group,
-            value: self,
-            image: image)
-        item.tapBehavior = .none
-        return item
     }
 }
