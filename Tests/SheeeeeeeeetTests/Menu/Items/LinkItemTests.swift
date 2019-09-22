@@ -44,18 +44,15 @@ class LinkItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let image = UIImage()
-                let source = LinkItem(title: "title", subtitle: "subtitle", value: true, image: image, tapBehavior: .none)
-                let item = source.toActionSheetItem() as? ActionSheetLinkItem
+            describe("cell") {
                 
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(equal("subtitle"))
-                expect(item?.value as? Bool).to(beTrue())
-                expect(item?.image).to(be(image))
-                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+                it("is of correct type") {
+                    let item = LinkItem(title: "title")
+                    let cell = item.cell(for: UITableView())
+                    expect(cell is ActionSheetLinkItemCell).to(beTrue())
+                }
             }
         }
     }

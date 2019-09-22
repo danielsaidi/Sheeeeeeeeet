@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import UIKit
 @testable import Sheeeeeeeeet
 
 class MenuButtonTests: QuickSpec {
@@ -27,17 +28,12 @@ class MenuButtonTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let source = MenuButton(title: "title", type: .cancel)
-                let item = source.toActionSheetItem() as? ActionSheetButton
-                
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(beNil())
-                expect(item?.value as? MenuButton.ButtonType).to(equal(.cancel))
-                expect(item?.image).to(beNil())
-                expect(item?.tapBehavior).to(equal(.dismiss))
+            it("is of correct type") {
+                let item = MenuButton(title: "title", type: .cancel)
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetButtonCell).to(beTrue())
             }
         }
     }

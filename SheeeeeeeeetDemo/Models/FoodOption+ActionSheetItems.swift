@@ -46,10 +46,11 @@ extension FoodOption {
         )
     }
     
-    func item() -> ActionSheetItem {
-        return ActionSheetItem(
+    func item() -> MenuItem {
+        MenuItem(
             title: displayName,
             value: self,
-            image: image)
+            image: image
+        )
     }
 }

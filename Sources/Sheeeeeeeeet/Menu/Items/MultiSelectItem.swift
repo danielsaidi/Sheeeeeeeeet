@@ -10,14 +10,11 @@ import UIKit
 
 /**
 `MultiSelectItem` can be used whenever a user should be able
- to select one or several items in a menu. It doesn't affect
- other items, and will not dismiss the sheet.
+ to select one or several items in a menu.
  
  The `group` property can be set to group items together. It
  can be used together with the `MultiSelectToggleItem` which
  can toggle the selected state of all items in that group.
-
- Multi-select items don't dismiss the menu when being tapped.
 */
 open class MultiSelectItem: SelectItem {
 
@@ -43,16 +40,19 @@ open class MultiSelectItem: SelectItem {
     }
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - Functions
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetMultiSelectItem(
-            title: title,
-            subtitle: subtitle,
-            isSelected: isSelected,
-            group: group,
-            value: value,
-            image: image
-        )
+    open override func handleSelection(in menu: Menu) {
+        super.handleSelection(in: menu)
+        let toggleItems = menu.items.compactMap { $0 as? MultiSelectToggleItem }
+        let items = toggleItems.filter { $0.group == group }
+        items.forEach { $0.refresh(for: menu) }
+    }
+    
+    
+    // MARK: - ActionSheet
+    
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetMultiSelectItemCell(style: cellStyle)
     }
 }

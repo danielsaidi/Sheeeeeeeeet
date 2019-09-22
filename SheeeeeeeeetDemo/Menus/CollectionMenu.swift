@@ -59,9 +59,7 @@ private extension CollectionMenu {
         )
         
         return [
-            SectionMargin(),
             title,
-            SectionMargin(),
             collectionItem,
             FoodMenu.okButton,
             FoodMenu.cancelButton]

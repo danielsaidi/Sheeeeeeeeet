@@ -18,7 +18,7 @@ class ActionSheetHeaderContainerViewTests: QuickSpec {
             
             it("sets up view and action sheet") {
                 let view = ActionSheetHeaderContainerView()
-                let sheet = ActionSheet { _, _ in }
+                let sheet = ActionSheet(menu: .empty) { _, _ in }
                 view.setup(in: sheet)
                 expect(view.clipsToBounds).to(beTrue())
                 expect(sheet.headerViewContainerHeight.constant).to(equal(150))

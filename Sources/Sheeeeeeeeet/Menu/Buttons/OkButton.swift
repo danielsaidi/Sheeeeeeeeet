@@ -6,12 +6,14 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
- An ok button can be used to "submit" the effects of a menu.
+ An ok button can be used to "submit" or confirm the effects
+ of a menu, e.g. in action sheets where the user must tap an
+ OK button to dismiss the action sheet.
  
- The `value` of the button is `.ok`.
+ The `value` of an ok button is `.ok`.
  */
 open class OkButton: MenuButton {
     
@@ -23,9 +25,9 @@ open class OkButton: MenuButton {
     }
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - ActionSheet
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetOkButton(title: title)
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetOkButtonCell(style: .default)
     }
 }

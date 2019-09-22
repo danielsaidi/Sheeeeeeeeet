@@ -36,7 +36,7 @@ open class ActionSheetItemHandler: NSObject {
     
     let itemType: ItemType
     
-    var items: [ActionSheetItem] {
+    var items: [MenuItem] {
         switch itemType {
         case .buttons: return actionSheet?.buttons ?? []
         case .items: return actionSheet?.items ?? []
@@ -49,7 +49,7 @@ open class ActionSheetItemHandler: NSObject {
 
 extension ActionSheetItemHandler: UITableViewDataSource {
     
-    public func item(at indexPath: IndexPath) -> ActionSheetItem? {
+    public func item(at indexPath: IndexPath) -> MenuItem? {
         guard indexPath.section == 0 else { return nil }
         guard items.count > indexPath.row else { return nil }
         return items[indexPath.row]
@@ -85,7 +85,7 @@ extension ActionSheetItemHandler: UITableViewDelegate {
         guard let item = self.item(at: indexPath) else { return }
         tableView.deselectRow(at: indexPath, animated: true)
         guard let sheet = actionSheet else { return }
-        item.handleTap(in: sheet)
+        item.handleSelection(in: sheet.menu)
         sheet.handleTap(on: item)
     }
 }

@@ -44,22 +44,12 @@ class MenuItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let source = MenuItem(
-                    title: "title",
-                    subtitle: "subtitle",
-                    value: true,
-                    image: UIImage(),
-                    tapBehavior: .none)
-                let item = source.toActionSheetItem()
-                
-                expect(item.title).to(equal("title"))
-                expect(item.subtitle).to(equal("subtitle"))
-                expect(item.value as? Bool).to(beTrue())
-                expect(item.image).toNot(beNil())
-                expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+            it("is of correct type") {
+                let item = MenuItem(title: "title", subtitle: "subtitle", value: true, image: nil, tapBehavior: .none)
+                let cell = item.cell(for: UITableView())
+                expect(cell).toNot(beNil())
             }
         }
     }

@@ -19,7 +19,7 @@ class ActionSheetStandardPresenterTests: QuickSpec {
         var sheet: MockActionSheet!
         
         beforeEach {
-            sheet = MockActionSheet(items: []) { _, _ in }
+            sheet = MockActionSheet(menu: .empty) { _, _ in }
             sheet.viewDidLoad()
             presenter = ActionSheetStandardPresenter()
             presenter.animationDuration = 0

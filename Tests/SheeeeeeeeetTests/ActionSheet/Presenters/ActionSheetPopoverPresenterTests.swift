@@ -20,14 +20,14 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         var sheet: MockActionSheet!
         
         beforeEach {
-            let items: [ActionSheetItem] = [
-                ActionSheetSingleSelectItem(title: "item 1", isSelected: true),
-                ActionSheetCancelButton(title: "cancel"),
-                ActionSheetOkButton(title: "ok"),
-                ActionSheetMultiSelectItem(title: "item 2", isSelected: true)
+            let items: [MenuItem] = [
+                SingleSelectItem(title: "item 1", isSelected: true),
+                CancelButton(title: "cancel"),
+                OkButton(title: "ok"),
+                MultiSelectItem(title: "item 2", isSelected: true)
             ]
-            
-            sheet = MockActionSheet(items: items) { (_, _) in }
+            let menu = Menu(items: items)
+            sheet = MockActionSheet(menu: menu) { (_, _) in }
             presenter = TestPresenter()
             presenter.actionSheet = sheet
         }
@@ -147,9 +147,9 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             it("adjusts items and buttons for popover") {
                 expect(sheet.items.count).to(equal(3))
                 expect(sheet.buttons.count).to(equal(0))
-                expect(sheet.items[0] is ActionSheetSingleSelectItem).to(beTrue())
-                expect(sheet.items[1] is ActionSheetMultiSelectItem).to(beTrue())
-                expect(sheet.items[2] is ActionSheetOkButton).to(beTrue())
+                expect(sheet.items[0] is SingleSelectItem).to(beTrue())
+                expect(sheet.items[1] is MultiSelectItem).to(beTrue())
+                expect(sheet.items[2] is OkButton).to(beTrue())
             }
             
             it("removes header corner radius") {

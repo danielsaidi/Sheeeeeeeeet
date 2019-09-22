@@ -21,15 +21,16 @@ class ActionSheetItemHandlerTests: QuickSpec {
         
         var sheet: MockActionSheet!
         var handler: ActionSheetItemHandler!
-        var item1: MockActionSheetItem!
-        var item2: MockActionSheetButton!
-        var item3: MockActionSheetItem!
+        var item1: MockMenuItem!
+        var item2: MenuButton!
+        var item3: MockMenuItem!
         
         beforeEach {
-            item1 = MockActionSheetItem(title: "1")
-            item2 = MockActionSheetButton(title: "2", value: true)
-            item3 = MockActionSheetItem(title: "3")
-            sheet = MockActionSheet(items: [item1, item2, item3]) { _, _ in }
+            item1 = MockMenuItem(title: "1")
+            item2 = CancelButton(title: "2")
+            item3 = MockMenuItem(title: "3")
+            let menu = Menu(items: [item1, item2, item3])
+            sheet = MockActionSheet(menu: menu) { _, _ in }
             handler = ActionSheetItemHandler(actionSheet: sheet, itemType: .items)
         }
         
@@ -97,7 +98,7 @@ class ActionSheetItemHandlerTests: QuickSpec {
             
             it("returns correct height for existing item") {
                 let path = IndexPath(row: 0, section: 0)
-                MockActionSheetItem.height = 123
+                MockMenuItem.height = 123
                 let result = handler.tableView(createTableView(), heightForRowAt: path)
                 expect(result).to(equal(123))
             }
@@ -141,8 +142,8 @@ class ActionSheetItemHandlerTests: QuickSpec {
                 let path = IndexPath(row: 0, section: 0)
                 handler.tableView(createTableView(), didSelectRowAt: path)
                 expect(item1.handleTapInvokeCount).to(equal(1))
-                expect(item1.handleTapInvokeActionSheets.count).to(equal(1))
-                expect(item1.handleTapInvokeActionSheets[0]).to(be(sheet))
+                expect(item1.handleTapInvokeMenus.count).to(equal(1))
+                expect(item1.handleTapInvokeMenus[0]).to(be(sheet.menu))
             }
 
             it("handles sheet item tap for existing action sheet") {

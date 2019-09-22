@@ -6,12 +6,13 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
- A cancel button can be used to cancel the effect of a menu,
+ A cancel button can be used to cancel the effects of a menu,
+ or to close it without action.
  
- The `value` of the button is `.cancel`.
+ The `value` of a cancel button is `.cancel`.
  */
 open class CancelButton: MenuButton {
     
@@ -23,9 +24,9 @@ open class CancelButton: MenuButton {
     }
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - ActionSheet
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetCancelButton(title: title)
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetCancelButtonCell(style: .default)
     }
 }

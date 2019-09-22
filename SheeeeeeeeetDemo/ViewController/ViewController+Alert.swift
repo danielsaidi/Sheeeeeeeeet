@@ -22,12 +22,12 @@ extension ViewController {
         alertSelection(button.title(for: .normal) ?? "None")
     }
     
-    func alert(item: ActionSheetItem) {
+    func alert(item: MenuItem) {
         alert(items: [item])
     }
     
-    func alert(items: [ActionSheetItem]) {
-        let items = items.filter { !($0 is ActionSheetButton) }
+    func alert(items: [MenuItem]) {
+        let items = items.filter { !($0 is MenuButton) }
         guard items.count > 0 else { return }
         alertSelection(items.map { $0.title }.joined(separator: " + "))
     }

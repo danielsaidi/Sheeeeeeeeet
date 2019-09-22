@@ -79,8 +79,8 @@ for every item type, like this:
 
 ```swift
 ActionSheetItem.height = 60
-ActionSheetSectionMargin.height = 30
-ActionSheetSectionTitle.height = 30
+SectionMargin.height = 30
+SectionTitle.height = 30
 ```
 
 The reason why this property is not handled like the appearance proxy properties

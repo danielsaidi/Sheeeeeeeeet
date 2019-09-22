@@ -15,11 +15,11 @@ import Sheeeeeeeeet
  */
 class FoodActionSheet: ActionSheet {
     
-    convenience init(menu: FoodMenu, headerImageName: String? = nil, action: @escaping ([ActionSheetItem]) -> ()) {
+    convenience init(menu: FoodMenu, headerImageName: String? = nil, action: @escaping ([MenuItem]) -> ()) {
         self.init(menu: menu) { sheet, item in
-            if item.isCancelButton { return }
+            if item is CancelButton { return }
             if sheet.shouldAlert(item) { return action([item]) }
-            guard item.isOkButton else { return }
+            guard item is OkButton else { return }
             let selected = sheet.getSelectedItems()
             guard selected.count > 0 else { return }
             action(selected)
@@ -37,13 +37,13 @@ private extension ActionSheet {
         headerView?.frame.size.height = 150
     }
     
-    func getSelectedItems() -> [ActionSheetItem] {
-        let items = self.items.compactMap { $0 as? ActionSheetSelectItem }
+    func getSelectedItems() -> [MenuItem] {
+        let items = self.items.compactMap { $0 as? SelectItem }
         let selectedItems = items.filter { $0.isSelected }
         return selectedItems
     }
     
-    func shouldAlert(_ item: ActionSheetItem) -> Bool {
-        item.tapBehavior == .dismiss && !item.isOkButton
+    func shouldAlert(_ item: MenuItem) -> Bool {
+        item.tapBehavior == .dismiss && !(item is OkButton)
     }
 }

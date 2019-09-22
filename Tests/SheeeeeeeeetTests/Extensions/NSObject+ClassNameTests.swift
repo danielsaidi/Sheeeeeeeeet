@@ -21,7 +21,7 @@ class NSObject_ClassNameTests: QuickSpec {
             }
             
             it("is valid for base type instance") {
-                let obj = ActionSheet(items: []) { _, _ in }
+                let obj = ActionSheet(menu: .empty) { _, _ in }
                 expect(obj.className).to(equal("ActionSheet"))
             }
             
@@ -30,7 +30,7 @@ class NSObject_ClassNameTests: QuickSpec {
             }
             
             it("is valid for inherited type instance") {
-                let obj = TestSheet(items: []) { _, _ in }
+                let obj = TestSheet(menu: .empty) { _, _ in }
                 expect(obj.className).to(equal("TestSheet"))
             }
         }

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreGraphics
+import UIKit
 
 /**
  Custom items can be used to present "custom items" (duh) in
@@ -15,15 +16,6 @@ import CoreGraphics
  custom item that is mapped to an `ActionSheetCustomItem` is
  going to use `UIKit` and `nib` files, while a `SwiftUI` app
  may handle it completely different.
- 
- `IMPORTANT` Note that action sheets that contain items that
- are based on `CustomItem` must do some tweaks to listen for
- taps within its `ActionSheetCustomItem`s. This is because a
- `CustomItem` has no reference to the sheet.
- 
- This problem does not exist when you create an `ActionSheet`
- with an `ActionSheetCustomItem` directly, without using the
- `Menu` approach, since the action sheet can refer to itself.
  */
 open class CustomItem<T: CustomItemType>: MenuItem {
     
@@ -48,13 +40,25 @@ open class CustomItem<T: CustomItemType>: MenuItem {
     public let itemSetupAction: ItemAction
     
 
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - ActionSheet
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetCustomItem(
-            cellType: itemType,
-            setupAction: itemSetupAction
-        )
+    public override var height: CGFloat { T.defaultSize.height }
+    
+    /**
+     When getting an action sheet cell for a custom item, `T`
+     must be a `UIView` and must implement `CustomItemType`.
+     It must have a matching .xib file with the same name as
+     the class in the same bundle.
+     */
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        let className = String(describing: self)
+        let nib = UINib(nibName: String(describing: T.self), bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: className)
+        let dequeued = tableView.dequeueReusableCell(withIdentifier: className)
+        guard let item = dequeued as? T else { fatalError("Invalid item resolved for CustomItemType") }
+        guard let cell = item as? ActionSheetItemCell else { fatalError("ActionSheetCustomItem only supports CustomItemType's that inherit ActionSheetItemCell") }
+        itemSetupAction(item)
+        return cell
     }
 }
 

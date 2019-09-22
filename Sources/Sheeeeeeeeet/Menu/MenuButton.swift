@@ -6,7 +6,7 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
  This class is a base class for all buttons that can be used
@@ -27,6 +27,7 @@ open class MenuButton: MenuItem {
     // MARK: - Initialization
     
     public init(title: String, type: ButtonType) {
+        self.type = type
         super.init(title: title, value: type)
     }
     
@@ -37,10 +38,12 @@ open class MenuButton: MenuItem {
         case ok, cancel, other
     }
     
+    public let type: ButtonType
     
-    // MARK: - ActionSheetItemConvertible
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetButton(title: title, value: value)
+    // MARK: - ActionSheet
+    
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetButtonCell(style: .default)
     }
 }

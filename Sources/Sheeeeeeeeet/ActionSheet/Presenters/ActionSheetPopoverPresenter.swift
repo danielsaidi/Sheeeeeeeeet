@@ -136,8 +136,8 @@ extension ActionSheetPopoverPresenter {
 
 private extension ActionSheetPopoverPresenter {
     
-    func popoverItems(for sheet: ActionSheet) -> [ActionSheetItem] {
-        let items: [ActionSheetItem] = sheet.items + sheet.buttons
-        return items.filter { !($0 is ActionSheetCancelButton) }
+    func popoverItems(for sheet: ActionSheet) -> [MenuItem] {
+        let items: [MenuItem] = sheet.items + sheet.buttons
+        return items.filter { !($0 is CancelButton) }
     }
 }

@@ -37,20 +37,35 @@ class CustomItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet") {
             
-            it("can be converted to an action sheet item") {
-                let source = CustomItem(itemType: TestType.self, itemSetupAction: { _ in })
-                let item = source.toActionSheetItem() as? ActionSheetCustomItem<TestType>
+            describe("height") {
                 
-                expect(item?.title).to(equal(""))
-                expect(item?.subtitle).to(beNil())
-                expect(item?.value).to(beNil())
-                expect(item?.image).to(beNil())
-                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+                it("is cell type's default height") {
+                    let item = CustomItem(itemType: TestType.self, itemSetupAction: { _ in })
+                    expect(item.height).to(equal(TestType.defaultSize.height))
+                }
+            }
+            
+            describe("cell") {
                 
-                expect(item?.cellType).to(be(TestType.self))
-                expect(item?.setupAction).toNot(beNil())
+                it("registers nib, dequeues cell and sets up cell") {
+                    // TODO: How to test this in SPM, which doesn't have a bundle?
+                    // var actionCell: UITableViewCell?
+                    // let type = ActionSheetCustomItemTestCell.self
+                    // let item = ActionSheetCustomItem(cellType: type, setupAction: { cell in actionCell = cell })
+                    // let tableView = MockTableView()
+                    // let cell = item.cell(for: tableView)
+                    //
+                    // expect(tableView.registerNibInvokeCount).to(equal(1))
+                    // expect(tableView.registerNibInvokeNibs.count).to(equal(1))
+                    // expect(tableView.registerNibInvokeNibs[0]).to(be(ActionSheetCustomItemTestCell.nib))
+                    // expect(tableView.registerNibInvokeIdentifier.count).to(equal(1))
+                    // expect(tableView.registerNibInvokeIdentifier[0]).to(equal(item.className))
+                    //
+                    // expect(cell is ActionSheetCustomItemTestCell).to(beTrue())
+                    // expect(actionCell).to(be(cell))
+                }
             }
         }
     }
@@ -58,5 +73,5 @@ class CustomItemTests: QuickSpec {
 
 private class TestType: ActionSheetItemCell, CustomItemType {
     
-    static var defaultSize: CGSize { .zero }
+    static let defaultSize = CGSize(width: 100, height: 400)
 }

@@ -6,17 +6,17 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
  Multi-select toggle items can be used together with a group
- of `MultiSelectItem`s. When it's tapped, it makes all items
- in the same group become selected or deselected.
+ of `MultiSelectItem`s. When tapped, it toggles all items in
+ the same group on or off, depending on its state.
  
  Since this item must know about the multi-select items that
  are in the same group, in order to propertly refresh itself,
  you must give it an initial `State` when creating it. After
- that, it wll be able to update itself whenever it is tapped.
+ that, it's able to update itself whenever it's tapped.
  */
 open class MultiSelectToggleItem: MenuItem {
     
@@ -47,15 +47,28 @@ open class MultiSelectToggleItem: MenuItem {
     public var state: State
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - Functions
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetMultiSelectToggleItem(
-            title: title,
-            state: state,
-            group: group,
-            selectAllTitle: selectAllTitle,
-            deselectAllTitle: deselectAllTitle
-        )
+    open override func handleSelection(in menu: Menu) {
+        super.handleSelection(in: menu)
+        let selectItems = menu.items.compactMap { $0 as? MultiSelectItem }
+        let items = selectItems.filter { $0.group == group }
+        let shouldSelectAll = items.contains { !$0.isSelected }
+        items.forEach { $0.isSelected = shouldSelectAll ? true : false }
+        refresh(for: menu)
+    }
+    
+    open func refresh(for menu: Menu) {
+        let selectItems = menu.items.compactMap { $0 as? MultiSelectItem }
+        let items = selectItems.filter { $0.group == group }
+        guard items.count > 0 else { return state = .selectAll }
+        state = items.contains { !$0.isSelected } ? .selectAll : .deselectAll
+    }
+    
+    
+    // MARK: - ActionSheet
+    
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetMultiSelectToggleItemCell(style: .value1)
     }
 }

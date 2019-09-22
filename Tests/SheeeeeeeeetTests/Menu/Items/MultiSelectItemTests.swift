@@ -41,19 +41,34 @@ class MultiSelectItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let image = UIImage()
-                let source = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: image)
-                let item = source.toActionSheetItem() as? ActionSheetMultiSelectItem
+            it("is of correct type") {
+                let item = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetMultiSelectItemCell).to(beTrue())
+            }
+        }
+        
+        describe("handling tap") {
+            
+            it("updates toggle item in the same group") {
+                let item1 = MultiSelectItem(title: "foo", isSelected: false, group: "group 1")
+                let item2 = MultiSelectItem(title: "bar", isSelected: false, group: "group 2")
+                let item3 = MultiSelectItem(title: "baz", isSelected: false, group: "group 1")
+                let toggle1 = MultiSelectToggleItem(title: "toggle 1", state: .selectAll, group: "group 1", selectAllTitle: "", deselectAllTitle: "")
+                let toggle2 = MultiSelectToggleItem(title: "toggle 2", state: .selectAll, group: "group 2", selectAllTitle: "", deselectAllTitle: "")
+                let menu = Menu(items: [item1, item2, item3, toggle1, toggle2])
                 
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(equal("subtitle"))
-                expect(item?.isSelected).to(beTrue())
-                expect(item?.value as? Bool).to(beTrue())
-                expect(item?.image).to(be(image))
-                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
+                item1.handleSelection(in: menu)
+                expect(toggle1.state).to(equal(.selectAll))
+                expect(toggle2.state).to(equal(.selectAll))
+                item2.handleSelection(in: menu)
+                expect(toggle1.state).to(equal(.selectAll))
+                expect(toggle2.state).to(equal(.deselectAll))
+                item3.handleSelection(in: menu)
+                expect(toggle1.state).to(equal(.deselectAll))
+                expect(toggle2.state).to(equal(.deselectAll))
             }
         }
     }

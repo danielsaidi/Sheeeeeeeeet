@@ -6,7 +6,7 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
  `SingleSelectItem` should be used whenever a user should be
@@ -20,19 +20,19 @@ import Foundation
  it's tapped. To change this, set `tapBehavior` to `.none`.
  */
 open class SingleSelectItem: SelectItem {
+
+    open override func handleSelection(in menu: Menu) {
+        super.handleSelection(in: menu)
+        let items = menu.items.compactMap { $0 as? SingleSelectItem }
+        let groupItems = items.filter { $0.group == group }
+        groupItems.forEach { $0.isSelected = false }
+        isSelected = true
+    }
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - ActionSheet
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetSingleSelectItem(
-            title: title,
-            subtitle: subtitle,
-            isSelected: isSelected,
-            group: group,
-            value: value,
-            image: image,
-            tapBehavior: tapBehavior
-        )
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetSingleSelectItemCell(style: cellStyle)
     }
 }

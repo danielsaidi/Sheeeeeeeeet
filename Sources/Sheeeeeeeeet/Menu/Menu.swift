@@ -33,3 +33,10 @@ open class Menu {
     public let items: [MenuItem]
     public let configuration: Configuration
 }
+
+public extension Menu {
+    
+    static var empty: Menu {
+        Menu(items: [])
+    }
+}

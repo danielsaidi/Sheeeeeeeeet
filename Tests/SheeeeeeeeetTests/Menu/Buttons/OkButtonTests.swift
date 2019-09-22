@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import UIKit
 @testable import Sheeeeeeeeet
 
 class OkButtonTests: QuickSpec {
@@ -18,7 +19,6 @@ class OkButtonTests: QuickSpec {
             
             it("sets up provided properties") {
                 let item = OkButton(title: "title")
-                
                 expect(item.title).to(equal("title"))
                 expect(item.subtitle).to(beNil())
                 expect(item.value as? MenuButton.ButtonType).to(equal(.ok))
@@ -27,17 +27,12 @@ class OkButtonTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let source = OkButton(title: "title")
-                let item = source.toActionSheetItem() as? ActionSheetOkButton
-                
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(beNil())
-                expect(item?.value as? MenuButton.ButtonType).to(equal(.ok))
-                expect(item?.image).to(beNil())
-                expect(item?.tapBehavior).to(equal(.dismiss))
+            it("is of correct type") {
+                let item = OkButton(title: "title")
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetOkButtonCell).to(beTrue())
             }
         }
     }

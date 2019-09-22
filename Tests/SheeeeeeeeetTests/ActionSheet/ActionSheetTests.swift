@@ -17,8 +17,11 @@ class ActionSheetTests: QuickSpec {
         
         var sheet: MockActionSheet!
         
-        func createSheet(_ items: [ActionSheetItem] = []) -> MockActionSheet {
-            MockActionSheet(items: items, action: { _, _ in })
+        func createSheet(_ items: [MenuItem] = []) -> MockActionSheet {
+            MockActionSheet(
+                menu: Menu(items: items),
+                action: { _, _ in }
+            )
         }
         
         
@@ -32,32 +35,6 @@ class ActionSheetTests: QuickSpec {
                 counter = 0
             }
             
-            context("with default configuration") {
-                
-                it("applies default values and no items") {
-                    let sheet = ActionSheet() { _, _ in }
-                    let isStandard = sheet.presenter is ActionSheetStandardPresenter
-                    let isPopover = sheet.presenter is ActionSheetPopoverPresenter
-                    expect(isStandard || isPopover).to(beTrue())
-                    expect(sheet.items.count).to(equal(0))
-                    expect(sheet.buttons.count).to(equal(0))
-                }
-            }
-            
-            context("with custom properties") {
-                
-                it("applies provided properties") {
-                    let items = [ActionSheetItem(title: "foo"), ActionSheetOkButton(title: "foo")]
-                    let presenter = ActionSheetPopoverPresenter()
-                    let sheet = ActionSheet(items: items, presenter: presenter) { _, _ in counter += 1 }
-                    expect(sheet.presenter).to(be(presenter))
-                    expect(sheet.items.count).to(equal(1))
-                    expect(sheet.buttons.count).to(equal(1))
-                    sheet.selectAction(sheet, items[0])
-                    expect(counter).to(equal(1))
-                }
-            }
-            
             context("with menu") {
                 
                 it("applies provided properties and maps menu to items") {
@@ -68,11 +45,11 @@ class ActionSheetTests: QuickSpec {
                     expect(sheet.presenter).to(be(presenter))
                     expect(sheet.presenter.isDismissable).to(beTrue())
                     expect(sheet.items.count).to(equal(2))
-                    expect(sheet.items[0] is ActionSheetTitle).to(beTrue())
+                    expect(sheet.items[0] is MenuTitle).to(beTrue())
                     expect(sheet.items[0].title).to(equal("title"))
                     expect(sheet.items[1].title).to(equal("item title"))
                     expect(sheet.buttons.count).to(equal(1))
-                    expect(sheet.buttons[0] as? ActionSheetOkButton).toNot(beNil())
+                    expect(sheet.buttons[0] as? OkButton).toNot(beNil())
                     sheet.selectAction(sheet, sheet.items[0])
                     expect(counter).to(equal(1))
                 }
@@ -121,9 +98,9 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("separates items and buttons") {
-                let item1 = ActionSheetItem(title: "foo")
-                let item2 = ActionSheetItem(title: "bar")
-                let button = ActionSheetOkButton(title: "baz")
+                let item1 = MenuItem(title: "foo")
+                let item2 = MenuItem(title: "bar")
+                let button = OkButton(title: "baz")
                 sheet.setup(items: [button, item1, item2])
                 
                 expect(sheet.items.count).to(equal(2))
@@ -222,19 +199,18 @@ class ActionSheetTests: QuickSpec {
         describe("items height") {
             
             beforeEach {
-                ActionSheetItem.height = 100
-                ActionSheetSingleSelectItem.height = 110
-                ActionSheetMultiSelectItem.height = 120
-                ActionSheetOkButton.height = 120
+                MenuItem.height = 100
+                SingleSelectItem.height = 110
+                MultiSelectItem.height = 120
+                OkButton.height = 120
             }
             
             it("is sum of all items") {
-                let item1 = ActionSheetItem(title: "foo")
-                let item2 = ActionSheetSingleSelectItem(title: "bar", isSelected: true)
-                let item3 = ActionSheetMultiSelectItem(title: "baz", isSelected: false)
-                let button = ActionSheetOkButton(title: "ok")
+                let item1 = MenuItem(title: "foo")
+                let item2 = SingleSelectItem(title: "bar", isSelected: true)
+                let item3 = MultiSelectItem(title: "baz", isSelected: false)
+                let button = OkButton(title: "ok")
                 sheet = createSheet([item1, item2, item3, button])
-                
                 expect(sheet.itemsHeight).to(equal(330))
             }
         }
@@ -249,9 +225,9 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("has correct items") {
-                let item1 = ActionSheetItem(title: "foo")
-                let item2 = ActionSheetItem(title: "bar")
-                let button = ActionSheetOkButton(title: "ok")
+                let item1 = MenuItem(title: "foo")
+                let item2 = SingleSelectItem(title: "bar", isSelected: true)
+                let button = OkButton(title: "ok")
                 sheet = createSheet([item1, item2, button])
                 
                 expect(sheet.itemHandler.items.count).to(equal(2))
@@ -264,17 +240,17 @@ class ActionSheetTests: QuickSpec {
         describe("items height") {
             
             beforeEach {
-                ActionSheetItem.height = 100
-                ActionSheetOkButton.height = 110
-                ActionSheetDangerButton.height = 120
-                ActionSheetCancelButton.height = 130
+                MenuItem.height = 100
+                OkButton.height = 110
+                DestructiveButton.height = 120
+                CancelButton.height = 130
             }
             
             it("is sum of all items") {
-                let item = ActionSheetItem(title: "foo")
-                let button1 = ActionSheetOkButton(title: "ok")
-                let button2 = ActionSheetDangerButton(title: "ok")
-                let button3 = ActionSheetCancelButton(title: "ok")
+                let item = MenuItem(title: "foo")
+                let button1 = OkButton(title: "ok")
+                let button2 = DestructiveButton(title: "ok")
+                let button3 = CancelButton(title: "ok")
                 sheet = createSheet([item, button1, button2, button3])
                 
                 expect(sheet.buttonsHeight).to(equal(360))
@@ -291,9 +267,9 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("has correct items") {
-                let item = ActionSheetItem(title: "foo")
-                let button1 = ActionSheetOkButton(title: "ok")
-                let button2 = ActionSheetOkButton(title: "ok")
+                let item = MenuItem(title: "foo")
+                let button1 = OkButton(title: "ok")
+                let button2 = OkButton(title: "ok")
                 sheet = createSheet([item, button1, button2])
                 
                 expect(sheet.buttonHandler.items.count).to(equal(2))
@@ -496,8 +472,8 @@ class ActionSheetTests: QuickSpec {
                 height = NSLayoutConstraint()
                 sheet = createSheet()
                 sheet.itemsTableViewHeight = height
-                ActionSheetItem.height = 12
-                ActionSheetOkButton.height = 13
+                MenuItem.height = 12
+                OkButton.height = 13
             }
             
             it("refreshes correctly if no items are set") {
@@ -507,9 +483,9 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("refreshes correctly if items are set") {
-                let item1 = ActionSheetItem(title: "foo")
-                let item2 = ActionSheetItem(title: "foo")
-                let button = ActionSheetOkButton(title: "foo")
+                let item1 = MenuItem(title: "foo")
+                let item2 = MenuItem(title: "foo")
+                let button = OkButton(title: "foo")
                 sheet.setup(items: [item1, item2, button])
                 sheet.refreshItems()
                 
@@ -526,8 +502,8 @@ class ActionSheetTests: QuickSpec {
                 height = NSLayoutConstraint()
                 sheet = createSheet()
                 sheet.buttonsTableViewHeight = height
-                ActionSheetItem.height = 12
-                ActionSheetOkButton.height = 13
+                MenuItem.height = 12
+                OkButton.height = 13
             }
             
             it("refreshes correctly if no items are set") {
@@ -537,9 +513,9 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("refreshes correctly if items are set") {
-                let item = ActionSheetItem(title: "foo")
-                let button1 = ActionSheetOkButton(title: "foo")
-                let button2 = ActionSheetOkButton(title: "foo")
+                let item = MenuItem(title: "foo")
+                let button1 = OkButton(title: "foo")
+                let button2 = OkButton(title: "foo")
                 sheet.setup(items: [item, button1, button2])
                 sheet.refreshButtons()
                 
@@ -556,15 +532,15 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("reloads data") {
-                sheet.handleTap(on: ActionSheetItem(title: ""))
+                sheet.handleTap(on: MenuItem(title: ""))
                 
                 expect(sheet.reloadDataInvokeCount).to(equal(1))
             }
             
             it("calls select action without dismiss if item has none tap action") {
                 var count = 0
-                sheet = MockActionSheet { (_, _) in count += 1 }
-                let item = ActionSheetItem(title: "", tapBehavior: .none)
+                sheet = MockActionSheet(menu: .empty) { (_, _) in count += 1 }
+                let item = MenuItem(title: "", tapBehavior: .none)
                 sheet.handleTap(on: item)
                 
                 expect(count).to(equal(1))
@@ -573,8 +549,8 @@ class ActionSheetTests: QuickSpec {
             
             it("calls select action after dismiss if item has dismiss tap action") {
                 var count = 0
-                sheet = MockActionSheet { (_, _) in count += 1 }
-                let item = ActionSheetItem(title: "", tapBehavior: .dismiss)
+                sheet = MockActionSheet(menu: .empty) { (_, _) in count += 1 }
+                let item = MenuItem(title: "", tapBehavior: .dismiss)
                 sheet.handleTap(on: item)
                 
                 expect(count).to(equal(1))

@@ -15,6 +15,7 @@
 		84123FF22334049A00283044 /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* LinkMenu.swift */; };
 		84123FF423340A6000283044 /* DestructiveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF323340A6000283044 /* DestructiveMenu.swift */; };
 		84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF523340F0A00283044 /* MenuConfiguration.swift */; };
+		841478E22338E275008D3FF2 /* ActionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841478E12338E274008D3FF2 /* ActionSheetButtonCell.swift */; };
 		8415BC3623036548002D5C78 /* ActionSheetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3523036548002D5C78 /* ActionSheetStackView.swift */; };
 		8415BC3823036FDC002D5C78 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */; };
 		846385292333D135005E3A2E /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385282333D135005E3A2E /* ViewController+ActionSheets.swift */; };
@@ -26,9 +27,8 @@
 		849DCEB22334F90D006DABE6 /* CollectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DCEB12334F90D006DABE6 /* CollectionMenu.swift */; };
 		849DCEB42335257A006DABE6 /* CustomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DCEB32335257A006DABE6 /* CustomMenu.swift */; };
 		84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A878832331FB8F00045F0A /* NSObject+ClassName.swift */; };
-		84A8788B233202C000045F0A /* ActionSheetItemConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */; };
 		84A878902332084B00045F0A /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788D2332084B00045F0A /* SectionTitle.swift */; };
-		84A878912332084B00045F0A /* SectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788E2332084B00045F0A /* SectionItem.swift */; };
+		84A878912332084B00045F0A /* MenuTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788E2332084B00045F0A /* MenuTitle.swift */; };
 		84A878922332084B00045F0A /* SectionMagin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8788F2332084B00045F0A /* SectionMagin.swift */; };
 		84BD8A832302BC8C0020610B /* ActionSheetMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A512302BC8C0020610B /* ActionSheetMargin.swift */; };
 		84BD8A862302BC8C0020610B /* ActionSheetItemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A542302BC8C0020610B /* ActionSheetItemHandler.swift */; };
@@ -45,21 +45,19 @@
 		84BD8A912302BC8C0020610B /* ActionSheetPopoverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A612302BC8C0020610B /* ActionSheetPopoverPresenter.swift */; };
 		84BD8A922302BC8C0020610B /* UIEdgeInsets+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */; };
 		84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */; };
-		84BD8A982302BC8C0020610B /* ActionSheetOkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */; };
-		84BD8A992302BC8C0020610B /* ActionSheetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6C2302BC8C0020610B /* ActionSheetButton.swift */; };
-		84BD8A9A2302BC8C0020610B /* ActionSheetCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6D2302BC8C0020610B /* ActionSheetCancelButton.swift */; };
-		84BD8A9B2302BC8C0020610B /* ActionSheetDangerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6E2302BC8C0020610B /* ActionSheetDangerButton.swift */; };
-		84BD8A9C2302BC8C0020610B /* ActionSheetSectionMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A702302BC8C0020610B /* ActionSheetSectionMargin.swift */; };
-		84BD8A9D2302BC8C0020610B /* ActionSheetSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A712302BC8C0020610B /* ActionSheetSectionTitle.swift */; };
-		84BD8A9E2302BC8C0020610B /* ActionSheetTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A722302BC8C0020610B /* ActionSheetTitle.swift */; };
-		84BD8A9F2302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift */; };
-		84BD8AA02302BC8C0020610B /* ActionSheetCustomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A752302BC8C0020610B /* ActionSheetCustomItem.swift */; };
-		84BD8AA12302BC8C0020610B /* ActionSheetSingleSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItem.swift */; };
-		84BD8AA22302BC8C0020610B /* ActionSheetSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A772302BC8C0020610B /* ActionSheetSelectItem.swift */; };
-		84BD8AA32302BC8C0020610B /* ActionSheetLinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A782302BC8C0020610B /* ActionSheetLinkItem.swift */; };
-		84BD8AA42302BC8C0020610B /* ActionSheetMultiSelectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItem.swift */; };
-		84BD8AA52302BC8C0020610B /* ActionSheetCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItem.swift */; };
-		84BD8AA72302BC8C0020610B /* ActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A7C2302BC8C0020610B /* ActionSheetItem.swift */; };
+		84BD8A982302BC8C0020610B /* ActionSheetOkButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6B2302BC8C0020610B /* ActionSheetOkButtonCell.swift */; };
+		84BD8A9A2302BC8C0020610B /* ActionSheetCancelButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6D2302BC8C0020610B /* ActionSheetCancelButtonCell.swift */; };
+		84BD8A9B2302BC8C0020610B /* ActionSheetDangerButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A6E2302BC8C0020610B /* ActionSheetDangerButtonCell.swift */; };
+		84BD8A9C2302BC8C0020610B /* ActionSheetSectionMarginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A702302BC8C0020610B /* ActionSheetSectionMarginCell.swift */; };
+		84BD8A9D2302BC8C0020610B /* ActionSheetSectionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A712302BC8C0020610B /* ActionSheetSectionTitleCell.swift */; };
+		84BD8A9E2302BC8C0020610B /* ActionSheetTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A722302BC8C0020610B /* ActionSheetTitleCell.swift */; };
+		84BD8A9F2302BC8C0020610B /* ActionSheetMultiSelectToggleItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItemCell.swift */; };
+		84BD8AA12302BC8C0020610B /* ActionSheetSingleSelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItemCell.swift */; };
+		84BD8AA22302BC8C0020610B /* ActionSheetSelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A772302BC8C0020610B /* ActionSheetSelectItemCell.swift */; };
+		84BD8AA32302BC8C0020610B /* ActionSheetLinkItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A782302BC8C0020610B /* ActionSheetLinkItemCell.swift */; };
+		84BD8AA42302BC8C0020610B /* ActionSheetMultiSelectItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItemCell.swift */; };
+		84BD8AA52302BC8C0020610B /* ActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItemCell.swift */; };
+		84BD8AA72302BC8C0020610B /* ActionSheetItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A7C2302BC8C0020610B /* ActionSheetItemCell.swift */; };
 		84BD8AA82302BC8C0020610B /* ActionSheetTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A7E2302BC8C0020610B /* ActionSheetTableView.swift */; };
 		84BD8AA92302BC8C0020610B /* ActionSheetButtonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A7F2302BC8C0020610B /* ActionSheetButtonTableView.swift */; };
 		84BD8AAA2302BC8C0020610B /* ActionSheetItemTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A802302BC8C0020610B /* ActionSheetItemTableView.swift */; };
@@ -156,6 +154,7 @@
 		84123FF12334049A00283044 /* LinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMenu.swift; sourceTree = "<group>"; };
 		84123FF323340A6000283044 /* DestructiveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveMenu.swift; sourceTree = "<group>"; };
 		84123FF523340F0A00283044 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
+		841478E12338E274008D3FF2 /* ActionSheetButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonCell.swift; sourceTree = "<group>"; };
 		8415BC3523036548002D5C78 /* ActionSheetStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetStackView.swift; sourceTree = "<group>"; };
 		8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		8423864721EF7ED10045F121 /* Appearance.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Appearance.md; sourceTree = "<group>"; };
@@ -174,9 +173,8 @@
 		849DCEB12334F90D006DABE6 /* CollectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMenu.swift; sourceTree = "<group>"; };
 		849DCEB32335257A006DABE6 /* CustomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenu.swift; sourceTree = "<group>"; };
 		84A878832331FB8F00045F0A /* NSObject+ClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
-		84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemConvertible.swift; sourceTree = "<group>"; };
 		84A8788D2332084B00045F0A /* SectionTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
-		84A8788E2332084B00045F0A /* SectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionItem.swift; sourceTree = "<group>"; };
+		84A8788E2332084B00045F0A /* MenuTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTitle.swift; sourceTree = "<group>"; };
 		84A8788F2332084B00045F0A /* SectionMagin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionMagin.swift; sourceTree = "<group>"; };
 		84BD8A512302BC8C0020610B /* ActionSheetMargin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMargin.swift; sourceTree = "<group>"; };
 		84BD8A542302BC8C0020610B /* ActionSheetItemHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetItemHandler.swift; sourceTree = "<group>"; };
@@ -193,21 +191,19 @@
 		84BD8A612302BC8C0020610B /* ActionSheetPopoverPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetPopoverPresenter.swift; sourceTree = "<group>"; };
 		84BD8A632302BC8C0020610B /* UIEdgeInsets+Hidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Hidden.swift"; sourceTree = "<group>"; };
 		84BD8A662302BC8C0020610B /* UIViewController+RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewController.swift"; sourceTree = "<group>"; };
-		84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButton.swift; sourceTree = "<group>"; };
-		84BD8A6C2302BC8C0020610B /* ActionSheetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButton.swift; sourceTree = "<group>"; };
-		84BD8A6D2302BC8C0020610B /* ActionSheetCancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCancelButton.swift; sourceTree = "<group>"; };
-		84BD8A6E2302BC8C0020610B /* ActionSheetDangerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButton.swift; sourceTree = "<group>"; };
-		84BD8A702302BC8C0020610B /* ActionSheetSectionMargin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionMargin.swift; sourceTree = "<group>"; };
-		84BD8A712302BC8C0020610B /* ActionSheetSectionTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitle.swift; sourceTree = "<group>"; };
-		84BD8A722302BC8C0020610B /* ActionSheetTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetTitle.swift; sourceTree = "<group>"; };
-		84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMultiSelectToggleItem.swift; sourceTree = "<group>"; };
-		84BD8A752302BC8C0020610B /* ActionSheetCustomItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCustomItem.swift; sourceTree = "<group>"; };
-		84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItem.swift; sourceTree = "<group>"; };
-		84BD8A772302BC8C0020610B /* ActionSheetSelectItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItem.swift; sourceTree = "<group>"; };
-		84BD8A782302BC8C0020610B /* ActionSheetLinkItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItem.swift; sourceTree = "<group>"; };
-		84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMultiSelectItem.swift; sourceTree = "<group>"; };
-		84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCollectionItem.swift; sourceTree = "<group>"; };
-		84BD8A7C2302BC8C0020610B /* ActionSheetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetItem.swift; sourceTree = "<group>"; };
+		84BD8A6B2302BC8C0020610B /* ActionSheetOkButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetOkButtonCell.swift; sourceTree = "<group>"; };
+		84BD8A6D2302BC8C0020610B /* ActionSheetCancelButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCancelButtonCell.swift; sourceTree = "<group>"; };
+		84BD8A6E2302BC8C0020610B /* ActionSheetDangerButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetDangerButtonCell.swift; sourceTree = "<group>"; };
+		84BD8A702302BC8C0020610B /* ActionSheetSectionMarginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionMarginCell.swift; sourceTree = "<group>"; };
+		84BD8A712302BC8C0020610B /* ActionSheetSectionTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionTitleCell.swift; sourceTree = "<group>"; };
+		84BD8A722302BC8C0020610B /* ActionSheetTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetTitleCell.swift; sourceTree = "<group>"; };
+		84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMultiSelectToggleItemCell.swift; sourceTree = "<group>"; };
+		84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSingleSelectItemCell.swift; sourceTree = "<group>"; };
+		84BD8A772302BC8C0020610B /* ActionSheetSelectItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetSelectItemCell.swift; sourceTree = "<group>"; };
+		84BD8A782302BC8C0020610B /* ActionSheetLinkItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetLinkItemCell.swift; sourceTree = "<group>"; };
+		84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMultiSelectItemCell.swift; sourceTree = "<group>"; };
+		84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetCollectionItemCell.swift; sourceTree = "<group>"; };
+		84BD8A7C2302BC8C0020610B /* ActionSheetItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetItemCell.swift; sourceTree = "<group>"; };
 		84BD8A7E2302BC8C0020610B /* ActionSheetTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetTableView.swift; sourceTree = "<group>"; };
 		84BD8A7F2302BC8C0020610B /* ActionSheetButtonTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetButtonTableView.swift; sourceTree = "<group>"; };
 		84BD8A802302BC8C0020610B /* ActionSheetItemTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetItemTableView.swift; sourceTree = "<group>"; };
@@ -375,14 +371,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		84A8788C2332084B00045F0A /* Sections */ = {
+		84A8788C2332084B00045F0A /* Titles */ = {
 			isa = PBXGroup;
 			children = (
-				84A8788E2332084B00045F0A /* SectionItem.swift */,
+				84A8788E2332084B00045F0A /* MenuTitle.swift */,
 				84A8788F2332084B00045F0A /* SectionMagin.swift */,
 				84A8788D2332084B00045F0A /* SectionTitle.swift */,
 			);
-			path = Sections;
+			path = Titles;
 			sourceTree = "<group>";
 		};
 		84BD8A4E2302BC8C0020610B /* Sources */ = {
@@ -408,13 +404,9 @@
 			children = (
 				84BD8A582302BC8C0020610B /* Appearance */,
 				84BD8A622302BC8C0020610B /* Extensions */,
-				84BD8A692302BC8C0020610B /* Items */,
 				84BD8A5E2302BC8C0020610B /* Presenters */,
 				84BD8A7D2302BC8C0020610B /* Views */,
 				84BD8A552302BC8C0020610B /* ActionSheet.swift */,
-				84BD8A6C2302BC8C0020610B /* ActionSheetButton.swift */,
-				84BD8A7C2302BC8C0020610B /* ActionSheetItem.swift */,
-				84A8788A233202C000045F0A /* ActionSheetItemConvertible.swift */,
 				84BD8A572302BC8C0020610B /* ActionSheet+Presenter.swift */,
 				84BD8A562302BC8C0020610B /* ActionSheet+Scroll.swift */,
 				84BD8A542302BC8C0020610B /* ActionSheetItemHandler.swift */,
@@ -455,22 +447,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		84BD8A692302BC8C0020610B /* Items */ = {
+		84BD8A692302BC8C0020610B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				84BD8A6A2302BC8C0020610B /* Buttons */,
 				84BD8A732302BC8C0020610B /* Items */,
 				84BD8A6F2302BC8C0020610B /* Titles */,
+				841478E12338E274008D3FF2 /* ActionSheetButtonCell.swift */,
+				84BD8A7C2302BC8C0020610B /* ActionSheetItemCell.swift */,
 			);
-			path = Items;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		84BD8A6A2302BC8C0020610B /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A6D2302BC8C0020610B /* ActionSheetCancelButton.swift */,
-				84BD8A6E2302BC8C0020610B /* ActionSheetDangerButton.swift */,
-				84BD8A6B2302BC8C0020610B /* ActionSheetOkButton.swift */,
+				84BD8A6D2302BC8C0020610B /* ActionSheetCancelButtonCell.swift */,
+				84BD8A6E2302BC8C0020610B /* ActionSheetDangerButtonCell.swift */,
+				84BD8A6B2302BC8C0020610B /* ActionSheetOkButtonCell.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -478,9 +472,9 @@
 		84BD8A6F2302BC8C0020610B /* Titles */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A702302BC8C0020610B /* ActionSheetSectionMargin.swift */,
-				84BD8A712302BC8C0020610B /* ActionSheetSectionTitle.swift */,
-				84BD8A722302BC8C0020610B /* ActionSheetTitle.swift */,
+				84BD8A702302BC8C0020610B /* ActionSheetSectionMarginCell.swift */,
+				84BD8A712302BC8C0020610B /* ActionSheetSectionTitleCell.swift */,
+				84BD8A722302BC8C0020610B /* ActionSheetTitleCell.swift */,
 			);
 			path = Titles;
 			sourceTree = "<group>";
@@ -488,13 +482,12 @@
 		84BD8A732302BC8C0020610B /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItem.swift */,
-				84BD8A752302BC8C0020610B /* ActionSheetCustomItem.swift */,
-				84BD8A782302BC8C0020610B /* ActionSheetLinkItem.swift */,
-				84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItem.swift */,
-				84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift */,
-				84BD8A772302BC8C0020610B /* ActionSheetSelectItem.swift */,
-				84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItem.swift */,
+				84BD8A7A2302BC8C0020610B /* ActionSheetCollectionItemCell.swift */,
+				84BD8A782302BC8C0020610B /* ActionSheetLinkItemCell.swift */,
+				84BD8A792302BC8C0020610B /* ActionSheetMultiSelectItemCell.swift */,
+				84BD8A742302BC8C0020610B /* ActionSheetMultiSelectToggleItemCell.swift */,
+				84BD8A772302BC8C0020610B /* ActionSheetSelectItemCell.swift */,
+				84BD8A762302BC8C0020610B /* ActionSheetSingleSelectItemCell.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -502,6 +495,7 @@
 		84BD8A7D2302BC8C0020610B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84BD8A692302BC8C0020610B /* Cells */,
 				84BD8A822302BC8C0020610B /* ActionSheetBackgroundView.swift */,
 				84BD8A7F2302BC8C0020610B /* ActionSheetButtonTableView.swift */,
 				84BD8A812302BC8C0020610B /* ActionSheetHeaderContainerView.swift */,
@@ -517,7 +511,7 @@
 			children = (
 				84BE53C823314829009DDFC6 /* Buttons */,
 				84BE53C92331482F009DDFC6 /* Items */,
-				84A8788C2332084B00045F0A /* Sections */,
+				84A8788C2332084B00045F0A /* Titles */,
 				84BE53C223314345009DDFC6 /* Menu.swift */,
 				84BE53C6233145E6009DDFC6 /* MenuButton.swift */,
 				84123FF523340F0A00283044 /* MenuConfiguration.swift */,
@@ -819,40 +813,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84BD8AA22302BC8C0020610B /* ActionSheetSelectItem.swift in Sources */,
+				84BD8AA22302BC8C0020610B /* ActionSheetSelectItemCell.swift in Sources */,
 				1D42891F20400580005D4369 /* (null) in Sources */,
-				84BD8AA32302BC8C0020610B /* ActionSheetLinkItem.swift in Sources */,
-				84BD8A982302BC8C0020610B /* ActionSheetOkButton.swift in Sources */,
-				84BD8AA52302BC8C0020610B /* ActionSheetCollectionItem.swift in Sources */,
+				84BD8AA32302BC8C0020610B /* ActionSheetLinkItemCell.swift in Sources */,
+				84BD8A982302BC8C0020610B /* ActionSheetOkButtonCell.swift in Sources */,
+				84BD8AA52302BC8C0020610B /* ActionSheetCollectionItemCell.swift in Sources */,
 				84BE53DB23314DDD009DDFC6 /* CustomItem.swift in Sources */,
 				84BE53CF23314B88009DDFC6 /* CancelButton.swift in Sources */,
-				84BD8A9F2302BC8C0020610B /* ActionSheetMultiSelectToggleItem.swift in Sources */,
+				84BD8A9F2302BC8C0020610B /* ActionSheetMultiSelectToggleItemCell.swift in Sources */,
 				84BD8A902302BC8C0020610B /* ActionSheetStandardPresenter.swift in Sources */,
 				84BD8A8C2302BC8C0020610B /* ActionSheetAppearance.swift in Sources */,
-				84BD8AA12302BC8C0020610B /* ActionSheetSingleSelectItem.swift in Sources */,
-				84BD8A992302BC8C0020610B /* ActionSheetButton.swift in Sources */,
+				84BD8AA12302BC8C0020610B /* ActionSheetSingleSelectItemCell.swift in Sources */,
 				1D428917203F2235005D4369 /* (null) in Sources */,
 				84BD8AA82302BC8C0020610B /* ActionSheetTableView.swift in Sources */,
 				8415BC3823036FDC002D5C78 /* UIView+Subviews.swift in Sources */,
 				84BE53C323314345009DDFC6 /* Menu.swift in Sources */,
 				84BE53C523314472009DDFC6 /* MenuItem.swift in Sources */,
 				84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */,
-				84BD8A9C2302BC8C0020610B /* ActionSheetSectionMargin.swift in Sources */,
-				84BD8A9B2302BC8C0020610B /* ActionSheetDangerButton.swift in Sources */,
+				84BD8A9C2302BC8C0020610B /* ActionSheetSectionMarginCell.swift in Sources */,
+				84BD8A9B2302BC8C0020610B /* ActionSheetDangerButtonCell.swift in Sources */,
 				84BD8A922302BC8C0020610B /* UIEdgeInsets+Hidden.swift in Sources */,
 				84BD8A8D2302BC8C0020610B /* ActionSheetColor.swift in Sources */,
 				84BE53D523314CBA009DDFC6 /* SingleSelectItem.swift in Sources */,
 				8415BC3623036548002D5C78 /* ActionSheetStackView.swift in Sources */,
 				84A878902332084B00045F0A /* SectionTitle.swift in Sources */,
 				1D428919204002F2005D4369 /* (null) in Sources */,
-				84BD8AA42302BC8C0020610B /* ActionSheetMultiSelectItem.swift in Sources */,
-				84BD8A9D2302BC8C0020610B /* ActionSheetSectionTitle.swift in Sources */,
+				84BD8AA42302BC8C0020610B /* ActionSheetMultiSelectItemCell.swift in Sources */,
+				84BD8A9D2302BC8C0020610B /* ActionSheetSectionTitleCell.swift in Sources */,
 				84A878922332084B00045F0A /* SectionMagin.swift in Sources */,
 				84BE53CD23314B3D009DDFC6 /* DestructiveButton.swift in Sources */,
 				84BE53D323314C4E009DDFC6 /* SelectItem.swift in Sources */,
 				84BE53CB23314A9F009DDFC6 /* OkButton.swift in Sources */,
-				84BD8AA72302BC8C0020610B /* ActionSheetItem.swift in Sources */,
-				84A8788B233202C000045F0A /* ActionSheetItemConvertible.swift in Sources */,
+				84BD8AA72302BC8C0020610B /* ActionSheetItemCell.swift in Sources */,
 				84BE53D723314CDA009DDFC6 /* MultiSelectItem.swift in Sources */,
 				84BD8AAC2302BC8C0020610B /* ActionSheetBackgroundView.swift in Sources */,
 				84BD8A8E2302BC8C0020610B /* UIColor+ActionSheetColor.swift in Sources */,
@@ -860,24 +852,24 @@
 				84BD8A872302BC8C0020610B /* ActionSheet.swift in Sources */,
 				84BD8A882302BC8C0020610B /* ActionSheet+Scroll.swift in Sources */,
 				84BD8A832302BC8C0020610B /* ActionSheetMargin.swift in Sources */,
-				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButton.swift in Sources */,
+				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButtonCell.swift in Sources */,
 				84BD8A8F2302BC8C0020610B /* ActionSheetPresenter.swift in Sources */,
 				84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */,
 				84BD8A8A2302BC8C0020610B /* StandardActionSheetAppearance.swift in Sources */,
-				84BD8AA02302BC8C0020610B /* ActionSheetCustomItem.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
-				84BD8A9E2302BC8C0020610B /* ActionSheetTitle.swift in Sources */,
+				84BD8A9E2302BC8C0020610B /* ActionSheetTitleCell.swift in Sources */,
 				84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */,
 				84BD8A892302BC8C0020610B /* ActionSheet+Presenter.swift in Sources */,
 				84BD8AA92302BC8C0020610B /* ActionSheetButtonTableView.swift in Sources */,
 				84BE53D923314D57009DDFC6 /* MultiSelectToggleItem.swift in Sources */,
 				84BD8A8B2302BC8C0020610B /* ActionSheet+Appearance.swift in Sources */,
 				84BE53C7233145E6009DDFC6 /* MenuButton.swift in Sources */,
-				84A878912332084B00045F0A /* SectionItem.swift in Sources */,
+				84A878912332084B00045F0A /* MenuTitle.swift in Sources */,
 				84BE53DD23316232009DDFC6 /* CollectionItem.swift in Sources */,
 				84BD8A912302BC8C0020610B /* ActionSheetPopoverPresenter.swift in Sources */,
 				84BD8AAA2302BC8C0020610B /* ActionSheetItemTableView.swift in Sources */,
 				84BD8A862302BC8C0020610B /* ActionSheetItemHandler.swift in Sources */,
+				841478E22338E275008D3FF2 /* ActionSheetButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

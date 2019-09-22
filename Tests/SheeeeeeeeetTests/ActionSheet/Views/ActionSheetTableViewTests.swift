@@ -24,7 +24,7 @@ class ActionSheetTableViewTests: QuickSpec {
             
             beforeEach {
                 view = ActionSheetTableView()
-                sheet = ActionSheet { _, _ in }
+                sheet = ActionSheet(menu: .empty) { _, _ in }
                 handler = sheet.buttonHandler
                 constraint = view.setup(in: sheet, itemHandler: handler, heightPriority: 123)
             }

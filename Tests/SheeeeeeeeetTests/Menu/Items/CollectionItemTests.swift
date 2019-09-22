@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import CoreGraphics
+import UIKit
 @testable import Sheeeeeeeeet
 
 class CollectionItemTests: QuickSpec {
@@ -45,22 +46,12 @@ class CollectionItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let source = CollectionItem(itemType: TestType.self, itemCount: 100, itemSetupAction: { _, _ in }, itemSelectionAction: { _, _ in })
-                let item = source.toActionSheetItem() as? ActionSheetCollectionItem<TestType>
-                
-                expect(item?.title).to(equal(""))
-                expect(item?.subtitle).to(beNil())
-                expect(item?.value).to(beNil())
-                expect(item?.image).to(beNil())
-                expect(item?.tapBehavior).to(equal(MenuItem.TapBehavior.none))
-                
-                expect(item?.itemCellType).to(be(TestType.self))
-                expect(item?.itemCount).to(equal(100))
-                expect(item?.setupAction).toNot(beNil())
-                expect(item?.selectionAction).toNot(beNil())
+            it("is of correct type") {
+                let item = CollectionItem(itemType: TestType.self, itemCount: 100, itemSetupAction: { _, _ in }, itemSelectionAction: { _, _ in })
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetCollectionItemCell).to(beTrue())
             }
         }
     }

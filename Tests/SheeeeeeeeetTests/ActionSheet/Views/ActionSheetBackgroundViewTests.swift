@@ -17,7 +17,7 @@ class ActionSheetBackgroundViewTests: QuickSpec {
         describe("setting up in action sheet") {
             
             it("sets up view correctly") {
-                let sheet = ActionSheet { (_, _) in }
+                let sheet = ActionSheet(menu: .empty) { (_, _) in }
                 let view = ActionSheetBackgroundView()
                 view.setup(in: sheet)
                 expect(view.clipsToBounds).to(beTrue())

@@ -93,8 +93,8 @@ class StandardActionSheetApperanceTests: QuickSpec {
             }
             
             it("applies heights") {
-                expect(ActionSheetSectionTitle.height).to(equal(25))
-                expect(ActionSheetSectionMargin.height).to(equal(25))
+                expect(SectionTitle.height).to(equal(25))
+                expect(SectionMargin.height).to(equal(25))
             }
             
             it("applies icons") {

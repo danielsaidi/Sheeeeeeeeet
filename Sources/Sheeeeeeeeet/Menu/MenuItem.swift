@@ -10,14 +10,37 @@ import UIKit
 
 /**
  This class is a base class for all menu items, like buttons,
- items etc. All items inherit this class, even if they don't
- make use of all its properties.
+ items, titles etc.
+ 
+ The base class represents a regular action sheet item, like
+ the one used in `UIAlertController`. It has a title as well
+ as an optional subtitle, value and image.
+
+ 
+ ## Subclassing
+ 
+ You can subclass any class in the `MenuItem`, hierarchy and
+ customize it in any way you need. If you need your subclass
+ to use a different cell type than its parent, just override
+ `cell(for:)` to return the cell you need.
+ 
+ 
+ ## Appearance
+ 
+ Since `MenuItem` should be presentation agnostic, it should
+ not have any styling connected to it. However, due to how a
+ menu item creates a cell and how the action sheet must know
+ about its items' heights, you specify the height of an item
+ by setting its static `height` property.
+ 
+ 
+ ## Tap Behavior
  
  `tapBehavior` is used to describe what should happen when a
  user taps an item. `.dismiss` means that the menu should be
  dismissed while `.none` means that it shouldn't.
  */
-open class MenuItem: ActionSheetItemConvertible {
+open class MenuItem {
     
     
     // MARK: - Initialization
@@ -45,22 +68,36 @@ open class MenuItem: ActionSheetItemConvertible {
     
     // MARK: - Properties
     
-    public let image: UIImage?
-    public let subtitle: String?
-    public let tapBehavior: TapBehavior
-    public let title: String
-    public let value: Any?
+    public var image: UIImage?
+    public var subtitle: String?
+    public var tapBehavior: TapBehavior
+    public var title: String
+    public var value: Any?
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - Functions
     
-    func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetItem(
-            title: title,
-            subtitle: subtitle,
-            value: value,
-            image: image,
-            tapBehavior: tapBehavior
-        )
+    open func handleSelection(in menu: Menu) {}
+    
+    
+    // MARK: - ActionSheetItem
+    
+    private static var heights = [String: CGFloat]()
+    
+    public static var height: CGFloat {
+        get { heights[String(describing: self)] ?? 50 }
+        set { heights[String(describing: self)] = newValue }
+    }
+    
+    public var height: CGFloat {
+        type(of: self).height
+    }
+    
+    open func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetItemCell(style: cellStyle)
+    }
+    
+    open var cellStyle: UITableViewCell.CellStyle {
+        subtitle == nil ? .default : .value1
     }
 }

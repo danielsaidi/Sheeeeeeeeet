@@ -88,19 +88,10 @@ open class ActionSheet: UIViewController {
     // MARK: - Initialization
     
     public init(
-        items: [ActionSheetItem] = [],
-        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
-        action: @escaping SelectAction) {
-        self.presenter = presenter
-        selectAction = action
-        super.init(nibName: nil, bundle: nil)
-        setup(items: items)
-    }
-    
-    public init(
         menu: Menu,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
+        self.menu = menu
         self.presenter = presenter
         selectAction = action
         super.init(nibName: nil, bundle: nil)
@@ -108,6 +99,7 @@ open class ActionSheet: UIViewController {
     }
     
     public required init?(coder aDecoder: NSCoder) {
+        menu = .empty
         presenter = ActionSheet.defaultPresenter
         selectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
@@ -128,16 +120,16 @@ open class ActionSheet: UIViewController {
         buttonsTableViewHeight = buttonsTableView.setup(in: self, itemHandler: buttonHandler)
     }
     
-    open func setup(items: [ActionSheetItem]) {
-        self.items = items.filter { !($0 is ActionSheetButton) }
-        buttons = items.compactMap { $0 as? ActionSheetButton }
+    open func setup(items: [MenuItem]) {
+        self.items = items.filter { !($0 is MenuButton) }
+        buttons = items.compactMap { $0 as? MenuButton }
         reloadData()
     }
     
     open func setup(with menu: Menu) {
-        var items = menu.items.map { $0.toActionSheetItem() }
+        var items = menu.items
         if let title = menu.title {
-            items.insert(ActionSheetTitle(title: title), at: 0)
+            items.insert(MenuTitle(title: title), at: 0)
         }
         setup(items: items)
         presenter.isDismissable = menu.configuration.isDismissable
@@ -157,10 +149,6 @@ open class ActionSheet: UIViewController {
         refresh()
     }
     
-    
-    // MARK: - Types
-    
-    public typealias ItemType = ActionSheetItem
     
     /**
      This configuration is used to setup how an action sheet
@@ -184,11 +172,12 @@ open class ActionSheet: UIViewController {
         }
     }
     
-    public typealias SelectAction = (ActionSheet, ActionSheetItem) -> ()
+    public typealias SelectAction = (ActionSheet, MenuItem) -> ()
     
     
     // MARK: - Init properties
     
+    public var menu: Menu
     public var presenter: ActionSheetPresenter
     public var selectAction: SelectAction
     
@@ -228,7 +217,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Item Properties
     
-    public internal(set) var items = [ActionSheetItem]()
+    public internal(set) var items = [MenuItem]()
     
     public var itemsHeight: CGFloat { totalHeight(for: items) }
     
@@ -237,7 +226,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Button Properties
     
-    public internal(set) var buttons = [ActionSheetButton]()
+    public internal(set) var buttons = [MenuButton]()
     
     public var buttonsHeight: CGFloat { totalHeight(for: buttons) }
     
@@ -301,7 +290,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Protected Functions
     
-    open func handleTap(on item: ActionSheetItem) {
+    open func handleTap(on item: MenuItem) {
         reloadData()
         if item.tapBehavior != .dismiss { return selectAction(self, item) }
         self.dismiss { self.selectAction(self, item) }
@@ -334,7 +323,7 @@ private extension ActionSheet {
         return view
     }
     
-    func totalHeight(for items: [ActionSheetItem]) -> CGFloat {
+    func totalHeight(for items: [MenuItem]) -> CGFloat {
         items.reduce(0) { $0 + $1.height }
     }
 }

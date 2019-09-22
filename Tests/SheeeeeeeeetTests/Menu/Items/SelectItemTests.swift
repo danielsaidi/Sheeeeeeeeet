@@ -47,19 +47,24 @@ class SelectItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("is of correct type") {
             
             it("can be converted to an action sheet item") {
-                let image = UIImage()
-                let source = SelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: image)
-                let item = source.toActionSheetItem() as? ActionSheetSelectItem
-                
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(equal("subtitle"))
-                expect(item?.isSelected).to(beTrue())
-                expect(item?.value as? Bool).to(beTrue())
-                expect(item?.image).to(be(image))
-                expect(item?.tapBehavior).to(equal(.dismiss))
+                let item = SelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetSelectItemCell).to(beTrue())
+            }
+        }
+        
+        describe("handling tap") {
+            
+            it("toggles selected state") {
+                let menu = Menu.empty
+                let item = SelectItem(title: "title", subtitle: "subtitle", isSelected: false, value: true, image: nil)
+                item.handleSelection(in: menu)
+                expect(item.isSelected).to(beTrue())
+                item.handleSelection(in: menu)
+                expect(item.isSelected).to(beFalse())
             }
         }
     }

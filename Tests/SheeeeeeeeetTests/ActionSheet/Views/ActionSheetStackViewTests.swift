@@ -22,7 +22,7 @@ class ActionSheetStackViewTests: QuickSpec {
             
             beforeEach {
                 view = ActionSheetStackView()
-                sheet = ActionSheet { _, _ in }
+                sheet = ActionSheet(menu: .empty) { _, _ in }
                 view.setup(in: sheet)
             }
             

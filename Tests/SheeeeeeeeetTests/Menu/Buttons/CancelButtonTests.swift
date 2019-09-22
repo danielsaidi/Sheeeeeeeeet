@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import UIKit
 @testable import Sheeeeeeeeet
 
 class CancelButtonTests: QuickSpec {
@@ -18,7 +19,6 @@ class CancelButtonTests: QuickSpec {
             
             it("sets up provided properties") {
                 let item = CancelButton(title: "title")
-                
                 expect(item.title).to(equal("title"))
                 expect(item.subtitle).to(beNil())
                 expect(item.value as? MenuButton.ButtonType).to(equal(.cancel))
@@ -27,17 +27,12 @@ class CancelButtonTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let source = CancelButton(title: "title")
-                let item = source.toActionSheetItem() as? ActionSheetCancelButton
-                
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(beNil())
-                expect(item?.value as? MenuButton.ButtonType).to(equal(.cancel))
-                expect(item?.image).to(beNil())
-                expect(item?.tapBehavior).to(equal(.dismiss))
+            it("is of correct type") {
+                let item = CancelButton(title: "title")
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetCancelButtonCell).to(beTrue())
             }
         }
     }

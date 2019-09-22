@@ -48,8 +48,7 @@ has the following built-in types:
 
 OK buttons have `ActionSheetButton.ButtonType.ok` as value, while cancel buttons
 have `ActionSheetButton.ButtonType.cancel`. You can also always check the tapped
-item's value for `isOkButton` and `isCancelButton` if you need to determine what
-the action should do.
+item's type e.g. `button is OkButton`.
 
 Buttons are automatically separated from other items and presented in a separate
 list item. On popovers, however, they are added back to the end of the item list.

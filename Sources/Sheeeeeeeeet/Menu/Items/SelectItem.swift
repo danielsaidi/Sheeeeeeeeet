@@ -10,8 +10,7 @@ import UIKit
 
 /**
  Select items can be used to let users select one or several
- items in a menu. It extends `MenuItem` with an `isSelected`
- state and a selected icon.
+ items in a menu.
  
  This item type is not meant to be used directly. You should
  instead use the single- and multi-select subclasses.
@@ -44,20 +43,20 @@ open class SelectItem: MenuItem {
     // MARK: - Properties
     
     public let group: String
-    public let isSelected: Bool
+    public var isSelected: Bool
     
     
-    // MARK: - ActionSheetItemConvertible
+    // MARK: - Functions
     
-    override func toActionSheetItem() -> ActionSheetItem {
-        ActionSheetSelectItem(
-            title: title,
-            subtitle: subtitle,
-            isSelected: isSelected,
-            group: group,
-            value: value,
-            image: image,
-            tapBehavior: tapBehavior
-        )
+    open override func handleSelection(in menu: Menu) {
+        super.handleSelection(in: menu)
+        isSelected = !isSelected
+    }
+    
+    
+    // MARK: - ActionSheet
+    
+    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetSelectItemCell(style: cellStyle)
     }
 }

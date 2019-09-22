@@ -5,7 +5,7 @@ class MockActionSheet: ActionSheet {
     
     var dismissInvokeCount = 0
     var handleTapInvokeCount = 0
-    var handleTapInvokeItems = [ActionSheetItem]()
+    var handleTapInvokeItems = [MenuItem]()
     var prepareForPresentationInvokeCount = 0
     var refreshInvokeCount = 0
     var refreshButtonsInvokeCount = 0
@@ -15,7 +15,7 @@ class MockActionSheet: ActionSheet {
     var reloadDataInvokeCount = 0
     var setupInvokeCount = 0
     var setupItemsInvokeCount = 0
-    var setupItemsInvokeItems = [[ActionSheetItem]]()
+    var setupItemsInvokeItems = [[MenuItem]]()
     
     
     private var _presentingViewController: UIViewController?
@@ -30,7 +30,7 @@ class MockActionSheet: ActionSheet {
         dismissInvokeCount += 1
     }
     
-    override func handleTap(on item: ActionSheetItem) {
+    override func handleTap(on item: MenuItem) {
         super.handleTap(on: item)
         handleTapInvokeCount += 1
         handleTapInvokeItems.append(item)
@@ -71,7 +71,7 @@ class MockActionSheet: ActionSheet {
         setupInvokeCount += 1
     }
     
-    override func setup(items: [ActionSheetItem]) {
+    override func setup(items: [MenuItem]) {
         super.setup(items: items)
         setupItemsInvokeCount += 1
         setupItemsInvokeItems.append(items)

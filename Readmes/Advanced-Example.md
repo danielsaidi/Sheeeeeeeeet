@@ -31,7 +31,7 @@ title.titleFont = .systemFont(ofSize: 16)
 title.separatorInset = .hiddenSeparator
 
 let sectionTitle = ActionSheetSectionTitleCell.appearance()
-ActionSheetSectionTitle.height = 20
+SectionTitle.height = 20
 sectionTitle.titleColor = .black
 sectionTitle.titleFont = .systemFont(ofSize: 12)
 sectionTitle.subtitleFont = .systemFont(ofSize: 12)
@@ -100,7 +100,7 @@ let ok = ActionSheetOkButton(title: "Book Servixce")
 let cancel = ActionSheetCancelButton(title: "Cancel")
 let items = [title, section1, item1_1, item1_2, margin1, section2, item2_1, item2_2, item2_3, ok, cancel]
 let sheet = ActionSheet(items: items) { sheet, item in
-    guard item.isOkButton else { return }
+    guard item is OkButton else { return }
     let times = sheet.items.compactMap { $0 as? ActionSheetSingleSelectItem }
     let selectedTime = times.first { $0.isSelected }
     let services = sheet.items.compactMap { $0 as? ActionSheetMultiSelectItem }
@@ -172,7 +172,7 @@ With this in place, creating, presenting and handling the action sheet is easy:
 
 ```swift
 let sheet = BikeServiceActionSheet() { sheet, item in
-    guard item.isOkButton else { return }
+    guard item is OkButton else { return }
     guard let sheet = sheet as? BikeServiceActionSheet else { return }
     let selectedTime = sheet.selectedTime
     let selectedServices = sheet.selectedServices
@@ -271,7 +271,7 @@ class TimeItem: ActionSheetSingleSelectItem {
     }
     
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        return TimeItemCell(style: cellStyle, reuseIdentifier: cellReuseIdentifier)
+        return TimeItemCell(style: cellStyle)
     }
 }
 

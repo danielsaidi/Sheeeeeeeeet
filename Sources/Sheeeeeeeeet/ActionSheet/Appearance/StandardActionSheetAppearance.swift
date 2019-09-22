@@ -84,8 +84,8 @@ open class StandardActionSheetAppearance: ActionSheetAppearance {
     }
     
     open func applyHeights() {
-        ActionSheetSectionTitle.height = 25
-        ActionSheetSectionMargin.height = 25
+        SectionTitle.height = 25
+        SectionMargin.height = 25
     }
     
     open func applyIcons() {

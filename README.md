@@ -70,7 +70,7 @@ let sheet = ActionSheet(items: items) { sheet, item in
     if let value = item.value as? Int { print("You selected an int: \(value)") }
     if let value = item.value as? String { print("You selected a string: \(value)") }
     if let value = item.value as? Car { print("You selected a car") }
-    if item.isOkButton { print("You tapped the OK button") }
+    if item is OkButton { print("You tapped the OK button") }
 }
 ```
 

@@ -13,15 +13,25 @@ import Sheeeeeeeeet
  This cell is used by the demo app, to populate the cells in
  the `CollectionActionSheet` demo sheet.
  */
-class DemoCollectionViewCell: UICollectionViewCell {
+class DemoCollectionViewCell: UICollectionViewCell, CollectionItemType {
     
     
     // MARK: - Overrides
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        badge?.layer.cornerRadius = 20
+        badge?.layer.cornerRadius = 10
     }
+    
+    
+    // MARK: - CollectionItemType
+    
+    static let defaultSize = CGSize(width: 100, height: 100)
+    static let leftInset: CGFloat = 10
+    static let rightInset: CGFloat = 20
+    static let topInset: CGFloat = 10
+    static let bottomInset: CGFloat = 10
+    static let itemSpacing: CGFloat = 0
     
     
     // MARK: - Item
@@ -40,7 +50,7 @@ class DemoCollectionViewCell: UICollectionViewCell {
         
         var title: String
         var isSelected: Bool
-
+        
         static func == (lhs: Item, rhs: Item) -> Bool {
             return lhs.title == rhs.title
         }
@@ -61,17 +71,4 @@ class DemoCollectionViewCell: UICollectionViewCell {
         titleLabel?.textColor = item.isSelected ? .white : .black
         badge?.backgroundColor = item.isSelected ? .green : .lightGray
     }
-}
-
-
-// MARK: - ActionSheetCollectionItemContentCell
-
-extension DemoCollectionViewCell: CollectionItemType {
-    
-    static let defaultSize = CGSize(width: 100, height: 100)
-    static let leftInset: CGFloat = 10
-    static let rightInset: CGFloat = 20
-    static let topInset: CGFloat = 10
-    static let bottomInset: CGFloat = 10
-    static let itemSpacing: CGFloat = 0
 }

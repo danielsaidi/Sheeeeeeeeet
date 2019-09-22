@@ -41,19 +41,35 @@ class SingleSelectItemTests: QuickSpec {
             }
         }
         
-        describe("action sheet conversion") {
+        describe("action sheet cell") {
             
-            it("can be converted to an action sheet item") {
-                let image = UIImage()
-                let source = SingleSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: image)
-                let item = source.toActionSheetItem() as? ActionSheetSingleSelectItem
+            it("is of correct type") {
+                let item = SingleSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
+                let cell = item.cell(for: UITableView())
+                expect(cell is ActionSheetSingleSelectItemCell).to(beTrue())
+            }
+        }
+        
+        describe("handling tap") {
+            
+            it("deselects other single select items in the same group") {
+                let item1 = SingleSelectItem(title: "foo", isSelected: false, group: "group 1")
+                let item2 = SingleSelectItem(title: "bar", isSelected: false, group: "group 2")
+                let item3 = SingleSelectItem(title: "baz", isSelected: false, group: "group 1")
+                let menu = Menu(items: [item1, item2, item3])
                 
-                expect(item?.title).to(equal("title"))
-                expect(item?.subtitle).to(equal("subtitle"))
-                expect(item?.isSelected).to(beTrue())
-                expect(item?.value as? Bool).to(beTrue())
-                expect(item?.image).to(be(image))
-                expect(item?.tapBehavior).to(equal(.dismiss))
+                item1.handleSelection(in: menu)
+                expect(item1.isSelected).to(beTrue())
+                expect(item2.isSelected).to(beFalse())
+                expect(item3.isSelected).to(beFalse())
+                item2.handleSelection(in: menu)
+                expect(item1.isSelected).to(beTrue())
+                expect(item2.isSelected).to(beTrue())
+                expect(item3.isSelected).to(beFalse())
+                item3.handleSelection(in: menu)
+                expect(item1.isSelected).to(beFalse())
+                expect(item2.isSelected).to(beTrue())
+                expect(item3.isSelected).to(beTrue())
             }
         }
     }
