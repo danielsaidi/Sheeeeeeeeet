@@ -43,7 +43,7 @@ class CustomItemTests: QuickSpec {
                 
                 it("is cell type's default height") {
                     let item = CustomItem(itemType: TestType.self, itemSetupAction: { _ in })
-                    expect(item.height).to(equal(TestType.defaultSize.height))
+                    expect(item.cellHeight).to(equal(Double(TestType.defaultSize.height)))
                 }
             }
             

@@ -53,10 +53,11 @@ class SelectItemTests: QuickSpec {
                 let item = SelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetSelectItemCell).to(beTrue())
+                expect(item.cellType is ActionSheetSelectItemCell.Type).to(beTrue())
             }
         }
         
-        describe("handling tap") {
+        describe("handling selection in menu") {
             
             it("toggles selected state") {
                 let menu = Menu.empty

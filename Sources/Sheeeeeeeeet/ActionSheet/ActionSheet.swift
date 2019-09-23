@@ -219,7 +219,7 @@ open class ActionSheet: UIViewController {
     
     public internal(set) var items = [MenuItem]()
     
-    public var itemsHeight: CGFloat { totalHeight(for: items) }
+    public var itemsHeight: Double { totalHeight(for: items) }
     
     public lazy var itemHandler = ActionSheetItemHandler(actionSheet: self, itemType: .items)
     
@@ -228,7 +228,7 @@ open class ActionSheet: UIViewController {
     
     public internal(set) var buttons = [MenuButton]()
     
-    public var buttonsHeight: CGFloat { totalHeight(for: buttons) }
+    public var buttonsHeight: Double { totalHeight(for: buttons) }
     
     public lazy var buttonHandler = ActionSheetItemHandler(actionSheet: self, itemType: .buttons)
     
@@ -278,13 +278,13 @@ open class ActionSheet: UIViewController {
     
     open func refreshItems() {
         itemsTableView.tableFooterView = createFooter()
-        itemsTableViewHeight.constant = itemsHeight
+        itemsTableViewHeight.constant = CGFloat(itemsHeight)
     }
     
     open func refreshButtons() {
         buttonsTableView.isHidden = buttons.count == 0
         buttonsTableView.tableFooterView = createFooter()
-        buttonsTableViewHeight.constant = buttonsHeight
+        buttonsTableViewHeight.constant = CGFloat(buttonsHeight)
     }
     
     
@@ -323,7 +323,7 @@ private extension ActionSheet {
         return view
     }
     
-    func totalHeight(for items: [MenuItem]) -> CGFloat {
-        items.reduce(0) { $0 + $1.height }
+    func totalHeight(for items: [MenuItem]) -> Double {
+        items.reduce(0) { $0 + $1.cellHeight }
     }
 }

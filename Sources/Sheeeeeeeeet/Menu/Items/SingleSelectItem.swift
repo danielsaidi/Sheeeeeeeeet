@@ -35,4 +35,8 @@ open class SingleSelectItem: SelectItem {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetSingleSelectItemCell(style: cellStyle)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetSingleSelectItemCell.self
+    }
 }

@@ -55,4 +55,8 @@ open class MultiSelectItem: SelectItem {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetMultiSelectItemCell(style: cellStyle)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetMultiSelectItemCell.self
+    }
 }

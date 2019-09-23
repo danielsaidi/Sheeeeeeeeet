@@ -42,8 +42,6 @@ open class CustomItem<T: CustomItemType>: MenuItem {
 
     // MARK: - ActionSheet
     
-    public override var height: CGFloat { T.defaultSize.height }
-    
     /**
      When getting an action sheet cell for a custom item, `T`
      must be a `UIView` and must implement `CustomItemType`.
@@ -59,6 +57,10 @@ open class CustomItem<T: CustomItemType>: MenuItem {
         guard let cell = item as? ActionSheetItemCell else { fatalError("ActionSheetCustomItem only supports CustomItemType's that inherit ActionSheetItemCell") }
         itemSetupAction(item)
         return cell
+    }
+    
+    open override var cellHeight: Double {
+        Double(T.defaultSize.height)
     }
 }
 

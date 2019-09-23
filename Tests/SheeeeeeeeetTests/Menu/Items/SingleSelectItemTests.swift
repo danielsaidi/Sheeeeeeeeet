@@ -47,10 +47,11 @@ class SingleSelectItemTests: QuickSpec {
                 let item = SingleSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetSingleSelectItemCell).to(beTrue())
+                expect(item.cellType is ActionSheetSingleSelectItemCell.Type).to(beTrue())
             }
         }
         
-        describe("handling tap") {
+        describe("handling selection in menu") {
             
             it("deselects other single select items in the same group") {
                 let item1 = SingleSelectItem(title: "foo", isSelected: false, group: "group 1")

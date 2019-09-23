@@ -34,6 +34,7 @@ class MenuButtonTests: QuickSpec {
                 let item = MenuButton(title: "title", type: .cancel)
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetButtonCell).to(beTrue())
+                expect(item.cellType is ActionSheetButtonCell.Type).to(beTrue())
             }
         }
     }

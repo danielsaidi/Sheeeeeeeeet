@@ -53,8 +53,6 @@ open class CollectionItem<T: CollectionItemType>: MenuItem {
 
     // MARK: - ActionSheet
     
-    public override var height: CGFloat { return T.defaultSize.height }
-    
     /**
      When getting an action sheet cell for a collection item,
      `T` must be a `UICollectionViewCell` and must implement
@@ -70,6 +68,10 @@ open class CollectionItem<T: CollectionItemType>: MenuItem {
         let handler = ActionSheetCollectionItemCellHandler(item: self)
         typedCell.setup(withNib: nib, handler: handler)
         return typedCell
+    }
+    
+    open override var cellHeight: Double {
+        Double(T.defaultSize.height)
     }
 }
 

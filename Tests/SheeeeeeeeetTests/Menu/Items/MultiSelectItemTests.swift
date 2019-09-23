@@ -47,10 +47,11 @@ class MultiSelectItemTests: QuickSpec {
                 let item = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetMultiSelectItemCell).to(beTrue())
+                expect(item.cellType is ActionSheetMultiSelectItemCell.Type).to(beTrue())
             }
         }
         
-        describe("handling tap") {
+        describe("handling selection in menu") {
             
             it("updates toggle item in the same group") {
                 let item1 = MultiSelectItem(title: "foo", isSelected: false, group: "group 1")

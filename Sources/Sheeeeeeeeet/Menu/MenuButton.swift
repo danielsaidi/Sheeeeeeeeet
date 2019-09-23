@@ -46,4 +46,8 @@ open class MenuButton: MenuItem {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetButtonCell(style: .default)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetButtonCell.self
+    }
 }

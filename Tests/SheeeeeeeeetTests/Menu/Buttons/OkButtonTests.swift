@@ -33,6 +33,7 @@ class OkButtonTests: QuickSpec {
                 let item = OkButton(title: "title")
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetOkButtonCell).to(beTrue())
+                expect(item.cellType is ActionSheetOkButtonCell.Type).to(beTrue())
             }
         }
     }

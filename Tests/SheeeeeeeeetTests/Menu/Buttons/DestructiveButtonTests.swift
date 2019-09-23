@@ -33,6 +33,7 @@ class DestructiveButtonTests: QuickSpec {
                 let item = DestructiveButton(title: "title")
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetDangerButtonCell).to(beTrue())
+                expect(item.cellType is ActionSheetDangerButtonCell.Type).to(beTrue())
             }
         }
     }

@@ -27,4 +27,8 @@ open class SectionMargin: MenuTitle {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetSectionMarginCell(style: cellStyle)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetSectionMarginCell.self
+    }
 }

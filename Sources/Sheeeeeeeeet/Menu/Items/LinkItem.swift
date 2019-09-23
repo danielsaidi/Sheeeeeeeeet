@@ -20,4 +20,8 @@ open class LinkItem: MenuItem {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetLinkItemCell(style: cellStyle)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetLinkItemCell.self
+    }
 }

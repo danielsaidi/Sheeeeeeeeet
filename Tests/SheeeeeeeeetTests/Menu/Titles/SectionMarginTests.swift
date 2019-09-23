@@ -33,6 +33,7 @@ class SectionMarginTests: QuickSpec {
                 let item = SectionMargin()
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetSectionMarginCell).to(beTrue())
+                expect(item.cellType is ActionSheetSectionMarginCell.Type).to(beTrue())
             }
         }
     }

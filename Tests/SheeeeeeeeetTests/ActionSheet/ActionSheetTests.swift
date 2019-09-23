@@ -199,10 +199,10 @@ class ActionSheetTests: QuickSpec {
         describe("items height") {
             
             beforeEach {
-                MenuItem.height = 100
-                SingleSelectItem.height = 110
-                MultiSelectItem.height = 120
-                OkButton.height = 120
+                ActionSheetItemCell.appearance().height = 100
+                ActionSheetSingleSelectItemCell.appearance().height = 110
+                ActionSheetMultiSelectItemCell.appearance().height = 120
+                ActionSheetOkButtonCell.appearance().height = 130
             }
             
             it("is sum of all items") {
@@ -240,10 +240,10 @@ class ActionSheetTests: QuickSpec {
         describe("items height") {
             
             beforeEach {
-                MenuItem.height = 100
-                OkButton.height = 110
-                DestructiveButton.height = 120
-                CancelButton.height = 130
+                ActionSheetItemCell.appearance().height = 100
+                ActionSheetOkButtonCell.appearance().height = 110
+                ActionSheetDangerButtonCell.appearance().height = 120
+                ActionSheetCancelButtonCell.appearance().height = 130
             }
             
             it("is sum of all items") {
@@ -472,8 +472,8 @@ class ActionSheetTests: QuickSpec {
                 height = NSLayoutConstraint()
                 sheet = createSheet()
                 sheet.itemsTableViewHeight = height
-                MenuItem.height = 12
-                OkButton.height = 13
+                ActionSheetItemCell.appearance().height = 12
+                ActionSheetOkButtonCell.appearance().height = 13
             }
             
             it("refreshes correctly if no items are set") {
@@ -502,8 +502,8 @@ class ActionSheetTests: QuickSpec {
                 height = NSLayoutConstraint()
                 sheet = createSheet()
                 sheet.buttonsTableViewHeight = height
-                MenuItem.height = 12
-                OkButton.height = 13
+                ActionSheetItemCell.appearance().height = 12
+                ActionSheetOkButtonCell.appearance().height = 13
             }
             
             it("refreshes correctly if no items are set") {

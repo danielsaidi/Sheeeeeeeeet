@@ -22,4 +22,8 @@ open class DestructiveButton: OkButton {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetDangerButtonCell(style: .default)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetDangerButtonCell.self
+    }
 }

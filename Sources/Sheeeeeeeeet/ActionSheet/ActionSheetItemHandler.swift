@@ -72,7 +72,7 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let item = self.item(at: indexPath) else { return 0 }
-        return CGFloat(item.height)
+        return CGFloat(item.cellHeight)
     }
 }
 

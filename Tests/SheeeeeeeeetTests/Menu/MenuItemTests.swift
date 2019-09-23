@@ -43,14 +43,5 @@ class MenuItemTests: QuickSpec {
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
             }
         }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = MenuItem(title: "title", subtitle: "subtitle", value: true, image: nil, tapBehavior: .none)
-                let cell = item.cell(for: UITableView())
-                expect(cell).toNot(beNil())
-            }
-        }
     }
 }

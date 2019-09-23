@@ -30,4 +30,8 @@ open class OkButton: MenuButton {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetOkButtonCell(style: .default)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetOkButtonCell.self
+    }
 }

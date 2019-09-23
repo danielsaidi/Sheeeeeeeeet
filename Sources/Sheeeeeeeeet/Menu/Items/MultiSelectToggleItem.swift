@@ -71,4 +71,8 @@ open class MultiSelectToggleItem: MenuItem {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetMultiSelectToggleItemCell(style: .value1)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetMultiSelectToggleItemCell.self
+    }
 }

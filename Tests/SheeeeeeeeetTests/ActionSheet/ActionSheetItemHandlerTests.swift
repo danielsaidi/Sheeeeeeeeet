@@ -97,13 +97,21 @@ class ActionSheetItemHandlerTests: QuickSpec {
             }
             
             it("returns correct height for existing item") {
+                ActionSheetItemCell.appearance().height = 123
                 let path = IndexPath(row: 0, section: 0)
-                MockMenuItem.height = 123
                 let result = handler.tableView(createTableView(), heightForRowAt: path)
                 expect(result).to(equal(123))
             }
             
-            it("returns zero height for existing item") {
+            it("returns correct height for existing button") {
+                handler = ActionSheetItemHandler(actionSheet: sheet, itemType: .buttons)
+                ActionSheetCancelButtonCell.appearance().height = 456
+                let path = IndexPath(row: 0, section: 0)
+                let result = handler.tableView(createTableView(), heightForRowAt: path)
+                expect(result).to(equal(456))
+            }
+            
+            it("returns zero height for non-existing item") {
                 let path = IndexPath(row: 1, section: 1)
                 let result = handler.tableView(createTableView(), heightForRowAt: path)
                 expect(result).to(equal(0))

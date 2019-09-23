@@ -10,35 +10,28 @@ import UIKit
 
 /**
  This class is a base class for all menu items, like buttons,
- items, titles etc.
- 
- The base class represents a regular action sheet item, like
- the one used in `UIAlertController`. It has a title as well
- as an optional subtitle, value and image.
+ items, titles etc. It represents a standard menu item, like
+ a `UIAlertController` action or an iOS 13 context menu item.
 
- 
- ## Subclassing
- 
- You can subclass any class in the `MenuItem`, hierarchy and
- customize it in any way you need. If you need your subclass
- to use a different cell type than its parent, just override
- `cell(for:)` to return the cell you need.
- 
- 
- ## Appearance
- 
- Since `MenuItem` should be presentation agnostic, it should
- not have any styling connected to it. However, due to how a
- menu item creates a cell and how the action sheet must know
- about its items' heights, you specify the height of an item
- by setting its static `height` property.
- 
- 
- ## Tap Behavior
+ You can subclass any class in the `MenuItem` type hierarchy
+ to create new menu item types. If you need the class to use
+ a different cell type than its parent, override `cell(for:)`
+ and `cellType` to return the cell you need. It is important
+ to override both properties, otherwise your class may get a
+ wrong cell instance or cell height.
  
  `tapBehavior` is used to describe what should happen when a
- user taps an item. `.dismiss` means that the menu should be
- dismissed while `.none` means that it shouldn't.
+ user taps a certain item. `.dismiss` means that the item is
+ meant to dismiss the menu, while `.none` means that it must
+ not have any effect. `.none` is not always applicable, e.g.
+ in an iOS 13 context menu or a `UIAlertController`.
+
+ Since `MenuItem` classes are just data classes, they do not
+ care about how they are presented. You must therefore style
+ components that are created from these items instead of the
+ items themselves. For instance, `ActionSheetItemCell` cells
+ use appearance proxies, while the `UIAlertController` items
+ provide very limited options.
  */
 open class MenuItem {
     
@@ -82,22 +75,19 @@ open class MenuItem {
     
     // MARK: - ActionSheetItem
     
-    private static var heights = [String: CGFloat]()
-    
-    public static var height: CGFloat {
-        get { heights[String(describing: self)] ?? 50 }
-        set { heights[String(describing: self)] = newValue }
-    }
-    
-    public var height: CGFloat {
-        type(of: self).height
-    }
-    
     open func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetItemCell(style: cellStyle)
     }
     
+    open var cellHeight: Double {
+        cellType.appearance().height
+    }
+    
     open var cellStyle: UITableViewCell.CellStyle {
         subtitle == nil ? .default : .value1
+    }
+    
+    open var cellType: ActionSheetItemCell.Type {
+        ActionSheetItemCell.self
     }
 }

@@ -29,4 +29,8 @@ open class CancelButton: MenuButton {
     open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetCancelButtonCell(style: .default)
     }
+    
+    open override var cellType: ActionSheetItemCell.Type {
+        ActionSheetCancelButtonCell.self
+    }
 }

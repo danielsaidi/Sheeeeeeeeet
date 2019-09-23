@@ -52,6 +52,7 @@ class LinkItemTests: QuickSpec {
                     let item = LinkItem(title: "title")
                     let cell = item.cell(for: UITableView())
                     expect(cell is ActionSheetLinkItemCell).to(beTrue())
+                    expect(item.cellType is ActionSheetLinkItemCell.Type).to(beTrue())
                 }
             }
         }

@@ -33,6 +33,7 @@ class MenuTitleTests: QuickSpec {
                 let item = MenuTitle(title: "foo")
                 let cell = item.cell(for: UITableView())
                 expect(cell is ActionSheetTitleCell).to(beTrue())
+                expect(item.cellType is ActionSheetTitleCell.Type).to(beTrue())
             }
         }
     }
