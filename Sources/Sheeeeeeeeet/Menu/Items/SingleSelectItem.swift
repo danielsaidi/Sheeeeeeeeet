@@ -21,6 +21,9 @@ import UIKit
  */
 open class SingleSelectItem: SelectItem {
 
+    
+    // MARK: - Functions
+    
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)
         let items = menu.items.compactMap { $0 as? SingleSelectItem }
@@ -32,11 +35,11 @@ open class SingleSelectItem: SelectItem {
     
     // MARK: - ActionSheet
     
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSingleSelectItemCell(style: cellStyle)
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetSingleSelectItemCell(style: actionSheetCellStyle)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetSingleSelectItemCell.self
     }
 }

@@ -31,9 +31,9 @@ class CancelButtonTests: QuickSpec {
             
             it("is of correct type") {
                 let item = CancelButton(title: "title")
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetCancelButtonCell).to(beTrue())
-                expect(item.cellType is ActionSheetCancelButtonCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetCancelButtonCell.Type).to(beTrue())
             }
         }
     }

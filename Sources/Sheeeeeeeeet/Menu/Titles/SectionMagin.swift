@@ -14,21 +14,15 @@ import UIKit
  */
 open class SectionMargin: MenuTitle {
     
-    
-    // MARK - Initialization
-    
     public init() {
         super.init(title: "")
     }
 
-    
-    // MARK: - ActionSheet
-    
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSectionMarginCell(style: cellStyle)
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetSectionMarginCell(style: actionSheetCellStyle)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetSectionMarginCell.self
     }
 }

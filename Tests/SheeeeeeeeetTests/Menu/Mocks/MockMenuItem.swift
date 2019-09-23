@@ -22,7 +22,7 @@ class MockMenuItem: MenuItem {
         handleTapInvokeMenus.append(menu)
     }
     
-    override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        cell ?? super.cell(for: tableView)
+    override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        cell ?? super.actionSheetCell(for: tableView)
     }
 }

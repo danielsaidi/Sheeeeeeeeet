@@ -19,7 +19,7 @@ class ActionSheetLinkItemCellTests: QuickSpec {
             
             it("applies accessory view with link icon") {
                 let item = LinkItem(title: "foo")
-                let cell = item.cell(for: UITableView()) as? ActionSheetLinkItemCell
+                let cell = item.actionSheetCell(for: UITableView()) as? ActionSheetLinkItemCell
                 cell?.linkIcon = UIImage()
                 cell?.refresh()
                 let imageView = cell?.accessoryView as? UIImageView

@@ -18,14 +18,11 @@ import UIKit
  */
 open class SectionTitle: MenuTitle {
     
-    
-    // MARK: - ActionSheet
-    
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSectionTitleCell(style: cellStyle)
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetSectionTitleCell(style: actionSheetCellStyle)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetSectionTitleCell.self
     }
 }

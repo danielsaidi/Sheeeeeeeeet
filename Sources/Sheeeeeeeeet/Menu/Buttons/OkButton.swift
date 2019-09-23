@@ -17,21 +17,15 @@ import UIKit
  */
 open class OkButton: MenuButton {
     
-    
-    // MARK: - Initialization
-    
     public init(title: String) {
         super.init(title: title, type: .ok)
     }
     
-    
-    // MARK: - ActionSheet
-    
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetOkButtonCell(style: .default)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetOkButtonCell.self
     }
 }

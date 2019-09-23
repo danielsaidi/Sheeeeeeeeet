@@ -15,10 +15,11 @@ import UIKit
 
  You can subclass any class in the `MenuItem` type hierarchy
  to create new menu item types. If you need the class to use
- a different cell type than its parent, override `cell(for:)`
- and `cellType` to return the cell you need. It is important
- to override both properties, otherwise your class may get a
- wrong cell instance or cell height.
+ a different cell type than its parent, you have to override
+ `actionSheetCell(for:)` and `actionSheetCellType` to return
+ the cell and cell type you need. It's important to override
+ both properties, otherwise the item may get a wrong cell or
+ cell height.
  
  `tapBehavior` is used to describe what should happen when a
  user taps a certain item. `.dismiss` means that the item is
@@ -73,21 +74,21 @@ open class MenuItem {
     open func handleSelection(in menu: Menu) {}
     
     
-    // MARK: - ActionSheetItem
+    // MARK: - ActionSheet
     
-    open func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetItemCell(style: cellStyle)
+    open func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetItemCell(style: actionSheetCellStyle)
     }
     
-    open var cellHeight: Double {
-        cellType.appearance().height
+    open var actionSheetCellHeight: Double {
+        actionSheetCellType.appearance().height
     }
     
-    open var cellStyle: UITableViewCell.CellStyle {
+    open var actionSheetCellStyle: UITableViewCell.CellStyle {
         subtitle == nil ? .default : .value1
     }
     
-    open var cellType: ActionSheetItemCell.Type {
+    open var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetItemCell.self
     }
 }

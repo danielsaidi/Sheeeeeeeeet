@@ -43,11 +43,11 @@ open class MenuButton: MenuItem {
     
     // MARK: - ActionSheet
     
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetButtonCell(style: .default)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetButtonCell.self
     }
 }

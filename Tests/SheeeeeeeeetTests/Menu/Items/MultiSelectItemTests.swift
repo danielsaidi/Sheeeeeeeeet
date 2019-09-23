@@ -45,9 +45,9 @@ class MultiSelectItemTests: QuickSpec {
             
             it("is of correct type") {
                 let item = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetMultiSelectItemCell).to(beTrue())
-                expect(item.cellType is ActionSheetMultiSelectItemCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetMultiSelectItemCell.Type).to(beTrue())
             }
         }
         

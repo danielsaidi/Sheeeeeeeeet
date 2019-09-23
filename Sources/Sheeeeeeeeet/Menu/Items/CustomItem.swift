@@ -48,7 +48,7 @@ open class CustomItem<T: CustomItemType>: MenuItem {
      It must have a matching .xib file with the same name as
      the class in the same bundle.
      */
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
         let className = String(describing: self)
         let nib = UINib(nibName: String(describing: T.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: className)
@@ -59,7 +59,7 @@ open class CustomItem<T: CustomItemType>: MenuItem {
         return cell
     }
     
-    open override var cellHeight: Double {
+    open override var actionSheetCellHeight: Double {
         Double(T.defaultSize.height)
     }
 }

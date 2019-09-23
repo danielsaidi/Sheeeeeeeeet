@@ -45,9 +45,9 @@ class SingleSelectItemTests: QuickSpec {
             
             it("is of correct type") {
                 let item = SingleSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetSingleSelectItemCell).to(beTrue())
-                expect(item.cellType is ActionSheetSingleSelectItemCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetSingleSelectItemCell.Type).to(beTrue())
             }
         }
         

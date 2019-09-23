@@ -43,9 +43,9 @@ class MultiSelectToggleItemTests: QuickSpec {
             
             it("is of correct type") {
                 let item = MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: "")
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetMultiSelectToggleItemCell).to(beTrue())
-                expect(item.cellType is ActionSheetMultiSelectToggleItemCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetMultiSelectToggleItemCell.Type).to(beTrue())
             }
         }
         

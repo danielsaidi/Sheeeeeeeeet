@@ -14,14 +14,11 @@ import UIKit
  */
 open class LinkItem: MenuItem {
     
-
-    // MARK: - ActionSheet
-    
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetLinkItemCell(style: cellStyle)
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetLinkItemCell(style: actionSheetCellStyle)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetLinkItemCell.self
     }
 }

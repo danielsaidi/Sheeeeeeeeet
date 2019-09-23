@@ -31,9 +31,9 @@ class OkButtonTests: QuickSpec {
             
             it("is of correct type") {
                 let item = OkButton(title: "title")
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetOkButtonCell).to(beTrue())
-                expect(item.cellType is ActionSheetOkButtonCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetOkButtonCell.Type).to(beTrue())
             }
         }
     }

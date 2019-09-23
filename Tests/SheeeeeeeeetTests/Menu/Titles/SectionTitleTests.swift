@@ -31,9 +31,9 @@ class SectionTitleTests: QuickSpec {
             
             it("is of correct type") {
                 let item = SectionTitle(title: "title", subtitle: "subtitle")
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetSectionTitleCell).to(beTrue())
-                expect(item.cellType is ActionSheetSectionTitleCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetSectionTitleCell.Type).to(beTrue())
             }
         }
     }

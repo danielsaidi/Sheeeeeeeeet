@@ -50,9 +50,9 @@ class LinkItemTests: QuickSpec {
                 
                 it("is of correct type") {
                     let item = LinkItem(title: "title")
-                    let cell = item.cell(for: UITableView())
+                    let cell = item.actionSheetCell(for: UITableView())
                     expect(cell is ActionSheetLinkItemCell).to(beTrue())
-                    expect(item.cellType is ActionSheetLinkItemCell.Type).to(beTrue())
+                    expect(item.actionSheetCellType is ActionSheetLinkItemCell.Type).to(beTrue())
                 }
             }
         }

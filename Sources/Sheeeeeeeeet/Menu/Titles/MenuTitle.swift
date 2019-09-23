@@ -13,21 +13,15 @@ import UIKit
  */
 open class MenuTitle: MenuItem {
     
-    
-    // MARK: - Initialization
-    
     public init(title: String, subtitle: String? = nil) {
         super.init(title: title, subtitle: subtitle, tapBehavior: .none)
     }
     
-    
-    // MARK: - ActionSheet
-
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetTitleCell(style: cellStyle)
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
+        ActionSheetTitleCell(style: actionSheetCellStyle)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetTitleCell.self
     }
 }

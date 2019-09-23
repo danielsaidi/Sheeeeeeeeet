@@ -16,21 +16,15 @@ import UIKit
  */
 open class CancelButton: MenuButton {
     
-    
-    // MARK: - Initialization
-    
     public init(title: String) {
         super.init(title: title, type: .cancel)
     }
     
-    
-    // MARK: - ActionSheet
-    
-    open override func cell(for tableView: UITableView) -> ActionSheetItemCell {
+    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
         ActionSheetCancelButtonCell(style: .default)
     }
     
-    open override var cellType: ActionSheetItemCell.Type {
+    open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetCancelButtonCell.self
     }
 }

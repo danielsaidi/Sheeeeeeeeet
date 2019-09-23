@@ -50,7 +50,7 @@ class CollectionItemTests: QuickSpec {
             
             it("is of correct type") {
                 let item = CollectionItem(itemType: TestType.self, itemCount: 100, itemSetupAction: { _, _ in }, itemSelectionAction: { _, _ in })
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetCollectionItemCell).to(beTrue())
             }
         }

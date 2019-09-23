@@ -324,6 +324,6 @@ private extension ActionSheet {
     }
     
     func totalHeight(for items: [MenuItem]) -> Double {
-        items.reduce(0) { $0 + $1.cellHeight }
+        items.reduce(0) { $0 + $1.actionSheetCellHeight }
     }
 }

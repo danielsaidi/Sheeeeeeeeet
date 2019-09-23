@@ -51,9 +51,9 @@ class SelectItemTests: QuickSpec {
             
             it("can be converted to an action sheet item") {
                 let item = SelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
-                let cell = item.cell(for: UITableView())
+                let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetSelectItemCell).to(beTrue())
-                expect(item.cellType is ActionSheetSelectItemCell.Type).to(beTrue())
+                expect(item.actionSheetCellType is ActionSheetSelectItemCell.Type).to(beTrue())
             }
         }
         
