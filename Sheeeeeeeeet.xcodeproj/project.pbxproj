@@ -12,12 +12,19 @@
 		1D42891D20400474005D4369 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		1D42891F20400580005D4369 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84058051233BA01C008BC497 /* ContextMenuDelegateRetainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */; };
+		84058053233BA9DE008BC497 /* UIView+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */; };
 		84123FF22334049A00283044 /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* LinkMenu.swift */; };
 		84123FF423340A6000283044 /* DestructiveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF323340A6000283044 /* DestructiveMenu.swift */; };
 		84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF523340F0A00283044 /* MenuConfiguration.swift */; };
 		841478E22338E275008D3FF2 /* ActionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841478E12338E274008D3FF2 /* ActionSheetButtonCell.swift */; };
 		8415BC3623036548002D5C78 /* ActionSheetStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3523036548002D5C78 /* ActionSheetStackView.swift */; };
 		8415BC3823036FDC002D5C78 /* UIView+Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8415BC3723036FDC002D5C78 /* UIView+Subviews.swift */; };
+		844B94F1233ABA6E008C8F7E /* Menu+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B94F0233ABA6E008C8F7E /* Menu+ContextMenu.swift */; };
+		844B94F3233AC0AE008C8F7E /* ContextMenuConversionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B94F2233AC0AE008C8F7E /* ContextMenuConversionError.swift */; };
+		844B94F5233AC2F3008C8F7E /* MenuItem+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B94F4233AC2F3008C8F7E /* MenuItem+ContextMenu.swift */; };
+		844B94F7233AC669008C8F7E /* ContextMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B94F6233AC669008C8F7E /* ContextMenuDelegate.swift */; };
+		844B94F9233AC9D6008C8F7E /* ContextMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B94F8233AC9D6008C8F7E /* ContextMenuViewController.swift */; };
 		846385292333D135005E3A2E /* ViewController+ActionSheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846385282333D135005E3A2E /* ViewController+ActionSheets.swift */; };
 		8463852C2333D47E005E3A2E /* FoodMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852B2333D47E005E3A2E /* FoodMenu.swift */; };
 		8463852E2333D55D005E3A2E /* ItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463852D2333D55D005E3A2E /* ItemMenu.swift */; };
@@ -166,6 +173,8 @@
 		459DA1BE2056C14A00644490 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		459DA1BF2056C14A00644490 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
+		84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegateRetainer.swift; sourceTree = "<group>"; };
+		84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ContextMenu.swift"; sourceTree = "<group>"; };
 		84123FF12334049A00283044 /* LinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMenu.swift; sourceTree = "<group>"; };
 		84123FF323340A6000283044 /* DestructiveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveMenu.swift; sourceTree = "<group>"; };
 		84123FF523340F0A00283044 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
@@ -177,6 +186,11 @@
 		8423864921EF7ED10045F121 /* Items-Types.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Items-Types.md"; sourceTree = "<group>"; };
 		84243E462301A90D00FC5AAF /* DemoColorfulAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoColorfulAppearance.swift; sourceTree = "<group>"; };
 		843658B3219074F000B4D996 /* RELEASE_NOTES.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RELEASE_NOTES.md; sourceTree = "<group>"; };
+		844B94F0233ABA6E008C8F7E /* Menu+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+ContextMenu.swift"; sourceTree = "<group>"; };
+		844B94F2233AC0AE008C8F7E /* ContextMenuConversionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuConversionError.swift; sourceTree = "<group>"; };
+		844B94F4233AC2F3008C8F7E /* MenuItem+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItem+ContextMenu.swift"; sourceTree = "<group>"; };
+		844B94F6233AC669008C8F7E /* ContextMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegate.swift; sourceTree = "<group>"; };
+		844B94F8233AC9D6008C8F7E /* ContextMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuViewController.swift; sourceTree = "<group>"; };
 		846385282333D135005E3A2E /* ViewController+ActionSheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ActionSheets.swift"; sourceTree = "<group>"; };
 		8463852B2333D47E005E3A2E /* FoodMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodMenu.swift; sourceTree = "<group>"; };
 		8463852D2333D55D005E3A2E /* ItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMenu.swift; sourceTree = "<group>"; };
@@ -367,6 +381,19 @@
 			path = Readmes;
 			sourceTree = "<group>";
 		};
+		844B94EF233ABA5E008C8F7E /* ContextMenu */ = {
+			isa = PBXGroup;
+			children = (
+				844B94F2233AC0AE008C8F7E /* ContextMenuConversionError.swift */,
+				844B94F6233AC669008C8F7E /* ContextMenuDelegate.swift */,
+				84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */,
+				844B94F0233ABA6E008C8F7E /* Menu+ContextMenu.swift */,
+				844B94F4233AC2F3008C8F7E /* MenuItem+ContextMenu.swift */,
+				84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */,
+			);
+			path = ContextMenu;
+			sourceTree = "<group>";
+		};
 		8463852A2333D3F5005E3A2E /* Menus */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,6 +451,7 @@
 			children = (
 				84BD8A502302BC8C0020610B /* ActionSheet */,
 				84A878822331FB8F00045F0A /* Extensions */,
+				844B94EF233ABA5E008C8F7E /* ContextMenu */,
 				84BE53BF2331432E009DDFC6 /* Menu */,
 			);
 			path = Sheeeeeeeeet;
@@ -698,6 +726,7 @@
 			isa = PBXGroup;
 			children = (
 				84C199D5230ADB7B000FFB05 /* AppearanceViewController.swift */,
+				844B94F8233AC9D6008C8F7E /* ContextMenuViewController.swift */,
 				84C199D1230ADB7B000FFB05 /* ViewController.swift */,
 				846385282333D135005E3A2E /* ViewController+ActionSheets.swift */,
 				84C199D3230ADB7B000FFB05 /* ViewController+Alert.swift */,
@@ -896,6 +925,7 @@
 				84BD8AA32302BC8C0020610B /* ActionSheetLinkItemCell.swift in Sources */,
 				84BD8A982302BC8C0020610B /* ActionSheetOkButtonCell.swift in Sources */,
 				84BD8AA52302BC8C0020610B /* ActionSheetCollectionItemCell.swift in Sources */,
+				844B94F1233ABA6E008C8F7E /* Menu+ContextMenu.swift in Sources */,
 				84BE53DB23314DDD009DDFC6 /* CustomItem.swift in Sources */,
 				84BE53CF23314B88009DDFC6 /* CancelButton.swift in Sources */,
 				84BD8A9F2302BC8C0020610B /* ActionSheetMultiSelectToggleItemCell.swift in Sources */,
@@ -912,6 +942,7 @@
 				84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */,
 				84BD8A9C2302BC8C0020610B /* ActionSheetSectionMarginCell.swift in Sources */,
 				84BD8A9B2302BC8C0020610B /* ActionSheetDangerButtonCell.swift in Sources */,
+				84058051233BA01C008BC497 /* ContextMenuDelegateRetainer.swift in Sources */,
 				84BD8A922302BC8C0020610B /* UIEdgeInsets+Hidden.swift in Sources */,
 				84BD8A8D2302BC8C0020610B /* ActionSheetColor.swift in Sources */,
 				84BECD70233A728A004BFAFB /* SingleSelectItem+ActionSheet.swift in Sources */,
@@ -927,12 +958,14 @@
 				84A878922332084B00045F0A /* SectionMagin.swift in Sources */,
 				84BECD64233A724D004BFAFB /* CollectionItem+ActionSheet.swift in Sources */,
 				84BECD5E233A71B8004BFAFB /* MenuTitle+ActionSheet.swift in Sources */,
+				844B94F3233AC0AE008C8F7E /* ContextMenuConversionError.swift in Sources */,
 				84BE53CD23314B3D009DDFC6 /* DestructiveButton.swift in Sources */,
 				84BE53D323314C4E009DDFC6 /* SelectItem.swift in Sources */,
 				84BE53CB23314A9F009DDFC6 /* OkButton.swift in Sources */,
 				84BD8AA72302BC8C0020610B /* ActionSheetItemCell.swift in Sources */,
 				84BECD5A233A669A004BFAFB /* DestructiveButton+ActionSheet.swift in Sources */,
 				84BE53D723314CDA009DDFC6 /* MultiSelectItem.swift in Sources */,
+				844B94F5233AC2F3008C8F7E /* MenuItem+ContextMenu.swift in Sources */,
 				84BD8AAC2302BC8C0020610B /* ActionSheetBackgroundView.swift in Sources */,
 				84BD8A8E2302BC8C0020610B /* UIColor+ActionSheetColor.swift in Sources */,
 				84BE53D123314BF2009DDFC6 /* LinkItem.swift in Sources */,
@@ -944,8 +977,10 @@
 				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButtonCell.swift in Sources */,
 				84BD8A8F2302BC8C0020610B /* ActionSheetPresenter.swift in Sources */,
 				84BECD60233A71C7004BFAFB /* SectionMargin+ActionSheet.swift in Sources */,
+				844B94F7233AC669008C8F7E /* ContextMenuDelegate.swift in Sources */,
 				84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */,
 				84BECD66233A7254004BFAFB /* CustomItem+ActionSheet.swift in Sources */,
+				84058053233BA9DE008BC497 /* UIView+ContextMenu.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
 				84BD8A9E2302BC8C0020610B /* ActionSheetTitleCell.swift in Sources */,
 				84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */,
@@ -984,6 +1019,7 @@
 				84C19A02230ADBD8000FFB05 /* MenuOption.swift in Sources */,
 				84C199F2230ADBD8000FFB05 /* FoodActionSheet.swift in Sources */,
 				84C19A04230ADBD8000FFB05 /* ActionSheetMenuOption.swift in Sources */,
+				844B94F9233AC9D6008C8F7E /* ContextMenuViewController.swift in Sources */,
 				84123FF22334049A00283044 /* LinkMenu.swift in Sources */,
 				84C19A06230ADC05000FFB05 /* DemoColorfulAppearance.swift in Sources */,
 				84C199FA230ADBD8000FFB05 /* CollectionActionSheet.swift in Sources */,

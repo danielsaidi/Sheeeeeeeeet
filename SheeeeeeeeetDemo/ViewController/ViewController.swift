@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     var foodOptions: [FoodOption] {
-        return [.fast, .light, .homeMade, .fancy, .none]
+        [.fast, .light, .homeMade, .fancy, .none]
     }
     
     var menuOptions: [MenuOption] {
