@@ -16,13 +16,4 @@ import UIKit
  To add additional space above a section title, make sure to
  add a `SectionMargin` before the title.
  */
-open class SectionTitle: MenuTitle {
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSectionTitleCell(style: .value1)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetSectionTitleCell.self
-    }
-}
+open class SectionTitle: MenuTitle {}

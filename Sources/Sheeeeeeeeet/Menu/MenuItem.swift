@@ -13,26 +13,25 @@ import UIKit
  items, titles etc. It represents a standard menu item, like
  a `UIAlertController` action or an iOS 13 context menu item.
 
- You can subclass any class in the `MenuItem` type hierarchy
- to create new menu item types. If you need the class to use
- a different cell type than its parent, you have to override
- `actionSheetCell(for:)` and `actionSheetCellType` to return
- the cell and cell type you need. It's important to override
- both properties, otherwise the item may get a wrong cell or
- cell height.
+ `MenuItem`s are data classes that don't care about how they
+ are to be presented. They can be used in action sheets, iOS
+ 13 context menus, as pure data objects etc. Therefore, they
+ have no styling involved, since they do not care about that.
+ Instead, style components that are created from these items,
+ e.g. `ActionSheetItemCell` and `UIAlertController` items.
  
  `tapBehavior` is used to describe what should happen when a
  user taps a certain item. `.dismiss` means that the item is
  meant to dismiss the menu, while `.none` means that it must
  not have any effect. `.none` is not always applicable, e.g.
  in an iOS 13 context menu or a `UIAlertController`.
-
- Since `MenuItem` classes are just data classes, they do not
- care about how they are presented. You must therefore style
- components that are created from these items instead of the
- items themselves. For instance, `ActionSheetItemCell` cells
- use appearance proxies, while the `UIAlertController` items
- provide very limited options.
+ 
+ You can subclass any `MenuItem` class to create custom item
+ types. If you then want to use your type in an `ActionSheet`
+ instance, you must also override `actionSheetCell(for)` and
+ `actionSheetCellType`, to return the cell and cell type you
+ need. It is important to override both, since the preferred
+ cell height is derived from the cell type.
  */
 open class MenuItem {
     
@@ -72,19 +71,4 @@ open class MenuItem {
     // MARK: - Functions
     
     open func handleSelection(in menu: Menu) {}
-    
-    
-    // MARK: - ActionSheet
-    
-    open func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetItemCell(style: .value1)
-    }
-    
-    open var actionSheetCellHeight: Double {
-        actionSheetCellType.appearance().height
-    }
-    
-    open var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetItemCell.self
-    }
 }

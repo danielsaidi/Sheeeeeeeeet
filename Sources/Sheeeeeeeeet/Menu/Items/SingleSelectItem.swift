@@ -31,15 +31,4 @@ open class SingleSelectItem: SelectItem {
         groupItems.forEach { $0.isSelected = false }
         isSelected = true
     }
-    
-    
-    // MARK: - ActionSheet
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSingleSelectItemCell(style: .value1)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetSingleSelectItemCell.self
-    }
 }

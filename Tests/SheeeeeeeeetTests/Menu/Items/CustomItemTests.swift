@@ -8,14 +8,14 @@
 
 import Quick
 import Nimble
+import Sheeeeeeeeet
 import UIKit
-@testable import Sheeeeeeeeet
 
 class CustomItemTests: QuickSpec {
     
     override func spec() {
         
-        describe("creating menu button") {
+        describe("creating menu item") {
             
             var didSetup = false
             
@@ -34,25 +34,6 @@ class CustomItemTests: QuickSpec {
                 expect(didSetup).to(beFalse())
                 item.itemSetupAction(TestType())
                 expect(didSetup).to(beTrue())
-            }
-        }
-        
-        describe("action sheet") {
-            
-            describe("height") {
-                
-                it("is cell type's default height") {
-                    let item = CustomItem(itemType: TestType.self, itemSetupAction: { _ in })
-                    let expected = Double(TestType.preferredSize.height)
-                    expect(item.actionSheetCellHeight).to(equal(expected))
-                }
-            }
-            
-            describe("cell") {
-                
-                it("registers nib, dequeues cell and sets up cell") {
-                    // TODO: How to test this in SPM, which doesn't support bundles?
-                }
             }
         }
     }

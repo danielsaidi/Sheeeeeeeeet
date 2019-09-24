@@ -64,15 +64,4 @@ open class MultiSelectToggleItem: MenuItem {
         guard items.count > 0 else { return state = .selectAll }
         state = items.contains { !$0.isSelected } ? .selectAll : .deselectAll
     }
-    
-    
-    // MARK: - ActionSheet
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetMultiSelectToggleItemCell(style: .value1)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetMultiSelectToggleItemCell.self
-    }
 }

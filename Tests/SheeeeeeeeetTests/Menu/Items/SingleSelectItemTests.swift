@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class SingleSelectItemTests: QuickSpec {
     
@@ -38,16 +38,6 @@ class SingleSelectItemTests: QuickSpec {
                 expect(item.value as? Bool).to(beTrue())
                 expect(item.image).to(be(image))
                 expect(item.tapBehavior).to(equal(.dismiss))
-            }
-        }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = SingleSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetSingleSelectItemCell).to(beTrue())
-                expect(item.actionSheetCellType is ActionSheetSingleSelectItemCell.Type).to(beTrue())
             }
         }
         

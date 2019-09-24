@@ -6,8 +6,8 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-import UIKit
 import Sheeeeeeeeet
+import UIKit
 
 extension ActionSheetAppearance {
     

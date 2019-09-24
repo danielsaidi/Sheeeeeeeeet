@@ -6,8 +6,8 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-import UIKit
 import Sheeeeeeeeet
+import UIKit
 
 /**
  This cell is used by the demo app, to populate the cells in

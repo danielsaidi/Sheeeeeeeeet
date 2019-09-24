@@ -14,13 +14,4 @@ import UIKit
  
  The `value` of a destructive button is `.ok`.
  */
-open class DestructiveButton: OkButton {
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetDangerButtonCell(style: .default)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetDangerButtonCell.self
-    }
-}
+open class DestructiveButton: OkButton {}

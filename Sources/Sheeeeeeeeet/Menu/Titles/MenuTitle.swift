@@ -16,12 +16,4 @@ open class MenuTitle: MenuItem {
     public init(title: String, subtitle: String? = nil) {
         super.init(title: title, subtitle: subtitle, tapBehavior: .none)
     }
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetTitleCell(style: .default)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetTitleCell.self
-    }
 }

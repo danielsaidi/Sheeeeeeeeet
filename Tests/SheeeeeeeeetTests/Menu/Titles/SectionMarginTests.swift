@@ -8,8 +8,7 @@
 
 import Quick
 import Nimble
-import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class SectionMarginTests: QuickSpec {
     
@@ -24,16 +23,6 @@ class SectionMarginTests: QuickSpec {
                 expect(item.value).to(beNil())
                 expect(item.image).to(beNil())
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
-            }
-        }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = SectionMargin()
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetSectionMarginCell).to(beTrue())
-                expect(item.actionSheetCellType is ActionSheetSectionMarginCell.Type).to(beTrue())
             }
         }
     }

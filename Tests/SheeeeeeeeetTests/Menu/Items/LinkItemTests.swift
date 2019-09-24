@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class LinkItemTests: QuickSpec {
     
@@ -41,19 +41,6 @@ class LinkItemTests: QuickSpec {
                 expect(item.value as? Bool).to(beTrue())
                 expect(item.image).to(be(image))
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
-            }
-        }
-        
-        describe("action sheet cell") {
-            
-            describe("cell") {
-                
-                it("is of correct type") {
-                    let item = LinkItem(title: "title")
-                    let cell = item.actionSheetCell(for: UITableView())
-                    expect(cell is ActionSheetLinkItemCell).to(beTrue())
-                    expect(item.actionSheetCellType is ActionSheetLinkItemCell.Type).to(beTrue())
-                }
             }
         }
     }

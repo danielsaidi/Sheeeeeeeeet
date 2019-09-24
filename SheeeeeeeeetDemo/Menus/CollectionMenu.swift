@@ -64,6 +64,7 @@ private extension CollectionMenu {
             title,
             collectionItem,
             FoodMenu.okButton,
-            FoodMenu.cancelButton]
+            FoodMenu.cancelButton
+        ]
     }
 }

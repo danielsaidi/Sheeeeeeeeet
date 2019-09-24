@@ -52,15 +52,4 @@ open class SelectItem: MenuItem {
         super.handleSelection(in: menu)
         isSelected = !isSelected
     }
-    
-    
-    // MARK: - ActionSheet
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSelectItemCell(style: .value1)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetSelectItemCell.self
-    }
 }

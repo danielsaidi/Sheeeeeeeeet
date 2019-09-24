@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class MultiSelectItemTests: QuickSpec {
     
@@ -38,16 +38,6 @@ class MultiSelectItemTests: QuickSpec {
                 expect(item.value as? Bool).to(beTrue())
                 expect(item.image).to(be(image))
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
-            }
-        }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = MultiSelectItem(title: "title", subtitle: "subtitle", isSelected: true, value: true, image: nil)
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetMultiSelectItemCell).to(beTrue())
-                expect(item.actionSheetCellType is ActionSheetMultiSelectItemCell.Type).to(beTrue())
             }
         }
         

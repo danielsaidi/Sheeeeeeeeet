@@ -49,30 +49,6 @@ open class CollectionItem: MenuItem {
     public let itemCount: Int
     public var itemSelectionAction: ItemAction
     public let itemSetupAction: ItemAction
-    
-
-    // MARK: - ActionSheet
-    
-    /**
-     When resolving an action sheet cell for this collection
-     item, `CollectionItemType` must be a `UICollectionView`
-     cell, and must have a `.xib` file with the same name as
-     the class in the same bundle.
-     */
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        let className = String(describing: type(of: self))
-        tableView.register(ActionSheetCollectionItemCell.self, forCellReuseIdentifier: className)
-        let cell = tableView.dequeueReusableCell(withIdentifier: className)
-        guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("CollectionItem.actionSheetCell(for:) has failed to register ActionSheetCollectionItemCell with the target table view.") }
-        let nib = UINib(nibName: String(describing: itemType), bundle: nil)
-        let handler = ActionSheetCollectionItemCellHandler(item: self)
-        typedCell.setup(withNib: nib, handler: handler)
-        return typedCell
-    }
-    
-    open override var actionSheetCellHeight: Double {
-        Double(itemType.preferredSize.height)
-    }
 }
 
 

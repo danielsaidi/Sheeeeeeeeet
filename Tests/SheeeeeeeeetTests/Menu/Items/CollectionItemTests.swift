@@ -9,14 +9,13 @@
 import Quick
 import Nimble
 import CoreGraphics
-import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class CollectionItemTests: QuickSpec {
     
     override func spec() {
         
-        describe("creating menu button") {
+        describe("creating menu item") {
             
             var didSetup = false
             var didSelect = false
@@ -45,21 +44,12 @@ class CollectionItemTests: QuickSpec {
                 expect(didSelect).to(beTrue())
             }
         }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = CollectionItem(itemType: TestType.self, itemCount: 100, itemSetupAction: { _, _ in }, itemSelectionAction: { _, _ in })
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetCollectionItemCell).to(beTrue())
-            }
-        }
     }
 }
 
 private class TestType: CollectionItemType {
     
-    static var defaultSize: CGSize { .zero }
+    static var preferredSize: CGSize { .zero }
     static var leftInset: CGFloat { 0 }
     static var rightInset: CGFloat { .zero }
     static var topInset: CGFloat { .zero }

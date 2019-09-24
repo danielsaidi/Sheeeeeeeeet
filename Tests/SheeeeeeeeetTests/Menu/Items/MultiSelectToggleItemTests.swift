@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class MultiSelectToggleItemTests: QuickSpec {
     
@@ -38,17 +38,6 @@ class MultiSelectToggleItemTests: QuickSpec {
                 expect(item.deselectAllTitle).to(equal("deselect all"))
             }
         }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: "")
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetMultiSelectToggleItemCell).to(beTrue())
-                expect(item.actionSheetCellType is ActionSheetMultiSelectToggleItemCell.Type).to(beTrue())
-            }
-        }
-        
         
         describe("handling selection in menu") {
             

@@ -48,15 +48,4 @@ open class MultiSelectItem: SelectItem {
         let items = toggleItems.filter { $0.group == group }
         items.forEach { $0.refresh(for: menu) }
     }
-    
-    
-    // MARK: - ActionSheet
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetMultiSelectItemCell(style: .value1)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetMultiSelectItemCell.self
-    }
 }

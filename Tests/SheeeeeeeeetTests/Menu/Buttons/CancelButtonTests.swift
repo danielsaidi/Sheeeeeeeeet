@@ -8,8 +8,7 @@
 
 import Quick
 import Nimble
-import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class CancelButtonTests: QuickSpec {
     
@@ -24,16 +23,6 @@ class CancelButtonTests: QuickSpec {
                 expect(item.value as? MenuButton.ButtonType).to(equal(.cancel))
                 expect(item.image).to(beNil())
                 expect(item.tapBehavior).to(equal(.dismiss))
-            }
-        }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = CancelButton(title: "title")
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetCancelButtonCell).to(beTrue())
-                expect(item.actionSheetCellType is ActionSheetCancelButtonCell.Type).to(beTrue())
             }
         }
     }

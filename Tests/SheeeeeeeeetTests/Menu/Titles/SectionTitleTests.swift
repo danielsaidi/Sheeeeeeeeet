@@ -8,8 +8,7 @@
 
 import Quick
 import Nimble
-import UIKit
-@testable import Sheeeeeeeeet
+import Sheeeeeeeeet
 
 class SectionTitleTests: QuickSpec {
     
@@ -24,16 +23,6 @@ class SectionTitleTests: QuickSpec {
                 expect(item.value).to(beNil())
                 expect(item.image).to(beNil())
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
-            }
-        }
-        
-        describe("action sheet cell") {
-            
-            it("is of correct type") {
-                let item = SectionTitle(title: "title", subtitle: "subtitle")
-                let cell = item.actionSheetCell(for: UITableView())
-                expect(cell is ActionSheetSectionTitleCell).to(beTrue())
-                expect(item.actionSheetCellType is ActionSheetSectionTitleCell.Type).to(beTrue())
             }
         }
     }

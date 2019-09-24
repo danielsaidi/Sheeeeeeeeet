@@ -59,7 +59,7 @@ open class ActionSheetCollectionItemCellHandler: NSObject, UICollectionViewDataS
     }
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(
+        UIEdgeInsets(
             top: item.itemType.topInset,
             left: item.itemType.leftInset,
             bottom: item.itemType.bottomInset,

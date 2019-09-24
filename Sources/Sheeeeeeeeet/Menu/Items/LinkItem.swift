@@ -12,13 +12,4 @@ import UIKit
  A link items can be used when tapping it will take the user
  somewhere, e.g. to another view controller or a web site.
  */
-open class LinkItem: MenuItem {
-    
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetLinkItemCell(style: .value1)
-    }
-    
-    open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetLinkItemCell.self
-    }
-}
+open class LinkItem: MenuItem {}

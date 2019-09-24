@@ -41,30 +41,6 @@ open class CustomItem: MenuItem {
     
     public let itemType: CustomItemType.Type
     public let itemSetupAction: ItemAction
-    
-
-    // MARK: - ActionSheet
-    
-    /**
-     When you resolve an action sheet cell for a custom item,
-     `CustomItemType` must inherit `ActionSheetItemCell` and
-     must have a `.xib` file with the same name as the class
-     in the same bundle.
-     */
-    open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        let className = String(describing: itemType)
-        let nib = UINib(nibName: className, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: className)
-        let dequeued = tableView.dequeueReusableCell(withIdentifier: className)
-        guard let cell = dequeued as? ActionSheetItemCell else { fatalError("CustomItem.actionSheetCell(for:) requires that CustomItemType inherits ActionSheetItemCell.") }
-        guard let item = cell as? CustomItemType else { fatalError("CustomItem.actionSheetCell(for:) requires that the ActionSheetItemCell implements CustomItemType.") }
-        itemSetupAction(item)
-        return cell
-    }
-    
-    open override var actionSheetCellHeight: Double {
-        Double(itemType.preferredSize.height)
-    }
 }
 
 /**
