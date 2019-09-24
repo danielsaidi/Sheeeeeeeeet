@@ -60,6 +60,9 @@ open class ActionSheetAppearance {
         applySeparatorInsets()
     }
     
+    /**
+     Apply action sheet view and item colors.
+    */
     open func applyColors() {
         background.backgroundColor = .sheetColor(.overlay)
         header.backgroundColor = .clear
@@ -84,11 +87,17 @@ open class ActionSheetAppearance {
         dangerButton.titleColor = .sheetColor(.danger)
     }
     
+    /**
+     Apply action sheet views corner radii.
+    */
     open func applyCornerRadii() {
         header.cornerRadius = 10
         table.cornerRadius = 10
     }
     
+    /**
+     Apply action sheet item fonts and font sizes.
+    */
     open func applyFonts() {
         item.titleFont = .systemFont(ofSize: 17)
         item.subtitleFont = .systemFont(ofSize: 14)
@@ -99,6 +108,9 @@ open class ActionSheetAppearance {
         cancelButton.titleFont = .systemFont(ofSize: 17)
     }
     
+    /**
+     Apply action sheet item cell heights.
+     */
     open func applyHeights() {
         let standard = 50.0
         let title = 25.0
@@ -121,12 +133,18 @@ open class ActionSheetAppearance {
         ActionSheetSectionMarginCell.appearance().height = title
     }
     
+    /**
+     Apply action sheet item icons.
+    */
     open func applyIcons() {
         guard #available(iOS 13.0, *) else { return }
         link.linkIcon = UIImage(systemName: "chevron.right")
         selectItem.selectedIcon = UIImage(systemName: "checkmark")
     }
     
+    /**
+     Apply action sheet separator insets.
+    */
     open func applySeparatorInsets() {
         item.separatorInset = .zero
         title.separatorInset = .hiddenSeparator
@@ -135,6 +153,9 @@ open class ActionSheetAppearance {
         multiSelectToggle.separatorInset = .hiddenSeparator
     }
 }
+
+
+// MARK: - Appearance Utility Properties
 
 public extension ActionSheetAppearance {
     
