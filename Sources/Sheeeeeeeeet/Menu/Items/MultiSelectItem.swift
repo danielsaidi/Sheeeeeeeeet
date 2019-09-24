@@ -53,7 +53,7 @@ open class MultiSelectItem: SelectItem {
     // MARK: - ActionSheet
     
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetMultiSelectItemCell(style: actionSheetCellStyle)
+        ActionSheetMultiSelectItemCell(style: .value1)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

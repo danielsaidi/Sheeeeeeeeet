@@ -15,7 +15,7 @@ import UIKit
 open class LinkItem: MenuItem {
     
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetLinkItemCell(style: actionSheetCellStyle)
+        ActionSheetLinkItemCell(style: .value1)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

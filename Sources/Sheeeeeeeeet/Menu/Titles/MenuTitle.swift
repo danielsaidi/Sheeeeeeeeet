@@ -18,7 +18,7 @@ open class MenuTitle: MenuItem {
     }
     
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetTitleCell(style: actionSheetCellStyle)
+        ActionSheetTitleCell(style: .default)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

@@ -36,7 +36,7 @@ open class SingleSelectItem: SelectItem {
     // MARK: - ActionSheet
     
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSingleSelectItemCell(style: actionSheetCellStyle)
+        ActionSheetSingleSelectItemCell(style: .value1)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

@@ -77,15 +77,11 @@ open class MenuItem {
     // MARK: - ActionSheet
     
     open func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetItemCell(style: actionSheetCellStyle)
+        ActionSheetItemCell(style: .value1)
     }
     
     open var actionSheetCellHeight: Double {
         actionSheetCellType.appearance().height
-    }
-    
-    open var actionSheetCellStyle: UITableViewCell.CellStyle {
-        subtitle == nil ? .default : .value1
     }
     
     open var actionSheetCellType: ActionSheetItemCell.Type {

@@ -57,7 +57,7 @@ open class SelectItem: MenuItem {
     // MARK: - ActionSheet
     
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSelectItemCell(style: actionSheetCellStyle)
+        ActionSheetSelectItemCell(style: .value1)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

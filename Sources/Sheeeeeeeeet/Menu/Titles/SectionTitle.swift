@@ -19,7 +19,7 @@ import UIKit
 open class SectionTitle: MenuTitle {
     
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSectionTitleCell(style: actionSheetCellStyle)
+        ActionSheetSectionTitleCell(style: .value1)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {
