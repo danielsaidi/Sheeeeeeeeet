@@ -10,8 +10,8 @@ import Sheeeeeeeeet
 import UIKit
 
 /**
- This cell is used by the demo app, to populate the cells in
- the `CollectionActionSheet` demo sheet.
+ This cell is used by the `CollectionMenu` to populate cells
+ in the `CollectionActionSheet`.
  */
 class DemoCollectionViewCell: UICollectionViewCell, CollectionItemType {
     
@@ -41,11 +41,6 @@ class DemoCollectionViewCell: UICollectionViewCell, CollectionItemType {
         init(title: String) {
             self.title = title
             self.isSelected = false
-        }
-        
-        init(copy: Item) {
-            self.title = copy.title
-            self.isSelected = copy.isSelected
         }
         
         var title: String

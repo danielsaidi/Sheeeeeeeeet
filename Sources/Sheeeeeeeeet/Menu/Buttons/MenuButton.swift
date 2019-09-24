@@ -23,16 +23,10 @@ import UIKit
  */
 open class MenuButton: MenuItem {
     
-    
-    // MARK: - Initialization
-    
     public init(title: String, type: ButtonType) {
         self.type = type
         super.init(title: title, value: type)
     }
-    
-    
-    // MARK: - Types
     
     public enum ButtonType: Equatable {
         case ok, cancel, other

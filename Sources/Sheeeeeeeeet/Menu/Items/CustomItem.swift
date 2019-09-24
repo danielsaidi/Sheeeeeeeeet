@@ -20,9 +20,6 @@ import UIKit
  */
 open class CustomItem: MenuItem {
     
-    
-    // MARK: - Initialization
-    
     public init(
         itemType: CustomItemType.Type,
         itemSetupAction: @escaping ItemAction) {
@@ -31,13 +28,7 @@ open class CustomItem: MenuItem {
         super.init(title: "", tapBehavior: .none)
     }
     
-    
-    // MARK: - Typealiases
-    
     public typealias ItemAction = (CustomItemType) -> Void
-    
-    
-    // MARK: - Properties
     
     public let itemType: CustomItemType.Type
     public let itemSetupAction: ItemAction

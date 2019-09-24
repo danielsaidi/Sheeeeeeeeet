@@ -21,9 +21,6 @@ import UIKit
  */
 open class SingleSelectItem: SelectItem {
 
-    
-    // MARK: - Functions
-    
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)
         let items = menu.items.compactMap { $0 as? SingleSelectItem }

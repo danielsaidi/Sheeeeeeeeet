@@ -17,9 +17,6 @@ import UIKit
  */
 open class SelectItem: MenuItem {
     
-    
-    // MARK: - Initialization
-    
     public init(
         title: String,
         subtitle: String? = nil,
@@ -40,13 +37,10 @@ open class SelectItem: MenuItem {
     }
     
     
-    // MARK: - Properties
-    
     public let group: String
+    
     public var isSelected: Bool
     
-    
-    // MARK: - Functions
     
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)

@@ -18,9 +18,6 @@ import UIKit
 */
 open class MultiSelectItem: SelectItem {
 
-    
-    // MARK: - Initialization
-    
     public init(
         title: String,
         subtitle: String? = nil,
@@ -38,9 +35,6 @@ open class MultiSelectItem: SelectItem {
             tapBehavior: .none
         )
     }
-    
-    
-    // MARK: - Functions
     
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)

@@ -22,9 +22,6 @@ import UIKit
  */
 open class CollectionItem: MenuItem {
     
-    
-    // MARK: - Initialization
-    
     public init(
         itemType: CollectionItemType.Type,
         itemCount: Int,
@@ -37,13 +34,7 @@ open class CollectionItem: MenuItem {
         super.init(title: "", tapBehavior: .none)
     }
     
-    
-    // MARK: - Typealiases
-    
     public typealias ItemAction = (_ item: CollectionItemType, _ index: Int) -> Void
-    
-    
-    // MARK: - Properties
     
     public let itemType: CollectionItemType.Type
     public let itemCount: Int
