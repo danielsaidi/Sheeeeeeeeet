@@ -81,7 +81,6 @@ open class MenuItem {
     }
     
     open var actionSheetCellHeight: Double {
-        print(String(describing: self) + " " + String(describing: actionSheetCellType) + " " + "\(actionSheetCellType.appearance().height)")
         return actionSheetCellType.appearance().height
     }
     

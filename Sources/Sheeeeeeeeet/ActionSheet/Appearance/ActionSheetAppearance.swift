@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 /**
  This is the base class for all action sheet appearances.
@@ -24,13 +25,109 @@ import Foundation
  of `.standard`.
  */
 open class ActionSheetAppearance {
+
+    
+    // MARK: - Initialization
     
     public init() {}
-
+    
+    
+    // MARK: - Properties
+    
+    /**
+     Get an instance of the standard action sheet appearance.
+     */
+    public static var standard: ActionSheetAppearance {
+        ActionSheetAppearance()
+    }
+    
+    
     /**
      Apply the appearance to be used globally for all sheets.
      */
-    open func apply() {}
+    open func apply() {
+        applyColors()
+        applyCornerRadii()
+        applyFonts()
+        applyHeights()
+        applyIcons()
+        applySeparatorInsets()
+    }
+    
+    open func applyColors() {
+        background.backgroundColor = .sheetColor(.overlay)
+        header.backgroundColor = .clear
+        table.separatorColor = .sheetColor(.separator)
+        table.backgroundColor = .sheetColor(.background)
+        
+        item.backgroundColor = .clear
+        item.tintColor = .sheetColor(.text)
+        item.titleColor = .sheetColor(.text)
+        item.subtitleColor = .sheetColor(.text)
+        
+        selectItem.selectedIconColor = .sheetColor(.text)
+        selectItem.selectedTintColor = .sheetColor(.text)
+        selectItem.selectedTitleColor = .sheetColor(.text)
+        selectItem.tintColor = .sheetColor(.discreteText)
+        selectItem.titleColor = .sheetColor(.discreteText)
+        selectItem.unselectedIconColor = .sheetColor(.discreteText)
+        multiSelectToggle.selectAllSubtitleColor = .sheetColor(.actionText)
+        multiSelectToggle.deselectAllSubtitleColor = .sheetColor(.actionText)
+
+        cancelButton.titleColor = .sheetColor(.discreteText)
+        dangerButton.titleColor = .sheetColor(.danger)
+    }
+    
+    open func applyCornerRadii() {
+        header.cornerRadius = 10
+        table.cornerRadius = 10
+    }
+    
+    open func applyFonts() {
+        item.titleFont = .systemFont(ofSize: 17)
+        item.subtitleFont = .systemFont(ofSize: 14)
+        multiSelectToggle.titleFont = .boldSystemFont(ofSize: 13)
+        sectionTitle.titleFont = .boldSystemFont(ofSize: 14)
+        title.titleFont = .boldSystemFont(ofSize: 15)
+        button.titleFont = .boldSystemFont(ofSize: 17)
+        cancelButton.titleFont = .systemFont(ofSize: 17)
+    }
+    
+    open func applyHeights() {
+        let standard = 50.0
+        let title = 25.0
+        ActionSheetItemCell.appearance().height = standard
+        ActionSheetButtonCell.appearance().height = standard
+        
+        ActionSheetCancelButtonCell.appearance().height = standard
+        ActionSheetDangerButtonCell.appearance().height = standard
+        ActionSheetOkButtonCell.appearance().height = standard
+        
+        ActionSheetCollectionItemCell.appearance().height = standard
+        ActionSheetLinkItemCell.appearance().height = standard
+        ActionSheetMultiSelectItemCell.appearance().height = standard
+        ActionSheetMultiSelectToggleItemCell.appearance().height = standard
+        ActionSheetSelectItemCell.appearance().height = standard
+        ActionSheetSingleSelectItemCell.appearance().height = standard
+        
+        ActionSheetTitleCell.appearance().height = standard
+        ActionSheetSectionTitleCell.appearance().height = title
+        ActionSheetSectionMarginCell.appearance().height = title
+    }
+    
+    open func applyIcons() {
+        guard #available(iOS 13.0, *) else { return }
+        link.linkIcon = UIImage(systemName: "chevron.right")
+        selectItem.selectedIcon = UIImage(systemName: "checkmark")
+    }
+    
+    open func applySeparatorInsets() {
+        item.separatorInset = .zero
+        title.separatorInset = .hiddenSeparator
+        sectionTitle.separatorInset = .hiddenSeparator
+        sectionMargin.separatorInset = .hiddenSeparator
+        multiSelectToggle.separatorInset = .hiddenSeparator
+    }
 }
 
 public extension ActionSheetAppearance {

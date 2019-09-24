@@ -1,5 +1,5 @@
 //
-//  StandardActionSheetApperanceTests.swift
+//  ActionSheetApperanceTests.swift
 //  SheeeeeeeeetTests
 //
 //  Created by Daniel Saidi on 2019-08-12.
@@ -11,14 +11,14 @@ import Quick
 import Nimble
 import UIKit
 
-class StandardActionSheetApperanceTests: QuickSpec {
+class ActionSheetApperanceTests: QuickSpec {
     
     override func spec() {
         
         var appearance: ActionSheetAppearance!
         
         beforeEach {
-            appearance = StandardActionSheetAppearance()
+            appearance = ActionSheetAppearance()
         }
         
         var background: ActionSheetBackgroundView { ActionSheetBackgroundView.appearance() }
@@ -44,8 +44,7 @@ class StandardActionSheetApperanceTests: QuickSpec {
             
             it("is of correct type") {
                 let appearance = ActionSheetAppearance.standard
-                let standard = appearance as? StandardActionSheetAppearance
-                expect(standard).toNot(beNil())
+                expect(appearance).toNot(beNil())
             }
         }
         
@@ -93,9 +92,26 @@ class StandardActionSheetApperanceTests: QuickSpec {
             }
             
             it("applies heights") {
-                expect(ActionSheetItemCell.appearance().height).to(equal(50))
-                expect(ActionSheetSectionTitleCell.appearance().height).to(equal(25))
-                expect(ActionSheetSectionMarginCell.appearance().height).to(equal(25))
+                let standard = 50.0
+                let title = 25.0
+                
+                expect(ActionSheetItemCell.appearance().height).to(equal(standard))
+                expect(ActionSheetButtonCell.appearance().height).to(equal(standard))
+                
+                expect(ActionSheetCancelButtonCell.appearance().height).to(equal(standard))
+                expect(ActionSheetDangerButtonCell.appearance().height).to(equal(standard))
+                expect(ActionSheetOkButtonCell.appearance().height).to(equal(standard))
+                
+                expect(ActionSheetCollectionItemCell.appearance().height).to(equal(standard))
+                expect(ActionSheetLinkItemCell.appearance().height).to(equal(standard))
+                expect(ActionSheetMultiSelectItemCell.appearance().height).to(equal(standard))
+                expect(ActionSheetMultiSelectToggleItemCell.appearance().height).to(equal(standard))
+                expect(ActionSheetSelectItemCell.appearance().height).to(equal(standard))
+                expect(ActionSheetSingleSelectItemCell.appearance().height).to(equal(standard))
+                
+                expect(ActionSheetTitleCell.appearance().height).to(equal(standard))
+                expect(ActionSheetSectionTitleCell.appearance().height).to(equal(title))
+                expect(ActionSheetSectionMarginCell.appearance().height).to(equal(title))
             }
             
             it("applies icons") {
