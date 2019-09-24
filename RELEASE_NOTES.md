@@ -5,24 +5,26 @@
 
 This version separates the menu data model from the custom action sheet implementation, so that you can create menus without caring about how they will be presented.
 
-The new `Menu` type and all `MenuItem` types are presentation-agnostic. This means that you can use them in more ways, for instance in custom and native action sheets, iOS 13 context menus etc.
+The new `Menu` type and all `MenuItem` types are decoupled from the presentation. This means that you can use them in more ways, for instance in custom and native action sheets, context menus etc.
 
-With these changes, you now use a `Menu` instead of action sheet items to create an `ActionSheet`. Due to this, the `3.0` release of Sheeeeeeeeet has many breaking changes:
+With these changes, you now create `ActionSheet`s with a `Menu` instead of `ActionSheetItem`s. Due to this, the `3.0` release of Sheeeeeeeeet has many breaking changes:
  
- * There are no more `ActionSheetItem` classes. Instead, you use the new `MenuItem` types. Most of these classes have the same name as the old ones, without the `ActionSheet` prefix.
+ * All `ActionSheetItem` have been replaced by the new `MenuItem` types. Most of these items have the same name as the old ones, but without the `ActionSheet` prefix.
+ * `ActionSheetDangerButton` corresponds to the new `DestructiveButton` class.
  * `ActionSheetCustomItemContentCell` has been moved and renamed to `CustomItemType`.
  * `ActionSheetCollectionItemContentCell` has been moved and renamed to `CollectionItemType`.
  
  There are also some breaking changes that involve how you work with action sheets:
 
- * The height of various items are no longer static properties, but instead appearance properties on the cells (e.g. `ActionSheetButtonCell.appearance().height = 200`).
- * The action sheet's header behavior is now specified in in a configuration property instead of with a single bool property. This allows for more future configurations.
- * The `isOkButton` and `isCancelButton` extensions are gone. Use standard type checking for this instead, e.g. `is OkButton`.
+ * The item height properties are no longer static, but instead appearance proxy properties on the action sheet cells (e.g. `ActionSheetButtonCell.appearance().height = 200`).
+ * The action sheet header behavior is now specified in a `headerViewConfiguration` property.
+ * `CustomItem` (`ActionSheetCustomItem`) has been made non-generic.
+ * `isOkButton` and `isCancelButton` is gone. Use type checking instead, e.g. `is OkButton`.
 
-Remaining work: I tried to separate the menu model from the action sheet, but I didn't find a good way to create action sheet item cells from menu items. Having the functions in the menu items and using overrides was so much cleaner than `if let` casting the items. Also, I had problems `if let` cast the generic custom and collection items. This will be in an upcoming major version, if ever.
+Bonus features:
 
-Bonus feature: The popover presenter now supports header views. It will no longer hide the header unless you explicitly tell it to, using the new `ActionSheet` `headerViewConfiguration` property. 
-
+* The popover presenter now supports header views. It no longer hides the header by default, only if you configure it to do so in the `ActionSheet`'s `headerViewConfiguration`.
+* The `Menu` has two `presentAsActionSheet`, which lets you present a menu as a custom action sheet.
 
 
 ## 2.1.0

@@ -89,8 +89,8 @@ The `from` view is optional and only used if the sheet it presented in a popover
 You can also skip creating the sheet and just call these `Menu` functions:
 
 ```swift
-let sheet = menu.presentAsCustomActionSheet(in: vc, from: view, completion: ...)   // or
-let sheet = menu.presentAsCustomActionSheet(in: vc, from: barButtonItem, completion: ...)
+let sheet = menu.presentAsActionSheet(in: vc, from: view, completion: ...)   // or
+let sheet = menu.presentAsActionSheet(in: vc, from: barButtonItem, completion: ...)
 ```
 
 If you create your own action sheet subclass that use another completion signature, you must create new completions as well. Check out the demo app; its `FoodActionSheet` uses another completion.

@@ -11,7 +11,7 @@ import UIKit
 public extension Menu {
     
     @discardableResult
-    func presentAsCustomActionSheet(
+    func presentAsActionSheet(
         in vc: UIViewController,
         from view: UIView?,
         using presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
@@ -22,7 +22,7 @@ public extension Menu {
     }
     
     @discardableResult
-    func presentAsCustomActionSheet(
+    func presentAsActionSheet(
         in vc: UIViewController,
         from view: UIBarButtonItem,
         using presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
