@@ -2,44 +2,34 @@
 
 # Appearance
 
-Sheeeeeeeeet lets you customize the appearances of action sheets and their views
-and items. You can change fonts, colors and images, item heights, rounded corner
-radius and much more.
+Sheeeeeeeeet's action sheets are very customizable and let you change the appearance of their views and items, e.g. heights, fonts, colors etc.
 
-This guide will show you the available customization alternatives. To learn more,
-check out the demo app and this [advanced example][AdvancedExample].
+The actiom sheets use appearance proxy-based styling, so you can change the style of all instances of a certain item type, as well as individual instances.
+
+This guide will show you the available customization alternatives. To learn more, check out the demo app and this [advanced example][AdvancedExample].
 
 
-## Global appearances
+## Global appearance
 
-You must apply a global action sheet appearance in order for your sheets to look
-good. You can do this at app launch by calling `ActionSheet.applyAppearance(...)`.
-Apply the standard appearance by calling `ActionSheet.applyAppearance(.standard)`.
-You can apply new appearances at any time.
+You must apply a global action sheet appearance in order for your custom action sheets to look good. You can apply the standard appearance by calling `ActionSheet.applyAppearance(.standard)`.
 
-You can inherit `ActionSheetAppearance` to create your own custom appearances. A
-custom appearance can also inherit `StandardActionSheetAppearance` to build upon
-the standard appearance. Have a look at the demo app for examples.
+You can inherit `ActionSheetAppearance` to create custom appearances. If you do, remember to call `super` when overriding the standard implementations.
 
 
 ## ActionSheet apperances
 
-The `ActionSheet` class has three appearance properties that you can modify:
+The `ActionSheet` class has some appearance properties that applies to the action sheet's layout:
 
 * `minimumContentInsets: UIEdgeInsets` (the minimum screen edge margins)
 * `preferredPopoverWidth: CGFloat` (the popover width, when presented on iPads)
 * `sectionMargins: CGFloat` (the distance between the header, items and buttons)
 
-Since these properties apply to each action sheet instance, you can't change the
-default values for all action sheets in your app. If you want all sheets to have
-a different value, subclass `ActionSheet` and set a custom override value.
+These properties currenly apply to each action sheet instance, so you currently can't change the default values for all action sheets instances in your app.
 
 
 ## ActionSheet subview appearances
 
-The `ActionSheet` class has several subviews that can be styled using appearance
-proxy properties, e.g. `ActionSheetBackgroundView`. To modify the appearances of
-these views, just use their appearance proxies, e.g.:
+The `ActionSheet` class has several subviews that can be globally styled, e.g. `ActionSheetBackgroundView`. To modify their appearances, just use their appearance proxies:
 
 ```swift
 ActionSheetBackgroundView.appearance().backgroundColor = .purple
@@ -48,43 +38,29 @@ ActionSheetButtonTableView.appearance().cornerRadius = 20 // Otherwise 15
 ActionSheetHeaderContainerView.appearance().cornerRadius = 15
 ```
 
-To modify the appearance of these views in a specific action sheet, just do this:
 
-```swift
-ActionSheetHeaderContainerView.appearance(whenContainedInInstancesOf: [MyCustomActionSheet.self]).backgroundColor = .blue
-```
+## ActionSheetItemCell appearances
 
-
-## ActionSheetItem appearances
-
-To modify the appearance of a specific item, just modify the appearance proxy of
-it's cell(!), e.g.:
+`MenuItem`s are mapped to `ActionSheetItemCell`s (or subclasses) when they are presented in an action sheet. To modify their appearances, just modify the cells' appearance proxies:
 
 ```swift
 ActionSheetItemCell.appearance().titleColor = .red
+ActionSheetOPkButtonCell.appearance().titleColor = .red
 ```
 
-Appearance properties are inherited down the inheritance chain, so if you change
-the `ActionSheetItemCell.appearance().titleColor`, all item cell subclasses will
-get the same title color.
-
-If you inherit an item type, you get access to all appearance properties and the
-default styling. You can extend subclasses with additional appearance properties.
+Appearance proxy properties are inherited, so if you change `ActionSheetItemCell.appearance().titleColor`, all subclasses get the same color if you don't override it for a certain subclass.
 
 
 ## Action sheet item heights
 
-The default action sheet item height is `50` points. You can set a custom height
-for every item type, like this:
+The default action sheet cell height is `50` points, with `25` for some title items. You can set a custom height for every item type, like this:
 
 ```swift
-ActionSheetItem.height = 60
-SectionMargin.height = 30
-SectionTitle.height = 30
+ActionSheetItemCell.appearance().height = 60
+ActionSheetSectionMarginCell.appearance().height = 30
 ```
 
-The reason why this property is not handled like the appearance proxy properties
-above, is that the item must know about its height before it has created a cell.
+`NOTE` since the cell height is not applied like other appearance properties, it's not inherited. You must therefore customize each cell type individually.
 
 
 [GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet

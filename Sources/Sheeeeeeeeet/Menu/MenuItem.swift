@@ -81,7 +81,8 @@ open class MenuItem {
     }
     
     open var actionSheetCellHeight: Double {
-        actionSheetCellType.appearance().height
+        print(String(describing: self) + " " + String(describing: actionSheetCellType) + " " + "\(actionSheetCellType.appearance().height)")
+        return actionSheetCellType.appearance().height
     }
     
     open var actionSheetCellStyle: UITableViewCell.CellStyle {

@@ -3,23 +3,25 @@
 
 ## 3.0.0
 
-This version separates the action sheet and its cells from the menu model. This simplifies creating menus, since you don't have to involve how they are to be presented. It's also easier to subclass a `Menu` than an `ActionSheet`, since it's not a `UIView` with coding requirements.
+This version separates the menu data model from the custom action sheet implementation, so that you can create menus without caring about how they will be presented.
 
-The new `Menu` can be used in any way you like, e.g. in an `ActionSheet`, in native action sheets, in iOS 13 context menus etc.
+The new `Menu` type and all `MenuItem` types are presentation-agnostic. This means that you can use them in more ways, for instance in custom and native action sheets, iOS 13 context menus etc.
 
-Due to these changes, this version are many breaking (but easily fixed) changes for working with menus and sheets:
+With these changes, you now use a `Menu` instead of action sheet items to create an `ActionSheet`. Due to this, the `3.0` release of Sheeeeeeeeet has many breaking changes:
  
- * There are still `ActionSheetItem`s, but they only contain action sheet-specific logic. Their item-specific properties are now contained in an embedded item. 
- * The old property-based `ActionSheetItem` initializers are replaced with new menu item-based initializers.
- * Each menu item type has (almost) the same signature as the corresponding sheet item, so fixing these initializers should be a piece of cake. 
+ * There are no more `ActionSheetItem` classes. Instead, you use the new `MenuItem` types. Most of these classes have the same name as the old ones, without the `ActionSheet` prefix.
  * `ActionSheetCustomItemContentCell` has been moved and renamed to `CustomItemType`.
  * `ActionSheetCollectionItemContentCell` has been moved and renamed to `CollectionItemType`.
  
- There are also some breaking changes that shouldn't affect you, but are made to trim down the `ActionSheetItem` classes:
- 
- * The `ActionSheetItem` `cellReuseIdentifier` property has been removed and are managed by each cell. `className` is always used.
+ There are also some breaking changes that involve how you work with action sheets:
 
-The popover presenter now supports header views. It will no longer hide the header unless you tell it to. To handle this, the `ActionSheet` `headerViewLandscapeMode` property has been replaced with a configuration that contains more options. 
+ * The height of various items are no longer static properties, but instead appearance properties on the cells (e.g. `ActionSheetButtonCell.appearance().height = 200`).
+ * The action sheet's header behavior is now specified in in a configuration property instead of with a single bool property. This allows for more future configurations.
+ * The `isOkButton` and `isCancelButton` extensions are gone. Use standard type checking for this instead, e.g. `is OkButton`.
+
+Remaining work: I tried to separate the menu model from the action sheet, but I didn't find a good way to create action sheet item cells from menu items. Having the functions in the menu items and using overrides was so much cleaner than `if let` casting the items. Also, I had problems `if let` cast the generic custom and collection items. This will be in an upcoming major version, if ever.
+
+Bonus feature: The popover presenter now supports header views. It will no longer hide the header unless you explicitly tell it to, using the new `ActionSheet` `headerViewConfiguration` property. 
 
 
 

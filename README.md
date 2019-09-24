@@ -17,25 +17,25 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet is a Swift library that helps you create custom, fully stylable action sheets. It comes with many built-in components and can be extended with custom ones.
+Sheeeeeeeeet helps you create customizable and stylable action sheets. It comes with many built-in item types and can be extended with custom ones.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-A Sheeeeeeeeet action sheet can be styled to look just like a `UIAlertController` or completely different. You can also customize how it's presented and dismissed.
+Sheeeeeeeeet action sheets can be styled to look just like a `UIAlertController` or completely different. You can also customize how they are presented and dismissed.
 
 
 ## Installation
 
-### Swift Package Manager
+### <a name="spm"></a>Swift Package Manager
 
-In Xcode 11 and later, the easiest way to add Sheeeeeeeeet to your project is to use Swift Package Manager:
+In Xcode 11, the easiest way to add Sheeeeeeeeet to your project is to use Swift Package Manager:
 ```
-.package(url: "git@github.com:danielsaidi/Sheeeeeeeeet.git" ...)
+https://github.com/danielsaidi/Sheeeeeeeeet.git
 ```
 
-### CocoaPods
+### <a name="cocoapods"></a>CocoaPods
 
 If you use [CocoaPods](CocoaPods), add this line to your `Podfile` and run `pod install`:
 ```ruby
@@ -49,24 +49,23 @@ If you use [Carthage](Carthage), add this line to your `Cartfile` then run `cart
 github "danielsaidi/Sheeeeeeeeet"
 ```
 
-### Manual installation
+### <a name="manual-installation"></a>Manual installation
 
-To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to the project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
+To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
-## Basic example
+## <a name="basic-example"></a>Basic example
 
-The easiest way to create an action sheet is to specify the items and the select
-action like this:
+The easiest way to create a basic action sheet is like this:
 
 ```swift
-let title = ActionSheetTitle(title: "Select a value type")
-let item1 = ActionSheetItem(title: "Int", value: 1)
-let item2 = ActionSheetItem(title: "String", value: "Hi!")
-let item3 = ActionSheetItem(title: "Car", value: Car())
-let button = ActionSheetOkButton(title: "OK")
+let item1 = MenuItem(title: "Int", value: 1)
+let item2 = MenuItem(title: "String", value: "Hi!")
+let item3 = MenuItem(title: "Car", value: Car())
+let button = OkButton(title: "OK")
 let items = [title, item1, item2, item3, button]
-let sheet = ActionSheet(items: items) { sheet, item in
+let menu = Menu(title: "Select a type", items: items)
+let sheet = ActionSheet(menu: menu) { sheet, item in
     if let value = item.value as? Int { print("You selected an int: \(value)") }
     if let value = item.value as? String { print("You selected a string: \(value)") }
     if let value = item.value as? Car { print("You selected a car") }
@@ -86,44 +85,31 @@ The `from` view is optional and only used if the sheet it presented in a popover
 
 ## <a name="advanced-example"></a>Advanced example
 
-You can use Sheeeeeeeeet to create really basic action sheets like the one above,
-as well as very competent and self-contained ones. The one above is just a start.
-When you have the basics under control, check out [this example][AdvancedExample]
-to see how you can take things one step further.
+You can use Sheeeeeeeeet to create basic sheets like the one above, as well as very competent and self-contained ones. The above example is just a start. 
+
+When you have the basics under control, check out [this advanced example][AdvancedExample] to see how you can take things one step further.
 
 
 ## <a name="item-types"></a>Item Types
 
-Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and
-multi-select items, links, collection-based items, custom items, buttons, titles
-etc. For a complete list of built-in item types, [click here][Item-Types].
+Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and multi-select items, links, buttons, titles, collections, custom items etc. 
+
+For a complete list of built-in item types, [click here][Item-Types].
 
 
 ## <a name="appearance"></a>Appearance
 
-Sheeeeeeeeet lets you fully customize the appearances of action sheets and their
-views and items. You can change fonts, colors and images as well as item heights,
-corner radius and even more. For a complete guide, [click here][Appearance].
-
-
-## Specifying items after initialization
-
-If you require a created action sheet instance to resolve which items to present
-(very common when you subclass `ActionSheet`), just create a sheet with no items
-then call `setup(with: items)` once its created.
+Sheeeeeeeeet lets you customize the appearances of the action sheets and their views and items. You can change fonts, colors and images as well as item heights, corner radius and more. For a complete guide, [click here][Appearance].
 
 
 ## Demo App
 
-This project contains a demo app that demonstrates basic and advanced sheets, as
-well as how to handle subclassing, appearances etc. It doesn't require any setup,
-but you may have to adjust its code signing if you want to run it on a device.
+This project contains a demo app that demonstrates different types of action sheets and items, as well as how to handle subclassing, appearances etc. It doesn't require any setup, but you may have to adjust its code signing if you want to run it on a device.
 
 
 ## Contact me
 
-I hope you like this library. Feel free to reach out if you have questions or if
-you want to contribute in any way:
+Feel free to reach out if you have questions or if you want to contribute in any way:
 
 * E-mail: [daniel.saidi@gmail.com](mailto:daniel.saidi@gmail.com)
 * Twitter: [@danielsaidi](http://www.twitter.com/danielsaidi)

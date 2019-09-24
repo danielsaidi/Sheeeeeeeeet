@@ -2,22 +2,16 @@
 
 # Advanced Example
 
-Below, you'll find a little more advanced example compared to the basic one that
-you have [here][BasicExample].
+Here is a more advanced example than the basic one in the [main readme][BasicExample]. For more info about appearance and styling [read more here][Appearance] or check out the demo app.
 
 
-## Applying global appearance
+## Apply a global action sheet appearance
 
-Sheeeeeeeeet is customizable and lets you change the [appearance][Appearance] of
-every item type and item instance, the individual height of every item type, the
-separator colors of each tableview etc. For more information about the available
-appearance and how to extend this model, [read more here][Appearance].
-
-The code below applies a global style to all items, then overrides the style and
-heights for certain items.
+The code below applies a global style to all items, then overrides it for some items. Note that it for simplicity doesn't use dark mode supporting colors (the demo app does).
 
 ```swift
 let item = ActionSheetItemCell.appearance()
+item.height = 50
 item.titleColor = .darkGray
 item.titleFont = .systemFont(ofSize: 15)
 item.subtitleColor = .lightGray
@@ -25,13 +19,13 @@ item.subtitleFont = .systemFont(ofSize: 13)
 item.titleColor = .darkGray
 
 let title = ActionSheetTitleCell.appearance()
-ActionSheetTitle.height = 60
+title.height = 60
 title.titleColor = .black
 title.titleFont = .systemFont(ofSize: 16)
 title.separatorInset = .hiddenSeparator
 
 let sectionTitle = ActionSheetSectionTitleCell.appearance()
-SectionTitle.height = 20
+sectionTitle.height = 20
 sectionTitle.titleColor = .black
 sectionTitle.titleFont = .systemFont(ofSize: 12)
 sectionTitle.subtitleFont = .systemFont(ofSize: 12)
@@ -48,7 +42,7 @@ let multiSelectItem = ActionSheetMultiSelectItemCell.appearance()
 multiSelectItem.selectedTitleColor = .green
 
 let toggleItem = ActionSheetMultiSelectToggleItemCell.appearance()
-ActionSheetMultiSelectToggleItem.height = 20
+toggleItem.height = 20
 toggleItem.titleColor = .black
 toggleItem.titleFont = .systemFont(ofSize: 12)
 toggleItem.subtitleFont = .systemFont(ofSize: 12)
@@ -66,22 +60,20 @@ let okButton = ActionSheetOkButtonCell.appearance()
 okButton.titleColor = .black
 
 let cancelButton = ActionSheetCancelButtonCell.appearance()
+cancelButton.titleFont = .systemFont(ofSize: 13)
 cancelButton.titleColor = .lightGray
 ```
 
-In your app, make sure that you modify global appearance changes in a structured
-way, e.g. as the app starts. If you change global appearance in many places, the
-app will behave strangely. You can instead make changes to individual sheet/item
-instances, for instance:
+Changing the style of an individual cell works in the same way:
 
 ```swift
-let button = ActionSheetOkButton(title: "OK")   // Global appearance font is "15"
-button.titleFont = .systemFont(ofSize: 17)
+let button = ActionSheetOkButton(title: "OK")   // Button font size is "15"
+button.titleFont = .systemFont(ofSize: 17)      // Instance font size is now "17"
 ```
 
 ## Creating the action sheet
 
-With the styling above in place, we can now create a pretty complex action sheet:
+With the styling above, we can now create a pretty complex action sheet:
 
 ```swift
 enum Time { case morning, afternoon }
