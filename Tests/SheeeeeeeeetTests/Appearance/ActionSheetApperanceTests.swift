@@ -1,5 +1,5 @@
 //
-//  StandardActionSheetApperanceTests.swift
+//  ActionSheetApperanceTests.swift
 //  SheeeeeeeeetTests
 //
 //  Created by Daniel Saidi on 2019-08-12.
@@ -11,14 +11,14 @@ import Quick
 import Nimble
 import UIKit
 
-class StandardActionSheetApperanceTests: QuickSpec {
+class ActionSheetApperanceTests: QuickSpec {
     
     override func spec() {
         
         var appearance: ActionSheetAppearance!
         
         beforeEach {
-            appearance = StandardActionSheetAppearance()
+            appearance = ActionSheetAppearance()
         }
         
         var background: ActionSheetBackgroundView { ActionSheetBackgroundView.appearance() }
@@ -44,8 +44,7 @@ class StandardActionSheetApperanceTests: QuickSpec {
             
             it("is of correct type") {
                 let appearance = ActionSheetAppearance.standard
-                let standard = appearance as? StandardActionSheetAppearance
-                expect(standard).toNot(beNil())
+                expect(appearance).toNot(beNil())
             }
         }
         
