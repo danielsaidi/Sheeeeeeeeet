@@ -323,6 +323,19 @@ class ActionSheetTests: QuickSpec {
                     expect(presenter.presentInvokeViews[0]).to(be(view))
                     expect(counter).to(equal(1))
                 }
+
+                it("applies standard appearance if non is applied") {
+                    ActionSheetAppearance.global = nil
+                    sheet.present(in: UIViewController(), from: UIView()) {}
+                    expect(ActionSheetAppearance.global).toNot(beNil())
+                }
+                
+                it("does not apply standard appearance if an appearance is already applied") {
+                    let appearance = MockActionSheetAppearance()
+                    ActionSheetAppearance.global = appearance
+                    sheet.present(in: UIViewController(), from: UIView()) {}
+                    expect(ActionSheetAppearance.global).to(be(appearance))
+                }
             }
             
             describe("when presented from bar button item") {
@@ -345,6 +358,19 @@ class ActionSheetTests: QuickSpec {
                     expect(presenter.presentInvokeViewControllers[0]).to(be(vc))
                     expect(presenter.presentInvokeItems[0]).to(be(item))
                     expect(counter).to(equal(1))
+                }
+
+                it("applies standard appearance if non is applied") {
+                    ActionSheetAppearance.global = nil
+                    sheet.present(in: UIViewController(), from: UIBarButtonItem()) {}
+                    expect(ActionSheetAppearance.global).toNot(beNil())
+                }
+                
+                it("does not apply standard appearance if an appearance is already applied") {
+                    let appearance = MockActionSheetAppearance()
+                    ActionSheetAppearance.global = appearance
+                    sheet.present(in: UIViewController(), from: UIBarButtonItem()) {}
+                    expect(ActionSheetAppearance.global).to(be(appearance))
                 }
             }
         }

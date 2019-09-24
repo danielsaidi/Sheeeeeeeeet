@@ -40,6 +40,7 @@ class ActionSheetApperanceTests: QuickSpec {
         var table: ActionSheetTableView { ActionSheetTableView.appearance() }
         var title: ActionSheetTitleCell { ActionSheetTitleCell.appearance() }
         
+        
         describe("standard appearance") {
             
             it("is of correct type") {
@@ -52,6 +53,12 @@ class ActionSheetApperanceTests: QuickSpec {
             
             beforeEach {
                 ActionSheet.applyAppearance(appearance)
+            }
+            
+            it("registers itself as the global appearance") {
+                ActionSheetAppearance.global = nil
+                appearance.apply()
+                expect(ActionSheetAppearance.global).to(be(appearance))
             }
             
             it("applies colors") {

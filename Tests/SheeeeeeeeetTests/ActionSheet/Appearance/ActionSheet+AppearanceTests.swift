@@ -18,6 +18,7 @@ class ActionSheet_AppearanceTests: QuickSpec {
         
         beforeEach {
             appearance = MockActionSheetAppearance()
+            ActionSheetAppearance.global = nil
         }
         
         describe("applying an appearance") {
@@ -26,6 +27,31 @@ class ActionSheet_AppearanceTests: QuickSpec {
                 ActionSheet.applyAppearance(appearance)
                 let exec = appearance.recorder.executions(of: appearance.apply)
                 expect(exec.count).to(equal(1))
+                expect(ActionSheetAppearance.global).to(be(appearance))
+            }
+            
+            it("overwrites previous appearance") {
+                let appearance1 = MockActionSheetAppearance()
+                let appearance2 = MockActionSheetAppearance()
+                ActionSheet.applyAppearance(appearance1)
+                ActionSheet.applyAppearance(appearance2)
+                let exec1 = appearance1.recorder.executions(of: appearance1.apply)
+                let exec2 = appearance2.recorder.executions(of: appearance2.apply)
+                expect(exec1.count).to(equal(1))
+                expect(exec2.count).to(equal(1))
+                expect(ActionSheetAppearance.global).to(be(appearance2))
+            }
+            
+            it("does not overwrite previous appearance if force is false") {
+                let appearance1 = MockActionSheetAppearance()
+                let appearance2 = MockActionSheetAppearance()
+                ActionSheet.applyAppearance(appearance1)
+                ActionSheet.applyAppearance(appearance2, force: false)
+                let exec1 = appearance1.recorder.executions(of: appearance1.apply)
+                let exec2 = appearance2.recorder.executions(of: appearance2.apply)
+                expect(exec1.count).to(equal(1))
+                expect(exec2.count).to(equal(0))
+                expect(ActionSheetAppearance.global).to(be(appearance1))
             }
             
             it("applies standard appearance by default") {

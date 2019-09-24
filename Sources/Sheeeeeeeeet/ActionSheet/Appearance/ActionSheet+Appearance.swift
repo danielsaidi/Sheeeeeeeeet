@@ -16,6 +16,7 @@ public extension ActionSheet {
     */
     static func applyAppearance(_ appearance: ActionSheetAppearance = .standard, force: Bool = true) {
         guard force || ActionSheetAppearance.global == nil else { return }
+        ActionSheetAppearance.global = appearance
         appearance.apply()
     }
 }
