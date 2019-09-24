@@ -67,9 +67,9 @@ let items = [title, item1, item2, item3, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-### Present the menu
+### Present the menu as a custom action sheet
 
-You can then create an action sheet from the menu and present it like this:
+You can then use the menu to create an action sheet and present it like this:
 
 ```swift
 let sheet = ActionSheet(menu: menu) { sheet, item in
@@ -86,14 +86,14 @@ The `from` view is optional and only used if the sheet it presented in a popover
 
 ### Present the menu directly
 
-You can also skip the sheet creation and just call these menu functions instead:
+You can also skip creating the sheet and just call these `Menu` functions:
 
 ```swift
 let sheet = menu.presentAsCustomActionSheet(in: vc, from: view, completion: ...)   // or
 let sheet = menu.presentAsCustomActionSheet(in: vc, from: barButtonItem, completion: ...)
 ```
 
-This is a lot easier, but if you create your own action sheet types that use another completion, you must create new completions as well. Check out the demo app for an example on how its `FoodActionSheet` uses another completion.
+If you create your own action sheet subclass that use another completion signature, you must create new completions as well. Check out the demo app; its `FoodActionSheet` uses another completion.
 
 
 ## <a name="item-types"></a>Item Types

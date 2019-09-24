@@ -11,18 +11,19 @@ import CoreGraphics
 import UIKit
 
 /**
- Custom items can be used to present "custom items" (duh) in
- a way that depends on how the item is used. For instance, a
- custom item that is mapped to an `ActionSheetCustomItem` is
- going to use `UIKit` and `nib` files, while a `SwiftUI` app
- may handle it completely different.
+ A custom item can be used to embed any item that implements
+ `CustomItemType`. The embedded item can then be used in any
+ way you like, given that is works for the use case.
+ 
+ For instance, using custom items in `ActionSheet`s requires
+ that the embedded type is an `ActionSheetItemCell`.
  */
-open class CustomItem<T: CustomItemType>: MenuItem {
+open class CustomItem: MenuItem {
     
     
     // MARK: - Initialization
     
-    public init(itemType: T.Type, itemSetupAction: @escaping ItemAction) {
+    public init(itemType: CustomItemType.Type, itemSetupAction: @escaping ItemAction) {
         self.itemType = itemType
         self.itemSetupAction = itemSetupAction
         super.init(title: "", tapBehavior: .none)
@@ -31,12 +32,12 @@ open class CustomItem<T: CustomItemType>: MenuItem {
     
     // MARK: - Typealiases
     
-    public typealias ItemAction = (T) -> Void
+    public typealias ItemAction = (CustomItemType) -> Void
     
     
     // MARK: - Properties
     
-    public let itemType: T.Type
+    public let itemType: CustomItemType.Type
     public let itemSetupAction: ItemAction
     
 
@@ -49,21 +50,20 @@ open class CustomItem<T: CustomItemType>: MenuItem {
      the class in the same bundle.
      */
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        let className = String(describing: self)
-        let nib = UINib(nibName: String(describing: T.self), bundle: nil)
+        let className = String(describing: itemType)
+        let nib = UINib(nibName: className, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: className)
         let dequeued = tableView.dequeueReusableCell(withIdentifier: className)
-        guard let item = dequeued as? T else { fatalError("Invalid item resolved for CustomItemType") }
-        guard let cell = item as? ActionSheetItemCell else { fatalError("ActionSheetCustomItem only supports CustomItemType's that inherit ActionSheetItemCell") }
+        guard let cell = dequeued as? ActionSheetItemCell else { fatalError("CustomItem.actionSheetCell(for:) requires that CustomItemType inherits ActionSheetItemCell") }
+        guard let item = cell as? CustomItemType else { fatalError("CustomItem.actionSheetCell(for:) requires that the ActionSheetItemCell implements CustomItemType") }
         itemSetupAction(item)
         return cell
     }
     
     open override var actionSheetCellHeight: Double {
-        Double(T.defaultSize.height)
+        Double(itemType.preferredSize.height)
     }
 }
-
 
 /**
  This protocol must be implemented by any item that is to be
@@ -72,5 +72,5 @@ open class CustomItem<T: CustomItemType>: MenuItem {
  */
 public protocol CustomItemType {
     
-    static var defaultSize: CGSize { get }
+    static var preferredSize: CGSize { get }
 }

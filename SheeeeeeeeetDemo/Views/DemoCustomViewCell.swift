@@ -17,7 +17,7 @@ class DemoCustomViewCell: ActionSheetItemCell, CustomItemType {
     
     // MARK: - ActionSheetCustomItemCell
     
-    static let defaultSize = CGSize(width: 100, height: 400)
+    static let preferredSize = CGSize(width: 100, height: 400)
     
     
     // MARK: - Properties

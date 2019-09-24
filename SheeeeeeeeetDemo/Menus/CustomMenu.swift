@@ -25,6 +25,7 @@ private extension CustomMenu {
     static func items(buttonTapAction: @escaping (UIButton) -> ()) -> [MenuItem] {
         let itemType = DemoCustomViewCell.self
         let item = CustomItem(itemType: itemType) { item in
+            guard let item = item as? DemoCustomViewCell else { return }
             item.buttonTapAction = buttonTapAction
         }
         return [item, FoodMenu.cancelButton]
