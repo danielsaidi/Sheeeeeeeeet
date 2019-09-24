@@ -27,6 +27,7 @@ extension ActionSheetAppearance {
 class DemoColorfulAppearance: DemoAppearance {
 
     override func applyColors() {
+        super.applyColors()
         background.backgroundColor = UIColor.purple.withAlphaComponent(0.4)
         item.subtitleColor = .blue
         selectItem.selectedTintColor = .blue
@@ -46,6 +47,7 @@ class DemoColorfulAppearance: DemoAppearance {
     }
     
     override func applyFonts() {
+        super.applyFonts()
         item.titleFont = .robotoRegular(size: 17)
         item.subtitleFont = .robotoRegular(size: 14)
         link.titleFont = .robotoRegular(size: 17)
