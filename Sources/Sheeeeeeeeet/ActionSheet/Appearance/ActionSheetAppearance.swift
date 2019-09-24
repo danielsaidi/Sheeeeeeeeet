@@ -51,6 +51,7 @@ open class ActionSheetAppearance {
      Apply the appearance to be used globally for all sheets.
      */
     open func apply() {
+        ActionSheetAppearance.global = self
         applyColors()
         applyCornerRadii()
         applyFonts()
