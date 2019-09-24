@@ -56,7 +56,7 @@ To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repos
 
 ## <a name="basic-example"></a>Basic example
 
-The easiest way to create a basic action sheet is like this:
+The easiest way to create a basic menu is like this:
 
 ```swift
 let item1 = MenuItem(title: "Int", value: 1)
@@ -65,29 +65,35 @@ let item3 = MenuItem(title: "Car", value: Car())
 let button = OkButton(title: "OK")
 let items = [title, item1, item2, item3, button]
 let menu = Menu(title: "Select a type", items: items)
+```
+
+### Present the menu
+
+You can then create an action sheet from the menu and present it like this:
+
+```swift
 let sheet = ActionSheet(menu: menu) { sheet, item in
     if let value = item.value as? Int { print("You selected an int: \(value)") }
     if let value = item.value as? String { print("You selected a string: \(value)") }
     if let value = item.value as? Car { print("You selected a car") }
     if item is OkButton { print("You tapped the OK button") }
 }
-```
-
-To present the action sheet, just call any of its `present` functions, like this:
-
-```swift
-sheet.present(in: self, from: view, completion: ...)   // or
-sheet.present(in: self, from: barButtonItem, completion: ...)
+sheet.present(in: vc, from: view, completion: ...)   // or
+sheet.present(in: vc, from: barButtonItem, completion: ...)
 ```
 
 The `from` view is optional and only used if the sheet it presented in a popover.
 
+### Present the menu directly
 
-## <a name="advanced-example"></a>Advanced example
+You can also skip the sheet creation and just call these menu functions instead:
 
-You can use Sheeeeeeeeet to create basic sheets like the one above, as well as very competent and self-contained ones. The above example is just a start. 
+```swift
+let sheet = menu.presentAsCustomActionSheet(in: vc, from: view, completion: ...)   // or
+let sheet = menu.presentAsCustomActionSheet(in: vc, from: barButtonItem, completion: ...)
+```
 
-When you have the basics under control, check out [this advanced example][AdvancedExample] to see how you can take things one step further.
+This is a lot easier, but if you create your own action sheet types that use another completion, you must create new completions as well. Check out the demo app for an example on how its `FoodActionSheet` uses another completion.
 
 
 ## <a name="item-types"></a>Item Types
@@ -100,6 +106,13 @@ For a complete list of built-in item types, [click here][Item-Types].
 ## <a name="appearance"></a>Appearance
 
 Sheeeeeeeeet lets you customize the appearances of the action sheets and their views and items. You can change fonts, colors and images as well as item heights, corner radius and more. For a complete guide, [click here][Appearance].
+
+
+## <a name="advanced-example"></a>Advanced example
+
+You can use Sheeeeeeeeet to create basic sheets like the one above, as well as very competent and self-contained ones. The above example is just a start. 
+
+When you have the basics under control, check out [this advanced example][AdvancedExample] to see how you can take things one step further.
 
 
 ## Demo App
