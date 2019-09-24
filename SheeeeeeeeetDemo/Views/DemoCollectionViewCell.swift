@@ -26,7 +26,7 @@ class DemoCollectionViewCell: UICollectionViewCell, CollectionItemType {
     
     // MARK: - CollectionItemType
     
-    static let defaultSize = CGSize(width: 100, height: 100)
+    static let preferredSize = CGSize(width: 100, height: 100)
     static let leftInset: CGFloat = 10
     static let rightInset: CGFloat = 20
     static let topInset: CGFloat = 10

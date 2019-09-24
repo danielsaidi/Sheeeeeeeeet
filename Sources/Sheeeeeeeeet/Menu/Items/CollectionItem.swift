@@ -20,13 +20,13 @@ import UIKit
  is because a `CollectionItem` has no reference to the sheet.
  Have a look at the demo app for an example.
  */
-open class CollectionItem<T: CollectionItemType>: MenuItem {
+open class CollectionItem: MenuItem {
     
     
     // MARK: - Initialization
     
     public init(
-        itemType: T.Type,
+        itemType: CollectionItemType.Type,
         itemCount: Int,
         itemSetupAction: @escaping ItemAction,
         itemSelectionAction: @escaping ItemAction) {
@@ -40,12 +40,12 @@ open class CollectionItem<T: CollectionItemType>: MenuItem {
     
     // MARK: - Typealiases
     
-    public typealias ItemAction = (_ item: T, _ index: Int) -> Void
+    public typealias ItemAction = (_ item: CollectionItemType, _ index: Int) -> Void
     
     
     // MARK: - Properties
     
-    public let itemType: T.Type
+    public let itemType: CollectionItemType.Type
     public let itemCount: Int
     public var itemSelectionAction: ItemAction
     public let itemSetupAction: ItemAction
@@ -54,24 +54,24 @@ open class CollectionItem<T: CollectionItemType>: MenuItem {
     // MARK: - ActionSheet
     
     /**
-     When getting an action sheet cell for a collection item,
-     `T` must be a `UICollectionViewCell` and must implement
-     `CollectionItemType`. It must also have a matching .xib
-     file with the same name as the class in the same bundle.
+     When resolving an action sheet cell for this collection
+     item, `CollectionItemType` must be a `UICollectionView`
+     cell, and must have a `.xib` file with the same name as
+     the class in the same bundle.
      */
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
         let className = String(describing: type(of: self))
         tableView.register(ActionSheetCollectionItemCell.self, forCellReuseIdentifier: className)
         let cell = tableView.dequeueReusableCell(withIdentifier: className)
-        guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("Invalid cell type resolved for `ActionSheetCollectionItemCell`") }
-        let nib = UINib(nibName: String(describing: T.self), bundle: nil)
+        guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("CollectionItem.actionSheetCell(for:) has failed to register ActionSheetCollectionItemCell with the target table view.") }
+        let nib = UINib(nibName: String(describing: itemType), bundle: nil)
         let handler = ActionSheetCollectionItemCellHandler(item: self)
         typedCell.setup(withNib: nib, handler: handler)
         return typedCell
     }
     
     open override var actionSheetCellHeight: Double {
-        Double(T.defaultSize.height)
+        Double(itemType.preferredSize.height)
     }
 }
 
@@ -83,7 +83,7 @@ open class CollectionItem<T: CollectionItemType>: MenuItem {
  */
 public protocol CollectionItemType {
     
-    static var defaultSize: CGSize { get }
+    static var preferredSize: CGSize { get }
     static var leftInset: CGFloat { get }
     static var rightInset: CGFloat { get }
     static var topInset: CGFloat { get }

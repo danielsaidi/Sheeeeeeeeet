@@ -23,7 +23,9 @@ open class CustomItem: MenuItem {
     
     // MARK: - Initialization
     
-    public init(itemType: CustomItemType.Type, itemSetupAction: @escaping ItemAction) {
+    public init(
+        itemType: CustomItemType.Type,
+        itemSetupAction: @escaping ItemAction) {
         self.itemType = itemType
         self.itemSetupAction = itemSetupAction
         super.init(title: "", tapBehavior: .none)
@@ -44,18 +46,18 @@ open class CustomItem: MenuItem {
     // MARK: - ActionSheet
     
     /**
-     When getting an action sheet cell for a custom item, `T`
-     must be a `UIView` and must implement `CustomItemType`.
-     It must have a matching .xib file with the same name as
-     the class in the same bundle.
+     When you resolve an action sheet cell for a custom item,
+     `CustomItemType` must inherit `ActionSheetItemCell` and
+     must have a `.xib` file with the same name as the class
+     in the same bundle.
      */
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
         let className = String(describing: itemType)
         let nib = UINib(nibName: className, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: className)
         let dequeued = tableView.dequeueReusableCell(withIdentifier: className)
-        guard let cell = dequeued as? ActionSheetItemCell else { fatalError("CustomItem.actionSheetCell(for:) requires that CustomItemType inherits ActionSheetItemCell") }
-        guard let item = cell as? CustomItemType else { fatalError("CustomItem.actionSheetCell(for:) requires that the ActionSheetItemCell implements CustomItemType") }
+        guard let cell = dequeued as? ActionSheetItemCell else { fatalError("CustomItem.actionSheetCell(for:) requires that CustomItemType inherits ActionSheetItemCell.") }
+        guard let item = cell as? CustomItemType else { fatalError("CustomItem.actionSheetCell(for:) requires that the ActionSheetItemCell implements CustomItemType.") }
         itemSetupAction(item)
         return cell
     }

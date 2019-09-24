@@ -40,12 +40,14 @@ private extension CollectionMenu {
     static func menuItems(for collectionItems: [Cell.Item]) -> [MenuItem] {
         let title = SectionTitle(title: "Select items", subtitle: "")
         
-        let setupAction = { (cell: Cell, index: Int) in
+        let setupAction = { (cell: CollectionItemType, index: Int) in
+            guard let cell = cell as? Cell else { return }
             let item = collectionItems[index]
             cell.configureWith(item: item)
         }
         
-        let selectionAction = { (cell: Cell, index: Int) in
+        let selectionAction = { (cell: CollectionItemType, index: Int) in
+            guard let cell = cell as? Cell else { return }
             let item = collectionItems[index]
             item.isSelected = !item.isSelected
             cell.configureWith(item: item)

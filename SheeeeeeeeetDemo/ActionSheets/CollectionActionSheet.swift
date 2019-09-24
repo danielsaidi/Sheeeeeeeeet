@@ -32,7 +32,7 @@ class CollectionActionSheet: ActionSheet {
         }
         
         let sectionTitle = items.compactMap { $0 as? SectionTitle }.first
-        let collectionItem = items.compactMap { $0 as? CollectionItem<Menu.Cell> }.first
+        let collectionItem = items.compactMap { $0 as? CollectionItem }.first
         let selectionAction = collectionItem?.itemSelectionAction
         collectionItem?.itemSelectionAction = { [weak self] cell, index in
             selectionAction?(cell, index)

@@ -13,19 +13,19 @@ import UIKit
  This class handles all data source and delegate logic for a
  collection item cell.
  */
-open class ActionSheetCollectionItemCellHandler<T: CollectionItemType>: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+open class ActionSheetCollectionItemCellHandler: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     // MARK: - Initialization
     
-    public init(item: CollectionItem<T>) {
+    public init(item: CollectionItem) {
         self.item = item
     }
     
     
     // MARK: - Properties
     
-    public let item: CollectionItem<T>!
+    public let item: CollectionItem
     
     
     // MARK: - UICollectionViewDataSource
@@ -36,9 +36,8 @@ open class ActionSheetCollectionItemCellHandler<T: CollectionItemType>: NSObject
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let id = ActionSheetCollectionItemCell.itemCellIdentifier
-        let dequeued = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
-        guard let item = dequeued as? T else { fatalError("Invalid item resolved for CollectionItemType") }
-        guard let cell = item as? UICollectionViewCell else { fatalError("ActionSheetCollectionItem only supports CollectionItemType's that inherit UICollectionViewCell") }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
+        guard let item = cell as? CollectionItemType else { fatalError("ActionSheetCollectionItemCellHandler.collectionView(cellForItemAt) requires that the dequeued cell is a CollectionItemType.") }
         self.item.itemSetupAction(item, indexPath.row)
         return cell
     }
@@ -47,23 +46,29 @@ open class ActionSheetCollectionItemCellHandler<T: CollectionItemType>: NSObject
     // MARK: - UICollectionViewDelegate
     
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? T else { return }
-        item.itemSelectionAction(cell, indexPath.row)
+        let cell = collectionView.cellForItem(at: indexPath)
+        guard let typedCell = cell as? CollectionItemType else { return }
+        item.itemSelectionAction(typedCell, indexPath.row)
     }
     
     
     // MARK: - UICollectionViewDelegateFlowLayout
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        T.defaultSize
+        item.itemType.preferredSize
     }
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: T.topInset, left: T.leftInset, bottom: T.bottomInset, right: T.rightInset)
+        return UIEdgeInsets(
+            top: item.itemType.topInset,
+            left: item.itemType.leftInset,
+            bottom: item.itemType.bottomInset,
+            right: item.itemType.rightInset
+        )
     }
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        T.itemSpacing
+        item.itemType.itemSpacing
     }
     
     open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -98,7 +103,7 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
     
     // MARK: - Functions
     
-    func setup<T: CollectionItemType>(withNib nib: UINib, handler: ActionSheetCollectionItemCellHandler<T>) {
+    func setup(withNib nib: UINib, handler: ActionSheetCollectionItemCellHandler) {
         let id = ActionSheetCollectionItemCell.itemCellIdentifier
         collectionView.contentInset = .zero
         collectionView.register(nib, forCellWithReuseIdentifier: id)
