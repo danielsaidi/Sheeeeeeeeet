@@ -36,11 +36,19 @@ open class ActionSheetAppearance {
     public init() {}
     
     
-    // MARK: - Standard Appearance
+    // MARK: - Properties
     
+    /**
+     Get the standard action sheet appearance.
+     */
     public static var standard: ActionSheetAppearance {
         ActionSheetAppearance()
     }
+    
+    /**
+     The currently applied, global action sheet appearance.
+     */
+    public static var global: ActionSheetAppearance?
     
     
     // MARK: - Apply Functions
@@ -49,6 +57,7 @@ open class ActionSheetAppearance {
      Apply the appearance as a global appearance.
      */
     open func apply() {
+        ActionSheetAppearance.global = self
         applyColors()
         applyCornerRadii()
         applyFonts()
