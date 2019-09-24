@@ -1,1 +1,0 @@
-open class StandardActionSheetAppearance: ActionSheetAppearance {}

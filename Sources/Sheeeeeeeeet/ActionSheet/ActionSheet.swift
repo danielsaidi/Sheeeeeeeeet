@@ -240,11 +240,13 @@ open class ActionSheet: UIViewController {
     }
 
     open func present(in vc: UIViewController, from view: UIView?, completion: @escaping () -> () = {}) {
+        ActionSheet.applyAppearance(force: false)
         refresh()
         presenter.present(sheet: self, in: vc.rootViewController, from: view, completion: completion)
     }
 
     open func present(in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> () = {}) {
+        ActionSheet.applyAppearance(force: false)
         refresh()
         presenter.present(sheet: self, in: vc.rootViewController, from: item, completion: completion)
     }

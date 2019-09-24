@@ -41,6 +41,11 @@ open class ActionSheetAppearance {
         ActionSheetAppearance()
     }
     
+    /**
+     The currently applied, global action sheet appearance.
+     */
+    public static var global: ActionSheetAppearance?
+
     
     /**
      Apply the appearance to be used globally for all sheets.

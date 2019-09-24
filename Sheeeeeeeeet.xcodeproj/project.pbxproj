@@ -35,7 +35,6 @@
 		84BD8A872302BC8C0020610B /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A552302BC8C0020610B /* ActionSheet.swift */; };
 		84BD8A882302BC8C0020610B /* ActionSheet+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A562302BC8C0020610B /* ActionSheet+Scroll.swift */; };
 		84BD8A892302BC8C0020610B /* ActionSheet+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A572302BC8C0020610B /* ActionSheet+Presenter.swift */; };
-		84BD8A8A2302BC8C0020610B /* StandardActionSheetAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A592302BC8C0020610B /* StandardActionSheetAppearance.swift */; };
 		84BD8A8B2302BC8C0020610B /* ActionSheet+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A5A2302BC8C0020610B /* ActionSheet+Appearance.swift */; };
 		84BD8A8C2302BC8C0020610B /* ActionSheetAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A5B2302BC8C0020610B /* ActionSheetAppearance.swift */; };
 		84BD8A8D2302BC8C0020610B /* ActionSheetColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD8A5C2302BC8C0020610B /* ActionSheetColor.swift */; };
@@ -181,7 +180,6 @@
 		84BD8A552302BC8C0020610B /* ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
 		84BD8A562302BC8C0020610B /* ActionSheet+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Scroll.swift"; sourceTree = "<group>"; };
 		84BD8A572302BC8C0020610B /* ActionSheet+Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Presenter.swift"; sourceTree = "<group>"; };
-		84BD8A592302BC8C0020610B /* StandardActionSheetAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardActionSheetAppearance.swift; sourceTree = "<group>"; };
 		84BD8A5A2302BC8C0020610B /* ActionSheet+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Appearance.swift"; sourceTree = "<group>"; };
 		84BD8A5B2302BC8C0020610B /* ActionSheetAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetAppearance.swift; sourceTree = "<group>"; };
 		84BD8A5C2302BC8C0020610B /* ActionSheetColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetColor.swift; sourceTree = "<group>"; };
@@ -421,7 +419,6 @@
 				84BD8A5A2302BC8C0020610B /* ActionSheet+Appearance.swift */,
 				84BD8A5B2302BC8C0020610B /* ActionSheetAppearance.swift */,
 				84BD8A5C2302BC8C0020610B /* ActionSheetColor.swift */,
-				84BD8A592302BC8C0020610B /* StandardActionSheetAppearance.swift */,
 				84BD8A5D2302BC8C0020610B /* UIColor+ActionSheetColor.swift */,
 			);
 			path = Appearance;
@@ -855,7 +852,6 @@
 				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButtonCell.swift in Sources */,
 				84BD8A8F2302BC8C0020610B /* ActionSheetPresenter.swift in Sources */,
 				84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */,
-				84BD8A8A2302BC8C0020610B /* StandardActionSheetAppearance.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
 				84BD8A9E2302BC8C0020610B /* ActionSheetTitleCell.swift in Sources */,
 				84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */,

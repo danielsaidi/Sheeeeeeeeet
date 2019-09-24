@@ -14,7 +14,8 @@ public extension ActionSheet {
      Apply a certain appearance. If you call this without an
      appearance instance, the standard appearance is applied.
     */
-    static func applyAppearance(_ appearance: ActionSheetAppearance = .standard) {
+    static func applyAppearance(_ appearance: ActionSheetAppearance = .standard, force: Bool = true) {
+        guard force || ActionSheetAppearance.global == nil else { return }
         appearance.apply()
     }
 }

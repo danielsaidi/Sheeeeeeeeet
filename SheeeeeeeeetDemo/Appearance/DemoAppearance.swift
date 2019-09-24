@@ -28,7 +28,7 @@ extension ActionSheetAppearance {
  icon, like below. In iOS 13 and above, Sheeeeeeeeet applies
  standard SF Symbols icons (which you also can override).
  */
-class DemoAppearance: StandardActionSheetAppearance {
+class DemoAppearance: ActionSheetAppearance {
     
     override func apply() {
         super.apply()
