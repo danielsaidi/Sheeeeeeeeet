@@ -27,15 +27,6 @@ public protocol ActionSheetPresenter: AnyObject {
     func refreshActionSheet()
 }
 
-public extension ActionSheetPresenter {
-    
-    @available(*, deprecated, renamed: "isDismissable")
-    var isDismissableWithTapOnBackground: Bool {
-        get { isDismissable }
-        set { isDismissable = newValue }
-    }
-}
-
 
 /**
  This struct represents various events that can be triggered
