@@ -16,15 +16,17 @@ With these changes, you now create `ActionSheet`s with a `Menu` instead of `Acti
  
  There are also some breaking changes that involve how you work with action sheets:
 
- * The item height properties are no longer static, but instead appearance proxy properties on the action sheet cells (e.g. `ActionSheetButtonCell.appearance().height = 200`).
+ * Item heights are no longer static, but an action sheet cell appearance proxy property.
  * The action sheet header behavior is now specified in a `headerViewConfiguration` property.
  * `CustomItem` (`ActionSheetCustomItem`) has been made non-generic.
  * `isOkButton` and `isCancelButton` is gone. Use type checking instead, e.g. `is OkButton`.
 
 Bonus features:
 
-* The popover presenter now supports header views. It no longer hides the header by default, only if you configure it to do so in the `ActionSheet`'s `headerViewConfiguration`.
-* The `Menu` has two `presentAsActionSheet`, which lets you present a menu as a custom action sheet.
+* The popover presenter now supports header views. It no longer hides the header by default.
+* `Menu` can be used to create action sheets, which you then present and configure like before.
+* `Menu` can be directly presented as a custom action sheet.
+* `Menu` can be directly added as an iOS 13 context menu to any view.
 
 
 ## 2.1.0

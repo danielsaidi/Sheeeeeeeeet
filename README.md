@@ -17,7 +17,7 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet helps you create customizable and stylable action sheets. It comes with many built-in item types and can be extended with custom ones.
+Sheeeeeeeeet helps you create customizable and stylable menus, context menus and action sheets. It comes with many built-in item types and can be extended with custom ones.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
@@ -51,12 +51,12 @@ github "danielsaidi/Sheeeeeeeeet"
 
 ### <a name="manual-installation"></a>Manual installation
 
-To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository and place it somewhere on disk, then add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
+To manually add `Sheeeeeeeeet` to your app, clone this repository, add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
 ## <a name="basic-example"></a>Basic example
 
-The easiest way to create a basic menu is like this:
+With Sheeeeeeeeet, you start off by creating a menu, like this:
 
 ```swift
 let item1 = MenuItem(title: "Int", value: 1)
@@ -67,9 +67,14 @@ let items = [title, item1, item2, item3, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
+Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and multi-select items, links, buttons, titles, collections, custom items etc. 
+
+For a complete list of built-in item types, [click here][Item-Types].
+
+
 ### Present the menu as a custom action sheet
 
-You can then use the menu to create an action sheet and present it like this:
+You can now use the menu to create an action sheet and present in different ways:
 
 ```swift
 let sheet = ActionSheet(menu: menu) { sheet, item in
@@ -82,9 +87,7 @@ sheet.present(in: vc, from: view, completion: ...)   // or
 sheet.present(in: vc, from: barButtonItem, completion: ...)
 ```
 
-The `from` view is optional and only used if the sheet it presented in a popover.
-
-### Present the menu directly
+### Present the action sheet directly
 
 You can also skip creating the sheet and just call these `Menu` functions:
 
@@ -93,19 +96,24 @@ let sheet = menu.presentAsActionSheet(in: vc, from: view, completion: ...)   // 
 let sheet = menu.presentAsActionSheet(in: vc, from: barButtonItem, completion: ...)
 ```
 
-If you create your own action sheet subclass that use another completion signature, you must create new completions as well. Check out the demo app; its `FoodActionSheet` uses another completion.
+### Present the menu as an iOS 13 context menu
 
+In iOS 13, you can add the menu as a context menu to any view:
 
-## <a name="item-types"></a>Item Types
+```swift
+let delegate = view.addContextMenu(menu, action: ...)
+```
 
-Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and multi-select items, links, buttons, titles, collections, custom items etc. 
+If the view implements `ContextMenuDelegateRetainer`, you can have it automatically retain the delegate. The delegate will be released together with the view.
 
-For a complete list of built-in item types, [click here][Item-Types].
+```swift
+view.addRetainedContextMenu(menu, action: ...)
+```
 
 
 ## <a name="appearance"></a>Appearance
 
-Sheeeeeeeeet lets you customize the appearances of the action sheets and their views and items. You can change fonts, colors and images as well as item heights, corner radius and more. For a complete guide, [click here][Appearance].
+Sheeeeeeeeet lets you customize the appearances of its custom action sheets and their embedded views and item cells. You can change fonts, colors and images as well as item heights, corner radius and more. For a complete guide, [see this guide][Appearance].
 
 
 ## <a name="advanced-example"></a>Advanced example
