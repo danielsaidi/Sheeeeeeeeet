@@ -3,16 +3,16 @@
     "pins": [
       {
         "package": "Mockery",
-        "repositoryURL": "git@github.com:danielsaidi/Mockery.git",
+        "repositoryURL": "https://github.com/danielsaidi/Mockery.git",
         "state": {
           "branch": null,
-          "revision": "06e4982bb20ce16bbfb2972c6b937806b639a86e",
-          "version": "0.1.0"
+          "revision": "d517599e6e61f96d7643fb6c39aacef3400ab3e7",
+          "version": "0.1.1"
         }
       },
       {
         "package": "Nimble",
-        "repositoryURL": "git@github.com:Quick/Nimble.git",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
         "state": {
           "branch": null,
           "revision": "f8657642dfdec9973efc79cc68bcef43a653a2bc",
@@ -21,11 +21,11 @@
       },
       {
         "package": "Quick",
-        "repositoryURL": "git@github.com:Quick/Quick.git",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
         "state": {
           "branch": null,
-          "revision": "94df9b449508344667e5afc7e80f8bcbff1e4c37",
-          "version": "2.1.0"
+          "revision": "33682c2f6230c60614861dfc61df267e11a1602f",
+          "version": "2.2.0"
         }
       }
     ]
