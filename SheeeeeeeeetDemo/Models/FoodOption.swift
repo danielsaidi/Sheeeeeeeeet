@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-This enum specifies food options that are listed in the demo.
-*/
+ This enum specifies food options that are listed in the app.
+ */
 enum FoodOption: String {
     
     case

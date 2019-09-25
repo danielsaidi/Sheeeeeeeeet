@@ -14,6 +14,7 @@
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84058051233BA01C008BC497 /* ContextMenuDelegateRetainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */; };
 		84058053233BA9DE008BC497 /* UIView+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */; };
+		84058055233BFE20008BC497 /* ViewController+Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058054233BFE20008BC497 /* ViewController+Menus.swift */; };
 		84123FF22334049A00283044 /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* LinkMenu.swift */; };
 		84123FF423340A6000283044 /* DestructiveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF323340A6000283044 /* DestructiveMenu.swift */; };
 		84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF523340F0A00283044 /* MenuConfiguration.swift */; };
@@ -175,6 +176,7 @@
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
 		84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegateRetainer.swift; sourceTree = "<group>"; };
 		84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ContextMenu.swift"; sourceTree = "<group>"; };
+		84058054233BFE20008BC497 /* ViewController+Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Menus.swift"; sourceTree = "<group>"; };
 		84123FF12334049A00283044 /* LinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMenu.swift; sourceTree = "<group>"; };
 		84123FF323340A6000283044 /* DestructiveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveMenu.swift; sourceTree = "<group>"; };
 		84123FF523340F0A00283044 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 				846385282333D135005E3A2E /* ViewController+ActionSheets.swift */,
 				84C199D3230ADB7B000FFB05 /* ViewController+Alert.swift */,
 				84C199D2230ADB7B000FFB05 /* ViewController+Appearance.swift */,
+				84058054233BFE20008BC497 /* ViewController+Menus.swift */,
 				84C199D4230ADB7B000FFB05 /* ViewController+TableView.swift */,
 			);
 			path = ViewController;
@@ -1010,6 +1013,7 @@
 				849DCEB42335257A006DABE6 /* CustomMenu.swift in Sources */,
 				84C19A03230ADBD8000FFB05 /* AppearanceMenuOption.swift in Sources */,
 				84C199D8230ADB7B000FFB05 /* ViewController+Alert.swift in Sources */,
+				84058055233BFE20008BC497 /* ViewController+Menus.swift in Sources */,
 				8463852E2333D55D005E3A2E /* ItemMenu.swift in Sources */,
 				84C199D9230ADB7B000FFB05 /* ViewController+TableView.swift in Sources */,
 				84C199D7230ADB7B000FFB05 /* ViewController+Appearance.swift in Sources */,

@@ -6,11 +6,9 @@
 //  Copyright © 2018 Jonas Ullström. All rights reserved.
 //
 
-/*
- 
+/**
  This file extends the food option enum with item extensions,
  that can be used to create action sheet items for an option.
- 
  */
 
 import Sheeeeeeeeet
@@ -43,14 +41,6 @@ extension FoodOption {
             value: self,
             image: image,
             tapBehavior: .none
-        )
-    }
-    
-    func item() -> MenuItem {
-        MenuItem(
-            title: displayName,
-            value: self,
-            image: image
         )
     }
 }

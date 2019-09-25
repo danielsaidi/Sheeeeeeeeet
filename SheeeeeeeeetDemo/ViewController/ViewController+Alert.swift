@@ -6,11 +6,9 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+/**
  This extension provides the main view controller with alert
  shorthands.
- 
  */
 
 import Sheeeeeeeeet
@@ -20,10 +18,6 @@ extension ViewController {
     
     func alert(button: UIButton) {
         alertSelection(button.title(for: .normal) ?? "None")
-    }
-    
-    func alert(item: MenuItem) {
-        alert(items: [item])
     }
     
     func alert(items: [MenuItem]) {

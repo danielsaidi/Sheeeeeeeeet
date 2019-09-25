@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- This enum specifies menu options that are listed in the demo.
+ This enum specifies menu options that are listed in the app.
  */
 enum AppearanceMenuOption {
     
