@@ -32,6 +32,9 @@ open class CustomItem: MenuItem {
     
     public let itemType: CustomItemType.Type
     public let itemSetupAction: ItemAction
+    
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
 }
 
 /**

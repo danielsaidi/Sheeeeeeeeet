@@ -33,4 +33,7 @@ open class MenuButton: MenuItem {
     }
     
     public let type: ButtonType
+    
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
 }

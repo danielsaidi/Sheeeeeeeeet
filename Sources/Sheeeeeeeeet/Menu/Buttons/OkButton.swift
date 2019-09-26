@@ -20,4 +20,7 @@ open class OkButton: MenuButton {
     public init(title: String) {
         super.init(title: title, type: .ok)
     }
+    
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
 }

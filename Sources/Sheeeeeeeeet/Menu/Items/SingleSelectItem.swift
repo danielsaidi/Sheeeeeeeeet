@@ -20,6 +20,9 @@ import UIKit
  it's tapped. To change this, set `tapBehavior` to `.none`.
  */
 open class SingleSelectItem: SelectItem {
+    
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
 
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)

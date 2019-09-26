@@ -27,7 +27,7 @@ open class Menu {
         self.configuration = configuration
     }
     
-    public typealias ItemType = MenuItem
+    public typealias ItemAction = (MenuItem) -> ()
 
     public let title: String?
     public let items: [MenuItem]

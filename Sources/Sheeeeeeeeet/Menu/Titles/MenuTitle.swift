@@ -16,4 +16,9 @@ open class MenuTitle: MenuItem {
     public init(title: String, subtitle: String? = nil) {
         super.init(title: title, subtitle: subtitle, tapBehavior: .none)
     }
+    
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
+    override var shouldBeIgnoredByAlertController: Bool { return true }
+    override var shouldBeIgnoredByContextMenu: Bool { return true }
 }

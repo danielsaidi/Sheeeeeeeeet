@@ -14,4 +14,8 @@ import UIKit
  
  The `value` of a destructive button is `.ok`.
  */
-open class DestructiveButton: OkButton {}
+open class DestructiveButton: OkButton {
+    
+    override var canBeUsedInAlertController: Bool { true }
+    override var canBeUsedInContextMenu: Bool { false }
+}

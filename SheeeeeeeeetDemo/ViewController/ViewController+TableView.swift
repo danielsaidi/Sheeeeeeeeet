@@ -19,15 +19,15 @@ import UIKit
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
     
     func menuOption(at indexPath: IndexPath) -> MenuOption {
-        return menuOptions[indexPath.row]
+        menuOptions[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions.count
+        menuOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,7 +41,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        70
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,6 +58,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tryOpeningActionSheet(at indexPath: IndexPath, from cell: UITableViewCell) {
+        let menu = self.foodMenu(at: indexPath)!
+        menu.presentAsAlertController(in: self, from: cell) { (item) in print(item.title)}
         guard let sheet = actionSheet(at: indexPath) else { return }
         sheet.presenter.events.didDismissWithBackgroundTap = { print("Background tap!") }
         sheet.present(in: self, from: cell.textLabel)

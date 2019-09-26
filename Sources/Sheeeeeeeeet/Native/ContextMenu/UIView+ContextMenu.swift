@@ -21,11 +21,7 @@ public extension UIView {
      app will crash when it tries to create the context menu.
      */
     func addContextMenu(_ menu: Menu, action: @escaping (MenuItem) -> ()) -> ContextMenuDelegate {
-        isUserInteractionEnabled = true
-        let delegate = ContextMenuDelegate(menu: menu, action: action)
-        let interaction = UIContextMenuInteraction(delegate: delegate)
-        addInteraction(interaction)
-        return delegate
+        menu.addAsContextMenu(to: self, action: action)
     }
 }
 
@@ -40,7 +36,6 @@ public extension ContextMenuDelegateRetainer where Self: UIView {
      app will crash when it tries to create the context menu.
      */
     func addRetainedContextMenu(_ menu: Menu, action: @escaping (MenuItem) -> ()) {
-        let delegate = addContextMenu(menu, action: action)
-        self.contextMenuDelegate = delegate
+        menu.addAsRetainedContextMenu(to: self, action: action)
     }
 }

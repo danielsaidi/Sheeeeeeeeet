@@ -40,6 +40,9 @@ open class CollectionItem: MenuItem {
     public let itemCount: Int
     public var itemSelectionAction: ItemAction
     public let itemSetupAction: ItemAction
+    
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
 }
 
 

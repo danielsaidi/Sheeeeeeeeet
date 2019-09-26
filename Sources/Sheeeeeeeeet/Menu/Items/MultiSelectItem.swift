@@ -36,6 +36,9 @@ open class MultiSelectItem: SelectItem {
         )
     }
     
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
+    
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)
         let toggleItems = menu.items.compactMap { $0 as? MultiSelectToggleItem }

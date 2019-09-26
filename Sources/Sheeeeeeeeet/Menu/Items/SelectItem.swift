@@ -36,11 +36,8 @@ open class SelectItem: MenuItem {
         )
     }
     
-    
     public let group: String
-    
     public var isSelected: Bool
-    
     
     open override func handleSelection(in menu: Menu) {
         super.handleSelection(in: menu)

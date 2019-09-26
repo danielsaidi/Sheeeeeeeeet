@@ -48,7 +48,7 @@ class UIView_ContextMenuTests: QuickSpec {
         }
     
         
-        describe("adding retained context menu to retainer") {
+        describe("adding retained context menu") {
             
             it("retains correctly configured delegate") {
                 guard #available(iOS 13.0, *) else { return }

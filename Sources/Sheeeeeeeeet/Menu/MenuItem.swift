@@ -68,6 +68,14 @@ open class MenuItem {
     public var value: Any?
     
     
+    // MARK: - Usage properties
+    
+    var canBeUsedInAlertController: Bool { true }
+    var canBeUsedInContextMenu: Bool { true }
+    var shouldBeIgnoredByAlertController: Bool { return false }
+    var shouldBeIgnoredByContextMenu: Bool { return false }
+    
+    
     // MARK: - Functions
     
     open func handleSelection(in menu: Menu) {}

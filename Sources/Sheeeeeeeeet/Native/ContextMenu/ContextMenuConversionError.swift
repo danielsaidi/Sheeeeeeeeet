@@ -9,8 +9,8 @@
 import Foundation
 
 /**
- This enum specifies every error that can occur when a `Menu`
- is converted to an iOS 13 context menu.
+ This enum specifies the errors that can occur when a `Menu`
+ is converted to a `UIMenu` and a `MenuItem` to a `UIAction`.
  */
 public enum ContextMenuConversionError: Error {
     

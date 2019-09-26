@@ -33,7 +33,11 @@ class MenuItem_ContextMenuTests: QuickSpec {
             it("is true for items that can be mapped to `UIAction` and still serve their purpose") {
                 expect(result(for: MenuItem(title: ""))).to(beTrue())
                 expect(result(for: LinkItem(title: ""))).to(beTrue())
+                
                 expect(result(for: SelectItem(title: "", isSelected: false))).to(beTrue())
+                expect(result(for: SingleSelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: MultiSelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: ""))).to(beFalse())
                 
                 expect(result(for: MenuButton(title: "", type: .ok))).to(beFalse())
                 expect(result(for: OkButton(title: ""))).to(beFalse())
@@ -46,9 +50,6 @@ class MenuItem_ContextMenuTests: QuickSpec {
                     
                 expect(result(for: getCollectionItem())).to(beFalse())
                 expect(result(for: getCustomItem())).to(beFalse())
-                expect(result(for: SingleSelectItem(title: "", isSelected: false))).to(beFalse())
-                expect(result(for: MultiSelectItem(title: "", isSelected: false))).to(beFalse())
-                expect(result(for: MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: ""))).to(beFalse())
             }
         }
         
@@ -61,7 +62,11 @@ class MenuItem_ContextMenuTests: QuickSpec {
             it("is true for items that serve no functional purpose in the menu and can be safely ignored") {
                 expect(result(for: MenuItem(title: ""))).to(beFalse())
                 expect(result(for: LinkItem(title: ""))).to(beFalse())
+                
                 expect(result(for: SelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: SingleSelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: MultiSelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: ""))).to(beFalse())
                 
                 expect(result(for: MenuButton(title: "", type: .ok))).to(beFalse())
                 expect(result(for: OkButton(title: ""))).to(beFalse())
@@ -74,9 +79,6 @@ class MenuItem_ContextMenuTests: QuickSpec {
                     
                 expect(result(for: getCollectionItem())).to(beFalse())
                 expect(result(for: getCustomItem())).to(beFalse())
-                expect(result(for: SingleSelectItem(title: "", isSelected: false))).to(beFalse())
-                expect(result(for: MultiSelectItem(title: "", isSelected: false))).to(beFalse())
-                expect(result(for: MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: ""))).to(beFalse())
             }
         }
         
@@ -92,7 +94,11 @@ class MenuItem_ContextMenuTests: QuickSpec {
             it("is false for item types that don't make sense in a context menu") {
                 expect(result(for: MenuItem(title: ""))).to(beTrue())
                 expect(result(for: LinkItem(title: ""))).to(beTrue())
+                
                 expect(result(for: SelectItem(title: "", isSelected: false))).to(beTrue())
+                expect(result(for: SingleSelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: MultiSelectItem(title: "", isSelected: false))).to(beFalse())
+                expect(result(for: MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: ""))).to(beFalse())
                 
                 expect(result(for: MenuButton(title: "", type: .ok))).to(beFalse())
                 expect(result(for: OkButton(title: ""))).to(beFalse())
@@ -105,9 +111,6 @@ class MenuItem_ContextMenuTests: QuickSpec {
                 
                 expect(result(for: getCollectionItem())).to(beFalse())
                 expect(result(for: getCustomItem())).to(beFalse())
-                expect(result(for: SingleSelectItem(title: "", isSelected: false))).to(beFalse())
-                expect(result(for: MultiSelectItem(title: "", isSelected: false))).to(beFalse())
-                expect(result(for: MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: ""))).to(beFalse())
             }
         }
     }

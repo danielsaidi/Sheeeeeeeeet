@@ -46,6 +46,9 @@ open class MultiSelectToggleItem: MenuItem {
     public let selectAllTitle: String
     public var state: State
     
+    override var canBeUsedInAlertController: Bool { false }
+    override var canBeUsedInContextMenu: Bool { false }
+    
     
     // MARK: - Functions
     

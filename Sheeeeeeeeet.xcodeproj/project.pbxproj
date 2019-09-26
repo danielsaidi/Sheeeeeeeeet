@@ -15,6 +15,9 @@
 		84058051233BA01C008BC497 /* ContextMenuDelegateRetainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */; };
 		84058053233BA9DE008BC497 /* UIView+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */; };
 		84058055233BFE20008BC497 /* ViewController+Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058054233BFE20008BC497 /* ViewController+Menus.swift */; };
+		84058067233C022F008BC497 /* MenuItem+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058064233C022F008BC497 /* MenuItem+AlertController.swift */; };
+		84058068233C022F008BC497 /* AlertControllerConversionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058065233C022F008BC497 /* AlertControllerConversionError.swift */; };
+		84058069233C022F008BC497 /* Menu+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058066233C022F008BC497 /* Menu+AlertController.swift */; };
 		84123FF22334049A00283044 /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF12334049A00283044 /* LinkMenu.swift */; };
 		84123FF423340A6000283044 /* DestructiveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF323340A6000283044 /* DestructiveMenu.swift */; };
 		84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84123FF523340F0A00283044 /* MenuConfiguration.swift */; };
@@ -139,6 +142,7 @@
 		84C19A05230ADC01000FFB05 /* DemoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849935A5216BFB9F000A0670 /* DemoAppearance.swift */; };
 		84C19A06230ADC05000FFB05 /* DemoColorfulAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84243E462301A90D00FC5AAF /* DemoColorfulAppearance.swift */; };
 		84C19A07230ADC05000FFB05 /* DemoFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493967B21E7F9B200DC0AEF /* DemoFonts.swift */; };
+		84C621C6233C9B1400FACCE7 /* UIViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C621C5233C9B1400FACCE7 /* UIViewController+AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +181,9 @@
 		84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegateRetainer.swift; sourceTree = "<group>"; };
 		84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ContextMenu.swift"; sourceTree = "<group>"; };
 		84058054233BFE20008BC497 /* ViewController+Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Menus.swift"; sourceTree = "<group>"; };
+		84058064233C022F008BC497 /* MenuItem+AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MenuItem+AlertController.swift"; sourceTree = "<group>"; };
+		84058065233C022F008BC497 /* AlertControllerConversionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerConversionError.swift; sourceTree = "<group>"; };
+		84058066233C022F008BC497 /* Menu+AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu+AlertController.swift"; sourceTree = "<group>"; };
 		84123FF12334049A00283044 /* LinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMenu.swift; sourceTree = "<group>"; };
 		84123FF323340A6000283044 /* DestructiveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveMenu.swift; sourceTree = "<group>"; };
 		84123FF523340F0A00283044 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
@@ -307,6 +314,7 @@
 		84C199EF230ADBD8000FFB05 /* MenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		84C199F0230ADBD8000FFB05 /* AppearanceMenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceMenuOption.swift; sourceTree = "<group>"; };
 		84C199F1230ADBD8000FFB05 /* ActionSheetMenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMenuOption.swift; sourceTree = "<group>"; };
+		84C621C5233C9B1400FACCE7 /* UIViewController+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +379,17 @@
 				4512AA0020BD4DB000AD1D66 /* Sheeeeeeeeet.podspec */,
 			);
 			name = "Project Files";
+			sourceTree = "<group>";
+		};
+		84058057233C0181008BC497 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				84058065233C022F008BC497 /* AlertControllerConversionError.swift */,
+				84058066233C022F008BC497 /* Menu+AlertController.swift */,
+				84058064233C022F008BC497 /* MenuItem+AlertController.swift */,
+				84C621C5233C9B1400FACCE7 /* UIViewController+AlertController.swift */,
+			);
+			path = AlertController;
 			sourceTree = "<group>";
 		};
 		8423864621EF7ED10045F121 /* Readmes */ = {
@@ -453,8 +472,8 @@
 			children = (
 				84BD8A502302BC8C0020610B /* ActionSheet */,
 				84A878822331FB8F00045F0A /* Extensions */,
-				844B94EF233ABA5E008C8F7E /* ContextMenu */,
 				84BE53BF2331432E009DDFC6 /* Menu */,
+				84C621C7233CA51D00FACCE7 /* Native */,
 			);
 			path = Sheeeeeeeeet;
 			sourceTree = "<group>";
@@ -771,6 +790,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		84C621C7233CA51D00FACCE7 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				84058057233C0181008BC497 /* AlertController */,
+				844B94EF233ABA5E008C8F7E /* ContextMenu */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -944,6 +972,7 @@
 				84BE53C523314472009DDFC6 /* MenuItem.swift in Sources */,
 				84A878842331FB8F00045F0A /* NSObject+ClassName.swift in Sources */,
 				84BD8A9C2302BC8C0020610B /* ActionSheetSectionMarginCell.swift in Sources */,
+				84058067233C022F008BC497 /* MenuItem+AlertController.swift in Sources */,
 				84BD8A9B2302BC8C0020610B /* ActionSheetDangerButtonCell.swift in Sources */,
 				84058051233BA01C008BC497 /* ContextMenuDelegateRetainer.swift in Sources */,
 				84BD8A922302BC8C0020610B /* UIEdgeInsets+Hidden.swift in Sources */,
@@ -975,8 +1004,10 @@
 				84BD8A872302BC8C0020610B /* ActionSheet.swift in Sources */,
 				84BECD4E233A57FA004BFAFB /* Menu+ActionSheet.swift in Sources */,
 				84BD8A882302BC8C0020610B /* ActionSheet+Scroll.swift in Sources */,
+				84058069233C022F008BC497 /* Menu+AlertController.swift in Sources */,
 				84BD8A832302BC8C0020610B /* ActionSheetMargin.swift in Sources */,
 				84BECD6A233A7269004BFAFB /* MultiSelectItem+ActionSheet.swift in Sources */,
+				84C621C6233C9B1400FACCE7 /* UIViewController+AlertController.swift in Sources */,
 				84BD8A9A2302BC8C0020610B /* ActionSheetCancelButtonCell.swift in Sources */,
 				84BD8A8F2302BC8C0020610B /* ActionSheetPresenter.swift in Sources */,
 				84BECD60233A71C7004BFAFB /* SectionMargin+ActionSheet.swift in Sources */,
@@ -996,6 +1027,7 @@
 				84BE53DD23316232009DDFC6 /* CollectionItem.swift in Sources */,
 				84BECD6E233A727F004BFAFB /* SelectItem+ActionSheet.swift in Sources */,
 				84BD8A912302BC8C0020610B /* ActionSheetPopoverPresenter.swift in Sources */,
+				84058068233C022F008BC497 /* AlertControllerConversionError.swift in Sources */,
 				84BECD56233A6635004BFAFB /* MenuButton+ActionSheet.swift in Sources */,
 				84BD8AAA2302BC8C0020610B /* ActionSheetItemTableView.swift in Sources */,
 				84BD8A862302BC8C0020610B /* ActionSheetItemHandler.swift in Sources */,
