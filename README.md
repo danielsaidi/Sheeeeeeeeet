@@ -17,7 +17,7 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet helps you create customizable and stylable menus, context menus and action sheets. It comes with many built-in item types and can be extended with custom ones.
+Sheeeeeeeeet helps you create menus that can be used as context menus and action sheets. It comes with many item types (standard items, buttons, titles, toggles etc.) and can be extended with custom ones.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
@@ -30,21 +30,19 @@ Sheeeeeeeeet action sheets can be styled to look just like a `UIAlertController`
 
 ### <a name="spm"></a>Swift Package Manager
 
-In Xcode 11, the easiest way to add Sheeeeeeeeet to your project is to use Swift Package Manager:
+The easiest way to add Sheeeeeeeeet to your project is to use SPM in Xcode 11:
 ```
 https://github.com/danielsaidi/Sheeeeeeeeet.git
 ```
 
 ### <a name="cocoapods"></a>CocoaPods
 
-If you use [CocoaPods](CocoaPods), add this line to your `Podfile` and run `pod install`:
 ```ruby
 pod "Sheeeeeeeeet"
 ```
 
 ### <a name="carthage"></a>Carthage
 
-If you use [Carthage](Carthage), add this line to your `Cartfile` then run `carthage update --platform iOS`:
 ```
 github "danielsaidi/Sheeeeeeeeet"
 ```
@@ -54,32 +52,37 @@ github "danielsaidi/Sheeeeeeeeet"
 To manually add `Sheeeeeeeeet` to your app, clone this repository, add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
+## <a name="item-types"></a>Menu items
+
+Sheeeeeeeeet comes with many built-in menu item types, e.g. regular and selectable items, links, buttons, titles, collections, custom items etc. You find a complete list, [here][Item-Types].
+
+
 ## <a name="basic-example"></a>Basic example
 
 With Sheeeeeeeeet, you start off by creating a menu, like this:
 
 ```swift
 let item1 = MenuItem(title: "Int", value: 1)
-let item2 = MenuItem(title: "String", value: "Hi!")
-let item3 = MenuItem(title: "Car", value: Car())
+let item2 = MenuItem(title: "Car", value: Car())
 let button = OkButton(title: "OK")
-let items = [title, item1, item2, item3, button]
+let items = [title, item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-Sheeeeeeeeet comes with many built-in item types, e.g. regular items, single and multi-select items, links, buttons, titles, collections, custom items etc. 
+### Present the menu as an action sheet
 
-For a complete list of built-in item types, [click here][Item-Types].
+If you don't need to configure the action sheet, you can present it directly from the menu:
 
+```swift
+let sheet = menu.presentAsActionSheet(in: vc, from: view, completion: ...)   // or
+let sheet = menu.presentAsActionSheet(in: vc, from: barButtonItem, completion: ...)
+```
 
-### Present the menu as a custom action sheet
-
-You can now use the menu to create an action sheet and present in different ways:
+If you need to configure the action sheet, you can create an instance from the menu:
 
 ```swift
 let sheet = ActionSheet(menu: menu) { sheet, item in
     if let value = item.value as? Int { print("You selected an int: \(value)") }
-    if let value = item.value as? String { print("You selected a string: \(value)") }
     if let value = item.value as? Car { print("You selected a car") }
     if item is OkButton { print("You tapped the OK button") }
 }
@@ -87,45 +90,43 @@ sheet.present(in: vc, from: view, completion: ...)   // or
 sheet.present(in: vc, from: barButtonItem, completion: ...)
 ```
 
-### Present the action sheet directly
+These sheets can be extensively styled. For a complete guide, [see this guide][Appearance] or have a look at the demo app.
 
-You can also skip creating the sheet and just call these `Menu` functions:
 
-```swift
-let sheet = menu.presentAsActionSheet(in: vc, from: view, completion: ...)   // or
-let sheet = menu.presentAsActionSheet(in: vc, from: barButtonItem, completion: ...)
-```
+### Add the menu as a context menu
 
-### Present the menu as an iOS 13 context menu
-
-In iOS 13, you can add the menu as a context menu to any view:
+The menu can be added as an iOS 13 context menu to any view (provided that its items can either be ignored by the context menu or converted to `UIAction`s):
 
 ```swift
 let delegate = view.addContextMenu(menu, action: ...)
 ```
 
-If the view implements `ContextMenuDelegateRetainer`, you can have it automatically retain the delegate. The delegate will be released together with the view.
+You must retain this delegate, otherwise the context menu will stop working when the delegate is disposed. If the view implements `ContextMenuDelegateRetainer`, you can use an auto-retaining version of the function:
 
 ```swift
 view.addRetainedContextMenu(menu, action: ...)
 ```
 
+The view will then automatically retain the delegate and release it when it's disposed.
 
-## <a name="appearance"></a>Appearance
 
-Sheeeeeeeeet lets you customize the appearances of its custom action sheets and their embedded views and item cells. You can change fonts, colors and images as well as item heights, corner radius and more. For a complete guide, [see this guide][Appearance].
+### Present the menu as an alert controller
+
+The menu can be presented as a `UIAlertController` (provided that its items can either be ignored by the controller or converted to `UIAlertAction`s):
+
+```swift
+let delegate = menu.presentAsAlertController(in: self, from: view, action: ...)
+```
 
 
 ## <a name="advanced-example"></a>Advanced example
 
-You can use Sheeeeeeeeet to create basic sheets like the one above, as well as very competent and self-contained ones. The above example is just a start. 
-
-When you have the basics under control, check out [this advanced example][AdvancedExample] to see how you can take things one step further.
+When you have the basics under control, check out [this advanced example][AdvancedExample] to see how you can take things further.
 
 
 ## Demo App
 
-This project contains a demo app that demonstrates different types of action sheets and items, as well as how to handle subclassing, appearances etc. It doesn't require any setup, but you may have to adjust its code signing if you want to run it on a device.
+This project contains a demo app that demonstrates different types of menus and use cases (present menus as action sheet and context menu etc.), as well as how to handle subclassing, appearances etc. It doesn't require any setup, but you have to adjust its code signing if you want to run it on a device.
 
 
 ## Contact me

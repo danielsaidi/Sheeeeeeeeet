@@ -19,7 +19,7 @@ public extension UIViewController {
      the operation will fail with an error.
      */
     func presentAlertController(
-        _ menu: Menu,
+        menu: Menu,
         from view: UIView?,
         action: @escaping Menu.ItemAction) -> AlertControllerConversionError? {
         menu.presentAsAlertController(in: self, from: view, action: action)
@@ -32,7 +32,7 @@ public extension UIViewController {
      the operation will fail with an error.
      */
     func presentAlertController(
-        _ menu: Menu,
+        menu: Menu,
         from item: UIBarButtonItem,
         action: @escaping Menu.ItemAction) -> AlertControllerConversionError? {
         menu.presentAsAlertController(in: self, from: view, action: action)

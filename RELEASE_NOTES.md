@@ -25,8 +25,11 @@ Bonus features:
 
 * The popover presenter now supports header views. It no longer hides the header by default.
 * `Menu` can be used to create action sheets, which you then present and configure like before.
-* `Menu` can be directly presented as a custom action sheet.
-* `Menu` can be directly added as an iOS 13 context menu to any view.
+* `Menu` can be directly presented as a custom action sheet, without creating an `ActionSheet`.
+* `Menu` can be added as an iOS 13 context menu to any view.
+* `Menu` can be presented as a native `UIAlertController`.
+
+Some of the presentations above require that all items in the menu can be represented in that context.
 
 
 ## 2.1.0
