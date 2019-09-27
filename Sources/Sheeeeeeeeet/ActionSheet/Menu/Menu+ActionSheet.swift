@@ -39,4 +39,17 @@ public extension Menu {
         sheet.present(in: vc, from: view)
         return sheet
     }
+    
+    /**
+     Convert the menu to an action sheet.
+     
+     This function is nice if your app implements any custom
+     `Menu`s subclasses and you need to create action sheets,
+     but don't want to have to call `import Sheeeeeeeeet`.
+     */
+    func toActionSheet(
+        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        action: @escaping ActionSheet.SelectAction) -> ActionSheet {
+        ActionSheet(menu: self, presenter: presenter, action: action)
+    }
 }
