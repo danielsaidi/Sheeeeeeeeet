@@ -21,7 +21,8 @@ import Sheeeeeeeeet
 class CollectionMenu: FoodMenu {
 
     init() {
-        collectionItems = (0...20).map { Cell.Item(title: "\($0)") }
+        let numbers = (0...20)
+        collectionItems = numbers.map { Cell.Item(title: "\($0)") }
         let items = CollectionMenu.menuItems(for: collectionItems)
         super.init(title: "Collection Menu", items: items)
     }

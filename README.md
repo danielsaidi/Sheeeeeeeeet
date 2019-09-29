@@ -65,7 +65,7 @@ With Sheeeeeeeeet, you start off by creating a menu, like this:
 let item1 = MenuItem(title: "Int", value: 1)
 let item2 = MenuItem(title: "Car", value: Car())
 let button = OkButton(title: "OK")
-let items = [title, item1, item2, button]
+let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
@@ -78,7 +78,7 @@ let sheet = menu.presentAsActionSheet(in: vc, from: view, completion: ...)   // 
 let sheet = menu.presentAsActionSheet(in: vc, from: barButtonItem, completion: ...)
 ```
 
-If you need to configure the action sheet, you can create an instance from the menu:
+If you need to configure the action sheet, you can create an action sheet instance with the menu:
 
 ```swift
 let sheet = ActionSheet(menu: menu) { sheet, item in
@@ -86,11 +86,12 @@ let sheet = ActionSheet(menu: menu) { sheet, item in
     if let value = item.value as? Car { print("You selected a car") }
     if item is OkButton { print("You tapped the OK button") }
 }
+// Configure your action sheet here
 sheet.present(in: vc, from: view, completion: ...)   // or
 sheet.present(in: vc, from: barButtonItem, completion: ...)
 ```
 
-These sheets can be extensively styled. For a complete guide, [see this guide][Appearance] or have a look at the demo app.
+The action sheets can be extensively styled. For a complete guide, [see this guide][Appearance] or have a look at the demo app.
 
 
 ### Add the menu as a context menu
@@ -101,7 +102,9 @@ The menu can be added as an iOS 13 context menu to any view (provided that its i
 let delegate = view.addContextMenu(menu, action: ...)
 ```
 
-You must retain this delegate, otherwise the context menu will stop working when the delegate is disposed. If the view implements `ContextMenuDelegateRetainer`, you can use an auto-retaining version of the function:
+You must retain this delegate, otherwise the context menu will stop working when the delegate is disposed.
+
+If the view implements `ContextMenuDelegateRetainer`, you can use an auto-retaining version of the function:
 
 ```swift
 view.addRetainedContextMenu(menu, action: ...)
@@ -126,7 +129,7 @@ When you have the basics under control, check out [this advanced example][Advanc
 
 ## Demo App
 
-This project contains a demo app that demonstrates different types of menus and use cases (present menus as action sheet and context menu etc.), as well as how to handle subclassing, appearances etc. It doesn't require any setup, but you have to adjust its code signing if you want to run it on a device.
+This repo contains a demo app that demonstrates different types of menus and use cases (present menus as action sheet and context menu etc.), as well as how to handle subclassing, appearances etc.
 
 
 ## Contact me

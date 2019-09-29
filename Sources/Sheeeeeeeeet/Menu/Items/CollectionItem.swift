@@ -14,11 +14,11 @@ import UIKit
  Collection items can be used to present item collections of
  a certain item type, e.g. in a collection view.
  
- `IMPORTANT` Note that action sheets that contain items that
- are based on `CollectionItem` must do some tweaks to listen
- for tap events within its `ActionSheetCollectionItem`. This
- is because a `CollectionItem` has no reference to the sheet.
- Have a look at the demo app for an example.
+ `IMPORTANT` Action sheets with `CollectionItem` must modify
+ the item's selection actions to be able to detect item taps
+ in an `ActionSheetCollectionItem` since the collection item
+ has no reference to the sheet. Check out the demo app for a
+ way to do this.
  */
 open class CollectionItem: MenuItem {
     
