@@ -17,14 +17,16 @@ open class ActionSheetCollectionItemCellHandler: NSObject, UICollectionViewDataS
     
     // MARK: - Initialization
     
-    public init(item: CollectionItem) {
+    public init(item: CollectionItem, tableView: UITableView) {
         self.item = item
+        self.tableView = tableView
     }
     
     
     // MARK: - Properties
     
     public let item: CollectionItem
+    public unowned var tableView: UITableView?
     
     
     // MARK: - UICollectionViewDataSource
@@ -48,6 +50,7 @@ open class ActionSheetCollectionItemCellHandler: NSObject, UICollectionViewDataS
         let cell = collectionView.cellForItem(at: indexPath)
         guard let typedCell = cell as? CollectionItemType else { return }
         item.itemSelectionAction(typedCell, indexPath.row)
+        tableView?.reloadData()
     }
     
     

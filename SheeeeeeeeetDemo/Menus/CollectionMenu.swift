@@ -12,11 +12,11 @@ import Sheeeeeeeeet
  This menu contains a collection item, which in this demo is
  rendered as a collection view with selectable views.
  
- `IMPORTANT` Action sheets with `ActionSheetCollectionItem`s
- that are mapped from `CollectionItem`s must adjust the item
- select action, if it wants to be able to listen for taps in
- the collection view. Have a look at `CollectionActionSheet`
- for an easy way to do this.
+ `NOTE` that this menu updates a section title every time an
+ item is selected, applying a subtitle that shows the number
+ of selected items. When the collection item in this menu is
+ later converted to an `ActionSheetCollectionItem`, the item
+ modifies `selectionAction` to also reload the table view.
 */
 class CollectionMenu: FoodMenu {
 

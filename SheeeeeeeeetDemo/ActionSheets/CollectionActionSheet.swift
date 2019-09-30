@@ -36,7 +36,7 @@ class CollectionActionSheet: ActionSheet {
         let selectionAction = collectionItem?.itemSelectionAction
         collectionItem?.itemSelectionAction = { [weak self] cell, index in
             selectionAction?(cell, index)
-            self?.reloadData()
+            //self?.reloadData()
         }
     }
 }

@@ -14,7 +14,7 @@ open class ActionSheetCollectionItemCell: ActionSheetItemCell {
     
     // MARK: - Properties
     
-    private var handler: (UICollectionViewDataSource & UICollectionViewDelegate & UICollectionViewDelegateFlowLayout)?
+    private var handler: ActionSheetCollectionItemCellHandler?
     
     static let itemCellIdentifier = ActionSheetCollectionItemCell.className
     

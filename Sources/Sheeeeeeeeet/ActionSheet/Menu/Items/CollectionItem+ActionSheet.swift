@@ -23,7 +23,7 @@ extension CollectionItem {
         let cell = tableView.dequeueReusableCell(withIdentifier: className)
         guard let typedCell = cell as? ActionSheetCollectionItemCell else { fatalError("CollectionItem.actionSheetCell(for:) has failed to register ActionSheetCollectionItemCell with the target table view.") }
         let nib = UINib(nibName: itemClassName, bundle: nil)
-        let handler = ActionSheetCollectionItemCellHandler(item: self)
+        let handler = ActionSheetCollectionItemCellHandler(item: self, tableView: tableView)
         typedCell.setup(withNib: nib, handler: handler)
         return typedCell
     }
