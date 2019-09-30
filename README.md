@@ -26,6 +26,16 @@ Sheeeeeeeeet helps you create menus that can be used as context menus and action
 Sheeeeeeeeet action sheets can be styled to look just like a `UIAlertController` or completely different. You can also customize how they are presented and dismissed.
 
 
+
+--- 
+
+## **Sheeeeeeeeet 3 migration guide**
+
+Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide](Migration-Guide) for help.
+
+---
+
+
 ## Installation
 
 ### <a name="spm"></a>Swift Package Manager
@@ -99,7 +109,7 @@ The action sheets can be extensively styled. For a complete guide, [see this gui
 The menu can be added as an iOS 13 context menu to any view (provided that its items can either be ignored by the context menu or converted to `UIAction`s):
 
 ```swift
-let delegate = view.addContextMenu(menu, action: ...)
+let delegate = menu.addAsContextMenu(to: view, action: ...)
 ```
 
 You must retain this delegate, otherwise the context menu will stop working when the delegate is disposed.
@@ -107,7 +117,7 @@ You must retain this delegate, otherwise the context menu will stop working when
 If the view implements `ContextMenuDelegateRetainer`, you can use an auto-retaining version of the function:
 
 ```swift
-view.addRetainedContextMenu(menu, action: ...)
+menu.addAsRetainedContextMenu(to: view, action: ...)
 ```
 
 The view will then automatically retain the delegate and release it when it's disposed.
@@ -124,7 +134,7 @@ let delegate = menu.presentAsAlertController(in: self, from: view, action: ...)
 
 ## <a name="advanced-example"></a>Advanced example
 
-When you have the basics under control, check out [this advanced example][AdvancedExample] to see how you can take things further.
+When you have the basics under control, check out [this advanced example][Advanced-Example] to see how you can take things further.
 
 
 ## Demo App
@@ -149,10 +159,11 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [Carthage]: https://github.com/Carthage
 [CocoaPods]: http://cocoapods.org
 [GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet
+[License]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/LICENSE
 [Pod]: http://cocoapods.org/pods/Sheeeeeeeeet
 [SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
 
-[License]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/LICENSE
+[Advanced-Example]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md
 [Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
 [Item-Types]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Item-Types.md
-[AdvancedExample]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md
+[Migration-Guide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Migration-Guide.md
