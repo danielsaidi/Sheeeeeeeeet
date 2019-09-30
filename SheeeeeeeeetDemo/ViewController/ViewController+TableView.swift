@@ -58,7 +58,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tryOpeningActionSheet(at indexPath: IndexPath, from cell: UITableViewCell) {
-        let menu = self.foodMenu(at: indexPath)!
+        //let menu = self.foodMenu(at: indexPath)!
         //_ = menu.presentAsAlertController(in: self, from: cell) { (item) in print(item.title)}
         guard let sheet = actionSheet(at: indexPath) else { return }
         sheet.presenter.events.didDismissWithBackgroundTap = { print("Background tap!") }

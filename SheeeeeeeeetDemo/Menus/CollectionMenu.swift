@@ -39,6 +39,7 @@ class CollectionMenu: FoodMenu {
 private extension CollectionMenu {
     
     static func menuItems(for collectionItems: [Cell.Item]) -> [MenuItem] {
+        
         let title = SectionTitle(title: "Select items", subtitle: "")
         
         let setupAction = { (cell: CollectionItemType, index: Int) in
@@ -52,6 +53,9 @@ private extension CollectionMenu {
             let item = collectionItems[index]
             item.isSelected = !item.isSelected
             cell.configureWith(item: item)
+            
+            let selectedCount = collectionItems.filter { $0.isSelected }.count
+            title.subtitle = "Selected items: \(selectedCount)"
         }
         
         let collectionItem = CollectionItem(

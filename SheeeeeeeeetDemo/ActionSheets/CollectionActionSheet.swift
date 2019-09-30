@@ -36,8 +36,6 @@ class CollectionActionSheet: ActionSheet {
         let selectionAction = collectionItem?.itemSelectionAction
         collectionItem?.itemSelectionAction = { [weak self] cell, index in
             selectionAction?(cell, index)
-            let selectedCount = menu.collectionItems.filter { $0.isSelected }.count
-            sectionTitle?.subtitle = "Selected items: \(selectedCount)"
             self?.reloadData()
         }
     }
