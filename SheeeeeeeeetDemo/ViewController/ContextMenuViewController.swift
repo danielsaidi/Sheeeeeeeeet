@@ -25,7 +25,7 @@ class ContextMenuViewController: ViewController {
         view.layer.cornerRadius = 10
         guard #available(iOS 13.0, *) else { return }
         let menu = ItemMenu(food: foodOptions)
-        delegate = view.addContextMenu(menu) { item in
+        delegate = menu.addAsContextMenu(to: view, previewProvider: { Preview() }) { item in
             print(item.title)
         }
     }
@@ -37,5 +37,15 @@ class ContextMenuViewController: ViewController {
         } else {
             label.text = "Context menus only work in iOS 13 :("
         }
+    }
+}
+
+
+private class Preview: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .systemGreen
+        preferredContentSize = CGSize(width: 100, height: 100)
     }
 }

@@ -20,9 +20,12 @@ public extension Menu {
     If the menu can't be represented as a context menu, the
     app will crash when it tries to create the context menu.
     */
-    func addAsContextMenu(to view: UIView, action: @escaping (MenuItem) -> ()) -> ContextMenuDelegate {
+    func addAsContextMenu(
+        to view: UIView,
+        previewProvider: UIContextMenuContentPreviewProvider? = nil,
+        action: @escaping (MenuItem) -> ()) -> ContextMenuDelegate {
         view.isUserInteractionEnabled = true
-        let delegate = ContextMenuDelegate(menu: self, action: action)
+        let delegate = ContextMenuDelegate(menu: self, previewProvider: previewProvider, action: action)
         let interaction = UIContextMenuInteraction(delegate: delegate)
         view.addInteraction(interaction)
         return delegate
@@ -37,8 +40,11 @@ public extension Menu {
      If the menu can't be represented as a context menu, the
      app will crash when it tries to create the context menu.
     */
-    func addAsRetainedContextMenu(to view: UIView & ContextMenuDelegateRetainer, action: @escaping (MenuItem) -> ()) {
-        let delegate = addAsContextMenu(to: view, action: action)
+    func addAsRetainedContextMenu(
+        to view: UIView & ContextMenuDelegateRetainer,
+        previewProvider: UIContextMenuContentPreviewProvider? = nil,
+        action: @escaping (MenuItem) -> ()) {
+        let delegate = addAsContextMenu(to: view, previewProvider: previewProvider, action: action)
         view.contextMenuDelegate = delegate
     }
 

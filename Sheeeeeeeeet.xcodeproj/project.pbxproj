@@ -13,7 +13,6 @@
 		1D42891F20400580005D4369 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		453C04321FC0655D0028FA02 /* Sheeeeeeeeet.h in Headers */ = {isa = PBXBuildFile; fileRef = 453C04241FC0655C0028FA02 /* Sheeeeeeeeet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		84058051233BA01C008BC497 /* ContextMenuDelegateRetainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */; };
-		84058053233BA9DE008BC497 /* UIView+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */; };
 		84058055233BFE20008BC497 /* ViewController+Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058054233BFE20008BC497 /* ViewController+Menus.swift */; };
 		84058067233C022F008BC497 /* MenuItem+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058064233C022F008BC497 /* MenuItem+AlertController.swift */; };
 		84058068233C022F008BC497 /* AlertControllerConversionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84058065233C022F008BC497 /* AlertControllerConversionError.swift */; };
@@ -180,7 +179,6 @@
 		459DA1BF2056C14A00644490 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		459DA1C22056C15600644490 /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = Fastlane/Fastfile; sourceTree = "<group>"; };
 		84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegateRetainer.swift; sourceTree = "<group>"; };
-		84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ContextMenu.swift"; sourceTree = "<group>"; };
 		84058054233BFE20008BC497 /* ViewController+Menus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Menus.swift"; sourceTree = "<group>"; };
 		84058064233C022F008BC497 /* MenuItem+AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MenuItem+AlertController.swift"; sourceTree = "<group>"; };
 		84058065233C022F008BC497 /* AlertControllerConversionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerConversionError.swift; sourceTree = "<group>"; };
@@ -412,7 +410,6 @@
 				84058050233BA01C008BC497 /* ContextMenuDelegateRetainer.swift */,
 				844B94F0233ABA6E008C8F7E /* Menu+ContextMenu.swift */,
 				844B94F4233AC2F3008C8F7E /* MenuItem+ContextMenu.swift */,
-				84058052233BA9DE008BC497 /* UIView+ContextMenu.swift */,
 			);
 			path = ContextMenu;
 			sourceTree = "<group>";
@@ -1009,7 +1006,6 @@
 				844B94F7233AC669008C8F7E /* ContextMenuDelegate.swift in Sources */,
 				84123FF623340F0A00283044 /* MenuConfiguration.swift in Sources */,
 				84BECD66233A7254004BFAFB /* CustomItem+ActionSheet.swift in Sources */,
-				84058053233BA9DE008BC497 /* UIView+ContextMenu.swift in Sources */,
 				84BD8AAB2302BC8C0020610B /* ActionSheetHeaderContainerView.swift in Sources */,
 				84BD8A9E2302BC8C0020610B /* ActionSheetTitleCell.swift in Sources */,
 				84BD8A952302BC8C0020610B /* UIViewController+RootViewController.swift in Sources */,

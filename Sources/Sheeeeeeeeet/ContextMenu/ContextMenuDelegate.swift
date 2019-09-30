@@ -19,20 +19,21 @@ import UIKit
 @available(iOS 13.0, *)
 public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     
-    init(menu: Menu, action: @escaping (MenuItem) -> ()) {
+    init(
+        menu: Menu,
+        previewProvider: UIContextMenuContentPreviewProvider? = nil,
+        action: @escaping (MenuItem) -> ()) {
         self.menu = menu
         self.action = action
-    }
-    
-    deinit {
-        print("deinit")
+        self.previewProvider = previewProvider
     }
     
     let menu: Menu
     let action: (MenuItem) -> ()
+    let previewProvider: UIContextMenuContentPreviewProvider?
     
     public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
-        UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { [weak self] suggestedActions in
+        UIContextMenuConfiguration(identifier: nil, previewProvider: previewProvider, actionProvider: { [weak self] suggestedActions in
             guard let self = self else { fatalError("ContextMenuDelegate was deallocated") }
             switch self.menu.toContextMenu(action: self.action) {
             case .failure(let error): fatalError(error.localizedDescription)
