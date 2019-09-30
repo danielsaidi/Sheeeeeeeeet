@@ -62,12 +62,7 @@ github "danielsaidi/Sheeeeeeeeet"
 To manually add `Sheeeeeeeeet` to your app, clone this repository, add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
-## <a name="item-types"></a>Menu items
-
-Sheeeeeeeeet comes with many built-in menu item types, e.g. regular and selectable items, links, buttons, titles, collections, custom items etc. You find a complete list, [here][Item-Types].
-
-
-## <a name="basic-example"></a>Basic example
+## <a name="basic-example"></a>Creating a menu
 
 With Sheeeeeeeeet, you start off by creating a menu, like this:
 
@@ -79,57 +74,39 @@ let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
+There are many built-in menu item types, e.g. regular and selectable items, links, buttons, titles, collections, custom items etc. You find a complete list, [here][Item-Types].
+
 ### Present the menu as an action sheet
 
-If you don't need to configure the action sheet, you can present it directly from the menu:
+You can present the menu as a custom action sheet or use it to create an action sheet, which you can then configure in any way you want, for instance:
 
 ```swift
-let sheet = menu.presentAsActionSheet(in: vc, from: view, completion: ...)   // or
-let sheet = menu.presentAsActionSheet(in: vc, from: barButtonItem, completion: ...)
+menu.presentAsActionSheet(in: vc, from: view, action: ...)
 ```
 
-If you need to configure the action sheet, you can create an action sheet instance with the menu:
-
-```swift
-let sheet = ActionSheet(menu: menu) { sheet, item in
-    if let value = item.value as? Int { print("You selected an int: \(value)") }
-    if let value = item.value as? Car { print("You selected a car") }
-    if item is OkButton { print("You tapped the OK button") }
-}
-// Configure your action sheet here
-sheet.present(in: vc, from: view, completion: ...)   // or
-sheet.present(in: vc, from: barButtonItem, completion: ...)
-```
-
-The action sheets can be extensively styled. For a complete guide, [see this guide][Appearance] or have a look at the demo app.
+You can find more information and options in [this action sheet guide](Action-Sheets). You can also read more about styling the sheets in [this appearance and styling guide][Appearance].
 
 
 ### Add the menu as a context menu
 
-The menu can be added as an iOS 13 context menu to any view (provided that its items can either be ignored by the context menu or converted to `UIAction`s):
+You can also add the menu as an iOS 13 context menu to any view you like, for instance:
 
 ```swift
 let delegate = menu.addAsContextMenu(to: view, action: ...)
 ```
 
-You must retain this delegate, otherwise the context menu will stop working when the delegate is disposed.
-
-If the view implements `ContextMenuDelegateRetainer`, you can use an auto-retaining version of the function:
-
-```swift
-menu.addAsRetainedContextMenu(to: view, action: ...)
-```
-
-The view will then automatically retain the delegate and release it when it's disposed.
+You can find more information in [this context menu guide](Context-Menus).
 
 
 ### Present the menu as an alert controller
 
-The menu can be presented as a `UIAlertController` (provided that its items can either be ignored by the controller or converted to `UIAlertAction`s):
+You can also present the menu as a `UIAlertController`, for instance:
 
 ```swift
 let delegate = menu.presentAsAlertController(in: self, from: view, action: ...)
 ```
+
+You can find more information in [this alert controller guide](Alert-Controllers).
 
 
 ## <a name="advanced-example"></a>Advanced example
@@ -163,7 +140,9 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [Pod]: http://cocoapods.org/pods/Sheeeeeeeeet
 [SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
 
+[Action-Sheets]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Action-Sheets.md
 [Advanced-Example]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md
 [Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
+[Context-Menus]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Context-Menus.md
 [Item-Types]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Item-Types.md
 [Migration-Guide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Migration-Guide.md
