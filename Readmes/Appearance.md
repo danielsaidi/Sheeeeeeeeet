@@ -1,5 +1,3 @@
-[← Back](GitHub)
-
 # Appearance
 
 Sheeeeeeeeet's action sheets are very customizable and let you change the appearance of their views and items, e.g. heights, fonts, colors etc.
@@ -63,5 +61,4 @@ ActionSheetSectionMarginCell.appearance().height = 30
 `NOTE` since the cell height is not applied like other appearance properties, it's not inherited. You must therefore customize each cell type individually.
 
 
-[GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet
 [AdvancedExample]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md

@@ -1,5 +1,3 @@
-[← Back](GitHub)
-
 # Use `Menu` as context menu
 
 When you have a `Menu`, you can add it as an iOS 13 context menu to any view (provided that its items can either be ignored by the context menu or converted to `UIAction`s):

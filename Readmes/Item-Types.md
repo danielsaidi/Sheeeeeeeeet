@@ -1,5 +1,3 @@
-[← Back](GitHub)
-
 # Menu Items
 
 With Sheeeeeeeeet, you can create `Menu`s that can be used in various ways, e.g. in iOS 13 context menus, custom and native action sheets.
@@ -55,5 +53,3 @@ You can add title items anywhere, although some presentations may ignore them. C
 `ActionSheet` has a `headerView` property, which will be displayed as a floating header above the action sheet. You can use any view as a header view.
 
 `ActionSheet` also has a `headerViewConfiguration` with which you can setup how the header view should behave in various scenarios e.g. in landscape, popovers etc.
-
-[Back]: https://github.com/danielsaidi/Sheeeeeeeeet

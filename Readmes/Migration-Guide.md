@@ -1,5 +1,3 @@
-[← Back](GitHub)
-
 # Migration Guide
 
 Sheeeeeeeeet 3 adds a `Menu` model that lets you create menus that you can use in many different ways, e.g. in action sheets, iOS 13 context menus, alert controllers etc.
@@ -145,6 +143,3 @@ As you can see, you do not modify the menu, but rather the *items* in the menu.
 ## Still confused?
 
 If you still think that the menu focus is strange, or if you struggle with something, please reach out and tell me about your issues and I'll do my best to help.
-
-
-[GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet

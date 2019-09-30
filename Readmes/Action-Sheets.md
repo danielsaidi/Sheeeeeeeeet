@@ -1,5 +1,3 @@
-[← Back](GitHub)
-
 # Present `Menu` as `ActionSheet`
 
 When you have a `Menu`, you can present it as a custom action sheet:

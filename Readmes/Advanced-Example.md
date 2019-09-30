@@ -1,5 +1,3 @@
-[← Back](GitHub)
-
 # Advanced Example
 
 Here is a more advanced example than the basic one in the [main readme][BasicExample]. For more info about appearance and styling [read more here][Appearance] or check out the demo app.
@@ -276,5 +274,4 @@ You can now customize your time items by modifying `TimeItemCell.appearance()`:
 TimeItemCell.appearance().titleColor = .purple
 ```
 
-[GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet
-[BasicExample]: https://github.com/danielsaidi/Sheeeeeeeeet#basic-example
+[BasicExample]: https://github.com/danielsaidi/Sheeeeeeeeet

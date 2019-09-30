@@ -29,9 +29,9 @@ Sheeeeeeeeet action sheets can be styled to look just like a `UIAlertController`
 
 --- 
 
-## **Sheeeeeeeeet 3 migration guide**
+## <a name="migration-guide"></a>**Sheeeeeeeeet 3 migration guide**
 
-Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide](Migration-Guide) for help.
+Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide][Migration-Guide] for help.
 
 ---
 
@@ -74,7 +74,7 @@ let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-There are many built-in menu item types, e.g. regular and selectable items, links, buttons, titles, collections, custom items etc. You find a complete list, [here][Item-Types].
+There are many built-in menu item types, e.g. regular and selectable items, links, buttons, titles, collections, custom items etc. You find a complete list in [this item guide][Item-Types].
 
 ### Present the menu as an action sheet
 
@@ -84,7 +84,7 @@ You can present the menu as a custom action sheet or use it to create an action 
 menu.presentAsActionSheet(in: vc, from: view, action: ...)
 ```
 
-You can find more information and options in [this action sheet guide](Action-Sheets). You can also read more about styling the sheets in [this appearance and styling guide][Appearance].
+You can find more information and options in [this action sheet guide][Action-Sheets]. You can also read more about styling the sheets in [this appearance and styling guide][Appearance].
 
 
 ### Add the menu as a context menu
@@ -95,7 +95,7 @@ You can also add the menu as an iOS 13 context menu to any view you like, for in
 let delegate = menu.addAsContextMenu(to: view, action: ...)
 ```
 
-You can find more information in [this context menu guide](Context-Menus).
+You can find more information in [this context menu guide][Context-Menus].
 
 
 ### Present the menu as an alert controller
@@ -106,7 +106,7 @@ You can also present the menu as a `UIAlertController`, for instance:
 let delegate = menu.presentAsAlertController(in: self, from: view, action: ...)
 ```
 
-You can find more information in [this alert controller guide](Alert-Controllers).
+You can find more information in [this alert controller guide][Alert-Controllers].
 
 
 ## <a name="advanced-example"></a>Advanced example
@@ -123,15 +123,18 @@ This repo contains a demo app that demonstrates different types of menus and use
 
 Feel free to reach out if you have questions or if you want to contribute in any way:
 
-* E-mail: [daniel.saidi@gmail.com](mailto:daniel.saidi@gmail.com)
-* Twitter: [@danielsaidi](http://www.twitter.com/danielsaidi)
-* Web site: [danielsaidi.com](http://www.danielsaidi.com)
+* E-mail: [daniel.saidi@gmail.com][Email]
+* Twitter: [@danielsaidi][Twitter]
+* Web site: [danielsaidi.com][Website]
 
 
 ## License
 
 Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
+[Email]: mailto:daniel.saidi@gmail.co
+[Twitter]: http://www.twitter.com/danielsaidi
+[Website]: http://www.danielsaidi.com
 
 [Carthage]: https://github.com/Carthage
 [CocoaPods]: http://cocoapods.org
