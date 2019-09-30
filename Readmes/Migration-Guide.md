@@ -1,4 +1,4 @@
-[← Back][GitHub]
+[← Back](GitHub)
 
 # Migration Guide
 

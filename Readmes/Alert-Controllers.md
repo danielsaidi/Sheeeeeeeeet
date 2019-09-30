@@ -1,6 +1,6 @@
-[← Back][GitHub]
+[← Back](GitHub)
 
-# Present `Menu`s as alert controllers
+# Present `Menu` as alert controller
 
 When you have a `Menu`, you can presentit as a `UIAlertController` (provided that its items can either be ignored by the controller or converted to `UIAlertAction`s):
 
