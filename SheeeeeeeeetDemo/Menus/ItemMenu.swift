@@ -16,7 +16,6 @@ class ItemMenu: FoodMenu {
 
     init(food: [FoodOption], configuration: Configuration = .standard) {
         var items = food.map { $0.toMenuItem() }
-        items.append(DestructiveButton(title: "Remove"))
         items.append(FoodMenu.cancelButton)
         super.init(items: items, configuration: configuration)
     }

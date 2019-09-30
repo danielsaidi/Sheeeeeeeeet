@@ -11,6 +11,10 @@ import Sheeeeeeeeet
 /**
  This action sheet takes a `CollectionMenu` and modifies its
  select action to fit the collection view.
+ 
+ The only reason to why the demo has a separate action sheet
+ for the collection-based example is that is has a different
+ select action signature.
  */
 class CollectionActionSheet: ActionSheet {
     

@@ -54,8 +54,8 @@ public extension Menu {
         let items = self.items.filter { !$0.shouldBeIgnoredByContextMenu }
         let actionResults = items.map { $0.toContextMenuAction(action: action) }
         let actions = actionResults.compactMap { try? $0.get() }
-        let isError = items.count > actions.count
-        if isError { return .failure(ContextMenuConversionError.unsupportedItemTypes) }
+        let hasUnsupportedTypes = items.count > actions.count
+        if hasUnsupportedTypes { return .failure(.unsupportedItemTypes) }
         let result = UIMenu(title: title ?? "", children: actions)
         return .success(result)
     }

@@ -473,9 +473,10 @@
 			isa = PBXGroup;
 			children = (
 				84BD8A502302BC8C0020610B /* ActionSheet */,
+				84058057233C0181008BC497 /* AlertController */,
+				844B94EF233ABA5E008C8F7E /* ContextMenu */,
 				84A878822331FB8F00045F0A /* Extensions */,
 				84BE53BF2331432E009DDFC6 /* Menu */,
-				84C621C7233CA51D00FACCE7 /* Native */,
 			);
 			path = Sheeeeeeeeet;
 			sourceTree = "<group>";
@@ -791,15 +792,6 @@
 				84C199F1230ADBD8000FFB05 /* ActionSheetMenuOption.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		84C621C7233CA51D00FACCE7 /* Native */ = {
-			isa = PBXGroup;
-			children = (
-				84058057233C0181008BC497 /* AlertController */,
-				844B94EF233ABA5E008C8F7E /* ContextMenu */,
-			);
-			path = Native;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

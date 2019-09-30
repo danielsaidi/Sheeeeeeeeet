@@ -10,7 +10,7 @@ import UIKit
 
 /**
  This class is created whenever a view applies a `Menu` as a
- context menu.
+ context menu. It must be retained by the caller.
  
  If the context menu trigger view can't retain this delegate,
  you must keep a strong reference to it. If it's deallocated,
