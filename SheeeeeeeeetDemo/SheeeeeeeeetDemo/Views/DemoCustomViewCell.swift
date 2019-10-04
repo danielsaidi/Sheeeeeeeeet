@@ -7,6 +7,8 @@
 //
 
 import Sheeeeeeeeet
+import CoreGraphics
+import UIKit
 
 /**
  This cell is used by the `CustomMenu` to resolve a view for

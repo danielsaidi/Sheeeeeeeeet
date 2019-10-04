@@ -22,7 +22,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 guard #available(iOS 13.0, *) else { return }
                 let view = UIView()
                 let menu = Menu(title: "title", items: [])
-                _ = menu.addAsContextMenu(to: view) { (item) in }
+                _ = menu.addAsContextMenu(to: view) { _ in }
                 expect(view.isUserInteractionEnabled).to(beTrue())
             }
             
@@ -30,7 +30,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 guard #available(iOS 13.0, *) else { return }
                 let view = TestView()
                 let menu = Menu(title: "title", items: [])
-                _ = menu.addAsContextMenu(to: view) { (item) in }
+                _ = menu.addAsContextMenu(to: view) { _ in }
                 let exec = view.recorder.executions(of: view.addInteraction)
                 expect(exec.count).to(equal(1))
             }
@@ -40,7 +40,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 var count = 0
                 let view = UIView()
                 let menu = Menu(title: "title", items: [])
-                let delegate = menu.addAsContextMenu(to: view) { (item) in count += 1 }
+                let delegate = menu.addAsContextMenu(to: view) { _ in count += 1 }
                 expect(delegate.menu).to(be(menu))
                 delegate.action(MenuItem(title: ""))
                 expect(count).to(equal(1))
@@ -54,7 +54,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 var count = 0
                 let view = TestView()
                 let menu = Menu(title: "title", items: [])
-                menu.addAsRetainedContextMenu(to: view) { (item) in count += 1 }
+                menu.addAsRetainedContextMenu(to: view) { _ in count += 1 }
                 let delegate = view.contextMenuDelegate!
                 expect(delegate.menu).to(be(menu))
                 delegate.action(MenuItem(title: ""))

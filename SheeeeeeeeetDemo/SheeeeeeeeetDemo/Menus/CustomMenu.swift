@@ -7,6 +7,7 @@
 //
 
 import Sheeeeeeeeet
+import UIKit
 
 /**
  This menu contains a custom item, which in this demo app is

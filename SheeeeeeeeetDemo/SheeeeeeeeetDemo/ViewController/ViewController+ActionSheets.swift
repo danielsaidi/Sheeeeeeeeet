@@ -6,6 +6,7 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
+import Foundation
 import Sheeeeeeeeet
 
 extension ViewController {

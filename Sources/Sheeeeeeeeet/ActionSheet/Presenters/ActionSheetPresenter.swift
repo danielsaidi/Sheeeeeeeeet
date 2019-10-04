@@ -21,9 +21,9 @@ public protocol ActionSheetPresenter: AnyObject {
     var events: ActionSheetPresenterEvents { get set }
     var isDismissable: Bool { get set }
     
-    func dismiss(completion: @escaping () -> ())
-    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ())
-    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ())
+    func dismiss(completion: @escaping () -> Void)
+    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> Void)
+    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> Void)
     func refreshActionSheet()
 }
 
@@ -36,5 +36,5 @@ public struct ActionSheetPresenterEvents {
     
     public init() {}
     
-    public var didDismissWithBackgroundTap: (() -> ())?
+    public var didDismissWithBackgroundTap: (() -> Void)?
 }
