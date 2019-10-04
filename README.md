@@ -40,7 +40,7 @@ Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model
 
 ### <a name="spm"></a>Swift Package Manager
 
-The easiest way to add Sheeeeeeeeet to your project is to use SPM in Xcode 11:
+The easiest way to add Sheeeeeeeeet to your project in Xcode 11 is to use Swift Package Manager:
 ```
 https://github.com/danielsaidi/Sheeeeeeeeet.git
 ```
@@ -132,7 +132,8 @@ Feel free to reach out if you have questions or if you want to contribute in any
 
 Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 
-[Email]: mailto:daniel.saidi@gmail.co
+
+[Email]: mailto:daniel.saidi@gmail.com
 [Twitter]: http://www.twitter.com/danielsaidi
 [Website]: http://www.danielsaidi.com
 
