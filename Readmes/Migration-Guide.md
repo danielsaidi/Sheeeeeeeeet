@@ -95,7 +95,7 @@ private extension User {
 }
 ```
 
-* If you want to use another select action signature than `(sheet, item) -> Void`, you can let your `toCustomActionSheet` function use another signature.
+* If you want to use another select action signature than `(sheet, item`, you can let your `toCustomActionSheet` function use another signature.
 
 * You can also create your own `ActionSheet` subclasses for even more control.
 

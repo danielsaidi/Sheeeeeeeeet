@@ -11,10 +11,12 @@ import Nimble
 import UIKit
 @testable import Sheeeeeeeeet
 
-@available(iOS 13.0, *)
 class MenuItem_ContextMenuTests: QuickSpec {
     
     override func spec() {
+        
+        // Available attribute on class doesn't work
+        guard #available(iOS 13.0, *) else { return }
         
         func getCollectionItem() -> CollectionItem {
             CollectionItem(itemType: TestCollectionItemType.self, itemCount: 0, itemSetupAction: { _, _ in }, itemSelectionAction: { _, _ in })
