@@ -116,7 +116,9 @@ When you have the basics under control, check out [this advanced example][Advanc
 
 ## Demo App
 
-This repo contains a demo app that demonstrates different types of menus and use cases (present menus as action sheet and context menu etc.), as well as how to handle subclassing, appearances etc.
+This repository contains a demo app that demonstrates different types of menu and menu items. It lets you present menus as action sheets and context menus and also shows you how to create menu and menu item subclasses, how to customize menu appearances etc.
+
+To test the demo app, just open and run the `Sheeeeeeeeet.xcodeproj` Xcode project.
 
 
 ## Contact me
