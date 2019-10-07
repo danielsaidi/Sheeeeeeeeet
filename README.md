@@ -59,7 +59,7 @@ github "danielsaidi/Sheeeeeeeeet"
 
 ### <a name="manual-installation"></a>Manual installation
 
-To manually add `Sheeeeeeeeet` to your app, clone this repository, add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
+To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository, add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
 ## <a name="basic-example"></a>Creating a menu
