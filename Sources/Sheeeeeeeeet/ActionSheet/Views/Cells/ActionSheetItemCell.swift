@@ -66,6 +66,7 @@ open class ActionSheetItemCell: UITableViewCell {
     @objc public dynamic var titleFont: UIFont?
     @objc public dynamic var subtitleColor: UIColor?
     @objc public dynamic var subtitleFont: UIFont?
+    @objc public dynamic var itemTextAlignment : NSTextAlignment = .left
     
     
     // MARK: - Private Properties
@@ -88,11 +89,12 @@ open class ActionSheetItemCell: UITableViewCell {
         selectionStyle = item.tapBehavior == .none ? .none : .default
         textLabel?.font = titleFont
         textLabel?.text = item.title
-        textLabel?.textAlignment = .left
+        textLabel?.textAlignment = itemTextAlignment
         textLabel?.textColor = titleColor
         detailTextLabel?.font = subtitleFont
         detailTextLabel?.text = item.subtitle
         detailTextLabel?.textColor = subtitleColor
+        detailTextLabel?.textAlignment = itemTextAlignment
     }
     
     func refresh(with item: MenuItem) {
