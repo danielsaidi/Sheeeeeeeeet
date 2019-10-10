@@ -3,9 +3,9 @@
 
 ## 3.0.2
 
-This version adjusts the popover height calculations to include the height of a visible header.
+This version adjusts the popover height calculations to include the height of a visible header. This solves the problem where the popover content would always scroll when a header was used.
 
-The version also adjusts the item height calculation logic, so that you no longer have to register a height for each item.
+The version also adjusts the item height calculations, so that you no longer have to register a height for each item. This solves the problem with all items getting a zero size by default. Now, `height` is recursively resolved to the closest parent height if you haven't overridden `appearance().height` for your custom item.
 
 
 ## 3.0.1
