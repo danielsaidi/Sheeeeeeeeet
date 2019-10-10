@@ -1,6 +1,13 @@
 # Release Notes
 
 
+## 3.0.2
+
+This version adjusts the popover height calculations to include the height of a visible header.
+
+The version also adjusts the item height calculation logic, so that you no longer have to register a height for each item.
+
+
 ## 3.0.1
 
 This version adjusts the subtitle style to use `subtitle` instead of `value1`.
