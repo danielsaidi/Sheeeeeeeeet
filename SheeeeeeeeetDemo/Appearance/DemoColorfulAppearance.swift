@@ -30,6 +30,7 @@ class DemoColorfulAppearance: DemoAppearance {
         super.applyColors()
         background.backgroundColor = UIColor.purple.withAlphaComponent(0.4)
         item.subtitleColor = .blue
+        link.height = 100
         selectItem.selectedTintColor = .blue
         selectItem.selectedTitleColor = .green
         selectItem.selectedIconColor = .purple

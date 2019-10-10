@@ -11,7 +11,7 @@ import UIKit
 extension CancelButton {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetCancelButtonCell(style: preferredActionSheetCellStyle)
+        ActionSheetCancelButtonCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

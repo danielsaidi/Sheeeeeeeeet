@@ -112,25 +112,9 @@ open class ActionSheetAppearance {
      Apply action sheet item cell heights.
      */
     open func applyHeights() {
-        let standard = 50.0
-        let title = 25.0
-        ActionSheetItemCell.appearance().height = standard
-        ActionSheetButtonCell.appearance().height = standard
-        
-        ActionSheetCancelButtonCell.appearance().height = standard
-        ActionSheetDangerButtonCell.appearance().height = standard
-        ActionSheetOkButtonCell.appearance().height = standard
-        
-        ActionSheetCollectionItemCell.appearance().height = standard
-        ActionSheetLinkItemCell.appearance().height = standard
-        ActionSheetMultiSelectItemCell.appearance().height = standard
-        ActionSheetMultiSelectToggleItemCell.appearance().height = standard
-        ActionSheetSelectItemCell.appearance().height = standard
-        ActionSheetSingleSelectItemCell.appearance().height = standard
-        
-        ActionSheetTitleCell.appearance().height = standard
-        ActionSheetSectionTitleCell.appearance().height = title
-        ActionSheetSectionMarginCell.appearance().height = title
+        ActionSheetItemCell.appearance().height = 50
+        ActionSheetSectionTitleCell.appearance().height = 25
+        ActionSheetSectionMarginCell.appearance().height = 20
     }
     
     /**

@@ -11,7 +11,7 @@ import UIKit
 extension OkButton {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetOkButtonCell(style: preferredActionSheetCellStyle)
+        ActionSheetOkButtonCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

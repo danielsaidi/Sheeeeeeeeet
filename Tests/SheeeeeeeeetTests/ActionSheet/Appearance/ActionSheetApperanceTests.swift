@@ -99,26 +99,47 @@ class ActionSheetApperanceTests: QuickSpec {
             }
             
             it("applies heights") {
+                expect(ActionSheetItemCell.appearance().height).to(equal(50))
+                expect(ActionSheetButtonCell.appearance().height).to(equal(0))
+                
+                expect(ActionSheetCancelButtonCell.appearance().height).to(equal(0))
+                expect(ActionSheetDangerButtonCell.appearance().height).to(equal(0))
+                expect(ActionSheetOkButtonCell.appearance().height).to(equal(0))
+                
+                expect(ActionSheetCollectionItemCell.appearance().height).to(equal(0))
+                
+                expect(ActionSheetLinkItemCell.appearance().height).to(equal(0))
+                expect(ActionSheetMultiSelectItemCell.appearance().height).to(equal(0))
+                expect(ActionSheetMultiSelectToggleItemCell.appearance().height).to(equal(0))
+                expect(ActionSheetSelectItemCell.appearance().height).to(equal(0))
+                expect(ActionSheetSingleSelectItemCell.appearance().height).to(equal(0))
+                
+                expect(ActionSheetTitleCell.appearance().height).to(equal(0))
+                expect(ActionSheetSectionTitleCell.appearance().height).to(equal(25))
+                expect(ActionSheetSectionMarginCell.appearance().height).to(equal(20))
+            }
+            
+            it("can resolve heights recursively") {
                 let standard = 50.0
-                let title = 25.0
                 
-                expect(ActionSheetItemCell.appearance().height).to(equal(standard))
-                expect(ActionSheetButtonCell.appearance().height).to(equal(standard))
+                expect(MenuItem(title: "").actionSheetCellHeight).to(equal(standard))
+                expect(MenuButton(title: "", type: .cancel).actionSheetCellHeight).to(equal(standard))
                 
-                expect(ActionSheetCancelButtonCell.appearance().height).to(equal(standard))
-                expect(ActionSheetDangerButtonCell.appearance().height).to(equal(standard))
-                expect(ActionSheetOkButtonCell.appearance().height).to(equal(standard))
+                expect(CancelButton(title: "").actionSheetCellHeight).to(equal(standard))
+                expect(DestructiveButton(title: "").actionSheetCellHeight).to(equal(standard))
+                expect(OkButton(title: "").actionSheetCellHeight).to(equal(standard))
                 
-                expect(ActionSheetCollectionItemCell.appearance().height).to(equal(standard))
-                expect(ActionSheetLinkItemCell.appearance().height).to(equal(standard))
-                expect(ActionSheetMultiSelectItemCell.appearance().height).to(equal(standard))
-                expect(ActionSheetMultiSelectToggleItemCell.appearance().height).to(equal(standard))
-                expect(ActionSheetSelectItemCell.appearance().height).to(equal(standard))
-                expect(ActionSheetSingleSelectItemCell.appearance().height).to(equal(standard))
+                //expect(CollectionItemCell.actionSheetCellHeight).to(equal(standard))
                 
-                expect(ActionSheetTitleCell.appearance().height).to(equal(standard))
-                expect(ActionSheetSectionTitleCell.appearance().height).to(equal(title))
-                expect(ActionSheetSectionMarginCell.appearance().height).to(equal(title))
+                expect(LinkItem(title: "").actionSheetCellHeight).to(equal(standard))
+                expect(MultiSelectItem(title: "", isSelected: true).actionSheetCellHeight).to(equal(standard))
+                expect(MultiSelectToggleItem(title: "", state: .deselectAll, group: "", selectAllTitle: "", deselectAllTitle: "").actionSheetCellHeight).to(equal(standard))
+                expect(SelectItem(title: "", isSelected: true).actionSheetCellHeight).to(equal(standard))
+                expect(SingleSelectItem(title: "", isSelected: true).actionSheetCellHeight).to(equal(standard))
+                
+                expect(MenuTitle(title: "").actionSheetCellHeight).to(equal(standard))
+                expect(SectionTitle(title: "").actionSheetCellHeight).to(equal(25))
+                expect(SectionMargin().actionSheetCellHeight).to(equal(20))
             }
             
             it("applies icons") {

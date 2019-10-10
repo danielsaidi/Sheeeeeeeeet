@@ -11,7 +11,7 @@ import UIKit
 extension SingleSelectItem {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSingleSelectItemCell(style: preferredActionSheetCellStyle)
+        ActionSheetSingleSelectItemCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

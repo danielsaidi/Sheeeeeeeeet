@@ -11,7 +11,7 @@ import UIKit
 extension SectionMargin {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSectionMarginCell(style: preferredActionSheetCellStyle)
+        ActionSheetSectionMarginCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

@@ -11,7 +11,7 @@ import UIKit
 extension LinkItem {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetLinkItemCell(style: preferredActionSheetCellStyle)
+        ActionSheetLinkItemCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {
