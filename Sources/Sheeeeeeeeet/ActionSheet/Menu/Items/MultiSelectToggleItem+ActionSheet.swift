@@ -11,7 +11,7 @@ import UIKit
 extension MultiSelectToggleItem {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetMultiSelectToggleItemCell(style: preferredActionSheetCellStyle)
+        ActionSheetMultiSelectToggleItemCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

@@ -11,7 +11,7 @@ import UIKit
 extension SectionTitle {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSectionTitleCell(style: preferredActionSheetCellStyle)
+        ActionSheetSectionTitleCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {
