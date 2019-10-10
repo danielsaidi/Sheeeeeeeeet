@@ -19,7 +19,7 @@ class ActionSheetItemCellTests: QuickSpec {
             
             it("refreshes cell") {
                 let item = MenuItem(title: "foo", subtitle: "bar", value: "baz", image: nil)
-                let cell = item.actionSheetCell(for: UITableView())
+                let cell = ActionSheetItemCell(style: .default)
                 cell.refresh(with: item)
                 cell.textLabel?.text = ""
                 cell.didMoveToWindow()
@@ -39,7 +39,7 @@ class ActionSheetItemCellTests: QuickSpec {
             it("refreshes if cell has item reference") {
                 let image = UIImage()
                 let item = MenuItem(title: "foo", subtitle: "bar", value: "baz", image: image)
-                let cell = item.actionSheetCell(for: UITableView())
+                let cell = ActionSheetItemCell(style: .value1)
                 cell.titleColor = .yellow
                 cell.titleFont = .boldSystemFont(ofSize: 1)
                 cell.subtitleColor = .brown

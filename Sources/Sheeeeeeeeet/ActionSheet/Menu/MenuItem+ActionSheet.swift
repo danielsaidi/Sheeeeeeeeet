@@ -11,7 +11,7 @@ import UIKit
 extension MenuItem {
     
     @objc open func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetItemCell(style: .value1)
+        ActionSheetItemCell(style: preferredActionSheetCellStyle)
     }
     
     @objc open var actionSheetCellHeight: Double {
@@ -20,5 +20,10 @@ extension MenuItem {
     
     @objc open var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetItemCell.self
+    }
+    
+    @objc open var preferredActionSheetCellStyle: UITableViewCell.CellStyle {
+        let hasSubtitle = subtitle != nil
+        return hasSubtitle ? .subtitle : .default
     }
 }

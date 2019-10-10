@@ -11,7 +11,7 @@ import UIKit
 extension SelectItem {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSelectItemCell(style: .value1)
+        ActionSheetSelectItemCell(style: preferredActionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

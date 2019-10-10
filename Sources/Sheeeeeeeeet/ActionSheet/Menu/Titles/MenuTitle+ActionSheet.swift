@@ -11,7 +11,7 @@ import UIKit
 extension MenuTitle {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetTitleCell(style: .default)
+        ActionSheetTitleCell(style: preferredActionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

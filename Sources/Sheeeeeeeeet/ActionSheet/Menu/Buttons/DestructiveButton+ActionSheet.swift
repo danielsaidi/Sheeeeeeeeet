@@ -11,7 +11,7 @@ import UIKit
 extension DestructiveButton {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetDangerButtonCell(style: .default)
+        ActionSheetDangerButtonCell(style: preferredActionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {

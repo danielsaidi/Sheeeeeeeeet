@@ -16,16 +16,26 @@ import Sheeeeeeeeet
 extension FoodOption {
     
     func toMenuItem() -> MenuItem {
-        MenuItem(title: displayName, value: self, image: image)
+        MenuItem(
+            title: title,
+            subtitle: subtitle,
+            value: self,
+            image: image
+        )
     }
     
     func toLinkItem() -> LinkItem {
-        LinkItem(title: displayName, value: self, image: image)
+        LinkItem(
+            title: title,
+            subtitle: subtitle,
+            value: self,
+            image: image
+        )
     }
     
     func toMultiSelectItem(isSelected: Bool, group: String = "") -> MultiSelectItem {
         MultiSelectItem(
-            title: displayName,
+            title: title,
             isSelected: isSelected,
             group: group,
             value: self,
@@ -35,7 +45,7 @@ extension FoodOption {
     
     func toSingleSelectItem(isSelected: Bool, group: String = "") -> SingleSelectItem {
         SingleSelectItem(
-            title: displayName,
+            title: title,
             isSelected: isSelected,
             group: group,
             value: self,

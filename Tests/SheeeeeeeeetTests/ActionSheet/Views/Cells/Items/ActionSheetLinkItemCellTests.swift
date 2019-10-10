@@ -18,13 +18,12 @@ class ActionSheetLinkItemCellTests: QuickSpec {
         describe("refreshing") {
             
             it("applies accessory view with link icon") {
-                let item = LinkItem(title: "foo")
-                let cell = item.actionSheetCell(for: UITableView()) as? ActionSheetLinkItemCell
-                cell?.linkIcon = UIImage()
-                cell?.refresh()
-                let imageView = cell?.accessoryView as? UIImageView
+                let cell = ActionSheetLinkItemCell(style: .default)
+                cell.linkIcon = UIImage()
+                cell.refresh()
+                let imageView = cell.accessoryView as? UIImageView
                 expect(imageView?.image).toNot(beNil())
-                expect(imageView?.image).to(be(cell?.linkIcon))
+                expect(imageView?.image).to(be(cell.linkIcon))
             }
         }
     }
