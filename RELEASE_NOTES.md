@@ -1,6 +1,13 @@
 # Release Notes
 
 
+## 3.0.1
+
+This version adjusts the subtitle style to use `subtitle` instead of `value1`.
+
+It also adds a new `preferredActionSheetCellStyle` property to `MenuItem`, which you can override for your custom items.
+
+
 ## 3.0.0
 
 This version separates the menu data model from the custom action sheet implementation, so that you can create menus without caring about how they will be presented.

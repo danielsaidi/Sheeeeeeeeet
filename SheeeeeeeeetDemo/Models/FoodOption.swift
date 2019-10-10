@@ -20,13 +20,20 @@ enum FoodOption: String {
     light,
     none
     
-    var displayName: String {
+    var title: String {
         switch self {
         case .fancy: return "Something fancy"
         case .fast: return "Something fast"
         case .homeMade: return "Something home-made"
         case .light: return "Something light"
         case .none: return "I don't eat"
+        }
+    }
+    
+    var subtitle: String? {
+        switch self {
+        case .fancy: return "Because you're worth it"
+        default: return nil
         }
     }
     

@@ -762,8 +762,8 @@
 		846703AB234A3CF000355331 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */,
 				846703AD234A3CF000355331 /* FoodOption.swift */,
+				846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */,
 				846703AE234A3CF000355331 /* MenuOption.swift */,
 				846703AF234A3CF000355331 /* AppearanceMenuOption.swift */,
 				846703B0234A3CF000355331 /* ActionSheetMenuOption.swift */,

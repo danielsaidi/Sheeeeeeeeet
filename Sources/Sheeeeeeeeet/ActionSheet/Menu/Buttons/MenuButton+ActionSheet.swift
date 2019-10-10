@@ -11,7 +11,7 @@ import UIKit
 extension MenuButton {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetButtonCell(style: .default)
+        ActionSheetButtonCell(style: preferredActionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {
