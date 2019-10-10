@@ -18,8 +18,7 @@ class ActionSheetButtonCellTests: QuickSpec {
         describe("refreshing") {
             
             it("center aligns text label") {
-                let item = MenuButton(title: "foo", type: .ok)
-                let cell = item.actionSheetCell(for: UITableView())
+                let cell = ActionSheetButtonCell()
                 cell.refresh()
                 expect(cell.textLabel?.textAlignment).to(equal(.center))
             }

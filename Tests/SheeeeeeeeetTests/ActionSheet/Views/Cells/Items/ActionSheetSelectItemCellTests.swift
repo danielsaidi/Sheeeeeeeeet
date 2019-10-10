@@ -22,7 +22,7 @@ class ActionSheetSelectItemCellTests: QuickSpec {
             
             beforeEach {
                 item = SelectItem(title: "title", subtitle: "subtitle", isSelected: false)
-                cell = item.actionSheetCell(for: UITableView()) as? ActionSheetSelectItemCell
+                cell = ActionSheetSelectItemCell(style: .value1)
                 cell.tintColor = UIColor.purple.withAlphaComponent(0.1)
                 cell.titleColor = UIColor.yellow.withAlphaComponent(0.1)
                 cell.titleFont = .systemFont(ofSize: 11)
