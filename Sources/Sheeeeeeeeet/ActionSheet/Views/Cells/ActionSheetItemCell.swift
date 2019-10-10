@@ -66,7 +66,7 @@ open class ActionSheetItemCell: UITableViewCell {
     @objc public dynamic var titleFont: UIFont?
     @objc public dynamic var subtitleColor: UIColor?
     @objc public dynamic var subtitleFont: UIFont?
-    @objc public dynamic var itemTextAlignment : NSTextAlignment = .left
+    @objc public dynamic var itemTextAlignment: NSTextAlignment = .left
     
     
     // MARK: - Private Properties
