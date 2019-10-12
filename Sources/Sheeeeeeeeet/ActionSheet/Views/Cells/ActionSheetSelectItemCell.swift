@@ -62,6 +62,7 @@ private extension ActionSheetSelectItemCell {
     }
     
     func applySubtitleColor(for item: SelectItem) {
+        guard item.isEnabled else { return }
         guard let color = item.isSelected ? selectedSubtitleColor : subtitleColor else { return }
         detailTextLabel?.textColor = color
     }
@@ -78,6 +79,7 @@ private extension ActionSheetSelectItemCell {
     }
     
     func applyTitleColor(for item: SelectItem) {
+        guard item.isEnabled else { return }
         guard let color = item.isSelected ? selectedTitleColor : titleColor else { return }
         textLabel?.textColor = color
     }

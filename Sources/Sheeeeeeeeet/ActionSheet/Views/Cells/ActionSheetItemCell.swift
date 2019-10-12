@@ -68,6 +68,10 @@ open class ActionSheetItemCell: UITableViewCell {
     @objc public dynamic var subtitleColor: UIColor?
     @objc public dynamic var subtitleFont: UIFont?
     
+    @objc public dynamic var disabledTitleColor: UIColor?
+    @objc public dynamic var disabledSubtitleColor: UIColor?
+    @objc public dynamic var disabledTintColor: UIColor?
+    
     
     // MARK: - Private Properties
     
@@ -85,15 +89,16 @@ open class ActionSheetItemCell: UITableViewCell {
     
     open func refresh() {
         guard let item = item else { return }
+        tintColor = item.isEnabled ? tintColor : disabledTintColor
         imageView?.image = item.image
         selectionStyle = item.tapBehavior == .none ? .none : .default
         textLabel?.font = titleFont
         textLabel?.text = item.title
         textLabel?.textAlignment = itemTextAlignment
-        textLabel?.textColor = titleColor
+        textLabel?.textColor = item.isEnabled ? titleColor : disabledTitleColor
         detailTextLabel?.font = subtitleFont
         detailTextLabel?.text = item.subtitle
-        detailTextLabel?.textColor = subtitleColor
+        detailTextLabel?.textColor = item.isEnabled ? subtitleColor : disabledSubtitleColor
         detailTextLabel?.textAlignment = itemTextAlignment
     }
     

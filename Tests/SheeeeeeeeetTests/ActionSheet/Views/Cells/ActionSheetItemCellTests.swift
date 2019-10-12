@@ -40,22 +40,46 @@ class ActionSheetItemCellTests: QuickSpec {
                 let image = UIImage()
                 let item = MenuItem(title: "foo", subtitle: "bar", value: "baz", image: image)
                 let cell = ActionSheetItemCell(style: .value1)
-                cell.titleColor = .yellow
                 cell.titleFont = .boldSystemFont(ofSize: 1)
-                cell.subtitleColor = .brown
                 cell.subtitleFont = .boldSystemFont(ofSize: 2)
+                cell.titleColor = .yellow
+                cell.subtitleColor = .brown
+                cell.tintColor = .red
+                cell.disabledTitleColor = .red
+                cell.disabledSubtitleColor = .purple
+                cell.disabledTintColor = .cyan
                 
                 cell.refresh(with: item)
                 
+                expect(cell.tintColor).to(equal(.red))
                 expect(cell.imageView?.image).to(be(image))
                 expect(cell.selectionStyle).to(equal(.default))
                 expect(cell.textLabel?.font).toNot(beNil())
                 expect(cell.textLabel?.font).to(be(cell.titleFont))
                 expect(cell.textLabel?.text).to(equal("foo"))
+                expect(cell.textLabel?.textColor).to(equal(.yellow))
                 expect(cell.textLabel?.textAlignment).to(equal(.left))
                 expect(cell.detailTextLabel?.font).toNot(beNil())
                 expect(cell.detailTextLabel?.font).to(be(cell.subtitleFont))
                 expect(cell.detailTextLabel?.text).to(equal("bar"))
+                expect(cell.detailTextLabel?.textColor).to(equal(.brown))
+            }
+            
+            it("applies disabled colors if cell is disabled") {
+                let item = MenuItem(title: "foo", subtitle: "bar", value: "baz", image: nil, isEnabled: false)
+                let cell = ActionSheetItemCell(style: .value1)
+                cell.titleColor = .yellow
+                cell.subtitleColor = .brown
+                cell.tintColor = .blue
+                cell.disabledTitleColor = .red
+                cell.disabledSubtitleColor = .purple
+                cell.disabledTintColor = .cyan
+
+                cell.refresh(with: item)
+                
+                expect(cell.tintColor).to(equal(.cyan))
+                expect(cell.textLabel?.textColor).to(equal(.red))
+                expect(cell.detailTextLabel?.textColor).to(equal(.purple))
             }
         }
     }
