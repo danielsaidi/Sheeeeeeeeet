@@ -43,11 +43,13 @@ open class MenuItem {
         subtitle: String? = nil,
         value: Any? = nil,
         image: UIImage? = nil,
+        isEnabled: Bool = true,
         tapBehavior: TapBehavior = .dismiss) {
         self.title = title
         self.subtitle = subtitle
         self.value = value
         self.image = image
+        self.isEnabled = isEnabled
         self.tapBehavior = tapBehavior
     }
     
@@ -62,6 +64,7 @@ open class MenuItem {
     // MARK: - Properties
     
     public var image: UIImage?
+    public var isEnabled: Bool
     public var subtitle: String?
     public var tapBehavior: TapBehavior
     public var title: String

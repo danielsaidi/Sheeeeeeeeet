@@ -28,6 +28,8 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 cell.titleFont = .systemFont(ofSize: 11)
                 cell.subtitleColor = UIColor.red.withAlphaComponent(0.1)
                 cell.subtitleFont = .systemFont(ofSize: 12)
+                cell.disabledTitleColor = .red
+                cell.disabledSubtitleColor = .purple
                 cell.selectedIcon = UIImage()
                 cell.selectedIconColor = .green
                 cell.selectedTintColor = .purple
@@ -62,6 +64,13 @@ class ActionSheetSelectItemCellTests: QuickSpec {
                 expect(cell.textLabel?.font).to(be(cell.titleFont))
                 expect(cell.detailTextLabel?.textColor).to(equal(cell.subtitleColor))
                 expect(cell.detailTextLabel?.font).to(equal(cell.subtitleFont))
+            }
+            
+            it("refreshes correctly for disabled item") {
+                item.isEnabled = false
+                cell.refresh()
+                expect(cell.textLabel?.textColor).to(equal(.red))
+                expect(cell.detailTextLabel?.textColor).to(equal(.purple))
             }
         }
     }

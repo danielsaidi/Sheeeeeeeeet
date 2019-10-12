@@ -6,6 +6,8 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
+//  TODO: Unit test
+
 import UIKit
 
 open class ActionSheetMultiSelectToggleItemCell: ActionSheetItemCell {
@@ -27,8 +29,14 @@ open class ActionSheetMultiSelectToggleItemCell: ActionSheetItemCell {
         guard let item = item as? MultiSelectToggleItem else { return }
         let isSelectAll = item.state == .selectAll
         item.subtitle = isSelectAll ? item.selectAllTitle : item.deselectAllTitle
+        refreshColors(for: item)
+        super.refresh()
+    }
+    
+    open func refreshColors(for item: MultiSelectToggleItem) {
+        guard item.isEnabled else { return }
+        let isSelectAll = item.state == .selectAll
         titleColor = isSelectAll ? selectAllTitleColor : deselectAllTitleColor
         subtitleColor = isSelectAll ? selectAllSubtitleColor : deselectAllSubtitleColor
-        super.refresh()
     }
 }

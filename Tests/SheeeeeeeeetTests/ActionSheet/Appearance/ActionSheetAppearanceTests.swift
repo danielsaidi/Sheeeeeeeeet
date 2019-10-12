@@ -70,6 +70,11 @@ class ActionSheetApperanceTests: QuickSpec {
                 expect(item.tintColor).to(equal(.sheetColor(.text)))
                 expect(item.titleColor).to(equal(.sheetColor(.text)))
                 expect(item.subtitleColor).to(equal(.sheetColor(.text)))
+                
+                expect(item.disabledTitleColor).to(equal(.sheetColor(.disabledText)))
+                expect(item.disabledSubtitleColor).to(equal(.sheetColor(.disabledText)))
+                expect(item.disabledTintColor).to(equal(.sheetColor(.disabledText)))
+                
                 expect(selectItem.selectedIconColor).to(equal(.sheetColor(.text)))
                 expect(selectItem.selectedTintColor).to(equal(.sheetColor(.text)))
                 expect(selectItem.selectedTitleColor).to(equal(.sheetColor(.text)))
