@@ -89,6 +89,7 @@ open class ActionSheetItemCell: UITableViewCell {
     
     open func refresh() {
         guard let item = item else { return }
+        isUserInteractionEnabled = item.isEnabled
         tintColor = item.isEnabled ? tintColor : disabledTintColor
         imageView?.image = item.image
         selectionStyle = item.tapBehavior == .none ? .none : .default

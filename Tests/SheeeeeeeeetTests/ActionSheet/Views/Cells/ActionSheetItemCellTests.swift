@@ -51,6 +51,7 @@ class ActionSheetItemCellTests: QuickSpec {
                 
                 cell.refresh(with: item)
                 
+                expect(cell.isUserInteractionEnabled).to(beTrue())
                 expect(cell.tintColor).to(equal(.red))
                 expect(cell.imageView?.image).to(be(image))
                 expect(cell.selectionStyle).to(equal(.default))
@@ -77,6 +78,7 @@ class ActionSheetItemCellTests: QuickSpec {
 
                 cell.refresh(with: item)
                 
+                expect(cell.isUserInteractionEnabled).to(beFalse())
                 expect(cell.tintColor).to(equal(.cyan))
                 expect(cell.textLabel?.textColor).to(equal(.red))
                 expect(cell.detailTextLabel?.textColor).to(equal(.purple))
