@@ -42,12 +42,12 @@ class MenuItem_ActionSheetTests: QuickSpec {
         describe("preferred action sheet cell style") {
             
             it("is subtitle if item has subtitle") {
-                let item = SectionTitle(title: "title", subtitle: "subtitle")
+                let item = MenuItem(title: "title", subtitle: "subtitle")
                 expect(item.actionSheetCellStyle).to(equal(.subtitle))
             }
             
             it("is default if item has no subtitle") {
-                let item = SectionTitle(title: "title")
+                let item = MenuItem(title: "title")
                 expect(item.actionSheetCellStyle).to(equal(.default))
             }
         }

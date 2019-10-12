@@ -1328,9 +1328,9 @@
 			children = (
 				OBJ_25 /* Buttons */,
 				OBJ_30 /* Items */,
+				OBJ_40 /* Titles */,
 				OBJ_38 /* Menu+ActionSheet.swift */,
 				OBJ_39 /* MenuItem+ActionSheet.swift */,
-				OBJ_40 /* Titles */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1603,10 +1603,10 @@
 			children = (
 				OBJ_88 /* Buttons */,
 				OBJ_93 /* Items */,
+				OBJ_104 /* Titles */,
 				OBJ_101 /* Menu.swift */,
 				OBJ_102 /* MenuConfiguration.swift */,
 				OBJ_103 /* MenuItem.swift */,
-				OBJ_104 /* Titles */,
 			);
 			path = Menu;
 			sourceTree = "<group>";

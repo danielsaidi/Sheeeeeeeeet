@@ -23,6 +23,11 @@ class SectionTitle_ActionSheetTests: QuickSpec {
                 expect(cell is ActionSheetSectionTitleCell).to(beTrue())
                 expect(item.actionSheetCellType is ActionSheetSectionTitleCell.Type).to(beTrue())
             }
+            
+            it("uses correct style") {
+                let item = SectionTitle(title: "title", subtitle: "subtitle")
+                expect(item.actionSheetCellStyle).to(equal(.value1))
+            }
         }
     }
 }

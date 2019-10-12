@@ -14,6 +14,10 @@ extension SectionTitle {
         ActionSheetSectionTitleCell(style: actionSheetCellStyle)
     }
     
+    open override var actionSheetCellStyle: UITableViewCell.CellStyle {
+        .value1
+    }
+    
     open override var actionSheetCellType: ActionSheetItemCell.Type {
         ActionSheetSectionTitleCell.self
     }

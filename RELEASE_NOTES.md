@@ -1,6 +1,13 @@
 # Release Notes
 
 
+## 3.0.3
+
+This version fixes some subtitle problems, where section titles and mutli select toggles didn't display their subtitles.
+
+It also fixes some behavior issues, where subtitles were incorrectly tinted.
+
+
 ## 3.0.2
 
 This version adjusts the popover height calculations to include the height of a visible header. This solves the problem where the popover content would always scroll when a header was used.

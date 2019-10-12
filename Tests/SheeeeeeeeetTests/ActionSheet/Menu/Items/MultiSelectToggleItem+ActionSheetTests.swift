@@ -23,6 +23,11 @@ class MultiSelectToggleItem_ActionSheetTests: QuickSpec {
                 expect(cell is ActionSheetMultiSelectToggleItemCell).to(beTrue())
                 expect(item.actionSheetCellType is ActionSheetMultiSelectToggleItemCell.Type).to(beTrue())
             }
+            
+            it("uses correct style") {
+                let item = MultiSelectToggleItem(title: "", state: .selectAll, group: "", selectAllTitle: "", deselectAllTitle: "")
+                expect(item.actionSheetCellStyle).to(equal(.value1))
+            }
         }
     }
 }

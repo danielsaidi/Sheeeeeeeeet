@@ -17,9 +17,11 @@ class DestructiveMenu: FoodMenu {
     init() {
         let image = UIImage(named: "ic_credit_card")
         let visaTitle = "Visa **** **** **** 4321"
-        let visa = MultiSelectItem(title: visaTitle, isSelected: false, value: "visa", image: image)
+        let visaSubtitle = "Secondary Card"
+        let visa = MultiSelectItem(title: visaTitle, subtitle: visaSubtitle, isSelected: false, value: "visa", image: image)
         let masterTitle = "MasterCard **** **** **** 9876"
-        let master = MultiSelectItem(title: masterTitle, isSelected: false, value: "master", image: image)
+        let masterSubtitle = "Secondary Card"
+        let master = MultiSelectItem(title: masterTitle, subtitle: masterSubtitle, isSelected: false, value: "master", image: image)
         let removeButton = DestructiveButton(title: "Remove")
         let items = [visa, master, removeButton, FoodMenu.cancelButton]
         super.init(title: "Remove Payment Options", items: items)
