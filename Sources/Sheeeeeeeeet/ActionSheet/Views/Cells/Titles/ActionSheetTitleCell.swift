@@ -8,10 +8,4 @@
 
 import Foundation
 
-open class ActionSheetTitleCell: ActionSheetItemCell {
-    
-    open override func refresh() {
-        super.refresh()
-        textLabel?.textAlignment = .center
-    }
-}
+open class ActionSheetTitleCell: ActionSheetItemCell {}

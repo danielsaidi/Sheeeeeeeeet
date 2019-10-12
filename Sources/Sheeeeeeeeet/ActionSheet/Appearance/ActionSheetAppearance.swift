@@ -58,6 +58,7 @@ open class ActionSheetAppearance {
         applyHeights()
         applyIcons()
         applySeparatorInsets()
+        applyTextAlignments()
     }
     
     /**
@@ -137,6 +138,16 @@ open class ActionSheetAppearance {
         sectionTitle.separatorInset = .hiddenSeparator
         sectionMargin.separatorInset = .hiddenSeparator
         multiSelectToggle.separatorInset = .hiddenSeparator
+    }
+    
+    /**
+     Apply action sheet text alignments.
+    */
+    open func applyTextAlignments() {
+        item.itemTextAlignment = .left
+        button.itemTextAlignment = .center
+        title.itemTextAlignment = .center
+        sectionTitle.itemTextAlignment = .left
     }
 }
 
