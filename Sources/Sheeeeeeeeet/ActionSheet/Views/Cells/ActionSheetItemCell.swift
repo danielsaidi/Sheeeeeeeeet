@@ -101,10 +101,33 @@ open class ActionSheetItemCell: UITableViewCell {
         detailTextLabel?.text = item.subtitle
         detailTextLabel?.textColor = item.isEnabled ? subtitleColor : disabledSubtitleColor
         detailTextLabel?.textAlignment = itemTextAlignment
+        
+        semanticContentAttribute = itemTextAlignment == .right ? .forceRightToLeft : .unspecified
+        fixSubtitleStyleConstraints()
     }
     
     func refresh(with item: MenuItem) {
         self.item = item
         refresh()
+    }
+    
+    func fixSubtitleStyleConstraints(){ // for cells with subtitle style and center alignment
+        guard let item = item else { return }
+        
+        if itemTextAlignment == .center && item.subtitle != nil {
+            textLabel?.translatesAutoresizingMaskIntoConstraints = false
+            textLabel?.trailingAnchor.constraint(equalTo: accessoryView?.leadingAnchor ?? trailingAnchor, constant: -16).isActive = true
+            textLabel?.leadingAnchor.constraint(equalTo: (imageView != nil) ? imageView!.trailingAnchor : leadingAnchor, constant: 16).isActive = true
+            textLabel?.bottomAnchor.constraint(equalTo: detailTextLabel?.topAnchor ?? bottomAnchor).isActive = true
+            textLabel?.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            textLabel?.heightAnchor.constraint(equalToConstant: (detailTextLabel != nil) ? (frame.height / 2) : frame.height).isActive = true
+            
+            detailTextLabel?.translatesAutoresizingMaskIntoConstraints = false
+            detailTextLabel?.trailingAnchor.constraint(equalTo: accessoryView?.leadingAnchor ?? trailingAnchor, constant: -16).isActive = true
+            detailTextLabel?.leadingAnchor.constraint(equalTo: imageView?.trailingAnchor ?? leadingAnchor, constant: 16).isActive = true
+            detailTextLabel?.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            detailTextLabel?.topAnchor.constraint(equalTo: textLabel?.bottomAnchor ?? topAnchor, constant: 0).isActive = true
+            detailTextLabel?.heightAnchor.constraint(equalToConstant:  (textLabel != nil) ? (frame.height / 2) : frame.height)
+        }
     }
 }
