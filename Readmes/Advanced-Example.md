@@ -15,6 +15,7 @@ item.titleFont = .systemFont(ofSize: 15)
 item.subtitleColor = .lightGray
 item.subtitleFont = .systemFont(ofSize: 13)
 item.titleColor = .darkGray
+item.itemTextAlignment = .center
 
 let title = ActionSheetTitleCell.appearance()
 title.height = 60

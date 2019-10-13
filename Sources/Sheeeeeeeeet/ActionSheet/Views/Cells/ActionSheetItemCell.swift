@@ -95,6 +95,7 @@ open class ActionSheetItemCell: UITableViewCell {
         detailTextLabel?.text = item.subtitle
         detailTextLabel?.textColor = subtitleColor
         detailTextLabel?.textAlignment = itemTextAlignment
+        semanticContentAttribute = itemTextAlignment == .right ? .forceRightToLeft : .unspecified
     }
     
     func refresh(with item: MenuItem) {
