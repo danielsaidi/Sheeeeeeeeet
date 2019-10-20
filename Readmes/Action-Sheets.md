@@ -1,15 +1,18 @@
-# Present `Menu` as `ActionSheet`
+# Action Sheets
 
-When you have a `Menu`, you can present it as a custom action sheet:
+`Sheeeeeeeeet`'s `ActionSheet` used to be the most important part of the library. However, from `3.0.0` it's now one of many ways to present a `Menu`.
+
+
+## Presenting a `Menu` as an `ActionSheet`
+
+When you have a `Menu` instance, you can present it as a custom action sheet, without first having to create an action sheet:
 
 ```swift
 menu.presentAsActionSheet(in: vc, from: view, action: ...)   // or
 menu.presentAsActionSheet(in: vc, from: barButtonItem, action: ...)
 ```
 
-These action sheets can be extensively styled beyond their standard appearance. See [this appearance and styling guide][Appearance] for more information or have a look at the demo app.
-
-If you need to configure the action sheet, you can create an action sheet instead of presenting one:
+If you have to configure the action sheet in any way, you can create an action sheet instance from the menu:
 
 ```swift
 menu.toActionSheet(action: ...) 
@@ -30,4 +33,11 @@ sheet.present(in: vc, from: view, completion: ...)   // or
 sheet.present(in: vc, from: barButtonItem, completion: ...)
 ```
 
-You can also subclass `Menu` and `ActionSheet` to isolate item logic, customize the select action signature etc. Have a look at the demo app for some examples.
+You can also subclass `Menu` and `ActionSheet` to isolate custom logic. Have a look at the demo app for some examples.
+
+
+## Style action sheets
+
+`Sheeeeeeeeet`'s `ActionSheet`  can be extensively styled beyond their standard appearance. You can apply custom colors, fonts, margins etc.
+
+See [this appearance and styling guide][Appearance] for more information or have a look at the demo app.
