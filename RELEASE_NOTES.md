@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 3.0.4
+
+This version makes the `ActionSheet`'s `backgroundView` property public.
+
+
 ## 3.0.3
 
 This version fixes some subtitle problems, where section titles and mutli select toggles didn't display their subtitles.

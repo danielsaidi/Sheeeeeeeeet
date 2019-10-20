@@ -191,7 +191,12 @@ open class ActionSheet: UIViewController {
     
     // MARK: - View Properties
     
-    let backgroundView = ActionSheetBackgroundView()
+    /**
+     This is a dark view that fills the entire screen behind
+     the action sheet.
+     */
+    public let backgroundView = ActionSheetBackgroundView()
+    
     let stackView = ActionSheetStackView()
     
     let headerViewContainer = ActionSheetHeaderContainerView()
