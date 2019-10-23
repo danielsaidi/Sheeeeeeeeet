@@ -12,8 +12,7 @@ import Foundation
  This protocol can be implemented by any classes that can be
  used to retain a context menu delegate.
  */
-@available(iOS 13.0, *)
 public protocol ContextMenuDelegateRetainer: AnyObject {
 
-    var contextMenuDelegate: ContextMenuDelegate? { get set }
+    var contextMenuDelegate: Any? { get set }
 }
