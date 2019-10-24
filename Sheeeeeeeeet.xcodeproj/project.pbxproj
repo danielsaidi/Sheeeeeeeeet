@@ -1829,11 +1829,6 @@
 				"Quick::Quick" /* Quick */,
 				"Quick::SwiftPMPackageDescription" /* QuickPackageDescription */,
 				"Quick::QuickSpecBase" /* QuickSpecBase */,
-				"Sheeeeeeeeet::Sheeeeeeeeet" /* Sheeeeeeeeet */,
-				"Sheeeeeeeeet::SwiftPMPackageDescription" /* SheeeeeeeeetPackageDescription */,
-				"Sheeeeeeeeet::SheeeeeeeeetPackageTests::ProductTarget" /* SheeeeeeeeetPackageTests */,
-				"Sheeeeeeeeet::SheeeeeeeeetTests" /* SheeeeeeeeetTests */,
-				84670396234A3C4500355331 /* SheeeeeeeeetDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -2725,6 +2720,7 @@
 		OBJ_439 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2749,6 +2745,7 @@
 		OBJ_440 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
