@@ -757,13 +757,13 @@
 			isa = PBXGroup;
 			children = (
 				846703B3234A3CF000355331 /* ViewController.swift */,
+				846703B9234A3CF000355331 /* ContextMenuViewController.swift */,
+				846703BA234A3CF000355331 /* AppearanceViewController.swift */,
 				846703B4234A3CF000355331 /* ViewController+Appearance.swift */,
 				846703B5234A3CF000355331 /* ViewController+Menus.swift */,
 				846703B6234A3CF000355331 /* ViewController+Alert.swift */,
 				846703B7234A3CF000355331 /* ViewController+ActionSheets.swift */,
 				846703B8234A3CF000355331 /* ViewController+TableView.swift */,
-				846703B9234A3CF000355331 /* ContextMenuViewController.swift */,
-				846703BA234A3CF000355331 /* AppearanceViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1799,6 +1799,7 @@
 				TargetAttributes = {
 					84670396234A3C4500355331 = {
 						CreatedOnToolsVersion = 11.0;
+						DevelopmentTeam = PMEDFW438U;
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
@@ -2310,7 +2311,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PMEDFW438U;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2373,7 +2374,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PMEDFW438U;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

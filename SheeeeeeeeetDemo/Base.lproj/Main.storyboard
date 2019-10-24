@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g6h-E6-DAd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g6h-E6-DAd">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -180,10 +180,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0C-pI-lml">
-                                <rect key="frame" x="133.5" y="299" width="108" height="64"/>
+                                <rect key="frame" x="131.5" y="298" width="112.5" height="66.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j14-5J-T3g">
-                                        <rect key="frame" x="30" y="20" width="48" height="24"/>
+                                        <rect key="frame" x="30" y="20" width="52.5" height="26.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -197,9 +197,30 @@
                                     <constraint firstItem="j14-5J-T3g" firstAttribute="top" secondItem="U0C-pI-lml" secondAttribute="top" constant="20" id="xrc-IX-Bme"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FZC-9g-lVG">
+                                <rect key="frame" x="-26.5" y="408" width="428" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fou-j1-moI">
+                                        <rect key="frame" x="0.0" y="0.0" width="185" height="30"/>
+                                        <state key="normal" title="Add Retaining Trigger View"/>
+                                        <connections>
+                                            <action selector="addTriggerView:" destination="Cfi-GO-loi" eventType="touchUpInside" id="gNr-zx-fFj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6s-cO-TTV">
+                                        <rect key="frame" x="215" y="0.0" width="213" height="30"/>
+                                        <state key="normal" title="Remove Retaining Trigger View"/>
+                                        <connections>
+                                            <action selector="removeTriggerView:" destination="Cfi-GO-loi" eventType="touchUpInside" id="elb-f5-ZjT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="FZC-9g-lVG" firstAttribute="centerX" secondItem="U0C-pI-lml" secondAttribute="centerX" id="5f8-me-hyp"/>
+                            <constraint firstItem="FZC-9g-lVG" firstAttribute="top" secondItem="U0C-pI-lml" secondAttribute="bottom" constant="43.5" id="bjn-iZ-w2f"/>
                             <constraint firstItem="U0C-pI-lml" firstAttribute="centerX" secondItem="gXK-Yp-adA" secondAttribute="centerX" id="f5r-56-bKn"/>
                             <constraint firstItem="U0C-pI-lml" firstAttribute="centerY" secondItem="gXK-Yp-adA" secondAttribute="centerY" id="nmW-fN-mkk"/>
                         </constraints>
@@ -207,6 +228,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Context Menu" id="Kle-od-aXB"/>
                     <connections>
+                        <outlet property="addTriggerButton" destination="Fou-j1-moI" id="Mo9-3S-eF0"/>
+                        <outlet property="removeTriggerButton" destination="Y6s-cO-TTV" id="lfz-ke-ouH"/>
+                        <outlet property="stackView" destination="FZC-9g-lVG" id="AOg-KX-Sxl"/>
                         <outlet property="textLabel" destination="j14-5J-T3g" id="nha-Sz-rkf"/>
                         <outlet property="textLabelContainer" destination="U0C-pI-lml" id="62i-sP-ImF"/>
                     </connections>

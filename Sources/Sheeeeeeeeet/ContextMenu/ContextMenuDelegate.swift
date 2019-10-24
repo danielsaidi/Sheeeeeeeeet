@@ -28,6 +28,12 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
         self.previewProvider = previewProvider
     }
     
+    deinit {
+        #if DEBUG
+        print("Deinitialized ContextMenuDelegate")
+        #endif
+    }
+    
     let menu: Menu
     let action: (MenuItem) -> ()
     let previewProvider: UIContextMenuContentPreviewProvider?
