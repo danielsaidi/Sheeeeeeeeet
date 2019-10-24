@@ -17,23 +17,15 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet helps you create menus that can be used as context menus and action sheets. It comes with many item types (standard items, buttons, titles, toggles etc.) and can be extended with custom ones.
+Sheeeeeeeeet lets you create menus. These menus can then be used as context menus, action sheets or in any way you like, in UIKit or in SwiftUI.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Sheeeeeeeeet action sheets can be styled to look just like a `UIAlertController` or completely different. You can also customize how they are presented and dismissed.
+Sheeeeeeeeet comes with many item types (standard items, buttons, titles, toggles etc.) and can be extended with custom ones.
 
-
-
---- 
-
-## <a name="migration-guide"></a>**Sheeeeeeeeet 3 migration guide**
-
-Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide][Migration-Guide] for help.
-
----
+Sheeeeeeeeet's custom action sheets can be styled to look just like `UIAlertController`s or completely different. You can also customize how they are presented and dismissed.
 
 
 ## Installation
@@ -57,12 +49,14 @@ pod "Sheeeeeeeeet"
 github "danielsaidi/Sheeeeeeeeet"
 ```
 
+`IMPORTANT` There is currently problems with the Carthage installation, which cause Apple to reject apps that pull in Sheeeeeeeeeeet with Carthage. See [this issue](https://github.com/danielsaidi/Sheeeeeeeeet/issues/116) for more information. Until it's solved, use SPM or CocoaPods instead.
+
 ### <a name="manual-installation"></a>Manual installation
 
 To add `Sheeeeeeeeet` to your app without a dependency manager, clone this repository, add `Sheeeeeeeeet.xcodeproj` to your project and `Sheeeeeeeeet.framework` as an embedded app binary and target dependency.
 
 
-## <a name="basic-example"></a>Creating a menu
+## Creating a menu
 
 With Sheeeeeeeeet, you start off by creating a menu, like this:
 
@@ -74,11 +68,11 @@ let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-There are many built-in menu item types, e.g. regular and selectable items, links, buttons, titles, collections, custom items etc. You find a complete list in [this item guide][Item-Types].
+There are many built-in menu item types, e.g. selectable items, links, buttons, titles, collections, custom items etc. A complete list can be found [here][Item-Types].
 
 ### Present the menu as an action sheet
 
-You can present the menu as a custom action sheet or use it to create an action sheet, which you can then configure in any way you want, for instance:
+You can then present the menu as a custom action sheet or use it to create an action sheet that you can configure however you want:
 
 ```swift
 menu.presentAsActionSheet(in: vc, from: view, action: ...)
@@ -89,10 +83,10 @@ You can find more information and options in [this action sheet guide][Action-Sh
 
 ### Add the menu as a context menu
 
-You can also add the menu as an iOS 13 context menu to any view you like, for instance:
+You can also apply the menu as an iOS 13 context menu to any view you like:
 
 ```swift
-let delegate = menu.addAsContextMenu(to: view, action: ...)
+menu.addAsContextMenu(to: view, action: ...)
 ```
 
 You can find more information in [this context menu guide][Context-Menus].
@@ -100,7 +94,7 @@ You can find more information in [this context menu guide][Context-Menus].
 
 ### Present the menu as an alert controller
 
-You can also present the menu as a `UIAlertController`, for instance:
+You can also present the menu as a `UIAlertController`:
 
 ```swift
 let delegate = menu.presentAsAlertController(in: self, from: view, action: ...)
@@ -149,4 +143,3 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
 [Context-Menus]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Context-Menus.md
 [Item-Types]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Item-Types.md
-[Migration-Guide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Migration-Guide.md
