@@ -1817,6 +1817,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				"Sheeeeeeeeet::Sheeeeeeeeet" /* Sheeeeeeeeet */,
+				"Sheeeeeeeeet::SwiftPMPackageDescription" /* SheeeeeeeeetPackageDescription */,
+				"Sheeeeeeeeet::SheeeeeeeeetPackageTests::ProductTarget" /* SheeeeeeeeetPackageTests */,
+				"Sheeeeeeeeet::SheeeeeeeeetTests" /* SheeeeeeeeetTests */,
+				84670396234A3C4500355331 /* SheeeeeeeeetDemo */,
 				"Mockery::Mockery" /* Mockery */,
 				"Mockery::SwiftPMPackageDescription" /* MockeryPackageDescription */,
 				"Nimble::Nimble" /* Nimble */,
