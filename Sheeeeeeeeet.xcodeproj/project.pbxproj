@@ -81,6 +81,7 @@
 		84A24ED5236C6DCD00DB060C /* ActionSheetSecondaryActionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ED3236C6DB500DB060C /* ActionSheetSecondaryActionItemTests.swift */; };
 		84A24ED9236C724100DB060C /* SecondaryActionItem+ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */; };
 		84A24EDB236C72C900DB060C /* SecondaryActionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */; };
+		84A24EDD236C84D900DB060C /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDC236C84D900DB060C /* MenuCreator.swift */; };
 		OBJ_317 /* Escaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* Escaping.swift */; };
 		OBJ_318 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* Execution.swift */; };
 		OBJ_319 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Mock.swift */; };
@@ -215,7 +216,7 @@
 		OBJ_498 /* ContextMenuConversionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* ContextMenuConversionError.swift */; };
 		OBJ_499 /* ContextMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* ContextMenuDelegate.swift */; };
 		OBJ_500 /* ContextMenuDelegateRetainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* ContextMenuDelegateRetainer.swift */; };
-		OBJ_501 /* Menu+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* Menu+ContextMenu.swift */; };
+		OBJ_501 /* MenuCreator+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* MenuCreator+ContextMenu.swift */; };
 		OBJ_502 /* MenuItem+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* MenuItem+ContextMenu.swift */; };
 		OBJ_503 /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* NSObject+ClassName.swift */; };
 		OBJ_504 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* CancelButton.swift */; };
@@ -443,6 +444,7 @@
 		84A24ED3236C6DB500DB060C /* ActionSheetSecondaryActionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSecondaryActionItemTests.swift; sourceTree = "<group>"; };
 		84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryActionItem+ActionSheetTests.swift"; sourceTree = "<group>"; };
 		84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionMenu.swift; sourceTree = "<group>"; };
+		84A24EDC236C84D900DB060C /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
 		84BDF8B22347D43F00D35F93 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		84BDF8B32347D43F00D35F93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		"Mockery::Mockery::Product" /* Mockery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mockery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -661,7 +663,7 @@
 		OBJ_80 /* ContextMenuConversionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuConversionError.swift; sourceTree = "<group>"; };
 		OBJ_81 /* ContextMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegate.swift; sourceTree = "<group>"; };
 		OBJ_82 /* ContextMenuDelegateRetainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuDelegateRetainer.swift; sourceTree = "<group>"; };
-		OBJ_83 /* Menu+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+ContextMenu.swift"; sourceTree = "<group>"; };
+		OBJ_83 /* MenuCreator+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuCreator+ContextMenu.swift"; sourceTree = "<group>"; };
 		OBJ_84 /* MenuItem+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuItem+ContextMenu.swift"; sourceTree = "<group>"; };
 		OBJ_86 /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		OBJ_89 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
@@ -1531,7 +1533,7 @@
 				OBJ_80 /* ContextMenuConversionError.swift */,
 				OBJ_81 /* ContextMenuDelegate.swift */,
 				OBJ_82 /* ContextMenuDelegateRetainer.swift */,
-				OBJ_83 /* Menu+ContextMenu.swift */,
+				OBJ_83 /* MenuCreator+ContextMenu.swift */,
 				OBJ_84 /* MenuItem+ContextMenu.swift */,
 			);
 			path = ContextMenu;
@@ -1565,6 +1567,7 @@
 				OBJ_93 /* Items */,
 				OBJ_104 /* Titles */,
 				OBJ_101 /* Menu.swift */,
+				84A24EDC236C84D900DB060C /* MenuCreator.swift */,
 				OBJ_102 /* MenuConfiguration.swift */,
 				OBJ_103 /* MenuItem.swift */,
 			);
@@ -2107,6 +2110,7 @@
 				OBJ_466 /* MenuItem+ActionSheet.swift in Sources */,
 				OBJ_467 /* MenuTitle+ActionSheet.swift in Sources */,
 				OBJ_468 /* SectionMargin+ActionSheet.swift in Sources */,
+				84A24EDD236C84D900DB060C /* MenuCreator.swift in Sources */,
 				OBJ_469 /* SectionTitle+ActionSheet.swift in Sources */,
 				OBJ_470 /* ActionSheetPopoverPresenter.swift in Sources */,
 				OBJ_471 /* ActionSheetPresenter.swift in Sources */,
@@ -2133,7 +2137,7 @@
 				OBJ_498 /* ContextMenuConversionError.swift in Sources */,
 				OBJ_499 /* ContextMenuDelegate.swift in Sources */,
 				OBJ_500 /* ContextMenuDelegateRetainer.swift in Sources */,
-				OBJ_501 /* Menu+ContextMenu.swift in Sources */,
+				OBJ_501 /* MenuCreator+ContextMenu.swift in Sources */,
 				OBJ_502 /* MenuItem+ContextMenu.swift in Sources */,
 				OBJ_503 /* NSObject+ClassName.swift in Sources */,
 				OBJ_504 /* CancelButton.swift in Sources */,

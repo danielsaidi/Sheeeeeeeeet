@@ -20,12 +20,23 @@ import UIKit
 public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     
     init(
+        menuCreator: MenuCreator,
+        previewProvider: UIContextMenuContentPreviewProvider? = nil,
+        action: @escaping (MenuItem) -> ()) {
+        self.menuCreator = menuCreator
+        self.action = action
+        self.previewProvider = previewProvider
+    }
+    
+    convenience init(
         menu: Menu,
         previewProvider: UIContextMenuContentPreviewProvider? = nil,
         action: @escaping (MenuItem) -> ()) {
-        self.menu = menu
-        self.action = action
-        self.previewProvider = previewProvider
+        self.init(
+            menuCreator: menu,
+            previewProvider: previewProvider,
+            action: action
+        )
     }
     
     deinit {
@@ -34,14 +45,15 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
         #endif
     }
     
-    let menu: Menu
+    let menuCreator: MenuCreator
     let action: (MenuItem) -> ()
     let previewProvider: UIContextMenuContentPreviewProvider?
     
     public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: previewProvider, actionProvider: { [weak self] _ in
             guard let self = self else { fatalError("ContextMenuDelegate was deallocated") }
-            switch self.menu.toContextMenu(action: self.action) {
+            let menu = self.menuCreator.createMenu()
+            switch menu.toContextMenu(action: self.action) {
             case .failure(let error): fatalError(error.localizedDescription)
             case .success(let menu): return menu
             }

@@ -1,6 +1,16 @@
 # Release Notes
 
 
+## 3.0.7
+
+This version adds a new `SecondaryActionItem` which lets you specify a secondary action for an item.
+
+
+## 3.0.6
+
+This version solves an App Store submission rejection that occurred when an app pulled in Sheeeeeeeeet with Carthage.
+
+
 ## 3.0.5
 
 This version changes `ContextMenuDelegateRetainer`'s `contextMenuDelegate` to an `Any` instead of its concrete type, to make it possible to use it on older iOS versions. This should not have any side-effects, since it's only used to retain the instance, never use it.

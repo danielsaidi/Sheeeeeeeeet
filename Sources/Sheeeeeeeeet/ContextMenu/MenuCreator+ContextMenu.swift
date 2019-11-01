@@ -1,5 +1,5 @@
 //
-//  Menu+ContextMenu.swift
+//  MenuCreator+ContextMenu.swift
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2019-09-24.
@@ -9,10 +9,10 @@
 import UIKit
 
 @available(iOS 13.0, *)
-public extension Menu {
+public extension MenuCreator {
     
     /**
-    Apply the menu as context menu to a view.
+    Apply the created menu as context menu to a view.
     
     The delegate that is returned must be retained. If it's
     not, the context menu will stop working.
@@ -25,14 +25,14 @@ public extension Menu {
         previewProvider: UIContextMenuContentPreviewProvider? = nil,
         action: @escaping (MenuItem) -> ()) -> ContextMenuDelegate {
         view.isUserInteractionEnabled = true
-        let delegate = ContextMenuDelegate(menu: self, previewProvider: previewProvider, action: action)
+        let delegate = ContextMenuDelegate(menuCreator: self, previewProvider: previewProvider, action: action)
         let interaction = UIContextMenuInteraction(delegate: delegate)
         view.addInteraction(interaction)
         return delegate
     }
     
     /**
-     Apply the menu as context menu to a view.
+     Apply the created menu as context menu to a view.
      
      The delegate that is returned must be retained. If it's
      not, the context menu will stop working.
@@ -49,7 +49,7 @@ public extension Menu {
     }
 
     /**
-     Try to convert the menu to a `UIMenu`.
+     Try to convert the created menu to a `UIMenu`.
      
      This operation will only succeed if all items for which
      `shouldBeIgnoredByContextMenu` is `false` also have the
@@ -57,12 +57,13 @@ public extension Menu {
      the operation will fail.
      */
     func toContextMenu(action: @escaping (MenuItem) -> ()) -> Result<UIMenu, ContextMenuConversionError> {
-        let items = self.items.filter { !$0.shouldBeIgnoredByContextMenu }
+        let menu = createMenu()
+        let items = menu.items.filter { !$0.shouldBeIgnoredByContextMenu }
         let actionResults = items.map { $0.toContextMenuAction(action: action) }
         let actions = actionResults.compactMap { try? $0.get() }
         let hasUnsupportedTypes = items.count > actions.count
         if hasUnsupportedTypes { return .failure(.unsupportedItemTypes) }
-        let result = UIMenu(title: title ?? "", children: actions)
+        let result = UIMenu(title: menu.title ?? "", children: actions)
         return .success(result)
     }
 }
