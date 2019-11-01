@@ -13,13 +13,10 @@ import UIKit
  within a menu. It corresponds to the button items that will
  be shown bottommost in an action sheet.
  
- A menu button should be used to submit, confirm, cancel etc.
- As such, it always has `.dismiss` as tap behavior.
- 
- Some contexts may remove some of the buttons within a menu.
- For instance, a cancel button makes no sense in popovers or
- iOS 13 context menus, since they are dismissed when tapping
- outside of the menu.
+ Some contexts may remove some of the buttons in a menu. For
+ instance, cancel buttons make no sense in a popover or in a
+ native iOS 13 context menu, since they are dismissed when a
+ user taps outside of the menu.
  */
 open class MenuButton: MenuItem {
     
