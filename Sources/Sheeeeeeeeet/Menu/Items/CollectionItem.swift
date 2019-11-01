@@ -11,7 +11,7 @@ import CoreGraphics
 import UIKit
 
 /**
- Collection items can be used to present item collections of
+ A `CollectionItem` can be used to present a collection with
  a certain item type, e.g. in a collection view.
  
  `IMPORTANT` Action sheets with `CollectionItem` must modify

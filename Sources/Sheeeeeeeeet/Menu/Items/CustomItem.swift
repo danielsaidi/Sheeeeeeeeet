@@ -11,7 +11,7 @@ import CoreGraphics
 import UIKit
 
 /**
- A custom item can be used to embed any item that implements
+ A `CustomItem` can be used to wrap any item that implements
  `CustomItemType`. The embedded item can then be used in any
  way you like, given that is works for the use case.
  

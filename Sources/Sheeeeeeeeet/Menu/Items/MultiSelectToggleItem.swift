@@ -9,9 +9,9 @@
 import UIKit
 
 /**
- Multi-select toggle items can be used together with a group
- of `MultiSelectItem`s. When tapped, it toggles all items in
- the same group on or off, depending on its state.
+ A `MultiSelectToggleItem` can be used together with a group
+ of `MultiSelectItem` items and will toggle the select state
+ of all items in the same group when it's tapped.
  
  Since this item must know about the multi-select items that
  are in the same group, in order to propertly refresh itself,

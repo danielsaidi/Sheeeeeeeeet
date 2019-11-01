@@ -9,8 +9,8 @@
 import UIKit
 
 /**
- `SingleSelectItem` should be used whenever a user should be
- able to select a single item within a menu or menu group.
+ A `SingleSelectItem` can be used when a user should be able
+ to select a single item within a menu or menu group.
  
  This item automatically deselects other single-select items
  in the same group when it's tapped. You can use many groups

@@ -9,7 +9,8 @@
 import UIKit
 
 /**
- A link items can be used when tapping it will take the user
- somewhere, e.g. to another view controller or a web site.
+ A `LinkItem` is a regular menu item, but can be used when a
+ user who taps the item should be navigated, e.g. to another
+ screen, an external web site etc.
  */
 open class LinkItem: MenuItem {}

@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-`MultiSelectItem` can be used whenever a user should be able
- to select one or several items in a menu.
+ A `MultiSelectItem` can be used when a user can select many
+ items in a menu or menu group.
  
  The `group` property can be set to group items together. It
  can be used together with the `MultiSelectToggleItem` which
