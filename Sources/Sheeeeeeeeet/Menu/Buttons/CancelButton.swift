@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- A cancel button can be used to cancel the effects of a menu,
+ A `CancelButton` can be used to cancel the effect of a menu
  or to close it without action.
  
  The `value` of a cancel button is `.cancel`.

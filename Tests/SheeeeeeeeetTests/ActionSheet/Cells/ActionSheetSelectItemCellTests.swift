@@ -8,8 +8,8 @@
 
 import Quick
 import Nimble
-@testable import Sheeeeeeeeet
 import UIKit
+@testable import Sheeeeeeeeet
 
 class ActionSheetSelectItemCellTests: QuickSpec {
     

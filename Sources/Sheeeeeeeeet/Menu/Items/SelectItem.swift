@@ -9,8 +9,8 @@
 import UIKit
 
 /**
- Select items can be used to let users select one or several
- items in a menu.
+ A `SelectItem` can be used to let a user select one or many
+ items in a menu or menu group.
  
  This item type is not meant to be used directly. You should
  instead use the single- and multi-select subclasses.

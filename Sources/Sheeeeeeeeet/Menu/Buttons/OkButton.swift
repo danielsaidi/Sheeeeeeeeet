@@ -9,9 +9,9 @@
 import UIKit
 
 /**
- An ok button can be used to "submit" or confirm the effects
+ An `OkButton` can be used to "submit" or confirm the effect
  of a menu, e.g. in action sheets where the user must tap an
- OK button to dismiss the action sheet.
+ OK button to perform the menu actio dismiss the action sheet.
  
  The `value` of an ok button is `.ok`.
  */

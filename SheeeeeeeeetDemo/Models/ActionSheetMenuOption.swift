@@ -22,37 +22,40 @@ enum ActionSheetMenuOption {
     links,
     multiSelect,
     nonDismissable,
+    secondaryAction,
     sections,
     singleSelect,
     standard
     
     var title: String {
         switch self {
-        case .collections: return "Collection Sheet"
-        case .customView: return "Custom View Sheet"
-        case .danger: return "Destructive Sheet"
-        case .headerView: return "Header Sheet"
-        case .links: return "Link Sheet"
-        case .multiSelect: return "Multi-Select Sheet"
-        case .nonDismissable: return "Non-Dismissable Sheet"
-        case .sections: return "Section Sheet"
-        case .singleSelect: return "Single-Select Sheet"
-        case .standard: return "Standard Sheet"
+        case .collections: return "Collections"
+        case .customView: return "Custom Views"
+        case .danger: return "Destructive Actions"
+        case .headerView: return "Header Views"
+        case .links: return "Links"
+        case .multiSelect: return "Multi-Select Items"
+        case .nonDismissable: return "Non-Dismissable Sheets"
+        case .secondaryAction: return "Secondary Actions"
+        case .sections: return "Sections"
+        case .singleSelect: return "Single-Select Items"
+        case .standard: return "Standard Items"
         }
     }
     
     var description: String {
         switch self {
-        case .collections: return "Open an action sheet with a collections view."
-        case .customView: return "Open an action sheet with a custom view."
-        case .danger: return "Open an action sheet with a destructive action."
-        case .headerView: return "Open an action sheet with a custom header view."
-        case .links: return "Open an action sheet with links."
-        case .multiSelect: return "Open a multi-select action sheet."
-        case .nonDismissable: return "Open an action sheet that can't be dismissed by tapping outside the sheet."
-        case .sections: return "Open an action sheet with multiple sections."
-        case .singleSelect: return "Open a single-select action sheet."
-        case .standard: return "Open a standard action sheet."
+        case .collections: return "Open a collection-based sheet."
+        case .customView: return "Open a sheet with a custom view."
+        case .danger: return "Open a sheet with a destructive action."
+        case .headerView: return "Open a sheet with a header view."
+        case .links: return "Open a sheet with links."
+        case .multiSelect: return "Open a multi-select sheet."
+        case .nonDismissable: return "Open a sheet that can't be dismissed by tapping outside the sheet."
+        case .secondaryAction: return "Open a sheet where the items have secondary actions"
+        case .sections: return "Open a sheet with multiple sections."
+        case .singleSelect: return "Open a single-select sheet."
+        case .standard: return "Open a sheet with standard items."
         }
     }
     
@@ -68,6 +71,7 @@ enum ActionSheetMenuOption {
         case .headerView: return "ic_header_view"
         case .links: return "ic_arrow_right"
         case .multiSelect: return "ic_checkmarks"
+        case .secondaryAction: return "ic_secondary_action"
         case .sections: return "ic_sections"
         case .singleSelect: return "ic_checkmark"
         case .standard: return "ic_list"

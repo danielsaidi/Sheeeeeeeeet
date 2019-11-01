@@ -9,7 +9,7 @@
 import UIKit
 
 /**
- A destributive button is just an OK button that can be used
+ A `DestructiveButton` is just an OK button that can be used
  to indicate that tapping it has a destructive effect.
  
  The `value` of a destructive button is `.ok`.
