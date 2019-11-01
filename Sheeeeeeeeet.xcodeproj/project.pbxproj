@@ -74,6 +74,8 @@
 		84670416234A3CF100355331 /* CollectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703E5234A3CF100355331 /* CollectionMenu.swift */; };
 		84670419234A3E9C00355331 /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Sheeeeeeeeet::Sheeeeeeeeet::Product" /* Sheeeeeeeeet.framework */; };
 		8467041A234A3E9C00355331 /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Sheeeeeeeeet::Sheeeeeeeeet::Product" /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84A24ECB236C64F200DB060C /* SecondaryActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */; };
+		84A24ECE236C670D00DB060C /* SecondaryActionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */; };
 		OBJ_317 /* Escaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* Escaping.swift */; };
 		OBJ_318 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* Execution.swift */; };
 		OBJ_319 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Mock.swift */; };
@@ -429,6 +431,8 @@
 		846703E3234A3CF100355331 /* CustomMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenu.swift; sourceTree = "<group>"; };
 		846703E4234A3CF100355331 /* SectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionMenu.swift; sourceTree = "<group>"; };
 		846703E5234A3CF100355331 /* CollectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMenu.swift; sourceTree = "<group>"; };
+		84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionItem.swift; sourceTree = "<group>"; };
+		84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionItemTests.swift; sourceTree = "<group>"; };
 		84BDF8B22347D43F00D35F93 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		84BDF8B32347D43F00D35F93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		"Mockery::Mockery::Product" /* Mockery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mockery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1095,11 +1099,11 @@
 			children = (
 				OBJ_175 /* Buttons */,
 				OBJ_180 /* Items */,
+				OBJ_191 /* Mocks */,
+				OBJ_193 /* Titles */,
 				OBJ_188 /* MenuConfigurationTests.swift */,
 				OBJ_189 /* MenuItemTests.swift */,
 				OBJ_190 /* MenuTests.swift */,
-				OBJ_191 /* Mocks */,
-				OBJ_193 /* Titles */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1125,6 +1129,7 @@
 				OBJ_185 /* MultiSelectToggleItemTests.swift */,
 				OBJ_186 /* SelectItemTests.swift */,
 				OBJ_187 /* SingleSelectItemTests.swift */,
+				84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1588,6 +1593,7 @@
 				OBJ_96 /* LinkItem.swift */,
 				OBJ_97 /* MultiSelectItem.swift */,
 				OBJ_98 /* MultiSelectToggleItem.swift */,
+				84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */,
 				OBJ_99 /* SelectItem.swift */,
 				OBJ_100 /* SingleSelectItem.swift */,
 			);
@@ -2090,6 +2096,7 @@
 				OBJ_471 /* ActionSheetPresenter.swift in Sources */,
 				8405567023527E280064EC7D /* ActionSheetItemCells.swift in Sources */,
 				OBJ_472 /* ActionSheetStandardPresenter.swift in Sources */,
+				84A24ECB236C64F200DB060C /* SecondaryActionItem.swift in Sources */,
 				OBJ_473 /* ActionSheetBackgroundView.swift in Sources */,
 				OBJ_474 /* ActionSheetButtonTableView.swift in Sources */,
 				OBJ_475 /* ActionSheetHeaderContainerView.swift in Sources */,
@@ -2194,6 +2201,7 @@
 				OBJ_587 /* CancelButtonTests.swift in Sources */,
 				OBJ_588 /* DestructiveButtonTests.swift in Sources */,
 				OBJ_589 /* MenuButtonTests.swift in Sources */,
+				84A24ECE236C670D00DB060C /* SecondaryActionItemTests.swift in Sources */,
 				OBJ_590 /* OkButtonTests.swift in Sources */,
 				OBJ_591 /* CollectionItemTests.swift in Sources */,
 				OBJ_592 /* CustomItemTests.swift in Sources */,
