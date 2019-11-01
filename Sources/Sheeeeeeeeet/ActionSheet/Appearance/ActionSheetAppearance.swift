@@ -90,6 +90,8 @@ open class ActionSheetAppearance {
         multiSelectToggle.selectAllSubtitleColor = .sheetColor(.actionText)
         multiSelectToggle.deselectAllSubtitleColor = .sheetColor(.actionText)
 
+        secondaryAction.secondaryActionIconColor = .sheetColor(.text)
+        
         cancelButton.titleColor = .sheetColor(.discreteText)
         dangerButton.titleColor = .sheetColor(.danger)
     }
@@ -172,6 +174,7 @@ public extension ActionSheetAppearance {
     var multiSelectItem: ActionSheetMultiSelectItemCell { ActionSheetMultiSelectItemCell.appearance() }
     var multiSelectToggle: ActionSheetMultiSelectToggleItemCell { ActionSheetMultiSelectToggleItemCell.appearance() }
     var okButton: ActionSheetOkButtonCell { ActionSheetOkButtonCell.appearance() }
+    var secondaryAction: ActionSheetSecondaryActionItemCell { ActionSheetSecondaryActionItemCell.appearance() }
     var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
     var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
     var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }

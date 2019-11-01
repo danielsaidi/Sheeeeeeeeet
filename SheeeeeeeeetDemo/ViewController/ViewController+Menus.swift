@@ -22,6 +22,7 @@ extension ViewController {
         case .openSheet(.headerView): return ItemMenu(food: foodOptions)
         case .openSheet(.links): return LinkMenu(food: foodOptions)
         case .openSheet(.multiSelect): return MultiSelectMenu(food: foodOptions)
+        case .openSheet(.secondaryAction): return SecondaryActionMenu(food: foodOptions)
         case .openSheet(.sections): return SectionMenu(food: foodOptions)
         case .openSheet(.singleSelect): return SingleSelectMenu(food: foodOptions)
         case .openSheet(.standard): return ItemMenu(food: foodOptions)

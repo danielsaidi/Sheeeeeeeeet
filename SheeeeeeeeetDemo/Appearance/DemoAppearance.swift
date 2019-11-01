@@ -39,6 +39,7 @@ class DemoAppearance: ActionSheetAppearance {
     
     override func applyIcons() {
         super.applyIcons()
+        secondaryAction.secondaryActionIcon = UIImage(named: "ic_thumbs_up")
         if #available(iOS 13.0, *) { return }
         link.linkIcon = UIImage(named: "ic_arrow_right")
         selectItem.selectedIcon = UIImage(named: "ic_checkmark")

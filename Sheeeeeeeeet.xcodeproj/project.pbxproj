@@ -76,6 +76,11 @@
 		8467041A234A3E9C00355331 /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Sheeeeeeeeet::Sheeeeeeeeet::Product" /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A24ECB236C64F200DB060C /* SecondaryActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */; };
 		84A24ECE236C670D00DB060C /* SecondaryActionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */; };
+		84A24ED0236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */; };
+		84A24ED2236C6CA200DB060C /* ActionSheetSecondaryActionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ED1236C6CA200DB060C /* ActionSheetSecondaryActionItemCell.swift */; };
+		84A24ED5236C6DCD00DB060C /* ActionSheetSecondaryActionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ED3236C6DB500DB060C /* ActionSheetSecondaryActionItemTests.swift */; };
+		84A24ED9236C724100DB060C /* SecondaryActionItem+ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */; };
+		84A24EDB236C72C900DB060C /* SecondaryActionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */; };
 		OBJ_317 /* Escaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* Escaping.swift */; };
 		OBJ_318 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* Execution.swift */; };
 		OBJ_319 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Mock.swift */; };
@@ -433,6 +438,11 @@
 		846703E5234A3CF100355331 /* CollectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMenu.swift; sourceTree = "<group>"; };
 		84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionItem.swift; sourceTree = "<group>"; };
 		84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionItemTests.swift; sourceTree = "<group>"; };
+		84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryActionItem+ActionSheet.swift"; sourceTree = "<group>"; };
+		84A24ED1236C6CA200DB060C /* ActionSheetSecondaryActionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSecondaryActionItemCell.swift; sourceTree = "<group>"; };
+		84A24ED3236C6DB500DB060C /* ActionSheetSecondaryActionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSecondaryActionItemTests.swift; sourceTree = "<group>"; };
+		84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryActionItem+ActionSheetTests.swift"; sourceTree = "<group>"; };
+		84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionMenu.swift; sourceTree = "<group>"; };
 		84BDF8B22347D43F00D35F93 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		84BDF8B32347D43F00D35F93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		"Mockery::Mockery::Product" /* Mockery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mockery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -852,14 +862,15 @@
 			isa = PBXGroup;
 			children = (
 				846703DD234A3CF100355331 /* FoodMenu.swift */,
-				846703DE234A3CF100355331 /* LinkMenu.swift */,
-				846703DF234A3CF100355331 /* SingleSelectMenu.swift */,
-				846703E0234A3CF100355331 /* DestructiveMenu.swift */,
-				846703E1234A3CF100355331 /* MultiSelectMenu.swift */,
 				846703E2234A3CF100355331 /* ItemMenu.swift */,
-				846703E3234A3CF100355331 /* CustomMenu.swift */,
-				846703E4234A3CF100355331 /* SectionMenu.swift */,
 				846703E5234A3CF100355331 /* CollectionMenu.swift */,
+				846703E3234A3CF100355331 /* CustomMenu.swift */,
+				846703E0234A3CF100355331 /* DestructiveMenu.swift */,
+				846703DE234A3CF100355331 /* LinkMenu.swift */,
+				846703E1234A3CF100355331 /* MultiSelectMenu.swift */,
+				84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */,
+				846703E4234A3CF100355331 /* SectionMenu.swift */,
+				846703DF234A3CF100355331 /* SingleSelectMenu.swift */,
 			);
 			path = Menus;
 			sourceTree = "<group>";
@@ -936,6 +947,7 @@
 				OBJ_113 /* ActionSheetMarginTests.swift */,
 				OBJ_114 /* ActionSheetTests.swift */,
 				OBJ_115 /* Appearance */,
+				OBJ_158 /* Cells */,
 				OBJ_120 /* Extensions */,
 				OBJ_124 /* Menu */,
 				OBJ_143 /* Mocks */,
@@ -969,9 +981,9 @@
 		OBJ_124 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_138 /* MenuItem+ActionSheetTests.swift */,
 				OBJ_125 /* Buttons */,
 				OBJ_130 /* Items */,
-				OBJ_138 /* MenuItem+ActionSheetTests.swift */,
 				OBJ_139 /* Titles */,
 			);
 			path = Menu;
@@ -996,6 +1008,7 @@
 				OBJ_133 /* LinkItem+ActionSheetTests.swift */,
 				OBJ_134 /* MultiSelectItem+ActionSheetTests.swift */,
 				OBJ_135 /* MultiSelectToggleItem+ActionSheetTests.swift */,
+				84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */,
 				OBJ_136 /* SelectItem+ActionSheetTests.swift */,
 				OBJ_137 /* SingleSelectItem+ActionSheetTests.swift */,
 			);
@@ -1052,7 +1065,6 @@
 				OBJ_155 /* ActionSheetHeaderContainerViewTests.swift */,
 				OBJ_156 /* ActionSheetStackViewTests.swift */,
 				OBJ_157 /* ActionSheetTableViewTests.swift */,
-				OBJ_158 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1063,6 +1075,7 @@
 				OBJ_160 /* ActionSheetItemCellTests.swift */,
 				OBJ_162 /* ActionSheetLinkItemCellTests.swift */,
 				OBJ_163 /* ActionSheetSelectItemCellTests.swift */,
+				84A24ED3236C6DB500DB060C /* ActionSheetSecondaryActionItemTests.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1423,6 +1436,7 @@
 				OBJ_35 /* MultiSelectToggleItem+ActionSheet.swift */,
 				OBJ_36 /* SelectItem+ActionSheet.swift */,
 				OBJ_37 /* SingleSelectItem+ActionSheet.swift */,
+				84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1456,7 +1470,6 @@
 				OBJ_52 /* ActionSheetItemTableView.swift */,
 				OBJ_53 /* ActionSheetStackView.swift */,
 				OBJ_54 /* ActionSheetTableView.swift */,
-				OBJ_55 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1481,12 +1494,13 @@
 		OBJ_55 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_57 /* ActionSheetItemCell.swift */,
-				8405566E23527E1E0064EC7D /* ActionSheetItemCells.swift */,
 				OBJ_63 /* ActionSheetCollectionItemCell.swift */,
 				OBJ_64 /* ActionSheetCollectionItemCellHandler.swift */,
+				OBJ_57 /* ActionSheetItemCell.swift */,
+				8405566E23527E1E0064EC7D /* ActionSheetItemCells.swift */,
 				OBJ_65 /* ActionSheetLinkItemCell.swift */,
 				OBJ_67 /* ActionSheetMultiSelectToggleItemCell.swift */,
+				84A24ED1236C6CA200DB060C /* ActionSheetSecondaryActionItemCell.swift */,
 				OBJ_68 /* ActionSheetSelectItemCell.swift */,
 			);
 			path = Cells;
@@ -1577,6 +1591,7 @@
 				OBJ_13 /* ActionSheetItemHandler.swift */,
 				OBJ_14 /* ActionSheetMargin.swift */,
 				OBJ_15 /* Appearance */,
+				OBJ_55 /* Cells */,
 				OBJ_20 /* Extensions */,
 				OBJ_24 /* Menu */,
 				OBJ_44 /* Presenters */,
@@ -1910,6 +1925,7 @@
 				84670416234A3CF100355331 /* CollectionMenu.swift in Sources */,
 				84670415234A3CF100355331 /* SectionMenu.swift in Sources */,
 				84670411234A3CF100355331 /* DestructiveMenu.swift in Sources */,
+				84A24EDB236C72C900DB060C /* SecondaryActionMenu.swift in Sources */,
 				846703E8234A3CF100355331 /* MenuOption.swift in Sources */,
 				846703F8234A3CF100355331 /* AppDelegate.swift in Sources */,
 				846703FE234A3CF100355331 /* CollectionActionSheet.swift in Sources */,
@@ -2097,6 +2113,7 @@
 				8405567023527E280064EC7D /* ActionSheetItemCells.swift in Sources */,
 				OBJ_472 /* ActionSheetStandardPresenter.swift in Sources */,
 				84A24ECB236C64F200DB060C /* SecondaryActionItem.swift in Sources */,
+				84A24ED0236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift in Sources */,
 				OBJ_473 /* ActionSheetBackgroundView.swift in Sources */,
 				OBJ_474 /* ActionSheetButtonTableView.swift in Sources */,
 				OBJ_475 /* ActionSheetHeaderContainerView.swift in Sources */,
@@ -2134,6 +2151,7 @@
 				OBJ_516 /* MenuConfiguration.swift in Sources */,
 				OBJ_517 /* MenuItem.swift in Sources */,
 				OBJ_518 /* MenuTitle.swift in Sources */,
+				84A24ED2236C6CA200DB060C /* ActionSheetSecondaryActionItemCell.swift in Sources */,
 				OBJ_519 /* SectionMagin.swift in Sources */,
 				OBJ_520 /* SectionTitle.swift in Sources */,
 			);
@@ -2170,6 +2188,7 @@
 				OBJ_554 /* CustomItem+ActionSheetTests.swift in Sources */,
 				OBJ_555 /* LinkItem+ActionSheetTests.swift in Sources */,
 				OBJ_556 /* MultiSelectItem+ActionSheetTests.swift in Sources */,
+				84A24ED9236C724100DB060C /* SecondaryActionItem+ActionSheetTests.swift in Sources */,
 				OBJ_557 /* MultiSelectToggleItem+ActionSheetTests.swift in Sources */,
 				OBJ_558 /* SelectItem+ActionSheetTests.swift in Sources */,
 				OBJ_559 /* SingleSelectItem+ActionSheetTests.swift in Sources */,
@@ -2198,6 +2217,7 @@
 				OBJ_583 /* Menu+ContextMenuTests.swift in Sources */,
 				OBJ_584 /* MenuItem+ContextMenuTests.swift in Sources */,
 				OBJ_586 /* NSObject+ClassNameTests.swift in Sources */,
+				84A24ED5236C6DCD00DB060C /* ActionSheetSecondaryActionItemTests.swift in Sources */,
 				OBJ_587 /* CancelButtonTests.swift in Sources */,
 				OBJ_588 /* DestructiveButtonTests.swift in Sources */,
 				OBJ_589 /* MenuButtonTests.swift in Sources */,

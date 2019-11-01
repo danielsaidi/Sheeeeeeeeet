@@ -33,6 +33,7 @@ class ActionSheetApperanceTests: QuickSpec {
         var multiSelectItem: ActionSheetMultiSelectItemCell { ActionSheetMultiSelectItemCell.appearance() }
         var multiSelectToggle: ActionSheetMultiSelectToggleItemCell { ActionSheetMultiSelectToggleItemCell.appearance() }
         var okButton: ActionSheetOkButtonCell { ActionSheetOkButtonCell.appearance() }
+        var secondaryAction: ActionSheetSecondaryActionItemCell { ActionSheetSecondaryActionItemCell.appearance() }
         var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
         var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
         var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }
@@ -83,6 +84,8 @@ class ActionSheetApperanceTests: QuickSpec {
                 expect(selectItem.unselectedIconColor).to(equal(.sheetColor(.discreteText)))
                 expect(multiSelectToggle.selectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
                 expect(multiSelectToggle.deselectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
+                
+                expect(secondaryAction.secondaryActionIconColor).to(equal(.sheetColor(.text)))
                 
                 expect(cancelButton.titleColor).to(equal(.sheetColor(.discreteText)))
                 expect(dangerButton.titleColor).to(equal(.sheetColor(.danger)))

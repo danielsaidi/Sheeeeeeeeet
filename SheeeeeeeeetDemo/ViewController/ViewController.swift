@@ -36,6 +36,7 @@ class ViewController: UIViewController {
             .openSheet(.links),
             .openSheet(.headerView),
             .openSheet(.sections),
+            .openSheet(.secondaryAction),
             .openSheet(.collections),
             .openSheet(.customView),
             .openSheet(.danger),

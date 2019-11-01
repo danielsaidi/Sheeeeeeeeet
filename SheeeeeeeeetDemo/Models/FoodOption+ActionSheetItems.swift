@@ -43,6 +43,16 @@ extension FoodOption {
         )
     }
     
+    func toSecondaryMenuItem() -> MenuItem {
+        SecondaryActionItem(
+            title: title,
+            subtitle: subtitle,
+            value: self,
+            image: image,
+            secondaryAction: { print("Secondary action tapped") }
+        )
+    }
+    
     func toSingleSelectItem(isSelected: Bool, group: String = "") -> SingleSelectItem {
         SingleSelectItem(
             title: title,
