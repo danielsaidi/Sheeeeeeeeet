@@ -41,7 +41,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 let view = UIView()
                 let menu = Menu(title: "title", items: [])
                 let delegate = menu.addAsContextMenu(to: view) { _ in count += 1 }
-                expect(delegate.menu).to(be(menu))
+                expect(delegate.menuCreator).to(be(menu))
                 delegate.action(MenuItem(title: ""))
                 expect(count).to(equal(1))
             }
@@ -56,7 +56,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 let menu = Menu(title: "title", items: [])
                 menu.addAsRetainedContextMenu(to: view) { _ in count += 1 }
                 let delegate = view.contextMenuDelegate as? ContextMenuDelegate
-                expect(delegate?.menu).to(be(menu))
+                expect(delegate?.menuCreator).to(be(menu))
                 delegate?.action(MenuItem(title: ""))
             }
         }

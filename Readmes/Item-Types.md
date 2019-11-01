@@ -17,6 +17,7 @@ Items are used to present options. Sheeeeeeeeet has the following built-in types
 * `MultiSelectItem` - A select item that doesn't deselect other select items.
 * `MultiSelectItemToggle` - An item that selects/deselects all multi-select items in the same group.
 * `LinkItem` - A standard menu item that renders as a link.
+* `SecondaryActionItem` - A menu item that also has a secondary action.
 * `CollectionItem` - A generic item that can contain any type of items (e.g. collection view cells).
 * `Custom Item` - A generic item that can use any item (e.g. custom views).
 

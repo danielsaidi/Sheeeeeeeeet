@@ -34,6 +34,14 @@ open class Menu {
     public let configuration: Configuration
 }
 
+extension Menu: MenuCreator {
+    
+    /**
+     Implement `MenuCreator` by returning itself.
+     */
+    public func createMenu() -> Menu { self }
+}
+
 public extension Menu {
     
     /**
