@@ -5,6 +5,8 @@
 
 This version adds a new `SecondaryActionItem` which lets you specify a secondary action for an item.
 
+It also adds a new `MenuCreator` protocol that can be implemented to postpone the creation of a menu, which may be good for prestanda when adding a context menu to every item in a large view collection.
+
 
 ## 3.0.6
 
