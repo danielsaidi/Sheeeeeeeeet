@@ -20,7 +20,7 @@ class ActionSheetSecondaryActionItemTests: QuickSpec {
             var cell: ActionSheetSecondaryActionItemCell!
             
             beforeEach {
-                item = SecondaryActionItem(title: "title", subtitle: "subtitle", secondaryAction: {})
+                item = SecondaryActionItem(title: "title", subtitle: "subtitle", secondaryAction: { _ in })
                 cell = ActionSheetSecondaryActionItemCell(style: .value1)
                 cell.secondaryActionIcon = UIImage()
                 cell.secondaryActionIconColor = .green

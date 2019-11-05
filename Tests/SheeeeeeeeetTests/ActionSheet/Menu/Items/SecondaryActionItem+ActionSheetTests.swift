@@ -17,7 +17,7 @@ class SecondaryActionItem_ActionSheetTests: QuickSpec {
         describe("action sheet cell") {
         
             it("is of correct type") {
-                let item = SecondaryActionItem(title: "title", secondaryAction: {})
+                let item = SecondaryActionItem(title: "title", secondaryAction: { _ in })
                 let cell = item.actionSheetCell(for: UITableView())
                 expect(cell is ActionSheetSecondaryActionItemCell).to(beTrue())
                 expect(item.actionSheetCellType is ActionSheetSecondaryActionItemCell.Type).to(beTrue())

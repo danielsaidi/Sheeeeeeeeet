@@ -19,7 +19,7 @@ class SecondaryActionItemTests: QuickSpec {
             
             it("fills in omitted properties") {
                 var count = 0
-                let action: SecondaryActionItem.SecondaryAction = { count += 1 }
+                let action: SecondaryActionItem.SecondaryAction = { _ in count += 1 }
                 let item = SecondaryActionItem(title: "title", secondaryAction: action)
                 
                 expect(item.title).to(equal("title"))
@@ -29,13 +29,13 @@ class SecondaryActionItemTests: QuickSpec {
                 expect(item.isEnabled).to(beTrue())
                 expect(item.tapBehavior).to(equal(.dismiss))
                 expect(count).to(equal(0))
-                item.secondaryAction()
+                item.secondaryAction(item)
                 expect(count).to(equal(1))
             }
             
             it("sets up provided properties") {
                 var count = 0
-                let action: SecondaryActionItem.SecondaryAction = { count += 1 }
+                let action: SecondaryActionItem.SecondaryAction = { _ in count += 1 }
                 let image = UIImage()
                 let item = SecondaryActionItem(
                     title: "title",
@@ -53,7 +53,7 @@ class SecondaryActionItemTests: QuickSpec {
                 expect(item.isEnabled).to(beFalse())
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
                 expect(count).to(equal(0))
-                item.secondaryAction()
+                item.secondaryAction(item)
                 expect(count).to(equal(1))
             }
         }
@@ -61,12 +61,12 @@ class SecondaryActionItemTests: QuickSpec {
         describe("capabilities") {
             
             it("can't be used in alert controller") {
-                let item = SecondaryActionItem(title: "title", secondaryAction: {})
+                let item = SecondaryActionItem(title: "title", secondaryAction: { _ in })
                 expect(item.canBeUsedInAlertController).to(beFalse())
             }
             
             it("can't be used in native context menu") {
-                let item = SecondaryActionItem(title: "title", secondaryAction: {})
+                let item = SecondaryActionItem(title: "title", secondaryAction: { _ in })
                 expect(item.canBeUsedInContextMenu).to(beFalse())
             }
         }

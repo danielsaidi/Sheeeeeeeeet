@@ -12,7 +12,7 @@ import UIKit
 This class is used as the data source and delegate for the a
 sheet's item and button table views.
 */
-open class ActionSheetItemHandler: NSObject {
+open class ActionSheetItemHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     
     // MARK: - Initialization
@@ -42,46 +42,40 @@ open class ActionSheetItemHandler: NSObject {
         case .items: return actionSheet?.items ?? []
         }
     }
-}
 
 
-// MARK: - UITableViewDataSource
+    // MARK: - UITableViewDataSource
 
-extension ActionSheetItemHandler: UITableViewDataSource {
-    
-    public func item(at indexPath: IndexPath) -> MenuItem? {
+    open func item(at indexPath: IndexPath) -> MenuItem? {
         guard indexPath.section == 0 else { return nil }
         guard items.count > indexPath.row else { return nil }
         return items[indexPath.row]
     }
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let item = self.item(at: indexPath) else { return UITableViewCell(frame: .zero) }
         let cell = item.actionSheetCell(for: tableView)
         cell.refresh(with: item)
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let item = self.item(at: indexPath) else { return 0 }
         return CGFloat(item.actionSheetCellHeight)
     }
-}
 
 
-// MARK: - UITableViewDelegate
-
-extension ActionSheetItemHandler: UITableViewDelegate {
+    // MARK: - UITableViewDelegate
     
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = self.item(at: indexPath) else { return }
         tableView.deselectRow(at: indexPath, animated: true)
         guard let sheet = actionSheet else { return }
