@@ -12,13 +12,18 @@ open class ActionSheetSecondaryActionItemCell: ActionSheetItemCell {
     
     // MARK: - Properties
     
-    private var tapAction: SecondaryActionItem.SecondaryAction?
+    var tapAction: SecondaryAction?
     
     
     // MARK: - Appearance Properties
     
     @objc public dynamic var secondaryActionIcon: UIImage?
     @objc public dynamic var secondaryActionIconColor: UIColor?
+    
+    
+    // MARK: - Types
+    
+    typealias SecondaryAction = (ActionSheetSecondaryActionItemCell) -> Void
     
     
     // MARK: - Functions
@@ -46,7 +51,6 @@ private extension ActionSheetSecondaryActionItemCell {
     }
     
     func applySecondaryAction(for item: SecondaryActionItem) {
-        tapAction = item.secondaryAction
         let tapGestures = accessoryView?.gestureRecognizers?.filter { $0 is UITapGestureRecognizer }
         let count = tapGestures?.count ?? 0
         guard count == 0 else { return }
@@ -57,6 +61,6 @@ private extension ActionSheetSecondaryActionItemCell {
     }
     
     @objc func triggerTapAction() {
-        tapAction?()
+        tapAction?(self)
     }
 }

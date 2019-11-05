@@ -49,7 +49,7 @@ extension FoodOption {
             subtitle: subtitle,
             value: self,
             image: image,
-            secondaryAction: { print("Secondary action tapped") }
+            secondaryAction: { item in print("Secondary action tapped") }
         )
     }
     

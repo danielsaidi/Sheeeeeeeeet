@@ -36,7 +36,7 @@ open class SecondaryActionItem: MenuItem {
         )
     }
     
-    public typealias SecondaryAction = () -> Void
+    public typealias SecondaryAction = (SecondaryActionItem) -> Void
     
     public let secondaryAction: SecondaryAction
     

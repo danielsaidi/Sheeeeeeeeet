@@ -10,7 +10,12 @@ import UIKit
 extension SecondaryActionItem {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetSecondaryActionItemCell(style: actionSheetCellStyle)
+        let cell = ActionSheetSecondaryActionItemCell(style: actionSheetCellStyle)
+        cell.tapAction = { [weak self] _ in
+            guard let self = self else { return }
+            self.secondaryAction(self)
+        }
+        return cell
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {
