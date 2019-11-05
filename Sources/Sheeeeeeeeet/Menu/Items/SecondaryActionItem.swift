@@ -24,7 +24,7 @@ open class SecondaryActionItem: MenuItem {
         image: UIImage? = nil,
         isEnabled: Bool = true,
         tapBehavior: TapBehavior = .dismiss,
-        secondaryAction: @escaping SecondaryAction) {
+        secondaryAction: @escaping Menu.ItemAction) {
         self.secondaryAction = secondaryAction
         super.init(
             title: title,
@@ -36,9 +36,7 @@ open class SecondaryActionItem: MenuItem {
         )
     }
     
-    public typealias SecondaryAction = (SecondaryActionItem) -> Void
-    
-    public let secondaryAction: SecondaryAction
+    public let secondaryAction: Menu.ItemAction
     
     override var canBeUsedInAlertController: Bool { false }
     override var canBeUsedInContextMenu: Bool { false }

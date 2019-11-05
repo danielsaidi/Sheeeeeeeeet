@@ -19,7 +19,7 @@ class SecondaryActionItemTests: QuickSpec {
             
             it("fills in omitted properties") {
                 var count = 0
-                let action: SecondaryActionItem.SecondaryAction = { _ in count += 1 }
+                let action: Menu.ItemAction = { _ in count += 1 }
                 let item = SecondaryActionItem(title: "title", secondaryAction: action)
                 
                 expect(item.title).to(equal("title"))
@@ -35,7 +35,7 @@ class SecondaryActionItemTests: QuickSpec {
             
             it("sets up provided properties") {
                 var count = 0
-                let action: SecondaryActionItem.SecondaryAction = { _ in count += 1 }
+                let action: Menu.ItemAction = { _ in count += 1 }
                 let image = UIImage()
                 let item = SecondaryActionItem(
                     title: "title",

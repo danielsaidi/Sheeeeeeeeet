@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 3.0.9
+
+This version adjusts the secondary action to be a regular menu item action.
+
+
 ## 3.0.8
 
 This version adjusts the secondary action signature to also provide the affected item. It's a breaking change, but a small one, so deal with it I guess  ¯\_(ツ)_/¯
