@@ -110,11 +110,12 @@ class ActionSheetTests: QuickSpec {
                 expect(sheet.buttons[0]).to(be(button))
             }
             
-            it("reloads data") {
-                sheet.reloadDataInvokeCount = 0
+            it("reloads data an extra time when setting up items") {
+                let preExecs = sheet.recorder.executions(of: sheet.reloadData)
+                expect(preExecs.count).to(equal(1))
                 sheet.setup(items: [])
-                
-                expect(sheet.reloadDataInvokeCount).to(equal(1))
+                let postExecs = sheet.recorder.executions(of: sheet.reloadData)
+                expect(postExecs.count).to(equal(2))
             }
         }
         
@@ -127,7 +128,8 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("sets up action sheet") {
-                expect(sheet.setupInvokeCount).to(beGreaterThanOrEqualTo(1))
+                let execs = sheet.recorder.executions(of: sheet.setup as MockActionSheet.SetupSignature)
+                expect(execs.count).to(beGreaterThanOrEqualTo(1))
             }
             
             it("sets up items table view") {
@@ -157,8 +159,8 @@ class ActionSheetTests: QuickSpec {
             it("refreshes sheet") {
                 sheet = createSheet()
                 sheet.viewDidLayoutSubviews()
-                
-                expect(sheet.refreshInvokeCount).to(equal(1))
+                let execs = sheet.recorder.executions(of: sheet.refresh)
+                expect(execs.count).to(equal(1))
             }
         }
         
@@ -295,10 +297,10 @@ class ActionSheetTests: QuickSpec {
                     var counter = 0
                     let completion = { counter += 1 }
                     sheet.dismiss(completion: completion)
-                    presenter.dismissInvokeCompletions[0]()
-                    
-                    expect(presenter.dismissInvokeCount).to(equal(1))
+                    let execs = presenter.executions(of: presenter.dismiss)
+                    execs[0].arguments()
                     expect(counter).to(equal(1))
+                    expect(execs.count).to(equal(1))
                 }
             }
             
@@ -306,8 +308,8 @@ class ActionSheetTests: QuickSpec {
                 
                 it("refreshes itself") {
                     sheet.present(in: UIViewController(), from: UIView())
-                    
-                    expect(sheet.refreshInvokeCount).to(equal(1))
+                    let execs = sheet.recorder.executions(of: sheet.refresh)
+                    expect(execs.count).to(equal(1))
                 }
                 
                 it("calls presenter") {
@@ -316,11 +318,13 @@ class ActionSheetTests: QuickSpec {
                     let vc = UIViewController()
                     let view = UIView()
                     sheet.present(in: vc, from: view, completion: completion)
-                    presenter.presentInvokeCompletions[0]()
-                    
-                    expect(presenter.presentInvokeCount).to(equal(1))
-                    expect(presenter.presentInvokeViewControllers[0]).to(be(vc))
-                    expect(presenter.presentInvokeViews[0]).to(be(view))
+                    let execs = presenter.executions(of: presenter.present as MockActionSheetPresenter.PresentFromViewSignature)
+                    expect(execs.count).to(equal(1))
+                    let exec = execs[0]
+                    exec.arguments.3()
+                    expect(exec.arguments.0).to(be(sheet))
+                    expect(exec.arguments.1).to(be(vc))
+                    expect(exec.arguments.2).to(be(view))
                     expect(counter).to(equal(1))
                 }
 
@@ -342,8 +346,8 @@ class ActionSheetTests: QuickSpec {
                 
                 it("refreshes itself") {
                     sheet.present(in: UIViewController(), from: UIBarButtonItem())
-                    
-                    expect(sheet.refreshInvokeCount).to(equal(1))
+                    let execs = sheet.recorder.executions(of: sheet.refresh)
+                    expect(execs.count).to(equal(1))
                 }
                 
                 it("calls presenter") {
@@ -352,11 +356,13 @@ class ActionSheetTests: QuickSpec {
                     let vc = UIViewController()
                     let item = UIBarButtonItem()
                     sheet.present(in: vc, from: item, completion: completion)
-                    presenter.presentInvokeCompletions[0]()
-                    
-                    expect(presenter.presentInvokeCount).to(equal(1))
-                    expect(presenter.presentInvokeViewControllers[0]).to(be(vc))
-                    expect(presenter.presentInvokeItems[0]).to(be(item))
+                    let execs = presenter.executions(of: presenter.present as MockActionSheetPresenter.PresentFromItemSignature)
+                    expect(execs.count).to(equal(1))
+                    let exec = execs[0]
+                    exec.arguments.3()
+                    expect(exec.arguments.0).to(be(sheet))
+                    expect(exec.arguments.1).to(be(vc))
+                    expect(exec.arguments.2).to(be(item))
                     expect(counter).to(equal(1))
                 }
 
@@ -388,12 +394,18 @@ class ActionSheetTests: QuickSpec {
             }
             
             it("refreshes all components") {
-                expect(sheet.refreshHeaderInvokeCount).to(equal(1))
-                expect(sheet.refreshHeaderVisibilityInvokeCount).to(equal(1))
-                expect(sheet.refreshItemsInvokeCount).to(equal(1))
-                expect(sheet.refreshButtonsInvokeCount).to(equal(1))
+                let headerExecs = sheet.recorder.executions(of: sheet.refreshHeader)
+                let headerVisibilityExecs = sheet.recorder.executions(of: sheet.refreshHeaderVisibility)
+                let itemsExecs = sheet.recorder.executions(of: sheet.refreshItems)
+                let buttonsExecs = sheet.recorder.executions(of: sheet.refreshButtons)
+                let refreshExecs = presenter.executions(of: presenter.refreshActionSheet)
+                
+                expect(headerExecs.count).to(equal(1))
+                expect(headerVisibilityExecs.count).to(equal(1))
+                expect(itemsExecs.count).to(equal(1))
+                expect(buttonsExecs.count).to(equal(1))
                 expect(sheet.stackView.spacing).to(equal(15))
-                expect(presenter.refreshActionSheetInvokeCount).to(equal(1))
+                expect(refreshExecs.count).to(equal(1))
             }
         }
         
@@ -554,13 +566,14 @@ class ActionSheetTests: QuickSpec {
             
             beforeEach {
                 sheet = createSheet()
-                sheet.reloadDataInvokeCount = 0
             }
             
             it("reloads data") {
+                let preExecs = sheet.recorder.executions(of: sheet.reloadData)
+                expect(preExecs.count).to(equal(1))
                 sheet.handleTap(on: MenuItem(title: ""))
-                
-                expect(sheet.reloadDataInvokeCount).to(equal(1))
+                let postExecs = sheet.recorder.executions(of: sheet.reloadData)
+                expect(postExecs.count).to(equal(2))
             }
             
             it("calls select action without dismiss if item has none tap action") {
@@ -568,9 +581,9 @@ class ActionSheetTests: QuickSpec {
                 sheet = MockActionSheet(menu: .empty) { (_, _) in count += 1 }
                 let item = MenuItem(title: "", tapBehavior: .none)
                 sheet.handleTap(on: item)
-                
+                let execs = sheet.recorder.executions(of: sheet.dismiss)
                 expect(count).to(equal(1))
-                expect(sheet.dismissInvokeCount).to(equal(0))
+                expect(execs.count).to(equal(0))
             }
             
             it("calls select action after dismiss if item has dismiss tap action") {
@@ -578,9 +591,9 @@ class ActionSheetTests: QuickSpec {
                 sheet = MockActionSheet(menu: .empty) { (_, _) in count += 1 }
                 let item = MenuItem(title: "", tapBehavior: .dismiss)
                 sheet.handleTap(on: item)
-                
+                let execs = sheet.recorder.executions(of: sheet.dismiss)
                 expect(count).to(equal(1))
-                expect(sheet.dismissInvokeCount).to(equal(1))
+                expect(execs.count).to(equal(1))
             }
         }
         

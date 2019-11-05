@@ -7,45 +7,30 @@
 //
 
 import Sheeeeeeeeet
+import Mockery
 import UIKit
 
-class MockActionSheetPresenter: ActionSheetPresenter {
+class MockActionSheetPresenter: Mock, ActionSheetPresenter {
     
     var events = ActionSheetPresenterEvents()
     var isDismissable = false
     
-    var dismissInvokeCount = 0
-    var dismissInvokeCompletions = [() -> ()]()
-    var presentInvokeCount = 0
-    var presentInvokeCompletions = [() -> ()]()
-    var presentInvokeSheets = [ActionSheet]()
-    var presentInvokeViewControllers = [UIViewController]()
-    var presentInvokeViews = [UIView?]()
-    var presentInvokeItems = [UIBarButtonItem]()
-    var refreshActionSheetInvokeCount = 0
+    typealias PresentFromViewSignature = (ActionSheet, UIViewController, UIView?, @escaping () -> Void) -> Void
+    typealias PresentFromItemSignature = (ActionSheet, UIViewController, UIBarButtonItem, @escaping () -> Void) -> Void
     
     func dismiss(completion: @escaping () -> ()) {
-        dismissInvokeCount += 1
-        dismissInvokeCompletions.append(completion)
+        invoke(dismiss, args: (completion))
     }
     
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
-        presentInvokeCount += 1
-        presentInvokeSheets.append(sheet)
-        presentInvokeViewControllers.append(vc)
-        presentInvokeViews.append(view)
-        presentInvokeCompletions.append(completion)
+        invoke(present, args: (sheet, vc, view, completion))
     }
     
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
-        presentInvokeCount += 1
-        presentInvokeSheets.append(sheet)
-        presentInvokeViewControllers.append(vc)
-        presentInvokeItems.append(item)
-        presentInvokeCompletions.append(completion)
+        invoke(present, args: (sheet, vc, item, completion))
     }
     
     func refreshActionSheet() {
-        refreshActionSheetInvokeCount += 1
+        invoke(refreshActionSheet, args: ())
     }
 }

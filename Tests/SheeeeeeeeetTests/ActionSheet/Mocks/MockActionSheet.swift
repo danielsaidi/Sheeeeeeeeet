@@ -1,22 +1,20 @@
 import Sheeeeeeeeet
+import Mockery
 import UIKit
 
+/**
+ This mock action sheet inherits `ActionSheet` and calls its
+ super class for all function calls, which means that it can
+ be used as a regular action sheet. However, it also records
+ all invokations using its `recorder`, which means that each
+ call can be inspected afterwards.
+ */
 class MockActionSheet: ActionSheet {
     
-    var dismissInvokeCount = 0
-    var handleTapInvokeCount = 0
-    var handleTapInvokeItems = [MenuItem]()
-    var prepareForPresentationInvokeCount = 0
-    var refreshInvokeCount = 0
-    var refreshButtonsInvokeCount = 0
-    var refreshItemsInvokeCount = 0
-    var refreshHeaderInvokeCount = 0
-    var refreshHeaderVisibilityInvokeCount = 0
-    var reloadDataInvokeCount = 0
-    var setupInvokeCount = 0
-    var setupItemsInvokeCount = 0
-    var setupItemsInvokeItems = [[MenuItem]]()
+    var recorder = Mock()
     
+    typealias SetupSignature = () -> Void
+    typealias SetupWithItemsSignature = ([MenuItem]) -> Void
     
     private var _presentingViewController: UIViewController?
     override var presentingViewController: UIViewController? {
@@ -27,53 +25,51 @@ class MockActionSheet: ActionSheet {
     
     override func dismiss(completion: @escaping () -> ()) {
         super.dismiss { completion() }
-        dismissInvokeCount += 1
+        recorder.invoke(dismiss, args: (completion))
     }
     
     override func handleTap(on item: MenuItem) {
         super.handleTap(on: item)
-        handleTapInvokeCount += 1
-        handleTapInvokeItems.append(item)
+        recorder.invoke(handleTap, args: (item))
     }
     
     override func refresh() {
         super.refresh()
-        refreshInvokeCount += 1
+        recorder.invoke(refresh, args: ())
     }
     
     override func refreshButtons() {
         super.refreshButtons()
-        refreshButtonsInvokeCount += 1
+        recorder.invoke(refreshButtons, args: ())
     }
     
     override func refreshItems() {
         super.refreshItems()
-        refreshItemsInvokeCount += 1
+        recorder.invoke(refreshItems, args: ())
     }
     
     override func refreshHeader() {
         super.refreshHeader()
-        refreshHeaderInvokeCount += 1
+        recorder.invoke(refreshHeader, args: ())
     }
     
     override func refreshHeaderVisibility() {
         super.refreshHeaderVisibility()
-        refreshHeaderVisibilityInvokeCount += 1
+        recorder.invoke(refreshHeaderVisibility, args: ())
     }
     
     override func reloadData() {
         super.reloadData()
-        reloadDataInvokeCount += 1
+        recorder.invoke(reloadData, args: ())
     }
     
     override func setup() {
         super.setup()
-        setupInvokeCount += 1
+        recorder.invoke(setup, args: ())
     }
     
     override func setup(items: [MenuItem]) {
         super.setup(items: items)
-        setupItemsInvokeCount += 1
-        setupItemsInvokeItems.append(items)
+        recorder.invoke(setup, args: items)
     }
 }
