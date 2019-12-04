@@ -32,6 +32,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     open var events = ActionSheetPresenterEvents()
     open var isDismissable = true
     open var isDismissableWithOrientationChange = true
+    open var shouldDismissOnDidEnterBackground = false
     
     
     // MARK: - Deprecated
@@ -45,9 +46,9 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     // MARK: - ActionSheetPresenter
     
-    @objc public func handleOrientationChange() {
-        dismiss {}
-    }
+    @objc public func handleOrientationChange() { dismiss {} }
+    
+    @objc public func handleDidEnterBackground() { dismiss {} }
     
     public func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
@@ -73,6 +74,7 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         refreshPopoverBackgroundColor()
         vc.present(sheet, animated: true, completion: completion)
         setupOrientationChangeDetection()
+        setupDidEnterBackgroundDetection()
     }
     
     open func refreshActionSheet() {
@@ -98,6 +100,14 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         actionSheet?.backgroundView.isHidden = true
         actionSheet?.view.backgroundColor = ActionSheetTableView.appearance().backgroundColor
         popover?.backgroundColor = ActionSheetTableView.appearance().backgroundColor
+    }
+    
+    open func setupDidEnterBackgroundDetection(with center: NotificationCenter = .default) {
+        let action = #selector(handleDidEnterBackground)
+        let name = UIApplication.didEnterBackgroundNotification
+        center.removeObserver(self, name: name, object: nil)
+        guard isDismissable && shouldDismissOnDidEnterBackground else { return }
+        center.addObserver(self, selector: action, name: name, object: nil)
     }
     
     open func setupOrientationChangeDetection(with center: NotificationCenter = .default) {

@@ -49,6 +49,14 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
         }
         
         
+        describe("auto-dismissal on didEnterBackground") {
+            
+            it("is disabled by default") {
+                expect(presenter.shouldDismissOnDidEnterBackground).to(beFalse())
+            }
+        }
+        
+        
         describe("dismissing") {
             
             it("completes dismissal directly if action sheet has no presenting view controller") {
@@ -207,6 +215,39 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             it("adds observer if presenter is listening for changes") {
                 presenter.isDismissableWithOrientationChange = true
                 presenter.setupOrientationChangeDetection(with: center)
+                expect(center.addObserverInvokeCount).to(equal(1))
+                expect(center.addObserverInvokeNames[0]).to(equal(expectedName))
+                expect(center.addObserverInvokeObjects[0]).to(beNil())
+            }
+        }
+        
+        
+        describe("setting up onDidEnterBackground detection") {
+            
+            var center: MockNotificationCenter!
+            let expectedName = UIApplication.didEnterBackgroundNotification
+            
+            beforeEach {
+                center = MockNotificationCenter()
+                presenter.isDismissable = true
+            }
+            
+            it("removes observer") {
+                presenter.setupDidEnterBackgroundDetection(with: center)
+                expect(center.removeObserverInvokeCount).to(equal(1))
+                expect(center.removeObserverInvokeNames[0]).to(equal(expectedName))
+                expect(center.removeObserverInvokeObjects[0]).to(beNil())
+            }
+            
+            it("does not add observer if presenter is not listening for changes") {
+                presenter.shouldDismissOnDidEnterBackground = false
+                presenter.setupDidEnterBackgroundDetection(with: center)
+                expect(center.addObserverInvokeCount).to(equal(0))
+            }
+            
+            it("adds observer if presenter is listening for changes") {
+                presenter.shouldDismissOnDidEnterBackground = true
+                presenter.setupDidEnterBackgroundDetection(with: center)
                 expect(center.addObserverInvokeCount).to(equal(1))
                 expect(center.addObserverInvokeNames[0]).to(equal(expectedName))
                 expect(center.addObserverInvokeObjects[0]).to(beNil())

@@ -133,6 +133,7 @@ open class ActionSheet: UIViewController {
         }
         setup(items: items)
         presenter.isDismissable = menu.configuration.isDismissable
+        presenter.shouldDismissOnDidEnterBackground = menu.configuration.shouldDismissOnDidEnterBackground
     }
     
     

@@ -19,6 +19,7 @@ class MenuConfigurationTests: QuickSpec {
             it("can be dismissed") {
                 let config = Menu.Configuration.standard
                 expect(config.isDismissable).to(beTrue())
+                expect(config.shouldDismissOnDidEnterBackground).to(beFalse())
             }
         }
         
@@ -27,6 +28,7 @@ class MenuConfigurationTests: QuickSpec {
             it("can be dismissed") {
                 let config = Menu.Configuration.nonDismissable
                 expect(config.isDismissable).to(beFalse())
+                expect(config.shouldDismissOnDidEnterBackground).to(beFalse())
             }
         }
     }

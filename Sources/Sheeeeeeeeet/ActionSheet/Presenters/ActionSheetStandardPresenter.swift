@@ -32,6 +32,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     public var events = ActionSheetPresenterEvents()
     public var isDismissable = true
+    public var shouldDismissOnDidEnterBackground = false
     public var presentationStyle = PresentationStyle.currentContext
     
     var actionSheet: ActionSheet?
@@ -48,6 +49,8 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
     
     // MARK: - ActionSheetPresenter
     
+    @objc public func handleDidEnterBackground() { dismiss {} }
+
     open func dismiss(completion: @escaping () -> ()) {
         completion()
         removeBackgroundView()
@@ -69,6 +72,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
         actionSheet = sheet
         addActionSheet(sheet, to: vc)
         addBackgroundViewTapAction(to: sheet.backgroundView)
+        setupDidEnterBackgroundDetection()
         presentBackgroundView()
         presentActionSheet(completion: completion)
     }
@@ -130,6 +134,14 @@ open class ActionSheetStandardPresenter: ActionSheetPresenter {
         let animation = { view.alpha = 0 }
         animate(animation)
     }
+    
+    open func setupDidEnterBackgroundDetection(with center: NotificationCenter = .default) {
+           let action = #selector(handleDidEnterBackground)
+           let name = UIApplication.didEnterBackgroundNotification
+           center.removeObserver(self, name: name, object: nil)
+           guard isDismissable && shouldDismissOnDidEnterBackground else { return }
+           center.addObserver(self, selector: action, name: name, object: nil)
+       }
 }
 
 

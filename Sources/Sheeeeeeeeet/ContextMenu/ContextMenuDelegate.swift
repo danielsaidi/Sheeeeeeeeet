@@ -26,6 +26,8 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
         self.menuCreator = menuCreator
         self.action = action
         self.previewProvider = previewProvider
+        super.init()
+        setupDidEnterBackgroundDetection()
     }
     
     convenience init(
@@ -49,14 +51,42 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     let action: (MenuItem) -> ()
     let previewProvider: UIContextMenuContentPreviewProvider?
     
+    weak var activeInteraction: UIContextMenuInteraction?
+    var activeMenuConfiguration: Menu.Configuration?
+    
     public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: previewProvider, actionProvider: { [weak self] _ in
             guard let self = self else { fatalError("ContextMenuDelegate was deallocated") }
             let menu = self.menuCreator.createMenu()
             switch menu.toContextMenu(action: self.action) {
             case .failure(let error): fatalError(error.localizedDescription)
-            case .success(let menu): return menu
+            case .success(let contextMenu):
+                self.activeInteraction = interaction
+                self.activeMenuConfiguration = menu.configuration
+                return contextMenu
             }
         })
+    }
+}
+
+
+@available(iOS 13.0, *)
+private extension ContextMenuDelegate {
+    
+    @objc func handleDidEnterBackground() {
+        guard let config = activeMenuConfiguration,
+            config.isDismissable && config.shouldDismissOnDidEnterBackground else { return }
+        
+        guard let activeInteraction = activeInteraction,
+            let activeView = activeInteraction.view else { return }
+        
+        activeView.removeInteraction(activeInteraction)
+        activeView.addInteraction(activeInteraction)
+    }
+    
+    func setupDidEnterBackgroundDetection(with center: NotificationCenter = .default) {
+        let action = #selector(handleDidEnterBackground)
+        let name = UIApplication.didEnterBackgroundNotification
+        center.addObserver(self, selector: action, name: name, object: nil)
     }
 }

@@ -44,6 +44,7 @@ class ActionSheetTests: QuickSpec {
                     let sheet = ActionSheet(menu: menu, presenter: presenter) { _, _ in counter += 1 }
                     expect(sheet.presenter).to(be(presenter))
                     expect(sheet.presenter.isDismissable).to(beTrue())
+                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beFalse())
                     expect(sheet.items.count).to(equal(2))
                     expect(sheet.items[0] is MenuTitle).to(beTrue())
                     expect(sheet.items[0].title).to(equal("title"))
@@ -58,6 +59,21 @@ class ActionSheetTests: QuickSpec {
                     let menu = Menu(title: "title", items: [], configuration: .nonDismissable)
                     let sheet = ActionSheet(menu: menu) { _, _ in }
                     expect(sheet.presenter.isDismissable).to(beFalse())
+                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beFalse())
+                }
+                
+                it("can enable presenter auto-dismissal on didEnterBackground with menu configuration") {
+                    let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: true)
+                    let menu = Menu(title: "title", items: [], configuration: config)
+                    let sheet = ActionSheet(menu: menu) { _, _ in }
+                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beTrue())
+                }
+                
+                it("can disable presenter auto-dismissal on didEnterBackground with menu configuration") {
+                    let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: false)
+                    let menu = Menu(title: "title", items: [], configuration: config)
+                    let sheet = ActionSheet(menu: menu) { _, _ in }
+                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beFalse())
                 }
             }
         }

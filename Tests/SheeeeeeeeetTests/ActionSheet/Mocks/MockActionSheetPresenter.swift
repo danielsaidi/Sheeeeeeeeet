@@ -14,6 +14,7 @@ class MockActionSheetPresenter: Mock, ActionSheetPresenter {
     
     var events = ActionSheetPresenterEvents()
     var isDismissable = false
+    var shouldDismissOnDidEnterBackground = false
     
     typealias PresentFromViewSignature = (ActionSheet, UIViewController, UIView?, @escaping () -> Void) -> Void
     typealias PresentFromItemSignature = (ActionSheet, UIViewController, UIBarButtonItem, @escaping () -> Void) -> Void

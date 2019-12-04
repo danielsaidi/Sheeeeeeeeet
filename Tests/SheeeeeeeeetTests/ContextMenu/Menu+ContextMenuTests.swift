@@ -60,7 +60,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 delegate?.action(MenuItem(title: ""))
             }
         }
-
+        
         describe("creating context menu") {
             
             it("succeeds if all non-ignored items can be converted") {
@@ -88,16 +88,108 @@ class Menu_ContextMenuTests: QuickSpec {
                 }
             }
         }
+        
+        describe("Auto dismiss on didEnterBackground") {
+            
+            it("dismisses menu when both isDismissable and shouldDismissOnDidEnterBackground are true") {
+                guard #available(iOS 13.0, *) else { return }
+                
+                let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: true)
+                
+                let view = TestView()
+                view.shouldCallSuper = true
+                let menu = Menu(title: "title", items: [], configuration: config)
+                menu.addAsRetainedContextMenu(to: view) { _ in }
+                
+                guard let interaction = view.interactions.first as? UIContextMenuInteraction,
+                    let delegate = view.contextMenuDelegate as? ContextMenuDelegate else {
+                        return fail("interactor or delegate not set")
+                }
+                
+                delegate.activeInteraction = interaction
+                delegate.activeMenuConfiguration = menu.configuration
+                
+                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
+                
+                let addExecutions = view.recorder.executions(of: view.addInteraction)
+                let removeExecutions = view.recorder.executions(of: view.removeInteraction)
+                
+                expect(addExecutions.count).to(equal(4))
+                expect(removeExecutions.count).to(equal(1))
+            }
+            
+            it("does not dismiss menu when shouldDismissOnDidEnterBackground is false") {
+                guard #available(iOS 13.0, *) else { return }
+                
+                let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: false)
+                
+                
+                let view = TestView()
+                view.shouldCallSuper = true
+                let menu = Menu(title: "title", items: [], configuration: config)
+                menu.addAsRetainedContextMenu(to: view) { _ in }
+                
+                guard let interaction = view.interactions.first as? UIContextMenuInteraction,
+                    let delegate = view.contextMenuDelegate as? ContextMenuDelegate else {
+                        return fail("interactor or delegate not set")
+                }
+                
+                delegate.activeInteraction = interaction
+                delegate.activeMenuConfiguration = menu.configuration
+                
+                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
+                
+                let addExecutions = view.recorder.executions(of: view.addInteraction)
+                let removeExecutions = view.recorder.executions(of: view.removeInteraction)
+                
+                expect(addExecutions.count).to(equal(3))
+                expect(removeExecutions.count).to(equal(0))
+            }
+            
+            it("does not dismiss menu when isDismissable is false") {
+                guard #available(iOS 13.0, *) else { return }
+                
+                let config = Menu.Configuration(isDismissable: false, shouldDismissOnDidEnterBackground: true)
+                
+                let view = TestView()
+                view.shouldCallSuper = true
+                let menu = Menu(title: "title", items: [], configuration: config)
+                menu.addAsRetainedContextMenu(to: view) { _ in }
+                
+                guard let interaction = view.interactions.first as? UIContextMenuInteraction,
+                    let delegate = view.contextMenuDelegate as? ContextMenuDelegate else {
+                        return fail("interactor or delegate not set")
+                }
+                
+                delegate.activeInteraction = interaction
+                delegate.activeMenuConfiguration = menu.configuration
+                
+                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
+                
+                let addExecutions = view.recorder.executions(of: view.addInteraction)
+                let removeExecutions = view.recorder.executions(of: view.removeInteraction)
+                
+                expect(addExecutions.count).to(equal(3))
+                expect(removeExecutions.count).to(equal(0))
+            }
+        }
     }
 }
 
 @available(iOS 13.0, *)
 private class TestView: UIView, ContextMenuDelegateRetainer {
-
+    
     var recorder = Mock()
     var contextMenuDelegate: Any?
+    var shouldCallSuper: Bool = false
     
     override func addInteraction(_ interaction: UIInteraction) {
         recorder.invoke(addInteraction, args: (interaction))
+        if shouldCallSuper { super.addInteraction(interaction) }
+    }
+    
+    override func removeInteraction(_ interaction: UIInteraction) {
+        recorder.invoke(removeInteraction, args: (interaction))
+        if shouldCallSuper { super.addInteraction(interaction) }
     }
 }
