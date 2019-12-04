@@ -20,8 +20,9 @@ public extension Menu {
         /**
          Create a configuration instance.
          */
-        public init(isDismissable: Bool) {
+        public init(isDismissable: Bool, shouldDismissOnDidEnterBackground: Bool = false) {
             self.isDismissable = isDismissable
+            self.shouldDismissOnDidEnterBackground = shouldDismissOnDidEnterBackground
         }
         
         /**
@@ -29,6 +30,13 @@ public extension Menu {
          menu without using any of its options or buttons.
          */
         public let isDismissable: Bool
+
+        /**
+         Whether or not the menu should be dismissed when
+         the app transitions to background (didEnterBackground state).
+         This property is preceeded by `isDissmissable` property
+        */
+        public let shouldDismissOnDidEnterBackground: Bool
         
         /**
          The standard menu configuration that is used if you

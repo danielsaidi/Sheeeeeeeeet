@@ -40,7 +40,8 @@ class ViewController: UIViewController {
             .openSheet(.collections),
             .openSheet(.customView),
             .openSheet(.danger),
-            .openSheet(.nonDismissable)
+            .openSheet(.nonDismissable),
+            .openSheet(.dismissableOnDidEnterBackground)
         ]
     }
     

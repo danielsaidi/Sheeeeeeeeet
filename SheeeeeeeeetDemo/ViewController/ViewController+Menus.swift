@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Sheeeeeeeeet
 
 extension ViewController {
     
@@ -27,6 +28,9 @@ extension ViewController {
         case .openSheet(.singleSelect): return SingleSelectMenu(food: foodOptions)
         case .openSheet(.standard): return ItemMenu(food: foodOptions)
         case .openSheet(.nonDismissable): return ItemMenu(food: foodOptions, configuration: .nonDismissable)
+        case .openSheet(.dismissableOnDidEnterBackground):
+            let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: true)
+            return ItemMenu(food: foodOptions, configuration: config)
         }
     }
 }

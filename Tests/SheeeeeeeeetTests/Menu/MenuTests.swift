@@ -30,12 +30,14 @@ class MenuTests: QuickSpec {
                 let menu = Menu(items: [])
                 
                 expect(menu.configuration.isDismissable).to(beTrue())
+                expect(menu.configuration.shouldDismissOnDidEnterBackground).to(beFalse())
             }
             
             it("can use custom configuration") {
                 let menu = Menu(items: [], configuration: .nonDismissable)
                 
                 expect(menu.configuration.isDismissable).to(beFalse())
+                expect(menu.configuration.shouldDismissOnDidEnterBackground).to(beFalse())
             }
         }
     }

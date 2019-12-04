@@ -35,6 +35,41 @@ class ActionSheetStandardPresenterTests: QuickSpec {
         }
         
         
+        describe("auto-dismissal on didEnterBackground") {
+            
+            it("is disabled by default") {
+                expect(presenter.shouldDismissOnDidEnterBackground).to(beFalse())
+            }
+            
+            it("dismisses sheet when both isDismissable and shouldDismissOnDidEnterBackground are true") {
+                presenter.isDismissable = true
+                presenter.shouldDismissOnDidEnterBackground = true
+                
+                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
+                
+                expect(presenter.actionSheet).toEventually(beNil())
+            }
+            
+            it("does not dismiss sheet when shouldDismissOnDidEnterBackground is false") {
+                presenter.isDismissable = true
+                presenter.shouldDismissOnDidEnterBackground = false
+                
+                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
+                
+                expect(presenter.actionSheet).toNotEventually(beNil())
+            }
+            
+            it("does not dismiss sheet when isDismissable is false") {
+                presenter.isDismissable = false
+                presenter.shouldDismissOnDidEnterBackground = true
+                
+                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
+                
+                expect(presenter.actionSheet).toNotEventually(beNil())
+            }
+        }
+        
+        
         describe("dismissing action sheet") {
             
             var counter: Int!

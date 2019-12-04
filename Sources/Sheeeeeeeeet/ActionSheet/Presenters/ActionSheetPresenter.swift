@@ -20,6 +20,7 @@ public protocol ActionSheetPresenter: AnyObject {
     
     var events: ActionSheetPresenterEvents { get set }
     var isDismissable: Bool { get set }
+    var shouldDismissOnDidEnterBackground: Bool { get set }
     
     func dismiss(completion: @escaping () -> Void)
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> Void)
