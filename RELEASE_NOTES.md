@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 3.1.0
+
+Thanks to @BinaryDennis, this version adds support for auto dismissing context menus and action sheets when an app is sent to the background.
+
+
 ## 3.0.9
 
 This version adjusts the secondary action to be a regular menu item action.
