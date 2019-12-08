@@ -18,7 +18,7 @@ import UIKit
  any header view and combine items and buttons into a single
  item section.
  */
-open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
+open class ActionSheetPopoverPresenter: ActionSheetPresenter {
     
     
     // MARK: - Dependencies
@@ -31,6 +31,9 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     
     open var events = ActionSheetPresenterEvents()
     open var isDismissableWithOrientationChange = true
+    lazy var presentationDelegate: PresentationDelegate = {
+        PresentationDelegate(presenter: self)
+    }()
     
     
     // MARK: - ActionSheetPresenter
@@ -121,30 +124,13 @@ public extension ActionSheetPopoverPresenter {
 }
 
 
-// MARK: - UIPopoverPresentationControllerDelegate
-
-extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
-    
-    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        .none
-    }
-    
-    public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
-        guard let config = actionSheet?.configuration, config.isDismissable else { return false }
-        events.didDismissWithBackgroundTap?()
-        dismiss {}
-        return false
-    }
-}
-
-
 // MARK: - Internal Functions
 
 extension ActionSheetPopoverPresenter {
     
     func popover(for sheet: ActionSheet, in vc: UIViewController) -> UIPopoverPresentationController? {
         let popover = sheet.popoverPresentationController
-        popover?.delegate = self
+        popover?.delegate = presentationDelegate
         return popover
     }
 }

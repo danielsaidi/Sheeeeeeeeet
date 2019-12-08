@@ -63,7 +63,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
         }
         
-        
         describe("presenting action sheet") {
             
             var vc: MockViewController!
@@ -85,12 +84,12 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             
             it("sets up popover") {
                 presenter.present(sheet, in: vc, completion: completion)
-                expect(presenter.popover?.delegate).to(be(presenter))
+                expect(presenter.popover?.delegate).to(be(presenter.presentationDelegate))
             }
             
             it("sets up popover from view") {
                 presenter.present(sheet: sheet, in: vc, from: view, completion: completion)
-                expect(presenter.popover?.delegate).to(be(presenter))
+                expect(presenter.popover?.delegate).to(be(presenter.presentationDelegate))
                 expect(presenter.popover?.barButtonItem).to(beNil())
                 expect(presenter.popover?.sourceView).to(be(view))
                 expect(presenter.popover?.sourceRect).to(equal(view.bounds))
@@ -98,7 +97,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             
             it("sets up popover from bar button item") {
                 presenter.present(sheet: sheet, in: vc, from: item, completion: completion)
-                expect(presenter.popover?.delegate).to(be(presenter))
+                expect(presenter.popover?.delegate).to(be(presenter.presentationDelegate))
                 expect(presenter.popover?.barButtonItem).to(be(item))
                 expect(presenter.popover?.sourceView).to(beNil())
                 expect(presenter.popover?.sourceRect).to(equal(.zero))
@@ -119,7 +118,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 expect(presenter.setupOrientationChangeInvokeCenters[0]).to(be(expected))
             }
         }
-        
         
         describe("refreshing action sheet") {
             
@@ -163,38 +161,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             
             it("applies color to popover arrow") {
                 // TODO: Why nil? expect(presenter.popover?.backgroundColor).to(equal(.red))
-            }
-        }
-        
-        
-        describe("popover should dismiss") {
-            
-            var popover: UIPopoverPresentationController!
-            var presenting: MockViewController!
-            var dismissEventCount: Int!
-            
-            beforeEach {
-                popover = UIPopoverPresentationController(presentedViewController: UIViewController(), presenting: nil)
-                presenting = MockViewController()
-                sheet.presentingViewController = presenting
-                dismissEventCount = 0
-                presenter.events.didDismissWithBackgroundTap = { dismissEventCount += 1 }
-            }
-            
-            it("aborts and returns false if action sheet is not dismissable") {
-                sheet.configuration = .nonDismissable
-                let result = presenter.popoverPresentationControllerShouldDismissPopover(popover)
-                expect(result).to(beFalse())
-                expect(dismissEventCount).to(equal(0))
-                expect(presenting.dismissInvokeCount).to(equal(0))
-            }
-            
-            it("completes and returns false if action sheet is dismissable") {
-                sheet.configuration = .standard
-                let result = presenter.popoverPresentationControllerShouldDismissPopover(popover)
-                expect(result).to(beFalse())
-                expect(dismissEventCount).to(equal(1))
-                expect(presenting.dismissInvokeCount).to(equal(1))
             }
         }
     }

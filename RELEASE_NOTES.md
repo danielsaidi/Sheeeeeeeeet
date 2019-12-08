@@ -5,16 +5,22 @@
 
 Thanks to @BinaryDennis, this version adds support for auto dismissing context menus and action sheets when an app is sent to the background.
 
-New stuff:
+### New stuff:
 
 * `ActionSheet` has a new `ActionSheet.Configuration` that replaces `Menu.Configuration`. You specify it when you create an action sheet.
 * There is a new `ActionSheetPresenterBase` base class that you can use when creating custom presenters.
 
-Deprecations:
+### Deprecations:
 
 * `ActionSheet.HeaderViewConfiguration` has been renamed to `ActionSheet.HeaderConfiguration`
 * `ActionSheet.headerViewConfiguration` has been renamed to `ActionSheet.headerConfiguration`
 * `Menu.presentAsActionSheet` has been deprecated, since all `toActionSheet` parameters had to be duplicated. Use `toActionSheet` instead, then present it.
+
+### Breaking changes:
+
+I tried but couldn't avoiding breaking changes, since some protocols had to change. Hopefully, you can easily work around these changes:
+
+* `ActionSheetPresenter` no longer has an `isDismissable` property. Instead, use a `.nonDismissable` configuration when creating an action sheet.
 
 
 ## 3.0.9
