@@ -14,7 +14,7 @@ public extension ActionSheet {
      This configuration is used to setup how an action sheet
      header view behaves in various contexts.
      */
-    struct HeaderViewConfiguration {
+    struct HeaderConfiguration {
         
         public init(isVisibleInLandscape: Bool, isVisibleInPopover: Bool) {
             self.isVisibleInLandscape = isVisibleInLandscape
@@ -24,8 +24,8 @@ public extension ActionSheet {
         public let isVisibleInLandscape: Bool
         public let isVisibleInPopover: Bool
         
-        public static var standard: HeaderViewConfiguration {
-            HeaderViewConfiguration(
+        public static var standard: HeaderConfiguration {
+            HeaderConfiguration(
                 isVisibleInLandscape: true,
                 isVisibleInPopover: true
             )

@@ -48,8 +48,16 @@ public extension Menu {
      but don't want to have to call `import Sheeeeeeeeet`.
      */
     func toActionSheet(
+        configuration: ActionSheet.Configuration = .standard,
+        headerConfiguration: ActionSheet.HeaderConfiguration = .standard,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping ActionSheet.SelectAction) -> ActionSheet {
-        ActionSheet(menu: self, presenter: presenter, action: action)
+        ActionSheet(
+            menu: self,
+            configuration: configuration,
+            headerConfiguration: headerConfiguration,
+            presenter: presenter,
+            action: action
+        )
     }
 }

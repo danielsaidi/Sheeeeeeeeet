@@ -85,6 +85,7 @@
 		84F64BA1239D8FEF000290D1 /* ActionSheet+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */; };
 		84F64BA3239D9630000290D1 /* ActionSheet+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */; };
 		84F64BA5239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */; };
+		84F64BA8239D9CD7000290D1 /* ActionSheet+Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA6239D9CB5000290D1 /* ActionSheet+Deprecations.swift */; };
 		OBJ_317 /* Escaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* Escaping.swift */; };
 		OBJ_318 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* Execution.swift */; };
 		OBJ_319 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Mock.swift */; };
@@ -453,6 +454,7 @@
 		84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Header.swift"; sourceTree = "<group>"; };
 		84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Configuration.swift"; sourceTree = "<group>"; };
 		84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+ConfigurationTests.swift"; sourceTree = "<group>"; };
+		84F64BA6239D9CB5000290D1 /* ActionSheet+Deprecations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Deprecations.swift"; sourceTree = "<group>"; };
 		"Mockery::Mockery::Product" /* Mockery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mockery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* ActionSheet+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Presenter.swift"; sourceTree = "<group>"; };
@@ -1603,6 +1605,7 @@
 				OBJ_48 /* Views */,
 				OBJ_12 /* ActionSheet.swift */,
 				84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */,
+				84F64BA6239D9CB5000290D1 /* ActionSheet+Deprecations.swift */,
 				OBJ_10 /* ActionSheet+Presenter.swift */,
 				OBJ_11 /* ActionSheet+Scroll.swift */,
 				84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */,
@@ -2164,6 +2167,7 @@
 				OBJ_514 /* SingleSelectItem.swift in Sources */,
 				OBJ_515 /* Menu.swift in Sources */,
 				OBJ_516 /* MenuConfiguration.swift in Sources */,
+				84F64BA8239D9CD7000290D1 /* ActionSheet+Deprecations.swift in Sources */,
 				OBJ_517 /* MenuItem.swift in Sources */,
 				OBJ_518 /* MenuTitle.swift in Sources */,
 				84A24ED2236C6CA200DB060C /* ActionSheetSecondaryActionItemCell.swift in Sources */,

@@ -90,12 +90,12 @@ open class ActionSheet: UIViewController {
     public init(
         menu: Menu,
         configuration: Configuration = .standard,
-        headerConfiguration: HeaderViewConfiguration = .standard,
+        headerConfiguration: HeaderConfiguration = .standard,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
         self.menu = menu
         self.configuration = configuration
-        self.headerViewConfiguration = headerConfiguration
+        self.headerConfiguration = headerConfiguration
         self.presenter = presenter
         selectAction = action
         super.init(nibName: nil, bundle: nil)
@@ -105,7 +105,7 @@ open class ActionSheet: UIViewController {
     public required init?(coder aDecoder: NSCoder) {
         menu = .empty
         configuration = .standard
-        headerViewConfiguration = .standard
+        headerConfiguration = .standard
         presenter = ActionSheet.defaultPresenter
         selectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
@@ -166,7 +166,7 @@ open class ActionSheet: UIViewController {
     
     public var menu: Menu
     public var configuration: Configuration
-    public var headerViewConfiguration: HeaderViewConfiguration
+    public var headerConfiguration: HeaderConfiguration
     public var presenter: ActionSheetPresenter
     public var selectAction: SelectAction
     
@@ -266,7 +266,7 @@ open class ActionSheet: UIViewController {
         let size = view.frame.size
         let hasHeader = headerView != nil
         let isPortrait = size.height > size.width
-        let isVisible = hasHeader && (isPortrait || headerViewConfiguration.isVisibleInLandscape)
+        let isVisible = hasHeader && (isPortrait || headerConfiguration.isVisibleInLandscape)
         headerViewContainer.isHidden = !isVisible
     }
     

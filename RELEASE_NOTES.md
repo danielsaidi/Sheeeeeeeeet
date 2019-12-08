@@ -5,6 +5,15 @@
 
 Thanks to @BinaryDennis, this version adds support for auto dismissing context menus and action sheets when an app is sent to the background.
 
+New stuff:
+
+* `ActionSheet` has a new `ActionSheet.Configuration` that replaces `Menu.Configuration`. You specify it when you create an action sheet. 
+
+Deprecations:
+
+* `ActionSheet.HeaderViewConfiguration` has been renamed to `ActionSheet.HeaderConfiguration`
+* `ActionSheet.headerViewConfiguration` has been renamed to `ActionSheet.headerConfiguration`
+
 
 ## 3.0.9
 

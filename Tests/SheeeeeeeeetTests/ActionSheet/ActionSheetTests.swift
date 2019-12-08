@@ -473,46 +473,41 @@ class ActionSheetTests: QuickSpec {
                 view.frame.size.height = 2 * view.frame.size.width
             }
             
-            func getConfiguration(showInLandscape: Bool) -> ActionSheet.HeaderViewConfiguration {
-                ActionSheet.HeaderViewConfiguration(isVisibleInLandscape: showInLandscape, isVisibleInPopover: true)
+            func getConfiguration(showInLandscape: Bool) -> ActionSheet.HeaderConfiguration {
+                ActionSheet.HeaderConfiguration(isVisibleInLandscape: showInLandscape, isVisibleInPopover: true)
             }
             
             it("hides header container if header view is nil") {
                 sheet.headerView = nil
                 sheet.refreshHeaderVisibility()
-                
                 expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
             
             it("hides header container in landscape orientation if set to hide header in landscape") {
                 setLandscapeOrientation()
-                sheet.headerViewConfiguration = getConfiguration(showInLandscape: false)
+                sheet.headerConfiguration = getConfiguration(showInLandscape: false)
                 sheet.refreshHeaderVisibility()
-                
                 expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
             
             it("shows header container in landscape orientation if set to show header in landscape") {
                 setLandscapeOrientation()
-                sheet.headerViewConfiguration = getConfiguration(showInLandscape: true)
+                sheet.headerConfiguration = getConfiguration(showInLandscape: true)
                 sheet.refreshHeaderVisibility()
-                
                 expect(sheet.headerViewContainer.isHidden).to(beFalse())
             }
             
             it("shows header container in portrait orientation if set to hide header in landscape") {
                 setPortraitOrientation()
-                sheet.headerViewConfiguration = getConfiguration(showInLandscape: false)
+                sheet.headerConfiguration = getConfiguration(showInLandscape: false)
                 sheet.refreshHeaderVisibility()
-                
                 expect(sheet.headerViewContainer.isHidden).to(beFalse())
             }
             
             it("shows header container in portrait orientation if set to show header in landscape") {
                 setPortraitOrientation()
-                sheet.headerViewConfiguration = getConfiguration(showInLandscape: true)
+                sheet.headerConfiguration = getConfiguration(showInLandscape: true)
                 sheet.refreshHeaderVisibility()
-                
                 expect(sheet.headerViewContainer.isHidden).to(beFalse())
             }
         }
@@ -542,7 +537,6 @@ class ActionSheetTests: QuickSpec {
                 let button = OkButton(title: "foo")
                 sheet.setup(items: [item1, item2, button])
                 sheet.refreshItems()
-                
                 expect(height.constant).to(equal(24))
             }
         }
@@ -562,7 +556,6 @@ class ActionSheetTests: QuickSpec {
             
             it("refreshes correctly if no items are set") {
                 sheet.refreshButtons()
-                
                 expect(height.constant).to(equal(0))
             }
             
@@ -572,7 +565,6 @@ class ActionSheetTests: QuickSpec {
                 let button2 = OkButton(title: "foo")
                 sheet.setup(items: [item, button1, button2])
                 sheet.refreshButtons()
-                
                 expect(height.constant).to(equal(26))
             }
         }
