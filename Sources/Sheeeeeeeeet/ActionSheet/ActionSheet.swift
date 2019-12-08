@@ -151,27 +151,7 @@ open class ActionSheet: UIViewController {
     }
     
     
-    /**
-     This configuration is used to setup how an action sheet
-     header view behaves in various contexts.
-     */
-    public struct HeaderViewConfiguration {
-        
-        public init(isVisibleInLandscape: Bool, isVisibleInPopover: Bool) {
-            self.isVisibleInLandscape = isVisibleInLandscape
-            self.isVisibleInPopover = isVisibleInPopover
-        }
-        
-        public let isVisibleInLandscape: Bool
-        public let isVisibleInPopover: Bool
-        
-        public static var standard: HeaderViewConfiguration {
-            HeaderViewConfiguration(
-                isVisibleInLandscape: true,
-                isVisibleInPopover: true
-            )
-        }
-    }
+    // MARK: - Typealiases
     
     public typealias SelectAction = (ActionSheet, MenuItem) -> ()
     
