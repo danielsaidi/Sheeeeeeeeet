@@ -84,6 +84,7 @@
 		84A24EDD236C84D900DB060C /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDC236C84D900DB060C /* MenuCreator.swift */; };
 		84F64BA1239D8FEF000290D1 /* ActionSheet+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */; };
 		84F64BA3239D9630000290D1 /* ActionSheet+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */; };
+		84F64BA5239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */; };
 		OBJ_317 /* Escaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_201 /* Escaping.swift */; };
 		OBJ_318 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* Execution.swift */; };
 		OBJ_319 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* Mock.swift */; };
@@ -451,6 +452,7 @@
 		84BDF8B32347D43F00D35F93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Header.swift"; sourceTree = "<group>"; };
 		84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Configuration.swift"; sourceTree = "<group>"; };
+		84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+ConfigurationTests.swift"; sourceTree = "<group>"; };
 		"Mockery::Mockery::Product" /* Mockery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Mockery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Nimble::Nimble::Product" /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* ActionSheet+Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Presenter.swift"; sourceTree = "<group>"; };
@@ -948,10 +950,6 @@
 		OBJ_110 /* ActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_111 /* ActionSheet+PresenterTests.swift */,
-				OBJ_112 /* ActionSheetItemHandlerTests.swift */,
-				OBJ_113 /* ActionSheetMarginTests.swift */,
-				OBJ_114 /* ActionSheetTests.swift */,
 				OBJ_115 /* Appearance */,
 				OBJ_158 /* Cells */,
 				OBJ_120 /* Extensions */,
@@ -959,6 +957,11 @@
 				OBJ_143 /* Mocks */,
 				OBJ_150 /* Presenters */,
 				OBJ_153 /* Views */,
+				84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */,
+				OBJ_111 /* ActionSheet+PresenterTests.swift */,
+				OBJ_112 /* ActionSheetItemHandlerTests.swift */,
+				OBJ_113 /* ActionSheetMarginTests.swift */,
+				OBJ_114 /* ActionSheetTests.swift */,
 			);
 			path = ActionSheet;
 			sourceTree = "<group>";
@@ -2191,6 +2194,7 @@
 				OBJ_545 /* UIColor+ActionSheetColorTests.swift in Sources */,
 				OBJ_546 /* UIEdgeInsets+HiddenTests.swift in Sources */,
 				OBJ_547 /* UIView+SubviewsTests.swift in Sources */,
+				84F64BA5239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift in Sources */,
 				OBJ_548 /* UIViewController+RootViewControllerTests.swift in Sources */,
 				OBJ_549 /* CancelButton+ActionSheetTests.swift in Sources */,
 				OBJ_550 /* DestructiveButton+ActionSheetTests.swift in Sources */,

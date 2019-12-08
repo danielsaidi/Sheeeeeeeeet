@@ -89,9 +89,13 @@ open class ActionSheet: UIViewController {
     
     public init(
         menu: Menu,
+        configuration: Configuration = .standard,
+        headerConfiguration: HeaderViewConfiguration = .standard,
         presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
         action: @escaping SelectAction) {
         self.menu = menu
+        self.configuration = configuration
+        self.headerViewConfiguration = headerConfiguration
         self.presenter = presenter
         selectAction = action
         super.init(nibName: nil, bundle: nil)
@@ -100,6 +104,8 @@ open class ActionSheet: UIViewController {
     
     public required init?(coder aDecoder: NSCoder) {
         menu = .empty
+        configuration = .standard
+        headerViewConfiguration = .standard
         presenter = ActionSheet.defaultPresenter
         selectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
@@ -159,6 +165,8 @@ open class ActionSheet: UIViewController {
     // MARK: - Init properties
     
     public var menu: Menu
+    public var configuration: Configuration
+    public var headerViewConfiguration: HeaderViewConfiguration
     public var presenter: ActionSheetPresenter
     public var selectAction: SelectAction
     
@@ -197,8 +205,6 @@ open class ActionSheet: UIViewController {
     // MARK: - Header Properties
     
     open var headerView: UIView?
-    
-    public var headerViewConfiguration = HeaderViewConfiguration.standard
     
     
     // MARK: - Item Properties
