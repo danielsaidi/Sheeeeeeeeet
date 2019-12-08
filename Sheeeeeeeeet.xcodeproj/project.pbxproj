@@ -82,6 +82,7 @@
 		84A24ED9236C724100DB060C /* SecondaryActionItem+ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */; };
 		84A24EDB236C72C900DB060C /* SecondaryActionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */; };
 		84A24EDD236C84D900DB060C /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDC236C84D900DB060C /* MenuCreator.swift */; };
+		84ADE1FC239DA0020011832B /* Menu+ActionSheet+Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADE1FB239DA0020011832B /* Menu+ActionSheet+Deprecations.swift */; };
 		84F64BA1239D8FEF000290D1 /* ActionSheet+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */; };
 		84F64BA3239D9630000290D1 /* ActionSheet+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */; };
 		84F64BA5239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */; };
@@ -449,6 +450,7 @@
 		84A24ED7236C6FAF00DB060C /* SecondaryActionItem+ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryActionItem+ActionSheetTests.swift"; sourceTree = "<group>"; };
 		84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionMenu.swift; sourceTree = "<group>"; };
 		84A24EDC236C84D900DB060C /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
+		84ADE1FB239DA0020011832B /* Menu+ActionSheet+Deprecations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+ActionSheet+Deprecations.swift"; sourceTree = "<group>"; };
 		84BDF8B22347D43F00D35F93 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		84BDF8B32347D43F00D35F93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Header.swift"; sourceTree = "<group>"; };
@@ -1332,6 +1334,7 @@
 				OBJ_30 /* Items */,
 				OBJ_40 /* Titles */,
 				OBJ_38 /* Menu+ActionSheet.swift */,
+				84ADE1FB239DA0020011832B /* Menu+ActionSheet+Deprecations.swift */,
 				OBJ_39 /* MenuItem+ActionSheet.swift */,
 			);
 			path = Menu;
@@ -2157,6 +2160,7 @@
 				OBJ_504 /* CancelButton.swift in Sources */,
 				OBJ_505 /* DestructiveButton.swift in Sources */,
 				OBJ_506 /* MenuButton.swift in Sources */,
+				84ADE1FC239DA0020011832B /* Menu+ActionSheet+Deprecations.swift in Sources */,
 				OBJ_507 /* OkButton.swift in Sources */,
 				OBJ_508 /* CollectionItem.swift in Sources */,
 				OBJ_509 /* CustomItem.swift in Sources */,

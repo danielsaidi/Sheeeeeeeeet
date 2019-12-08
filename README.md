@@ -72,13 +72,14 @@ There are many built-in menu item types, e.g. selectable items, links, buttons, 
 
 ### Present the menu as an action sheet
 
-You can then present the menu as a custom action sheet or use it to create an action sheet that you can configure however you want:
+You can then present the menu as a custom action sheet:
 
 ```swift
-menu.presentAsActionSheet(in: vc, from: view, action: ...)
+let sheet = menu.toActionSheet(...) { sheet, item in ... }
+sheet.present(in: vc, from: view, ...)
 ```
 
-You can find more information and options in [this action sheet guide][Action-Sheets]. You can also read more about styling the sheets in [this appearance and styling guide][Appearance].
+You can find more information in [this action sheet guide][Action-Sheets]. You can also read more about styling the sheets in [this appearance and styling guide][Appearance].
 
 
 ### Add the menu as a context menu

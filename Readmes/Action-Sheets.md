@@ -5,11 +5,17 @@
 
 ## Presenting a `Menu` as an `ActionSheet`
 
-When you have a `Menu` instance, you can present it as a custom action sheet, without first having to create an action sheet:
+When you have a `Menu` instance, you can create an action sheet, using its `toActionSheet` function:
 
 ```swift
-menu.presentAsActionSheet(in: vc, from: view, action: ...)   // or
-menu.presentAsActionSheet(in: vc, from: barButtonItem, action: ...)
+let menu = Menu(...)
+let sheet = menu.toActionSheet(...) { sheet, item in ... }
+```
+
+You can then present the action sheet, using any of its `present` functions.
+
+```swift
+sheet.present
 ```
 
 If you have to configure the action sheet in any way, you can create an action sheet instance from the menu:

@@ -7,9 +7,9 @@ This is much more flexible than only supporting action sheets, like we did in Sh
 
 ## Action sheets are now created with menus
 
-`ActionSheet` was previously created with a list of `ActionSheetItem`s. However, with the new `Menu` and `MenuItem` models, it made no sense to keep the almost identical `ActionSheetItem`s around. As such, you must now create a menu with items, then use this menu to create an action sheet.
+`ActionSheet` was previously created with a list of `ActionSheetItem`s. However, with the new `Menu` and `MenuItem` models, it made no sense to keep the almost identical `ActionSheetItem`s around. Instead, you can now create a menu then use that menu to create an action sheet.
 
-For the most cases, this is as simple as rewriting this:
+For the most cases, it is as simple as rewriting this:
 
 ```swift
 let title = ActionSheetTitle(title: "Menu Title")
@@ -28,15 +28,7 @@ let menu = Menu(title: "Menu Title", items: [item1, item2])
 let sheet = ActionSheet(menu: menu) { ... }
 ```
 
-However, once you have a `Menu`, Sheeeeeeeeet 3 lets you use it in a bunch of ways.
-
-For instance, you can present it directly, without creating an action sheet:
-
-```swift
-menu.presentAsActionSheet(in: vc, from: view) { ... }
-```
-
-or create an action sheet, which you then can use like you did in previous versions:
+However, once you have a `Menu` you can create an action sheet with it using `toActionSheet`:
 
 ```swift
 menu.toActionSheet { ... }

@@ -13,6 +13,7 @@ Deprecations:
 
 * `ActionSheet.HeaderViewConfiguration` has been renamed to `ActionSheet.HeaderConfiguration`
 * `ActionSheet.headerViewConfiguration` has been renamed to `ActionSheet.headerConfiguration`
+* `Menu.presentAsActionSheet` has been deprecated, since all `toActionSheet` parameters had to be duplicated. Use `toActionSheet` instead, then present it.
 
 
 ## 3.0.9
