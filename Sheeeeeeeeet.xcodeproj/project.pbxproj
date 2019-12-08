@@ -24,6 +24,7 @@
 		8405567023527E280064EC7D /* ActionSheetItemCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405566E23527E1E0064EC7D /* ActionSheetItemCells.swift */; };
 		8422CB60239DAF5600251D31 /* ActionSheetPopoverPresenter+PresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB5F239DAF5600251D31 /* ActionSheetPopoverPresenter+PresentationDelegate.swift */; };
 		8422CB63239DAFBC00251D31 /* ActionSheetPopoverPresenter+PresentationDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB61239DAF9B00251D31 /* ActionSheetPopoverPresenter+PresentationDelegateTests.swift */; };
+		8422CB66239DB70C00251D31 /* ActionSheetPresenterBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB64239DB6F600251D31 /* ActionSheetPresenterBaseTests.swift */; };
 		846703A1234A3C4500355331 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467039F234A3C4500355331 /* Main.storyboard */; };
 		846703A6234A3C4600355331 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846703A4234A3C4600355331 /* LaunchScreen.storyboard */; };
 		846703E6234A3CF100355331 /* FoodOption+ActionSheetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */; };
@@ -396,6 +397,7 @@
 		8405566E23527E1E0064EC7D /* ActionSheetItemCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetItemCells.swift; sourceTree = "<group>"; };
 		8422CB5F239DAF5600251D31 /* ActionSheetPopoverPresenter+PresentationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheetPopoverPresenter+PresentationDelegate.swift"; sourceTree = "<group>"; };
 		8422CB61239DAF9B00251D31 /* ActionSheetPopoverPresenter+PresentationDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheetPopoverPresenter+PresentationDelegateTests.swift"; sourceTree = "<group>"; };
+		8422CB64239DB6F600251D31 /* ActionSheetPresenterBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBaseTests.swift; sourceTree = "<group>"; };
 		84670397234A3C4500355331 /* SheeeeeeeeetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SheeeeeeeeetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846703A0234A3C4500355331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		846703A5234A3C4600355331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1076,6 +1078,7 @@
 				OBJ_151 /* ActionSheetPopoverPresenterTests.swift */,
 				8422CB61239DAF9B00251D31 /* ActionSheetPopoverPresenter+PresentationDelegateTests.swift */,
 				OBJ_152 /* ActionSheetStandardPresenterTests.swift */,
+				8422CB64239DB6F600251D31 /* ActionSheetPresenterBaseTests.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -2234,6 +2237,7 @@
 				OBJ_560 /* MenuItem+ActionSheetTests.swift in Sources */,
 				OBJ_561 /* MenuTitle+ActionSheetTests.swift in Sources */,
 				OBJ_562 /* SectionMargin+ActionSheetTests.swift in Sources */,
+				8422CB66239DB70C00251D31 /* ActionSheetPresenterBaseTests.swift in Sources */,
 				OBJ_563 /* SectionTitle+ActionSheetTests.swift in Sources */,
 				8422CB63239DAFBC00251D31 /* ActionSheetPopoverPresenter+PresentationDelegateTests.swift in Sources */,
 				OBJ_564 /* MockActionSheet.swift in Sources */,

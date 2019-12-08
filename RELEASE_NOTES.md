@@ -23,6 +23,7 @@ Thanks to @BinaryDennis, this version adds support for auto dismissing context m
 I tried but couldn't avoiding breaking changes, since some protocols had to change. Hopefully, you can easily work around these changes:
 
 * `ActionSheetPresenter` no longer has an `isDismissable` property. Instead, use a `.nonDismissable` configuration when creating an action sheet.
+* `ActionSheetPresenter` convenience presenters are now part of `ActionSheetPresenterBase` no longer `open` for extension.
 
 
 ## 3.0.9

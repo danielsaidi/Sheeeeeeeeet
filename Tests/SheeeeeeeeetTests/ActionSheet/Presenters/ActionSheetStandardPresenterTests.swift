@@ -60,7 +60,7 @@ class ActionSheetStandardPresenterTests: QuickSpec {
                 vc = MockViewController()
                 vc.view.frame = CGRect(x: 1, y: 2, width: 3, height: 4)
                 counter = 0
-                presenter.present(sheet: sheet, in: vc) { counter += 1 }
+                presenter.present(sheet, in: vc) { counter += 1 }
             }
             
             it("sets action sheet") {
@@ -74,17 +74,17 @@ class ActionSheetStandardPresenterTests: QuickSpec {
             
             it("presents background view") {
                 presenter.animationDuration = -1
-                presenter.present(sheet: sheet, in: vc) {}
+                presenter.present(sheet, in: vc) {}
                 expect(sheet.backgroundView.alpha).to(equal(0))
                 presenter.animationDuration = 0
-                presenter.present(sheet: sheet, in: vc) {}
+                presenter.present(sheet, in: vc) {}
                 expect(sheet.backgroundView.alpha).to(equal(1))
             }
             
             it("presents stack view") {
                 sheet.viewDidLoad()
                 presenter.animationDuration = -1
-                presenter.present(sheet: sheet, in: vc) {}
+                presenter.present(sheet, in: vc) {}
                 expect(sheet.stackView.frame.origin.y).toEventually(equal(100))
             }
         }

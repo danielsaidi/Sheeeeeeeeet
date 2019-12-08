@@ -20,7 +20,7 @@ import UIKit
  in full screen. The `currentContext` option uses the source
  view controller's view bounds instead.
  */
-open class ActionSheetStandardPresenter: ActionSheetPresenterBase, ActionSheetPresenter {
+open class ActionSheetStandardPresenter: ActionSheetPresenterBase {
     
     
     // MARK: - Properties
@@ -40,9 +40,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase, ActionSheetPr
     
     // MARK: - ActionSheetPresenter
     
-    @objc public func handleDidEnterBackground() { dismiss {} }
-
-    open func dismiss(completion: @escaping () -> ()) {
+    open override func dismiss(completion: @escaping () -> ()) {
         completion()
         removeBackgroundView()
         removeActionSheet {
@@ -51,24 +49,16 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase, ActionSheetPr
         }
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
-        present(sheet: sheet, in: vc, completion: completion)
-    }
-    
-    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
-        present(sheet: sheet, in: vc, completion: completion)
-    }
-    
-    open func present(sheet: ActionSheet, in vc: UIViewController, completion: @escaping () -> ()) {
+    open override func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
+        super.present(sheet, in: vc, view: view, item: item, completion: completion)
         actionSheet = sheet
         addActionSheet(sheet, to: vc)
         addBackgroundViewTapAction(to: sheet.backgroundView)
-        setupDidEnterBackgroundDetection()
         presentBackgroundView()
         presentActionSheet(completion: completion)
     }
     
-    open func refreshActionSheet() {
+    open override func refreshActionSheet() {
         guard let sheet = actionSheet else { return }
         sheet.topMargin?.constant = sheet.margin(at: .top)
         sheet.leftMargin?.constant = sheet.margin(at: .left)
@@ -124,13 +114,6 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase, ActionSheetPr
         guard let view = actionSheet?.backgroundView else { return }
         let animation = { view.alpha = 0 }
         animate(animation)
-    }
-    
-    open func setupDidEnterBackgroundDetection(with center: NotificationCenter = .default) {
-        let action = #selector(handleDidEnterBackground)
-        let name = UIApplication.didEnterBackgroundNotification
-        center.removeObserver(self, name: name, object: nil)
-        center.addObserver(self, selector: action, name: name, object: nil)
     }
 }
 

@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import Mockery
 
 class MockNotificationCenter: NotificationCenter {
+    
+    var recorder = Mock()
     
     var addObserverInvokeCount = 0
     var addObserverInvokeObservers = [Any]()
@@ -19,16 +22,18 @@ class MockNotificationCenter: NotificationCenter {
         addObserverInvokeObservers.append(observer)
         addObserverInvokeNames.append(aName)
         addObserverInvokeObjects.append(anObject)
+        addObserverTest(observer, selector: aSelector, name: aName, object: anObject)
     }
     
-    var removeObserverInvokeCount = 0
-    var removeObserverInvokeObservers = [Any]()
-    var removeObserverInvokeNames = [NSNotification.Name?]()
-    var removeObserverInvokeObjects = [Any?]()
+    func addObserverTest(_ observer: Any, selector aSelector: Selector, name aName: NSNotification.Name?, object anObject: Any?) {
+        recorder.invoke(addObserverTest, args: (observer, aSelector, aName, anObject))
+    }
+    
     override func removeObserver(_ observer: Any, name aName: NSNotification.Name?, object anObject: Any?) {
-        removeObserverInvokeCount += 1
-        removeObserverInvokeObservers.append(observer)
-        removeObserverInvokeNames.append(aName)
-        removeObserverInvokeObjects.append(anObject)
+        removeObserverTest(observer, name: aName, object: anObject)
+    }
+    
+    func removeObserverTest(_ observer: Any, name aName: NSNotification.Name?, object anObject: Any?) {
+        recorder.invoke(removeObserverTest, args: (observer, aName, anObject))
     }
 }

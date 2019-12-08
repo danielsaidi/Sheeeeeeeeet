@@ -18,17 +18,15 @@ import UIKit
  any header view and combine items and buttons into a single
  item section.
  */
-open class ActionSheetPopoverPresenter: ActionSheetPresenterBase, ActionSheetPresenter {
-    
-    
-    // MARK: - Dependencies
-
-    weak var popover: UIPopoverPresentationController?
+open class ActionSheetPopoverPresenter: ActionSheetPresenterBase {
     
     
     // MARK: - Properties
     
     open var isDismissableWithOrientationChange = true
+    
+    weak var popover: UIPopoverPresentationController?
+    
     lazy var presentationDelegate: PresentationDelegate = {
         PresentationDelegate(presenter: self)
     }()
@@ -36,21 +34,14 @@ open class ActionSheetPopoverPresenter: ActionSheetPresenterBase, ActionSheetPre
     
     // MARK: - ActionSheetPresenter
     
-    public func dismiss(completion: @escaping () -> ()) {
+    open override func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
         let presenter = actionSheet?.presentingViewController
         presenter?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
-    open func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
-        present(sheet, in: vc, view: view, completion: completion)
-    }
-    
-    open func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
-        present(sheet, in: vc, item: item, completion: completion)
-    }
-    
-    open func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
+    open override func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
+        super.present(sheet, in: vc, view: view, item: item, completion: completion)
         self.actionSheet = sheet
         sheet.modalPresentationStyle = .popover
         popover = self.popover(for: sheet, in: vc)
@@ -59,11 +50,9 @@ open class ActionSheetPopoverPresenter: ActionSheetPresenterBase, ActionSheetPre
         popover?.barButtonItem = item
         refreshPopoverBackgroundColor()
         vc.present(sheet, animated: true, completion: completion)
-        setupOrientationChangeDetection()
-        setupDidEnterBackgroundDetection()
     }
     
-    open func refreshActionSheet() {
+    open override func refreshActionSheet() {
         guard let sheet = actionSheet else { return }
         sheet.items = popoverItems(for: sheet)
         sheet.buttons = []
@@ -88,35 +77,12 @@ open class ActionSheetPopoverPresenter: ActionSheetPresenterBase, ActionSheetPre
         popover?.backgroundColor = ActionSheetTableView.appearance().backgroundColor
     }
     
-    open func setupDidEnterBackgroundDetection(with center: NotificationCenter = .default) {
-        let action = #selector(handleDidEnterBackground)
-        let name = UIApplication.didEnterBackgroundNotification
-        center.removeObserver(self, name: name, object: nil)
-        center.addObserver(self, selector: action, name: name, object: nil)
-    }
     
-    open func setupOrientationChangeDetection(with center: NotificationCenter = .default) {
-        let action = #selector(handleOrientationChange)
-        let name = UIApplication.willChangeStatusBarOrientationNotification
-        center.removeObserver(self, name: name, object: nil)
-        center.addObserver(self, selector: action, name: name, object: nil)
-    }
-}
-
-
-// MARK: - Notification Handling
-
-public extension ActionSheetPopoverPresenter {
+    // MARK: - Notifications
     
-    @objc func handleOrientationChange() {
+    @objc open override func handleOrientationChange() {
         guard let config = actionSheet?.configuration else { return }
         guard config.isDismissable && isDismissableWithOrientationChange else { return }
-        dismiss {}
-    }
-    
-    @objc func handleDidEnterBackground() {
-        guard let config = actionSheet?.configuration else { return }
-        guard config.isDismissable && config.shouldBeDismissedWhenEnteringBackground else { return }
         dismiss {}
     }
 }

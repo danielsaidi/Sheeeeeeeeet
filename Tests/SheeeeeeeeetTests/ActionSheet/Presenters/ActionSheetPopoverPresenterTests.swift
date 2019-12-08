@@ -110,13 +110,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 expect(vc.presentInvokeAnimateds).to(equal([true]))
                 expect(vc.presentInvokeCompletions.count).to(equal(1))
             }
-            
-            it("sets up orientation change detection with default center") {
-                presenter.present(sheet, in: vc, completion: completion)
-                let expected = NotificationCenter.default
-                expect(presenter.setupOrientationChangeInvokeCount).to(equal(1))
-                expect(presenter.setupOrientationChangeInvokeCenters[0]).to(be(expected))
-            }
         }
         
         describe("refreshing action sheet") {
@@ -171,9 +164,8 @@ private class TestClass: ActionSheetPopoverPresenter {
     
     var setupOrientationChangeInvokeCount = 0
     var setupOrientationChangeInvokeCenters = [NotificationCenter]()
-    override func setupOrientationChangeDetection(with center: NotificationCenter = .default) {
-        super.setupOrientationChangeDetection(with: center)
+    override func setupOrientationChangeDetection() {
+        super.setupOrientationChangeDetection()
         setupOrientationChangeInvokeCount += 1
-        setupOrientationChangeInvokeCenters.append(center)
     }
 }
