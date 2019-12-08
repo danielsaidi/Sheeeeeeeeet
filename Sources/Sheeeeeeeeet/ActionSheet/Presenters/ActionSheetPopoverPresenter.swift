@@ -30,25 +30,10 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     // MARK: - Properties
     
     open var events = ActionSheetPresenterEvents()
-    open var isDismissable = true
     open var isDismissableWithOrientationChange = true
-    open var shouldDismissOnDidEnterBackground = false
-    
-    
-    // MARK: - Deprecated
-    
-    @available(*, deprecated, renamed: "isDismissableWithOrientationChange")
-    open var isListeningToOrientationChanges: Bool {
-        get { isDismissableWithOrientationChange }
-        set { isDismissableWithOrientationChange = newValue }
-    }
     
     
     // MARK: - ActionSheetPresenter
-    
-    @objc public func handleOrientationChange() { dismiss {} }
-    
-    @objc public func handleDidEnterBackground() { dismiss {} }
     
     public func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
@@ -106,7 +91,6 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         let action = #selector(handleDidEnterBackground)
         let name = UIApplication.didEnterBackgroundNotification
         center.removeObserver(self, name: name, object: nil)
-        guard isDismissable && shouldDismissOnDidEnterBackground else { return }
         center.addObserver(self, selector: action, name: name, object: nil)
     }
     
@@ -114,8 +98,25 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
         let action = #selector(handleOrientationChange)
         let name = UIApplication.willChangeStatusBarOrientationNotification
         center.removeObserver(self, name: name, object: nil)
-        guard isDismissable && isDismissableWithOrientationChange else { return }
         center.addObserver(self, selector: action, name: name, object: nil)
+    }
+}
+
+
+// MARK: - Notification Handling
+
+public extension ActionSheetPopoverPresenter {
+    
+    @objc func handleOrientationChange() {
+        guard let config = actionSheet?.configuration else { return }
+        guard config.isDismissable && isDismissableWithOrientationChange else { return }
+        dismiss {}
+    }
+    
+    @objc func handleDidEnterBackground() {
+        guard let config = actionSheet?.configuration else { return }
+        guard config.isDismissable && config.shouldBeDismissedWhenEnteringBackground else { return }
+        dismiss {}
     }
 }
 
@@ -129,7 +130,7 @@ extension ActionSheetPopoverPresenter: UIPopoverPresentationControllerDelegate {
     }
     
     public func popoverPresentationControllerShouldDismissPopover(_ controller: UIPopoverPresentationController) -> Bool {
-        guard isDismissable else { return false }
+        guard let config = actionSheet?.configuration, config.isDismissable else { return false }
         events.didDismissWithBackgroundTap?()
         dismiss {}
         return false

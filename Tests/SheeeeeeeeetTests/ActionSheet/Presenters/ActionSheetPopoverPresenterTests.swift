@@ -16,9 +16,10 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
     
     override func spec() {
         
-        var presenter: TestPresenter!
+        var menu: Menu!
+        var presenter: TestClass!
         var sheet: MockActionSheet!
-        
+    
         beforeEach {
             let items: [MenuItem] = [
                 SingleSelectItem(title: "item 1", isSelected: true),
@@ -26,36 +27,12 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 OkButton(title: "ok"),
                 MultiSelectItem(title: "item 2", isSelected: true)
             ]
-            let menu = Menu(items: items)
+            
+            menu = Menu(items: items)
             sheet = MockActionSheet(menu: menu) { (_, _) in }
-            presenter = TestPresenter()
+            presenter = TestClass()
             presenter.actionSheet = sheet
         }
-        
-        
-        describe("background tap dismissal") {
-            
-            it("is enabled by default") {
-                expect(presenter.isDismissable).to(beTrue())
-            }
-        }
-        
-        
-        describe("orientation change detection") {
-            
-            it("is enabled by default") {
-                expect(presenter.isDismissable).to(beTrue())
-            }
-        }
-        
-        
-        describe("auto-dismissal on didEnterBackground") {
-            
-            it("is disabled by default") {
-                expect(presenter.shouldDismissOnDidEnterBackground).to(beFalse())
-            }
-        }
-        
         
         describe("dismissing") {
             
@@ -175,7 +152,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             }
             
             it("hides header if configuration says so") {
-                sheet.headerViewConfiguration = ActionSheet.HeaderViewConfiguration(isVisibleInLandscape: true, isVisibleInPopover: false)
+                sheet.headerConfiguration = ActionSheet.HeaderConfiguration(isVisibleInLandscape: true, isVisibleInPopover: false)
                 presenter.refreshActionSheet()
                 expect(sheet.headerViewContainer.isHidden).to(beTrue())
             }
@@ -186,71 +163,6 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
             
             it("applies color to popover arrow") {
                 // TODO: Why nil? expect(presenter.popover?.backgroundColor).to(equal(.red))
-            }
-        }
-        
-        
-        describe("setting up orientation change detection") {
-            
-            var center: MockNotificationCenter!
-            let expectedName = UIApplication.willChangeStatusBarOrientationNotification
-            
-            beforeEach {
-                center = MockNotificationCenter()
-            }
-            
-            it("removes observer") {
-                presenter.setupOrientationChangeDetection(with: center)
-                expect(center.removeObserverInvokeCount).to(equal(1))
-                expect(center.removeObserverInvokeNames[0]).to(equal(expectedName))
-                expect(center.removeObserverInvokeObjects[0]).to(beNil())
-            }
-            
-            it("does not add observer if presenter is not listening for changes") {
-                presenter.isDismissableWithOrientationChange = false
-                presenter.setupOrientationChangeDetection(with: center)
-                expect(center.addObserverInvokeCount).to(equal(0))
-            }
-            
-            it("adds observer if presenter is listening for changes") {
-                presenter.isDismissableWithOrientationChange = true
-                presenter.setupOrientationChangeDetection(with: center)
-                expect(center.addObserverInvokeCount).to(equal(1))
-                expect(center.addObserverInvokeNames[0]).to(equal(expectedName))
-                expect(center.addObserverInvokeObjects[0]).to(beNil())
-            }
-        }
-        
-        
-        describe("setting up onDidEnterBackground detection") {
-            
-            var center: MockNotificationCenter!
-            let expectedName = UIApplication.didEnterBackgroundNotification
-            
-            beforeEach {
-                center = MockNotificationCenter()
-                presenter.isDismissable = true
-            }
-            
-            it("removes observer") {
-                presenter.setupDidEnterBackgroundDetection(with: center)
-                expect(center.removeObserverInvokeCount).to(equal(1))
-                expect(center.removeObserverInvokeNames[0]).to(equal(expectedName))
-                expect(center.removeObserverInvokeObjects[0]).to(beNil())
-            }
-            
-            it("does not add observer if presenter is not listening for changes") {
-                presenter.shouldDismissOnDidEnterBackground = false
-                presenter.setupDidEnterBackgroundDetection(with: center)
-                expect(center.addObserverInvokeCount).to(equal(0))
-            }
-            
-            it("adds observer if presenter is listening for changes") {
-                presenter.shouldDismissOnDidEnterBackground = true
-                presenter.setupDidEnterBackgroundDetection(with: center)
-                expect(center.addObserverInvokeCount).to(equal(1))
-                expect(center.addObserverInvokeNames[0]).to(equal(expectedName))
-                expect(center.addObserverInvokeObjects[0]).to(beNil())
             }
         }
         
@@ -269,19 +181,17 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
                 presenter.events.didDismissWithBackgroundTap = { dismissEventCount += 1 }
             }
             
-            it("aborts and returns false if background tap is disabled") {
-                presenter.isDismissable = false
+            it("aborts and returns false if action sheet is not dismissable") {
+                sheet.configuration = .nonDismissable
                 let result = presenter.popoverPresentationControllerShouldDismissPopover(popover)
-                
                 expect(result).to(beFalse())
                 expect(dismissEventCount).to(equal(0))
                 expect(presenting.dismissInvokeCount).to(equal(0))
             }
             
-            it("completes and returns false if background tap is enabled") {
-                presenter.isDismissable = true
+            it("completes and returns false if action sheet is dismissable") {
+                sheet.configuration = .standard
                 let result = presenter.popoverPresentationControllerShouldDismissPopover(popover)
-                
                 expect(result).to(beFalse())
                 expect(dismissEventCount).to(equal(1))
                 expect(presenting.dismissInvokeCount).to(equal(1))
@@ -291,7 +201,7 @@ class ActionSheetPopoverPresenterTests: QuickSpec {
 }
 
 
-private class TestPresenter: ActionSheetPopoverPresenter {
+private class TestClass: ActionSheetPopoverPresenter {
     
     var setupOrientationChangeInvokeCount = 0
     var setupOrientationChangeInvokeCenters = [NotificationCenter]()

@@ -30,21 +30,22 @@ class ActionSheetTests: QuickSpec {
         describe("creating instance") {
             
             var counter: Int!
+            var menu: Menu!
+            let menuItems = [MenuItem(title: "item title"), OkButton(title: "button title")]
             
             beforeEach {
                 counter = 0
+                menu = Menu(title: "title", items: menuItems)
             }
             
             context("with menu") {
                 
-                it("applies provided properties and maps menu to items") {
-                    let menuItems = [MenuItem(title: "item title"), OkButton(title: "button title")]
-                    let menu = Menu(title: "title", items: menuItems)
+                it("applies provided menu") {
                     let presenter = ActionSheetPopoverPresenter()
                     let sheet = ActionSheet(menu: menu, presenter: presenter) { _, _ in counter += 1 }
-                    expect(sheet.presenter).to(be(presenter))
-                    expect(sheet.presenter.isDismissable).to(beTrue())
-                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beFalse())
+                    expect(sheet.presenter).toNot(beNil())
+                    expect(sheet.configuration).to(equal(.standard))
+                    expect(sheet.headerConfiguration).to(equal(.standard))
                     expect(sheet.items.count).to(equal(2))
                     expect(sheet.items[0] is MenuTitle).to(beTrue())
                     expect(sheet.items[0].title).to(equal("title"))
@@ -55,25 +56,23 @@ class ActionSheetTests: QuickSpec {
                     expect(counter).to(equal(1))
                 }
                 
-                it("can disable presenter dismissal with menu configuration") {
-                    let menu = Menu(title: "title", items: [], configuration: .nonDismissable)
-                    let sheet = ActionSheet(menu: menu) { _, _ in }
-                    expect(sheet.presenter.isDismissable).to(beFalse())
-                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beFalse())
+                it("can apply custom presenter") {
+                    let presenter = ActionSheetPopoverPresenter()
+                    let sheet = ActionSheet(menu: menu, presenter: presenter) { _, _ in counter += 1 }
+                    expect(sheet.presenter).to(be(presenter))
                 }
                 
-                it("can enable presenter auto-dismissal on didEnterBackground with menu configuration") {
-                    let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: true)
-                    let menu = Menu(title: "title", items: [], configuration: config)
-                    let sheet = ActionSheet(menu: menu) { _, _ in }
-                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beTrue())
+                it("can apply custom action sheet configuration") {
+                    let menu = Menu(title: "title", items: [])
+                    let sheet = ActionSheet(menu: menu, configuration: .standard) { _, _ in }
+                    expect(sheet.configuration).to(equal(.standard))
                 }
                 
-                it("can disable presenter auto-dismissal on didEnterBackground with menu configuration") {
-                    let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: false)
-                    let menu = Menu(title: "title", items: [], configuration: config)
-                    let sheet = ActionSheet(menu: menu) { _, _ in }
-                    expect(sheet.presenter.shouldDismissOnDidEnterBackground).to(beFalse())
+                it("can apply custom header configuration") {
+                    let menu = Menu(title: "title", items: [])
+                    let config = ActionSheet.HeaderConfiguration(isVisibleInLandscape: false, isVisibleInPopover: false)
+                    let sheet = ActionSheet(menu: menu, headerConfiguration: config) { _, _ in }
+                    expect(sheet.headerConfiguration).to(equal(config))
                 }
             }
         }

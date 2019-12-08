@@ -15,7 +15,7 @@ public extension ActionSheet {
      `ActionSheet.Configuration.standard` returns a standard
      configuration, which is used by default.
      */
-    struct Configuration {
+    struct Configuration: Equatable {
         
         /**
          Create a configuration instance.

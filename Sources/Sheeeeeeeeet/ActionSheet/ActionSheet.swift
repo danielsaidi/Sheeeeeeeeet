@@ -138,8 +138,6 @@ open class ActionSheet: UIViewController {
             items.insert(MenuTitle(title: title), at: 0)
         }
         setup(items: items)
-        presenter.isDismissable = menu.configuration.isDismissable
-        presenter.shouldDismissOnDidEnterBackground = menu.configuration.shouldDismissOnDidEnterBackground
     }
     
     

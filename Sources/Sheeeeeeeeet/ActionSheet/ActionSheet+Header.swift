@@ -14,7 +14,7 @@ public extension ActionSheet {
      This configuration is used to setup how an action sheet
      header view behaves in various contexts.
      */
-    struct HeaderConfiguration {
+    struct HeaderConfiguration: Equatable {
         
         public init(isVisibleInLandscape: Bool, isVisibleInPopover: Bool) {
             self.isVisibleInLandscape = isVisibleInLandscape

@@ -7,7 +7,8 @@ Thanks to @BinaryDennis, this version adds support for auto dismissing context m
 
 New stuff:
 
-* `ActionSheet` has a new `ActionSheet.Configuration` that replaces `Menu.Configuration`. You specify it when you create an action sheet. 
+* `ActionSheet` has a new `ActionSheet.Configuration` that replaces `Menu.Configuration`. You specify it when you create an action sheet.
+* There is a new `ActionSheetPresenterBase` base class that you can use when creating custom presenters.
 
 Deprecations:
 

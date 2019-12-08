@@ -74,6 +74,7 @@
 		84670416234A3CF100355331 /* CollectionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703E5234A3CF100355331 /* CollectionMenu.swift */; };
 		84670419234A3E9C00355331 /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Sheeeeeeeeet::Sheeeeeeeeet::Product" /* Sheeeeeeeeet.framework */; };
 		8467041A234A3E9C00355331 /* Sheeeeeeeeet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = "Sheeeeeeeeet::Sheeeeeeeeet::Product" /* Sheeeeeeeeet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		847E09ED239DA5E70058179D /* ActionSheetPresenterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E09EC239DA5E70058179D /* ActionSheetPresenterBase.swift */; };
 		84A24ECB236C64F200DB060C /* SecondaryActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */; };
 		84A24ECE236C670D00DB060C /* SecondaryActionItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */; };
 		84A24ED0236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */; };
@@ -83,6 +84,7 @@
 		84A24EDB236C72C900DB060C /* SecondaryActionMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */; };
 		84A24EDD236C84D900DB060C /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDC236C84D900DB060C /* MenuCreator.swift */; };
 		84ADE1FC239DA0020011832B /* Menu+ActionSheet+Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADE1FB239DA0020011832B /* Menu+ActionSheet+Deprecations.swift */; };
+		84ADE1FE239DA3DC0011832B /* ActionSheetPopoverPresenter+Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ADE1FD239DA3DC0011832B /* ActionSheetPopoverPresenter+Deprecations.swift */; };
 		84F64BA1239D8FEF000290D1 /* ActionSheet+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */; };
 		84F64BA3239D9630000290D1 /* ActionSheet+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */; };
 		84F64BA5239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */; };
@@ -442,6 +444,7 @@
 		846703E3234A3CF100355331 /* CustomMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenu.swift; sourceTree = "<group>"; };
 		846703E4234A3CF100355331 /* SectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionMenu.swift; sourceTree = "<group>"; };
 		846703E5234A3CF100355331 /* CollectionMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMenu.swift; sourceTree = "<group>"; };
+		847E09EC239DA5E70058179D /* ActionSheetPresenterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetPresenterBase.swift; sourceTree = "<group>"; };
 		84A24ECA236C64F200DB060C /* SecondaryActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionItem.swift; sourceTree = "<group>"; };
 		84A24ECC236C66CD00DB060C /* SecondaryActionItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionItemTests.swift; sourceTree = "<group>"; };
 		84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SecondaryActionItem+ActionSheet.swift"; sourceTree = "<group>"; };
@@ -451,6 +454,7 @@
 		84A24EDA236C72C900DB060C /* SecondaryActionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryActionMenu.swift; sourceTree = "<group>"; };
 		84A24EDC236C84D900DB060C /* MenuCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCreator.swift; sourceTree = "<group>"; };
 		84ADE1FB239DA0020011832B /* Menu+ActionSheet+Deprecations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+ActionSheet+Deprecations.swift"; sourceTree = "<group>"; };
+		84ADE1FD239DA3DC0011832B /* ActionSheetPopoverPresenter+Deprecations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheetPopoverPresenter+Deprecations.swift"; sourceTree = "<group>"; };
 		84BDF8B22347D43F00D35F93 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		84BDF8B32347D43F00D35F93 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActionSheet+Header.swift"; sourceTree = "<group>"; };
@@ -1469,7 +1473,9 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_45 /* ActionSheetPopoverPresenter.swift */,
+				84ADE1FD239DA3DC0011832B /* ActionSheetPopoverPresenter+Deprecations.swift */,
 				OBJ_46 /* ActionSheetPresenter.swift */,
+				847E09EC239DA5E70058179D /* ActionSheetPresenterBase.swift */,
 				OBJ_47 /* ActionSheetStandardPresenter.swift */,
 			);
 			path = Presenters;
@@ -2161,12 +2167,14 @@
 				OBJ_505 /* DestructiveButton.swift in Sources */,
 				OBJ_506 /* MenuButton.swift in Sources */,
 				84ADE1FC239DA0020011832B /* Menu+ActionSheet+Deprecations.swift in Sources */,
+				84ADE1FE239DA3DC0011832B /* ActionSheetPopoverPresenter+Deprecations.swift in Sources */,
 				OBJ_507 /* OkButton.swift in Sources */,
 				OBJ_508 /* CollectionItem.swift in Sources */,
 				OBJ_509 /* CustomItem.swift in Sources */,
 				OBJ_510 /* LinkItem.swift in Sources */,
 				OBJ_511 /* MultiSelectItem.swift in Sources */,
 				OBJ_512 /* MultiSelectToggleItem.swift in Sources */,
+				847E09ED239DA5E70058179D /* ActionSheetPresenterBase.swift in Sources */,
 				OBJ_513 /* SelectItem.swift in Sources */,
 				OBJ_514 /* SingleSelectItem.swift in Sources */,
 				OBJ_515 /* Menu.swift in Sources */,
