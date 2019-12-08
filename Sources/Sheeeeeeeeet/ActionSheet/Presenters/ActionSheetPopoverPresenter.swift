@@ -18,18 +18,16 @@ import UIKit
  any header view and combine items and buttons into a single
  item section.
  */
-open class ActionSheetPopoverPresenter: ActionSheetPresenter {
+open class ActionSheetPopoverPresenter: ActionSheetPresenterBase, ActionSheetPresenter {
     
     
     // MARK: - Dependencies
-    
-    var actionSheet: ActionSheet?
+
     weak var popover: UIPopoverPresentationController?
     
     
     // MARK: - Properties
     
-    open var events = ActionSheetPresenterEvents()
     open var isDismissableWithOrientationChange = true
     lazy var presentationDelegate: PresentationDelegate = {
         PresentationDelegate(presenter: self)

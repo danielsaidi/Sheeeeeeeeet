@@ -20,20 +20,13 @@ import UIKit
  in full screen. The `currentContext` option uses the source
  view controller's view bounds instead.
  */
-open class ActionSheetStandardPresenter: ActionSheetPresenter {
-    
-    
-    // MARK: - Initialization
-    
-    public init() {}
+open class ActionSheetStandardPresenter: ActionSheetPresenterBase, ActionSheetPresenter {
     
     
     // MARK: - Properties
     
-    open var events = ActionSheetPresenterEvents()
     public var presentationStyle = PresentationStyle.currentContext
     
-    var actionSheet: ActionSheet?
     var animationDelay: TimeInterval = 0
     var animationDuration: TimeInterval = 0.3
     

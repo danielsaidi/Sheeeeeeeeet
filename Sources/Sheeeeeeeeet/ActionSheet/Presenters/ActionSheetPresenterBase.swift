@@ -13,9 +13,16 @@ import UIKit
  by the built-in presenters and can be used by yours as well.
  */
 open class ActionSheetPresenterBase {
+    
+    
+    // MARK: - Initialization
+    
+    public init() {}
 
     
     // MARK: - Properties
+    
+    var actionSheet: ActionSheet?
     
     public var events = ActionSheetPresenterEvents()
 }
