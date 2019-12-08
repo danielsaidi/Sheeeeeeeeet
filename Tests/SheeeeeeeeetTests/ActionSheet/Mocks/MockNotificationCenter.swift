@@ -13,15 +13,7 @@ class MockNotificationCenter: NotificationCenter {
     
     var recorder = Mock()
     
-    var addObserverInvokeCount = 0
-    var addObserverInvokeObservers = [Any]()
-    var addObserverInvokeNames = [NSNotification.Name?]()
-    var addObserverInvokeObjects = [Any?]()
     override func addObserver(_ observer: Any, selector aSelector: Selector, name aName: NSNotification.Name?, object anObject: Any?) {
-        addObserverInvokeCount += 1
-        addObserverInvokeObservers.append(observer)
-        addObserverInvokeNames.append(aName)
-        addObserverInvokeObjects.append(anObject)
         addObserverTest(observer, selector: aSelector, name: aName, object: anObject)
     }
     
