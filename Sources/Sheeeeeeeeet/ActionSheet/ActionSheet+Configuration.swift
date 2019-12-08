@@ -39,12 +39,13 @@ public extension ActionSheet {
         */
         public let shouldBeDismissedWhenEnteringBackground: Bool
         
+        
         /**
          The standard menu configuration that is used if you
          do not provide a custom configuration.
          
          * `isDismissable` = `true`
-         * `shouldBeDismissedWhenEnteringBackground` = `true`
+         * `shouldBeDismissedWhenEnteringBackground` = `false`
          */
         public static var standard: Configuration {
             Configuration(isDismissable: true)
@@ -54,10 +55,23 @@ public extension ActionSheet {
          A configuration that makes the menu non-dismissable.
          
          * `isDismissable` = `false`
-         * `shouldBeDismissedWhenEnteringBackground` = `true`
+         * `shouldBeDismissedWhenEnteringBackground` = `false`
          */
         public static var nonDismissable: Configuration {
             Configuration(isDismissable: false)
+        }
+        
+        /**
+         A configuration that makes the menu non-dismissable.
+         
+         * `isDismissable` = `true`
+         * `shouldBeDismissedWhenEnteringBackground` = `true`
+         */
+        public static var backgroundDismissable: Configuration {
+            Configuration(
+                isDismissable: true,
+                shouldBeDismissedWhenEnteringBackground: true
+            )
         }
     }
 }

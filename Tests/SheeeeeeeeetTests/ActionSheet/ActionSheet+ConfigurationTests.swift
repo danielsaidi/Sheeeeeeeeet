@@ -23,12 +23,21 @@ class ActionSheet_ConfigurationTests: QuickSpec {
             }
         }
         
-        describe("dismissable configuration") {
+        describe("non-dismissable configuration") {
             
             it("is correctly configured") {
                 let config = ActionSheet.Configuration.nonDismissable
                 expect(config.isDismissable).to(beFalse())
                 expect(config.shouldBeDismissedWhenEnteringBackground).to(beFalse())
+            }
+        }
+        
+        describe("background dismissable configuration") {
+            
+            it("is correctly configured") {
+                let config = ActionSheet.Configuration.backgroundDismissable
+                expect(config.isDismissable).to(beTrue())
+                expect(config.shouldBeDismissedWhenEnteringBackground).to(beTrue())
             }
         }
     }

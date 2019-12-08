@@ -13,9 +13,9 @@ import Sheeeeeeeeet
  */
 class FoodMenu: Menu {
     
-    override init(title: String? = nil, items: [MenuItem], configuration: Configuration = .standard) {
+    init(title: String? = nil, items: [MenuItem]) {
         let title = title ?? FoodMenu.title
-        super.init(title: title, items: items, configuration: configuration)
+        super.init(title: title, items: items)
     }
     
     static var cancelButton: MenuItem {

@@ -21,8 +21,12 @@ extension ViewController {
             return CollectionActionSheet(menu: menu, action: alert)
         default:
             guard let menu = foodMenu(at: indexPath) else { return nil }
-            let headerImage = headerImageName(at: indexPath)
-            return FoodActionSheet(menu: menu, headerImageName: headerImage, action: alert)
+            return FoodActionSheet(
+                menu: menu,
+                configuration: self.configuration(for: menu),
+                headerImageName: headerImageName(at: indexPath),
+                action: alert
+            )
         }
     }
     
@@ -31,5 +35,14 @@ extension ViewController {
         case .openSheet(.headerView): return "title-image"
         default: return nil
         }
+    }
+}
+
+private extension ViewController {
+    
+    func configuration(for menu: Menu) -> ActionSheet.Configuration {
+        if menu is BackgroundDismissableMenu { return .backgroundDismissable }
+        if menu is NonDismissableMenu { return .nonDismissable }
+        return .standard
     }
 }

@@ -14,9 +14,9 @@ import Sheeeeeeeeet
  */
 class SecondaryActionMenu: FoodMenu {
 
-    init(food: [FoodOption], configuration: Configuration = .standard) {
+    init(food: [FoodOption]) {
         var items = food.map { $0.toSecondaryMenuItem() }
         items.append(FoodMenu.cancelButton)
-        super.init(items: items, configuration: configuration)
+        super.init(items: items)
     }
 }

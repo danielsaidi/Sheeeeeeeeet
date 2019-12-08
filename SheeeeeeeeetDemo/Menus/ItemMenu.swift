@@ -14,9 +14,9 @@ import Sheeeeeeeeet
 */
 class ItemMenu: FoodMenu {
 
-    init(food: [FoodOption], configuration: Configuration = .standard) {
+    init(food: [FoodOption]) {
         var items = food.map { $0.toMenuItem() }
         items.append(FoodMenu.cancelButton)
-        super.init(items: items, configuration: configuration)
+        super.init(items: items)
     }
 }

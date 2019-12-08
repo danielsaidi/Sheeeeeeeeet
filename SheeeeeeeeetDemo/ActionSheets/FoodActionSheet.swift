@@ -15,8 +15,12 @@ import UIKit
  */
 class FoodActionSheet: ActionSheet {
     
-    convenience init(menu: FoodMenu, headerImageName: String? = nil, action: @escaping ([MenuItem]) -> ()) {
-        self.init(menu: menu) { sheet, item in
+    convenience init(
+        menu: FoodMenu,
+        configuration: ActionSheet.Configuration,
+        headerImageName: String? = nil,
+        action: @escaping ([MenuItem]) -> ()) {
+        self.init(menu: menu, configuration: configuration) { sheet, item in
             if item is CancelButton { return }
             if sheet.shouldAlert(item) { return action([item]) }
             guard item is OkButton else { return }
