@@ -18,10 +18,24 @@ extension MenuItem {
      */
     func toContextMenuAction(action: @escaping (MenuItem) -> ()) -> Result<UIAction, ContextMenuConversionError> {
         guard canBeUsedInContextMenu else { return .failure(.unsupportedItemType) }
-        let action = UIAction(title: title, image: image) { [weak self] _ in
+        let action = UIAction(title: title, image: image, attributes: attributes) { [weak self] _ in
             guard let self = self else { return }
             action(self)
         }
         return .success(action)
+    }
+}
+
+@available(iOS 13.0, *)
+private extension MenuItem {
+    
+    var attributes: UIMenuElement.Attributes {
+        if !isEnabled { return .disabled }
+        if isDestructive { return .destructive }
+        return []
+    }
+    
+    var isDestructive: Bool {
+        self is DestructiveItem || self is DestructiveButton
     }
 }

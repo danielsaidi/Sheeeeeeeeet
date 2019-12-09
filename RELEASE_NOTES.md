@@ -12,13 +12,16 @@ Thanks to @BinaryDennis, this version adds support for auto dismissing context m
 * `ActionSheetStandardPresenter` and `ActionSheetPopoverPresenter` inherits `ActionSheetPresenterBase`.
 * `ActionSheetPopoverPresenter` has moved its popover delegate logic to another class and no longer inherits `NSObject`.
 * There is a new `DestructiveItem` type that makes it possible to have destructive options in a menu, not just destructive buttons.
+* `DestructiveItem` is automatically styled by the `ActionSheetAppearance` base class.
+* `DestructiveItem` is automatically annotated when it's converted to a context menu item. 
 
 ### Deprecations:
 
+* `Menu.Configuration` is deprecated and have no affect anymore.
+* `Menu.presentAsActionSheet` is deprecated. Use `toActionSheet` instead, then present it.
 * `ActionSheet.HeaderViewConfiguration` is renamed to `ActionSheet.HeaderConfiguration`
 * `ActionSheet.headerViewConfiguration` is renamed to `ActionSheet.headerConfiguration`
-* `Menu.Configuration` is deprecated and will not have any affect anymore. It's just kept to avoid more breaking changes.
-* `Menu.presentAsActionSheet` is deprecated, since all `toActionSheet` params had to be duplicated. Use `toActionSheet` instead, then present it.
+* `ActionSheetDangerItemCell` is renamed to `ActionSheetDestructiveItemCell`
 
 ### Breaking changes:
 

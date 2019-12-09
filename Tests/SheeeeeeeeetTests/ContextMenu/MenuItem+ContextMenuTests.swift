@@ -93,7 +93,14 @@ class MenuItem_ContextMenuTests: QuickSpec {
                 }
             }
             
-            it("is false for item types that don't make sense in a context menu") {
+            func hasAttribute(_ item: MenuItem, _ attributes: UIMenuElement.Attributes) -> Bool {
+                switch (item.toContextMenuAction { _ in }) {
+                case .failure: return false
+                case .success(let item): return item.attributes.contains(attributes)
+                }
+            }
+            
+            it("is only true for items that make sense in a context menu") {
                 expect(result(for: MenuItem(title: ""))).to(beTrue())
                 expect(result(for: LinkItem(title: ""))).to(beTrue())
                 
@@ -113,6 +120,18 @@ class MenuItem_ContextMenuTests: QuickSpec {
                 
                 expect(result(for: getCollectionItem())).to(beFalse())
                 expect(result(for: getCustomItem())).to(beFalse())
+            }
+            
+            it("only applies disabled attribute to disabled items") {
+                expect(hasAttribute(MenuItem(title: ""), .disabled)).to(beFalse())
+                let item = MenuItem(title: "")
+                item.isEnabled = false
+                expect(hasAttribute(item, .disabled)).to(beTrue())
+            }
+            
+            it("only applies destructive attribute to destructive items") {
+                expect(hasAttribute(MenuItem(title: ""), .destructive)).to(beFalse())
+                expect(hasAttribute(DestructiveItem(title: ""), .destructive)).to(beTrue())
             }
         }
     }
