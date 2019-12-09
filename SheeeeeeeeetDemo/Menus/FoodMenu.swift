@@ -13,7 +13,7 @@ import Sheeeeeeeeet
  */
 class FoodMenu: Menu {
     
-    init(title: String? = nil, items: [MenuItem]) {
+    override init(title: String? = nil, items: [MenuItem]) {
         let title = title ?? FoodMenu.title
         super.init(title: title, items: items)
     }

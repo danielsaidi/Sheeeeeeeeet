@@ -25,20 +25,6 @@ class MenuTests: QuickSpec {
                 expect(menu.items[0]).to(be(item1))
                 expect(menu.items[1]).to(be(item2))
             }
-            
-            it("uses standard configuration by default") {
-                let menu = Menu(items: [])
-                
-                expect(menu.configuration.isDismissable).to(beTrue())
-                expect(menu.configuration.shouldDismissOnDidEnterBackground).to(beFalse())
-            }
-            
-            it("can use custom configuration") {
-                let menu = Menu(items: [], configuration: .nonDismissable)
-                
-                expect(menu.configuration.isDismissable).to(beFalse())
-                expect(menu.configuration.shouldDismissOnDidEnterBackground).to(beFalse())
-            }
         }
     }
 }

@@ -3,6 +3,7 @@
 //  Sheeeeeeeeet
 //
 //  Created by Daniel Saidi on 2019-12-08.
+//  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
 import UIKit

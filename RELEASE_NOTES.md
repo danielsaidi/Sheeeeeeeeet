@@ -14,9 +14,10 @@ Thanks to @BinaryDennis, this version adds support for auto dismissing context m
 
 ### Deprecations:
 
-* `ActionSheet.HeaderViewConfiguration` has been renamed to `ActionSheet.HeaderConfiguration`
-* `ActionSheet.headerViewConfiguration` has been renamed to `ActionSheet.headerConfiguration`
-* `Menu.presentAsActionSheet` has been deprecated, since all `toActionSheet` parameters had to be duplicated. Use `toActionSheet` instead, then present it.
+* `ActionSheet.HeaderViewConfiguration` is renamed to `ActionSheet.HeaderConfiguration`
+* `ActionSheet.headerViewConfiguration` is renamed to `ActionSheet.headerConfiguration`
+* `Menu.Configuration` is deprecated and will not have any affect anymore. It's just kept to avoid more breaking changes.
+* `Menu.presentAsActionSheet` is deprecated, since all `toActionSheet` params had to be duplicated. Use `toActionSheet` instead, then present it.
 
 ### Breaking changes:
 

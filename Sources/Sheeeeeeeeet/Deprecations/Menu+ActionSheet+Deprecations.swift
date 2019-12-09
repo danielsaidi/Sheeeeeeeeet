@@ -10,10 +10,6 @@ import UIKit
 
 public extension Menu {
     
-    /**
-     Present the menu as a custom action sheet from a custom
-     view, using the default or a custom presenter.
-     */
     @available(*, deprecated, message: "Use `toActionSheet` and then present it instead.")
     @discardableResult
     func presentAsActionSheet(
@@ -26,10 +22,6 @@ public extension Menu {
         return sheet
     }
     
-    /**
-     Present the menu as a custom action sheet from a button
-     in any navigation or toolbar.
-     */
     @available(*, deprecated, message: "Use `toActionSheet` and then present it instead.")
     @discardableResult
     func presentAsActionSheet(

@@ -20,18 +20,15 @@ open class Menu {
     
     public init(
         title: String? = nil,
-        items: [MenuItem],
-        configuration: Configuration = .standard) {
+        items: [MenuItem]) {
         self.title = title
         self.items = items
-        self.configuration = configuration
     }
     
     public typealias ItemAction = (MenuItem) -> ()
 
     public let title: String?
     public let items: [MenuItem]
-    public let configuration: Configuration
 }
 
 extension Menu: MenuCreator {
