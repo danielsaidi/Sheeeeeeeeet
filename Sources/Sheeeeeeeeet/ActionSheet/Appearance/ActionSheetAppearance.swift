@@ -74,10 +74,13 @@ open class ActionSheetAppearance {
         item.tintColor = .sheetColor(.text)
         item.titleColor = .sheetColor(.text)
         item.subtitleColor = .sheetColor(.text)
-        
         item.disabledTitleColor = .sheetColor(.disabledText)
         item.disabledSubtitleColor = .sheetColor(.disabledText)
         item.disabledTintColor = .sheetColor(.disabledText)
+        
+        destructiveItem.tintColor = .sheetColor(.danger)
+        destructiveItem.titleColor = .sheetColor(.danger)
+        destructiveItem.subtitleColor = .sheetColor(.danger)
         
         selectItem.selectedIconColor = .sheetColor(.text)
         selectItem.selectedTintColor = .sheetColor(.text)
@@ -93,7 +96,7 @@ open class ActionSheetAppearance {
         secondaryAction.secondaryActionIconColor = .sheetColor(.text)
         
         cancelButton.titleColor = .sheetColor(.discreteText)
-        dangerButton.titleColor = .sheetColor(.danger)
+        destructiveButton.titleColor = .sheetColor(.danger)
     }
     
     /**
@@ -163,22 +166,29 @@ open class ActionSheetAppearance {
 public extension ActionSheetAppearance {
     
     var background: ActionSheetBackgroundView { ActionSheetBackgroundView.appearance() }
-    var button: ActionSheetButtonCell { ActionSheetButtonCell.appearance() }
-    var buttonsTable: ActionSheetButtonTableView { ActionSheetButtonTableView.appearance() }
-    var cancelButton: ActionSheetCancelButtonCell { ActionSheetCancelButtonCell.appearance() }
-    var dangerButton: ActionSheetDangerButtonCell { ActionSheetDangerButtonCell.appearance() }
+    
     var header: ActionSheetHeaderContainerView { ActionSheetHeaderContainerView.appearance() }
-    var link: ActionSheetLinkItemCell { ActionSheetLinkItemCell.appearance() }
-    var item: ActionSheetItemCell { ActionSheetItemCell.appearance() }
+    
+    var table: ActionSheetTableView { ActionSheetTableView.appearance() }
     var itemsTable: ActionSheetItemTableView { ActionSheetItemTableView.appearance() }
+    var buttonsTable: ActionSheetButtonTableView { ActionSheetButtonTableView.appearance() }
+    
+    var item: ActionSheetItemCell { ActionSheetItemCell.appearance() }
+    
+    var button: ActionSheetButtonCell { ActionSheetButtonCell.appearance() }
+    var cancelButton: ActionSheetCancelButtonCell { ActionSheetCancelButtonCell.appearance() }
+    var destructiveButton: ActionSheetDestructiveButtonCell { ActionSheetDestructiveButtonCell.appearance() }
+    
+    var destructiveItem: ActionSheetDestructiveItemCell { ActionSheetDestructiveItemCell.appearance() }
+    var link: ActionSheetLinkItemCell { ActionSheetLinkItemCell.appearance() }
     var multiSelectItem: ActionSheetMultiSelectItemCell { ActionSheetMultiSelectItemCell.appearance() }
     var multiSelectToggle: ActionSheetMultiSelectToggleItemCell { ActionSheetMultiSelectToggleItemCell.appearance() }
     var okButton: ActionSheetOkButtonCell { ActionSheetOkButtonCell.appearance() }
     var secondaryAction: ActionSheetSecondaryActionItemCell { ActionSheetSecondaryActionItemCell.appearance() }
-    var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
-    var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
     var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }
     var singleSelectItem: ActionSheetSingleSelectItemCell { ActionSheetSingleSelectItemCell.appearance() }
-    var table: ActionSheetTableView { ActionSheetTableView.appearance() }
+    
     var title: ActionSheetTitleCell { ActionSheetTitleCell.appearance() }
+    var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
+    var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
 }

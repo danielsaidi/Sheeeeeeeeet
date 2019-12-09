@@ -17,7 +17,7 @@
 
 open class ActionSheetButtonCell: ActionSheetItemCell {}
 open class ActionSheetCancelButtonCell: ActionSheetButtonCell {}
-open class ActionSheetDangerButtonCell: ActionSheetButtonCell {}
+open class ActionSheetDestructiveButtonCell: ActionSheetButtonCell {}
 open class ActionSheetOkButtonCell: ActionSheetButtonCell {}
 
 open class ActionSheetDestructiveItemCell: ActionSheetItemCell {}

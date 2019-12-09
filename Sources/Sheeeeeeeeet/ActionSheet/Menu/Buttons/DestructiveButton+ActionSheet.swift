@@ -11,10 +11,10 @@ import UIKit
 extension DestructiveButton {
 
     open override func actionSheetCell(for tableView: UITableView) -> ActionSheetItemCell {
-        ActionSheetDangerButtonCell(style: actionSheetCellStyle)
+        ActionSheetDestructiveButtonCell(style: actionSheetCellStyle)
     }
     
     open override var actionSheetCellType: ActionSheetItemCell.Type {
-        ActionSheetDangerButtonCell.self
+        ActionSheetDestructiveButtonCell.self
     }
 }

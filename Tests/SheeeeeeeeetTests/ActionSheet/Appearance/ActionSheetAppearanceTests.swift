@@ -21,27 +21,6 @@ class ActionSheetApperanceTests: QuickSpec {
             appearance = ActionSheetAppearance()
         }
         
-        var background: ActionSheetBackgroundView { ActionSheetBackgroundView.appearance() }
-        var button: ActionSheetButtonCell { ActionSheetButtonCell.appearance() }
-        var buttonsTable: ActionSheetButtonTableView { ActionSheetButtonTableView.appearance() }
-        var cancelButton: ActionSheetCancelButtonCell { ActionSheetCancelButtonCell.appearance() }
-        var dangerButton: ActionSheetDangerButtonCell { ActionSheetDangerButtonCell.appearance() }
-        var header: ActionSheetHeaderContainerView { ActionSheetHeaderContainerView.appearance() }
-        var link: ActionSheetLinkItemCell { ActionSheetLinkItemCell.appearance() }
-        var item: ActionSheetItemCell { ActionSheetItemCell.appearance() }
-        var itemsTable: ActionSheetItemTableView { ActionSheetItemTableView.appearance() }
-        var multiSelectItem: ActionSheetMultiSelectItemCell { ActionSheetMultiSelectItemCell.appearance() }
-        var multiSelectToggle: ActionSheetMultiSelectToggleItemCell { ActionSheetMultiSelectToggleItemCell.appearance() }
-        var okButton: ActionSheetOkButtonCell { ActionSheetOkButtonCell.appearance() }
-        var secondaryAction: ActionSheetSecondaryActionItemCell { ActionSheetSecondaryActionItemCell.appearance() }
-        var sectionMargin: ActionSheetSectionMarginCell { ActionSheetSectionMarginCell.appearance() }
-        var sectionTitle: ActionSheetSectionTitleCell { ActionSheetSectionTitleCell.appearance() }
-        var selectItem: ActionSheetSelectItemCell { ActionSheetSelectItemCell.appearance() }
-        var singleSelectItem: ActionSheetSingleSelectItemCell { ActionSheetSingleSelectItemCell.appearance() }
-        var table: ActionSheetTableView { ActionSheetTableView.appearance() }
-        var title: ActionSheetTitleCell { ActionSheetTitleCell.appearance() }
-        
-        
         describe("standard appearance") {
             
             it("is of correct type") {
@@ -63,47 +42,50 @@ class ActionSheetApperanceTests: QuickSpec {
             }
             
             it("applies colors") {
-                expect(background.backgroundColor).to(equal(.sheetColor(.overlay)))
-                expect(header.backgroundColor).to(equal(.clear))
-                expect(table.separatorColor).to(equal(.sheetColor(.separator)))
-                expect(table.backgroundColor).to(equal(.sheetColor(.background)))
+                expect(appearance.background.backgroundColor).to(equal(.sheetColor(.overlay)))
+                expect(appearance.header.backgroundColor).to(equal(.clear))
+                expect(appearance.table.separatorColor).to(equal(.sheetColor(.separator)))
+                expect(appearance.table.backgroundColor).to(equal(.sheetColor(.background)))
                 
-                expect(item.tintColor).to(equal(.sheetColor(.text)))
-                expect(item.titleColor).to(equal(.sheetColor(.text)))
-                expect(item.subtitleColor).to(equal(.sheetColor(.text)))
+                expect(appearance.item.tintColor).to(equal(.sheetColor(.text)))
+                expect(appearance.item.titleColor).to(equal(.sheetColor(.text)))
+                expect(appearance.item.subtitleColor).to(equal(.sheetColor(.text)))
+                expect(appearance.item.disabledTitleColor).to(equal(.sheetColor(.disabledText)))
+                expect(appearance.item.disabledSubtitleColor).to(equal(.sheetColor(.disabledText)))
+                expect(appearance.item.disabledTintColor).to(equal(.sheetColor(.disabledText)))
                 
-                expect(item.disabledTitleColor).to(equal(.sheetColor(.disabledText)))
-                expect(item.disabledSubtitleColor).to(equal(.sheetColor(.disabledText)))
-                expect(item.disabledTintColor).to(equal(.sheetColor(.disabledText)))
+                expect(appearance.destructiveItem.tintColor).to(equal(.sheetColor(.danger)))
+                expect(appearance.destructiveItem.titleColor).to(equal(.sheetColor(.danger)))
+                expect(appearance.destructiveItem.subtitleColor).to(equal(.sheetColor(.danger)))
                 
-                expect(selectItem.selectedIconColor).to(equal(.sheetColor(.text)))
-                expect(selectItem.selectedTintColor).to(equal(.sheetColor(.text)))
-                expect(selectItem.selectedTitleColor).to(equal(.sheetColor(.text)))
-                expect(selectItem.tintColor).to(equal(.sheetColor(.discreteText)))
-                expect(selectItem.titleColor).to(equal(.sheetColor(.discreteText)))
-                expect(selectItem.unselectedIconColor).to(equal(.sheetColor(.discreteText)))
-                expect(multiSelectToggle.selectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
-                expect(multiSelectToggle.deselectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
+                expect(appearance.selectItem.selectedIconColor).to(equal(.sheetColor(.text)))
+                expect(appearance.selectItem.selectedTintColor).to(equal(.sheetColor(.text)))
+                expect(appearance.selectItem.selectedTitleColor).to(equal(.sheetColor(.text)))
+                expect(appearance.selectItem.tintColor).to(equal(.sheetColor(.discreteText)))
+                expect(appearance.selectItem.titleColor).to(equal(.sheetColor(.discreteText)))
+                expect(appearance.selectItem.unselectedIconColor).to(equal(.sheetColor(.discreteText)))
+                expect(appearance.multiSelectToggle.selectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
+                expect(appearance.multiSelectToggle.deselectAllSubtitleColor).to(equal(.sheetColor(.actionText)))
                 
-                expect(secondaryAction.secondaryActionIconColor).to(equal(.sheetColor(.text)))
+                expect(appearance.secondaryAction.secondaryActionIconColor).to(equal(.sheetColor(.text)))
                 
-                expect(cancelButton.titleColor).to(equal(.sheetColor(.discreteText)))
-                expect(dangerButton.titleColor).to(equal(.sheetColor(.danger)))
+                expect(appearance.cancelButton.titleColor).to(equal(.sheetColor(.discreteText)))
+                expect(appearance.destructiveItem.titleColor).to(equal(.sheetColor(.danger)))
             }
             
             it("applies corner radii") {
-                expect(header.cornerRadius).to(equal(10))
-                expect(table.cornerRadius).to(equal(10))
+                expect(appearance.header.cornerRadius).to(equal(10))
+                expect(appearance.table.cornerRadius).to(equal(10))
             }
             
             it("applies fonts") {
-                expect(item.titleFont).to(equal(.systemFont(ofSize: 17)))
-                expect(item.subtitleFont).to(equal(.systemFont(ofSize: 14)))
-                expect(multiSelectToggle.titleFont).to(equal(.boldSystemFont(ofSize: 13)))
-                expect(sectionTitle.titleFont).to(equal(.boldSystemFont(ofSize: 14)))
-                expect(title.titleFont).to(equal(.boldSystemFont(ofSize: 15)))
-                expect(button.titleFont).to(equal(.boldSystemFont(ofSize: 17)))
-                expect(cancelButton.titleFont).to(equal(.systemFont(ofSize: 17)))
+                expect(appearance.item.titleFont).to(equal(.systemFont(ofSize: 17)))
+                expect(appearance.item.subtitleFont).to(equal(.systemFont(ofSize: 14)))
+                expect(appearance.multiSelectToggle.titleFont).to(equal(.boldSystemFont(ofSize: 13)))
+                expect(appearance.sectionTitle.titleFont).to(equal(.boldSystemFont(ofSize: 14)))
+                expect(appearance.title.titleFont).to(equal(.boldSystemFont(ofSize: 15)))
+                expect(appearance.button.titleFont).to(equal(.boldSystemFont(ofSize: 17)))
+                expect(appearance.cancelButton.titleFont).to(equal(.systemFont(ofSize: 17)))
             }
             
             it("applies heights") {
@@ -111,7 +93,7 @@ class ActionSheetApperanceTests: QuickSpec {
                 expect(ActionSheetButtonCell.appearance().height).to(equal(0))
                 
                 expect(ActionSheetCancelButtonCell.appearance().height).to(equal(0))
-                expect(ActionSheetDangerButtonCell.appearance().height).to(equal(0))
+                expect(ActionSheetDestructiveButtonCell.appearance().height).to(equal(0))
                 expect(ActionSheetOkButtonCell.appearance().height).to(equal(0))
                 
                 expect(ActionSheetCollectionItemCell.appearance().height).to(equal(0))
@@ -152,16 +134,16 @@ class ActionSheetApperanceTests: QuickSpec {
             
             it("applies icons") {
                 guard #available(iOS 13.0, *) else { return }
-                expect(link.linkIcon).to(equal(UIImage(systemName: "chevron.right")))
-                expect(selectItem.selectedIcon).to(equal(UIImage(systemName: "checkmark")))
+                expect(appearance.link.linkIcon).to(equal(UIImage(systemName: "chevron.right")))
+                expect(appearance.selectItem.selectedIcon).to(equal(UIImage(systemName: "checkmark")))
             }
             
             it("applies separator insets") {
-                expect(item.separatorInset).to(equal(.zero))
-                expect(title.separatorInset).to(equal(.hiddenSeparator))
-                expect(sectionTitle.separatorInset).to(equal(.hiddenSeparator))
-                expect(sectionMargin.separatorInset).to(equal(.hiddenSeparator))
-                expect(multiSelectToggle.separatorInset).to(equal(.hiddenSeparator))
+                expect(appearance.item.separatorInset).to(equal(.zero))
+                expect(appearance.title.separatorInset).to(equal(.hiddenSeparator))
+                expect(appearance.sectionTitle.separatorInset).to(equal(.hiddenSeparator))
+                expect(appearance.sectionMargin.separatorInset).to(equal(.hiddenSeparator))
+                expect(appearance.multiSelectToggle.separatorInset).to(equal(.hiddenSeparator))
             }
         }
     }

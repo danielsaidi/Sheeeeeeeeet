@@ -55,7 +55,7 @@ class DemoColorfulAppearance: DemoAppearance {
         sectionTitle.titleFont = .robotoMedium(size: 14)
         title.titleFont = .robotoMedium(size: 15)
         okButton.titleFont = .robotoMedium(size: 17)
-        dangerButton.titleFont = .robotoMedium(size: 17)
+        destructiveButton.titleFont = .robotoMedium(size: 17)
         cancelButton.titleFont = .robotoRegular(size: 17)
     }
 }

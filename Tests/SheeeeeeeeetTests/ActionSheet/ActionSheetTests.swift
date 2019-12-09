@@ -259,7 +259,7 @@ class ActionSheetTests: QuickSpec {
             beforeEach {
                 ActionSheetItemCell.appearance().height = 100
                 ActionSheetOkButtonCell.appearance().height = 110
-                ActionSheetDangerButtonCell.appearance().height = 120
+                ActionSheetDestructiveButtonCell.appearance().height = 120
                 ActionSheetCancelButtonCell.appearance().height = 130
             }
             

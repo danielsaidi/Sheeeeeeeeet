@@ -20,6 +20,12 @@ public extension ActionSheet {
     }
 }
 
+public extension ActionSheetAppearance {
+    
+    @available(*, deprecated, renamed: "destructiveButton")
+    var dangerButton: ActionSheetDestructiveButtonCell { destructiveButton }
+}
+
 public extension ActionSheetPopoverPresenter {
     
     @available(*, deprecated, renamed: "isDismissableWithOrientationChange")
@@ -55,3 +61,5 @@ public extension Menu {
         return sheet
     }
 }
+
+public typealias ActionSheetDangerButtonCell = ActionSheetDestructiveButtonCell
