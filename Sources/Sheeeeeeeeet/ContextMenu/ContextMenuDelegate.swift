@@ -61,7 +61,12 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     
     public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: previewProvider, actionProvider: { [weak self] _ in
-            guard let self = self else { fatalError("ContextMenuDelegate was deallocated") }
+            guard let self = self else {
+                #if DEBUG
+                print("ContextMenuDelegate was deallocated")
+                #endif
+                return nil
+            }
             let menu = self.menuCreator.createMenu()
             switch menu.toContextMenu(action: self.action) {
             case .failure(let error): fatalError(error.localizedDescription)
