@@ -91,16 +91,13 @@ class Menu_ContextMenuTests: QuickSpec {
             }
         }
         
-        describe("Auto dismiss on didEnterBackground") {
+        describe("auto-dismissing when entering background") {
             
-            it("dismisses menu when both isDismissable and shouldDismissOnDidEnterBackground are true") {
+            it("dismisses menu when configuration allows it") {
                 guard #available(iOS 13.0, *) else { return }
-                
-                let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: true)
-                
                 let view = TestView()
                 view.shouldCallSuper = true
-                let menu = Menu(title: "title", items: [], configuration: config)
+                let menu = Menu(title: "title", items: [])
                 menu.addAsRetainedContextMenu(to: view) { _ in }
                 
                 guard let interaction = view.interactions.first as? UIContextMenuInteraction,
@@ -109,7 +106,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 }
                 
                 delegate.activeInteraction = interaction
-                delegate.activeMenuConfiguration = menu.configuration
+                delegate.activeConfiguration = .backgroundDismissable
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
@@ -120,15 +117,11 @@ class Menu_ContextMenuTests: QuickSpec {
                 expect(removeExecutions.count).to(equal(1))
             }
             
-            it("does not dismiss menu when shouldDismissOnDidEnterBackground is false") {
+            it("does not dismiss menu when configuration doesn't allow it") {
                 guard #available(iOS 13.0, *) else { return }
-                
-                let config = Menu.Configuration(isDismissable: true, shouldDismissOnDidEnterBackground: false)
-                
-                
                 let view = TestView()
                 view.shouldCallSuper = true
-                let menu = Menu(title: "title", items: [], configuration: config)
+                let menu = Menu(title: "title", items: [])
                 menu.addAsRetainedContextMenu(to: view) { _ in }
                 
                 guard let interaction = view.interactions.first as? UIContextMenuInteraction,
@@ -137,34 +130,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 }
                 
                 delegate.activeInteraction = interaction
-                delegate.activeMenuConfiguration = menu.configuration
-                
-                NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
-                
-                let addExecutions = view.recorder.executions(of: view.addInteraction)
-                let removeExecutions = view.recorder.executions(of: view.removeInteraction)
-                
-                expect(addExecutions.count).to(equal(3))
-                expect(removeExecutions.count).to(equal(0))
-            }
-            
-            it("does not dismiss menu when isDismissable is false") {
-                guard #available(iOS 13.0, *) else { return }
-                
-                let config = Menu.Configuration(isDismissable: false, shouldDismissOnDidEnterBackground: true)
-                
-                let view = TestView()
-                view.shouldCallSuper = true
-                let menu = Menu(title: "title", items: [], configuration: config)
-                menu.addAsRetainedContextMenu(to: view) { _ in }
-                
-                guard let interaction = view.interactions.first as? UIContextMenuInteraction,
-                    let delegate = view.contextMenuDelegate as? ContextMenuDelegate else {
-                        return fail("interactor or delegate not set")
-                }
-                
-                delegate.activeInteraction = interaction
-                delegate.activeMenuConfiguration = menu.configuration
+                delegate.activeConfiguration = .standard
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 

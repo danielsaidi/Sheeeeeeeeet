@@ -57,7 +57,7 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     let previewProvider: UIContextMenuContentPreviewProvider?
     
     weak var activeInteraction: UIContextMenuInteraction?
-    var activeMenuConfiguration: Menu.Configuration?
+    var activeConfiguration: ContextMenu.Configuration?
     
     public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         UIContextMenuConfiguration(identifier: nil, previewProvider: previewProvider, actionProvider: { [weak self] _ in
@@ -67,7 +67,7 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
             case .failure(let error): fatalError(error.localizedDescription)
             case .success(let contextMenu):
                 self.activeInteraction = interaction
-                self.activeMenuConfiguration = menu.configuration
+                self.activeConfiguration = self.configuration
                 return contextMenu
             }
         })
@@ -79,11 +79,12 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
 private extension ContextMenuDelegate {
     
     @objc func handleDidEnterBackground() {
-        guard let config = activeMenuConfiguration,
-            config.isDismissable && config.shouldDismissOnDidEnterBackground else { return }
-        
-        guard let activeInteraction = activeInteraction,
-            let activeView = activeInteraction.view else { return }
+        guard
+            let config = activeConfiguration,
+            config.shouldBeDismissedWhenEnteringBackground,
+            let activeInteraction = activeInteraction,
+            let activeView = activeInteraction.view
+            else { return }
         
         activeView.removeInteraction(activeInteraction)
         activeView.addInteraction(activeInteraction)
