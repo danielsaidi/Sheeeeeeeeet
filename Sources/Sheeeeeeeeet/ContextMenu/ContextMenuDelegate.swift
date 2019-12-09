@@ -72,6 +72,11 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
             }
         })
     }
+    
+    public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
+        activeInteraction = nil
+        activeConfiguration = nil
+    }
 }
 
 
