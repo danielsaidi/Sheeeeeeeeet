@@ -1590,10 +1590,10 @@
 		OBJ_8 /* Sheeeeeeeeet */ = {
 			isa = PBXGroup;
 			children = (
-				8422CB77239DCC6900251D31 /* Deprecations */,
 				OBJ_9 /* ActionSheet */,
 				OBJ_74 /* AlertController */,
 				OBJ_79 /* ContextMenu */,
+				8422CB77239DCC6900251D31 /* Deprecations */,
 				OBJ_85 /* Extensions */,
 				OBJ_87 /* Menu */,
 			);

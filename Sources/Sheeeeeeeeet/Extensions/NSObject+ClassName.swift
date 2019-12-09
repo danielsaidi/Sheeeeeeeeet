@@ -19,11 +19,4 @@ extension NSObject {
     static var className: String {
         String(describing: self)
     }
-    
-    /**
-    Get the instance's class name.
-    */
-    var className: String {
-        type(of: self).className
-    }
 }
