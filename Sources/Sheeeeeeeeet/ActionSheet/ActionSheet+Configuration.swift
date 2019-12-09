@@ -41,8 +41,7 @@ public extension ActionSheet {
         
         
         /**
-         The standard menu configuration that is used if you
-         do not provide a custom configuration.
+         The standard action sheet configuration.
          
          * `isDismissable` = `true`
          * `shouldBeDismissedWhenEnteringBackground` = `false`
@@ -52,7 +51,7 @@ public extension ActionSheet {
         }
         
         /**
-         A configuration that makes the menu non-dismissable.
+         A configuration that makes a sheet non-dismissable.
          
          * `isDismissable` = `false`
          * `shouldBeDismissedWhenEnteringBackground` = `false`
@@ -62,7 +61,8 @@ public extension ActionSheet {
         }
         
         /**
-         A configuration that makes the menu non-dismissable.
+         A configuration that makes the action sheet dismiss
+         automatically when an app is sent to the background.
          
          * `isDismissable` = `true`
          * `shouldBeDismissedWhenEnteringBackground` = `true`

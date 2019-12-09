@@ -17,6 +17,8 @@ import UIKit
  as the rest of the popover view, this presenter will remove
  any header view and combine items and buttons into a single
  item section.
+ 
+ `TODO` Move `isDismissableWithOrientationChange` to config.
  */
 open class ActionSheetPopoverPresenter: ActionSheetPresenterBase {
     
