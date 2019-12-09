@@ -31,6 +31,9 @@
 		8422CB72239DC85300251D31 /* ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB6D239DC6DA00251D31 /* ContextMenu.swift */; };
 		8422CB73239DC85900251D31 /* ContextMenu+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB6B239DC6B100251D31 /* ContextMenu+Configuration.swift */; };
 		8422CB76239DCBFD00251D31 /* Menu+Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB74239DCBEB00251D31 /* Menu+Deprecations.swift */; };
+		8422CB7A239E1FB600251D31 /* DestructiveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB78239E1E6800251D31 /* DestructiveItem.swift */; };
+		8422CB7D239E20E100251D31 /* DestructiveItem+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB7B239E209C00251D31 /* DestructiveItem+ActionSheet.swift */; };
+		8422CB82239E21FF00251D31 /* DestructiveItem+ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB80239E21FC00251D31 /* DestructiveItem+ActionSheetTests.swift */; };
 		846703A1234A3C4500355331 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467039F234A3C4500355331 /* Main.storyboard */; };
 		846703A6234A3C4600355331 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846703A4234A3C4600355331 /* LaunchScreen.storyboard */; };
 		846703E6234A3CF100355331 /* FoodOption+ActionSheetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */; };
@@ -408,6 +411,9 @@
 		8422CB6D239DC6DA00251D31 /* ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenu.swift; sourceTree = "<group>"; };
 		8422CB6F239DC81800251D31 /* ContextMenu+ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContextMenu+ConfigurationTests.swift"; sourceTree = "<group>"; };
 		8422CB74239DCBEB00251D31 /* Menu+Deprecations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu+Deprecations.swift"; sourceTree = "<group>"; };
+		8422CB78239E1E6800251D31 /* DestructiveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveItem.swift; sourceTree = "<group>"; };
+		8422CB7B239E209C00251D31 /* DestructiveItem+ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DestructiveItem+ActionSheet.swift"; sourceTree = "<group>"; };
+		8422CB80239E21FC00251D31 /* DestructiveItem+ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DestructiveItem+ActionSheetTests.swift"; sourceTree = "<group>"; };
 		84670397234A3C4500355331 /* SheeeeeeeeetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SheeeeeeeeetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846703A0234A3C4500355331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		846703A5234A3C4600355331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1049,6 +1055,7 @@
 			children = (
 				OBJ_131 /* CollectionItem+ActionSheetTests.swift */,
 				OBJ_132 /* CustomItem+ActionSheetTests.swift */,
+				8422CB80239E21FC00251D31 /* DestructiveItem+ActionSheetTests.swift */,
 				OBJ_133 /* LinkItem+ActionSheetTests.swift */,
 				OBJ_134 /* MultiSelectItem+ActionSheetTests.swift */,
 				OBJ_135 /* MultiSelectToggleItem+ActionSheetTests.swift */,
@@ -1477,12 +1484,13 @@
 			children = (
 				OBJ_31 /* CollectionItem+ActionSheet.swift */,
 				OBJ_32 /* CustomItem+ActionSheet.swift */,
+				8422CB7B239E209C00251D31 /* DestructiveItem+ActionSheet.swift */,
 				OBJ_33 /* LinkItem+ActionSheet.swift */,
 				OBJ_34 /* MultiSelectItem+ActionSheet.swift */,
 				OBJ_35 /* MultiSelectToggleItem+ActionSheet.swift */,
+				84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */,
 				OBJ_36 /* SelectItem+ActionSheet.swift */,
 				OBJ_37 /* SingleSelectItem+ActionSheet.swift */,
-				84A24ECF236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1658,6 +1666,7 @@
 			children = (
 				OBJ_94 /* CollectionItem.swift */,
 				OBJ_95 /* CustomItem.swift */,
+				8422CB78239E1E6800251D31 /* DestructiveItem.swift */,
 				OBJ_96 /* LinkItem.swift */,
 				OBJ_97 /* MultiSelectItem.swift */,
 				OBJ_98 /* MultiSelectToggleItem.swift */,
@@ -2171,12 +2180,14 @@
 				8405567023527E280064EC7D /* ActionSheetItemCells.swift in Sources */,
 				OBJ_472 /* ActionSheetStandardPresenter.swift in Sources */,
 				84A24ECB236C64F200DB060C /* SecondaryActionItem.swift in Sources */,
+				8422CB7A239E1FB600251D31 /* DestructiveItem.swift in Sources */,
 				84A24ED0236C6C5B00DB060C /* SecondaryActionItem+ActionSheet.swift in Sources */,
 				OBJ_473 /* ActionSheetBackgroundView.swift in Sources */,
 				OBJ_474 /* ActionSheetButtonTableView.swift in Sources */,
 				OBJ_475 /* ActionSheetHeaderContainerView.swift in Sources */,
 				84F64BA1239D8FEF000290D1 /* ActionSheet+Header.swift in Sources */,
 				OBJ_476 /* ActionSheetItemTableView.swift in Sources */,
+				8422CB7D239E20E100251D31 /* DestructiveItem+ActionSheet.swift in Sources */,
 				OBJ_477 /* ActionSheetStackView.swift in Sources */,
 				OBJ_478 /* ActionSheetTableView.swift in Sources */,
 				OBJ_480 /* ActionSheetItemCell.swift in Sources */,
@@ -2274,6 +2285,7 @@
 				OBJ_571 /* ActionSheetStandardPresenterTests.swift in Sources */,
 				OBJ_572 /* ActionSheetBackgroundViewTests.swift in Sources */,
 				OBJ_573 /* ActionSheetHeaderContainerViewTests.swift in Sources */,
+				8422CB82239E21FF00251D31 /* DestructiveItem+ActionSheetTests.swift in Sources */,
 				OBJ_574 /* ActionSheetStackViewTests.swift in Sources */,
 				OBJ_575 /* ActionSheetTableViewTests.swift in Sources */,
 				OBJ_577 /* ActionSheetItemCellTests.swift in Sources */,

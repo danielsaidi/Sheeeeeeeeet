@@ -10,7 +10,8 @@ Thanks to @BinaryDennis, this version adds support for auto dismissing context m
 * `ActionSheet` has a new `ActionSheet.Configuration` that replaces `Menu.Configuration`. You specify it when you create an action sheet.
 * There is a new `ActionSheetPresenterBase` base class that you can use when creating custom presenters.
 * `ActionSheetStandardPresenter` and `ActionSheetPopoverPresenter` inherits `ActionSheetPresenterBase`.
-* `ActionSheetPopoverPresenter` has moved its popover delegate logic to another class and no longer inherits `NSObject`.  
+* `ActionSheetPopoverPresenter` has moved its popover delegate logic to another class and no longer inherits `NSObject`.
+* There is a new `DestructiveItem` type that makes it possible to have destructive options in a menu, not just destructive buttons.
 
 ### Deprecations:
 
