@@ -21,7 +21,7 @@ class ContextMenuDelegateTests: QuickSpec {
                 guard #available(iOS 13.0, *) else { return }
                 let items = [MenuItem(title: "item"), OkButton(title: "ok")]
                 let menu = Menu(title: "title", items: items)
-                let delegate = ContextMenuDelegate(menu: menu, action: { _ in })
+                let delegate = ContextMenuDelegate(menu: menu, configuration: .standard, action: { _ in })
                 let interaction = UIContextMenuInteraction(delegate: MockDelegate())
                 let result = delegate.contextMenuInteraction(interaction, configurationForMenuAtLocation: .zero)
                 expect(result).toNot(beNil())

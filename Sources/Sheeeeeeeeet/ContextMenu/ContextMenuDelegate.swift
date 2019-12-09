@@ -21,9 +21,11 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     
     init(
         menuCreator: MenuCreator,
+        configuration: ContextMenu.Configuration,
         previewProvider: UIContextMenuContentPreviewProvider? = nil,
         action: @escaping (MenuItem) -> ()) {
         self.menuCreator = menuCreator
+        self.configuration = configuration
         self.action = action
         self.previewProvider = previewProvider
         super.init()
@@ -32,10 +34,12 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     
     convenience init(
         menu: Menu,
+        configuration: ContextMenu.Configuration,
         previewProvider: UIContextMenuContentPreviewProvider? = nil,
         action: @escaping (MenuItem) -> ()) {
         self.init(
             menuCreator: menu,
+            configuration: configuration,
             previewProvider: previewProvider,
             action: action
         )
@@ -48,6 +52,7 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     }
     
     let menuCreator: MenuCreator
+    let configuration: ContextMenu.Configuration
     let action: (MenuItem) -> ()
     let previewProvider: UIContextMenuContentPreviewProvider?
     

@@ -22,10 +22,15 @@ public extension MenuCreator {
     */
     func addAsContextMenu(
         to view: UIView,
+        configuration: ContextMenu.Configuration = .standard,
         previewProvider: UIContextMenuContentPreviewProvider? = nil,
         action: @escaping (MenuItem) -> ()) -> ContextMenuDelegate {
         view.isUserInteractionEnabled = true
-        let delegate = ContextMenuDelegate(menuCreator: self, previewProvider: previewProvider, action: action)
+        let delegate = ContextMenuDelegate(
+            menuCreator: self,
+            configuration: configuration,
+            previewProvider: previewProvider,
+            action: action)
         let interaction = UIContextMenuInteraction(delegate: delegate)
         view.addInteraction(interaction)
         return delegate
@@ -42,9 +47,14 @@ public extension MenuCreator {
     */
     func addAsRetainedContextMenu(
         to view: UIView & ContextMenuDelegateRetainer,
+        configuration: ContextMenu.Configuration = .standard,
         previewProvider: UIContextMenuContentPreviewProvider? = nil,
         action: @escaping (MenuItem) -> ()) {
-        let delegate = addAsContextMenu(to: view, previewProvider: previewProvider, action: action)
+        let delegate = addAsContextMenu(
+            to: view,
+            configuration: configuration,
+            previewProvider: previewProvider,
+            action: action)
         view.contextMenuDelegate = delegate
     }
 
