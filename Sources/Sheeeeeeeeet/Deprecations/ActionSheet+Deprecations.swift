@@ -19,3 +19,39 @@ public extension ActionSheet {
         set { headerConfiguration = newValue }
     }
 }
+
+public extension ActionSheetPopoverPresenter {
+    
+    @available(*, deprecated, renamed: "isDismissableWithOrientationChange")
+    var isListeningToOrientationChanges: Bool {
+        get { isDismissableWithOrientationChange }
+        set { isDismissableWithOrientationChange = newValue }
+    }
+}
+
+public extension Menu {
+    
+    @available(*, deprecated, message: "Use `toActionSheet` and then present it instead.")
+    @discardableResult
+    func presentAsActionSheet(
+        in vc: UIViewController,
+        from view: UIView?,
+        using presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        action: @escaping ActionSheet.SelectAction) -> ActionSheet {
+        let sheet = ActionSheet(menu: self, presenter: presenter, action: action)
+        sheet.present(in: vc, from: view)
+        return sheet
+    }
+    
+    @available(*, deprecated, message: "Use `toActionSheet` and then present it instead.")
+    @discardableResult
+    func presentAsActionSheet(
+        in vc: UIViewController,
+        from view: UIBarButtonItem,
+        using presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        action: @escaping ActionSheet.SelectAction) -> ActionSheet {
+        let sheet = ActionSheet(menu: self, presenter: presenter, action: action)
+        sheet.present(in: vc, from: view)
+        return sheet
+    }
+}
