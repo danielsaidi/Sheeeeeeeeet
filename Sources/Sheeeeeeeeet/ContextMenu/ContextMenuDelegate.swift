@@ -56,7 +56,7 @@ public class ContextMenuDelegate: NSObject, UIContextMenuInteractionDelegate {
     let action: (MenuItem) -> ()
     let previewProvider: UIContextMenuContentPreviewProvider?
     
-    weak var activeInteraction: UIContextMenuInteraction?
+    public internal(set) weak var activeInteraction: UIContextMenuInteraction?
     var activeConfiguration: ContextMenu.Configuration?
     
     public func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
