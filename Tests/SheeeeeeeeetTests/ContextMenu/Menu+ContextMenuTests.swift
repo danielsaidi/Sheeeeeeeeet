@@ -141,6 +141,40 @@ class Menu_ContextMenuTests: QuickSpec {
                 expect(removeExecutions.count).to(equal(0))
             }
         }
+        
+        describe("isCurrentlyPresented") {
+            
+            it("is true when activeInteraction has value") {
+                guard #available(iOS 13.0, *) else { return }
+                let view = TestView()
+                view.shouldCallSuper = true
+                let menu = Menu(title: "title", items: [])
+                menu.addAsRetainedContextMenu(to: view) { _ in }
+                
+                guard let interaction = view.interactions.first as? UIContextMenuInteraction,
+                    let delegate = view.contextMenuDelegate as? ContextMenuDelegate else {
+                        return fail("interactor or delegate not set")
+                }
+                
+                delegate.activeInteraction = interaction
+                expect(delegate.isCurrentlyPresented).to(beTrue())
+            }
+            
+            it("is false when activeInteraction is nil") {
+                guard #available(iOS 13.0, *) else { return }
+                let view = TestView()
+                view.shouldCallSuper = true
+                let menu = Menu(title: "title", items: [])
+                menu.addAsRetainedContextMenu(to: view) { _ in }
+                
+                guard let delegate = view.contextMenuDelegate as? ContextMenuDelegate else {
+                    return fail("delegate not set")
+                }
+                
+                delegate.activeInteraction = nil
+                expect(delegate.isCurrentlyPresented).to(beFalse())
+            }
+        }
     }
 }
 
