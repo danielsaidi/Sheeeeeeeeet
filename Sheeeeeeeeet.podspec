@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Sheeeeeeeeet'
   s.version          = '3.1.0'
-  s.swift_versions   = ['5.1']
+  s.swift_versions   = ['5.2']
   s.summary          = 'Sheeeeeeeeet is a Swift library for custom iOS action sheets.'
 
   s.description      = <<-DESC
@@ -18,7 +18,7 @@ custom types are more specific to your app or domain.
   s.source           = { :git => 'https://github.com/danielsaidi/Sheeeeeeeeet.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/danielsaidi'
 
-  s.swift_version = '5.1'
+  s.swift_version = '5.2'
   s.ios.deployment_target = '9.0'
   s.source_files = 'Sources/Sheeeeeeeeet/**/*.swift'
 end

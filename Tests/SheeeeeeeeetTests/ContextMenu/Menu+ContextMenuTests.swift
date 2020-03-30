@@ -31,7 +31,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 let view = TestView()
                 let menu = Menu(title: "title", items: [])
                 _ = menu.addAsContextMenu(to: view) { _ in }
-                let exec = view.recorder.executions(of: view.addInteraction)
+                let exec = view.recorder.invokations(of: view.addInteraction)
                 expect(exec.count).to(equal(1))
             }
             
@@ -110,11 +110,11 @@ class Menu_ContextMenuTests: QuickSpec {
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
-                let addExecutions = view.recorder.executions(of: view.addInteraction)
-                let removeExecutions = view.recorder.executions(of: view.removeInteraction)
+                let addInvokations = view.recorder.invokations(of: view.addInteraction)
+                let removeInvokations = view.recorder.invokations(of: view.removeInteraction)
                 
-                expect(addExecutions.count).to(equal(4))
-                expect(removeExecutions.count).to(equal(1))
+                expect(addInvokations.count).to(equal(3))
+                expect(removeInvokations.count).to(equal(1))
             }
             
             it("does not dismiss menu when configuration doesn't allow it") {
@@ -134,11 +134,11 @@ class Menu_ContextMenuTests: QuickSpec {
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
-                let addExecutions = view.recorder.executions(of: view.addInteraction)
-                let removeExecutions = view.recorder.executions(of: view.removeInteraction)
+                let addInvokations = view.recorder.invokations(of: view.addInteraction)
+                let removeInvokations = view.recorder.invokations(of: view.removeInteraction)
                 
-                expect(addExecutions.count).to(equal(3))
-                expect(removeExecutions.count).to(equal(0))
+                expect(addInvokations.count).to(equal(2))
+                expect(removeInvokations.count).to(equal(0))
             }
         }
         
