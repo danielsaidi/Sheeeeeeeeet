@@ -3,7 +3,7 @@
 
 ## 3.1.1
 
-This version upgrades external dependencies.
+This version prepares the library for Xcode 11.4 and Swift 5.2 and upgrades external dependencies.
 
 
 ## 3.1.0
