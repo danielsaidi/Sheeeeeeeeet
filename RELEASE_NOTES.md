@@ -1,6 +1,11 @@
 # Release Notes
 
 
+## 3.1.2
+
+This version updates all external test dependencies.
+
+
 ## 3.1.1
 
 This version prepares the library for Xcode 11.4 and Swift 5.2 and upgrades external dependencies.
