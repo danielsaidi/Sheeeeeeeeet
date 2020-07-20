@@ -9,12 +9,20 @@ import UIKit
  all invokations using its `recorder`, which means that each
  call can be inspected afterwards.
  */
-class MockActionSheet: ActionSheet {
+class MockActionSheet: ActionSheet, Mockable {
+
+    lazy var dismissRef = MockReference(dismiss)
+    lazy var handleTapRef = MockReference(handleTap)
+    lazy var refreshRef = MockReference(refresh)
+    lazy var refreshButtonsRef = MockReference(refreshButtons)
+    lazy var refreshItemsRef = MockReference(refreshItems)
+    lazy var refreshHeaderRef = MockReference(refreshHeader)
+    lazy var refreshHeaderVisibilityRef = MockReference(refreshHeaderVisibility)
+    lazy var reloadDataRef = MockReference(reloadData)
+    lazy var setupRef = MockReference(setup as () -> Void)
+    lazy var setupItemsRef = MockReference(setup as ([MenuItem]) -> Void)
     
-    var recorder = Mock()
-    
-    typealias SetupSignature = () -> Void
-    typealias SetupWithItemsSignature = ([MenuItem]) -> Void
+    let mock = Mock()
     
     private var _presentingViewController: UIViewController?
     override var presentingViewController: UIViewController? {
@@ -25,51 +33,51 @@ class MockActionSheet: ActionSheet {
     
     override func dismiss(completion: @escaping () -> ()) {
         super.dismiss { completion() }
-        recorder.invoke(dismiss, args: (completion))
+        invoke(dismissRef, args: (completion))
     }
     
     override func handleTap(on item: MenuItem) {
         super.handleTap(on: item)
-        recorder.invoke(handleTap, args: (item))
+        invoke(handleTapRef, args: (item))
     }
     
     override func refresh() {
         super.refresh()
-        recorder.invoke(refresh, args: ())
+        invoke(refreshRef, args: ())
     }
     
     override func refreshButtons() {
         super.refreshButtons()
-        recorder.invoke(refreshButtons, args: ())
+        invoke(refreshButtonsRef, args: ())
     }
     
     override func refreshItems() {
         super.refreshItems()
-        recorder.invoke(refreshItems, args: ())
+        invoke(refreshItemsRef, args: ())
     }
     
     override func refreshHeader() {
         super.refreshHeader()
-        recorder.invoke(refreshHeader, args: ())
+        invoke(refreshHeaderRef, args: ())
     }
     
     override func refreshHeaderVisibility() {
         super.refreshHeaderVisibility()
-        recorder.invoke(refreshHeaderVisibility, args: ())
+        invoke(refreshHeaderVisibilityRef, args: ())
     }
     
     override func reloadData() {
         super.reloadData()
-        recorder.invoke(reloadData, args: ())
+        invoke(reloadDataRef, args: ())
     }
     
     override func setup() {
         super.setup()
-        recorder.invoke(setup, args: ())
+        invoke(setupRef, args: ())
     }
     
     override func setup(items: [MenuItem]) {
         super.setup(items: items)
-        recorder.invoke(setup, args: items)
+        invoke(setupItemsRef, args: items)
     }
 }

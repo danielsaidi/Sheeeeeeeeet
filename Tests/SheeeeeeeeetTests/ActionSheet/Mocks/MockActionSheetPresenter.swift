@@ -12,6 +12,11 @@ import UIKit
 
 class MockActionSheetPresenter: Mock, ActionSheetPresenter {
     
+    lazy var dismissRef = MockReference(dismiss)
+    lazy var presentFromViewRef = MockReference(present as (ActionSheet, UIViewController, UIView?, @escaping () -> Void) -> Void)
+    lazy var presentFromBarItemRef = MockReference(present as (ActionSheet, UIViewController, UIBarButtonItem, @escaping () -> Void) -> Void)
+    lazy var refreshActionSheetRef = MockReference(refreshActionSheet)
+    
     var events = ActionSheetPresenterEvents()
     var isDismissable = false
     var shouldDismissOnDidEnterBackground = false
@@ -20,18 +25,18 @@ class MockActionSheetPresenter: Mock, ActionSheetPresenter {
     typealias PresentFromItemSignature = (ActionSheet, UIViewController, UIBarButtonItem, @escaping () -> Void) -> Void
     
     func dismiss(completion: @escaping () -> ()) {
-        invoke(dismiss, args: (completion))
+        invoke(dismissRef, args: (completion))
     }
     
-    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> ()) {
-        invoke(present, args: (sheet, vc, view, completion))
+    func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> Void) {
+        invoke(presentFromViewRef, args: (sheet, vc, view, completion))
     }
     
-    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> ()) {
-        invoke(present, args: (sheet, vc, item, completion))
+    func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> Void) {
+        invoke(presentFromBarItemRef, args: (sheet, vc, item, completion))
     }
     
     func refreshActionSheet() {
-        invoke(refreshActionSheet, args: ())
+        invoke(refreshActionSheetRef, args: ())
     }
 }

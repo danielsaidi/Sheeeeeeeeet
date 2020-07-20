@@ -9,23 +9,18 @@
 import Foundation
 import Mockery
 
-class MockNotificationCenter: NotificationCenter {
+class MockNotificationCenter: NotificationCenter, Mockable {
     
-    var recorder = Mock()
+    lazy var addObserverRef = MockReference(addObserver as (Any, Selector, NSNotification.Name?, Any?) -> Void)
+    lazy var removeObserverRef = MockReference(removeObserver as (Any, NSNotification.Name?, Any?) -> Void)
+    
+    var mock = Mock()
     
     override func addObserver(_ observer: Any, selector aSelector: Selector, name aName: NSNotification.Name?, object anObject: Any?) {
-        addObserverTest(observer, selector: aSelector, name: aName, object: anObject)
-    }
-    
-    func addObserverTest(_ observer: Any, selector aSelector: Selector, name aName: NSNotification.Name?, object anObject: Any?) {
-        recorder.invoke(addObserverTest, args: (observer, aSelector, aName, anObject))
+        invoke(addObserverRef, args: (observer, aSelector, aName, anObject))
     }
     
     override func removeObserver(_ observer: Any, name aName: NSNotification.Name?, object anObject: Any?) {
-        removeObserverTest(observer, name: aName, object: anObject)
-    }
-    
-    func removeObserverTest(_ observer: Any, name aName: NSNotification.Name?, object anObject: Any?) {
-        recorder.invoke(removeObserverTest, args: (observer, aName, anObject))
+        invoke(removeObserverRef, args: (observer, aName, anObject))
     }
 }

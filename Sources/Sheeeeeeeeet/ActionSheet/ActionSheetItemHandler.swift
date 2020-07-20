@@ -32,7 +32,7 @@ open class ActionSheetItemHandler: NSObject, UITableViewDataSource, UITableViewD
     
     // MARK: - Properties
     
-    private weak var actionSheet: ActionSheet?
+    weak var actionSheet: ActionSheet?
     
     let itemType: ItemType
     

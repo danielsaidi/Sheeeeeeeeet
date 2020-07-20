@@ -31,7 +31,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 let view = TestView()
                 let menu = Menu(title: "title", items: [])
                 _ = menu.addAsContextMenu(to: view) { _ in }
-                let exec = view.recorder.invokations(of: view.addInteraction)
+                let exec = view.invokations(of: view.addInteractionRef)
                 expect(exec.count).to(equal(1))
             }
             
@@ -110,8 +110,8 @@ class Menu_ContextMenuTests: QuickSpec {
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
-                let addInvokations = view.recorder.invokations(of: view.addInteraction)
-                let removeInvokations = view.recorder.invokations(of: view.removeInteraction)
+                let addInvokations = view.invokations(of: view.addInteractionRef)
+                let removeInvokations = view.invokations(of: view.removeInteractionRef)
                 
                 expect(addInvokations.count).to(equal(3))
                 expect(removeInvokations.count).to(equal(1))
@@ -134,8 +134,8 @@ class Menu_ContextMenuTests: QuickSpec {
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
-                let addInvokations = view.recorder.invokations(of: view.addInteraction)
-                let removeInvokations = view.recorder.invokations(of: view.removeInteraction)
+                let addInvokations = view.invokations(of: view.addInteractionRef)
+                let removeInvokations = view.invokations(of: view.removeInteractionRef)
                 
                 expect(addInvokations.count).to(equal(2))
                 expect(removeInvokations.count).to(equal(0))
@@ -179,19 +179,22 @@ class Menu_ContextMenuTests: QuickSpec {
 }
 
 @available(iOS 13.0, *)
-private class TestView: UIView, ContextMenuDelegateRetainer {
+private class TestView: UIView, ContextMenuDelegateRetainer, Mockable {
     
-    var recorder = Mock()
+    lazy var addInteractionRef = MockReference(addInteraction)
+    lazy var removeInteractionRef = MockReference(removeInteraction)
+    
+    var mock = Mock()
     var contextMenuDelegate: Any?
     var shouldCallSuper: Bool = false
     
     override func addInteraction(_ interaction: UIInteraction) {
-        recorder.invoke(addInteraction, args: (interaction))
+        invoke(addInteractionRef, args: (interaction))
         if shouldCallSuper { super.addInteraction(interaction) }
     }
     
     override func removeInteraction(_ interaction: UIInteraction) {
-        recorder.invoke(removeInteraction, args: (interaction))
+        invoke(removeInteractionRef, args: (interaction))
         if shouldCallSuper { super.addInteraction(interaction) }
     }
 }

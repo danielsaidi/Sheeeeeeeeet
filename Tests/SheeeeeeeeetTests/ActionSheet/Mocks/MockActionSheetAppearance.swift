@@ -9,11 +9,13 @@
 import Sheeeeeeeeet
 import Mockery
 
-class MockActionSheetAppearance: ActionSheetAppearance {
+class MockActionSheetAppearance: ActionSheetAppearance, Mockable {
     
-    let recorder = Mock()
+    lazy var applyRef = MockReference(apply)
+    
+    let mock = Mock()
     
     override func apply() {
-        recorder.invoke(self.apply, args: ())
+        invoke(applyRef, args: ())
     }
 }

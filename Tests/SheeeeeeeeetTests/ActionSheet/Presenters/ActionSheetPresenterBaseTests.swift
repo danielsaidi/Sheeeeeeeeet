@@ -40,8 +40,8 @@ class ActionSheetPresenterBaseTests: QuickSpec {
                 let menu = Menu(items: [])
                 let sheet = menu.toActionSheet { _, _ in }
                 presenter.present(sheet, in: MockViewController(), completion: {})
-                let inv1 = presenter.recorder.invokations(of: presenter.setupDidEnterBackgroundDetection)
-                let inv2 = presenter.recorder.invokations(of: presenter.setupOrientationChangeDetection)
+                let inv1 = presenter.invokations(of: presenter.setupDidEnterBackgroundDetectionRef)
+                let inv2 = presenter.invokations(of: presenter.setupOrientationChangeDetectionRef)
                 expect(inv1.count).to(equal(1))
                 expect(inv2.count).to(equal(1))
             }
@@ -59,14 +59,14 @@ class ActionSheetPresenterBaseTests: QuickSpec {
             
             it("aborts if presenter has no action sheet") {
                 presenter.handleDidEnterBackground()
-                let inv = presenter.recorder.invokations(of: presenter.dismiss)
+                let inv = presenter.invokations(of: presenter.dismissRef)
                 expect(inv.count).to(equal(0))
             }
             
             it("aborts if action sheet is not dismissable") {
                 presenter.actionSheet = sheet(withConfig: .nonDismissable)
                 presenter.handleDidEnterBackground()
-                let inv = presenter.recorder.invokations(of: presenter.dismiss)
+                let inv = presenter.invokations(of: presenter.dismissRef)
                 expect(inv.count).to(equal(0))
             }
             
@@ -74,7 +74,7 @@ class ActionSheetPresenterBaseTests: QuickSpec {
                 let config = ActionSheet.Configuration(isDismissable: true, shouldBeDismissedWhenEnteringBackground: false)
                 presenter.actionSheet = sheet(withConfig: config)
                 presenter.handleDidEnterBackground()
-                let inv = presenter.recorder.invokations(of: presenter.dismiss)
+                let inv = presenter.invokations(of: presenter.dismissRef)
                 expect(inv.count).to(equal(0))
             }
             
@@ -82,7 +82,7 @@ class ActionSheetPresenterBaseTests: QuickSpec {
                 let config = ActionSheet.Configuration(isDismissable: true, shouldBeDismissedWhenEnteringBackground: true)
                 presenter.actionSheet = sheet(withConfig: config)
                 presenter.handleDidEnterBackground()
-                let inv = presenter.recorder.invokations(of: presenter.dismiss)
+                let inv = presenter.invokations(of: presenter.dismissRef)
                 expect(inv.count).to(equal(1))
             }
         }
@@ -101,7 +101,7 @@ class ActionSheetPresenterBaseTests: QuickSpec {
             }
             
             it("correctly unsubscribes from notification") {
-                let inv = notificationCenter.recorder.invokations(of: notificationCenter.removeObserverTest)
+                let inv = notificationCenter.invokations(of: notificationCenter.removeObserverRef)
                 expect(inv.count).to(equal(1))
                 expect(inv[0].arguments.0).to(be(presenter))
                 expect(inv[0].arguments.1).to(equal(UIApplication.didEnterBackgroundNotification))
@@ -109,7 +109,7 @@ class ActionSheetPresenterBaseTests: QuickSpec {
             }
             
             it("correctly subscribes to notification") {
-                let inv = notificationCenter.recorder.invokations(of: notificationCenter.addObserverTest)
+                let inv = notificationCenter.invokations(of: notificationCenter.addObserverRef)
                 expect(inv.count).to(equal(1))
                 expect(inv[0].arguments.0).to(be(presenter))
                 expect(inv[0].arguments.1).to(equal(#selector(presenter.handleDidEnterBackground)))
@@ -125,7 +125,7 @@ class ActionSheetPresenterBaseTests: QuickSpec {
             }
             
             it("correctly unsubscribes to notification") {
-                let inv = notificationCenter.recorder.invokations(of: notificationCenter.removeObserverTest)
+                let inv = notificationCenter.invokations(of: notificationCenter.removeObserverRef)
                 expect(inv.count).to(equal(1))
                 expect(inv[0].arguments.0).to(be(presenter))
                 expect(inv[0].arguments.1).to(equal(UIApplication.willChangeStatusBarOrientationNotification))
@@ -133,7 +133,7 @@ class ActionSheetPresenterBaseTests: QuickSpec {
             }
             
             it("correctly subscribes to notification") {
-                let inv = notificationCenter.recorder.invokations(of: notificationCenter.addObserverTest)
+                let inv = notificationCenter.invokations(of: notificationCenter.addObserverRef)
                 expect(inv.count).to(equal(1))
                 expect(inv[0].arguments.0).to(be(presenter))
                 expect(inv[0].arguments.1).to(equal(#selector(presenter.handleOrientationChange)))
@@ -145,21 +145,25 @@ class ActionSheetPresenterBaseTests: QuickSpec {
 }
 
 
-private class TestClass: ActionSheetPresenterBase {
+private class TestClass: ActionSheetPresenterBase, Mockable {
     
-    var recorder = Mock()
+    lazy var dismissRef = MockReference(dismiss)
+    lazy var setupDidEnterBackgroundDetectionRef = MockReference(setupDidEnterBackgroundDetection)
+    lazy var setupOrientationChangeDetectionRef = MockReference(setupOrientationChangeDetection)
+    
+    var mock = Mock()
     
     override func dismiss(completion: @escaping () -> ()) {
-        recorder.invoke(dismiss, args: (completion))
+        invoke(dismissRef, args: (completion))
     }
     
     override func setupDidEnterBackgroundDetection() {
         super.setupDidEnterBackgroundDetection()
-        recorder.invoke(setupDidEnterBackgroundDetection, args: ())
+        invoke(setupDidEnterBackgroundDetectionRef, args: ())
     }
     
     override func setupOrientationChangeDetection() {
         super.setupOrientationChangeDetection()
-        recorder.invoke(setupOrientationChangeDetection, args: ())
+        invoke(setupOrientationChangeDetectionRef, args: ())
     }
 }
