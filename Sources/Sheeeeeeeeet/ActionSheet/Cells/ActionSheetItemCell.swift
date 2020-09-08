@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /**
  This class represents a regular action sheet item when it's
  used within custom `ActionSheet`.

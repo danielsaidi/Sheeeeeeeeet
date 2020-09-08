@@ -2048,7 +2048,7 @@
 			repositoryURL = "https://github.com/danielsaidi/Mockery.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.2;
+				minimumVersion = 0.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

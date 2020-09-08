@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-This class is used as the data source and delegate for the a
-sheet's item and button table views.
+This class is used as the data source and delegate for sheet
+items and button table views.
 */
 open class ActionSheetItemHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     
