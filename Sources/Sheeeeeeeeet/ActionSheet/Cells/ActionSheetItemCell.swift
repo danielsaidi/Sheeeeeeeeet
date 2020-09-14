@@ -13,19 +13,17 @@ import UIKit
  used within custom `ActionSheet`.
  
  Customizing the appearance of the various action sheet item
- cells in Sheeeeeeeeet (as well as of your own custom items),
- is mainly done using the iOS appearance proxy for each item
+ cells in Sheeeeeeeeet (as well as of your own custom cells),
+ is achieved by modifying the appearance proxy for each item
  cell type. For instance, to change the title text color for
  all `ActionSheetSelectItem` instances (including subclasses),
- set the `ActionSheetSelectItemCell.appearance().titleColor`
- property to the color you want to use.
+ modify `ActionSheetSelectItemCell.appearance().titleColor`.
  
  While most appearance is modified on a cell level, some are
  not. For instance, some views in `Views` have apperances of
  as well (e.g. `ActionSheetHeaderContainerView.cornerRadius`).
  This means that you can change the appearance for more view
- types than cells. Check out at the readmes and demo app for
- more information.
+ types. Check out the readme and demo app for more examples.
  
  Action sheet insets, margins and widths are not part of the
  appearance model, but have to be changed for each sheet. If
@@ -33,9 +31,8 @@ import UIKit
  recommend subclassing `ActionSheet`.
  
  Item heights are not part of the appearance model, but must
- for now be set for each `MenuItem` type you want to adjust.
- For instance, `MenuButton.height = 20` resizes every button
- in a menu.
+ be set for each item type you want to adjust. For instance,
+ `MenuButton.height = 20` will resize every button in a menu.
  */
 open class ActionSheetItemCell: UITableViewCell {
     

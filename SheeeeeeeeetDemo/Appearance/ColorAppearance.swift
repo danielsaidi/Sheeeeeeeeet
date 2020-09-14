@@ -1,5 +1,5 @@
 //
-//  DemoColorfulAppearance.swift
+//  ColorAppearance.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2019-08-12.
@@ -14,8 +14,8 @@ extension ActionSheetAppearance {
     /**
      Get an instance of the colorful demo appearance.
     */
-    static var demoColorful: ActionSheetAppearance {
-        DemoColorfulAppearance()
+    static var colors: ActionSheetAppearance {
+        ColorAppearance()
     }
 }
 
@@ -24,7 +24,7 @@ extension ActionSheetAppearance {
  This is a demo-specific action sheet appearance. It applies
  a bunch of colors to the demo sheets.
  */
-class DemoColorfulAppearance: DemoAppearance {
+class ColorAppearance: DemoAppearance {
 
     override func applyColors() {
         super.applyColors()
@@ -40,6 +40,7 @@ class DemoColorfulAppearance: DemoAppearance {
         multiSelectItem.selectedTintColor = .blue
         multiSelectItem.selectedTitleColor = .green
         multiSelectItem.selectedIconColor = .purple
+        
         table.backgroundColor = .yellow
         itemsTable.backgroundColor = .brown
         itemsTable.separatorColor = .purple
@@ -57,5 +58,10 @@ class DemoColorfulAppearance: DemoAppearance {
         okButton.titleFont = .robotoMedium(size: 17)
         destructiveButton.titleFont = .robotoMedium(size: 17)
         cancelButton.titleFont = .robotoRegular(size: 17)
+    }
+    
+    override func applyTextAlignments() {
+        super.applyTextAlignments()
+        item.itemTextAlignment = .right
     }
 }

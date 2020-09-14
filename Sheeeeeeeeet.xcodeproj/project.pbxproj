@@ -56,7 +56,7 @@
 		846703F8234A3CF100355331 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C0234A3CF000355331 /* AppDelegate.swift */; };
 		846703F9234A3CF100355331 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C1234A3CF000355331 /* SceneDelegate.swift */; };
 		846703FA234A3CF100355331 /* DemoAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C3234A3CF000355331 /* DemoAppearance.swift */; };
-		846703FB234A3CF100355331 /* DemoColorfulAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C4234A3CF000355331 /* DemoColorfulAppearance.swift */; };
+		846703FB234A3CF100355331 /* ColorAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C4234A3CF000355331 /* ColorAppearance.swift */; };
 		846703FC234A3CF100355331 /* DemoFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C5234A3CF000355331 /* DemoFonts.swift */; };
 		846703FD234A3CF100355331 /* FoodActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C7234A3CF000355331 /* FoodActionSheet.swift */; };
 		846703FE234A3CF100355331 /* CollectionActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703C8234A3CF000355331 /* CollectionActionSheet.swift */; };
@@ -316,7 +316,7 @@
 		846703C0234A3CF000355331 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846703C1234A3CF000355331 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		846703C3234A3CF000355331 /* DemoAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppearance.swift; sourceTree = "<group>"; };
-		846703C4234A3CF000355331 /* DemoColorfulAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoColorfulAppearance.swift; sourceTree = "<group>"; };
+		846703C4234A3CF000355331 /* ColorAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAppearance.swift; sourceTree = "<group>"; };
 		846703C5234A3CF000355331 /* DemoFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFonts.swift; sourceTree = "<group>"; };
 		846703C7234A3CF000355331 /* FoodActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodActionSheet.swift; sourceTree = "<group>"; };
 		846703C8234A3CF000355331 /* CollectionActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionActionSheet.swift; sourceTree = "<group>"; };
@@ -549,12 +549,12 @@
 			isa = PBXGroup;
 			children = (
 				846703C6234A3CF000355331 /* ActionSheets */,
+				84670417234A3D0800355331 /* App */,
 				846703C2234A3CF000355331 /* Appearance */,
 				846703C9234A3CF100355331 /* Assets */,
 				846703DC234A3CF100355331 /* Menus */,
 				846703AB234A3CF000355331 /* Models */,
-				84670417234A3D0800355331 /* Supporting Files */,
-				846703B2234A3CF000355331 /* ViewController */,
+				846703B2234A3CF000355331 /* ViewControllers */,
 				846703BB234A3CF000355331 /* Views */,
 			);
 			path = SheeeeeeeeetDemo;
@@ -572,19 +572,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		846703B2234A3CF000355331 /* ViewController */ = {
+		846703B2234A3CF000355331 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				846703B3234A3CF000355331 /* ViewController.swift */,
-				846703B9234A3CF000355331 /* ContextMenuViewController.swift */,
 				846703BA234A3CF000355331 /* AppearanceViewController.swift */,
+				846703B9234A3CF000355331 /* ContextMenuViewController.swift */,
+				846703B3234A3CF000355331 /* ViewController.swift */,
+				846703B7234A3CF000355331 /* ViewController+ActionSheets.swift */,
+				846703B6234A3CF000355331 /* ViewController+Alert.swift */,
 				846703B4234A3CF000355331 /* ViewController+Appearance.swift */,
 				846703B5234A3CF000355331 /* ViewController+Menus.swift */,
-				846703B6234A3CF000355331 /* ViewController+Alert.swift */,
-				846703B7234A3CF000355331 /* ViewController+ActionSheets.swift */,
 				846703B8234A3CF000355331 /* ViewController+TableView.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		846703BB234A3CF000355331 /* Views */ = {
@@ -601,8 +601,8 @@
 		846703C2234A3CF000355331 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
+				846703C4234A3CF000355331 /* ColorAppearance.swift */,
 				846703C3234A3CF000355331 /* DemoAppearance.swift */,
-				846703C4234A3CF000355331 /* DemoColorfulAppearance.swift */,
 				846703C5234A3CF000355331 /* DemoFonts.swift */,
 			);
 			path = Appearance;
@@ -682,7 +682,7 @@
 			path = Menus;
 			sourceTree = "<group>";
 		};
-		84670417234A3D0800355331 /* Supporting Files */ = {
+		84670417234A3D0800355331 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				846703C0234A3CF000355331 /* AppDelegate.swift */,
@@ -691,7 +691,7 @@
 				8467039F234A3C4500355331 /* Main.storyboard */,
 				846703A4234A3C4600355331 /* LaunchScreen.storyboard */,
 			);
-			name = "Supporting Files";
+			name = App;
 			sourceTree = "<group>";
 		};
 		84670418234A3E9C00355331 /* Frameworks */ = {
@@ -1403,7 +1403,7 @@
 				84670410234A3CF100355331 /* SingleSelectMenu.swift in Sources */,
 				846703E7234A3CF100355331 /* FoodOption.swift in Sources */,
 				846703F9234A3CF100355331 /* SceneDelegate.swift in Sources */,
-				846703FB234A3CF100355331 /* DemoColorfulAppearance.swift in Sources */,
+				846703FB234A3CF100355331 /* ColorAppearance.swift in Sources */,
 				84670416234A3CF100355331 /* CollectionMenu.swift in Sources */,
 				8422CB6A239DC2C400251D31 /* BackgroundDismissableMenu.swift in Sources */,
 				84670415234A3CF100355331 /* SectionMenu.swift in Sources */,

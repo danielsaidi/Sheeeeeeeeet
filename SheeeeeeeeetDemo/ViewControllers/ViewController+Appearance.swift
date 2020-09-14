@@ -17,8 +17,8 @@ extension ViewController {
     func appearance(at indexPath: IndexPath) -> ActionSheetAppearance? {
         switch menuOption(at: indexPath) {
         case .openSheet, .separator: return nil
-        case .applyAppearance(.demo): return DemoAppearance()
-        case .applyAppearance(.demoColorful): return DemoColorfulAppearance()
+        case .applyAppearance(.demo): return .demo
+        case .applyAppearance(.colors): return .colors
         }
     }
 }

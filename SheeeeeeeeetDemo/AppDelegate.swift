@@ -16,5 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         ActionSheet.applyAppearance(.demo)
+        //UIView.appearance().semanticContentAttribute = .forceRightToLeft
     }
 }

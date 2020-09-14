@@ -13,7 +13,7 @@ class AppearanceViewController: ViewController {
     override var menuOptions: [MenuOption] {
         [
             .applyAppearance(.demo),
-            .applyAppearance(.demoColorful)
+            .applyAppearance(.colors)
         ]
     }
 }

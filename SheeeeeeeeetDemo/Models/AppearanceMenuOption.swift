@@ -15,19 +15,19 @@ enum AppearanceMenuOption {
     
     case
     demo,
-    demoColorful
+    colors
     
     var title: String {
         switch self {
         case .demo: return "Standard Appearance"
-        case .demoColorful: return "Colorful Appearance"
+        case .colors: return "Colorful Appearance"
         }
     }
     
     var description: String {
         switch self {
         case .demo: return "Apply the standard appearance"
-        case .demoColorful: return "Apply a colorful demo appearance"
+        case .colors: return "Apply a colorful appearance"
         }
     }
     
