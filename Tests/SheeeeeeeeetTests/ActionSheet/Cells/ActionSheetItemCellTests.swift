@@ -27,7 +27,6 @@ class ActionSheetItemCellTests: QuickSpec {
             }
         }
         
-        
         describe("refreshing") {
             
             it("aborts if cell has no item reference") {
@@ -59,7 +58,7 @@ class ActionSheetItemCellTests: QuickSpec {
                 expect(cell.textLabel?.font).to(be(cell.titleFont))
                 expect(cell.textLabel?.text).to(equal("foo"))
                 expect(cell.textLabel?.textColor).to(equal(.yellow))
-                expect(cell.textLabel?.textAlignment).to(equal(.left))
+                expect(cell.textLabel?.textAlignment).to(equal(.natural))
                 expect(cell.detailTextLabel?.font).toNot(beNil())
                 expect(cell.detailTextLabel?.font).to(be(cell.subtitleFont))
                 expect(cell.detailTextLabel?.text).to(equal("bar"))

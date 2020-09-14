@@ -153,10 +153,8 @@ open class ActionSheetAppearance {
      Apply action sheet text alignments.
     */
     open func applyTextAlignments() {
-        item.itemTextAlignment = .left
         button.itemTextAlignment = .center
         title.itemTextAlignment = .center
-        sectionTitle.itemTextAlignment = .left
     }
 }
 

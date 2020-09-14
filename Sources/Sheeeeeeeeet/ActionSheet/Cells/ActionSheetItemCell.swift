@@ -57,7 +57,7 @@ open class ActionSheetItemCell: UITableViewCell {
     // MARK: - Appearance Properties
     
     @objc public dynamic var height: Double = 0
-    @objc public dynamic var itemTextAlignment: NSTextAlignment = .left
+    @objc public dynamic var itemTextAlignment: NSTextAlignment = .natural
     
     @objc public dynamic var titleColor: UIColor?
     @objc public dynamic var titleFont: UIFont?

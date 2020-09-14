@@ -1,6 +1,14 @@
 # Release Notes
 
 
+## 3.1.3
+
+This version fixes a bug that caused regular items to not apply right to left text alignment if the device locale requested it.
+
+* `ActionSheetItemCell` now uses `.natural` instead of `.left` by default.
+* The standard appearance doesn't apply `.left` to the base cell or section titles.
+
+
 ## 3.1.2
 
 This version updates all external test dependencies.
