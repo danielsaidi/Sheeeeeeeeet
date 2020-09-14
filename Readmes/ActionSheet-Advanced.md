@@ -1,6 +1,8 @@
-# Advanced Example
+# Advanced Action Sheet Example
 
-Here is a more advanced example than the basic one in the [main readme][BasicExample]. For more info about appearance and styling [read more here][Appearance] or check out the demo app.
+Here is a more advanced example than the basic one found in the [main readme][Basic-Example]. 
+
+For more info about appearance and styling [read more here][Appearance] or check out the demo app.
 
 
 ## Apply a global action sheet appearance
@@ -274,4 +276,5 @@ You can now customize your time items by modifying `TimeItemCell.appearance()`:
 TimeItemCell.appearance().titleColor = .purple
 ```
 
-[BasicExample]: https://github.com/danielsaidi/Sheeeeeeeeet
+[Basic-Example]: https://github.com/danielsaidi/Sheeeeeeeeet
+[Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/ActionSheet-Appearance.md

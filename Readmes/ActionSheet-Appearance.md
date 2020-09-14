@@ -1,33 +1,16 @@
-# Appearance
+# Action Sheet Appearance
 
-`Sheeeeeeeeet`'s `ActionSheet` is very customizable and lets you change the appearance of its views and items, e.g. heights, fonts, colors, margins etc.
-
-The action sheet classes use appearance proxy-based styling, so you can change the style of all instances of a certain item type, as well as individual instances.
+`Sheeeeeeeeet`'s `ActionSheet` is very customizable and lets you change the appearance of its views and items, e.g. heights, fonts, colors, margins etc. It uses appearance proxies, so you can change the style of all instances of a certain item type, as well as individual instances.
 
 This guide will show you the available customization alternatives. To learn more, check out the demo app and this [advanced example][AdvancedExample].
 
 
 ## Global appearance
 
-Sheeeeeeeeet will automatically apply its standard appearance when the first action sheet is presented, if no other appearance has been applied.
+Sheeeeeeeeet will automatically apply a standard appearance when the first action sheet is presented, if no custom appearance has been applied before that.
 
-This means that to customize the standard appearance, you should use a custom appearance instead of modifying appearance properties directly in code.  
+To apply a custom appearance, create a class that inherits `ActionSheetAppearance`, for instance:
 
-For instance, if you apply your custom appearance like this:
-
-```swift
-func showSheet() {
-    let view = ActionSheetTableView.appearance()
-    view.backgroundColor = .red
-    // The rest of the code that creates and presents your sheet
-}
-```
-
-When you present the action sheet, Sheeeeeeeeet will apply its standard appearance, since no appearance has been applied. This will most probably override your changes.
-
-The second time you call this function, Sheeeeeeeeet will NOT apply its standard appearance, since it already has done so. Yoiur changes will now override the standard appearance.
-
-To avoid this situation, create a custom appearance instead:
 ```swift
 class MyCustomAppearance: ActionSheetAppearance {
     override func apply() {
@@ -37,16 +20,14 @@ class MyCustomAppearance: ActionSheetAppearance {
     }
 }
 ```
-and apply it like this:
+
+You can then apply the appearance as a global appearance like this:
 
 ```swift
-func showSheet() {
-    ActionSheet.applyAppearance(MyCustomAppearance())
-    // The rest of the code that creates and presents your sheet
-}
+ActionSheet.applyAppearance(MyCustomAppearance())
 ```
 
-Now, Sheeeeeeeeet will NOT apply its standard appearance, since an appearance has already already applied. 
+Now, Sheeeeeeeeet will not apply a standard appearance when the next sheet is presented, since a custom global appearance has been applied. 
 
 
 ## ActionSheet apperances
@@ -93,7 +74,7 @@ ActionSheetItemCell.appearance().height = 60
 ActionSheetSectionMarginCell.appearance().height = 30
 ```
 
-`NOTE` since the cell height is not applied like other appearance properties, it's not inherited. You must therefore customize each cell type individually.
+`NOTE` Cell heights are not applied like other appearance properties, since it's not inherited. You must customize each cell type individually.
 
 
-[AdvancedExample]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md
+[AdvancedExample]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/ActionSheet-Advanced.md

@@ -1,6 +1,6 @@
 # Menu Items
 
-With Sheeeeeeeeet, you can create `Menu`s that can be used in various ways, e.g. in iOS 13 context menus, custom and native action sheets.
+With Sheeeeeeeeet, you can create `Menu`s that can be used in various ways, e.g. in iOS 13 context menus, custom action sheets and native alert controllers.
 
 Menus contains menu items of various types, which are divided into `items`, `buttons` and `titles`. You can also create custom item types by subclassing any of the built-in types.
 
