@@ -6,8 +6,6 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
-//  TODO: Unit test alert controller presentations.
-
 import UIKit
 
 public extension Menu {

@@ -9,9 +9,9 @@
 import UIKit
 
 /**
-This class is used as the data source and delegate for sheet
-items and button table views.
-*/
+ This class is used as the data source and delegate for sheet
+ items and button table views.
+ */
 open class ActionSheetItemHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -42,10 +42,10 @@ open class ActionSheetItemHandler: NSObject, UITableViewDataSource, UITableViewD
         case .items: return actionSheet?.items ?? []
         }
     }
-
-
+    
+    
     // MARK: - UITableViewDataSource
-
+    
     open func item(at indexPath: IndexPath) -> MenuItem? {
         guard indexPath.section == 0 else { return nil }
         guard items.count > indexPath.row else { return nil }
@@ -71,8 +71,8 @@ open class ActionSheetItemHandler: NSObject, UITableViewDataSource, UITableViewD
         guard let item = self.item(at: indexPath) else { return 0 }
         return CGFloat(item.actionSheetCellHeight)
     }
-
-
+    
+    
     // MARK: - UITableViewDelegate
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

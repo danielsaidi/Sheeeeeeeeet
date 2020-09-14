@@ -6,9 +6,6 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-//  This file contains internal util functions for resolving
-//  the class name of classes and class instances.
-
 import UIKit
 
 extension NSObject {

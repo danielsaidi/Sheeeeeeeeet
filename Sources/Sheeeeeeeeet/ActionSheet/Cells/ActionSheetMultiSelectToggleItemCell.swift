@@ -6,8 +6,6 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-//  TODO: Unit test
-
 import UIKit
 
 open class ActionSheetMultiSelectToggleItemCell: ActionSheetItemCell {

@@ -6,8 +6,10 @@
 //  Copyright © 2019 Daniel Saidi. All rights reserved.
 //
 
+import UIKit
+
+
 /**
- 
  These extensions are used to convert menu item instances to
  action sheet cells.
  
@@ -19,11 +21,7 @@
  `IMPORTANT` Every custom menu item you create must override
  `actionSheetCell(for:)` and `actionSheetCellType` for it to
  use a custom cell. Read more below.
- 
  */
-
-import UIKit
-
 extension MenuItem {
     
     /**
