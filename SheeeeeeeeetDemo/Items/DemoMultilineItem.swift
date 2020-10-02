@@ -30,9 +30,9 @@ class DemoMultilineItem: MenuItem {
  theme applies a taller height for this cell, since the text
  will multiply and wrap over many lines.
  */
-open class DemoMultilineItemCell: ActionSheetItemCell {
+class DemoMultilineItemCell: ActionSheetItemCell {
     
-    open override func refresh() {
+    override func refresh() {
         super.refresh()
         let text = textLabel?.text ?? ""
         textLabel?.numberOfLines = 0

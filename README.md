@@ -57,9 +57,9 @@ let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-Sheeeeeeeeet has many built-in item types, e.g. buttons, select items, links etc. A complete list can be found [here][Menu-Items].
+Sheeeeeeeeet has many built-in item types, e.g. buttons, select items, links etc. A complete list can be found [here][MenuItems].
 
-You can also create your own custom item types by inheriting any of the existing ones. For instance, if you build a car rental app, you can create a car-specific item that takes a `Car` model.
+You can also [create your own custom item types][CustomItems] by inheriting any of the existing ones. For instance, if you build a car rental app, you can create a car-specific item that takes a `Car` model.
 
 You can even create your own menu types by subclassing `Menu`. This makes it possible to create app-specific menus that provide specific functionality, handle specific tasks etc.
 
@@ -139,4 +139,5 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [ActionSheet]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/ActionSheet.md
 [AlertController]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/AlertController.md
 [ContextMenu]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/ContextMenu.md
-[Menu-Items]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Menu-Items.md
+[CustomItems]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/CustomItems.md
+[MenuItems]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/MenuItems.md

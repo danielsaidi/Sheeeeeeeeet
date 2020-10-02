@@ -106,7 +106,7 @@ It also adds a new `preferredActionSheetCellStyle` property to `MenuItem`, which
 
 ## 3.0.0
 
-Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide][Migration-Guide] for help.
+Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide][MigrationGuide] for help.
 
 This version separates the menu data model from the custom action sheet implementation, so that you can create menus without caring about how they will be presented.
 
@@ -604,4 +604,4 @@ moving action sheets into their own separate classes.
 
 
 [Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
-[Migration-Guide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Migration-Guide.md
+[MigrationGuide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/MigrationGuide.md
