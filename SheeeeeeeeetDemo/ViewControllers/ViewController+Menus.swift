@@ -11,6 +11,10 @@ import Sheeeeeeeeet
 
 extension ViewController {
     
+    func menuOption(at indexPath: IndexPath) -> MenuOption {
+        menuOptions[indexPath.row]
+    }
+    
     /**
      Get the food menu at a certain index, if any.
      */
@@ -22,6 +26,7 @@ extension ViewController {
         case .openSheet(.danger): return DestructiveMenu()
         case .openSheet(.headerView): return ItemMenu(food: foodOptions)
         case .openSheet(.links): return LinkMenu(food: foodOptions)
+        case .openSheet(.multiLine): return DemoMultilineItemMenu(food: foodOptions)
         case .openSheet(.multiSelect): return MultiSelectMenu(food: foodOptions)
         case .openSheet(.secondaryAction): return SecondaryActionMenu(food: foodOptions)
         case .openSheet(.sections): return SectionMenu(food: foodOptions)

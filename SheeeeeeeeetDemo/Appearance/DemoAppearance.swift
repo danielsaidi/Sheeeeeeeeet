@@ -33,6 +33,9 @@ class DemoAppearance: ActionSheetAppearance {
     override func apply() {
         super.apply()
         applyPopoverWidth()
+        
+        DemoMultilineItemCell.appearance().height = 100
+        
         UITabBar.appearance().tintColor = .sheetColor(.text)
         UINavigationBar.appearance().tintColor = .sheetColor(.text)
     }

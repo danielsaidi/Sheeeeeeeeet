@@ -14,8 +14,8 @@ import UIKit
 enum MenuOption {
     
     case
-    applyAppearance(_ type: AppearanceMenuOption),
-    openSheet(_ type: ActionSheetMenuOption),
+    applyAppearance(_ type: AppearanceOption),
+    openSheet(_ type: ActionSheetOption),
     separator
     
     var title: String {

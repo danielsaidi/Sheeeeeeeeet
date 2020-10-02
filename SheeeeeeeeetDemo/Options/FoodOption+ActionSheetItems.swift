@@ -24,6 +24,14 @@ extension FoodOption {
         )
     }
     
+    func toDemoMultilineItem() -> DemoMultilineItem {
+        DemoMultilineItem(
+            title: title,
+            value: self,
+            image: image
+        )
+    }
+    
     func toLinkItem() -> LinkItem {
         LinkItem(
             title: title,

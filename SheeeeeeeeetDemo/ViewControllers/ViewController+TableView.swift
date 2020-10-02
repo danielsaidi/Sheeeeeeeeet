@@ -22,10 +22,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         1
     }
     
-    func menuOption(at indexPath: IndexPath) -> MenuOption {
-        menuOptions[indexPath.row]
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         menuOptions.count
     }

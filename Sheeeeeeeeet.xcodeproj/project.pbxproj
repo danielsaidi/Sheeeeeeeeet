@@ -34,13 +34,15 @@
 		8422CB7A239E1FB600251D31 /* DestructiveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB78239E1E6800251D31 /* DestructiveItem.swift */; };
 		8422CB7D239E20E100251D31 /* DestructiveItem+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB7B239E209C00251D31 /* DestructiveItem+ActionSheet.swift */; };
 		8422CB82239E21FF00251D31 /* DestructiveItem+ActionSheetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422CB80239E21FC00251D31 /* DestructiveItem+ActionSheetTests.swift */; };
+		843C3B0F25271DE30055BFE6 /* DemoMultilineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C3B0E25271DE30055BFE6 /* DemoMultilineItem.swift */; };
+		843C3B1925271FEC0055BFE6 /* DemoMultilineItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C3B1825271FEC0055BFE6 /* DemoMultilineItemMenu.swift */; };
 		846703A1234A3C4500355331 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8467039F234A3C4500355331 /* Main.storyboard */; };
 		846703A6234A3C4600355331 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846703A4234A3C4600355331 /* LaunchScreen.storyboard */; };
 		846703E6234A3CF100355331 /* FoodOption+ActionSheetItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */; };
 		846703E7234A3CF100355331 /* FoodOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AD234A3CF000355331 /* FoodOption.swift */; };
 		846703E8234A3CF100355331 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AE234A3CF000355331 /* MenuOption.swift */; };
-		846703E9234A3CF100355331 /* AppearanceMenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AF234A3CF000355331 /* AppearanceMenuOption.swift */; };
-		846703EA234A3CF100355331 /* ActionSheetMenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703B0234A3CF000355331 /* ActionSheetMenuOption.swift */; };
+		846703E9234A3CF100355331 /* AppearanceOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703AF234A3CF000355331 /* AppearanceOption.swift */; };
+		846703EA234A3CF100355331 /* ActionSheetOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703B0234A3CF000355331 /* ActionSheetOption.swift */; };
 		846703EC234A3CF100355331 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703B3234A3CF000355331 /* ViewController.swift */; };
 		846703ED234A3CF100355331 /* ViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703B4234A3CF000355331 /* ViewController+Appearance.swift */; };
 		846703EE234A3CF100355331 /* ViewController+Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846703B5234A3CF000355331 /* ViewController+Menus.swift */; };
@@ -292,14 +294,16 @@
 		8422CB78239E1E6800251D31 /* DestructiveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestructiveItem.swift; sourceTree = "<group>"; };
 		8422CB7B239E209C00251D31 /* DestructiveItem+ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DestructiveItem+ActionSheet.swift"; sourceTree = "<group>"; };
 		8422CB80239E21FC00251D31 /* DestructiveItem+ActionSheetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DestructiveItem+ActionSheetTests.swift"; sourceTree = "<group>"; };
+		843C3B0E25271DE30055BFE6 /* DemoMultilineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultilineItem.swift; sourceTree = "<group>"; };
+		843C3B1825271FEC0055BFE6 /* DemoMultilineItemMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMultilineItemMenu.swift; sourceTree = "<group>"; };
 		84670397234A3C4500355331 /* SheeeeeeeeetDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SheeeeeeeeetDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846703A0234A3C4500355331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		846703A5234A3C4600355331 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodOption+ActionSheetItems.swift"; sourceTree = "<group>"; };
 		846703AD234A3CF000355331 /* FoodOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodOption.swift; sourceTree = "<group>"; };
 		846703AE234A3CF000355331 /* MenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
-		846703AF234A3CF000355331 /* AppearanceMenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceMenuOption.swift; sourceTree = "<group>"; };
-		846703B0234A3CF000355331 /* ActionSheetMenuOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetMenuOption.swift; sourceTree = "<group>"; };
+		846703AF234A3CF000355331 /* AppearanceOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceOption.swift; sourceTree = "<group>"; };
+		846703B0234A3CF000355331 /* ActionSheetOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetOption.swift; sourceTree = "<group>"; };
 		846703B1234A3CF000355331 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846703B3234A3CF000355331 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		846703B4234A3CF000355331 /* ViewController+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Appearance.swift"; sourceTree = "<group>"; };
@@ -553,23 +557,23 @@
 				846703C2234A3CF000355331 /* Appearance */,
 				846703C9234A3CF100355331 /* Assets */,
 				846703DC234A3CF100355331 /* Menus */,
-				846703AB234A3CF000355331 /* Models */,
+				846703AB234A3CF000355331 /* Options */,
 				846703B2234A3CF000355331 /* ViewControllers */,
-				846703BB234A3CF000355331 /* Views */,
+				846703BB234A3CF000355331 /* Items */,
 			);
 			path = SheeeeeeeeetDemo;
 			sourceTree = "<group>";
 		};
-		846703AB234A3CF000355331 /* Models */ = {
+		846703AB234A3CF000355331 /* Options */ = {
 			isa = PBXGroup;
 			children = (
+				846703B0234A3CF000355331 /* ActionSheetOption.swift */,
+				846703AF234A3CF000355331 /* AppearanceOption.swift */,
 				846703AD234A3CF000355331 /* FoodOption.swift */,
 				846703AC234A3CF000355331 /* FoodOption+ActionSheetItems.swift */,
 				846703AE234A3CF000355331 /* MenuOption.swift */,
-				846703AF234A3CF000355331 /* AppearanceMenuOption.swift */,
-				846703B0234A3CF000355331 /* ActionSheetMenuOption.swift */,
 			);
-			path = Models;
+			path = Options;
 			sourceTree = "<group>";
 		};
 		846703B2234A3CF000355331 /* ViewControllers */ = {
@@ -587,15 +591,16 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		846703BB234A3CF000355331 /* Views */ = {
+		846703BB234A3CF000355331 /* Items */ = {
 			isa = PBXGroup;
 			children = (
 				846703BC234A3CF000355331 /* DemoCustomViewCell.swift */,
 				846703BD234A3CF000355331 /* DemoCollectionViewCell.xib */,
 				846703BE234A3CF000355331 /* DemoCustomViewCell.xib */,
 				846703BF234A3CF000355331 /* DemoCollectionViewCell.swift */,
+				843C3B0E25271DE30055BFE6 /* DemoMultilineItem.swift */,
 			);
-			path = Views;
+			path = Items;
 			sourceTree = "<group>";
 		};
 		846703C2234A3CF000355331 /* Appearance */ = {
@@ -670,6 +675,7 @@
 				846703E2234A3CF100355331 /* ItemMenu.swift */,
 				846703E5234A3CF100355331 /* CollectionMenu.swift */,
 				846703E3234A3CF100355331 /* CustomMenu.swift */,
+				843C3B1825271FEC0055BFE6 /* DemoMultilineItemMenu.swift */,
 				846703E0234A3CF100355331 /* DestructiveMenu.swift */,
 				846703DE234A3CF100355331 /* LinkMenu.swift */,
 				846703E1234A3CF100355331 /* MultiSelectMenu.swift */,
@@ -1301,6 +1307,7 @@
 				LastSwiftMigration = 9999;
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 9999;
+				ORGANIZATIONNAME = "Daniel Saidi";
 				TargetAttributes = {
 					84670396234A3C4500355331 = {
 						CreatedOnToolsVersion = 11.0;
@@ -1398,8 +1405,9 @@
 				846703EC234A3CF100355331 /* ViewController.swift in Sources */,
 				8467040F234A3CF100355331 /* LinkMenu.swift in Sources */,
 				84670412234A3CF100355331 /* MultiSelectMenu.swift in Sources */,
+				843C3B1925271FEC0055BFE6 /* DemoMultilineItemMenu.swift in Sources */,
 				846703F2234A3CF100355331 /* ContextMenuViewController.swift in Sources */,
-				846703EA234A3CF100355331 /* ActionSheetMenuOption.swift in Sources */,
+				846703EA234A3CF100355331 /* ActionSheetOption.swift in Sources */,
 				84670410234A3CF100355331 /* SingleSelectMenu.swift in Sources */,
 				846703E7234A3CF100355331 /* FoodOption.swift in Sources */,
 				846703F9234A3CF100355331 /* SceneDelegate.swift in Sources */,
@@ -1411,6 +1419,7 @@
 				84A24EDB236C72C900DB060C /* SecondaryActionMenu.swift in Sources */,
 				846703E8234A3CF100355331 /* MenuOption.swift in Sources */,
 				846703F8234A3CF100355331 /* AppDelegate.swift in Sources */,
+				843C3B0F25271DE30055BFE6 /* DemoMultilineItem.swift in Sources */,
 				8422CB68239DC27500251D31 /* NonDismissableMenu.swift in Sources */,
 				846703FE234A3CF100355331 /* CollectionActionSheet.swift in Sources */,
 				846703F3234A3CF100355331 /* AppearanceViewController.swift in Sources */,
@@ -1419,7 +1428,7 @@
 				846703FA234A3CF100355331 /* DemoAppearance.swift in Sources */,
 				846703E6234A3CF100355331 /* FoodOption+ActionSheetItems.swift in Sources */,
 				8467040E234A3CF100355331 /* FoodMenu.swift in Sources */,
-				846703E9234A3CF100355331 /* AppearanceMenuOption.swift in Sources */,
+				846703E9234A3CF100355331 /* AppearanceOption.swift in Sources */,
 				84670414234A3CF100355331 /* CustomMenu.swift in Sources */,
 				846703F0234A3CF100355331 /* ViewController+ActionSheets.swift in Sources */,
 				846703FD234A3CF100355331 /* FoodActionSheet.swift in Sources */,

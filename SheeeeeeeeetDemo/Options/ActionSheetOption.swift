@@ -1,5 +1,5 @@
 //
-//  ActionSheetMenuOption.swift
+//  ActionSheetOption.swift
 //  SheeeeeeeeetExample
 //
 //  Created by Daniel Saidi on 2019-08-13.
@@ -12,7 +12,7 @@ import UIKit
 This enum specifies the different kind of demo action sheets
 that can be opened from the main menu.
 */
-enum ActionSheetMenuOption {
+enum ActionSheetOption {
     
     case
     danger,
@@ -21,6 +21,7 @@ enum ActionSheetMenuOption {
     customView,
     headerView,
     links,
+    multiLine,
     multiSelect,
     nonDismissable,
     secondaryAction,
@@ -36,6 +37,7 @@ enum ActionSheetMenuOption {
         case .dismissableOnDidEnterBackground: return "Dismissable onEnterBackground Sheets"
         case .headerView: return "Header Views"
         case .links: return "Links"
+        case .multiLine: return "Multi-Line Items"
         case .multiSelect: return "Multi-Select Items"
         case .nonDismissable: return "Non-Dismissable Sheets"
         case .secondaryAction: return "Secondary Actions"
@@ -53,6 +55,7 @@ enum ActionSheetMenuOption {
         case .dismissableOnDidEnterBackground: return "Open a sheet that will be dimsmissed when app enters background"
         case .headerView: return "Open a sheet with a header view."
         case .links: return "Open a sheet with links."
+        case .multiLine: return "Open a sheet with custom, demo-specific multiline items."
         case .multiSelect: return "Open a multi-select sheet."
         case .nonDismissable: return "Open a sheet that can't be dismissed by tapping outside the sheet."
         case .secondaryAction: return "Open a sheet where the items have secondary actions"
@@ -74,6 +77,7 @@ enum ActionSheetMenuOption {
         case .dismissableOnDidEnterBackground: return "ic_list"
         case .headerView: return "ic_header_view"
         case .links: return "ic_arrow_right"
+        case .multiLine: return "ic_custom"
         case .multiSelect: return "ic_checkmarks"
         case .secondaryAction: return "ic_secondary_action"
         case .sections: return "ic_sections"

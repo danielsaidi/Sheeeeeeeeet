@@ -6,19 +6,15 @@
 //  Copyright © 2017 Daniel Saidi. All rights reserved.
 //
 
-/*
- 
+import Sheeeeeeeeet
+import UIKit
+
+/**
  This is the main view controller in the example app. It has
  a table view that lets you open different action sheets. To
  make the example app easier to overview, this class defines
  its logic in multiple files, using extensions.
- 
  */
-
-
-import Sheeeeeeeeet
-import UIKit
-
 class ViewController: UIViewController {
     
     
@@ -37,6 +33,7 @@ class ViewController: UIViewController {
             .openSheet(.headerView),
             .openSheet(.sections),
             .openSheet(.secondaryAction),
+            .openSheet(.multiLine),
             .openSheet(.collections),
             .openSheet(.customView),
             .openSheet(.danger),
