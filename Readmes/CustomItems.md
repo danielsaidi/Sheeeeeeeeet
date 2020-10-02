@@ -45,3 +45,5 @@ class CustomAppearance: ActionSheetAppearance {
         MultilineItemCell.appearance().height = 100
     }
 ```
+
+You can test this custom item in the demo app.
