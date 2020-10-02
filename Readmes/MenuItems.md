@@ -58,9 +58,7 @@ You can add title items anywhere, although some presentations may ignore them. C
 
 ## Custom Items
 
-Besides the built-in `CustomItem`, which is pretty complicated to setup, you can also create custom items that inherits any of the built-in item types.
-
-You can read more about custom menu items [here][CustomItems].
+Besides the built-in `CustomItem`, which is pretty complicated to setup, you can also create custom items that inherits any of the built-in item types. You can read more about custom menu items [here][CustomItems].
 
 
 [CustomItems]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/CustomItems.md 
