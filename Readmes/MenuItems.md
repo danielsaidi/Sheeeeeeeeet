@@ -54,3 +54,11 @@ You can add title items anywhere, although some presentations may ignore them. C
 `ActionSheet` has a `headerView` property, which will be displayed as a floating header above the action sheet. You can use any view as a header view.
 
 `ActionSheet` also has a `headerViewConfiguration` with which you can setup how the header view should behave in various scenarios e.g. in landscape, popovers etc.
+
+
+## Custom Items
+
+Besides the built-in `CustomItem`, which is pretty complicated to setup, you can also create custom items that inherits any of the built-in item types. You can read more about custom menu items [here][CustomItems].
+
+
+[CustomItems]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/CustomItems.md 

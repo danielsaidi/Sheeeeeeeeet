@@ -47,7 +47,7 @@ class ActionSheetStandardPresenterTests: QuickSpec {
             it("removes action sheet") {
                 expect(sheet.view.superview).to(beNil())
                 // TODO: Temp. disabled due to Nimble hanging due to compiler bug
-                //expect(presenter.actionSheet).toEventually(beNil())
+                // expect(presenter.actionSheet).toEventually(beNil())
             }
         }
         

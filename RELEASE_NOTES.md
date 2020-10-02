@@ -1,7 +1,12 @@
 # Release Notes
 
 
-## 3.1.3
+## 3.1.4
+
+This version updates external dependencies.
+
+
+## 3.1.4
 
 This version fixes a bug that caused regular items to not apply right to left text alignment if the device locale requested it.
 
@@ -9,9 +14,9 @@ This version fixes a bug that caused regular items to not apply right to left te
 * The standard appearance doesn't apply `.left` to the base cell or section titles.
 
 
-## 3.1.2
+## 3.1.2, 3.1.3
 
-This version updates all external test dependencies.
+These versions update external dependencies.
 
 
 ## 3.1.1
@@ -106,7 +111,7 @@ It also adds a new `preferredActionSheetCellStyle` property to `MenuItem`, which
 
 ## 3.0.0
 
-Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide][Migration-Guide] for help.
+Sheeeeeeeeet 3 contains many breaking changes, but once you understand the model changes, you will hopefully see the improvements it brings and be able to migrate your apps pretty easily. See [this migration guide][MigrationGuide] for help.
 
 This version separates the menu data model from the custom action sheet implementation, so that you can create menus without caring about how they will be presented.
 
@@ -604,4 +609,4 @@ moving action sheets into their own separate classes.
 
 
 [Appearance]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Appearance.md
-[Migration-Guide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Migration-Guide.md
+[MigrationGuide]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/MigrationGuide.md

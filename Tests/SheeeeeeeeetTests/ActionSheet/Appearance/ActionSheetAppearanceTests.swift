@@ -119,7 +119,7 @@ class ActionSheetApperanceTests: QuickSpec {
                 expect(DestructiveButton(title: "").actionSheetCellHeight).to(equal(standard))
                 expect(OkButton(title: "").actionSheetCellHeight).to(equal(standard))
                 
-                //expect(CollectionItemCell.actionSheetCellHeight).to(equal(standard))
+                // expect(CollectionItemCell.actionSheetCellHeight).to(equal(standard))
                 
                 expect(LinkItem(title: "").actionSheetCellHeight).to(equal(standard))
                 expect(MultiSelectItem(title: "", isSelected: true).actionSheetCellHeight).to(equal(standard))

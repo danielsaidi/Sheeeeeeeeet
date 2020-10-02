@@ -1,5 +1,5 @@
 import Sheeeeeeeeet
-import Mockery
+import MockingKit
 import UIKit
 
 /**
@@ -33,51 +33,51 @@ class MockActionSheet: ActionSheet, Mockable {
     
     override func dismiss(completion: @escaping () -> ()) {
         super.dismiss { completion() }
-        invoke(dismissRef, args: (completion))
+        call(dismissRef, args: (completion))
     }
     
     override func handleTap(on item: MenuItem) {
         super.handleTap(on: item)
-        invoke(handleTapRef, args: (item))
+        call(handleTapRef, args: (item))
     }
     
     override func refresh() {
         super.refresh()
-        invoke(refreshRef, args: ())
+        call(refreshRef, args: ())
     }
     
     override func refreshButtons() {
         super.refreshButtons()
-        invoke(refreshButtonsRef, args: ())
+        call(refreshButtonsRef, args: ())
     }
     
     override func refreshItems() {
         super.refreshItems()
-        invoke(refreshItemsRef, args: ())
+        call(refreshItemsRef, args: ())
     }
     
     override func refreshHeader() {
         super.refreshHeader()
-        invoke(refreshHeaderRef, args: ())
+        call(refreshHeaderRef, args: ())
     }
     
     override func refreshHeaderVisibility() {
         super.refreshHeaderVisibility()
-        invoke(refreshHeaderVisibilityRef, args: ())
+        call(refreshHeaderVisibilityRef, args: ())
     }
     
     override func reloadData() {
         super.reloadData()
-        invoke(reloadDataRef, args: ())
+        call(reloadDataRef, args: ())
     }
     
     override func setup() {
         super.setup()
-        invoke(setupRef, args: ())
+        call(setupRef, args: ())
     }
     
     override func setup(items: [MenuItem]) {
         super.setup(items: items)
-        invoke(setupItemsRef, args: items)
+        call(setupItemsRef, args: items)
     }
 }

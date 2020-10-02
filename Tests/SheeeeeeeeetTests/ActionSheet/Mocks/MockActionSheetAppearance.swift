@@ -7,7 +7,7 @@
 //
 
 import Sheeeeeeeeet
-import Mockery
+import MockingKit
 
 class MockActionSheetAppearance: ActionSheetAppearance, Mockable {
     
@@ -16,6 +16,6 @@ class MockActionSheetAppearance: ActionSheetAppearance, Mockable {
     let mock = Mock()
     
     override func apply() {
-        invoke(applyRef, args: ())
+        call(applyRef, args: ())
     }
 }
