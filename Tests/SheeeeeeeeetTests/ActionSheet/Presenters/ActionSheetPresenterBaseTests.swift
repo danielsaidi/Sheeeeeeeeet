@@ -9,7 +9,7 @@
 import Quick
 import Nimble
 import UIKit
-import Mockery
+import MockingKit
 @testable import Sheeeeeeeeet
 
 class ActionSheetPresenterBaseTests: QuickSpec {

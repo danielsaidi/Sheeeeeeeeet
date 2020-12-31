@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Mockery
+import MockingKit
 
 class MockNotificationCenter: NotificationCenter, Mockable {
     

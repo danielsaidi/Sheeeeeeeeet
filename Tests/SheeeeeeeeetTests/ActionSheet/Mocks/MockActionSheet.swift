@@ -1,5 +1,5 @@
 import Sheeeeeeeeet
-import Mockery
+import MockingKit
 import UIKit
 
 /**

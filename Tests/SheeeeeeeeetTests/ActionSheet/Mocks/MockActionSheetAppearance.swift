@@ -7,7 +7,7 @@
 //
 
 import Sheeeeeeeeet
-import Mockery
+import MockingKit
 
 class MockActionSheetAppearance: ActionSheetAppearance, Mockable {
     

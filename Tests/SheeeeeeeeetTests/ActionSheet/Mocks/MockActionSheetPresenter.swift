@@ -7,7 +7,7 @@
 //
 
 import Sheeeeeeeeet
-import Mockery
+import MockingKit
 import UIKit
 
 class MockActionSheetPresenter: Mock, ActionSheetPresenter {
