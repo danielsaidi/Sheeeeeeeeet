@@ -5,12 +5,10 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/danielsaidi/Sheeeeeeeeet">
-        <img src="https://badge.fury.io/gh/danielsaidi%2FSheeeeeeeeet.svg?style=flat" alt="Version" />
-    </a>
+<img src="https://img.shields.io/github/v/release/danielsaidi/Sheeeeeeeeet?color=%2300550&sort=semver" alt="Version" />
     <img src="https://img.shields.io/cocoapods/p/Vandelay.svg?style=flat" alt="Platform" />
     <img src="https://img.shields.io/badge/Swift-5.1-orange.svg" alt="Swift 5.1" />
-    <img src="https://badges.frapsoft.com/os/mit/mit.svg?style=flat&v=102" alt="License" />
+    <img src="https://img.shields.io/github/license/danielsaidi/Sheeeeeeeeet" alt="MIT License" />
     <a href="https://twitter.com/danielsaidi">
         <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
     </a>
