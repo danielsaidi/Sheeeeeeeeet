@@ -118,6 +118,15 @@ Feel free to reach out if you have questions or if you want to contribute in any
 * Web site: [danielsaidi.com][Website]
 
 
+## Sponsors and Clients
+
+KeyboardKit is proudly sponsored by the following individuals:
+
+* [@booch](https://github.com/booch)
+
+You or your company can support my work by sponsoring the project on [GitHub Sponsors][Sponsors] or hire me for consultation. I'd be happy to help you out in any way that I can.
+
+
 ## License
 
 Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
