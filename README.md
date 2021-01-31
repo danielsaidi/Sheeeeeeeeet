@@ -135,6 +135,7 @@ Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
 [Email]: mailto:daniel.saidi@gmail.com
 [Twitter]: http://www.twitter.com/danielsaidi
 [Website]: http://www.danielsaidi.com
+[Sponsors]: https://github.com/sponsors/danielsaidi
 
 [Carthage]: https://github.com/Carthage
 [CocoaPods]: http://cocoapods.org
