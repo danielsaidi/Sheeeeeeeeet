@@ -16,6 +16,6 @@ class MockActionSheetAppearance: ActionSheetAppearance, Mockable {
     let mock = Mock()
     
     override func apply() {
-        invoke(applyRef, args: ())
+        call(applyRef, args: ())
     }
 }

@@ -17,10 +17,10 @@ class MockNotificationCenter: NotificationCenter, Mockable {
     var mock = Mock()
     
     override func addObserver(_ observer: Any, selector aSelector: Selector, name aName: NSNotification.Name?, object anObject: Any?) {
-        invoke(addObserverRef, args: (observer, aSelector, aName, anObject))
+        call(addObserverRef, args: (observer, aSelector, aName, anObject))
     }
     
     override func removeObserver(_ observer: Any, name aName: NSNotification.Name?, object anObject: Any?) {
-        invoke(removeObserverRef, args: (observer, aName, anObject))
+        call(removeObserverRef, args: (observer, aName, anObject))
     }
 }

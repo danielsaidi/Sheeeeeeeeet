@@ -157,7 +157,7 @@ class ActionSheetItemHandlerTests: QuickSpec {
             it("handles sheet item tap for existing action sheet") {
                 let path = IndexPath(row: 0, section: 0)
                 handler.tableView(createTableView(), didSelectRowAt: path)
-                let execs = sheet.invokations(of: sheet.handleTapRef)
+                let execs = sheet.calls(to: sheet.handleTapRef)
                 expect(execs.count).to(equal(1))
                 expect(execs[0].arguments).to(be(item1))
             }

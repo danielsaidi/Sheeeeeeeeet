@@ -31,7 +31,7 @@ class Menu_ContextMenuTests: QuickSpec {
                 let view = TestView()
                 let menu = Menu(title: "title", items: [])
                 _ = menu.addAsContextMenu(to: view) { _ in }
-                let exec = view.invokations(of: view.addInteractionRef)
+                let exec = view.calls(to: view.addInteractionRef)
                 expect(exec.count).to(equal(1))
             }
             
@@ -110,8 +110,8 @@ class Menu_ContextMenuTests: QuickSpec {
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
-                let addInvokations = view.invokations(of: view.addInteractionRef)
-                let removeInvokations = view.invokations(of: view.removeInteractionRef)
+                let addInvokations = view.calls(to: view.addInteractionRef)
+                let removeInvokations = view.calls(to: view.removeInteractionRef)
                 
                 expect(addInvokations.count).to(equal(3))
                 expect(removeInvokations.count).to(equal(1))
@@ -134,8 +134,8 @@ class Menu_ContextMenuTests: QuickSpec {
                 
                 NotificationCenter.default.post(Notification(name: UIApplication.didEnterBackgroundNotification))
                 
-                let addInvokations = view.invokations(of: view.addInteractionRef)
-                let removeInvokations = view.invokations(of: view.removeInteractionRef)
+                let addInvokations = view.calls(to: view.addInteractionRef)
+                let removeInvokations = view.calls(to: view.removeInteractionRef)
                 
                 expect(addInvokations.count).to(equal(2))
                 expect(removeInvokations.count).to(equal(0))
@@ -189,12 +189,12 @@ private class TestView: UIView, ContextMenuDelegateRetainer, Mockable {
     var shouldCallSuper: Bool = false
     
     override func addInteraction(_ interaction: UIInteraction) {
-        invoke(addInteractionRef, args: (interaction))
+        call(addInteractionRef, args: (interaction))
         if shouldCallSuper { super.addInteraction(interaction) }
     }
     
     override func removeInteraction(_ interaction: UIInteraction) {
-        invoke(removeInteractionRef, args: (interaction))
+        call(removeInteractionRef, args: (interaction))
         if shouldCallSuper { super.addInteraction(interaction) }
     }
 }

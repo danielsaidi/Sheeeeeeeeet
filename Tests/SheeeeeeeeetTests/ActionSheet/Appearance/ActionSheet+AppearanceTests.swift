@@ -25,7 +25,7 @@ class ActionSheet_AppearanceTests: QuickSpec {
             
             it("applies provided appearance") {
                 ActionSheet.applyAppearance(appearance)
-                let exec = appearance.invokations(of: appearance.applyRef)
+                let exec = appearance.calls(to: appearance.applyRef)
                 expect(exec.count).to(equal(1))
                 expect(ActionSheetAppearance.global).to(be(appearance))
             }
@@ -35,8 +35,8 @@ class ActionSheet_AppearanceTests: QuickSpec {
                 let appearance2 = MockActionSheetAppearance()
                 ActionSheet.applyAppearance(appearance1)
                 ActionSheet.applyAppearance(appearance2)
-                let exec1 = appearance1.invokations(of: appearance1.applyRef)
-                let exec2 = appearance2.invokations(of: appearance2.applyRef)
+                let exec1 = appearance1.calls(to: appearance1.applyRef)
+                let exec2 = appearance2.calls(to: appearance2.applyRef)
                 expect(exec1.count).to(equal(1))
                 expect(exec2.count).to(equal(1))
                 expect(ActionSheetAppearance.global).to(be(appearance2))
@@ -47,8 +47,8 @@ class ActionSheet_AppearanceTests: QuickSpec {
                 let appearance2 = MockActionSheetAppearance()
                 ActionSheet.applyAppearance(appearance1)
                 ActionSheet.applyAppearance(appearance2, force: false)
-                let exec1 = appearance1.invokations(of: appearance1.applyRef)
-                let exec2 = appearance2.invokations(of: appearance2.applyRef)
+                let exec1 = appearance1.calls(to: appearance1.applyRef)
+                let exec2 = appearance2.calls(to: appearance2.applyRef)
                 expect(exec1.count).to(equal(1))
                 expect(exec2.count).to(equal(0))
                 expect(ActionSheetAppearance.global).to(be(appearance1))

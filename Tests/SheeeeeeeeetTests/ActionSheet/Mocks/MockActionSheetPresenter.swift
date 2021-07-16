@@ -25,18 +25,18 @@ class MockActionSheetPresenter: Mock, ActionSheetPresenter {
     typealias PresentFromItemSignature = (ActionSheet, UIViewController, UIBarButtonItem, @escaping () -> Void) -> Void
     
     func dismiss(completion: @escaping () -> ()) {
-        invoke(dismissRef, args: (completion))
+        call(dismissRef, args: (completion))
     }
     
     func present(sheet: ActionSheet, in vc: UIViewController, from view: UIView?, completion: @escaping () -> Void) {
-        invoke(presentFromViewRef, args: (sheet, vc, view, completion))
+        call(presentFromViewRef, args: (sheet, vc, view, completion))
     }
     
     func present(sheet: ActionSheet, in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> Void) {
-        invoke(presentFromBarItemRef, args: (sheet, vc, item, completion))
+        call(presentFromBarItemRef, args: (sheet, vc, item, completion))
     }
     
     func refreshActionSheet() {
-        invoke(refreshActionSheetRef, args: ())
+        call(refreshActionSheetRef, args: ())
     }
 }
