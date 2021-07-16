@@ -2,12 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "Mockery",
-        "repositoryURL": "https://github.com/danielsaidi/Mockery.git",
+        "package": "MockingKit",
+        "repositoryURL": "https://github.com/danielsaidi/MockingKit.git",
         "state": {
           "branch": null,
-          "revision": "9df3b503d8a7113b606159f3268658a3b47c088e",
-          "version": "0.6.0"
+          "revision": "ebb888c98bd1de2f2409c7b06f2386a55120d910",
+          "version": "0.9.4"
         }
       },
       {

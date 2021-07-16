@@ -99,11 +99,11 @@
 		84A24EDD236C84D900DB060C /* MenuCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A24EDC236C84D900DB060C /* MenuCreator.swift */; };
 		84D3AF2E2434B1420007BE9B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 84D3AF2D2434B1420007BE9B /* Quick */; };
 		84D3AF312434B1510007BE9B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 84D3AF302434B1510007BE9B /* Nimble */; };
-		84D3AF342434B1810007BE9B /* Mockery in Frameworks */ = {isa = PBXBuildFile; productRef = 84D3AF332434B1810007BE9B /* Mockery */; };
 		84F64BA1239D8FEF000290D1 /* ActionSheet+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA0239D8FEF000290D1 /* ActionSheet+Header.swift */; };
 		84F64BA3239D9630000290D1 /* ActionSheet+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA2239D9630000290D1 /* ActionSheet+Configuration.swift */; };
 		84F64BA5239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA4239D99D6000290D1 /* ActionSheet+ConfigurationTests.swift */; };
 		84F64BA8239D9CD7000290D1 /* ActionSheet+Deprecations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F64BA6239D9CB5000290D1 /* ActionSheet+Deprecations.swift */; };
+		A9FA9D3A26A17AC40047114E /* MockingKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9FA9D3926A17AC40047114E /* MockingKit */; };
 		OBJ_442 /* ActionSheet+Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* ActionSheet+Presenter.swift */; };
 		OBJ_443 /* ActionSheet+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* ActionSheet+Scroll.swift */; };
 		OBJ_444 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ActionSheet.swift */; };
@@ -531,7 +531,7 @@
 			buildActionMask = 0;
 			files = (
 				84D3AF312434B1510007BE9B /* Nimble in Frameworks */,
-				84D3AF342434B1810007BE9B /* Mockery in Frameworks */,
+				A9FA9D3A26A17AC40047114E /* MockingKit in Frameworks */,
 				84D3AF2E2434B1420007BE9B /* Quick in Frameworks */,
 				OBJ_611 /* Sheeeeeeeeet.framework in Frameworks */,
 			);
@@ -1278,7 +1278,7 @@
 			packageProductDependencies = (
 				84D3AF2D2434B1420007BE9B /* Quick */,
 				84D3AF302434B1510007BE9B /* Nimble */,
-				84D3AF332434B1810007BE9B /* Mockery */,
+				A9FA9D3926A17AC40047114E /* MockingKit */,
 			);
 			productName = SheeeeeeeeetTests;
 			productReference = "Sheeeeeeeeet::SheeeeeeeeetTests::Product" /* SheeeeeeeeetTests.xctest */;
@@ -1329,7 +1329,7 @@
 			packageReferences = (
 				84D3AF2C2434B1420007BE9B /* XCRemoteSwiftPackageReference "Quick" */,
 				84D3AF2F2434B1510007BE9B /* XCRemoteSwiftPackageReference "Nimble" */,
-				84D3AF322434B1810007BE9B /* XCRemoteSwiftPackageReference "Mockery" */,
+				A9FA9D3826A17AC30047114E /* XCRemoteSwiftPackageReference "MockingKit" */,
 			);
 			productRefGroup = OBJ_297 /* Products */;
 			projectDirPath = "";
@@ -2054,12 +2054,12 @@
 				minimumVersion = 8.1.1;
 			};
 		};
-		84D3AF322434B1810007BE9B /* XCRemoteSwiftPackageReference "Mockery" */ = {
+		A9FA9D3826A17AC30047114E /* XCRemoteSwiftPackageReference "MockingKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielsaidi/Mockery.git";
+			repositoryURL = "https://github.com/danielsaidi/MockingKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.0;
+				minimumVersion = 0.9.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -2075,10 +2075,10 @@
 			package = 84D3AF2F2434B1510007BE9B /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
 		};
-		84D3AF332434B1810007BE9B /* Mockery */ = {
+		A9FA9D3926A17AC40047114E /* MockingKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 84D3AF322434B1810007BE9B /* XCRemoteSwiftPackageReference "Mockery" */;
-			productName = Mockery;
+			package = A9FA9D3826A17AC30047114E /* XCRemoteSwiftPackageReference "MockingKit" */;
+			productName = MockingKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
