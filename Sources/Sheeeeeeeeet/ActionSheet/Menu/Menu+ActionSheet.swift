@@ -18,6 +18,7 @@ public extension Menu {
      `toFoodActionSheet`. This way, you can adjust arguments
      and even completion signature.
      */
+    @available(iOSApplicationExtension, unavailable)
     func toActionSheet(
         configuration: ActionSheet.Configuration = .standard,
         headerConfiguration: ActionSheet.HeaderConfiguration = .standard,

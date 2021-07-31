@@ -49,6 +49,7 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase {
         }
     }
     
+    @available(iOSApplicationExtension, unavailable)
     open override func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
         super.present(sheet, in: vc, view: view, item: item, completion: completion)
         actionSheet = sheet
@@ -122,12 +123,14 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase {
 
 extension ActionSheetStandardPresenter {
     
+    @available(iOSApplicationExtension, unavailable)
     func addActionSheetToKeyWindow(_ sheet: ActionSheet) {
         let window = UIApplication.shared.keyWindow
         sheet.view.frame = window?.bounds ?? .zero
         window?.addSubview(sheet.view)
     }
     
+    @available(iOSApplicationExtension, unavailable)
     func addActionSheet(_ sheet: ActionSheet, to vc: UIViewController) {
         if presentationStyle == .keyWindow { return addActionSheetToKeyWindow(sheet) }
         let view = vc.view

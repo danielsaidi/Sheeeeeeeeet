@@ -38,6 +38,7 @@ public extension ActionSheetPopoverPresenter {
 public extension Menu {
     
     @available(*, deprecated, message: "Use `toActionSheet` and then present it instead.")
+    @available(iOSApplicationExtension, unavailable)
     @discardableResult
     func presentAsActionSheet(
         in vc: UIViewController,
@@ -50,6 +51,7 @@ public extension Menu {
     }
     
     @available(*, deprecated, message: "Use `toActionSheet` and then present it instead.")
+    @available(iOSApplicationExtension, unavailable)
     @discardableResult
     func presentAsActionSheet(
         in vc: UIViewController,

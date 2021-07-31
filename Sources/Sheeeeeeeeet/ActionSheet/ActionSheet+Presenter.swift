@@ -14,6 +14,7 @@ public extension ActionSheet {
      Get the default presenter. It will be used if you don't
      specify a specific presenter when presenting the sheet.
      */
+    @available(iOSApplicationExtension, unavailable)
     static var defaultPresenter: ActionSheetPresenter {
         let traits = UIApplication.shared.keyWindow?.traitCollection
         return defaultPresenter(forTraits: traits)

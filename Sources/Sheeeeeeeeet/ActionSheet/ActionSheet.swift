@@ -87,6 +87,7 @@ open class ActionSheet: UIViewController {
     
     // MARK: - Initialization
     
+    @available(iOSApplicationExtension, unavailable)
     public init(
         menu: Menu,
         configuration: Configuration = .standard,
@@ -102,6 +103,7 @@ open class ActionSheet: UIViewController {
         setup(with: menu)
     }
     
+    @available(iOSApplicationExtension, unavailable)
     public required init?(coder aDecoder: NSCoder) {
         menu = .empty
         configuration = .standard
