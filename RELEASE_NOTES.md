@@ -1,7 +1,12 @@
 # Release Notes
 
 
-## 3.1.3
+## 3.1.4
+
+This version updates external dependencies.
+
+
+## 3.1.4
 
 This version fixes a bug that caused regular items to not apply right to left text alignment if the device locale requested it.
 
@@ -9,9 +14,9 @@ This version fixes a bug that caused regular items to not apply right to left te
 * The standard appearance doesn't apply `.left` to the base cell or section titles.
 
 
-## 3.1.2
+## 3.1.2, 3.1.3
 
-This version updates all external test dependencies.
+These versions update external dependencies.
 
 
 ## 3.1.1
