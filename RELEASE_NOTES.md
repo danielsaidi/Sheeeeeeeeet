@@ -1,7 +1,12 @@
 # Release Notes
 
 
-## 3.1.4
+## 3.1.6
+
+This version temporarily downgrades the Quick dependency to 3.0 to make Sheeeeeeeeet work with packages that haven't upgraded.
+
+
+## 3.1.5
 
 This version updates external dependencies.
 
