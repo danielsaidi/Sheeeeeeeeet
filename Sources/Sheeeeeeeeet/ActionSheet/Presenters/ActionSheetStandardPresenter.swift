@@ -122,14 +122,18 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase {
 
 extension ActionSheetStandardPresenter {
     
-    func addActionSheetToKeyWindow(_ sheet: ActionSheet) {
-        let window = UIApplication.shared.keyWindow
-        sheet.view.frame = window?.bounds ?? .zero
-        window?.addSubview(sheet.view)
+    func addActionSheetToKeyWindow(
+        _ sheet: ActionSheet,
+        for viewController: UIViewController) {
+        guard let window = viewController.view.window else { return }
+        sheet.view.frame = window.bounds
+        window.addSubview(sheet.view)
     }
     
-    func addActionSheet(_ sheet: ActionSheet, to vc: UIViewController) {
-        if presentationStyle == .keyWindow { return addActionSheetToKeyWindow(sheet) }
+    func addActionSheet(
+        _ sheet: ActionSheet,
+        to vc: UIViewController) {
+        if presentationStyle == .keyWindow { return addActionSheetToKeyWindow(sheet, for: vc) }
         let view = vc.view
         sheet.view.frame = view?.bounds ?? .zero
         view?.addSubview(sheet.view)
