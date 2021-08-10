@@ -1,14 +1,34 @@
 # Release Notes
 
 
+## 3.2
+
+This version makes it possible to build Sheeeeeeeeet from Xcode 13.
+
+It does so by removing `UIApplication.shared` dependencies and instead use the view controller.
+
+These changes required the removal of some deprecated `Menu` logic.
+
+### 💡 Behavior changes
+
+* The `ActionSheet` init presenter is now optional instead of the default one. 
+
+### 💥 Breaking changes
+
+* The `ActionSheet` `presenter` is now optional and is resolved when presenting instead of when creating the sheet.
+
+
+
 ## 3.1.6
 
 This version temporarily downgrades the Quick dependency to 3.0 to make Sheeeeeeeeet work with packages that haven't upgraded.
 
 
+
 ## 3.1.5
 
 This version updates external dependencies.
+
 
 
 ## 3.1.4
