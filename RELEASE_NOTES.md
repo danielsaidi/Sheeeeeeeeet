@@ -15,6 +15,7 @@ These changes required the removal of some deprecated `Menu` logic.
 
 ### 💥 Breaking changes
 
+* Some deprecated `Menu` logic had to be removed.
 * The `ActionSheet` `presenter` is now optional and is resolved when presenting instead of when creating the sheet.
 
 
