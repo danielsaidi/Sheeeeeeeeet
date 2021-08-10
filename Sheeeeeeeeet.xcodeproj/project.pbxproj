@@ -556,10 +556,10 @@
 				84670417234A3D0800355331 /* App */,
 				846703C2234A3CF000355331 /* Appearance */,
 				846703C9234A3CF100355331 /* Assets */,
+				846703BB234A3CF000355331 /* Items */,
 				846703DC234A3CF100355331 /* Menus */,
 				846703AB234A3CF000355331 /* Options */,
 				846703B2234A3CF000355331 /* ViewControllers */,
-				846703BB234A3CF000355331 /* Items */,
 			);
 			path = SheeeeeeeeetDemo;
 			sourceTree = "<group>";
