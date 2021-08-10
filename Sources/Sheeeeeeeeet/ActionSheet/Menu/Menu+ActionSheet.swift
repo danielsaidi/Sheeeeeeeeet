@@ -21,7 +21,7 @@ public extension Menu {
     func toActionSheet(
         configuration: ActionSheet.Configuration = .standard,
         headerConfiguration: ActionSheet.HeaderConfiguration = .standard,
-        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        presenter: ActionSheetPresenter? = nil,
         action: @escaping ActionSheet.SelectAction) -> ActionSheet {
         ActionSheet(
             menu: self,

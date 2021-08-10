@@ -91,7 +91,7 @@ open class ActionSheet: UIViewController {
         menu: Menu,
         configuration: Configuration = .standard,
         headerConfiguration: HeaderConfiguration = .standard,
-        presenter: ActionSheetPresenter = ActionSheet.defaultPresenter,
+        presenter: ActionSheetPresenter? = nil,
         action: @escaping SelectAction) {
         self.menu = menu
         self.configuration = configuration
@@ -106,7 +106,7 @@ open class ActionSheet: UIViewController {
         menu = .empty
         configuration = .standard
         headerConfiguration = .standard
-        presenter = ActionSheet.defaultPresenter
+        presenter = nil
         selectAction = { _, _ in print("itemSelectAction is not set") }
         super.init(coder: aDecoder)
     }
@@ -165,7 +165,7 @@ open class ActionSheet: UIViewController {
     public var menu: Menu
     public var configuration: Configuration
     public var headerConfiguration: HeaderConfiguration
-    public var presenter: ActionSheetPresenter
+    public var presenter: ActionSheetPresenter?
     public var selectAction: SelectAction
     
     
@@ -226,19 +226,21 @@ open class ActionSheet: UIViewController {
     // MARK: - Presentation Functions
     
     open func dismiss(completion: @escaping () -> () = {}) {
-        presenter.dismiss { completion() }
+        presenter?.dismiss { completion() }
     }
 
     open func present(in vc: UIViewController, from view: UIView?, completion: @escaping () -> () = {}) {
         ActionSheet.applyAppearance(force: false)
         refresh()
-        presenter.present(sheet: self, in: vc.rootViewController, from: view, completion: completion)
+        presenter = presenter ?? Self.defaultPresenter(for: vc)
+        presenter?.present(sheet: self, in: vc.rootViewController, from: view, completion: completion)
     }
 
     open func present(in vc: UIViewController, from item: UIBarButtonItem, completion: @escaping () -> () = {}) {
         ActionSheet.applyAppearance(force: false)
         refresh()
-        presenter.present(sheet: self, in: vc.rootViewController, from: item, completion: completion)
+        presenter = presenter ?? Self.defaultPresenter(for: vc)
+        presenter?.present(sheet: self, in: vc.rootViewController, from: item, completion: completion)
     }
 
     
@@ -250,7 +252,7 @@ open class ActionSheet: UIViewController {
         refreshItems()
         refreshButtons()
         stackView.spacing = sectionMargins
-        presenter.refreshActionSheet()
+        presenter?.refreshActionSheet()
     }
     
     open func refreshHeader() {

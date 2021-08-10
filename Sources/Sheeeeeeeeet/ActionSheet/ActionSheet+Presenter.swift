@@ -14,20 +14,25 @@ public extension ActionSheet {
      Get the default presenter. It will be used if you don't
      specify a specific presenter when presenting the sheet.
      */
-    static var defaultPresenter: ActionSheetPresenter {
-        let traits = UIApplication.shared.keyWindow?.traitCollection
+    static func defaultPresenter(
+        for viewController: UIViewController) -> ActionSheetPresenter {
+        let traits = viewController.traitCollection
         return defaultPresenter(forTraits: traits)
     }
 }
 
 extension ActionSheet {
     
-    static func defaultPresenter(forTraits traits: UITraitCollection?) -> ActionSheetPresenter {
-        let idiom = traits?.userInterfaceIdiom ?? UIDevice.current.userInterfaceIdiom
+    static func defaultPresenter(
+        for device: UIDevice = .current,
+        forTraits traits: UITraitCollection?) -> ActionSheetPresenter {
+        let idiom = traits?.userInterfaceIdiom ?? device.userInterfaceIdiom
         return defaultPresenter(forIdiom: idiom, traits: traits)
     }
     
-    static func defaultPresenter(forIdiom idiom: UIUserInterfaceIdiom, traits: UITraitCollection?) -> ActionSheetPresenter {
+    static func defaultPresenter(
+        forIdiom idiom: UIUserInterfaceIdiom,
+        traits: UITraitCollection?) -> ActionSheetPresenter {
         if idiom == .phone { return ActionSheetStandardPresenter() }
         let sizeClass = traits?.horizontalSizeClass ?? .compact
         let isCompact = sizeClass == .compact

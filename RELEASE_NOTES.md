@@ -19,14 +19,17 @@ This version fixes a bug that caused regular items to not apply right to left te
 * The standard appearance doesn't apply `.left` to the base cell or section titles.
 
 
+
 ## 3.1.2, 3.1.3
 
 These versions update external dependencies.
 
 
+
 ## 3.1.1
 
 This version prepares the library for Xcode 11.4 and Swift 5.2 and upgrades external dependencies.
+
 
 
 ## 3.1.0
@@ -59,9 +62,11 @@ I tried but couldn't avoiding breaking changes, since some protocols had to chan
 * `ActionSheetPresenter` convenience presenters are now part of `ActionSheetPresenterBase` no longer `open` for extension.
 
 
+
 ## 3.0.9
 
 This version adjusts the secondary action to be a regular menu item action.
+
 
 
 ## 3.0.8
@@ -71,6 +76,7 @@ This version adjusts the secondary action signature to also provide the affected
 This version also make sthe `ActionSheetItemHandler` protocol implementations `open` so they're possible to override.
 
 
+
 ## 3.0.7
 
 This version adds a new `SecondaryActionItem` which lets you specify a secondary action for an item.
@@ -78,9 +84,11 @@ This version adds a new `SecondaryActionItem` which lets you specify a secondary
 It also adds a new `MenuCreator` protocol that can be implemented to postpone the creation of a menu, which may be good for prestanda when adding a context menu to every item in a large view collection.
 
 
+
 ## 3.0.6
 
 This version solves an App Store submission rejection that occurred when an app pulled in Sheeeeeeeeet with Carthage.
+
 
 
 ## 3.0.5
@@ -88,9 +96,11 @@ This version solves an App Store submission rejection that occurred when an app 
 This version changes `ContextMenuDelegateRetainer`'s `contextMenuDelegate` to an `Any` instead of its concrete type, to make it possible to use it on older iOS versions. This should not have any side-effects, since it's only used to retain the instance, never use it.
 
 
+
 ## 3.0.4
 
 This version makes the `ActionSheet`'s `backgroundView` property public.
+
 
 
 ## 3.0.3
@@ -100,6 +110,7 @@ This version fixes some subtitle problems, where section titles and mutli select
 It also fixes some behavior issues, where subtitles were incorrectly tinted.
 
 
+
 ## 3.0.2
 
 This version adjusts the popover height calculations to include the height of a visible header. This solves the problem where the popover content would always scroll when a header was used.
@@ -107,11 +118,13 @@ This version adjusts the popover height calculations to include the height of a 
 The version also adjusts the item height calculations, so that you no longer have to register a height for each item. This solves the problem with all items getting a zero size by default. Now, `height` is recursively resolved to the closest parent height if you haven't overridden `appearance().height` for your custom item.
 
 
+
 ## 3.0.1
 
 This version adjusts the subtitle style to use `subtitle` instead of `value1`.
 
 It also adds a new `preferredActionSheetCellStyle` property to `MenuItem`, which you can override for your custom items.
+
 
 
 ## 3.0.0
@@ -145,6 +158,7 @@ Bonus features:
 * `Menu` can be presented as a native `UIAlertController`.
 
 Some of the presentations above require that all items in the menu can be represented in that context.
+
 
 
 ## 2.1.0
