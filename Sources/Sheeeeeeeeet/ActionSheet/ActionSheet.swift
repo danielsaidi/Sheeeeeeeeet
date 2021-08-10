@@ -226,7 +226,8 @@ open class ActionSheet: UIViewController {
     // MARK: - Presentation Functions
     
     open func dismiss(completion: @escaping () -> () = {}) {
-        presenter?.dismiss { completion() }
+        guard let presenter = presenter else { return completion() }
+        presenter.dismiss { completion() }
     }
 
     open func present(in vc: UIViewController, from view: UIView?, completion: @escaping () -> () = {}) {
