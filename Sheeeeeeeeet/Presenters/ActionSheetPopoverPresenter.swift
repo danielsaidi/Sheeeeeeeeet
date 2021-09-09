@@ -45,6 +45,9 @@ open class ActionSheetPopoverPresenter: NSObject, ActionSheetPresenter {
     public func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
         let presenter = actionSheet?.presentingViewController
+        guard !(actionSheet?.isBeingDismissed ?? true) else {
+            return
+        }
         presenter?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
