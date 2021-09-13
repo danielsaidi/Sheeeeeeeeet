@@ -1,6 +1,14 @@
 # Release Notes
 
 
+## 3.2.1
+
+### 🐛 Bug Fixes
+
+This version fixes a bug that could cause multiple dismissals when in popover.
+
+
+
 ## 3.2
 
 This version makes it possible to build Sheeeeeeeeet from Xcode 13.
