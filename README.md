@@ -111,20 +111,16 @@ To try it out, open and run the `Sheeeeeeeeet.xcodeproj` project.
 
 ## Contact me
 
-Feel free to reach out if you have questions or if you want to contribute in any way:
+Feel free to reach out if you have questions or if you want to contribute to this project in any way:
 
 * E-mail: [daniel.saidi@gmail.com][Email]
 * Twitter: [@danielsaidi][Twitter]
 * Web site: [danielsaidi.com][Website]
 
 
-## Sponsors and Clients
+## Sponsor my work
 
-This project is proudly sponsored by the following individuals:
-
-* [@booch](https://github.com/booch)
-
-You can support my various work by sponsoring the project on [GitHub Sponsors][Sponsors] or hiring me for consultation.
+You can support my work by becoming a [GitHub Sponsor][Sponsors].
 
 
 ## License
