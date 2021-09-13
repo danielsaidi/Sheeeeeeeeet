@@ -39,10 +39,9 @@ open class ActionSheetPopoverPresenter: ActionSheetPresenterBase {
     open override func dismiss(completion: @escaping () -> ()) {
         let dismissAction = { completion();  self.actionSheet = nil }
         let presenter = actionSheet?.presentingViewController
-        guard !(actionSheet?.isBeingDismissed ?? true) else {
-            return
+        if !(actionSheet?.isBeingDismissed ?? true) {
+            presenter?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
         }
-        presenter?.dismiss(animated: true) { dismissAction() } ?? dismissAction()
     }
     
     open override func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
