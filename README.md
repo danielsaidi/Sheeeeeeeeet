@@ -124,7 +124,7 @@ This project is proudly sponsored by the following individuals:
 
 * [@booch](https://github.com/booch)
 
-You can support my work by sponsoring the project on [GitHub Sponsors][Sponsors] or hiring me for consultation. I'd be happy to help you out in any way that I can.
+You can support my various work by sponsoring the project on [GitHub Sponsors][Sponsors] or hiring me for consultation.
 
 
 ## License
