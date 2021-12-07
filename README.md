@@ -17,7 +17,7 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet lets you create menus that can be presented as iOS 13 context menus, custom action sheets, alert controllers or in any way you like.
+Sheeeeeeeeet lets you create menus that can be presented as custom action sheets, context menus, alert controllers or in any way you like.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
