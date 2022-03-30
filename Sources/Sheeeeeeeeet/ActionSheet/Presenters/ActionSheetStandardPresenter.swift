@@ -90,10 +90,10 @@ open class ActionSheetStandardPresenter: ActionSheetPresenterBase {
     }
     
     open func presentActionSheet(completion: @escaping () -> ()) {
-        guard let view = actionSheet?.stackView else { return }
-        let frame = view.frame
-        view.frame.origin.y += frame.height + 100
-        let animation = { view.frame = frame }
+        guard let actionSheet = actionSheet else { return }
+        let view = actionSheet.stackView
+        view.frame.origin.y += actionSheet.intrinsicContentHeight + 100
+        let animation = { view.frame.origin = .zero }
         animate(animation, completion: completion)
     }
     

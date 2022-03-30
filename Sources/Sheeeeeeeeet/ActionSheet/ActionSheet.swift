@@ -186,6 +186,8 @@ open class ActionSheet: UIViewController {
     
     let stackView = ActionSheetStackView()
     
+    public var intrinsicContentHeight: Double { itemsHeight + buttonsHeight + sectionMargins }
+    
     let headerViewContainer = ActionSheetHeaderContainerView()
     var itemsTableView = ActionSheetItemTableView()
     var buttonsTableView = ActionSheetButtonTableView()
