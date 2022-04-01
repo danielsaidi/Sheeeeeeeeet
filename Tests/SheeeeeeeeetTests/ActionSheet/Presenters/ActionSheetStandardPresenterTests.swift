@@ -86,7 +86,7 @@ class ActionSheetStandardPresenterTests: QuickSpec {
                 sheet.viewDidLoad()
                 presenter.animationDuration = -1
                 presenter.present(sheet, in: vc) {}
-                expect(sheet.stackView.frame.origin.y).to(equal(100))
+                expect(sheet.stackView.frame.origin.y).to(equal(sheet.intrinsicContentHeight + 100))
             }
         }
     }
