@@ -1,6 +1,14 @@
 # Release Notes
 
 
+## 3.2.2
+
+### 🐛 Bug Fixes
+
+This version fixes a bug that caused sheets to get initial empty frames. 
+
+
+
 ## 3.2.1
 
 ### 🐛 Bug Fixes
