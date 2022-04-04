@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "MockingKit",
-        "repositoryURL": "https://github.com/danielsaidi/MockingKit.git",
-        "state": {
-          "branch": null,
-          "revision": "ebb888c98bd1de2f2409c7b06f2386a55120d910",
-          "version": "0.9.4"
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "2b1809051b4a65c1d7f5233331daa24572cd7fca",
-          "version": "8.1.1"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "0038bcbab4292f3b028632556507c124e5ba69f3",
-          "version": "3.0.0"
-        }
+  "pins" : [
+    {
+      "identity" : "mockingkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/MockingKit.git",
+      "state" : {
+        "revision" : "ebb888c98bd1de2f2409c7b06f2386a55120d910",
+        "version" : "0.9.4"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "nimble",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Nimble.git",
+      "state" : {
+        "revision" : "2b1809051b4a65c1d7f5233331daa24572cd7fca",
+        "version" : "8.1.1"
+      }
+    },
+    {
+      "identity" : "quick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Quick.git",
+      "state" : {
+        "revision" : "0038bcbab4292f3b028632556507c124e5ba69f3",
+        "version" : "3.0.0"
+      }
+    }
+  ],
+  "version" : 2
 }

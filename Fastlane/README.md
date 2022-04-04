@@ -1,39 +1,48 @@
 fastlane documentation
-================
+----
+
 # Installation
 
 Make sure you have the latest version of the Xcode command line tools installed:
 
-```
+```sh
 xcode-select --install
 ```
 
-Install _fastlane_ using
-```
-[sudo] gem install fastlane -NV
-```
-or alternatively using `brew install fastlane`
+For _fastlane_ installation instructions, see [Installing _fastlane_](https://docs.fastlane.tools/#installing-fastlane)
 
 # Available Actions
+
 ## iOS
+
 ### ios resolve_dependencies
+
+```sh
+[bundle exec] fastlane ios resolve_dependencies
 ```
-fastlane ios resolve_dependencies
-```
+
 Resolve External Dependencies (the shell script makes Bitrise work)
+
 ### ios test
+
+```sh
+[bundle exec] fastlane ios test
 ```
-fastlane ios test
-```
+
 Run unit tests
+
 ### ios version
+
+```sh
+[bundle exec] fastlane ios version
 ```
-fastlane ios version
-```
+
 Create a new version
 
 ----
 
-This README.md is auto-generated and will be re-generated every time [fastlane](https://fastlane.tools) is run.
-More information about fastlane can be found on [fastlane.tools](https://fastlane.tools).
-The documentation of fastlane can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
+This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
+
+More information about _fastlane_ can be found on [fastlane.tools](https://fastlane.tools).
+
+The documentation of _fastlane_ can be found on [docs.fastlane.tools](https://docs.fastlane.tools).
