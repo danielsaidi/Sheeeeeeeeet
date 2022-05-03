@@ -1,7 +1,7 @@
 # Sheeeeeeeeet
 
 <p align="center">
-    <img src ="Resources/Logo.png" width=400 />
+    <img src ="Resources/Logo.png" alt="Sheeeeeeeeet Logo" title="Sheeeeeeeeet" width=600 />
 </p>
 
 <p align="center">
