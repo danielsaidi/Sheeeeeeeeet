@@ -17,13 +17,13 @@
 
 ## <a name="about"></a>About Sheeeeeeeeet
 
-Sheeeeeeeeet lets you create menus that can be presented as custom action sheets, context menus, alert controllers or in any way you like.
+Sheeeeeeeeet lets you create menus that can be presented as custom action sheets, context menus, alert controllers, or in any way you like.
 
 <p align="center">
     <img src ="Resources/Demo.gif" />
 </p>
 
-Sheeeeeeeeet comes with many item types (standard items, buttons, titles, toggles etc.) and can be extended with your own custom item types.
+Sheeeeeeeeet comes with many item types (standard items, buttons, titles, toggles, etc.) and can be extended with your own custom item types.
 
 Sheeeeeeeeet's custom action sheets can be styled to look just like a `UIAlertController` or completely different. You can also customize how they are presented and dismissed.
 
@@ -55,11 +55,11 @@ let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-Sheeeeeeeeet has many built-in item types, e.g. buttons, select items, links etc. A complete list can be found [here][MenuItems].
+Sheeeeeeeeet has many built-in item types, e.g. buttons, select items, links, etc. A complete list can be found [here][MenuItems].
 
 You can also [create your own custom item types][CustomItems] by inheriting any of the existing ones. For instance, if you build a car rental app, you can create a car-specific item that takes a `Car` model.
 
-You can even create your own menu types by subclassing `Menu`. This makes it possible to create app-specific menus that provide specific functionality, handle specific tasks etc.
+You can even create your own menu types by subclassing `Menu`. This makes it possible to create app-specific menus that provide specific functionality, handle specific tasks, etc.
 
 
 ## Present a menu as an action sheet
@@ -125,7 +125,7 @@ You can support my work by becoming a [GitHub Sponsor][Sponsors].
 
 ## License
 
-Sheeeeeeeeet is available under the MIT license. See LICENSE file for more info.
+Sheeeeeeeeet is available under the MIT license. See the LICENSE file for more info.
 
 
 [Email]: mailto:daniel.saidi@gmail.com
