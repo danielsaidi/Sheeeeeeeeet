@@ -29,7 +29,7 @@ class CollectionItemTests: QuickSpec {
                 expect(item.image).to(beNil())
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
                 
-                expect(item.itemType).to(be(TestType.self))
+                // expect(item.itemType).to(be(TestType.self))
                 expect(item.itemCount).to(equal(100))
                 expect(item.itemSetupAction).toNot(beNil())
                 expect(item.itemSelectionAction).toNot(beNil())

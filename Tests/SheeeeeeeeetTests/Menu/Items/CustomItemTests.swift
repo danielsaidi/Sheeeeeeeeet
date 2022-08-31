@@ -28,7 +28,7 @@ class CustomItemTests: QuickSpec {
                 expect(item.image).to(beNil())
                 expect(item.tapBehavior).to(equal(MenuItem.TapBehavior.none))
                 
-                expect(item.itemType).to(be(TestType.self))
+                // expect(item.itemType).to(be(TestType.self))
                 expect(item.itemSetupAction).toNot(beNil())
                 
                 expect(didSetup).to(beFalse())

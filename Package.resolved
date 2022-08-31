@@ -1,52 +1,50 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "CwlCatchException",
-        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
-        "state": {
-          "branch": null,
-          "revision": "682841464136f8c66e04afe5dbd01ab51a3a56f2",
-          "version": "2.1.0"
-        }
-      },
-      {
-        "package": "CwlPreconditionTesting",
-        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-        "state": {
-          "branch": null,
-          "revision": "02b7a39a99c4da27abe03cab2053a9034379639f",
-          "version": "2.0.0"
-        }
-      },
-      {
-        "package": "MockingKit",
-        "repositoryURL": "https://github.com/danielsaidi/MockingKit.git",
-        "state": {
-          "branch": null,
-          "revision": "ebb888c98bd1de2f2409c7b06f2386a55120d910",
-          "version": "0.9.4"
-        }
-      },
-      {
-        "package": "Nimble",
-        "repositoryURL": "https://github.com/Quick/Nimble.git",
-        "state": {
-          "branch": null,
-          "revision": "af1730dde4e6c0d45bf01b99f8a41713ce536790",
-          "version": "9.2.0"
-        }
-      },
-      {
-        "package": "Quick",
-        "repositoryURL": "https://github.com/Quick/Quick.git",
-        "state": {
-          "branch": null,
-          "revision": "8cce6acd38f965f5baa3167b939f86500314022b",
-          "version": "3.1.2"
-        }
+  "pins" : [
+    {
+      "identity" : "cwlcatchexception",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattgallagher/CwlCatchException.git",
+      "state" : {
+        "revision" : "682841464136f8c66e04afe5dbd01ab51a3a56f2",
+        "version" : "2.1.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "cwlpreconditiontesting",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+      "state" : {
+        "revision" : "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "mockingkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/MockingKit.git",
+      "state" : {
+        "revision" : "73a4da96623a2f6e9ea794cf37f36f2009dff065",
+        "version" : "1.1.1"
+      }
+    },
+    {
+      "identity" : "nimble",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Nimble.git",
+      "state" : {
+        "revision" : "1f3bde57bde12f5e7b07909848c071e9b73d6edc",
+        "version" : "10.0.0"
+      }
+    },
+    {
+      "identity" : "quick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quick/Quick.git",
+      "state" : {
+        "revision" : "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
+        "version" : "4.0.0"
+      }
+    }
+  ],
+  "version" : 2
 }
