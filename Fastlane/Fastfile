@@ -5,7 +5,7 @@ default_platform :ios
 platform :ios do
 
 
-  # Dependencies ***********************
+  # Dependencies ===============
 
   desc "Resolve External Dependencies (the shell script makes Bitrise work)"
   lane :resolve_dependencies do
