@@ -72,7 +72,7 @@ let items = [item1, item2, button]
 let menu = Menu(title: "Select a type", items: items)
 ```
 
-Sheeeeeeeeet has many built-in item types, e.g. buttons, select items, links, etc. A complete list can be found [here][MenuItems].
+The library has many built-in item types, e.g. buttons, select items, links, etc. A complete list can be found [here][MenuItems].
 
 You can also [create your own custom item types][CustomItems] by inheriting any of the existing ones. For instance, if you build a car rental app, you can create a car-specific item that takes a `Car` model.
 
