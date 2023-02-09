@@ -1,21 +1,21 @@
 <p align="center">
-    <img src ="Resources/Logo.png" alt="Sheeeeeeeeet Logo" title="Sheeeeeeeeet" width=500 />
+    <img src ="Resources/Logo.png" alt="Sheeeeeeeeet Logo" title="Sheeeeeeeeet" width=600 />
 </p>
 
 <p align="center">
-<img src="https://img.shields.io/github/v/release/danielsaidi/Sheeeeeeeeet?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/cocoapods/p/Vandelay.svg?style=flat" alt="Platform" />
+    <img src="https://img.shields.io/github/v/release/danielsaidi/Sheeeeeeeeet?color=%2300550&sort=semver" alt="Version" />
     <img src="https://img.shields.io/badge/Swift-5.6-orange.svg" alt="Swift 5.6" />
+    <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <img src="https://img.shields.io/github/license/danielsaidi/Sheeeeeeeeet" alt="MIT License" />
-    <a href="https://twitter.com/danielsaidi">
-        <img src="https://img.shields.io/badge/contact-@danielsaidi-blue.svg?style=flat" alt="Twitter: @danielsaidi" />
-    </a>
+    <img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" />
+    <img src="https://img.shields.io/mastodon/follow/000253346?label=mastodon&style=social" alt="Mastodon: @danielsaidi@mastodon.social" title="Mastodon: @danielsaidi@mastodon.social" />
 </p>
+
 
 
 ## About Sheeeeeeeeet
 
-Sheeeeeeeeet lets you create menus that can be presented as custom action sheets, context menus, alert controllers, or in any way you like.
+Sheeeeeeeeet is a UIKit library that lets you create menus that can be presented as custom action sheets, context menus, alert controllers, or in any way you like.
 
 The result can look like this or completely different:
 
@@ -25,13 +25,11 @@ The result can look like this or completely different:
 
 Sheeeeeeeeet comes with many item types (standard items, buttons, titles, toggles, etc.) and can be extended with your own custom item types.
 
-Sheeeeeeeeet's custom action sheets can be styled to look just like a `UIAlertController` or completely different. You can also customize how they are presented and dismissed.
 
 
+## About this repository
 
-## Supported Platforms
-
-Sheeeeeeeeet supports `iOS 9` and later.
+Since I have personally moved over to SwiftUI, this repository is no longer under active development. I will however gladly merge any PRs that add value to it or fixes problems with new iOS versions.  
 
 
 
@@ -49,7 +47,13 @@ or with CocoaPods:
 pod Sheeeeeeeeet
 ```
 
-You can also clone the repository and build the library locally.
+If you prefer to not have external dependencies, you can also just copy the source code into your app.
+
+
+
+## Supported Platforms
+
+Sheeeeeeeeet supports `iOS 9` and later.
 
 
 
@@ -118,9 +122,7 @@ You can find more information in [this alert controller guide][AlertController].
 
 ## Demo Application
 
-This project has a demo app that demonstrates different menus and menu items, including subclassing and appearance adjustments.
-
-To try it out, just open and run the `Sheeeeeeeeet.xcodeproj` project.
+The demo demonstrates different menus and menu items, including subclassing and appearance adjustments. To try it out, just open and run the `Sheeeeeeeeet` project.
 
 
 
@@ -134,28 +136,25 @@ You can sponsor this project on [GitHub Sponsors][Sponsors] or get in touch for 
 
 Feel free to reach out if you have questions or if you want to contribute in any way:
 
-* E-mail: [daniel.saidi@gmail.com][Email]
+* Website: [danielsaidi.com][Website]
+* Mastodon: [@danielsaidi@mastodon.social][Mastodon]
 * Twitter: [@danielsaidi][Twitter]
-* Web site: [danielsaidi.com][Website]
+* E-mail: [daniel.saidi@gmail.com][Email]
 
 
 
 ## License
 
-Sheeeeeeeeet is available under the MIT license. See the LICENSE file for more info.
-
+Sheeeeeeeeet is available under the MIT license. See the [LICENSE][License] file for more info.
 
 
 [Email]: mailto:daniel.saidi@gmail.com
-[Twitter]: http://www.twitter.com/danielsaidi
-[Website]: http://www.danielsaidi.com
+[Website]: https://www.danielsaidi.com
+[Twitter]: https://www.twitter.com/danielsaidi
+[Mastodon]: https://mastodon.social/@danielsaidi
 [Sponsors]: https://github.com/sponsors/danielsaidi
 
-[CocoaPods]: http://cocoapods.org
-[GitHub]: https://github.com/danielsaidi/Sheeeeeeeeet
 [License]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/LICENSE
-[Pod]: http://cocoapods.org/pods/Sheeeeeeeeet
-[SheeeeeeeeetRef]: https://www.youtube.com/watch?v=l1dnqKGuezo
 
 [ActionSheet]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/ActionSheet.md
 [AlertController]: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/AlertController.md
