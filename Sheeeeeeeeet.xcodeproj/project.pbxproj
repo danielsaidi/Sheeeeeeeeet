@@ -1913,6 +1913,7 @@
 					"$(SRCROOT)/.build/checkouts/Quick/Sources/QuickSpecBase/include",
 				);
 				INFOPLIST_FILE = Sheeeeeeeeet.xcodeproj/SheeeeeeeeetTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@loader_path/../Frameworks",
@@ -1942,6 +1943,7 @@
 					"$(SRCROOT)/.build/checkouts/Quick/Sources/QuickSpecBase/include",
 				);
 				INFOPLIST_FILE = Sheeeeeeeeet.xcodeproj/SheeeeeeeeetTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@loader_path/../Frameworks",
