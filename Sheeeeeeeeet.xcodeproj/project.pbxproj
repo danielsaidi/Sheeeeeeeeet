@@ -238,7 +238,6 @@
 		OBJ_602 /* MenuTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* MenuTitleTests.swift */; };
 		OBJ_603 /* SectionMarginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_195 /* SectionMarginTests.swift */; };
 		OBJ_604 /* SectionTitleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* SectionTitleTests.swift */; };
-		OBJ_605 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_197 /* XCTestManifests.swift */; };
 		OBJ_611 /* Sheeeeeeeeet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Sheeeeeeeeet::Sheeeeeeeeet::Product" /* Sheeeeeeeeet.framework */; };
 /* End PBXBuildFile section */
 
@@ -443,7 +442,6 @@
 		OBJ_194 /* MenuTitleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTitleTests.swift; sourceTree = "<group>"; };
 		OBJ_195 /* SectionMarginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionMarginTests.swift; sourceTree = "<group>"; };
 		OBJ_196 /* SectionTitleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTests.swift; sourceTree = "<group>"; };
-		OBJ_197 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_21 /* UIEdgeInsets+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Hidden.swift"; sourceTree = "<group>"; };
 		OBJ_22 /* UIView+Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Subviews.swift"; sourceTree = "<group>"; };
 		OBJ_23 /* UIViewController+RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RootViewController.swift"; sourceTree = "<group>"; };
@@ -747,7 +745,6 @@
 				OBJ_167 /* ContextMenu */,
 				OBJ_172 /* Extensions */,
 				OBJ_174 /* Menu */,
-				OBJ_197 /* XCTestManifests.swift */,
 			);
 			name = SheeeeeeeeetTests;
 			path = Tests/SheeeeeeeeetTests;
@@ -1591,7 +1588,6 @@
 				OBJ_602 /* MenuTitleTests.swift in Sources */,
 				OBJ_603 /* SectionMarginTests.swift in Sources */,
 				OBJ_604 /* SectionTitleTests.swift in Sources */,
-				OBJ_605 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
