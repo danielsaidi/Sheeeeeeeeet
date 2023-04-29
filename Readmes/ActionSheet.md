@@ -39,7 +39,7 @@ sheet.present(in: vc, from: button) {
 }
 ```
 
-The sheet will be presented according to the sheet's configuration, presenter and apperance. 
+The sheet will be presented according to the sheet's configuration, presenter and appearance. 
 
 
 ## Custom types

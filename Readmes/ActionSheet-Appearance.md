@@ -30,7 +30,7 @@ ActionSheet.applyAppearance(MyCustomAppearance())
 Now, Sheeeeeeeeet will not apply a standard appearance when the next sheet is presented, since a custom global appearance has been applied. 
 
 
-## ActionSheet apperances
+## ActionSheet appearances
 
 The `ActionSheet` class has some appearance properties that applies to the action sheet's layout:
 
