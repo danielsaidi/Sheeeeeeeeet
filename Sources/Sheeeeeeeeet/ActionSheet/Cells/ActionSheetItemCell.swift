@@ -20,7 +20,7 @@ import UIKit
  modify `ActionSheetSelectItemCell.appearance().titleColor`.
  
  While most appearance is modified on a cell level, some are
- not. For instance, some views in `Views` have apperances of
+ not. For instance, some views in `Views` have appearances of
  as well (e.g. `ActionSheetHeaderContainerView.cornerRadius`).
  This means that you can change the appearance for more view
  types. Check out the readme and demo app for more examples.

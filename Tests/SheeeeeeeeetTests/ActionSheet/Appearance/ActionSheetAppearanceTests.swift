@@ -1,5 +1,5 @@
 //
-//  ActionSheetApperanceTests.swift
+//  ActionSheetAppearanceTests.swift
 //  SheeeeeeeeetTests
 //
 //  Created by Daniel Saidi on 2019-08-12.
@@ -11,7 +11,7 @@ import Quick
 import Nimble
 import UIKit
 
-class ActionSheetApperanceTests: QuickSpec {
+class ActionSheetAppearanceTests: QuickSpec {
     
     override func spec() {
         

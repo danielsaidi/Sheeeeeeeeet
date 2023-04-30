@@ -44,7 +44,7 @@ import UIKit
  also possible to set these properties for each item as well.
  
  While most appearance is modified on a cell level, some are
- not. For instance, some views in `Views` have apperances of
+ not. For instance, some views in `Views` have appearances of
  their own. `ActionSheetHeaderContainerView.cornerRadius` is
  one example. This means that you can change more than cells.
  
