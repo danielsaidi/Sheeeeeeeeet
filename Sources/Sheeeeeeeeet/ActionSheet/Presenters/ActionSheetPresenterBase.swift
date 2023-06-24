@@ -41,7 +41,9 @@ open class ActionSheetPresenterBase: ActionSheetPresenter {
     
     open func present(_ sheet: ActionSheet, in vc: UIViewController, view: UIView? = nil, item: UIBarButtonItem? = nil, completion: @escaping () -> ()) {
         setupDidEnterBackgroundDetection()
+        #if !targetEnvironment(macCatalyst)
         setupOrientationChangeDetection()
+        #endif
     }
     
     open func refreshActionSheet() {}
