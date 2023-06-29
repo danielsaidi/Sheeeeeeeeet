@@ -1,6 +1,12 @@
 # Release Notes
 
 
+## 3.2.3
+
+This version adds some adjustments and bug fixes from the community. 
+
+
+
 ## 3.2.2
 
 ### 🐛 Bug Fixes
