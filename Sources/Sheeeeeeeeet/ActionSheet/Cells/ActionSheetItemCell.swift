@@ -49,7 +49,6 @@ open class ActionSheetItemCell: UITableViewCell {
     
     open override func didMoveToWindow() {
         super.didMoveToWindow()
-        fixSeparatorLineBugOnOlderDevices()
         refresh()
     }
     
@@ -75,13 +74,9 @@ open class ActionSheetItemCell: UITableViewCell {
     
     
     // MARK: - Functions
-    
-    open func fixSeparatorLineBugOnOlderDevices() {
-        if #available(iOS 10.0, *) {} else {
-            preservesSuperviewLayoutMargins = false
-            layoutMargins = .zero
-        }
-    }
+
+    @available(*, deprecated, message: "This is no longer needed")
+    open func fixSeparatorLineBugOnOlderDevices() {}
     
     open func refresh() {
         guard let item = item else { return }

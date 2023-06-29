@@ -3,7 +3,8 @@
 
 ## 3.2.3
 
-This version adds some adjustments and bug fixes from the community. 
+* This version adds some adjustments and bug fixes from the community.
+* `ActionSheetItemCell` removes an old fix for separator lines on iOS 10. 
 
 
 
